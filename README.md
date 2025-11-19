@@ -16,23 +16,9 @@ Many people directly generate websites using AI (such as Claude Code, Codex, Aug
 
 ## ✨ Features
 
-### Styles
-Provide UI design style website templates, such as:
-- Flat Design
-- Minimalism
-- Glassmorphism
-- Neumorphism
-- And many more...
-
-### Components (Prompt Incomplete)
-Provide reusable UI component templates, such as:
-- Navigation
-- Modal Dialogs
-- Loading Skeletons
-- And more...
-
-### Layout (Incomplete)
-Provide functionality that allows users to drag and drop components to compose basic web design layout solutions, generating AI prompts about layout arrangements.
+- **Styles**: Provides UI design style website templates, e.g., Flat Design, Minimalism
+- **Components** (Prompt incomplete + many bugs): Provides reusable UI component templates, e.g., Navigation, Modal Dialogs, Loading Skeletons, etc.
+- **Layout** (Incomplete): Provides functionality that allows users to drag and drop components to compose basic webpage design layouts, thereby generating AI prompts about layout arrangements
 
 ---
 
@@ -54,6 +40,7 @@ Visit: **http://localhost:1052/**
 
 ## 📋 Todo List
 
-- [ ] Style/Component page i18n issue
+- [X] Style/Component page i18n issue
+- [ ] Component page prompt config 
 - [ ] Layout page function
 - [ ] More UI Style HTML preview
