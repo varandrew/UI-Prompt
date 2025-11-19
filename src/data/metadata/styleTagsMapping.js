@@ -46,7 +46,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'organic', 'colorful', 'creative', 'animated'],
-    relatedStyles: ['visual-nature-aurora', 'visual-nature-liquid']
+    relatedStyles: ['visual-nature-liquid']
   },
   'visual-liminalSpace': {
     primaryCategory: 'visual',
@@ -71,6 +71,12 @@ export const styleEnhancements = {
     categories: ['visual'],
     tags: ['contemporary', 'minimal', 'flat', 'clean', 'colorful', 'education'],
     relatedStyles: ['visual-outlineStyle-business', 'visual-paperCutout', 'visual-kawaii']
+  },
+  'hand-drawn-sketch': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'creative'],
+    tags: ['timeless', 'playful', 'organic', 'handwritten', 'creative', 'informal', 'friendly'],
+    relatedStyles: ['visual-paperCutout', 'visual-kawaii', 'visual-outlineStyle-elearning']
   },
 
   // Retro Digital Styles
@@ -98,7 +104,7 @@ export const styleEnhancements = {
     tags: ['retro', 'classic', 'skeuomorphic', 'enterprise', 'creative'],
     relatedStyles: ['retro-digital-arcadeCRT', 'terminal-cli', 'core-skeuomorphism']
   },
-  'retro-vintage-newspaper': {
+  'retro-classic': {
     primaryCategory: 'retro',
     categories: ['retro', 'print'],
     tags: ['retro', 'classic', 'typography', 'content', 'creative'],
@@ -108,19 +114,19 @@ export const styleEnhancements = {
     primaryCategory: 'retro',
     categories: ['retro', 'print'],
     tags: ['retro', 'minimal', 'typography', 'geometric', 'clean', 'creative'],
-    relatedStyles: ['core-minimalism', 'visual-outlineStyle-business', 'retro-vintage-newspaper']
+    relatedStyles: ['core-minimalism', 'visual-outlineStyle-business', 'retro-classic']
   },
   'retro-art-deco-luxury': {
     primaryCategory: 'retro',
     categories: ['retro', 'luxury'],
     tags: ['retro', 'classic', 'geometric', 'bold', 'creative', 'enterprise'],
-    relatedStyles: ['retro-vintage-newspaper', 'visual-neo-brutalism', 'core-skeuomorphism']
+    relatedStyles: ['retro-classic', 'visual-neo-brutalism', 'core-skeuomorphism']
   },
   'retro-dark-academia-library': {
     primaryCategory: 'retro',
     categories: ['retro', 'academic'],
     tags: ['retro', 'classic', 'depth', 'content', 'creative'],
-    relatedStyles: ['retro-vintage-newspaper', 'core-skeuomorphism', 'visual-texture-leather']
+    relatedStyles: ['retro-classic', 'core-skeuomorphism', 'visual-texture-leather']
   },
   'retro-frutiger-aero-os': {
     primaryCategory: 'retro',
@@ -150,7 +156,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'retro'],
     tags: ['retro', 'colorful', 'translucent', 'futuristic', 'creative'],
-    relatedStyles: ['terminal-cli', 'visual-translucent-glassMorphism', 'visual-nature-aurora']
+    relatedStyles: ['terminal-cli', 'visual-translucent-glassMorphism']
   },
 
   // Scroll Narrative (NEW - replaces parallaxScrolling)
@@ -158,7 +164,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'interaction'],
     tags: ['contemporary', 'motionBased', 'immersive', 'creative', 'content'],
-    relatedStyles: ['interaction-mouseTracking', 'visual-nature-aurora']
+    relatedStyles: ['interaction-mouseTracking']
   },
   'visual-kineticTypography': {
     primaryCategory: 'visual',
@@ -172,7 +178,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'tech'],
     tags: ['contemporary', 'colorful', 'effectDriven', 'creative'],
-    relatedStyles: ['visual-gradient-mesh-gradient', 'visual-gradient-animated-gradient', 'visual-nature-aurora']
+    relatedStyles: ['visual-gradient-mesh-gradient', 'visual-gradient-animated-gradient']
   },
   'visual-tech-3d-elements': {
     primaryCategory: 'visual',
@@ -228,7 +234,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'translucent', 'nature'],
     tags: ['contemporary', 'translucent', 'colorful', 'organic', 'creative'],
-    relatedStyles: ['visual-nature-aurora', 'visual-translucent-glassmorphism', 'visual-y2k']
+    relatedStyles: ['visual-translucent-glassmorphism', 'visual-y2k']
   },
   // visual-translucent-frost-glass 已移除 - 無 preview HTML
   // visual-translucent-acrylic-material 已移除 - 無 preview HTML
@@ -238,19 +244,19 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'gradient'],
     tags: ['contemporary', 'colorful', 'organic', 'creative', 'animated'],
-    relatedStyles: ['visual-tech-gradients', 'visual-nature-aurora', 'visual-gradient-animated-gradient']
+    relatedStyles: ['visual-tech-gradients', 'visual-gradient-animated-gradient']
   },
   'visual-gradient-animated-gradient': {
     primaryCategory: 'visual',
     categories: ['visual', 'gradient'],
     tags: ['contemporary', 'colorful', 'motionBased', 'creative', 'animated'],
-    relatedStyles: ['visual-gradient-mesh-gradient', 'visual-nature-aurora', 'visual-y2k']
+    relatedStyles: ['visual-gradient-mesh-gradient', 'visual-y2k']
   },
   'visual-gradient-color-transition': {
     primaryCategory: 'visual',
     categories: ['visual', 'gradient'],
     tags: ['contemporary', 'colorful', 'motionBased', 'creative'],
-    relatedStyles: ['visual-gradient-animated-gradient', 'visual-nature-aurora', 'visual-tech-gradients']
+    relatedStyles: ['visual-gradient-animated-gradient', 'visual-tech-gradients']
   },
   'visual-gradient-duotone': {
     primaryCategory: 'visual',
@@ -311,7 +317,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'light'],
     tags: ['contemporary', 'effectDriven', 'colorful', 'creative', 'animated'],
-    relatedStyles: ['visual-light-neon', 'visual-neon-cyberpunk', 'visual-nature-aurora']
+    relatedStyles: ['visual-light-neon', 'visual-neon-cyberpunk']
   },
   'visual-light-spotlight': {
     primaryCategory: 'visual',
@@ -339,47 +345,41 @@ export const styleEnhancements = {
   },
 
   // Nature 系列
-  'visual-nature-aurora': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'nature'],
-    tags: ['contemporary', 'organic', 'colorful', 'creative', 'animated'],
-    relatedStyles: ['visual-nature-solarpunk', 'visual-nature-liquid', 'visual-gradient-mesh-gradient']
-  },
   'visual-nature-solarpunk': {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'organic', 'colorful', 'creative', 'animated'],
-    relatedStyles: ['visual-nature-aurora', 'visual-nature-liquid']
+    relatedStyles: ['visual-nature-liquid']
   },
   'visual-nature-smoke': {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'organic', 'effectDriven', 'creative', 'animated'],
-    relatedStyles: ['visual-nature-liquid', 'visual-nature-particle', 'visual-nature-aurora']
+    relatedStyles: ['visual-nature-liquid', 'visual-nature-particle']
   },
   'visual-nature-liquid': {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'organic', 'colorful', 'creative', 'animated'],
-    relatedStyles: ['visual-nature-aurora']
+    relatedStyles: []
   },
   'visual-nature-particle': {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'effectDriven', 'creative', 'animated'],
-    relatedStyles: ['visual-tech-generative-art', 'visual-nature-smoke', 'visual-nature-aurora']
+    relatedStyles: ['visual-tech-generative-art', 'visual-nature-smoke']
   },
   'visual-nature-wave': {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'organic', 'motionBased', 'creative', 'animated'],
-    relatedStyles: ['visual-nature-liquid', 'visual-nature-aurora']
+    relatedStyles: ['visual-nature-liquid']
   },
   'visual-nature-aurora-wave': {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'gradient', 'animation', 'dreamlike', 'futuristic', 'nature'],
-    relatedStyles: ['visual-nature-aurora', 'visual-nature-liquid', 'visual-nature-particle', 'visual-gradient-mesh-gradient']
+    relatedStyles: ['visual-nature-liquid', 'visual-nature-particle', 'visual-gradient-mesh-gradient']
   },
 
   // 其他 Visual 風格
@@ -399,7 +399,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'retro'],
     tags: ['retro', 'colorful', 'translucent', 'futuristic', 'creative'],
-    relatedStyles: ['terminal-cli', 'visual-translucent-glassmorphism', 'visual-nature-aurora']
+    relatedStyles: ['terminal-cli', 'visual-translucent-glassmorphism']
   },
   'visual-soft-ui': {
     primaryCategory: 'visual',
@@ -445,7 +445,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'modern'],
     tags: ['contemporary', 'minimal', 'clean', 'organic', 'creative'],
-    relatedStyles: ['core-minimalism', 'visual-texture-wood', 'visual-nature-aurora']
+    relatedStyles: ['core-minimalism', 'visual-texture-wood']
   },
   'memphis': {
     primaryCategory: 'visual',
@@ -485,13 +485,36 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'nature'],
     tags: ['contemporary', 'organic', 'colorful', 'creative'],
-    relatedStyles: ['visual-nature-aurora', 'visual-nature-solarpunk']
+    relatedStyles: ['visual-nature-solarpunk']
   },
   'clay': {
     primaryCategory: 'visual',
     categories: ['visual', 'texture'],
     tags: ['contemporary', 'organic', 'colorful', 'creative'],
     relatedStyles: ['visual-nature-solarpunk']
+  },
+
+  // Newspaper Typography Family
+  'core-typography-newspaper-modern-editorial': {
+    primaryCategory: 'core',
+    categories: ['core', 'typography', 'editorial'],
+    tags: ['classic', 'editorial', 'newspaper', 'multi-column', 'drop-cap', 'serif', 'professional', 'authoritative', 'depth', 'enterprise'],
+    relatedStyles: [
+      'core-typography-newspaper-vintage-retro',
+      'core-minimalism',
+      'core-skeuomorphism'
+    ]
+  },
+
+  'core-typography-newspaper-vintage-retro': {
+    primaryCategory: 'core',
+    categories: ['core', 'typography', 'retro'],
+    tags: ['classic', 'vintage', 'newspaper', 'aged-paper', 'retro', 'print-era', 'nostalgic', 'depth', 'texture'],
+    relatedStyles: [
+      'core-typography-newspaper-modern-editorial',
+      'core-skeuomorphism',
+      'visual-texture-clay'
+    ]
   }
 };
 

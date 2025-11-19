@@ -22,7 +22,7 @@
 // Note: Clay 的完整 fullPageHTML 保留在此文件中。
 // Natural 風格已合併，使用 visual-natural-default 的預覽頁面內容。
 
-import { 
+import {
   naturalDefaultFullPageHTML,
   naturalDefaultFullPageStyles,
 } from './natural/naturalDefaultFullPage';

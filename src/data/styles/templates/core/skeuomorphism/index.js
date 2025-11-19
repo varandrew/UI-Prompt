@@ -2,6 +2,7 @@
 import { techCorpHomepage } from './techCorpHomepage'
 import { homeOfficeDashboard } from './homeOfficeDashboard'
 import { vintageLibraryLanding } from './vintageLibraryLanding'
+import { leatherTexture } from './leatherTexture'
 import { vintageAudioPanel } from './Demo'
 
 export const name = 'styles.core.skeuomorphism.title'
@@ -244,6 +245,7 @@ export const skeuomorphismTemplates = [
   techCorpHomepage,
   homeOfficeDashboard,
   vintageLibraryLanding,
+  leatherTexture,
 ]
 
 export default skeuomorphismTemplates

@@ -1,7 +1,6 @@
 // Visual Design Family: Nature — 自然元素視覺效果
 // 包含：極光、波浪、粒子、液體、煙霧
 
-import { aurora } from './aurora';
 import { wave } from './wave';
 import { particle } from './particle';
 import { liquid } from './liquid';
@@ -1130,10 +1129,9 @@ border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
 };
 
 export const natureTemplates = [
-  aurora,
-  wave,
   particle,
-  liquid,
   smoke,
-  solarpunk
+  solarpunk,
+  wave,
+  liquid
 ];

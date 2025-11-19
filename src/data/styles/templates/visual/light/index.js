@@ -413,10 +413,10 @@ Ambient light:
 // 导出模板数组
 export const lightTemplates = [
   // neon 已移除 - 與 visual-neon-cyberpunk / visual-neon-noir 重複（無 preview HTML）
-  ambient,
   // glow 已移除 - 與其他風格重複（無 preview HTML）
   // backlight 已移除 - 與其他風格重複（無 preview HTML）
   spotlight,
+  ambient,
 ];
 
 export default lightTemplates;

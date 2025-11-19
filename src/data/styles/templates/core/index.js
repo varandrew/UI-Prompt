@@ -46,6 +46,16 @@ import {
   description as fluent2Description,
 } from './fluent2';
 
+import {
+  newspaperTemplates,
+  name as newspaperName,
+  demoUI as newspaperDemoUI,
+  customStyles as newspaperCustomStyles,
+  description as newspaperDescription,
+  customPrompt as newspaperCustomPrompt,
+  stylePrompt as newspaperStylePrompt,
+} from './typography/newspaper';
+
 // typography 已移除 - 重複顯示
 
 // ✨ 創建核心模板配置陣列
@@ -94,6 +104,16 @@ export const coreTemplateConfigs = [
     description: fluent2Description,
     templates: fluent2Templates,
   },
+  {
+    id: 'core-typography-newspaper',
+    name: newspaperName,
+    demoUI: newspaperDemoUI,
+    customStyles: newspaperCustomStyles,
+    description: newspaperDescription,
+    customPrompt: newspaperCustomPrompt,
+    stylePrompt: newspaperStylePrompt,
+    templates: newspaperTemplates,
+  },
   // core-typography 已移除 - 重複顯示
 ];
 
@@ -128,5 +148,12 @@ export {
   fluent2DemoUI,
   fluent2CustomStyles,
   fluent2Description,
+  newspaperTemplates,
+  newspaperName,
+  newspaperDemoUI,
+  newspaperCustomStyles,
+  newspaperDescription,
+  newspaperCustomPrompt,
+  newspaperStylePrompt,
   // typography 已移除 - 重複顯示
 };

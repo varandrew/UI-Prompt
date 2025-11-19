@@ -248,9 +248,9 @@ Leather series:
 export const textureTemplates = [
   // clay 已移除 - 無 preview HTML
   // paper 已移除 - 無 preview HTML
+  leather,
   fabric,
   grain,
-  leather,
 ];
 
 export default textureTemplates;

@@ -16,6 +16,7 @@ import { y2kStyle } from './y2k'
 import { visualNeonCyberpunk } from './neonCyberpunk'
 import { visualNeonNoir } from './neonNoir'
 import { outlineStyleTemplates } from './outlineStyle'
+import { handDrawnSketchTemplates } from './handDrawnSketch'
 // natural 風格已合併到 visualStyles.js，不再需要從 natural 目錄導入
 import { visualStyles } from './visualStyles'
 import { modernStyles } from './modernStyles'
@@ -47,14 +48,11 @@ import { kineticTypography } from './kinetic'
 export const name = 'nav.visual'
 
 export const visualTemplateStyles = [
-  // 新增：7 個 Visual 家族（35 個風格，符合 Core 標準）
+  // 新增：前 4 個 Visual 家族（符合 Core 標準）
   ...translucentTemplates,   // 5 個透明質感風格
   ...gradientTemplates,      // 5 個漸變風格
   ...threedTemplates,        // 5 個 3D 風格
   ...shapeTemplates,         // 5 個形狀風格
-  ...textureTemplates,       // 5 個紋理風格
-  ...lightTemplates,         // 5 個光效風格
-  ...natureTemplates,        // 5 個自然元素風格
 
   // 舊的風格（保留兼容性）
   ...visualStyles,
@@ -65,6 +63,7 @@ export const visualTemplateStyles = [
   visualNeonCyberpunk,
   visualNeonNoir,
   ...outlineStyleTemplates,  // Outline Style (線條風格)
+  ...handDrawnSketchTemplates,  // Hand-Drawn Sketch (手繪涂鸦风格)
   // natural 風格已合併到 visualStyles.js 中
   // Modern 系列 (已整合在 modernStyles.js)
   ...modernStyles,
@@ -86,6 +85,11 @@ export const visualTemplateStyles = [
   ...paperCutoutStyles,
   ...newTrendStyles,
   liminalSpace,
+
+  // 移到最後的 3 個 Visual 家族（包含用戶要求下移的風格）
+  ...textureTemplates,       // 5 個紋理風格 (包含 Fabric Texture, Grain Noise)
+  ...lightTemplates,         // 5 個光效風格 (包含 Ambient Light)
+  ...natureTemplates,        // 5 個自然元素風格 (包含 Liquid Motion)
 ]
 
 // Demo UI for style card display (from first template)

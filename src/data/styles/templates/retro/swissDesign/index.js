@@ -3,6 +3,7 @@
 
 import { swissDesign } from './swissDesign'
 import { demoHTML, customStyles as demoCustomStyles } from './Demo'
+import { fullPageCustomPrompt } from './fullPageCustomPrompt'
 
 // Demo UI for style card display
 export const name = 'styles.retro.swissDesign.title'
@@ -10,7 +11,7 @@ export const demoUI = demoHTML
 export const customStyles = demoCustomStyles
 export const description = 'styles.retro.swissDesign.description'
 
-// Family-level customPrompt (简短 Prompt，100-300字)
+// Family-level customPrompt（針對樣式卡 / 家族級通用風格）
 export const customPrompt = {
   'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Swiss Design 瑞士设计」核心样式卡展示界面风格高度接近的 UI。
 要求：保持严谨网格系统、极简二色配色（黑 / 白 + 瑞士红）和理性排版秩序，只允许替换文案与模块内容，不改变整体结构与排版逻辑。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。
@@ -75,66 +76,29 @@ Keep the strict grid system, minimal black/white + Swiss red palette and rationa
    - Top area: simple logo plus navigation, typically left-aligned logo with a small set of links on the right.
    - Middle: a primary headline area with large type and a short supporting description.
    - Below: project cards or content modules arranged on the grid, forming clear lists or sections.
-3. Asymmetric balance
-   - Break perfect left/right symmetry; instead, use block positions and whitespace to create visual balance.
+3. Balance
+   - Break strict symmetry while preserving equilibrium using blocks of content and whitespace.
 
-[Color and materials]
-1. Palette
-   - Primary: pure black (#000000) and pure white (#FFFFFF) as main foreground/background.
-   - Accent: Swiss red (#E30613) as the single strong accent color for headings, bars or key buttons.
-   - Optional: a very light grey (such as #E5E5E5) for rules or subtle backgrounds.
-2. Style
-   - Keep everything flat: no shadows, gradients or textures.
-   - Avoid skeuomorphic or glassmorphism effects; let typography and colored blocks carry the design.
+[Color and material]
+- Black (#000000) and white (#FFFFFF) as primary foreground/background;
+- Swiss red (#E30613) as the only strong accent color;
+- Optional light grays (#E5E5E5, #808080) for dividers and subtle backgrounds;
+- No gradients, no shadows, no textures; flat shapes and type create the visual impact.
 
-[Typography and grid]
-1. Type system
-   - Use sans-serif fonts (Helvetica, Inter, SF Pro or similar) for all copy.
-   - Headings may range around 48–72px, body text around 14–16px, with smaller sizes for secondary labels.
-2. Alignment and spacing
-   - Rely on left-aligned text to avoid a wobbly feel from center alignment.
-   - Use consistent line heights and vertical spacing based on an 8px unit to establish rhythm.
+[Typography]
+- Sans-serif type (Helvetica / equivalent), 48–72px headlines, 14–16px body;
+- Left-aligned text, tight but readable line-height and controlled spacing.
 
-[Interaction and motion]
-1. Hover
-   - Indicate hover states with bolder lines, emerging underlines or slight background tone shifts, rather than large animations.
-2. Motion
-   - If transitions are used, keep them subtle (150–250ms fades or small shifts) so the interface remains clean and rational.
+[Interaction]
+- Hover states for links and buttons expressed through underlines or color changes;
+- Very subtle transitions (150–250ms) for color/opacity only.
 
-[Output requirements]
-- Use semantic HTML (header / nav / main / section / footer) to structure content.
-- Use Tailwind-style utilities for grid/flex layout, spacing and typography, ensuring all modules snap to a shared grid.
-- The generated UI must preserve “strict grid + black/white + Swiss red + left-aligned typography” as key traits so it is immediately recognizable as Swiss Design.`
-};
+[Output]
+- Use semantic HTML with Tailwind-like utility classes for grid, spacing and type;
+- Preserve the key features “strict grid + black/white + Swiss red + left-aligned typography” so the result is immediately recognizable as Swiss Design.`
+}
 
-// Family-level stylePrompt（风格说明书）
-export const stylePrompt = {
-  'zh-CN': `角色设定：你是一名服务于设计工作室、建筑事务所和艺术机构的 UI 设计师，需要向非设计背景的同事说明 Swiss Design 瑞士设计家族的网页风格。
-
-场景定位：这种风格适合作品集列表页、展览 / 项目介绍、品牌介绍页等，强调理性、专业、信息清晰，用来承载较多文本和图像内容，同时保持视觉上的秩序感。
-
-视觉设计理念：界面建立在严格的网格系统之上：固定列宽和统一间距决定所有模块的位置，标题、图片和段落都对齐到同一基线。版式避免居中堆叠，而采用左对齐、块状组合和大面积留白，以构成「非对称但平衡」的现代主义平面设计。
-
-材质与质感：整体保持绝对扁平，没有阴影、渐变和纹理，依靠色块和排版本身塑造节奏。颜色主要是黑与白，搭配少量瑞士红作为强调——例如用作标题、侧栏色块或关键按钮；灰度只承担分隔线和背景层次的辅助角色。
-
-交互体验：交互反馈保持克制且功能导向：链接和按钮在悬停时可能略微改变文本粗细、出现细线下划线或轻度背景反差，而不会出现大幅缩放或复杂动效。若需要过渡，可使用简短的淡入淡出或位移，以保持界面冷静、理性。
-
-整体氛围：Swiss Design 家族带来的是专业、克制和高度可读的视觉印象。用户进入页面时，不会被花哨特效分散注意力，而是很快理解信息结构，感受到品牌的秩序感和严谨态度。`,
-  'en-US': `Role: You are a UI designer working for studios, architecture offices and art institutions, and you need to explain the Swiss Design family to teammates who are not designers.
-
-Scene: This style suits portfolio lists, exhibition or project introductions and brand overview pages where clarity, professionalism and typographic order are more important than decorative effects.
-
-Visual philosophy: The interface is built on a strict grid with fixed columns and consistent gutters. All elements—headlines, images and paragraphs—snap to this system. Instead of centered stacking, layouts rely on left-aligned blocks, asymmetry and generous whitespace to create a modernist, balanced composition.
-
-Material and texture: The design is fully flat: no shadows, gradients or textures. Black and white dominate, with Swiss red used sparingly as a strong accent for headings, sidebars or key actions. Greys play a supporting role as dividers or subtle backgrounds, never competing with the primary palette.
-
-Interaction experience: Interactions are calm and functional. Links or buttons may gain weight, a fine underline or a slight tone shift on hover, but not large scale changes or complex animations. When transitions are needed, they are short, minimal fades or small shifts so the layout remains composed.
-
-Overall mood: The Swiss Design family signals precision, restraint and high readability. Users should immediately sense structure and hierarchy, trusting that content is organized and the brand is thoughtful and disciplined.`}
-
-// Template list (templates that users can browse)
-export const swissDesignTemplates = [
-  swissDesign
-]
+// Swiss Design 家族模板列表
+export const swissDesignTemplates = [swissDesign]
 
 export default swissDesignTemplates

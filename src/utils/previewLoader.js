@@ -71,10 +71,6 @@ const previewLoaders = {
     html: m.softUIDarkFullPageHTML,
     styles: m.softUIDarkFullPageStyles
   })),
-  'aurora': () => import('../data/styles/templates/visual/nature/aurora/AuroraFullPage').then(m => ({
-    html: m.auroraFullPageHTML,
-    styles: m.auroraFullPageStyles
-  })),
   // 修正：對齊實際導出名稱（無 FullPage 後綴）
   'cyberpunk-gaming-store': () => import('../data/styles/templates/visual/neonCyberpunk/cyberpunkGamingStoreFullPage').then(m => ({
     html: m.cyberpunkGamingStoreHTML,
