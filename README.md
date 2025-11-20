@@ -34,7 +34,7 @@ npm install
 npm run dev
 ```
 
-Visit: **http://localhost:1052/**
+Visit: **http://localhost:1000/**
 
 ---
 

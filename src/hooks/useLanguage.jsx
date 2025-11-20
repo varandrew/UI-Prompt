@@ -2,6 +2,7 @@
 import { createContext, useState, useContext, useEffect, useCallback, useMemo } from 'react';
 import { getTranslation } from "../utils/i18n/translations";
 import { LANGUAGES, DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "../utils/i18n/languageConstants";
+import { detectBrowserLanguage } from "../utils/i18n/detectBrowserLanguage";
 
 const LanguageContext = createContext();
 
@@ -12,8 +13,9 @@ export function LanguageProvider({ children }) {
     if (stored && SUPPORTED_LANGUAGES.includes(stored)) {
       return stored;
     }
-    // 默認使用中文
-    return DEFAULT_LANGUAGE;
+    // 首次訪問：根據瀏覽器語言自動檢測
+    // zh-* → 'zh-CN', 其他 → 'en-US'
+    return detectBrowserLanguage();
   });
 
   useEffect(() => {
