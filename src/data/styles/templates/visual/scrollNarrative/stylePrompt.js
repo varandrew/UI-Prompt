@@ -1,6 +1,6 @@
 /**
  * Scroll Narrative - Style Prompt
- * 滾動敘事風格的設計理念說明
+ * 滾動敘事風格的设計理念說明
  */
 
 export const stylePrompt = {

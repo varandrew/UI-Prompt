@@ -1,6 +1,6 @@
 /**
  * Kinetic Typography - Style Prompt
- * 動態排版風格的設計理念說明
+ * 動態排版風格的设計理念說明
  */
 
 export const stylePrompt = {

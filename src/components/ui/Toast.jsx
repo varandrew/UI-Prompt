@@ -2,13 +2,13 @@ import { useEffect, useState, useCallback } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 /**
- * Toast 訊息框組件 - 極簡主義風格
+ * Toast 訊息框組件 - 極简主義風格
  *
- * @param {boolean} show - 控制顯示/隱藏
- * @param {function} onClose - 關閉回調
- * @param {string} message - 自定義訊息 (可選,優先於翻譯鍵)
+ * @param {boolean} show - 控制显示/隱藏
+ * @param {function} onClose - 关閉回調
+ * @param {string} message - 自定義訊息 (可選,优先於翻譯鍵)
  * @param {string} translationKey - 翻譯鍵 (默認: 'toast.copied')
- * @param {number} duration - 自動關閉時間 (毫秒,默認 2500)
+ * @param {number} duration - 自動关閉時間 (毫秒,默認 2500)
  */
 export function Toast({
   show,
@@ -24,7 +24,7 @@ export function Toast({
     setIsVisible(false);
     setTimeout(() => {
       onClose?.();
-    }, 300); // 等待淡出動畫完成
+    }, 300); // 等待淡出動画完成
   }, [onClose]);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export function Toast({
           isVisible ? 'scale-100' : 'scale-95'
         }`}
       >
-        {/* 成功圖標 */}
+        {/* 成功圖标 */}
         <div
           className="w-5 h-5 flex-shrink-0 flex items-center justify-center text-green-600 font-bold text-xl"
           aria-hidden="true"
@@ -67,7 +67,7 @@ export function Toast({
           {message || t(translationKey)}
         </p>
 
-        {/* 關閉按鈕 */}
+        {/* 关閉按鈕 */}
         <button
           type="button"
           onClick={handleClose}

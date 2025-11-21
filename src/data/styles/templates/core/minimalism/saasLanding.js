@@ -14,7 +14,7 @@ export const saasLanding = {
     // ✨ AI Prompt（用于生成与当前极简 SaaS 落地页高度接近的 UI）
     customPrompt: {
       'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「极简 SaaS 落地页」界面风格高度接近的极简主义（Minimalism）风格 SaaS 首页。
-要求：保持整体布局、留白比例和黑白灰基調不變，只允许替换文案、品牌名称和图标。输出使用语义化 HTML 结构和 TailwindCSS 风格的原子类（或等价的工具类方案）。
+要求：保持整体布局、留白比例和黑白灰基調不变，只允许替换文案、品牌名称和图标。输出使用语义化 HTML 结构和 TailwindCSS 风格的原子类（或等价的工具类方案）。
 
 【使用场景】
 - 场景：SaaS 产品官网落地页，用于展示产品卖点、功能模块和行动按钮。
@@ -47,26 +47,26 @@ export const saasLanding = {
 
 【布局与留白】
 1. 留白原则
-   - Hero 區塊四周有大留白（padding-y 至少 64px 以上）。
+   - Hero 区塊四周有大留白（padding-y 至少 64px 以上）。
    - 模块之间使用基于 8px 單位的间距系统（例如 24 / 32 / 48 / 64px）。
    - 内容区域宽度限制在約 960–1200px，使文本行長舒適。
-2. 網格系統
-   - 使用 12 列網格或等效的 Tailwind 實現（例如 max-w-5xl + gap-x-8）。
+2. 网格系統
+   - 使用 12 列网格或等效的 Tailwind 實現（例如 max-w-5xl + gap-x-8）。
    - 所有卡片和文案對齊到同一列，避免視覺漂移。
 
-【交互與動效】
+【交互与動效】
 1. Hover 效果
-   - 按鈕：hover 時背景色和邊框色輕微變化（例如黑底白字反轉），不使用大幅位移或陰影。
-   - 卡片：可以僅改變邊框顏色或背景亮度 5–10%，不加粗陰影。
+   - 按鈕：hover 時背景色和边框色輕微变化（例如黑底白字反轉），不使用大幅位移或阴影。
+   - 卡片：可以仅改变边框颜色或背景亮度 5–10%，不加粗阴影。
 2. Active / Focus
-   - 按鈕與輸入框在 active/focus 時使用明確但克制的描邊（例如 outline 或 ring），避免炫目 glow。
+   - 按鈕与輸入框在 active/focus 時使用明確但克制的描边（例如 outline 或 ring），避免炫目 glow。
 3. 動效節奏
-   - 所有過渡控制在 150–250ms，使用輕微 ease-out 曲線，讓界面「安靜但不死板」。
+   - 所有過渡控制在 150–250ms，使用輕微 ease-out 曲线，让界面「安静但不死板」。
 
 【输出要求】
 - 使用语义化 HTML 标签（header/nav/main/section/footer）。
 - 使用 TailwindCSS 原子类描述布局和排版（flex/grid/gap/px/py 等）。
-- 生成的界面必须保持「极简主义 + 留白至上 + 本质呈现」这一核心特征，讓人一眼看出是非常乾净、克制的 SaaS 落地頁。`,
+- 生成的界面必须保持「极简主义 + 留白至上 + 本质呈现」这一核心特征，让人一眼看出是非常乾净、克制的 SaaS 落地页。`,
       'en-US': `You are a senior UI designer and front-end engineer. Generate a Minimalist SaaS landing page that looks very close to the current “Minimal SaaS Landing” demo.
 Keep the overall layout, whitespace ratio and monochrome base palette almost identical: navigation bar, hero section, feature cards and call-to-action area should all match the current composition. You may change copy, brand name and icons, but not the structure, spacing system or minimalist visual language. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
 

@@ -446,8 +446,8 @@ export const flatDesignFullPageHTML = `
 - 薄荷綠 (Mint Green): #1abc9c - Hover 狀態、鏈接
 
 ### 背景色 (Background Colors)
-- 淺灰 (Light Gray): #ecf0f1 - 頁面背景
-- 純白 (White): #ffffff - 卡片、內容區背景
+- 淺灰 (Light Gray): #ecf0f1 - 页面背景
+- 純白 (White): #ffffff - 卡片、內容区背景
 
 ### 文字色 (Text Colors)
 - 深灰 (Dark Gray): #2c3e50 - 主要文字
@@ -456,7 +456,7 @@ export const flatDesignFullPageHTML = `
 ### 狀態色 (Status Colors)
 - 成功 (Success): #2ecc71 - 成功通知
 - 警告 (Warning): #f39c12 - 警告提示
-- 錯誤 (Error): #e74c3c - 錯誤信息
+- 错誤 (Error): #e74c3c - 错誤信息
 - 信息 (Info): #3498db - 一般信息
 
 ---

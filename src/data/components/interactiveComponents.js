@@ -899,7 +899,7 @@ export const interactiveComponents = [
       }
     ]
   },
-  // 使用從 loadingAnimations.js 導入的完整變體版本
+  // 使用从 loadingAnimations.js 导入的完整變体版本
   loadingAnimations,
   {
     id: 'transition-effects',
@@ -1610,7 +1610,7 @@ export const interactiveComponents = [
     title: 'data.components.interactive.scroll-animations.title',
     description: 'data.components.interactive.scroll-animations.description',
     variants: [
-      // 主要展示：極簡主義純視覺化演示
+      // 主要展示：極简主義純視覺化演示
       {
         id: 'minimal-demo',
         name: 'data.components.interactive.scroll-animations.variants.minimal-demo.name',
@@ -1618,31 +1618,31 @@ export const interactiveComponents = [
         demoHTML: `
           <div class="relative w-full h-[450px] bg-white flex items-center justify-center overflow-hidden">
 
-            <!-- 中央演示區域 -->
+            <!-- 中央演示区域 -->
             <div class="relative w-full max-w-md h-80 flex flex-col items-center justify-center">
 
-              <!-- 從上方滑入的方塊 + 箭頭 -->
+              <!-- 从上方滑入的方塊 + 箭頭 -->
               <div class="absolute top-0 flex flex-col items-center gap-3">
                 <div class="w-2 h-2 border-r border-t border-gray-400 transform rotate-[-135deg]"></div>
                 <div class="w-20 h-20 bg-black rounded shadow-lg" style="animation: slideFromTop 1s ease-out forwards;"></div>
               </div>
 
-              <!-- 中央區域 - 左右方塊 -->
+              <!-- 中央区域 - 左右方塊 -->
               <div class="flex items-center justify-between w-full px-8">
-                <!-- 從左側滑入的方塊 + 箭頭 -->
+                <!-- 从左側滑入的方塊 + 箭頭 -->
                 <div class="flex items-center gap-3">
                   <div class="w-2 h-2 border-r border-t border-gray-400 transform rotate-[-45deg]"></div>
                   <div class="w-20 h-20 bg-black rounded shadow-lg" style="animation: slideFromLeft 1s 0.3s ease-out forwards; opacity: 0;"></div>
                 </div>
 
-                <!-- 從右側滑入的方塊 + 箭頭 -->
+                <!-- 从右側滑入的方塊 + 箭頭 -->
                 <div class="flex items-center gap-3">
                   <div class="w-20 h-20 bg-black rounded shadow-lg" style="animation: slideFromRight 1s 0.6s ease-out forwards; opacity: 0;"></div>
                   <div class="w-2 h-2 border-r border-t border-gray-400 transform rotate-[135deg]"></div>
                 </div>
               </div>
 
-              <!-- 從下方滑入的方塊 + 箭頭 -->
+              <!-- 从下方滑入的方塊 + 箭頭 -->
               <div class="absolute bottom-0 flex flex-col items-center gap-3">
                 <div class="w-20 h-20 bg-black rounded shadow-lg" style="animation: slideFromBottom 1s 0.9s ease-out forwards; opacity: 0;"></div>
                 <div class="w-2 h-2 border-r border-t border-gray-400 transform rotate-[45deg]"></div>
@@ -1658,7 +1658,7 @@ export const interactiveComponents = [
           <div class="w-2 h-2 rounded-full bg-gray-300" style="animation: dotPulse 1s 0.9s ease-out forwards;"></div>
         </div>
 
-        <!-- 極淡網格背景 -->
+        <!-- 極淡网格背景 -->
         <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
 
       </div>
@@ -1725,7 +1725,7 @@ export const interactiveComponents = [
     `
     },
 
-    // 變體 2：視差滾動卡片 (來自原 scrollAnimationsData)
+    // 變体 2：視差滾動卡片 (來自原 scrollAnimationsData)
     {
       id: 'parallax-cards',
       name: 'data.components.interactive.scroll-animations.variants.parallax-cards.name',
@@ -1833,7 +1833,7 @@ export const interactiveComponents = [
       `
     },
 
-    // 變體 3：揭示動畫 (簡化版來自原 scrollAnimationsData)
+    // 變体 3：揭示動画 (简化版來自原 scrollAnimationsData)
     {
       id: 'reveal-scroll',
       name: 'data.components.interactive.scroll-animations.variants.reveal-scroll.name',  
@@ -2445,7 +2445,7 @@ demoHTML: `
                     <div class="w-3 h-3 bg-white rounded-full"></div>
                   </div>
                 </div>
-                <!-- 步驟指示豎線 (1條) -->
+                <!-- 步驟指示豎线 (1條) -->
                 <div class="w-px h-20 bg-gray-800"></div>
               </div>
 
@@ -2461,7 +2461,7 @@ demoHTML: `
               <!-- Step 2: 活動狀態 -->
               <div class="flex flex-col items-center gap-8">
                 <div class="relative" style="animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                  <!-- 外圈脈衝動畫 -->
+                  <!-- 外圈脈衝動画 -->
                   <div class="absolute inset-0 -m-2 w-20 h-20 rounded-full border-2 border-black" style="animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
                   <!-- 主圓點 -->
                   <div class="relative w-16 h-16 rounded-full bg-black flex items-center justify-center shadow-2xl">
@@ -2469,7 +2469,7 @@ demoHTML: `
                     <div class="absolute inset-0 rounded-full bg-black" style="animation: pulse 2s ease-in-out infinite;"></div>
                   </div>
                 </div>
-                <!-- 步驟指示豎線 (2條) -->
+                <!-- 步驟指示豎线 (2條) -->
                 <div class="flex gap-1.5">
                   <div class="w-px h-20 bg-black"></div>
                   <div class="w-px h-20 bg-black"></div>
@@ -2491,7 +2491,7 @@ demoHTML: `
                   <!-- 等待圓圈 -->
                   <div class="w-10 h-10 rounded-full border-2 border-gray-300"></div>
                 </div>
-                <!-- 步驟指示豎線 (3條) -->
+                <!-- 步驟指示豎线 (3條) -->
                 <div class="flex gap-1.5">
                   <div class="w-px h-20 bg-gray-300"></div>
                   <div class="w-px h-20 bg-gray-300"></div>
@@ -2507,7 +2507,7 @@ demoHTML: `
               </div>
             </div>
 
-            <!-- 裝飾性網格背景 -->
+            <!-- 裝飾性网格背景 -->
             <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
 
           </div>

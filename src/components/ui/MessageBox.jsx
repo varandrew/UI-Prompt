@@ -20,7 +20,7 @@ export function MessageBox({
 }) {
   const { t } = useLanguage();
   
-  // 使用 i18n 翻譯作為預設值
+  // 使用 i18n 翻譯作為預设值
   const defaultTitle = title || t('ui.messageBox.defaultTitle');
   const defaultDescription = description || t('ui.messageBox.defaultDescription');
   const defaultConfirmText = confirmText || t('buttons.confirm');

@@ -5,7 +5,7 @@ import { findComponentById } from '../../stores/utils/componentHelpers';
 import { SpecialToolbox } from './SpecialToolbox';
 
 /**
- * 屬性檢查器 - 優化：數值輸入採用節流（RAF 批次）
+ * 屬性检查器 - 优化：数值輸入採用節流（RAF 批次）
  */
 export function PropertiesInspector() {
   const canvasState = useEditorStore((s) => s.canvasState);
@@ -20,7 +20,7 @@ export function PropertiesInspector() {
   const [childWeights, setChildWeights] = useState({});
   const [activeRTab, setActiveRTab] = useState('base');
 
-  // —— 響應式覆蓋：節流寫入 ——
+  // —— 響應式覆蓋：節流写入 ——
   const handleResponsiveStyleOverride = (breakpoint, field, value) => {
     if (breakpoint === 'base') return;
     updateResponsiveOverrideThrottled(selectedComponentId, breakpoint, {
@@ -83,7 +83,7 @@ export function PropertiesInspector() {
   };
 
   const handleStyleChange = (field, value) => {
-    // 數值類（滑動、連續輸入）使用節流
+    // 数值类（滑動、連續輸入）使用節流
     if (typeof value === 'number') {
       updateBasePropsThrottled(selectedComponentId, {
         style: { ...component.baseProps.style, [field]: value }
@@ -150,7 +150,7 @@ export function PropertiesInspector() {
           <div className="space-y-3">
             {component.baseProps.style.backgroundColor !== undefined && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">背景顏色</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">背景颜色</label>
                 <input
                   type="color"
                   value={component.baseProps.style.backgroundColor || '#FFFFFF'}
@@ -162,7 +162,7 @@ export function PropertiesInspector() {
 
             {component.baseProps.style.color !== undefined && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">文本顏色</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">文本颜色</label>
                 <input
                   type="color"
                   value={component.baseProps.style.color || '#000000'}
@@ -174,7 +174,7 @@ export function PropertiesInspector() {
 
             {component.baseProps.style.fontSize !== undefined && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">字體大小 (px)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">字体大小 (px)</label>
                 <input
                   type="number"
                   value={component.baseProps.style.fontSize || 16}
@@ -208,7 +208,7 @@ export function PropertiesInspector() {
               <p className="text-xs text-gray-500 mb-2">樣式覆蓋（{activeRTab}）</p>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs text-gray-500 mb-1">字體大小 (px)</label>
+                  <label className="block text-xs text-gray-500 mb-1">字体大小 (px)</label>
                   <input type="number" className="w-full border border-gray-300 rounded px-2 py-1 text-sm"
                     value={component?.responsiveOverrides?.[activeRTab]?.style?.fontSize ?? ''}
                     onChange={(e)=>handleResponsiveStyleOverride(activeRTab, 'fontSize', Number(e.target.value) || 0)} />

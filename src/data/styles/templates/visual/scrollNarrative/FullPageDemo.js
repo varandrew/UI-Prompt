@@ -1,5 +1,5 @@
 // Scroll Narrative - Full Page Preview
-// 滾動敘事風格 - 完整頁面預覽
+// 滾動敘事風格 - 完整页面預覽
 
 export const fullPageHTML = `
   <div class="scroll-narrative-page">
@@ -8,7 +8,7 @@ export const fullPageHTML = `
       <div class="scroll-progress-bar" id="scrollProgress"></div>
     </div>
 
-    <!-- 章節導航點 -->
+    <!-- 章節导航點 -->
     <nav class="chapter-nav" id="chapterNav">
       <a href="#hero" class="nav-dot active" data-target="hero" title="Introduction"></a>
       <a href="#chapter1" class="nav-dot" data-target="chapter1" title="Chapter 1"></a>

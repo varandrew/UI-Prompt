@@ -1,9 +1,9 @@
-// Y2K / Frutiger Aero 風格 - 完整頁面設計
+// Y2K / Frutiger Aero 風格 - 完整页面设計
 // Home Office Dashboard 風格
 
 export const y2kFullPageHTML = `
 <div class="y2k-full-page min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50">
-  <!-- 頂部導航欄 -->
+  <!-- 頂部导航欄 -->
   <nav class="y2k-navbar sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-white/30 shadow-lg">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
@@ -15,7 +15,7 @@ export const y2kFullPageHTML = `
         <span class="text-xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Y2K Dashboard</span>
       </div>
 
-      <!-- 導航鏈接 -->
+      <!-- 导航鏈接 -->
       <div class="hidden md:flex items-center gap-6">
         <a href="javascript:void(0)" class="y2k-nav-link">Home</a>
         <a href="javascript:void(0)" class="y2k-nav-link">Projects</a>
@@ -44,7 +44,7 @@ export const y2kFullPageHTML = `
     </div>
   </nav>
 
-  <!-- Hero 區塊 -->
+  <!-- Hero 区塊 -->
   <section class="y2k-hero relative overflow-hidden py-16 px-6">
     <div class="max-w-7xl mx-auto relative z-10">
       <div class="text-center space-y-6">
@@ -68,7 +68,7 @@ export const y2kFullPageHTML = `
     <div class="y2k-bubble" style="bottom: 20%; left: 25%; width: 100px; height: 100px; animation-delay: 1.5s;"></div>
   </section>
 
-  <!-- 統計卡片網格 -->
+  <!-- 統計卡片网格 -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- 統計卡片 1 -->
@@ -121,7 +121,7 @@ export const y2kFullPageHTML = `
     </div>
   </section>
 
-  <!-- 內容區塊 (雙欄布局) -->
+  <!-- 內容区塊 (双欄布局) -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- 最近項目列表 -->
@@ -190,7 +190,7 @@ export const y2kFullPageHTML = `
         </div>
       </div>
 
-      <!-- 團隊活動時間線 -->
+      <!-- 团隊活動時間线 -->
       <div class="y2k-glass-card">
         <h3 class="text-xl font-bold text-gray-800 mb-6">Team Activity</h3>
         <div class="space-y-6">
@@ -240,7 +240,7 @@ export const y2kFullPageHTML = `
     </div>
   </section>
 
-  <!-- 組件展示區 -->
+  <!-- 組件展示区 -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="y2k-glass-card">
       <h3 class="text-xl font-bold text-gray-800 mb-6">UI Components Showcase</h3>
@@ -304,7 +304,7 @@ export const y2kFullPageHTML = `
     </div>
   </section>
 
-  <!-- 數據表格 -->
+  <!-- 数据表格 -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="y2k-glass-card">
       <h3 class="text-xl font-bold text-gray-800 mb-6">Recent Transactions</h3>
@@ -379,7 +379,7 @@ export const y2kFullPageHTML = `
     <span class="text-2xl">+</span>
   </button>
 
-  <!-- 頁腳 -->
+  <!-- 页腳 -->
   <footer class="y2k-footer mt-16">
     <div class="max-w-7xl mx-auto px-6 py-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -412,7 +412,7 @@ export const y2kFullPageStyles = `
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* 導航欄樣式 */
+/* 导航欄樣式 */
 .y2k-navbar {
   box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
 }
@@ -451,7 +451,7 @@ export const y2kFullPageStyles = `
   box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
 }
 
-/* 圖標按鈕 */
+/* 圖标按鈕 */
 .y2k-icon-button {
   width: 36px;
   height: 36px;
@@ -481,7 +481,7 @@ export const y2kFullPageStyles = `
   transform: scale(1.1);
 }
 
-/* Hero 區塊 */
+/* Hero 区塊 */
 .y2k-hero {
   background: linear-gradient(135deg,
     rgba(165, 243, 252, 0.3) 0%,
@@ -687,7 +687,7 @@ export const y2kFullPageStyles = `
   transition: width 0.3s ease;
 }
 
-/* 時間線頭像 */
+/* 時間线頭像 */
 .y2k-timeline-avatar {
   width: 40px;
   height: 40px;
@@ -777,7 +777,7 @@ export const y2kFullPageStyles = `
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-/* 切換開關 */
+/* 切換開关 */
 .y2k-toggle {
   position: relative;
   display: inline-block;
@@ -920,7 +920,7 @@ export const y2kFullPageStyles = `
     inset 0 2px 8px rgba(255, 255, 255, 0.3);
 }
 
-/* 頁腳 */
+/* 页腳 */
 .y2k-footer {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);

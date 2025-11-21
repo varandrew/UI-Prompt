@@ -7,7 +7,7 @@
 export const LANGUAGES = {
   ZH_CN: 'zh-CN',
   EN_US: 'en-US',
-  // 兼容小寫格式（用於數據文件）
+  // 兼容小写格式（用於数据文件）
   ZH_CN_LOWER: 'zh-cn'
 };
 
@@ -39,9 +39,9 @@ export function getLanguageAliases(language) {
 }
 
 /**
- * 標準化語言代碼（將所有變體統一為標準格式）
+ * 标準化語言代碼（將所有變体統一為标準格式）
  * @param {string} language - 語言代碼
- * @returns {string} 標準化的語言代碼
+ * @returns {string} 标準化的語言代碼
  */
 export function normalizeLanguageCode(language) {
   if (language === LANGUAGES.ZH_CN_LOWER) {
@@ -54,7 +54,7 @@ export function normalizeLanguageCode(language) {
 }
 
 /**
- * 檢查是否為有效的語言代碼
+ * 检查是否為有效的語言代碼
  * @param {string} language - 語言代碼
  * @returns {boolean} 是否有效
  */

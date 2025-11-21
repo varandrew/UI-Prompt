@@ -2,14 +2,14 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useLanguage } from '../../hooks/useLanguage'
 
 /**
- * TourGuide - React 化導覽元件（輕量版）
+ * TourGuide - React 化导覽元件（輕量版）
  * 功能：
- * - 以 steps 設定目標元素（以 ref 或 selector）與文案、位置
+ * - 以 steps 设定目标元素（以 ref 或 selector）与文案、位置
  * - 自動啟動（autoStart）或以 API 控制（onRequestStart）
- * - 以遮罩 + 高亮框 + 浮層（tooltip）顯示步驟
+ * - 以遮罩 + 高亮框 + 浮层（tooltip）显示步驟
  * 限制：
- * - 僅處理 viewport 內元素，未考慮滾動容器自動滾動
- * - 定位支援 auto/top/bottom/left/right 與組合（top-left、top-right、bottom-left、bottom-right）
+ * - 仅處理 viewport 內元素，未考慮滾動容器自動滾動
+ * - 定位支援 auto/top/bottom/left/right 与組合（top-left、top-right、bottom-left、bottom-right）
  */
 export function TourGuide({
   steps = [], // [{ targetRef?, selector?, title, content, placement?: 'auto'|'top'|'bottom'|'left'|'right'|'top-left'|'top-right'|'bottom-left'|'bottom-right' }]
@@ -48,7 +48,7 @@ export function TourGuide({
     setRect({ left: r.left, top: r.top, width: r.width, height: r.height })
   }
 
-  // 初始化與步驟切換時重新計算
+  // 初始化与步驟切換時重新計算
   useLayoutEffect(() => {
     updateRect()
     // 監聽視窗尺寸改變
@@ -71,13 +71,13 @@ export function TourGuide({
 
   const tooltipStyle = () => {
     if (!rect) return { left: 20, top: 20 }
-    // 位置：預設為 auto，根據目標靠近視窗邊界自動選擇上下與左右；亦支援手動 placement
+    // 位置：預设為 auto，根据目标靠近視窗边界自動選擇上下与左右；亦支援手動 placement
     const gap = 12
     const placement = (steps[stepIndex]?.placement || 'auto').toLowerCase()
     const vw = window.innerWidth || document.documentElement.clientWidth
     const vh = window.innerHeight || document.documentElement.clientHeight
 
-    // 與視窗邊界距離（用於 auto 決策）
+    // 与視窗边界距離（用於 auto 決策）
     const dist = {
       top: rect.top,
       bottom: Math.max(0, vh - (rect.top + rect.height)),
@@ -96,7 +96,7 @@ export function TourGuide({
       bottom: () => ({ left: Math.max(16, rect.left), top: rect.top + rect.height + gap }),
     }
 
-    // 手動定位優先
+    // 手動定位优先
     switch (placement) {
       case 'top-left':
         return pos.topLeft()
@@ -138,10 +138,10 @@ export function TourGuide({
 
   return (
     <div ref={overlayRef} className="fixed inset-0 z-[100] pointer-events-none">
-      {/* 遮罩層 */}
+      {/* 遮罩层 */}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* 高亮框：以外邊距陰影方式呈現 */}
+      {/* 高亮框：以外边距阴影方式呈現 */}
       {rect && (
         <div
           className="absolute box-content rounded-lg shadow-[0_0_0_9999px_rgba(0,0,0,0.5)] border-2 border-white transition-all duration-150"
@@ -149,7 +149,7 @@ export function TourGuide({
         />
       )}
 
-      {/* 浮層（tooltip） */}
+      {/* 浮层（tooltip） */}
       <div
         className="absolute bg-white rounded-lg shadow-xl border p-4 w-[min(420px,90vw)] pointer-events-auto"
         style={tooltipStyle()}

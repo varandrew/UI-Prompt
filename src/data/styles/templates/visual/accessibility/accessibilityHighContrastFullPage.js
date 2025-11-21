@@ -1,5 +1,5 @@
 // Accessibility High Contrast - Full Page HTML & Styles
-// ✅ 從 accessibilityStyles.js 提取,減少主文件體積
+// ✅ 从 accessibilityStyles.js 提取,減少主文件体積
 
 export const accessibilityHighContrastFullPageHTML = `
 <!DOCTYPE html>
@@ -14,13 +14,13 @@ export const accessibilityHighContrastFullPageHTML = `
 
   <!-- Theme Switcher (Top Right) -->
   <div class="fixed top-4 right-4 z-50 flex gap-2">
-    <button onclick="switchTheme('default')" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-white focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on White" aria-label="Switch to black on white theme">
+    <button data-theme="default" type="button" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-white focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on White" aria-label="Switch to black on white theme">
       <span class="sr-only">Black on White</span>
     </button>
-    <button onclick="switchTheme('yellow')" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-yellow-400 focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on Yellow" aria-label="Switch to black on yellow theme">
+    <button data-theme="yellow" type="button" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-yellow-400 focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on Yellow" aria-label="Switch to black on yellow theme">
       <span class="sr-only">Black on Yellow</span>
     </button>
-    <button onclick="switchTheme('cyan')" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-cyan-400 focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on Cyan" aria-label="Switch to black on cyan theme">
+    <button data-theme="cyan" type="button" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-cyan-400 focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on Cyan" aria-label="Switch to black on cyan theme">
       <span class="sr-only">Cyan on Black</span>
     </button>
   </div>
@@ -441,6 +441,14 @@ export const accessibilityHighContrastFullPageHTML = `
 
     // Keyboard navigation enhancement
     document.addEventListener('DOMContentLoaded', function() {
+      // Attach theme switch handlers (DOMPurify-safe)
+      document.querySelectorAll('.a11y-theme-btn').forEach(btn => {
+        const theme = btn.getAttribute('data-theme')
+        if (!theme) return
+        btn.addEventListener('click', () => switchTheme(theme))
+      })
+      switchTheme('default')
+
       // Add visible focus indicators
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Tab') {

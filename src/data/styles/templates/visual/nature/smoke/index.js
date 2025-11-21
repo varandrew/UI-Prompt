@@ -97,34 +97,34 @@ export const smoke = {
 **高级物理模拟（增强真实感）**
 
 5. **Perlin 噪聲湍流系統**
-   - 實現 SimplexNoise 類生成 2D 噪聲場
+   - 實現 SimplexNoise 类生成 2D 噪聲場
    - 每個粒子獨立噪聲偏移：\`noiseOffsetX/Y = Math.random() * 1000\`
    - 噪聲頻率：\`0.001-0.002\`（控制湍流尺度）
-   - 湍流強度：\`turbulence = 0.3-0.7\`（隨機變化）
+   - 湍流強度：\`turbulence = 0.3-0.7\`（隨機变化）
    - 應用噪聲力：\`speedX += noiseX * turbulence * 0.08\`
 
-6. **速度衰減與空氣阻力**
+6. **速度衰減与空氣阻力**
    - 垂直衰減：\`speedY *= 0.992\`（每幀減速）
    - 水平衰減：\`speedX *= 0.98\`（橫向阻力更大）
    - 模擬煙霧上升時逐漸減速的真實效果
 
-7. **多層粒子疊加（不規則形狀）**
-   - 每個煙霧團由 3 層徑向漸變組成（Desktop）或 2 層（Mobile）
-   - 層間偏移：\`(layer - 1) * 25 * expansion\`
-   - 層間大小：\`size * (1 - layer * 0.15)\`
-   - 層間透明度：\`opacity * (1 - layer * 0.25)\`
+7. **多层粒子疊加（不規則形狀）**
+   - 每個煙霧团由 3 层徑向漸变組成（Desktop）或 2 层（Mobile）
+   - 层間偏移：\`(layer - 1) * 25 * expansion\`
+   - 层間大小：\`size * (1 - layer * 0.15)\`
+   - 层間透明度：\`opacity * (1 - layer * 0.25)\`
 
 8. **橫向擴散效果**
-   - 擴散係數：\`expansion = 1\`，每幀 \`+= 0.002-0.005\`
-   - 應用於層間偏移和粒子寬度
-   - 模擬煙霧團隨時間變寬
+   - 擴散係数：\`expansion = 1\`，每幀 \`+= 0.002-0.005\`
+   - 應用於层間偏移和粒子寬度
+   - 模擬煙霧团隨時間变寬
 
 9. **呼吸式大小波動**
    - 正弦波：\`sin(time * breatheSpeed + phase) * 0.15\`
    - 每粒子獨立相位和頻率
    - 創造有機的非機械動態
 
-10. **動態色溫變化**
+10. **動態色溫变化**
     - 初期（life < 0.3）：微藍 \`rgb(240, 245, 255)\`
     - 中期（0.3-0.7）：純白 \`rgb(255, 255, 255)\`
     - 晚期（> 0.7）：灰色 \`rgb(230 - life * 50)\`
@@ -132,7 +132,7 @@ export const smoke = {
 **完整 Smoke Code 實現**
 
 \`\`\`javascript
-// ===== 煙霧粒子類（含變形橢圓） =====
+// ===== 煙霧粒子类（含变形橢圓） =====
 class Particle {
   constructor(x, y) {
     this.x = x;
@@ -152,7 +152,7 @@ class Particle {
   update(time) {
     this.life++;
 
-    // 簡化 Perlin 噪聲（高性能）
+    // 简化 Perlin 噪聲（高性能）
     const noiseX = this.noise(
       this.x * 0.003 + time * 0.0001 + this.noiseOffsetX,
       this.y * 0.003 + time * 0.0001
@@ -189,14 +189,14 @@ class Particle {
     ctx.translate(this.x, this.y);
     ctx.rotate(this.rotation);
 
-    // 灰藍色調漸變（真實煙霧）
+    // 灰藍色調漸变（真實煙霧）
     const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size);
     gradient.addColorStop(0, \`rgba(200, 200, 220, \${this.opacity})\`);
     gradient.addColorStop(0.5, \`rgba(150, 150, 180, \${this.opacity * 0.5})\`);
     gradient.addColorStop(1, 'rgba(100, 100, 130, 0)');
     ctx.fillStyle = gradient;
 
-    // 變形橢圓（捲曲效果）
+    // 变形橢圓（捲曲效果）
     const deformX = 1 + Math.sin(this.life * 0.05) * 0.1;
     const deformY = 1 + Math.cos(this.life * 0.05) * 0.1;
     ctx.beginPath();
@@ -207,7 +207,7 @@ class Particle {
   }
 
   noise(x, y) {
-    // 簡化 Perlin 噪聲
+    // 简化 Perlin 噪聲
     const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
     return (n - Math.floor(n)) * 2 - 1;
   }
@@ -217,7 +217,7 @@ class Particle {
   }
 }
 
-// ===== 煙霧源類（持續發射） =====
+// ===== 煙霧源类（持續發射） =====
 class SmokeSource {
   constructor(x, y) {
     this.x = x;
@@ -243,7 +243,7 @@ class SmokeSource {
   }
 }
 
-// ===== 初始化和動畫循環 =====
+// ===== 初始化和動画循環 =====
 const canvas = document.getElementById('smokeCanvas');
 const ctx = canvas.getContext('2d', { alpha: true });
 let particles = [];
@@ -294,9 +294,9 @@ animate();
 \`\`\`
 
 **重要提示**
-- 優先使用 Canvas + Perlin 噪聲實現真實效果
-- CSS 版本作為 fallback 或簡化場景
-- 移動端降級：30 粒子 + 2 層疊加（非 3 層）
+- 优先使用 Canvas + Perlin 噪聲實現真實效果
+- CSS 版本作為 fallback 或简化場景
+- 移動端降級：30 粒子 + 2 层疊加（非 3 层）
 - 添加 \`prefers-reduced-motion\` 支持
 - 使用 \`requestAnimationFrame\` 確保 60fps`,
 
@@ -591,59 +591,59 @@ animate();
 - Use \`requestAnimationFrame\` to ensure 60fps`
   },
 
-  // 模板級 stylePrompt：描述煙霧效果的氣氛與使用方式
+  // 模板級 stylePrompt：描述煙霧效果的氣氛与使用方式
   stylePrompt: {
-    'zh-CN': `角色：你是一位擅長營造「煙霧與霧氣」氛圍的 UI 設計師，專精於通過 Canvas 粒子系統和玻璃態 UI 打造沉浸式視覺體驗，讓用戶感受到自然、縹緲的煙霧效果。
+    'zh-CN': `角色：你是一位擅長營造「煙霧与霧氣」氛圍的 UI 设計師，专精於通過 Canvas 粒子系統和玻璃態 UI 打造沉浸式視覺体驗，让用戶感受到自然、縹緲的煙霧效果。
 
 场景定位：
-- **音樂節與演唱會**: 營造舞台煙霧效果，搭配大標題和 CTA 按鈕
-- **藝術展覽與畫廊**: 作為背景層突出藝術作品，創造神秘氛圍
-- **冥想與健康 App**: 柔和的煙霧動畫幫助用戶放鬆，搭配極簡 UI
-- **遊戲啟動頁**: 從底部緩緩上升的煙霧，配合角色立繪或 Logo
-- **電影與娛樂**: 預告片風格的背景，煙霧位於內容後方不遮擋文字
+- **音樂節与演唱會**: 營造舞台煙霧效果，搭配大标題和 CTA 按鈕
+- **藝術展覽与画廊**: 作為背景层突出藝術作品，創造神秘氛圍
+- **冥想与健康 App**: 柔和的煙霧動画幫助用戶放鬆，搭配極简 UI
+- **遊戲啟動页**: 从底部緩緩上升的煙霧，配合角色立繪或 Logo
+- **電影与娛樂**: 預告片風格的背景，煙霧位於內容後方不遮擋文字
 
 视觉设计理念：
 - 使用 **Canvas 2D API** 繪製 60-80 個獨立粒子，每個粒子有自己的生命週期、速度和透明度
-- 透過 **徑向漸變** (radial-gradient) 創建從中心到邊緣的自然過渡，模擬真實煙霧的光學特性
-- **多層煙霧** 不同尺寸（60-180px）、不同速度（-0.2 ~ -0.5px/frame）、不同旋轉角度，避免機械重複
+- 透過 **徑向漸变** (radial-gradient) 創建从中心到边緣的自然過渡，模擬真實煙霧的光學特性
+- **多层煙霧** 不同尺寸（60-180px）、不同速度（-0.2 ~ -0.5px/frame）、不同旋轉角度，避免機械重複
 - 粒子在上升過程中逐漸 **放大** (scale 1 → 1.5) 和 **淡出** (opacity 0.35 → 0)，營造自然消散感
 
 材质与质感：
 - **主煙霧色**: 純白 rgba(255,255,255,0.25)、淡灰 rgba(240,240,240,0.2)、微藍紫 rgba(245,240,250,0.15)
-- **背景漸變**: 深色 #0a0e1a 到 #1a1f2e，創造夜晚或舞台的氛圍
-- **玻璃態 UI**: 半透明背景 rgba(17,34,64,0.4) + backdrop-filter: blur(12px)，讓 UI 與煙霧和諧共存
-- **無邊界感**: 透過極致模糊（blur 40-60px）讓煙霧邊緣完全融入背景
+- **背景漸变**: 深色 #0a0e1a 到 #1a1f2e，創造夜晚或舞台的氛圍
+- **玻璃態 UI**: 半透明背景 rgba(17,34,64,0.4) + backdrop-filter: blur(12px)，让 UI 与煙霧和諧共存
+- **無边界感**: 透過極致模糊（blur 40-60px）让煙霧边緣完全融入背景
 
 技术实现细节：
-- **Canvas 粒子系統**: 使用 requestAnimationFrame 實現 60fps 流暢動畫
-- **粒子類設計**: 封裝 x, y, size, speedY, opacity, life 等屬性，update() 和 draw() 方法
-- **響應式優化**: Desktop 80 粒子、Tablet 50 粒子、Mobile 30 粒子，確保各端性能
-- **性能優化**: 粒子池管理、離屏 Canvas 預渲染、視口外剔除
-- **CSS Fallback**: 為不支持 Canvas 的環境提供 CSS 動畫版本
+- **Canvas 粒子系統**: 使用 requestAnimationFrame 實現 60fps 流暢動画
+- **粒子类设計**: 封裝 x, y, size, speedY, opacity, life 等屬性，update() 和 draw() 方法
+- **響應式优化**: Desktop 80 粒子、Tablet 50 粒子、Mobile 30 粒子，確保各端性能
+- **性能优化**: 粒子池管理、離屏 Canvas 預渲染、視口外剔除
+- **CSS Fallback**: 為不支持 Canvas 的環境提供 CSS 動画版本
 
 交互体验：
 - **緩慢上升**: 粒子以 -0.2 ~ -0.5px/frame 的速度向上飄動，搭配輕微水平飄移（±0.3px）
 - **自然旋轉**: 每個粒子以 ±0.005 rad/frame 的速度旋轉，增加真實感
-- **重生機制**: 粒子到達頂部或完全淡出後重新從底部生成，形成無限循環
-- **滾動聯動**: 可選的 parallax 效果，煙霧跟隨滾動輕微位移（opacity 變化）
-- **懸停反饋**: UI 組件懸停時輕微上浮（translateY -8px）和陰影加深
+- **重生機制**: 粒子到達頂部或完全淡出後重新从底部生成，形成無限循環
+- **滾動联動**: 可選的 parallax 效果，煙霧跟隨滾動輕微位移（opacity 变化）
+- **懸停反饋**: UI 組件懸停時輕微上浮（translateY -8px）和阴影加深
 
 性能优化建议：
-- 使用 **document.visibilitychange** 監聽標籤頁切換，隱藏時暫停動畫
-- 添加 **prefers-reduced-motion** 媒體查詢，為偏好減少動畫的用戶提供靜態版本
-- 移動端自動降級到較少粒子數（30 個）和簡化的動畫效果
-- 使用 **will-change: transform** 提示瀏覽器優化渲染層
+- 使用 **document.visibilitychange** 監聽标籤页切換，隱藏時暫停動画
+- 添加 **prefers-reduced-motion** 媒体查詢，為偏好減少動画的用戶提供静態版本
+- 移動端自動降級到較少粒子数（30 個）和简化的動画效果
+- 使用 **will-change: transform** 提示瀏覽器优化渲染层
 
 氛围营造：
-- **神秘與夢幻**: 如同舞台燈光尚未完全亮起，觀眾席的期待感
-- **電影質感**: 類似《銀翼殺手》中的城市霧氣或《星際效應》的太空塵埃
-- **沉浸式體驗**: 極簡 UI 讓煙霧成為主角，配合大標題（72-96px）和玻璃態卡片
-- **情緒引導**: 緩慢的動畫節奏營造平靜、冥想的氛圍，適合需要用戶專注的場景
+- **神秘与夢幻**: 如同舞台灯光尚未完全亮起，觀眾席的期待感
+- **電影质感**: 类似《銀翼殺手》中的城市霧氣或《星際效應》的太空塵埃
+- **沉浸式体驗**: 極简 UI 让煙霧成為主角，配合大标題（72-96px）和玻璃態卡片
+- **情緒引导**: 緩慢的動画節奏營造平静、冥想的氛圍，適合需要用戶专注的場景
 
-整體設計原則：
-- 煙霧作為**背景層**（z-index: 1），UI 作為**前景層**（z-index: 10+）
+整体设計原則：
+- 煙霧作為**背景层**（z-index: 1），UI 作為**前景层**（z-index: 10+）
 - 保持 UI 組件的**可讀性**，煙霧透明度不超過 0.35
-- 使用 **glassmorphism** 讓 UI 與煙霧視覺融合但層次分明
+- 使用 **glassmorphism** 让 UI 与煙霧視覺融合但层次分明
 - 確保所有交互元素（按鈕、連結）清晰可見，不被煙霧干擾`,
 
     'en-US': `Role: You are a UI designer specializing in mist and smoke atmospheres, expert in creating immersive visual experiences through Canvas particle systems and glassmorphism UI that evoke natural, ethereal smoke effects.

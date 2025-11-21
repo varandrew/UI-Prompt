@@ -18,14 +18,14 @@ body {
   min-height: 100vh;
 }
 
-/* ==================== Demo 區按鈕懸停動效關閉（擴充） ==================== */
+/* ==================== Demo 区按鈕懸停動效关閉（擴充） ==================== */
 /*
   背景：部分樣式示例（demo-box 內）的按鈕/連結在 hover 使用 Tailwind 的
-  hover:scale-* / hover:-translate-* 或帶有 animate-*（bounce/pulse/spin）類，造成「跳動」。
-  需求：在「Style 頁面」的展示區塊停用「位移/縮放/動畫」所致的跳動；保留顏色/陰影等過渡。
-  策略：僅在 demo 容器（.demo-box）內對按鈕/連結覆寫 transform 與 animation，避免影響站內其他元件。
+  hover:scale-* / hover:-translate-* 或帶有 animate-*（bounce/pulse/spin）类，造成「跳動」。
+  需求：在「Style 页面」的展示区塊停用「位移/縮放/動画」所致的跳動；保留颜色/阴影等過渡。
+  策略：仅在 demo 容器（.demo-box）內對按鈕/連結覆写 transform 与 animation，避免影響站內其他元件。
 */
-/* 1) 停用動畫（如 animate-bounce/pulse/spin） */
+/* 1) 停用動画（如 animate-bounce/pulse/spin） */
 .reduce-motion .demo-box a,
 .reduce-motion .demo-box button,
 .reduce-motion .demo-box [role="button"] {
@@ -48,17 +48,17 @@ body {
   transform: none !important;
 }
 
-/* 3) 僅保留顏色/陰影類過渡，避免 transition: all 造成位移動畫 */
+/* 3) 仅保留颜色/阴影类過渡，避免 transition: all 造成位移動画 */
 .reduce-motion .demo-box a,
 .reduce-motion .demo-box button,
 .reduce-motion .demo-box [role="button"] {
   transition-property: color, background-color, border-color, opacity, box-shadow !important;
 }
 
-/* ==================== Style 頁面：全域移除按鈕跳動動畫 ==================== */
+/* ==================== Style 页面：全域移除按鈕跳動動画 ==================== */
 /*
-  為了在 Style 頁面徹底移除按鈕的「跳動」感，擴大到頁面容器 .styles-page。
-  僅限制 transform 與 animation；顏色與陰影過渡保留。
+  為了在 Style 页面徹底移除按鈕的「跳動」感，擴大到页面容器 .styles-page。
+  仅限制 transform 与 animation；颜色与阴影過渡保留。
 */
 .styles-page.reduce-motion a,
 .styles-page.reduce-motion button,
@@ -93,8 +93,8 @@ body {
   outline-offset: 2px;
 }
 
-/* ==================== Header 移動端抽屜動畫 ==================== */
-/* 下滑動畫 - 用於移動端菜單展開 */
+/* ==================== Header 移動端抽屜動画 ==================== */
+/* 下滑動画 - 用於移動端菜單展開 */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -139,7 +139,7 @@ body {
   border: 1px solid #e5e5e5;
   transition: border-color 0.2s ease;
 
-  /* 🚀 性能優化：GPU 加速，減少重排 */
+  /* 🚀 性能优化：GPU 加速，減少重排 */
   transform: translateZ(0);
   will-change: transform;
   contain: layout style paint;
@@ -159,13 +159,13 @@ body {
   overflow: hidden;
   position: relative;
 
-  /* 🚀 性能優化：GPU 加速 iframe 容器 */
+  /* 🚀 性能优化：GPU 加速 iframe 容器 */
   transform: translateZ(0);
   will-change: contents;
-  contain: strict; /* 嚴格隔離，優化渲染性能 */
+  contain: strict; /* 嚴格隔離，优化渲染性能 */
 }
 
-/* 🚀 性能優化：iframe 元素 GPU 加速 */
+/* 🚀 性能优化：iframe 元素 GPU 加速 */
 .demo-box iframe {
   transform: translateZ(0);
   contain: strict;
@@ -413,7 +413,7 @@ body {
 }
 
 .minimalism-text-secondary {
-  /* 次要文字 - 極細字體 */
+  /* 次要文字 - 極細字体 */
   font-weight: 300;
   letter-spacing: 0.05em;
   line-height: 1.4;
@@ -606,7 +606,7 @@ body {
 }
 
 /* ==================== 玩具風格樣式 (Toy Style / Claymation) ==================== */
-/* 樂高積木配色變數 */
+/* 樂高積木配色變数 */
 :root {
   --toy-red: #E3000F;
   --toy-yellow: #FFD700;
@@ -617,12 +617,12 @@ body {
   --toy-pink: #FF69B4;
 }
 
-/* 3D 立體感核心樣式 */
+/* 3D 立体感核心樣式 */
 .toy-3d {
   box-shadow:
-    0 8px 0 rgba(0,0,0,0.15),      /* 主陰影 - 模擬塑料底部 */
-    0 12px 20px rgba(0,0,0,0.2),    /* 柔和陰影 - 增加深度 */
-    inset 0 -2px 0 rgba(0,0,0,0.1), /* 內陰影 - 底部凹陷 */
+    0 8px 0 rgba(0,0,0,0.15),      /* 主阴影 - 模擬塑料底部 */
+    0 12px 20px rgba(0,0,0,0.2),    /* 柔和阴影 - 增加深度 */
+    inset 0 -2px 0 rgba(0,0,0,0.1), /* 內阴影 - 底部凹陷 */
     inset 0 2px 0 rgba(255,255,255,0.3); /* 高光 - 頂部光澤 */
   border-radius: 24px;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -707,7 +707,7 @@ body {
   pointer-events: none;
 }
 
-/* 玩具徽章/標籤 */
+/* 玩具徽章/标籤 */
 .toy-badge {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -721,7 +721,7 @@ body {
     inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
-/* 色彩變體 */
+/* 色彩變体 */
 .toy-red {
   background: linear-gradient(to bottom, #FF4757, var(--toy-red));
   color: white;
@@ -757,7 +757,7 @@ body {
   color: white;
 }
 
-/* 彈跳動畫 */
+/* 彈跳動画 */
 @keyframes toy-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -767,7 +767,7 @@ body {
   animation: toy-bounce 0.6s ease-in-out;
 }
 
-/* 旋轉動畫 */
+/* 旋轉動画 */
 @keyframes toy-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -777,7 +777,7 @@ body {
   animation: toy-spin 2s linear infinite;
 }
 
-/* 脈衝動畫 */
+/* 脈衝動画 */
 @keyframes toy-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -787,7 +787,7 @@ body {
   animation: toy-pulse 1.5s ease-in-out infinite;
 }
 
-/* 搖擺動畫 */
+/* 搖擺動画 */
 @keyframes toy-wiggle {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(-5deg); }
@@ -818,7 +818,7 @@ body {
     0 0 0 4px rgba(0,85,191,0.2);
 }
 
-/* 數量選擇器 */
+/* 数量選擇器 */
 .toy-quantity {
   display: inline-flex;
   align-items: center;
@@ -852,11 +852,11 @@ body {
 }
 
 /* ==================== Claude Code CLI 風格滾動條 ==================== */
-/* 🎯 超高對比度設計 - 專為動畫場景優化 (易於看見和觸摸) */
+/* 🎯 超高對比度设計 - 专為動画場景优化 (易於看見和觸摸) */
 .custom-scrollbar {
   scrollbar-width: auto;
   scrollbar-color: #4B5563 #D1D5DB;
-  /* 強制顯示滾動條 */
+  /* 強制显示滾動條 */
   overflow-y: scroll !important;
 }
 
@@ -904,11 +904,11 @@ body {
     inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
 
-/* 🎯 深色主題滾動條 - 霓虹青色超高對比度 (專為 Cyberpunk 預覽優化) */
+/* 🎯 深色主題滾動條 - 霓虹青色超高對比度 (专為 Cyberpunk 預覽优化) */
 .custom-scrollbar-dark {
   scrollbar-width: auto;
   scrollbar-color: #06B6D4 #0C1E2B;
-  /* 強制顯示滾動條 */
+  /* 強制显示滾動條 */
   overflow-y: scroll !important;
 }
 
@@ -973,7 +973,7 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* 導航按鈕禁用狀態 */
+/* 导航按鈕禁用狀態 */
 .nav-button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -997,7 +997,7 @@ body {
   outline: none;
 }
 
-/* 標籤頁樣式 */
+/* 标籤页樣式 */
 .tab-active {
   position: relative;
   transition: all 0.2s ease;
@@ -1017,7 +1017,7 @@ body {
   transition: all 0.15s ease;
 }
 
-/* 交通燈按鈕動畫 */
+/* 交通灯按鈕動画 */
 .traffic-lights div {
   transition: all 0.15s ease;
   position: relative;
@@ -1037,13 +1037,13 @@ body {
   background: white;
 }
 
-/* 瀏覽器內容區域 */
+/* 瀏覽器內容区域 */
 .browser-content {
   position: relative;
   overflow: hidden;
 }
 
-/* Safari 風格陰影效果 */
+/* Safari 風格阴影效果 */
 .browser-frame {
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.25),
@@ -1067,7 +1067,7 @@ body {
 }
 
 /* ==================== 瀑布流佈局 (Masonry Grid) ==================== */
-/* 用於組件頁面展示多變體組件 */
+/* 用於組件页面展示多變体組件 */
 /* 響應式: 手機2欄, iPad3欄, 電腦4欄 */
 
 .masonry-grid {
@@ -1084,7 +1084,7 @@ body {
   min-height: fit-content;
 }
 
-/* 大型組件 - 佔據更多空間 */
+/* 大型組件 - 佔据更多空間 */
 .masonry-grid > .variant-card-large {
   grid-column: span 2;
 }
@@ -1132,7 +1132,7 @@ body {
   }
 }
 
-/* ==================== PreviewSelector 移動端優化 ==================== */
+/* ==================== PreviewSelector 移動端优化 ==================== */
 /* 自定義 select 樣式 - 移動友好 */
 .preview-select {
   /* 基礎樣式 */
@@ -1140,9 +1140,9 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  /* 佈局與間距 */
+  /* 佈局与間距 */
   width: 100%;
-  min-height: 44px; /* iOS 推薦的最小觸控區域 */
+  min-height: 44px; /* iOS 推薦的最小觸控区域 */
   padding: 0.75rem 2.5rem 0.75rem 0.75rem;
 
   /* 視覺效果 */
@@ -1152,11 +1152,11 @@ body {
   background-position: right 0.75rem center;
   background-size: 1rem;
 
-  /* 邊框與圓角 */
+  /* 边框与圓角 */
   border: 1px solid #d1d5db;
   border-radius: 0.375rem;
 
-  /* 字體 */
+  /* 字体 */
   font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
@@ -1184,15 +1184,15 @@ body {
   background-color: #f3f4f6;
 }
 
-/* 移動端特殊優化 */
+/* 移動端特殊优化 */
 @media (max-width: 767px) {
   .preview-select {
-    font-size: 1rem; /* 移動端較大字體,防止 iOS 自動縮放 */
-    min-height: 48px; /* 更大的觸控區域 */
+    font-size: 1rem; /* 移動端較大字体,防止 iOS 自動縮放 */
+    min-height: 48px; /* 更大的觸控区域 */
   }
 }
 
-/* 預覽選擇器按鈕動畫 */
+/* 預覽選擇器按鈕動画 */
 @keyframes preview-button-press {
   0% {
     transform: translateY(0);
@@ -1226,14 +1226,14 @@ body {
 
 /* 觸控友好的按鈕樣式增強 */
 @media (hover: none) and (pointer: coarse) {
-  /* 針對觸控設備的優化 */
+  /* 針對觸控设备的优化 */
   .preview-selector-button {
     min-width: 44px;
     min-height: 44px;
     padding: 0.75rem 1rem;
   }
 
-  /* 移除 hover 效果,因為觸控設備沒有 hover */
+  /* 移除 hover 效果,因為觸控设备沒有 hover */
   .preview-selector-button:hover {
     background-color: initial;
   }
@@ -1266,9 +1266,9 @@ body {
 }
 
 /* ==================== Liminal Space（曖昧空間感）樣式 ==================== */
-/* 核心視覺特徵：空曠、低對比、局部霓虹、極慢動畫 */
+/* 核心視覺特徵：空曠、低對比、局部霓虹、極慢動画 */
 
-/* 簡短演示區域樣式 */
+/* 简短演示区域樣式 */
 .liminal-demo-wrapper {
   min-height: 320px;
   padding: 2rem;
@@ -1280,7 +1280,7 @@ body {
   overflow: hidden;
 }
 
-/* 簡短演示噪點紋理 */
+/* 简短演示噪點紋理 */
 .liminal-demo-wrapper::before {
   content: '';
   position: absolute;
@@ -1410,7 +1410,7 @@ body {
     0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-/* 極慢過渡動畫 */
+/* 極慢過渡動画 */
 .liminal-slow-transition {
   transition: all 6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1439,7 +1439,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* 漂浮動畫 */
+/* 漂浮動画 */
 @keyframes liminalFloat {
   0%, 100% {
     transform: translateY(0px) translateX(0px);
@@ -1455,13 +1455,13 @@ body {
   }
 }
 
-/* 掃描線動畫 */
+/* 掃描线動画 */
 @keyframes liminalScanline {
   0% { background-position: 0 0; }
   100% { background-position: 0 100px; }
 }
 
-/* 霓虹閃爍動畫 */
+/* 霓虹閃爍動画 */
 @keyframes liminalNeonFlicker {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.92; }
@@ -1491,8 +1491,8 @@ body {
   }
 }
 
-/* ==================== 極簡主義加載動畫 ==================== */
-/* 用於 PreviewModal 的 iframe 加載動畫 */
+/* ==================== 極简主義加載動画 ==================== */
+/* 用於 PreviewModal 的 iframe 加載動画 */
 
 /* 加載器容器 */
 .minimalism-loader {
@@ -1515,7 +1515,7 @@ body {
   background: #fff;
 }
 
-/* 為每個圓點設置不同的動畫延遲,創造波浪效果 */
+/* 為每個圓點设置不同的動画延遲,創造波浪效果 */
 .minimalism-loader-dot:nth-child(1) {
   animation-delay: 0s;
 }
@@ -1528,7 +1528,7 @@ body {
   animation-delay: 0.4s;
 }
 
-/* 脈衝動畫關鍵幀 */
+/* 脈衝動画关鍵幀 */
 @keyframes minimalism-dot-pulse {
   0%, 80%, 100% {
     opacity: 0.3;
@@ -1540,10 +1540,10 @@ body {
   }
 }
 
-/* ==================== Minimalism Modal（極簡主義確認對話框） ==================== */
-/* 用於 LayoutEditorPage 清空畫布確認 */
+/* ==================== Minimalism Modal（極简主義確認對話框） ==================== */
+/* 用於 LayoutEditorPage 清空画布確認 */
 
-/* Modal 遮罩層 */
+/* Modal 遮罩层 */
 .modal-minimalism-overlay {
   position: fixed;
   inset: 0;
@@ -1568,7 +1568,7 @@ body {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* 關閉按鈕 */
+/* 关閉按鈕 */
 .modal-minimalism-close {
   position: absolute;
   top: 1rem;
@@ -1592,7 +1592,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Modal 動畫 */
+/* Modal 動画 */
 @keyframes modalFadeIn {
   from {
     opacity: 0;
@@ -1626,10 +1626,10 @@ body {
   }
 }
 
-/* ==================== 極簡應用初始化載入動畫 ==================== */
-/* 用於 HydrateFallback 的三點序列動畫 - 純極簡風格 */
+/* ==================== 極简應用初始化載入動画 ==================== */
+/* 用於 HydrateFallback 的三點序列動画 - 純極简風格 */
 
-/* 序列彈跳動畫關鍵幀 */
+/* 序列彈跳動画关鍵幀 */
 @keyframes minimal-bounce {
   0%, 80%, 100% {
     transform: scale(1);
@@ -1641,7 +1641,7 @@ body {
   }
 }
 
-/* 三個動畫類別 - 不同時間延遲創造序列效果 */
+/* 三個動画类別 - 不同時間延遲創造序列效果 */
 .animate-bounce-1 {
   animation: minimal-bounce 1.2s -0.24s infinite ease-in-out;
 }

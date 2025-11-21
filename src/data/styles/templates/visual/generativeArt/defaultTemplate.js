@@ -1,6 +1,6 @@
 // Phase 3 Batch 2 - Generative Art Template
 // 視覺元素：生成藝術
-// 從 visualTechStyles.js 遷移
+// 从 visualTechStyles.js 遷移
 
 import {
   visualTechGenerativeArtFullPageHTML,
@@ -79,7 +79,7 @@ export const visualTechGenerativeArt = {
   demoBoxClass: 'bg-gradient-to-br from-slate-900 to-purple-900',
   
   colorScheme: {
-    'zh-cn': '深色畫布 (#0F172A)、粒���白色 (#FFFFFF)、彩色軌跡（漸變色）、動態生成',
+    'zh-cn': '深色画布 (#0F172A)、粒���白色 (#FFFFFF)、彩色軌跡（漸变色）、動態生成',
     'en-US': 'Dark canvas (#0F172A), particle white (#FFFFFF), colorful trails (gradients), dynamically generated'
   },
   
@@ -569,7 +569,7 @@ export const visualTechGenerativeArt = {
         }
       }`,
         colorScheme: {
-          'zh-cn': '主色深黑 (#0a0a0f)、賽博朋克漸變 (#ff00ff, #00ffff, #ffff00)、控制面板背景 (rgba(20,20,30,0.8))、邊框霓虹青 (#00ffff)、按鈕漸變多色',
+          'zh-cn': '主色深黑 (#0a0a0f)、賽博朋克漸变 (#ff00ff, #00ffff, #ffff00)、控制面板背景 (rgba(20,20,30,0.8))、边框霓虹青 (#00ffff)、按鈕漸变多色',
           'en-US': 'Primary deep black (#0a0a0f), cyberpunk gradients (#ff00ff, #00ffff, #ffff00), control panel background (rgba(20,20,30,0.8)), border neon cyan (#00ffff), multicolor button gradients'
         }
       },

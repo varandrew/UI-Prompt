@@ -1,5 +1,5 @@
 // Terminal CLI - Digital Retro Command Line
-// 終端命令行 - 數位復古命令行
+// 終端命令行 - 数位復古命令行
 
 // Import Y2K Terminal variant
 import {
@@ -271,56 +271,56 @@ export const terminalCLI =
 
       </div>
     `,
-    // 模板級 customPrompt (簡短 Prompt，100-300字)
+    // 模板級 customPrompt (简短 Prompt，100-300字)
     customPrompt: {
     'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Terminal CLI 终端界面」示例风格高度接近的 UI。
 要求：保持黑色背景、磷光文字、等宽字体和命令行历史输出这些核心特征，只允许替换命令内容、提示符文案与辅助模块，不改变整体终端布局与配色逻辑。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。
 
 【使用场景】
-- 開發者工具、工程師個人頁、技術部門介紹頁的終端風格 Hero 區
-- 展示後端服務、部署流程、CI/CD Pipeline 狀態的可視化終端面板
-- 想要營造「專業工程、命令行、DevOps」氛圍的產品頁
+- 開發者工具、工程師個人页、技術部門介紹页的終端風格 Hero 区
+- 展示後端服务、部署流程、CI/CD Pipeline 狀態的可視化終端面板
+- 想要營造「专業工程、命令行、DevOps」氛圍的产品页
 
 【整体布局结构】
 1. 背景层
-   - 使用純黑或近黑漸變背景（如 #000000、#020617），讓終端視窗成為視覺焦點。
+   - 使用純黑或近黑漸变背景（如 #000000、#020617），让終端視窗成為視覺焦點。
 2. 主終端視窗
    - 顶部为标题栏，可使用 macOS 或 Linux 終端風格的三色窗口控制按鈕。
-   - 下方為終端內容區：顯示登入資訊、ASCII Banner、命令歷史與輸出結果。
-   - 滾動區高度限制在一定範圍（如 400–600px），並允許垂直捲動。
-3. 命令行與輸出
+   - 下方為終端內容区：显示登入資訊、ASCII Banner、命令歷史与輸出結果。
+   - 滾動区高度限制在一定範圍（如 400–600px），並允許垂直捲動。
+3. 命令行与輸出
    - 以多段「user@host:~$ command」形式呈現歷史命令。
-   - 每段命令下方對應輸出；可包含成功、錯誤與提示信息。
+   - 每段命令下方對應輸出；可包含成功、错誤与提示信息。
 
 【色彩与材质】
 1. 終端配色
    - 背景: 純黑 (#000000) 或深灰 (#111827)。
-   - 文字: 磷光綠 (#00ff41 或 #4EC9B0)、青色 (#00FFFF)、琥珀黃 (#FFA500)、錯誤紅 (#f48771)。
-   - 提示符、路徑、標籤顏色應遵循一次性定義的「語法高亮」色板，避免任意散色。
+   - 文字: 磷光綠 (#00ff41 或 #4EC9B0)、青色 (#00FFFF)、琥珀黃 (#FFA500)、错誤紅 (#f48771)。
+   - 提示符、路徑、标籤颜色應遵循一次性定義的「語法高亮」色板，避免任意散色。
 2. 质感
-   - 整體保持扁平，不使用玻璃或立體陰影，只靠文字與少量邊框表現層次。
+   - 整体保持扁平，不使用玻璃或立体阴影，只靠文字与少量边框表現层次。
 
 【排版与細節】
-1. 字體
-   - 使用等寬字體（如 'Courier New', 'Fira Code', 'JetBrains Mono'），保證文字在行內對齊。
-2. 行距與間距
+1. 字体
+   - 使用等寬字体（如 'Courier New', 'Fira Code', 'JetBrains Mono'），保證文字在行內對齊。
+2. 行距与間距
    - 行距略緊（如 1.4 左右），多行日志看起來像真實終端輸出。
    - 各段命令之間使用固定垂直間距（例如 0.75rem–1rem），維持節奏感。
 3. ASCII 藝術
-   - 可在頂部插入 ASCII Banner 標題（產品名稱或系統名稱），居左或略偏左排列。
+   - 可在頂部插入 ASCII Banner 标題（产品名稱或系統名稱），居左或略偏左排列。
 
 【交互与动效】
-1. 光標
-   - 在當前輸入行尾部顯示閃爍光標（下劃線或方塊），週期約 1 秒，使用 steps() 或 opacity 動畫。
+1. 光标
+   - 在當前輸入行尾部显示閃爍光标（下劃线或方塊），週期約 1 秒，使用 steps() 或 opacity 動画。
 2. Hover
-   - 可對可點擊按鈕（如快捷命令、範例片段）提供輕微亮度提升或邊框變化。
-3. 動畫
-   - 若需要模擬輸出過程，可用逐行淡入或「打字機」效果呈現新命令與輸出。
+   - 可對可點擊按鈕（如快捷命令、範例片段）提供輕微亮度提升或边框变化。
+3. 動画
+   - 若需要模擬輸出過程，可用逐行淡入或「打字機」效果呈現新命令与輸出。
 
 【输出要求】
-- 使用语义化 HTML（header / main / section）將標題欄、終端內容區與輔助操作區分開。
-- 使用 TailwindCSS 风格原子类控制背景、排版和配色，並保留對等寬字體與暗色主題的支持。
-- 生成的界面必須保留「黑色背景 + 等寬磷光文字 + 命令行歷史 + 閃爍光標」這些關鍵特徵，讓人一眼看出是專業終端界面。`,
+- 使用语义化 HTML（header / main / section）將标題欄、終端內容区与輔助操作区分開。
+- 使用 TailwindCSS 风格原子类控制背景、排版和配色，並保留對等寬字体与暗色主題的支持。
+- 生成的界面必須保留「黑色背景 + 等寬磷光文字 + 命令行歷史 + 閃爍光标」這些关鍵特徵，让人一眼看出是专業終端界面。`,
 
     'en-US': `You are a senior UI designer and front-end engineer. Generate a terminal CLI style interface that looks very close to the current “Terminal CLI” demo.
 Keep the black background, phosphor-style text, monospace fonts and command history output as core traits. You may change commands, prompts and auxiliary modules, but you should not change the overall terminal layout or color logic. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
@@ -373,14 +373,14 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
 
     // 模板級 stylePrompt (詳細 Prompt，1000-2000字)
     stylePrompt: {
-      'zh-CN': `角色：你是專精於終端命令行界面（Terminal CLI）風格的 UI 設計師，專注於復古 CRT 顯示器美學和專業開發工具界面。
+      'zh-CN': `角色：你是专精於終端命令行界面（Terminal CLI）風格的 UI 设計師，专注於復古 CRT 显示器美學和专業開發工具界面。
 
-場景定位：為開發者工具、系統管理界面或技術文檔網站打造具有終端風格的界面，通過 CRT 掃描線和等寬字體傳達技術專業性。
+場景定位：為開發者工具、系統管理界面或技術文档网站打造具有終端風格的界面，通過 CRT 掃描线和等寬字体傳達技術专業性。
 
-核心設計語言：
+核心设計語言：
 
-1. **CRT 掃描線系統**：
-   - 水平掃描線：
+1. **CRT 掃描线系統**：
+   - 水平掃描线：
      \`\`\`css
      .terminal-scanlines::before {
        content: '';
@@ -415,8 +415,8 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
      }
      \`\`\`
 
-2. **閃爍光標系統**：
-   - 塊狀光標：
+2. **閃爍光标系統**：
+   - 塊狀光标：
      \`\`\`css
      .terminal-cursor {
        display: inline-block;
@@ -433,7 +433,7 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
      }
      \`\`\`
 
-   - 下劃線光標：
+   - 下劃线光标：
      \`\`\`css
      .terminal-cursor-underline {
        display: inline-block;
@@ -448,24 +448,24 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
 
 主色調（經典終端配色）：
 - 荧光綠：#33ff33 (經典綠色終端)
-- 琥珀色：#ffb000 (琥珀色單色顯示器)
+- 琥珀色：#ffb000 (琥珀色單色显示器)
 - 純白：#ffffff (現代終端)
 - 蘋果綠：#00ff00 (Apple II 風格)
 
 語法高亮色（VS Code Dark+ 主題）：
 - 用戶名/成功：#4EC9B0 (青綠色)
-- 路徑/關鍵字：#569cd6 (藍色)
+- 路徑/关鍵字：#569cd6 (藍色)
 - 命令/字符串：#ce9178 (橙色)
 - 警告：#dcdcaa (黃色)
-- 變量：#c586c0 (紫色)
-- 錯誤：#f48771 (紅色)
+- 变量：#c586c0 (紫色)
+- 错誤：#f48771 (紅色)
 
 背景色（暗色系）：
 - 純黑：#000000
 - VS Code 背景：#1e1e1e
 - 深灰：#252526
 
-3. **命令提示符設計**：
+3. **命令提示符设計**：
    \`\`\`css
    .terminal-prompt {
      display: flex;
@@ -494,7 +494,7 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
    .terminal-warning { color: #dcdcaa; }
    \`\`\`
 
-5. **互動按鈕設計**：
+5. **互動按鈕设計**：
    \`\`\`css
    .terminal-cmd-btn {
      background: #1e1e1e;
@@ -519,7 +519,7 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
 
 技術實現要點：
 
-1. **等寬字體棧**：
+1. **等寬字体棧**：
    - font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Consolas', 'Courier New', monospace;
 
 2. **滾動條樣式**（Webkit）：
@@ -551,17 +551,17 @@ Keep the black background, phosphor-style text, monospace fonts and command hist
    .terminal-maximize { background: #27c93f; }
    \`\`\`
 
-4. **ASCII 藝術邊框**：
-   使用 <pre> 標籤和 Unicode 字符創建 ASCII 邊框：
+4. **ASCII 藝術边框**：
+   使用 <pre> 标籤和 Unicode 字符創建 ASCII 边框：
    ┏━━━━━━━━━━━━━┓
    ┃ TERMINAL    ┃
    ┗━━━━━━━━━━━━━┛
 
 重要提示：
-- 所有文本必須使用等寬字體，確保字符對齊
-- 避免使用圖像，優先使用 CSS 和 Unicode 字符
+- 所有文本必須使用等寬字体，確保字符對齊
+- 避免使用圖像，优先使用 CSS 和 Unicode 字符
 - 保持高對比度（文字亮度 > 70%，背景暗度 > 80%）
-- 光標閃爍頻率設置為 530ms（標準終端頻率）
+- 光标閃爍頻率设置為 530ms（标準終端頻率）
 - 使用 text-shadow: 0 0 5px currentColor 模擬 CRT 發光效果
 - 為互動元素添加鍵盤快捷鍵提示（如 [1], [2], [Ctrl+C]）`,
 
@@ -896,7 +896,7 @@ Important Notes:
           'macOS-style Window Controls'
         ],
         colorScheme: {
-          'zh-CN': '背景青藍漸變 (#ECFEFF, #EFF6FF, #CCFBF1)、主色青色 (#22D3EE)、翠綠磷光 (#10b981)、琥珀色磷光 (#ff9900)、玻璃效果半透明白 (rgba(255,255,255,0.7))',
+          'zh-CN': '背景青藍漸变 (#ECFEFF, #EFF6FF, #CCFBF1)、主色青色 (#22D3EE)、翠綠磷光 (#10b981)、琥珀色磷光 (#ff9900)、玻璃效果半透明白 (rgba(255,255,255,0.7))',
           'en-US': 'Background cyan-blue gradient (#ECFEFF, #EFF6FF, #CCFBF1), primary cyan (#22D3EE), emerald phosphor (#10b981), amber phosphor (#ff9900), glass effect semi-transparent white (rgba(255,255,255,0.7))'
         },
         html: terminalCLIY2KFullPageHTML,

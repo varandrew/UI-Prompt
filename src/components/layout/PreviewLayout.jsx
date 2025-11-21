@@ -4,19 +4,19 @@ import { PromptButton } from '../prompt/PromptButton';
 import { LANGUAGES } from "../../utils/i18n/languageConstants";
 
 /**
- * PreviewLayout - 預覽頁面專用佈局
+ * PreviewLayout - 預覽页面专用佈局
  * 特點:
- * - 無側邊欄的極簡設計
- * - 頂部工具列：返回按鈕 + 標題 + AI Prompt 按鈕
- * - 全屏內容區域用於 iframe 預覽
- * - 支持響應式設計和無障礙訪問
+ * - 無側边欄的極简设計
+ * - 頂部工具列：返回按鈕 + 标題 + AI Prompt 按鈕
+ * - 全屏內容区域用於 iframe 預覽
+ * - 支持響應式设計和無障礙访問
  */
 export function PreviewLayout({ children, styleData, onPromptGenerate }) {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
 
   const handleBack = () => {
-    // 優先返回到 /styles 頁面，如果有 referrer 則使用 referrer
+    // 优先返回到 /styles 页面，如果有 referrer 則使用 referrer
     if (window.history.length > 1) {
       navigate(-1);
     } else {
@@ -32,7 +32,7 @@ export function PreviewLayout({ children, styleData, onPromptGenerate }) {
       return t(styleData.title);
     }
 
-    // 如果 title 是對象，根據語言選擇
+    // 如果 title 是對象，根据語言選擇
     if (typeof styleData.title === 'object') {
       return styleData.title[language] || styleData.title[LANGUAGES.ZH_CN] || styleData.title[LANGUAGES.ZH_CN_LOWER] || styleData.title[LANGUAGES.EN_US] || '';
     }
@@ -71,7 +71,7 @@ export function PreviewLayout({ children, styleData, onPromptGenerate }) {
             </span>
           </button>
 
-          {/* 中央：風格標題 */}
+          {/* 中央：風格标題 */}
           <h1 className="flex-1 text-center mx-4">
             <span className="text-base md:text-lg font-medium text-gray-900 truncate">
               {getStyleTitle()}
@@ -118,7 +118,7 @@ export function PreviewLayout({ children, styleData, onPromptGenerate }) {
         </div>
       </header>
 
-      {/* 主要內容區域 */}
+      {/* 主要內容区域 */}
       <main className="flex-1">
         {children}
       </main>
@@ -143,8 +143,8 @@ export function PreviewLayout({ children, styleData, onPromptGenerate }) {
 }
 
 /**
- * PreviewErrorBoundary - 預覽頁面錯誤邊界
- * 當預覽頁面出現錯誤時顯示友善的錯誤提示
+ * PreviewErrorBoundary - 預覽页面错誤边界
+ * 當預覽页面出現错誤時显示友善的错誤提示
  */
 export function PreviewErrorBoundary({ error, resetError }) {
   const { t } = useLanguage();

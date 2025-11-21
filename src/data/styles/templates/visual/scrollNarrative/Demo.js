@@ -190,7 +190,7 @@ export const customStyles = `
     text-shadow: 0 0 25px var(--sn-progress-shadow);
   }
 
-  /* ==================== STORY LINE (連接線) ==================== */
+  /* ==================== STORY LINE (連接线) ==================== */
   .story-line {
     width: 3px;
     height: 6rem;

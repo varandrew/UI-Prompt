@@ -14,9 +14,9 @@ import {
  * @param {Object} props
  * @param {Function} props.onFilterChange - 篩選條件變化回調
  * @param {Object} props.initialFilters - 初始篩選條件
- * @param {Boolean} props.showSearch - 是否顯示搜索框
- * @param {Boolean} props.showCategories - 是否顯示分類篩選
- * @param {Boolean} props.showTags - 是否顯示標籤篩選
+ * @param {Boolean} props.showSearch - 是否显示搜索框
+ * @param {Boolean} props.showCategories - 是否显示分类篩選
+ * @param {Boolean} props.showTags - 是否显示标籤篩選
  */
 export function FilterBar({
   onFilterChange,
@@ -43,7 +43,7 @@ export function FilterBar({
     }
   }, [filters, onFilterChange]);
 
-  // 處理關鍵詞搜索
+  // 處理关鍵詞搜索
   const handleSearchChange = (e) => {
     setFilters(prev => ({
       ...prev,
@@ -51,7 +51,7 @@ export function FilterBar({
     }));
   };
 
-  // 處理分類切換
+  // 處理分类切換
   const toggleCategory = (categoryId) => {
     setFilters(prev => ({
       ...prev,
@@ -61,7 +61,7 @@ export function FilterBar({
     }));
   };
 
-  // 處理標籤切換
+  // 處理标籤切換
   const toggleTag = (tagId) => {
     setFilters(prev => ({
       ...prev,
@@ -136,7 +136,7 @@ export function FilterBar({
         </div>
       )}
 
-      {/* 分類篩選 */}
+      {/* 分类篩選 */}
       {showCategories && (
         <div className="mb-4">
           <button
@@ -184,7 +184,7 @@ export function FilterBar({
         </div>
       )}
 
-      {/* 標籤篩選 */}
+      {/* 标籤篩選 */}
       {showTags && (
         <div>
           <button
@@ -211,7 +211,7 @@ export function FilterBar({
 
           {expandedSection === 'tags' && (
             <div className="space-y-3 mt-2">
-              {/* 標籤匹配模式切換 */}
+              {/* 标籤匹配模式切換 */}
               {filters.tags.length > 1 && (
                 <div className="flex items-center gap-2 text-xs">
                   <span className="text-gray-600">{t('filter.matchMode')}</span>

@@ -18,7 +18,7 @@ export const previewConfig = {
     'Smooth Parallax Scrolling'
   ],
   colorScheme: {
-    'zh-CN': '主色靛藍 (#4f46e5)、輔色紫粉漸變 (#7c3aed → #ec4899)、背景淺灰白 (#f9fafb → #ffffff)、文字深灰 (#111827, #6b7280)',
+    'zh-CN': '主色靛藍 (#4f46e5)、輔色紫粉漸变 (#7c3aed → #ec4899)、背景淺灰白 (#f9fafb → #ffffff)、文字深灰 (#111827, #6b7280)',
     'en-US': 'Primary indigo (#4f46e5), secondary purple-pink gradient (#7c3aed → #ec4899), background light gray-white (#f9fafb → #ffffff), text dark gray (#111827, #6b7280)'
   }
 };

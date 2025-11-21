@@ -1,9 +1,9 @@
-// 風格工具函數
-// 用於風格數據查找、預覽內容提取和相關風格推薦
+// 風格工具函数
+// 用於風格数据查找、預覽內容提取和相关風格推薦
 
 import { getAllStyles } from '../data';
 
-// 將任何輸入安全轉為字串，避免後續 .match/.test 因型別錯誤
+// 將任何輸入安全轉為字串，避免後續 .match/.test 因型別错誤
 const ensureString = (v) => {
   if (v == null) return '';
   if (Array.isArray(v)) return v.join('');
@@ -11,9 +11,9 @@ const ensureString = (v) => {
 };
 
 /**
- * 生成風格預覽頁面的 URL
+ * 生成風格預覽页面的 URL
  * @param {string} styleId - 風格的唯一識別符
- * @returns {string} 預覽頁面 URL
+ * @returns {string} 預覽页面 URL
  */
 export const getStylePreviewUrl = (styleId) => {
   if (!styleId) return '/styles';
@@ -24,7 +24,7 @@ export const getStylePreviewUrl = (styleId) => {
 };
 
 /**
- * 從 URL 參數中提取並解碼 styleId
+ * 从 URL 參数中提取並解碼 styleId
  * @param {string} urlStyleId - 來自 URL 的 styleId
  * @returns {string} 解碼後的 styleId
  */
@@ -40,9 +40,9 @@ export const decodeStyleId = (urlStyleId) => {
 };
 
 /**
- * 根據 styleId 查找風格數據
+ * 根据 styleId 查找風格数据
  * @param {string} styleId - 風格的唯一識別符
- * @returns {Object|null} 風格數據或 null (如果未找到)
+ * @returns {Object|null} 風格数据或 null (如果未找到)
  */
 export const findStyleById = (styleId) => {
   if (!styleId) return null;
@@ -53,7 +53,7 @@ export const findStyleById = (styleId) => {
 
 /**
  * 獲取風格的預覽內容 (HTML + CSS)
- * @param {Object} style - 風格數據對象
+ * @param {Object} style - 風格数据對象
  * @param {string} previewId - 特定預覽 ID (可選，用於多預覽風格)
  * @returns {Object} 包含 html 和 styles 的對象
  */
@@ -85,20 +85,20 @@ export const getStylePreviewContent = (style, previewId = null) => {
 
 /**
  * 獲取風格的預覽內容 (HTML + CSS)
- * @param {Object} style - 風格數據對象
+ * @param {Object} style - 風格数据對象
  * @param {string} previewId - 特定預覽 ID (可選，用於多預覽風格)
  * @returns {Object} 包含 html 和 styles 的對象
  */
 
 /**
- * 從 demoHTML 中提取隱藏的完整頁面內容
+ * 从 demoHTML 中提取隱藏的完整页面內容
  * @param {string} demoHTML - 卡片展示的 HTML
- * @returns {string|null} 提取的完整頁面 HTML 或 null
+ * @returns {string|null} 提取的完整页面 HTML 或 null
  */
 export const extractFullPageContent = (demoHTML) => {
   if (!demoHTML) return null;
 
-  // 查找隱藏的完整頁面內容 (通常有 display: none 樣式)
+  // 查找隱藏的完整页面內容 (通常有 display: none 樣式)
   const fullPageMatch = demoHTML.match(/<div[^>]*class="[^"]*full-page[^"]*"[^>]*>([\s\S]*?)<\/div>/);
 
   if (fullPageMatch) {

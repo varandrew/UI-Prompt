@@ -2,12 +2,12 @@
 // 这个文件聚合所有风格和组件数据,提供给新的菜单页面使用
 
 /**
- * 穩定的空數組引用，用於防止 React useMemo 無限循環
+ * 稳定的空数組引用，用於防止 React useMemo 無限循環
  * 使用 Object.freeze() 確保引用永遠不變
  */
 const EMPTY_ARRAY = Object.freeze([]);
 
-// 導入風格數據 (只使用 7 個核心分類)
+// 导入風格数据 (只使用 7 個核心分类)
 import {
   visualTemplateStyles,
   name as visualName,
@@ -28,7 +28,7 @@ import { retroTemplateStyles, arcadeCRTConfig } from './styles/templates/retro';
 
 
 
-// 導入組件數據 (新路徑: components/)
+// 导入組件数据 (新路徑: components/)
 import { navigationComponents } from './components/navigationComponents';
 import { formComponents } from './components/formComponents';
 import { dataDisplayComponents } from './components/dataDisplayComponents';
@@ -38,11 +38,11 @@ import { inputComponents } from './components/inputComponents';
 import { interactiveComponents } from './components/interactiveComponents';
 import { specialComponents } from './components/specialComponents';
 
-// 導入標籤增強系統 (新路徑: metadata/)
+// 导入标籤增強系統 (新路徑: metadata/)
 import { enhanceStyles } from './metadata/styleTagsMapping';
 
-// 將 core templates 依「設計流派」聚合為核心卡片
-// 使用專門的 demoUI, customStyles, description, customPrompt 導出（而非第一個模板）
+// 將 core templates 依「设計流派」聚合為核心卡片
+// 使用专門的 demoUI, customStyles, description, customPrompt 导出（而非第一個模板）
 const createFamilyCard = (familyId, name, demoUI, customStyles, description, customPrompt, templatesArray) => {
   // 收集所有模板的预览项
   const allPreviews = [];
@@ -80,7 +80,7 @@ const createFamilyCard = (familyId, name, demoUI, customStyles, description, cus
     demoHTML: demoUI,
     customStyles: customStyles,
     customPrompt: customPrompt,  // ✨ 使用 family 級別的 customPrompt
-    // 保留模板數組以供預覽和詳細頁面使用
+    // 保留模板数組以供預覽和詳細页面使用
     templates: templatesArray || [],
     // 合并所有预览项
     previews: allPreviews.length > 0 ? allPreviews : undefined,
@@ -96,7 +96,7 @@ const createFamilyCard = (familyId, name, demoUI, customStyles, description, cus
   };
 };
 
-// 創建分類首卡（用於展示該分類的 demo UI）
+// 創建分类首卡（用於展示該分类的 demo UI）
 const createCategoryCard = (categoryId, name, demoUI, customStyles, description) => {
   return {
     id: `${categoryId}-demo`,
@@ -104,13 +104,13 @@ const createCategoryCard = (categoryId, name, demoUI, customStyles, description)
     description: description,
     demoHTML: demoUI,
     customStyles: customStyles,
-    // 標記為分類首卡
+    // 标記為分类首卡
     isCategoryCard: true,
   };
 };
 
-// 將 core templates 依「設計流派」聚合為核心卡片
-// 使用資料結構來簡化創建過程
+// 將 core templates 依「设計流派」聚合為核心卡片
+// 使用資料結構來简化創建過程
 const coreTemplateFamilies = coreTemplateConfigs.map(config =>
   createFamilyCard(
     config.id,
@@ -123,7 +123,7 @@ const coreTemplateFamilies = coreTemplateConfigs.map(config =>
   )
 );
 
-// 风格分类配置 (7 個核心分類)
+// 风格分类配置 (7 個核心分类)
 export const styleCategories = [
   {
     id: 'core',
@@ -149,7 +149,7 @@ export const styleCategories = [
     // ✅ 已包含 arcade, darkAcademia, trending2025 等所有復古風格
     data: enhanceStyles([
       ...retroTemplateStyles,
-      // ✨ arcadeCRT 家族卡片（類似 core 風格）
+      // ✨ arcadeCRT 家族卡片（类似 core 風格）
       createFamilyCard(
         arcadeCRTConfig.id,
         arcadeCRTConfig.name,

@@ -1,16 +1,16 @@
 /**
  * Skeuomorphism Tech Company Full Page - Official Technology Website
- * 擬物化科技公司完整頁面 - 官方技術網站主題
+ * 擬物化科技公司完整页面 - 官方技術网站主題
  *
  * 特色組件：
- * - 金屬質感導航欄
- * - 玻璃面板 Hero 區域
- * - LED 狀態指示燈
- * - 立體按鈕與控制器
- * - 產品展示舞台
+ * - 金屬质感导航欄
+ * - 玻璃面板 Hero 区域
+ * - LED 狀態指示灯
+ * - 立体按鈕与控制器
+ * - 产品展示舞台
  * - 金屬旋鈕控制面板
- * - 物理開關按鈕
- * - 發光效果與動畫
+ * - 物理開关按鈕
+ * - 發光效果与動画
  */
  
 export const skeuomorphismTechCompanyFullPageHTML = `        

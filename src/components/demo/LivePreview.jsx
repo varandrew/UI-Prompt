@@ -20,7 +20,7 @@ export function LivePreview({ progress = 0 }) {
     setDisplayProgress(progress);
   }, [progress]);
 
-  // 計算實際動畫進度 (50-100% 映射到 0-100%)
+  // 計算實際動画進度 (50-100% 映射到 0-100%)
   const actualProgress = displayProgress >= 50
     ? ((displayProgress - 50) / 50) * 100
     : 0;
@@ -28,14 +28,14 @@ export function LivePreview({ progress = 0 }) {
   // 獲取當前階段名稱
   const currentStage = getCurrentStage(actualProgress);
 
-  // 調試日誌 - 顯示進度映射
+  // 調試日誌 - 显示進度映射
   useEffect(() => {
     if (displayProgress >= 50 && displayProgress < 100) {
       console.log(`[Progress] Display: ${displayProgress.toFixed(1)}%, Actual: ${actualProgress.toFixed(1)}%, Stage: ${currentStage}`);
     }
   }, [displayProgress, actualProgress, currentStage]);
 
-  // 跟隨式滾動 - 在動畫過程中滾動到最新階段
+  // 跟隨式滾動 - 在動画過程中滾動到最新階段
   useEffect(() => {
     if (displayProgress < 50) return; // 打字階段不滾動
 
@@ -56,18 +56,18 @@ export function LivePreview({ progress = 0 }) {
           console.log(`  Display: ${displayProgress.toFixed(1)}%`);
           console.log(`  Actual: ${actualProgress.toFixed(1)}%`);
 
-          // 計算目標元素相對於容器的實際位置
+          // 計算目标元素相對於容器的實際位置
           // 使用 getBoundingClientRect 獲取元素在視窗中的位置
           const targetRect = target.getBoundingClientRect();
           const containerRect = container.getBoundingClientRect();
 
-          // 計算目標元素相對於容器頂部的偏移量
+          // 計算目标元素相對於容器頂部的偏移量
           const relativeTop = targetRect.top - containerRect.top + container.scrollTop;
 
           console.log(`  Target relative position: ${relativeTop}px`);
           console.log(`  Scrolling container to: ${relativeTop}px`);
 
-          // 只滾動容器,不影響頁面滾動
+          // 只滾動容器,不影響页面滾動
           container.scrollTo({
             top: relativeTop - 20, // 向上偏移 20px 留出間距
             behavior: 'smooth'
@@ -103,7 +103,7 @@ export function LivePreview({ progress = 0 }) {
       <div tabIndex={0} className="live-preview h-[556px] flex flex-col bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
         {/* Preview Content */}
         <div className="preview-content flex-1 overflow-hidden relative bg-black">
-          {/* Loading 遮罩層 */}
+          {/* Loading 遮罩层 */}
           <div
             className="loading-mask absolute inset-0 bg-white z-50"
             style={{
@@ -113,14 +113,14 @@ export function LivePreview({ progress = 0 }) {
             }}
           />
 
-          {/* Cyberpunk 頁面容器 */}
+          {/* Cyberpunk 页面容器 */}
           <div
             className="cyberpunk-container absolute inset-0 custom-scrollbar-dark"
             style={{
               opacity: displayProgress >= 50 ? 1 : 0,
               transition: 'opacity 0.5s ease-out',
               pointerEvents: displayProgress >= 50 ? 'auto' : 'none',
-              overflowY: 'auto',  // 改為 auto，只在需要時顯示滾動條
+              overflowY: 'auto',  // 改為 auto，只在需要時显示滾動條
               overflowX: 'hidden', // 隱藏水平滾動條
               maxHeight: '100%',   // 限制最大高度為容器高度
               scrollBehavior: 'smooth' // 平滑滾動
@@ -135,14 +135,14 @@ export function LivePreview({ progress = 0 }) {
               maxHeight: '100vh',
               paddingBottom: '2rem',
               boxSizing: 'border-box',
-              backgroundColor: '#0a0a0a'  // 設置深色背景,與 Cyberpunk 主題一致
+              backgroundColor: '#0a0a0a'  // 设置深色背景,与 Cyberpunk 主題一致
             }}>
-              {/* 背景層 (fixed positioning) */}
+              {/* 背景层 (fixed positioning) */}
               <CyberBackground progress={actualProgress} />
               <CyberGrid progress={actualProgress} />
               <CyberScanLine progress={actualProgress} />
 
-              {/* 內容層 */}
+              {/* 內容层 */}
               <div className="content-layer">
                 <CyberNavbar progress={actualProgress} />
                 <CyberHero progress={actualProgress} />

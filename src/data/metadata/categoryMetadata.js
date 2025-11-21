@@ -1,10 +1,10 @@
-// 分類系統元數據配置
+// 分类系統元数据配置
 // Category System Metadata Configuration
 
 import { getTranslation } from "../../utils/i18n/translations";
 
 /**
- * 主分類定義
+ * 主分类定義
  * Primary Categories Definition
  */
 export const primaryCategories = {
@@ -77,7 +77,7 @@ export const primaryCategories = {
 };
 
 /**
- * 次級標籤定義 - 時代特徵
+ * 次級标籤定義 - 時代特徵
  * Secondary Tags - Era Characteristics
  */
 export const eraTags = {
@@ -108,7 +108,7 @@ export const eraTags = {
 };
 
 /**
- * 次級標籤定義 - 視覺特性
+ * 次級标籤定義 - 視覺特性
  * Secondary Tags - Visual Characteristics
  */
 export const visualTags = {
@@ -163,7 +163,7 @@ export const visualTags = {
 };
 
 /**
- * 次級標籤定義 - 技術手法
+ * 次級标籤定義 - 技術手法
  * Secondary Tags - Technical Approach
  */
 export const technicalTags = {
@@ -212,7 +212,7 @@ export const technicalTags = {
 };
 
 /**
- * 次級標籤定義 - 使用場景
+ * 次級标籤定義 - 使用場景
  * Secondary Tags - Use Cases
  */
 export const useCaseTags = {
@@ -248,14 +248,14 @@ export const useCaseTags = {
   },
   saas: {
     id: 'saas',
-    label: { 'zh-cn': 'SaaS產品', 'en-US': 'SaaS' },
+    label: { 'zh-cn': 'SaaS产品', 'en-US': 'SaaS' },
     color: '#3F51B5',
     description: 'tags.useCase.saas.description'
   }
 };
 
 /**
- * 所有標籤集合
+ * 所有标籤集合
  * All Tags Collection
  */
 export const allTags = {
@@ -266,7 +266,7 @@ export const allTags = {
 };
 
 /**
- * 分類 ID 別名映射
+ * 分类 ID 別名映射
  * Category ID alias mapping
  * 處理不同命名約定之間的映射（例如 'visual' -> 'visualDesign'）
  */
@@ -276,7 +276,7 @@ const categoryAliasMap = {
 };
 
 /**
- * 獲取標籤顏色
+ * 獲取标籤颜色
  * Get tag color by tag ID
  */
 export const getTagColor = (tagId) => {
@@ -289,12 +289,12 @@ export const getTagColor = (tagId) => {
 };
 
 /**
- * 獲取標籤標籤
+ * 獲取标籤标籤
  * Get tag label by tag ID and language
- * 優先從 i18n 檔案獲取翻譯，如果沒有則使用 categoryMetadata.js 的預設值
+ * 优先从 i18n 档案獲取翻譯，如果沒有則使用 categoryMetadata.js 的預设值
  */
 export const getTagLabel = (tagId, language = 'zh-cn') => {
-  // 確定標籤屬於哪個類別
+  // 確定标籤屬於哪個类別
   let categoryName = null;
   for (const [catName, category] of Object.entries(allTags)) {
     if (category[tagId]) {
@@ -307,16 +307,16 @@ export const getTagLabel = (tagId, language = 'zh-cn') => {
     return tagId;
   }
   
-  // 先嘗試從 i18n 檔案獲取翻譯
+  // 先嘗試从 i18n 档案獲取翻譯
   const i18nKey = `tags.${categoryName}.${tagId}.label`;
   const i18nLabel = getTranslation(i18nKey, language);
   
-  // 如果 i18n 檔案中有翻譯，使用它
+  // 如果 i18n 档案中有翻譯，使用它
   if (i18nLabel && i18nLabel !== i18nKey && typeof i18nLabel === 'string') {
     return i18nLabel;
   }
   
-  // 否則使用 categoryMetadata.js 的預設值
+  // 否則使用 categoryMetadata.js 的預设值
   const category = allTags[categoryName];
   if (category && category[tagId]) {
     return category[tagId].label[language] || category[tagId].label['zh-cn'];
@@ -326,17 +326,17 @@ export const getTagLabel = (tagId, language = 'zh-cn') => {
 };
 
 /**
- * 獲取主分類配置
+ * 獲取主分类配置
  * Get primary category configuration
  */
 export const getCategoryConfig = (categoryId) => {
-  // 處理分類 ID 別名映射
+  // 處理分类 ID 別名映射
   const normalizedCategoryId = categoryAliasMap[categoryId] || categoryId;
   return primaryCategories[normalizedCategoryId] || primaryCategories[categoryId] || null;
 };
 
 /**
- * 獲取所有主分類（按順序）
+ * 獲取所有主分类（按順序）
  * Get all primary categories (ordered)
  */
 export const getAllPrimaryCategories = () => {
@@ -344,41 +344,41 @@ export const getAllPrimaryCategories = () => {
 };
 
 /**
- * 獲取分類標籤
+ * 獲取分类标籤
  * Get category label by category ID and language
- * 優先從 i18n 檔案獲取翻譯，如果沒有則使用 categoryMetadata.js 的預設值
+ * 优先从 i18n 档案獲取翻譯，如果沒有則使用 categoryMetadata.js 的預设值
  */
 export const getCategoryLabel = (categoryId, language = 'zh-cn') => {
-  // 處理分類 ID 別名映射
+  // 處理分类 ID 別名映射
   const normalizedCategoryId = categoryAliasMap[categoryId] || categoryId;
   const category = primaryCategories[normalizedCategoryId];
   
-  // 先嘗試從 i18n 檔案的 nav 區塊獲取翻譯（優先使用原始 ID，然後嘗試標準化 ID）
+  // 先嘗試从 i18n 档案的 nav 区塊獲取翻譯（优先使用原始 ID，然後嘗試标準化 ID）
   let i18nKey = `nav.${categoryId}`;
   let i18nLabel = getTranslation(i18nKey, language);
   
-  // 如果原始 ID 沒有找到翻譯，嘗試使用標準化 ID
+  // 如果原始 ID 沒有找到翻譯，嘗試使用标準化 ID
   if (!i18nLabel || i18nLabel === i18nKey || typeof i18nLabel !== 'string') {
     i18nKey = `nav.${normalizedCategoryId}`;
     i18nLabel = getTranslation(i18nKey, language);
   }
   
-  // 如果 i18n 檔案中有翻譯，使用它
+  // 如果 i18n 档案中有翻譯，使用它
   if (i18nLabel && i18nLabel !== i18nKey && typeof i18nLabel === 'string') {
     return i18nLabel;
   }
   
-  // 如果找不到分類，嘗試直接使用原始 ID
+  // 如果找不到分类，嘗試直接使用原始 ID
   if (!category) {
     const fallbackCategory = primaryCategories[categoryId];
     if (!fallbackCategory) {
-      // 如果還是找不到，返回原始 ID（可能是一個有效的分類但未在 primaryCategories 中定義）
+      // 如果還是找不到，返回原始 ID（可能是一個有效的分类但未在 primaryCategories 中定義）
       return categoryId;
     }
-    // 使用 fallback category 的預設值
+    // 使用 fallback category 的預设值
     return fallbackCategory.label[language] || fallbackCategory.label['zh-cn'];
   }
   
-  // 否則使用 categoryMetadata.js 的預設值
+  // 否則使用 categoryMetadata.js 的預设值
   return category.label[language] || category.label['zh-cn'];
 };

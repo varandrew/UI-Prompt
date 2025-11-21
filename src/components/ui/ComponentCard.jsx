@@ -7,8 +7,8 @@ import { injectAppStylesIntoIframe } from '../../utils/previewCss';
 import appCssUrl from '../../index.css?url';
 
 /**
- * ComponentCard - 組件畫廊卡片
- * 顯示迷你 iframe 預覽、組件名稱、描述和分類標籤
+ * ComponentCard - 組件画廊卡片
+ * 显示迷你 iframe 預覽、組件名稱、描述和分类标籤
  */
 export function ComponentCard({
   id,
@@ -19,7 +19,7 @@ export function ComponentCard({
   categoryId,
   categoryIcon = '📦',
   categoryLabel,
-  variants = [],  // 新增: 變體數組
+  variants = [],  // 新增: 變体数組
   onCategoryClick
 }) {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export function ComponentCard({
   const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const [readyToInject, setReadyToInject] = useState(false); // requestIdleCallback 雙條件
+  const [readyToInject, setReadyToInject] = useState(false); // requestIdleCallback 双條件
   const [hasInjected, setHasInjected] = useState(false); // 避免重複注入
 
   // Intersection Observer for lazy loading (observe the container so it's always present)
@@ -50,7 +50,7 @@ export function ComponentCard({
     };
   }, []);
 
-  // 在瀏覽器空閒時標記可注入，降低主線阻塞
+  // 在瀏覽器空閒時标記可注入，降低主线阻塞
   useEffect(() => {
     let idleId = null;
     let timeoutId = null;
@@ -67,10 +67,10 @@ export function ComponentCard({
     };
   }, []);
 
-  // 檢查是否有多個變體
+  // 检查是否有多個變体
   const hasVariants = variants && variants.length > 0;
   const variantCount = hasVariants ? variants.length : 0;
-  // 若 demoHTML 為空,優先回退到第一個變體
+  // 若 demoHTML 為空,优先回退到第一個變体
   const previewVariant = (!demoHTML && hasVariants) ? variants[0] : null;
   const effectiveHTML = previewVariant?.demoHTML || demoHTML || '';
   const effectiveStyles = (customStyles || previewVariant?.customStyles || '');
@@ -88,7 +88,7 @@ export function ComponentCard({
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <!-- 使用已編譯的應用 CSS，確保 Tailwind 與自定義樣式在 iframe 中生效 -->
+          <!-- 使用已編譯的應用 CSS，確保 Tailwind 与自定義樣式在 iframe 中生效 -->
           <link rel="stylesheet" href="${appCssUrl}" />
           <style>
             body { margin: 0; padding: 16px; overflow: hidden; transform-origin: top left; }
@@ -101,7 +101,7 @@ export function ComponentCard({
       </html>`;
   }, [hasContent, effectiveHTML, effectiveStyles, language]);
 
-  // 渲染 iframe 內容 (雙條件：進入視窗 + 空閒可注入)
+  // 渲染 iframe 內容 (双條件：進入視窗 + 空閒可注入)
   useEffect(() => {
     if (!isIntersecting || !readyToInject || !iframeRef.current || !memoIframeContent || hasInjected === true) return;
     const iframe = iframeRef.current;
@@ -129,7 +129,7 @@ export function ComponentCard({
     if (!iframe) return undefined;
     const handleLoad = () => injectAppStylesIntoIframe(iframe);
     iframe.addEventListener('load', handleLoad);
-    // 嘗試立即注入（某些瀏覽器 srcdoc 設定後同步可用）
+    // 嘗試立即注入（某些瀏覽器 srcdoc 设定後同步可用）
     setTimeout(() => {
       try { injectAppStylesIntoIframe(iframe); } catch {
         // Ignore injection errors
@@ -143,14 +143,14 @@ export function ComponentCard({
     setHasInjected(false);
   }, [memoIframeContent]);
 
-  // 處理卡片點擊 - 導航至詳情頁
+  // 處理卡片點擊 - 导航至詳情页
   const handleCardClick = (e) => {
-    // 避免點擊分類標籤時觸發
+    // 避免點擊分类标籤時觸發
     if (e.target.closest('.category-badge')) return;
     navigate(`/components/${categoryId}/${id}`);
   };
 
-  // 處理分類標籤點擊
+  // 處理分类标籤點擊
   const handleCategoryClick = (e) => {
     e.stopPropagation();
     if (onCategoryClick) {
@@ -174,9 +174,9 @@ export function ComponentCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 迷你 iframe 預覽區域 */}
+      {/* 迷你 iframe 預覽区域 */}
       <div ref={containerRef} className="relative w-full h-44 bg-gray-50 border-b border-gray-200 overflow-hidden">
-        {/* 變體數量徽章 (右上角) */}
+        {/* 變体数量徽章 (右上角) */}
         {hasVariants && (
           <div className="absolute top-2 right-2 z-10">
             <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-600 text-white rounded-full text-xs font-semibold shadow-md">
@@ -234,9 +234,9 @@ export function ComponentCard({
         </div>
       </div>
 
-      {/* 內容區域 */}
+      {/* 內容区域 */}
       <div className="p-4 space-y-2">
-        {/* 分類徽章 */}
+        {/* 分类徽章 */}
         <button
           onClick={handleCategoryClick}
           className="category-badge inline-flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-700 rounded-md text-xs font-medium hover:bg-purple-200 transition-colors"
@@ -245,12 +245,12 @@ export function ComponentCard({
           <span>{categoryLabel}</span>
         </button>
 
-        {/* 組件標題 */}
+        {/* 組件标題 */}
         <h3 className="text-base font-semibold text-gray-900 line-clamp-1">
           {title}
         </h3>
 
-        {/* 簡短描述 */}
+        {/* 简短描述 */}
         <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
           {briefDescription}
         </p>

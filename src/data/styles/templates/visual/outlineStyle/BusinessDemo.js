@@ -1,5 +1,5 @@
-// BusinessDemo.js - 商業網站模板
-// Outline Style 的專業商業場景實現
+// BusinessDemo.js - 商業网站模板
+// Outline Style 的专業商業場景實現
 
 export const fullPageHTML = `
   <!-- Navigation -->
@@ -798,23 +798,23 @@ export const fullPageStyles = `
   }
 `;
 
-// 標準模板對象
+// 标準模板對象
 export const businessDemo = {
   id: 'visual-outlineStyle-business',
   title: 'styles.outlineStyle.businessDemo.title',
   description: 'styles.outlineStyle.businessDemo.description',
 
-  // Demo 預覽 (在 StyleCard 中顯示，使用 Demo.js 的內容)
+  // Demo 預覽 (在 StyleCard 中显示，使用 Demo.js 的內容)
   demoHTML: `<!-- 使用 Demo.js 提供的預覽 -->`,
   customStyles: `/* 使用 Demo.js 提供的樣式 */`,
 
-  // 完整頁面預覽
+  // 完整页面預覽
   fullPageHTML,
   fullPageStyles,
 
   // 配色方案
   colorScheme: {
-    'zh-CN': '主色黑色線條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、邊框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)',
+    'zh-CN': '主色黑色线條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)',
     'en-US': 'Primary black outlines (#000000), white background (#ffffff), secondary light gray (#f5f5f5), border black (#000000 / stroke-width: 1-2px), text dark gray (#333333)'
   }
 };

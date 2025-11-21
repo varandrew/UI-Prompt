@@ -1,0 +1,10 @@
+// Replace customPrompt and stylePrompt with simple versions
+const simpleCust = {
+  'en-US': 'Create a platform jumper pixel art game UI using Game Boy colors and TailwindCSS.',
+  'zh-CN': '使用 Game Boy 配色和 TailwindCSS 创建平台跳跃像素游戏 UI。'
+};
+
+const simpleStyle = {
+  'en-US': 'Platform jumper game interface with Game Boy 4-tone green palette, pixel-perfect rendering, and 8-bit typography.',
+  'zh-CN': '平台跳跃游戏界面，采用 Game Boy 4 色绿色调色板、像素完美渲染和 8-bit 字体。'
+};

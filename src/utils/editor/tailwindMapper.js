@@ -2,8 +2,8 @@
  * Tailwind CSS 映射器
  *
  * 職責:
- * - 將 px/數值轉換為 Tailwind class 建議
- * - 處理顏色映射
+ * - 將 px/数值轉換為 Tailwind class 建議
+ * - 處理颜色映射
  * - 生成響應式前綴
  *
  * 版本: Tailwind CSS 4.1
@@ -30,7 +30,7 @@ const SPACING_SCALE = {
   64: '16'    // 64px → 16
 };
 
-// ========== 顏色映射表 (Tailwind Default Palette) ==========
+// ========== 颜色映射表 (Tailwind Default Palette) ==========
 const COLOR_MAP = {
   // Blues
   '#3B82F6': 'blue-500',
@@ -82,7 +82,7 @@ function findClosestScale(value, scaleMap) {
 }
 
 /**
- * 主映射函數
+ * 主映射函数
  */
 export const mapToTailwind = (cssProperty, value) => {
   const mappers = {
@@ -91,16 +91,16 @@ export const mapToTailwind = (cssProperty, value) => {
       if (typeof val === 'object') {
         const { top, right, bottom, left } = val;
         if (top === right && right === bottom && bottom === left) {
-          // 四邊相同
+          // 四边相同
           const scale = findClosestScale(top, SPACING_SCALE);
           return `p-${SPACING_SCALE[scale]}`;
         }
-        // 四邊不同 (回退到自定義)
+        // 四边不同 (回退到自定義)
         return {
           customCss: `padding: ${top}px ${right}px ${bottom}px ${left}px`
         };
       }
-      // 數值
+      // 数值
       const scale = findClosestScale(val, SPACING_SCALE);
       return `p-${SPACING_SCALE[scale]}`;
     },
@@ -135,7 +135,7 @@ export const mapToTailwind = (cssProperty, value) => {
       return `gap-${SPACING_SCALE[scale]}`;
     },
 
-    // ========== 顏色屬性 ==========
+    // ========== 颜色屬性 ==========
     backgroundColor: (val) => {
       if (COLOR_MAP[val]) {
         return `bg-${COLOR_MAP[val]}`;
@@ -158,7 +158,7 @@ export const mapToTailwind = (cssProperty, value) => {
       return { customCss: `border-color: ${val}` };
     },
 
-    // ========== 字體屬性 ==========
+    // ========== 字体屬性 ==========
     fontSize: (val) => {
       const sizeMap = {
         12: 'text-xs',
@@ -195,7 +195,7 @@ export const mapToTailwind = (cssProperty, value) => {
       return weightMap[val] || 'font-normal';
     },
 
-    // ========== 邊框與圓角 ==========
+    // ========== 边框与圓角 ==========
     borderRadius: (val) => {
       if (val === 0) return 'rounded-none';
       if (val <= 2) return 'rounded-sm';
@@ -207,7 +207,7 @@ export const mapToTailwind = (cssProperty, value) => {
     },
 
     border: (val) => {
-      // 簡單處理 "1px solid #XXX" 格式
+      // 简單處理 "1px solid #XXX" 格式
       if (typeof val === 'string' && val.startsWith('1px')) {
         return 'border';
       }
@@ -350,7 +350,7 @@ export const mapStyleObject = (styleObj) => {
 };
 
 /**
- * 工具函數: 轉換為 kebab-case
+ * 工具函数: 轉換為 kebab-case
  */
 function kebabCase(str) {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();

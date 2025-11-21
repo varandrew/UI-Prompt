@@ -1,5 +1,5 @@
 // Arcade Hall Full Page Template
-// 街機大廳完整頁面模板
+// 街機大廳完整页面模板
 
 export const GLM_4_6_1_FullPageHTML = `
 <!DOCTYPE html>

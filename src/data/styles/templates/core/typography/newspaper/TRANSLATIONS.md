@@ -62,7 +62,7 @@
 
 ---
 
-## styleTagsMapping.js 標籤映射
+## styleTagsMapping.js 标籤映射
 
 在 `styleEnhancements` 對象中添加:
 

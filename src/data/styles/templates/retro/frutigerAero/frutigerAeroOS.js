@@ -58,28 +58,28 @@ export const frutigerAeroOS = {
 
 【色彩与材质】
 1. 渐变背景
-   - 建议颜色：Sky blue (#4DA6FF)、cyan blue (#66B3FF)、turquoise (#00CED1)，以線性或輕微徑向漸變呈現。
+   - 建议颜色：Sky blue (#4DA6FF)、cyan blue (#66B3FF)、turquoise (#00CED1)，以线性或輕微徑向漸变呈現。
 2. 玻璃卡片
-   - 使用透明白背景（例如 rgba(255,255,255,0.4)），配合模糊（backdrop-filter: blur(12px)）和白色細邊框表現玻璃質感。
+   - 使用透明白背景（例如 rgba(255,255,255,0.4)），配合模糊（backdrop-filter: blur(12px)）和白色細边框表現玻璃质感。
 3. 高光氣泡
-   - 在卡片內外添加圓形高光或彩色光斑，模擬水滴與光線折射。
+   - 在卡片內外添加圓形高光或彩色光斑，模擬水滴与光线折射。
 
 【阴影与深度】
-1. 卡片陰影
-   - 為玻璃卡片添加柔和的外陰影，給人懸浮於背景之上的感覺。
+1. 卡片阴影
+   - 為玻璃卡片添加柔和的外阴影，給人懸浮於背景之上的感覺。
 2. 氣泡光暈
-   - 水滴氣泡應具備內發光與外圈模糊，營造晶體透明感。
+   - 水滴氣泡應具备內發光与外圈模糊，營造晶体透明感。
 
 【交互与动效】
 1. 懸停效果
-   - 卡片與圖標在 hover 時輕微放大（scale 約 1.05）並加深陰影或外光暈，過渡時間 200–300ms。
-2. 呼吸動畫
-   - 可對光斑或背景光帶使用緩慢的呼吸式亮度/位移變化，節奏柔和，避免急劇閃爍。
+   - 卡片与圖标在 hover 時輕微放大（scale 約 1.05）並加深阴影或外光暈，過渡時間 200–300ms。
+2. 呼吸動画
+   - 可對光斑或背景光帶使用緩慢的呼吸式亮度/位移变化，節奏柔和，避免急劇閃爍。
 
 【输出要求】
-- 使用语义化 HTML/JSX 組織背景層、玻璃卡片與圖標區；
-- 使用 TailwindCSS 原子類描述漸變背景、模糊、圓角與陰影；
-- 生成的界面在「藍色漸變天空 + 半透明玻璃面板 + 水滴氣泡 + 柔和大圓角」這些關鍵特徵上，應與當前 Frutiger Aero OS 示例高度接近。`,
+- 使用语义化 HTML/JSX 組織背景层、玻璃卡片与圖标区；
+- 使用 TailwindCSS 原子类描述漸变背景、模糊、圓角与阴影；
+- 生成的界面在「藍色漸变天空 + 半透明玻璃面板 + 水滴氣泡 + 柔和大圓角」這些关鍵特徵上，應与當前 Frutiger Aero OS 示例高度接近。`,
 
     'en-US': `You are a senior UI designer and front-end engineer. Generate a Frutiger Aero OS-style interface that looks very close to the current “Frutiger Aero OS” demo.
 Keep the sky-blue gradient background, translucent glass cards and crystal bubble highlights as the core composition. You may change icon meaning, number of buttons and text labels, but not the layout logic or material language. Output semantic HTML (or JSX) and TailwindCSS-style utility classes (or an equivalent utility-first system).

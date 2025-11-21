@@ -1,15 +1,15 @@
 /**
- * Cyberpunk 動畫時間軸配置
- * 定義每個組件出現的進度區間和動畫參數
+ * Cyberpunk 動画時間軸配置
+ * 定義每個組件出現的進度区間和動画參数
  */
 
 export const ANIMATION_TIMELINE = {
-  // 背景層 (0-8%) - 約 1.2 秒完成
+  // 背景层 (0-8%) - 約 1.2 秒完成
   background: { start: 0, end: 1, duration: 1 },
   grid: { start: 1, end: 3, duration: 2 },
   scanline: { start: 3, end: 8, duration: 5 },
 
-  // 導航欄 (8-20%) - 約 1.8 秒
+  // 导航欄 (8-20%) - 約 1.8 秒
   navbar: { start: 8, end: 10, duration: 2 },
   navbarLogo: { start: 10, end: 11, duration: 1 },
   navbarLink1: { start: 11, end: 12, duration: 1 },
@@ -20,7 +20,7 @@ export const ANIMATION_TIMELINE = {
   navbarNotif: { start: 17, end: 18, duration: 1 },
   navbarAvatar: { start: 18, end: 20, duration: 2 },
 
-  // Hero 區塊 (20-38%) - 約 2.7 秒
+  // Hero 区塊 (20-38%) - 約 2.7 秒
   hero: { start: 20, end: 22, duration: 2 },
   heroTitle: { start: 22, end: 25, duration: 3 },
   heroSubtitle: { start: 25, end: 28, duration: 3 },
@@ -35,7 +35,7 @@ export const ANIMATION_TIMELINE = {
   networkCard: { start: 50, end: 55, duration: 5 },
   securityCard: { start: 55, end: 58, duration: 3 },
 
-  // 終端區塊 (58-78%) - 約 3 秒
+  // 終端区塊 (58-78%) - 約 3 秒
   terminalSection: { start: 58, end: 60, duration: 2 },
   terminalLog1: { start: 60, end: 63, duration: 3 },
   terminalLog2: { start: 63, end: 66, duration: 3 },
@@ -49,7 +49,7 @@ export const ANIMATION_TIMELINE = {
 };
 
 /**
- * 檢查組件是否應該顯示
+ * 检查組件是否應該显示
  * @param {string} componentName - 組件名稱
  * @param {number} progress - 當前進度 (0-100)
  * @returns {boolean}
@@ -61,10 +61,10 @@ export function shouldShow(componentName, progress) {
 }
 
 /**
- * 計算組件的動畫進度
+ * 計算組件的動画進度
  * @param {string} componentName - 組件名稱
  * @param {number} progress - 當前進度 (0-100)
- * @returns {number} 0-1 之間的動畫進度
+ * @returns {number} 0-1 之間的動画進度
  */
 export function getAnimationProgress(componentName, progress) {
   const config = ANIMATION_TIMELINE[componentName];

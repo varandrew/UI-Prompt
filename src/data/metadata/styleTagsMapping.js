@@ -33,7 +33,7 @@ export const styleEnhancements = {
     tags: ['contemporary', 'translucent', 'depth', 'enterprise'],
     relatedStyles: ['core-material', 'visual-translucent-glassMorphism']
   },
-  // core-typography 已移除 - 重複顯示
+  // core-typography 已移除 - 重複显示
 
   // Visual Design Styles
   'visual-neo-brutalism': {
@@ -312,7 +312,7 @@ export const styleEnhancements = {
   },
   // visual-threed-floating 已移除 - 無 preview HTML
   // visual-threed-depth-card 已移除 - 無 preview HTML
-  // visual-threed-parallax 已移除 - 與 scrollNarrative 重複（無 preview HTML）
+  // visual-threed-parallax 已移除 - 与 scrollNarrative 重複（無 preview HTML）
   // visual-threed-isometric 已移除 - 無 preview HTML
 
   // Shape 系列
@@ -433,14 +433,6 @@ export const styleEnhancements = {
     tags: ['contemporary', 'minimal', 'monochrome', 'clean', 'enterprise'],
     relatedStyles: ['core-minimalism', 'visual-outlineStyle-business', 'visual-texture-grain']
   },
-
-  // Modern & Minimal 系列
-  'saas-minimal': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'modern'],
-    tags: ['contemporary', 'minimal', 'clean', 'enterprise', 'saas'],
-    relatedStyles: ['core-minimalism', 'visual-outlineStyle-business', 'visual-monochrome']
-  },
   'kawaii-minimal': {
     primaryCategory: 'visual',
     categories: ['visual', 'modern'],
@@ -483,7 +475,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'modern'],
     tags: ['contemporary', 'minimal', 'clean', 'enterprise', 'professional'],
-    relatedStyles: ['core-minimalism', 'visual-outlineStyle-business', 'saas-minimal']
+    relatedStyles: ['core-minimalism', 'visual-outlineStyle-business']
   },
 
   // Accessibility 系列
@@ -563,7 +555,7 @@ export const enhanceStyle = (style) => {
     let inferredCategories = style.categories;
     if (!inferredCategories || inferredCategories.length === 0) {
       inferredCategories = [inferredCategory];
-      // 根據 id 添加子分類
+      // 根据 id 添加子分类
       if (style.id.includes('-tech-')) {
         inferredCategories.push('tech');
       }

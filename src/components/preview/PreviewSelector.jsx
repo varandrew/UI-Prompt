@@ -1,23 +1,23 @@
 import { useLanguage } from '../../hooks/useLanguage';
 
 /**
- * PreviewSelector - 預覽選擇器組件（極簡主義風格重構版）
+ * PreviewSelector - 預覽選擇器組件（極简主義風格重構版）
  *
- * 設計原則：
- * - 極簡配色：黑白灰系統
+ * 设計原則：
+ * - 極简配色：黑白灰系統
  * - 充分留白：避免視覺擁擠
- * - 清晰層次：通過邊框和顏色區分狀態
+ * - 清晰层次：通過边框和颜色区分狀態
  * - 無圓角：純幾何形狀
- * - 極簡過渡：僅顏色變化，無複雜動畫
+ * - 極简過渡：仅颜色變化，無複雜動画
  *
- * 響應式設計:
- * - 桌面端 (≥768px): 顯示極簡按鈕組
- * - 移動端 (<768px): 顯示極簡下拉選單
+ * 響應式设計:
+ * - 桌面端 (≥768px): 显示極简按鈕組
+ * - 移動端 (<768px): 显示極简下拉選單
  *
  * @param {Object[]} previews - 預覽列表
  * @param {number} activeIndex - 當前激活的預覽索引
  * @param {Function} onChange - 索引變化回調
- * @param {string} variant - 顯示模式: 'buttons' | 'dropdown' | 'auto'
+ * @param {string} variant - 显示模式: 'buttons' | 'dropdown' | 'auto'
  * @param {string} className - 自定義容器樣式
  */
 export function PreviewSelector({
@@ -29,7 +29,7 @@ export function PreviewSelector({
 }) {
   const { t, language } = useLanguage();
 
-  // 如果沒有預覽或只有一個預覽,不顯示選擇器
+  // 如果沒有預覽或只有一個預覽,不显示選擇器
   if (!previews || previews.length <= 1) {
     return null;
   }
@@ -49,7 +49,7 @@ export function PreviewSelector({
     handleChange(Number(e.target.value));
   };
 
-  // 輔助函數：獲取預覽名稱（處理對象和字符串兩種格式）
+  // 輔助函数：獲取預覽名稱（處理對象和字符串兩種格式）
   const getPreviewName = (preview, idx) => {
     if (!preview || !preview.name) {
       return `Preview ${idx + 1}`;
@@ -61,16 +61,16 @@ export function PreviewSelector({
     if (typeof preview.name === 'object' && preview.name !== null && !Array.isArray(preview.name)) {
       result = preview.name[language] || preview.name['zh-cn'] || preview.name['en-US'] || '';
     }
-    // 如果 name 是字符串，使用翻譯函數
+    // 如果 name 是字符串，使用翻譯函数
     else if (typeof preview.name === 'string') {
       result = t(preview.name);
     }
     
-    // 確保返回值始終是字符串，避免顯示 [object Object]
+    // 確保返回值始終是字符串，避免显示 [object Object]
     return String(result || `Preview ${idx + 1}`);
   };
 
-  // 桌面端：極簡按鈕組
+  // 桌面端：極简按鈕組
   const renderButtons = () => (
     <nav
       className={`inline-flex gap-1 ${className}`}
@@ -78,7 +78,7 @@ export function PreviewSelector({
       aria-label={t('preview.selectPreview') || 'Select preview'}
     >
       {previews.map((preview, idx) => {
-        // 跳過 inline 類型的預覽
+        // 跳過 inline 类型的預覽
         if (preview.type === 'inline') return null;
 
         return (
@@ -109,7 +109,7 @@ export function PreviewSelector({
     </nav>
   );
 
-  // 移動端：極簡下拉選單
+  // 移動端：極简下拉選單
   const renderDropdown = () => (
     <div className={`w-full ${className}`}>
       <label htmlFor="preview-selector" className="sr-only">
@@ -131,7 +131,7 @@ export function PreviewSelector({
         aria-label={t('preview.selectPreview') || 'Select preview'}
       >
         {previews.map((preview, idx) => {
-          // 跳過 inline 類型的預覽
+          // 跳過 inline 类型的預覽
           if (preview.type === 'inline') return null;
 
           return (
@@ -144,7 +144,7 @@ export function PreviewSelector({
     </div>
   );
 
-  // 根據 variant 決定顯示內容
+  // 根据 variant 決定显示內容
   switch (variant) {
     case 'buttons':
       return renderButtons();
@@ -156,12 +156,12 @@ export function PreviewSelector({
     default:
       return (
         <>
-          {/* 桌面端: 極簡按鈕組 */}
+          {/* 桌面端: 極简按鈕組 */}
           <div className="hidden md:block">
             {renderButtons()}
           </div>
 
-          {/* 移動端: 極簡下拉選單 */}
+          {/* 移動端: 極简下拉選單 */}
           <div className="block md:hidden">
             {renderDropdown()}
           </div>

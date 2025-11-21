@@ -19,7 +19,7 @@ export const description = 'styles.core.typography.newspaper.description';
 
 // 🔑 家族级 CustomPrompt（長版，符合 CUSTOM_PROMPT_TEMPLATE，用於「Get Prompt」按鈕）
 export const customPrompt = {
-  'zh-CN': `你现在是一名擅长排版系統與版面結構的資深 UI 设计师兼前端工程师，请生成一个与当前「报纸排版（Newspaper Typography）」家族展示界面风格高度接近的报纸风格 UI。
+  'zh-CN': `你现在是一名擅长排版系統与版面結構的資深 UI 设计师兼前端工程师，请生成一个与当前「报纸排版（Newspaper Typography）」家族展示界面风格高度接近的报纸风格 UI。
 请使用 TailwindCSS 创建一个 Newspaper Typography 风格的界面，通过报头（Masthead）、首字下沉、多栏排版和细致的规则线来重现传统印刷媒体在网页中的阅读体验。
 
 **核心设计要求**
@@ -39,7 +39,7 @@ export const customPrompt = {
        font-family: 'Georgia', 'Times New Roman', 'Merriweather', serif;
      }
      \`\`\`
-   - 可在报头上方增加版次與價格信息條（vol / price bar），字重較輕：
+   - 可在报头上方增加版次与價格信息條（vol / price bar），字重較輕：
      \`\`\`css
      .newspaper-topbar {
        display: flex;
@@ -51,7 +51,7 @@ export const customPrompt = {
      \`\`\`
 
 2. **首字下沉（Drop Cap 系统）**
-   - 首字母放大 3–5 倍，與正文共享同一行，製造傳統印刷開頭效果：
+   - 首字母放大 3–5 倍，与正文共享同一行，製造傳統印刷開頭效果：
      \`\`\`css
      .drop-cap-paragraph {
        font-size: 0.9375rem;  /* 15px */
@@ -69,7 +69,7 @@ export const customPrompt = {
        color: #1E3A8A;
      }
      \`\`\`
-   - 亦可使用帶邊框的強調版本：
+   - 亦可使用帶边框的強調版本：
      \`\`\`css
      .drop-cap-framed::first-letter {
        float: left;
@@ -90,7 +90,7 @@ export const customPrompt = {
      .newspaper-columns {
        column-count: 3;
        column-gap: 2rem;                 /* 32px */
-       column-rule: 1px solid #E5E7EB;   /* 欄間分隔線 */
+       column-rule: 1px solid #E5E7EB;   /* 欄間分隔线 */
        font-size: 0.9375rem;
        line-height: 1.6;
        text-align: justify;
@@ -110,8 +110,8 @@ export const customPrompt = {
      }
      \`\`\`
 
-4. **標題層級與副標（Typographic Hierarchy）**
-   - 為不同層級的標題定義清晰規則：
+4. **标題层級与副标（Typographic Hierarchy）**
+   - 為不同层級的标題定義清晰規則：
      \`\`\`css
      .headline-main {
        font-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -138,8 +138,8 @@ export const customPrompt = {
      }
      \`\`\`
 
-5. **經典規則線與欄目盒（Rules & Boxes）**
-   - 利用雙線、點線強化分區與層次：
+5. **經典規則线与欄目盒（Rules & Boxes）**
+   - 利用双线、點线強化分区与层次：
      \`\`\`css
      .section-divider {
        border-top: 3px double #000000;
@@ -181,8 +181,8 @@ export const customPrompt = {
      }
      \`\`\`
 
-6. **頁面佈局與版心（Page Layout & Grid）**
-   - 整體頁面應有「紙張邊距 + 版心」的結構，而不是滿版卡片：
+6. **页面佈局与版心（Page Layout & Grid）**
+   - 整体页面應有「紙張边距 + 版心」的結構，而不是滿版卡片：
      \`\`\`css
      .newspaper-shell {
        min-height: 100vh;
@@ -217,8 +217,8 @@ export const customPrompt = {
      }
      \`\`\`
 
-7. **尾欄、次要文章與腳註區（Secondary Stories & Footer）**
-   - 在頁面底部使用 2–3 欄次要文章，配合雙線或細線區隔：
+7. **尾欄、次要文章与腳註区（Secondary Stories & Footer）**
+   - 在页面底部使用 2–3 欄次要文章，配合双线或細线区隔：
      \`\`\`css
      .newspaper-secondary {
        display: grid;
@@ -254,17 +254,17 @@ export const customPrompt = {
 
 中性色与辅助色：
 - 日期/說明灰：#6B7280, #9CA3AF
-- 分隔線灰：#D1D5DB, #E5E7EB
+- 分隔线灰：#D1D5DB, #E5E7EB
 
 背景色：
 - 紙張米白：#FAF8F5, #F9FAFB
 - 版心白：#FFFFFF
-- 外圍灰背景（頁面襯底）：#E5E7EB
+- 外圍灰背景（页面襯底）：#E5E7EB
 
 **关键 CSS 类示例**
 
 \`\`\`css
-/* 頁面外殼（灰背景 + 居中紙張） */
+/* 页面外殼（灰背景 + 居中紙張） */
 .newspaper-shell {
   min-height: 100vh;
   background: #E5E7EB;
@@ -284,7 +284,7 @@ export const customPrompt = {
   font-family: 'Georgia', 'Times New Roman', 'Merriweather', serif;
 }
 
-/* 報頭區 */
+/* 報頭区 */
 .newspaper-header {
   border-top: 4px solid #000000;
   border-bottom: 4px solid #000000;
@@ -308,7 +308,7 @@ export const customPrompt = {
   margin-top: 0.5rem;
 }
 
-/* 主故事區 + 側欄 */
+/* 主故事区 + 側欄 */
 .newspaper-layout {
   display: grid;
   grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
@@ -349,21 +349,21 @@ export const customPrompt = {
 **间距与字体系统（建议）**
 
 - 基础间距单位：4px 或 8px，正文段落間距 16px。
-- 報頭與版心四周外邊距：24–32px。
-- 標題層級：
-  - 報頭：40–56px，字重 900，全大寫。
+- 報頭与版心四周外边距：24–32px。
+- 标題层級：
+  - 報頭：40–56px，字重 900，全大写。
   - 主标题：24–32px，字重 800–900。
   - 小标题：18–20px，字重 600–700。
 - 正文字號：14–16px，行高 1.6–1.8。
 - 裝飾文字（Caption / Footer）：12–13px，行高 1.4–1.6。
 
 **重要提示**
-- 必須使用语义化 HTML 結構（header / main / article / aside / footer），避免僅用 <div> 堆疊。
+- 必須使用语义化 HTML 結構（header / main / article / aside / footer），避免仅用 <div> 堆疊。
 - 正文對比度需達到 WCAG AA（正文灰 vs 米白背景 > 7:1），確保長文閱讀舒適。
-- 勿使用高飽和亮色區塊或霓虹色，將主視覺重點放在排版與文字層次。
+- 勿使用高飽和亮色区塊或霓虹色，將主視覺重點放在排版与文字层次。
 - 多欄布局下要避免圖片或段落在欄內被任意分割，可使用 \`break-inside: avoid\`。
-- Hover 動效需克制，主要用於連結下劃線、顏色細微變化，不要讓整個版面大幅位移或放大。
-- 在 TailwindCSS 中，將重複的報頭、欄寬、分隔線樣式封裝為自定義 utilities 或組件，方便跨頁重用。`,
+- Hover 動效需克制，主要用於連結下劃线、颜色細微变化，不要让整個版面大幅位移或放大。
+- 在 TailwindCSS 中，將重複的報頭、欄寬、分隔线樣式封裝為自定義 utilities 或組件，方便跨页重用。`,
 
   'en-US': `You are now a senior UI designer and front-end engineer specialising in editorial layout systems. Please generate a UI in the Newspaper Typography family that closely matches the current core “Newspaper Typography” style card.
 Create a newspaper-style interface using TailwindCSS, combining masthead, drop caps, multi-column body text and classic rules to recreate a print-like reading experience on the web.

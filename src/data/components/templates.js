@@ -1,7 +1,7 @@
 /**
- * 預設模板（MVP）
+ * 預设模板（MVP）
  *
- * 結構描述使用簡化樹：只標明 componentType 與可選的 overrides
+ * 結構描述使用简化樹：只标明 componentType 与可選的 overrides
  * 由 store 的 loadTemplate 在應用時為每個節點分配 id 並合成默認 props。
  */
 
@@ -37,8 +37,8 @@ export const TEMPLATES = {
         ...Array.from({ length: 3 }).map((_, i) => ({
           componentType: 'Card',
           children: [
-            { componentType: 'Text', overrides: { baseProps: { content: { text: `卡片標題 ${i + 1}` }, style: { fontSize: 20, fontWeight: 600 } } } },
-            { componentType: 'Text', overrides: { baseProps: { content: { text: '用簡潔清晰的描述來傳遞價值。' }, style: { color: '#6B7280' } } } },
+            { componentType: 'Text', overrides: { baseProps: { content: { text: `卡片标題 ${i + 1}` }, style: { fontSize: 20, fontWeight: 600 } } } },
+            { componentType: 'Text', overrides: { baseProps: { content: { text: '用简潔清晰的描述來傳遞價值。' }, style: { color: '#6B7280' } } } },
             { componentType: 'Button', overrides: { baseProps: { content: { text: '瞭解更多' } } } }
           ]
         }))

@@ -8,59 +8,59 @@ export const materialYouAndroidSettings = {
   title: 'styles.core.material-design.preview.materialYouAndroidSettings',
   description: 'styles.core.material-design.preview.materialYouAndroidSettingsDesc',
 
-  // ✨ AI Prompt（用于生成與當前 Material You Android 設置頁高度接近的 UI）
+  // ✨ AI Prompt（用于生成与當前 Material You Android 设置页高度接近的 UI）
   customPrompt: {
-    'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Material You Android 设置页面」界面风格高度接近的系統設置 UI。
-要求：保持動態配色（跟隨壁紙）、柔和大圓角、大尺寸卡片和極少陰影的特徵，只允許替換具體設置項與文案。輸出為移動端優先的語義化 HTML 結構（或對應的 JSX）與 TailwindCSS 風格原子類。
+    'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Material You Android 设置页面」界面风格高度接近的系統设置 UI。
+要求：保持動態配色（跟隨壁紙）、柔和大圓角、大尺寸卡片和極少阴影的特徵，只允許替換具体设置項与文案。輸出為移動端优先的語義化 HTML 結構（或對應的 JSX）与 TailwindCSS 風格原子类。
 
 【使用場景】
-- 場景：Android 12+ 系統級設置頁（如「顯示」「通知」「聲音」設定）。
-- 用戶：日常調整手機設置的普通用戶。
-- 目標：營造溫暖、個性化且易操作的設置體驗，避免冰冷技術感。
+- 場景：Android 12+ 系統級设置页（如「显示」「通知」「聲音」设定）。
+- 用戶：日常調整手機设置的普通用戶。
+- 目标：營造溫暖、個性化且易操作的设置体驗，避免冰冷技術感。
 
-【整體佈局結構】
-1. App Bar / 標題區
-   - 上方顯示頁面標題（如 Settings / Display），字體較大，左對齊。
-   - 可包含返回箭頭圖標及簡短描述。
-2. 主內容區
-   - 由多組「設定卡片」垂直堆疊構成，每個卡片代表一組設定類別或單一開關。
+【整体佈局結構】
+1. App Bar / 标題区
+   - 上方显示页面标題（如 Settings / Display），字体較大，左對齊。
+   - 可包含返回箭頭圖标及简短描述。
+2. 主內容区
+   - 由多組「设定卡片」垂直堆疊構成，每個卡片代表一組设定类別或單一開关。
    - 每張卡片包含：
-     - 左側圖標或標題；
-     - 右側為切換開關、下拉選擇、文字描述等。
-3. 分組標題
-   - 大組之間可有簡短的組標題（如「顯示」「聲音」「通知」等），字體比正文稍大。
+     - 左側圖标或标題；
+     - 右側為切換開关、下拉選擇、文字描述等。
+3. 分組标題
+   - 大組之間可有简短的組标題（如「显示」「聲音」「通知」等），字体比正文稍大。
 
-【色彩與動態主題】
+【色彩与動態主題】
 1. 動態色彩系統
    - 主色系由用戶壁紙決定：柔和紫 / 粉 / 綠 / 藍系，飽和度中等偏低。
-   - 背景為非常淺的暖色調（非純白），如 #f5f0f7 之類，帶一些色彩傾向。
-2. 卡片與控件
-   - 卡片背景使用主題色的淺階（如主色 50/100），與背景有輕微對比。
-   - 按鈕與開關的「開啟」狀態使用主題主色，關閉狀態使用中性灰。
+   - 背景為非常淺的暖色調（非純白），如 #f5f0f7 之类，帶一些色彩傾向。
+2. 卡片与控件
+   - 卡片背景使用主題色的淺階（如主色 50/100），与背景有輕微對比。
+   - 按鈕与開关的「開啟」狀態使用主題主色，关閉狀態使用中性灰。
 
-【圓角與卡片形態】
-1. 大圓角設計
-   - 卡片圓角 >= 16px，部分大型區塊甚至 24–28px。
-   - 按鈕與開關也採用較大的圓角（膠囊形 / Pill 狀）。
+【圓角与卡片形態】
+1. 大圓角设計
+   - 卡片圓角 >= 16px，部分大型区塊甚至 24–28px。
+   - 按鈕与開关也採用較大的圓角（膠囊形 / Pill 狀）。
 2. 卡片尺寸
-   - 每張設置卡片具有充足高度（例如 72px 起），提供大觸控區域。
+   - 每張设置卡片具有充足高度（例如 72px 起），提供大觸控区域。
 
-【層次與陰影】
-1. 陰影使用極少
-   - 透過色彩深淺和 alpha 建立層次，不依賴傳統陰影。
-   - 偶爾為浮層（底部抽屜、對話框）加入柔和陰影即可。
+【层次与阴影】
+1. 阴影使用極少
+   - 透過色彩深淺和 alpha 建立层次，不依賴傳統阴影。
+   - 偶爾為浮层（底部抽屜、對話框）加入柔和阴影即可。
 
-【交互與動效】
-1. 切換與點擊
-   - 開關滑動時應具有平滑動畫，顏色與位置同時過渡。
+【交互与動效】
+1. 切換与點擊
+   - 開关滑動時應具有平滑動画，颜色与位置同時過渡。
    - 點擊卡片時，可短暫強調背景色或透明度，持續時間 150–250ms。
 2. 佈局動效
-   - 底部抽屜、對話框從底部滑入，配合透明度漸變。
+   - 底部抽屜、對話框从底部滑入，配合透明度漸变。
 
 【輸出要求】
-- 使用適合移動端的結構與類名（可以假設為單欄布局）。
-- 盡量使用 Tailwind 原子類描述排版，例如：max-w-md mx-auto px-4 py-6 space-y-4。
-- 生成的 UI 必須保留「動態配色 + 大圓角卡片 + 少陰影 + 大尺寸控件」等 Material You 風格特徵，讓人一眼看出是 Android 12+ 設置頁。`,
+- 使用適合移動端的結構与类名（可以假设為單欄布局）。
+- 盡量使用 Tailwind 原子类描述排版，例如：max-w-md mx-auto px-4 py-6 space-y-4。
+- 生成的 UI 必須保留「動態配色 + 大圓角卡片 + 少阴影 + 大尺寸控件」等 Material You 風格特徵，让人一眼看出是 Android 12+ 设置页。`,
     'en-US': `You are a senior UI designer and front-end engineer. Generate a Material You style Android settings screen that looks very close to the current “Material You Android Settings” demo.
 Keep dynamic color behaviour (derived from wallpaper), large rounded corners, big comfortable cards and the very light shadow usage essentially unchanged. You may alter concrete setting names and descriptions, but not the layout pattern or Material You design language. Output a mobile-first semantic HTML (or JSX-like) structure plus TailwindCSS-style utility classes (or an equivalent utility-first system).
 

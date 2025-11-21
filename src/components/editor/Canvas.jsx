@@ -3,30 +3,30 @@ import { CanvasComponent } from './CanvasComponent';
 import { useEffect, useMemo, useRef, useCallback } from 'react';
 
 /**
- * 畫布組件 - 純渲染組件（優化版）
+ * 画布組件 - 純渲染組件（优化版）
  *
  * 職責:
  * - 渲染組件樹
  * - 提供視口尺寸容器
- * - 極簡視覺設計
+ * - 極简視覺设計
  *
- * 優化:
- * - 傳遞 getProps 函數而非整張 props 映射，配合 React.memo 降低重渲染
+ * 优化:
+ * - 傳遞 getProps 函数而非整張 props 映射，配合 React.memo 降低重渲染
  */
 export function Canvas({ onComponentClick, previewSwap = null }) {
-  // 與層級面板一致，統一使用 editorStore 的畫布狀態
+  // 与层級面板一致，統一使用 editorStore 的画布狀態
   const canvasState = useEditorStore((s) => s.canvasState);
   const globalSettings = useEditorStore((s) => s.globalSettings);
   const componentTree = canvasState.componentTree;
   const componentProps = canvasState.componentProps;
 
-  // 穩定化 getProps 函式，避免因映射物件引用變更導致子樹重渲染
+  // 稳定化 getProps 函式，避免因映射物件引用變更导致子樹重渲染
   const mapRef = useRef(componentProps);
   useEffect(() => { mapRef.current = componentProps; }, [componentProps]);
   const getProps = useCallback((id) => mapRef.current[id], []);
 
-  // 視口尺寸（改為直接來自 useViewportStore，與 ViewportToolbar 完全一致）
-  // 避免 selector 每次返回新物件導致 useSyncExternalStore 無限重算：拆分選取確保引用穩定
+  // 視口尺寸（改為直接來自 useViewportStore，与 ViewportToolbar 完全一致）
+  // 避免 selector 每次返回新物件导致 useSyncExternalStore 無限重算：拆分選取確保引用稳定
   const activeViewport = useViewportStore((s) => s.activeViewport);
   const customWidth = useViewportStore((s) => s.customWidth);
   const customHeight = useViewportStore((s) => s.customHeight);

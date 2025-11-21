@@ -1,7 +1,7 @@
 
 
 export const naturalDefaultFullPageHTML = `
-      <!-- Naturalism / Grainy Minimal 閱讀學習平台 -->
+      <!-- Naturalism / Grainy Minimal 閱讀學习平台 -->
       <div class="min-full-page bg-gradient-to-br from-stone-50 via-amber-50/30 to-orange-50/20">
 
         <!-- SVG 噪點濾鏡定義 -->

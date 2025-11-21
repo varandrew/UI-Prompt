@@ -23,7 +23,7 @@ function getCurrentLanguage() {
 }
 
 /**
- * 獲取指定語言的翻譯數據
+ * 獲取指定語言的翻譯数据
  */
 function getTranslations(lang = getCurrentLanguage()) {
   const normalizedLang = normalizeLanguageCode(lang);
@@ -56,7 +56,7 @@ function getTranslation(key, language = getCurrentLanguage()) {
 }
 
 /**
- * 安全的翻譯查找函數
+ * 安全的翻譯查找函数
  */
 function getTranslationSafe(key, language) {
   const langData = getTranslations(language);
@@ -91,7 +91,7 @@ function getTranslationSafe(key, language) {
     return result;
   }
 
-  // 英文模式的簡化回退策略（擴充：支援 *Title/*Desc 後綴）
+  // 英文模式的简化回退策略（擴充：支援 *Title/*Desc 後綴）
   if (language === LANGUAGES.EN_US) {
     const segs = key.split('.');
     const last = segs[segs.length - 1] || '';
@@ -111,7 +111,7 @@ function getTranslationSafe(key, language) {
         .replace(/\b\w/g, (l) => l.toUpperCase());
 
     if (endsWithNameLike) {
-      // 取最後一段去除後綴作為標題基底；若去除後為空則回退到上一段
+      // 取最後一段去除後綴作為标題基底；若去除後為空則回退到上一段
       const base = last.replace(/(title|name|label|heading)$/i, '') || prev;
       if (base) return toTitleCase(base);
     }
@@ -121,7 +121,7 @@ function getTranslationSafe(key, language) {
       return '';
     }
 
-    // 原規則：當最後一段恰為標題關鍵詞時，使用上一段
+    // 原規則：當最後一段恰為标題关鍵詞時，使用上一段
     const isNameLike = /^(title|name|label|heading)$/i.test(last);
     const isDescLike = /^(description|desc|subtitle|summary)$/i.test(last);
 
@@ -134,7 +134,7 @@ function getTranslationSafe(key, language) {
     return key;
   }
 
-  // 其他語言時，簡化的回退到 zh-CN
+  // 其他語言時，简化的回退到 zh-CN
   if (language !== LANGUAGES.ZH_CN) {
     const zhData = translations[LANGUAGES.ZH_CN] || {};
     const segs = key.split('.');
@@ -154,9 +154,9 @@ function getTranslationSafe(key, language) {
 
   const finalResult = result || key;
 
-  // 🔍 僅在開發環境下，當翻譯失敗時輸出錯誤日誌
+  // 🔍 仅在開發環境下，當翻譯失敗時輸出错誤日誌
   if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
-    // 檢查是否翻譯失敗（返回值等於原始 key）
+    // 检查是否翻譯失敗（返回值等於原始 key）
     if (finalResult === key && typeof key === 'string') {
       // 只報告真正的 i18n 鍵（以命名空間開頭）
       const isI18nKey = /^(styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt|data|errors)\./i.test(key);
@@ -174,10 +174,10 @@ function getTranslationSafe(key, language) {
  * 兼容兩種簽名：
  * - applyTranslations(obj, language)
  * - applyTranslations(obj, /* prefix(已棄用) * / language)
- * 第二種常見於舊代碼誤把 prefix 放在第二參，真正語言在第三參；此處僅解析語言，忽略 prefix。
+ * 第二種常見於舊代碼誤把 prefix 放在第二參，真正語言在第三參；此處仅解析語言，忽略 prefix。
  */
 function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
-  // 決定語言：優先第三參（舊簽名），否則第二參（新簽名）
+  // 決定語言：优先第三參（舊簽名），否則第二參（新簽名）
   let language = typeof maybeLang === 'string' ? maybeLang : maybeLangOrPrefix;
 
   // 只接受有效的語言代碼
@@ -187,15 +187,15 @@ function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
 
   function translateValue(value, key = '') {
     if (typeof value === 'string') {
-      // 僅嘗試當作 i18n 鍵查詢；查無則回傳原字串（例如 HTML/demo 內容）
-      // 檢查是否看起來像 i18n 鍵（以 data. 或類似的命名空間開頭）
+      // 仅嘗試當作 i18n 鍵查詢；查無則回傳原字串（例如 HTML/demo 內容）
+      // 检查是否看起來像 i18n 鍵（以 data. 或类似的命名空間開頭）
       const looksLikeI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(value);
       
       if (looksLikeI18nKey) {
         const translated = getTranslation(value, language);
-        // 如果翻譯結果與原值不同且不是空字串，返回翻譯結果
-        // 如果翻譯結果是空字串，說明翻譯存在但未填寫，返回原值（避免顯示空字串）
-        // 如果翻譯結果與原值相同，說明沒找到翻譯，返回原值
+        // 如果翻譯結果与原值不同且不是空字串，返回翻譯結果
+        // 如果翻譯結果是空字串，說明翻譯存在但未填写，返回原值（避免显示空字串）
+        // 如果翻譯結果与原值相同，說明沒找到翻譯，返回原值
         if (translated !== value && translated && typeof translated === 'string' && translated.trim() !== '') {
           return translated;
         }
@@ -207,7 +207,7 @@ function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
       return value.map((item, idx) => translateValue(item, `${key}[${idx}]`));
     }
     if (value && typeof value === 'object') {
-      // 檢測 i18n 對象格式：{ 'zh-CN': '...', 'zh-cn': '...', 'en-US': '...' }
+      // 检測 i18n 對象格式：{ 'zh-CN': '...', 'zh-cn': '...', 'en-US': '...' }
       // 對於文本字段（title, description, name 等），自動提取當前語言的文本
       const isTextField = ['title', 'description', 'name', 'label', 'heading', 'subtitle'].includes(key.toLowerCase());
       const isI18nObject = LANGUAGES.ZH_CN in value || LANGUAGES.ZH_CN_LOWER in value || LANGUAGES.EN_US in value;
@@ -215,7 +215,7 @@ function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
       if (isTextField && isI18nObject) {
         // 直接返回當前語言的文本字符串
         // 支持 'zh-CN' 和 'zh-cn' 兩種格式
-        // 首先嘗試當前語言的精確匹配，然後嘗試大小寫變體
+        // 首先嘗試當前語言的精確匹配，然後嘗試大小写變体
         let result = value[language];
         if (!result && language === LANGUAGES.ZH_CN) {
           result = value[LANGUAGES.ZH_CN_LOWER];
@@ -229,7 +229,7 @@ function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
         return result;
       }
       
-      // 其他對象類型繼續遞歸處理
+      // 其他對象类型繼續遞歸處理
       const translatedObj = {};
       for (const [k, v] of Object.entries(value)) {
         translatedObj[k] = translateValue(v, k);
@@ -239,7 +239,7 @@ function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
     return value;
   }
 
-  // 處理數組或對象，從根級別開始翻譯
+  // 處理数組或對象，从根級別開始翻譯
   if (Array.isArray(obj)) {
     return obj.map((item, idx) => translateValue(item, `[${idx}]`));
   }

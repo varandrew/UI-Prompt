@@ -1,5 +1,5 @@
 // Arcade Hall Full Page Template
-// 街機大廳完整頁面模板
+// 街機大廳完整页面模板
 
 export const arcadeHallFullPageHTML = `<!-- ARCADE/CRT SCANLINES FULL PAGE -->
 <div class="arcade-crt-page">
@@ -395,7 +395,7 @@ export const arcadeHallFullPageHTML = `<!-- ARCADE/CRT SCANLINES FULL PAGE -->
 
 export const arcadeHallFullPageStyles = `/* ═══════════════════════════════════════════════════════════════
    ARCADE/CRT SCANLINES FULL PAGE STYLES
-   配色方案: 霓虹粉/藍/黃/綠/橙 + CRT 掃描線效果
+   配色方案: 霓虹粉/藍/黃/綠/橙 + CRT 掃描线效果
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -513,7 +513,7 @@ export const arcadeHallFullPageStyles = `/* ════════════
   }
 }
 
-/* ═══ 霓虹發光類 ═══ */
+/* ═══ 霓虹發光类 ═══ */
 .neon-cyan {
   color: var(--neon-cyan);
   text-shadow:

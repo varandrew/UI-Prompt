@@ -115,7 +115,7 @@ The overall mood is that of a side alley lit only by club signs and bar marquees
 2. **霓虹粉紫 + 高對比光暈**
    - 主色：霓虹紅粉 \`#ff0055\`、霓虹粉紫 \`#ff00ff\`、霓虹紫 \`#b967ff\`
    - 背景多為暗紅 / 酒紅：\`#1a0a14\`、\`#140812\`
-   - 文字與邊框示例：
+   - 文字与边框示例：
      \`\`\`css
      .neon-noir-pink {
        color: #ff0055;
@@ -140,9 +140,9 @@ The overall mood is that of a side alley lit only by club signs and bar marquees
      }
      \`\`\`
 
-3. **霓虹招牌與標題字體**
-   - 使用大寫、寬字距標題：\`letter-spacing: 0.12em - 0.2em\`
-   - 模擬霓虹招牌：多層 text-shadow + 閃爍動畫
+3. **霓虹招牌与标題字体**
+   - 使用大写、寬字距标題：\`letter-spacing: 0.12em - 0.2em\`
+   - 模擬霓虹招牌：多层 text-shadow + 閃爍動画
    - 示例：
      \`\`\`css
      .neon-noir-title {
@@ -165,8 +165,8 @@ The overall mood is that of a side alley lit only by club signs and bar marquees
      }
      \`\`\`
 
-4. **霧氣與光暈粒子**
-   - 使用模糊圓形漸變作為「霓虹光暈」與「街頭霧氣」
+4. **霧氣与光暈粒子**
+   - 使用模糊圓形漸变作為「霓虹光暈」与「街頭霧氣」
    - 粒子隨機漂浮，速度較慢（4–10 秒）以保持 Noir 氣氛
    - 示例：
      \`\`\`css
@@ -188,12 +188,12 @@ The overall mood is that of a side alley lit only by club signs and bar marquees
      }
      \`\`\`
 
-5. **卡片與音樂平台模塊**
-   - 典型場景：音樂平台 / 夜店活動頁面
-   - 卡片設計：
+5. **卡片与音樂平台模塊**
+   - 典型場景：音樂平台 / 夜店活動页面
+   - 卡片设計：
      - 半透明深色背景：\`rgba(10, 10, 16, 0.8)\`
-     - 霓虹邊框 + 微弱內陰影
-     - 卡片標題使用霓虹字體、描述文字保持偏灰色
+     - 霓虹边框 + 微弱內阴影
+     - 卡片标題使用霓虹字体、描述文字保持偏灰色
    - 示例：
      \`\`\`css
      .neon-noir-card {
@@ -213,9 +213,9 @@ The overall mood is that of a side alley lit only by club signs and bar marquees
      }
      \`\`\`
 
-6. **互動與按鈕效果**
-   - 按鈕應具有「霓虹亮起」的懸停狀態與輕微按壓效果
-   - 建議使用邊框 + 透明背景組合
+6. **互動与按鈕效果**
+   - 按鈕應具有「霓虹亮起」的懸停狀態与輕微按壓效果
+   - 建議使用边框 + 透明背景組合
    - 示例：
      \`\`\`css
      .neon-noir-button {
@@ -257,9 +257,9 @@ The overall mood is that of a side alley lit only by club signs and bar marquees
 
 **重要提示**
 - 需保持高對比：背景極暗、霓虹極亮
-- 適量使用霧氣與顆粒，避免畫面過於乾淨
-- 動畫節奏偏慢、偶爾閃爍，模擬不穩定的霓虹燈
-- 避免大面積純白或高飽和其他顏色，以免破壞 Noir 氛圍`,
+- 適量使用霧氣与顆粒，避免画面過於乾淨
+- 動画節奏偏慢、偶爾閃爍，模擬不稳定的霓虹灯
+- 避免大面積純白或高飽和其他颜色，以免破壞 Noir 氛圍`,
 
     'en-US': `Please create a **Neon Noir** style interface using TailwindCSS, combining cyberpunk neon lights with film noir high-contrast lighting to evoke rainy streets, bar entrances, and music/nightclub platforms.
 

@@ -1,12 +1,12 @@
 // Arcade CRT Scanlines Style Demo
-// 街機 CRT 掃描線風格演示
+// 街機 CRT 掃描线風格演示
 
 export const demoHTML = `
   <div class="crt-demo-container">
     <div class="crt-demo-screen">
       <div class="crt-demo-scanlines"></div>
 
-      <!-- CRT 邊框效果 -->
+      <!-- CRT 边框效果 -->
       <div class="crt-demo-bezel">
         <!-- 霓虹 Logo -->
         <div class="crt-demo-logo">
@@ -19,7 +19,7 @@ export const demoHTML = `
           INSERT COIN
         </button>
 
-        <!-- 像素化圖標 -->
+        <!-- 像素化圖标 -->
         <div class="pixel-icons">
           <div class="pixel-icon">▲</div>
           <div class="pixel-icon">●</div>

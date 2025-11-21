@@ -5,10 +5,10 @@ import { demoHTML, customStyles } from './Demo';
 
 // 导入所有模板（从子文件夹）
 // isometric 已移除 - 無 preview HTML
-// parallax 已移除 - 與 scrollNarrative 重複（無 preview HTML）
+// parallax 已移除 - 与 scrollNarrative 重複（無 preview HTML）
 // depthCard 已移除 - 無 preview HTML
 // floating 已移除 - 無 preview HTML
-// cube3d 已移除 - 與 visual-tech-3d-elements 重複（無 preview HTML）
+// cube3d 已移除 - 与 visual-tech-3d-elements 重複（無 preview HTML）
 
 // 导出家族元数据
 export const name = 'styles.visual.threed.title';
@@ -243,10 +243,10 @@ Neutral colors:
 // 导出模板数组
 export const threedTemplates = [
   // isometric 已移除 - 無 preview HTML
-  // parallax 已移除 - 與 scrollNarrative 重複（無 preview HTML）
+  // parallax 已移除 - 与 scrollNarrative 重複（無 preview HTML）
   // depthCard 已移除 - 無 preview HTML
   // floating 已移除 - 無 preview HTML
-  // cube3d 已移除 - 與 visual-tech-3d-elements 重複（無 preview HTML）
+  // cube3d 已移除 - 与 visual-tech-3d-elements 重複（無 preview HTML）
 ];
 
 export default threedTemplates;

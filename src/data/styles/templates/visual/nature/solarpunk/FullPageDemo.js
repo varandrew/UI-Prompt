@@ -13,7 +13,7 @@ export const fullPageHTML = `
     <div class="vine-trail"></div>
   </div>
 
-  <!-- 頂部導航欄 -->
+  <!-- 頂部导航欄 -->
   <header class="solarpunk-header">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between relative z-10">
       <div class="flex items-center gap-4">
@@ -68,7 +68,7 @@ export const fullPageHTML = `
       </div>
     </section>
 
-    <!-- 環保數據統計 -->
+    <!-- 環保数据統計 -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
       <div class="solarpunk-stat-card">
         <div class="stat-icon">☀️</div>
@@ -96,7 +96,7 @@ export const fullPageHTML = `
       </div>
     </section>
 
-    <!-- 能量生成時間線 -->
+    <!-- 能量生成時間线 -->
     <section class="mb-12">
       <h3 class="text-2xl font-bold text-green-900 mb-6">Energy Generation Today</h3>
       <div class="solarpunk-chart-card">
@@ -111,7 +111,7 @@ export const fullPageHTML = `
       </div>
     </section>
 
-    <!-- 主要內容網格 -->
+    <!-- 主要內容网格 -->
     <div class="grid md:grid-cols-3 gap-8 mb-12">
       <!-- 能源來源 -->
       <div class="md:col-span-2">
@@ -181,7 +181,7 @@ export const fullPageHTML = `
       </div>
     </div>
 
-    <!-- 社區市場 -->
+    <!-- 社区市場 -->
     <section class="mb-12">
       <h3 class="text-2xl font-bold text-green-900 mb-6">Community Marketplace</h3>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -212,7 +212,7 @@ export const fullPageHTML = `
       </div>
     </section>
 
-    <!-- 頁腳 -->
+    <!-- 页腳 -->
     <footer class="solarpunk-footer mt-12 pt-8 border-t-2 border-yellow-500">
       <div class="grid md:grid-cols-4 gap-8 mb-6">
         <div>

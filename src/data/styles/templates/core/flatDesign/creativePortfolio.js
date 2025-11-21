@@ -9,7 +9,7 @@ export const flatDesignCreativePortfolio = {
   title: 'styles.core.flat-design.preview.creativePortfolio',
   description: 'styles.core.flat-design.preview.creativePortfolioDesc',
 
-  // ✨ AI Prompt（用于生成與當前 Flat 創意作品集頁面高度接近的 UI）
+  // ✨ AI Prompt（用于生成与當前 Flat 創意作品集页面高度接近的 UI）
   customPrompt: {
     'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Flat 创意作品集 Landing」界面风格高度接近的扁平化（Flat Design）作品集首页。
 要求：保持整体布局结构、纯色块配色和几何元素风格不变，只允许替换文案、项目卡片内容和图标。输出使用语义化 HTML 结构和 TailwindCSS 风格的原子类（或等价的工具类方案）。
@@ -17,52 +17,52 @@ export const flatDesignCreativePortfolio = {
 【使用场景】
 - 场景：创意设计师 / 前端工程师 / 插画师个人作品集首页。
 - 用户：潜在客户、招聘方、同行设计师。
-- 目标：通过扁平化设计突出作品缩略图和标题，强调「内容本身」，讓人一眼看出是現代、鮮明的 Flat Design 作品集。
+- 目标：通过扁平化设计突出作品缩略图和标题，强调「内容本身」，让人一眼看出是現代、鮮明的 Flat Design 作品集。
 
 【整体布局结构】
 1. 顶部导航
    - 左侧：LOGO 或名字文字（全大写 / 中等字重）。
-   - 右侧：简单導航（Work / About / Contact），使用純文字鏈接。
-2. Hero 區域
-   - 左側：大標題（例如「Creative Flat Portfolio」）+ 短副標 + 主行動按鈕（View Work）。
-   - 右側：一個幾何插畫或簡化 UI 示意圖，由純色矩形 / 圓形組成。
-3. 作品網格區
-   - 使用 2–3 列作品卡片網格，每個卡片包含：
+   - 右侧：简单导航（Work / About / Contact），使用純文字鏈接。
+2. Hero 区域
+   - 左側：大标題（例如「Creative Flat Portfolio」）+ 短副标 + 主行動按鈕（View Work）。
+   - 右側：一個幾何插画或简化 UI 示意圖，由純色矩形 / 圓形組成。
+3. 作品网格区
+   - 使用 2–3 列作品卡片网格，每個卡片包含：
      - 彩色卡片背景（純色）；
-     - 作品名稱 / 類型標籤；
-     - 可選的「View Case Study」按鈕或箭頭圖標。
-4. 底部區域（可選）
-   - 簡單的聯絡方式、版權信息或少量社交圖標，仍然維持扁平化幾何風格。
+     - 作品名稱 / 类型标籤；
+     - 可選的「View Case Study」按鈕或箭頭圖标。
+4. 底部区域（可選）
+   - 简單的联絡方式、版權信息或少量社交圖标，仍然維持扁平化幾何風格。
 
-【色彩與形狀】
+【色彩与形狀】
 1. 颜色系统
-   - 以幾個主純色為核心：亮藍、亮橙、亮綠、亮紫等（無漸變、無紋理）。
+   - 以幾個主純色為核心：亮藍、亮橙、亮綠、亮紫等（無漸变、無紋理）。
    - 背景可用大面積淺灰 / 淺色純色，作品卡片使用高飽和度純色。
-   - 文本顏色：深灰 / 深藍（#1f2933 類型），確保高可讀性。
+   - 文本颜色：深灰 / 深藍（#1f2933 类型），確保高可讀性。
 2. 幾何元素
    - 以矩形 / 正方形 / 圓形為基礎形狀。
-   - 卡片與圖示均使用統一圓角，例如 8px。
+   - 卡片与圖示均使用統一圓角，例如 8px。
 
-【扁平化設計規則】
-1. 禁用陰影與漸變
+【扁平化设計規則】
+1. 禁用阴影与漸变
    - 不使用 box-shadow、text-shadow 或 background-gradient。
-2. 層級由顏色與尺寸建立
-   - 用更深 / 更亮的純色和更大的字重來表示重要性，而不是陰影深度。
+2. 层級由颜色与尺寸建立
+   - 用更深 / 更亮的純色和更大的字重來表示重要性，而不是阴影深度。
 3. 留白作為分隔
-   - 使用 margin / padding 控制間距，避免用邊框和陰影堆疊。
+   - 使用 margin / padding 控制間距，避免用边框和阴影堆疊。
 
-【交互與動效】
+【交互与動效】
 1. Hover 效果
-   - 按鈕與卡片 hover 僅改變背景純色深度或文字顏色（例如從 #3498db → #2980b9），不產生位移 / 阴影。
+   - 按鈕与卡片 hover 仅改变背景純色深度或文字颜色（例如从 #3498db → #2980b9），不产生位移 / 阴影。
 2. Active 狀態
-   - 按鈕按下時顏色再深一級即可，不需要縮放或陰影動畫。
+   - 按鈕按下時颜色再深一級即可，不需要縮放或阴影動画。
 3. 過渡節奏
-   - 所有顏色相關過渡可使用 150–200ms 的 ease-out，保持乾脆俐落。
+   - 所有颜色相关過渡可使用 150–200ms 的 ease-out，保持乾脆俐落。
 
 【輸出要求】
-- 使用語義化 HTML：header/nav/main/section/footer 明確分區。
-- 使用 Tailwind 式原子類實現布局（grid/flex/gap/px/py 等）。
-- 生成的界面在「純色彩塊 + 幾何卡片 + 無陰影無漸變 + 大量留白」這幾點上，必須與當前 Flat 作品集界面高度接近。`,
+- 使用語義化 HTML：header/nav/main/section/footer 明確分区。
+- 使用 Tailwind 式原子类實現布局（grid/flex/gap/px/py 等）。
+- 生成的界面在「純色彩塊 + 幾何卡片 + 無阴影無漸变 + 大量留白」這幾點上，必須与當前 Flat 作品集界面高度接近。`,
     'en-US': `You are a senior UI designer and front-end engineer. Generate a Flat creative portfolio landing page that looks very close to the current “Flat Creative Portfolio Landing” demo.
 Keep the overall page structure, color blocking and geometric flat style almost identical to the demo: top navigation, hero section with left text and right abstract illustration, project grid cards and a simple footer. You may change copy, project names and icons, but not the overall layout or visual language. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
 

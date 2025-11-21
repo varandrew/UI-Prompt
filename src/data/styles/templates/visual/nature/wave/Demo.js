@@ -1,9 +1,9 @@
-// Aurora Wave - 簡潔抽象 Demo（無文字內容）
+// Aurora Wave - 简潔抽象 Demo（無文字內容）
 // 用於 StyleCard 的小型預覽
 
 export const demoHTML = `
 <div class="aurora-demo-container">
-  <!-- 背景波浪層 -->
+  <!-- 背景波浪层 -->
   <div class="aurora-wave-layer aurora-wave-layer-1"></div>
   <div class="aurora-wave-layer aurora-wave-layer-2"></div>
   <div class="aurora-wave-layer aurora-wave-layer-3"></div>
@@ -39,7 +39,7 @@ export const customStyles = `
   );
 }
 
-/* 波浪層 */
+/* 波浪层 */
 .aurora-wave-layer {
   position: absolute;
   top: 0;
@@ -83,7 +83,7 @@ export const customStyles = `
   transform: translateY(-15%);
 }
 
-/* 波浪流動動畫 */
+/* 波浪流動動画 */
 @keyframes auroraFlow1 {
   0% { transform: translateX(0) translateY(0); }
   100% { transform: translateX(-50%) translateY(0); }
@@ -99,7 +99,7 @@ export const customStyles = `
   100% { transform: translateX(-50%) translateY(-15%); }
 }
 
-/* 色彩變換動畫 */
+/* 色彩变換動画 */
 @keyframes auroraColor1 {
   0%, 100% {
     filter: blur(45px) hue-rotate(0deg);
@@ -149,7 +149,7 @@ export const customStyles = `
   animation: starTwinkle 4s ease-in-out infinite;
 }
 
-/* 星點閃爍動畫 */
+/* 星點閃爍動画 */
 @keyframes starTwinkle {
   0%, 100% {
     opacity: 0.6;
@@ -173,11 +173,11 @@ export const customStyles = `
   }
 
   .aurora-wave-layer-3 {
-    display: none;  /* 移動端隱藏第三層波浪 */
+    display: none;  /* 移動端隱藏第三层波浪 */
   }
 }
 
-/* 降低動畫偏好設置 */
+/* 降低動画偏好设置 */
 @media (prefers-reduced-motion: reduce) {
   .aurora-wave-layer {
     animation: none !important;

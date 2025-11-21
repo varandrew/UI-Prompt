@@ -1,5 +1,5 @@
 // Minimalism Full Page Design - SaaS Landing Page
-// 溫暖極簡風格 (Warm Minimalism) with Timeline, Loading, List View components
+// 溫暖極简風格 (Warm Minimalism) with Timeline, Loading, List View components
 
 export const minimalismFullPageHTML = `
   <!-- Navigation -->
@@ -417,7 +417,7 @@ export const minimalismFullPageHTML = `
 主色温暖米白 (#FAF9F7)、深色文字 (#1F1F1F)、中性灰色 (#8B8B8B)、浅灰背景 (#F5F5F5)、功能黑色 (#000000)
 `;
 
-// ===== 溫暖極簡樣式系統 (Warm Minimalism) =====
+// ===== 溫暖極简樣式系統 (Warm Minimalism) =====
 export const minimalismFullPageStyles = `
   /* ===== 色彩系統 ===== */
   :root {
@@ -428,8 +428,8 @@ export const minimalismFullPageStyles = `
     --color-text-secondary: #6B6B6B;  /* 次要文字 */
     --color-text-tertiary: #A8A29E;   /* 三級文字 */
     --color-accent: #8B7355;          /* 溫暖褐色點綴 */
-    --color-border: #E8DFD0;          /* 淺褐邊框 */
-    --color-border-light: #F0EBE3;    /* 更淺邊框 */
+    --color-border: #E8DFD0;          /* 淺褐边框 */
+    --color-border-light: #F0EBE3;    /* 更淺边框 */
   }
 
   /* ===== 全局樣式 ===== */
@@ -1257,10 +1257,10 @@ export const minimalismFullPageStyles = `
 // ===== 小型 Demo HTML (Hero Section 預覽) =====
 export const minimalismDemoHTML = `
   <div class="min-demo-container">
-    <!-- 裝飾線條 -->
+    <!-- 裝飾线條 -->
     <div class="min-demo-line-accent"></div>
 
-    <!-- 主內容區 -->
+    <!-- 主內容区 -->
     <div class="min-demo-content">
       <div class="min-demo-meta">2025</div>
       <h1 class="min-demo-heading">
@@ -1294,7 +1294,7 @@ export const minimalismDemoStyles = `
     overflow: hidden;
   }
 
-  /* 頂部裝飾線 */
+  /* 頂部裝飾线 */
   .min-demo-line-accent {
     position: absolute;
     top: 2rem;
@@ -1325,7 +1325,7 @@ export const minimalismDemoStyles = `
     right: -8px;
   }
 
-  /* 主內容區 */
+  /* 主內容区 */
   .min-demo-content {
     text-align: center;
     z-index: 1;
@@ -1423,7 +1423,7 @@ export const minimalismDemoStyles = `
 `;
 
 // ========================================================================================
-// 日式極簡風格 - 企業官網首頁 (Japanese Minimal Style - Corporate Homepage)
+// 日式極简風格 - 企業官网首页 (Japanese Minimal Style - Corporate Homepage)
 // ========================================================================================
 
 export const minimalismJapaneseFullPageHTML = `
@@ -1433,12 +1433,12 @@ export const minimalismJapaneseFullPageHTML = `
       <div class="zen-nav-content">
         <div class="zen-logo">禪 ZEN</div>
         <ul class="zen-nav-links">
-          <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.about">關於</a></li>
-          <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.services">服務</a></li>
-          <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.team">團隊</a></li>
+          <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.about">关於</a></li>
+          <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.services">服务</a></li>
+          <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.team">团隊</a></li>
           <li><a href="javascript:void(0)" data-i18n="japaneseZen.nav.news">動態</a></li>
         </ul>
-        <button class="zen-nav-cta" data-i18n="japaneseZen.nav.contact">聯絡我們</button>
+        <button class="zen-nav-cta" data-i18n="japaneseZen.nav.contact">联絡我們</button>
       </div>
     </div>
   </nav>
@@ -1449,11 +1449,11 @@ export const minimalismJapaneseFullPageHTML = `
       <div class="zen-hero-content">
         <div class="zen-hero-label" data-i18n="japaneseZen.hero.label">INTRODUCING</div>
         <h1 class="zen-hero-title">
-          <span class="zen-hero-thin" data-i18n="japaneseZen.hero.title1">以簡馭繁</span>
+          <span class="zen-hero-thin" data-i18n="japaneseZen.hero.title1">以简馭繁</span>
           <span class="zen-hero-bold" data-i18n="japaneseZen.hero.title2">返璞歸真</span>
         </h1>
         <p class="zen-hero-subtitle">
-          <span data-i18n="japaneseZen.hero.subtitle">在喧囂的世界中尋找寧靜，以簡約的設計傳遞深遠的意義</span>
+          <span data-i18n="japaneseZen.hero.subtitle">在喧囂的世界中尋找寧静，以简約的设計傳遞深遠的意義</span>
         </p>
         <div class="zen-hero-divider"></div>
         <div class="zen-scroll-hint">
@@ -1477,13 +1477,13 @@ export const minimalismJapaneseFullPageHTML = `
         </div>
         <div class="zen-intro-text">
           <span class="zen-section-label" data-i18n="japaneseZen.about.label">ABOUT US</span>
-          <h2 class="zen-section-title" data-i18n="japaneseZen.about.title">關於我們</h2>
+          <h2 class="zen-section-title" data-i18n="japaneseZen.about.title">关於我們</h2>
           <div class="zen-divider"></div>
           <p class="zen-intro-desc" data-i18n="japaneseZen.about.desc1">
-            我們相信，真正的美來自於克制。在紛繁複雜的商業世界中，我們以極簡的設計哲學為指引，幫助企業找到本質，傳遞價值。
+            我們相信，真正的美來自於克制。在紛繁複雜的商業世界中，我們以極简的设計哲學為指引，幫助企業找到本质，傳遞價值。
           </p>
           <p class="zen-intro-desc" data-i18n="japaneseZen.about.desc2">
-            自創立以來，我們秉持著「以簡馭繁，返璞歸真」的理念，為全球超過 200 家企業提供品牌設計與數位體驗服務。
+            自創立以來，我們秉持著「以简馭繁，返璞歸真」的理念，為全球超過 200 家企業提供品牌设計与数位体驗服务。
           </p>
           <a href="javascript:void(0)" class="zen-link" data-i18n="japaneseZen.about.learnMore">了解更多 →</a>
         </div>
@@ -1502,18 +1502,18 @@ export const minimalismJapaneseFullPageHTML = `
       <div class="zen-values-grid">
         <div class="zen-value-card">
           <div class="zen-value-icon">一</div>
-          <h3 class="zen-value-title" data-i18n="japaneseZen.values.principle1.title">簡約</h3>
-          <p class="zen-value-desc" data-i18n="japaneseZen.values.principle1.desc">去除多餘，保留本質。讓設計回歸最純粹的形態。</p>
+          <h3 class="zen-value-title" data-i18n="japaneseZen.values.principle1.title">简約</h3>
+          <p class="zen-value-desc" data-i18n="japaneseZen.values.principle1.desc">去除多餘，保留本质。让设計回歸最純粹的形態。</p>
         </div>
         <div class="zen-value-card">
           <div class="zen-value-icon">二</div>
           <h3 class="zen-value-title" data-i18n="japaneseZen.values.principle2.title">平衡</h3>
-          <p class="zen-value-desc" data-i18n="japaneseZen.values.principle2.desc">在留白與內容之間尋找完美的平衡點。</p>
+          <p class="zen-value-desc" data-i18n="japaneseZen.values.principle2.desc">在留白与內容之間尋找完美的平衡點。</p>
         </div>
         <div class="zen-value-card">
           <div class="zen-value-icon">三</div>
           <h3 class="zen-value-title" data-i18n="japaneseZen.values.principle3.title">禪意</h3>
-          <p class="zen-value-desc" data-i18n="japaneseZen.values.principle3.desc">以東方美學為根，創造寧靜和諧的視覺體驗。</p>
+          <p class="zen-value-desc" data-i18n="japaneseZen.values.principle3.desc">以東方美學為根，創造寧静和諧的視覺体驗。</p>
         </div>
       </div>
     </div>
@@ -1524,31 +1524,31 @@ export const minimalismJapaneseFullPageHTML = `
     <div class="zen-container">
       <div class="zen-section-header">
         <span class="zen-section-label" data-i18n="japaneseZen.services.label">SERVICES</span>
-        <h2 class="zen-section-title" data-i18n="japaneseZen.services.title">服務項目</h2>
+        <h2 class="zen-section-title" data-i18n="japaneseZen.services.title">服务項目</h2>
         <div class="zen-divider-center"></div>
       </div>
       <div class="zen-services-list">
         <div class="zen-service-item">
           <div class="zen-service-number">01</div>
           <div class="zen-service-content">
-            <h3 class="zen-service-title" data-i18n="japaneseZen.services.service1.title">品牌設計</h3>
-            <p class="zen-service-desc" data-i18n="japaneseZen.services.service1.desc">從 Logo 到完整視覺識別系統，打造獨特品牌形象。</p>
+            <h3 class="zen-service-title" data-i18n="japaneseZen.services.service1.title">品牌设計</h3>
+            <p class="zen-service-desc" data-i18n="japaneseZen.services.service1.desc">从 Logo 到完整視覺識別系統，打造獨特品牌形象。</p>
           </div>
           <div class="zen-service-arrow">→</div>
         </div>
         <div class="zen-service-item">
           <div class="zen-service-number">02</div>
           <div class="zen-service-content">
-            <h3 class="zen-service-title" data-i18n="japaneseZen.services.service2.title">網頁設計</h3>
-            <p class="zen-service-desc" data-i18n="japaneseZen.services.service2.desc">響應式網站設計，提供優雅流暢的使用體驗。</p>
+            <h3 class="zen-service-title" data-i18n="japaneseZen.services.service2.title">网页设計</h3>
+            <p class="zen-service-desc" data-i18n="japaneseZen.services.service2.desc">響應式网站设計，提供优雅流暢的使用体驗。</p>
           </div>
           <div class="zen-service-arrow">→</div>
         </div>
         <div class="zen-service-item">
           <div class="zen-service-number">03</div>
           <div class="zen-service-content">
-            <h3 class="zen-service-title" data-i18n="japaneseZen.services.service3.title">UI/UX 設計</h3>
-            <p class="zen-service-desc" data-i18n="japaneseZen.services.service3.desc">以用戶為中心，創造直覺且美觀的數位產品。</p>
+            <h3 class="zen-service-title" data-i18n="japaneseZen.services.service3.title">UI/UX 设計</h3>
+            <p class="zen-service-desc" data-i18n="japaneseZen.services.service3.desc">以用戶為中心，創造直覺且美觀的数位产品。</p>
           </div>
           <div class="zen-service-arrow">→</div>
         </div>
@@ -1556,7 +1556,7 @@ export const minimalismJapaneseFullPageHTML = `
           <div class="zen-service-number">04</div>
           <div class="zen-service-content">
             <h3 class="zen-service-title" data-i18n="japaneseZen.services.service4.title">品牌顧問</h3>
-            <p class="zen-service-desc" data-i18n="japaneseZen.services.service4.desc">提供策略規劃與品牌定位，協助企業找到核心價值。</p>
+            <p class="zen-service-desc" data-i18n="japaneseZen.services.service4.desc">提供策略規劃与品牌定位，協助企業找到核心價值。</p>
           </div>
           <div class="zen-service-arrow">→</div>
         </div>
@@ -1596,7 +1596,7 @@ export const minimalismJapaneseFullPageHTML = `
     <div class="zen-container">
       <div class="zen-section-header">
         <span class="zen-section-label" data-i18n="japaneseZen.team.label">TEAM</span>
-        <h2 class="zen-section-title" data-i18n="japaneseZen.team.title">核心團隊</h2>
+        <h2 class="zen-section-title" data-i18n="japaneseZen.team.title">核心团隊</h2>
         <div class="zen-divider-center"></div>
       </div>
       <div class="zen-team-grid">
@@ -1615,8 +1615,8 @@ export const minimalismJapaneseFullPageHTML = `
               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
             </svg>
           </div>
-          <h3 class="zen-team-name" data-i18n="japaneseZen.team.member2.name">陳靜</h3>
-          <p class="zen-team-role" data-i18n="japaneseZen.team.member2.role">設計總監</p>
+          <h3 class="zen-team-name" data-i18n="japaneseZen.team.member2.name">陳静</h3>
+          <p class="zen-team-role" data-i18n="japaneseZen.team.member2.role">设計總監</p>
         </div>
         <div class="zen-team-card">
           <div class="zen-team-image">
@@ -1644,28 +1644,28 @@ export const minimalismJapaneseFullPageHTML = `
           <div class="zen-timeline-year">2010</div>
           <div class="zen-timeline-content">
             <h3 class="zen-timeline-title">公司創立</h3>
-            <p class="zen-timeline-desc">在台北成立，專注於極簡主義設計。</p>
+            <p class="zen-timeline-desc">在台北成立，专注於極简主義设計。</p>
           </div>
         </div>
         <div class="zen-timeline-item">
           <div class="zen-timeline-year">2015</div>
           <div class="zen-timeline-content">
             <h3 class="zen-timeline-title">國際拓展</h3>
-            <p class="zen-timeline-desc">業務拓展至亞洲其他地區，服務超過 100 家企業。</p>
+            <p class="zen-timeline-desc">業务拓展至亞洲其他地区，服务超過 100 家企業。</p>
           </div>
         </div>
         <div class="zen-timeline-item">
           <div class="zen-timeline-year">2020</div>
           <div class="zen-timeline-content">
             <h3 class="zen-timeline-title">獲獎認可</h3>
-            <p class="zen-timeline-desc">榮獲多項國際設計大獎，確立行業領導地位。</p>
+            <p class="zen-timeline-desc">榮獲多項國際设計大獎，確立行業領导地位。</p>
           </div>
         </div>
         <div class="zen-timeline-item">
           <div class="zen-timeline-year">2025</div>
           <div class="zen-timeline-content">
             <h3 class="zen-timeline-title">持續創新</h3>
-            <p class="zen-timeline-desc">推出 AI 輔助設計平台，引領設計新趨勢。</p>
+            <p class="zen-timeline-desc">推出 AI 輔助设計平台，引領设計新趨勢。</p>
           </div>
         </div>
       </div>
@@ -1689,8 +1689,8 @@ export const minimalismJapaneseFullPageHTML = `
           </div>
           <div class="zen-news-content">
             <time class="zen-news-date">2025.01.15</time>
-            <h3 class="zen-news-title">極簡主義設計趨勢報告</h3>
-            <p class="zen-news-excerpt">探討 2025 年極簡主義在品牌設計中的應用與發展。</p>
+            <h3 class="zen-news-title">極简主義设計趨勢報告</h3>
+            <p class="zen-news-excerpt">探討 2025 年極简主義在品牌设計中的應用与發展。</p>
             <a href="javascript:void(0)" class="zen-news-link">閱讀全文 →</a>
           </div>
         </article>
@@ -1702,8 +1702,8 @@ export const minimalismJapaneseFullPageHTML = `
           </div>
           <div class="zen-news-content">
             <time class="zen-news-date">2025.01.10</time>
-            <h3 class="zen-news-title">獲得 Red Dot 設計獎</h3>
-            <p class="zen-news-excerpt">我們的品牌重塑項目榮獲國際設計大獎肯定。</p>
+            <h3 class="zen-news-title">獲得 Red Dot 设計獎</h3>
+            <p class="zen-news-excerpt">我們的品牌重塑項目榮獲國際设計大獎肯定。</p>
             <a href="javascript:void(0)" class="zen-news-link">閱讀全文 →</a>
           </div>
         </article>
@@ -1715,8 +1715,8 @@ export const minimalismJapaneseFullPageHTML = `
           </div>
           <div class="zen-news-content">
             <time class="zen-news-date">2025.01.05</time>
-            <h3 class="zen-news-title">日式美學設計工作坊</h3>
-            <p class="zen-news-excerpt">開放報名！深入探索日本傳統美學與現代設計的融合。</p>
+            <h3 class="zen-news-title">日式美學设計工作坊</h3>
+            <p class="zen-news-excerpt">開放報名！深入探索日本傳統美學与現代设計的融合。</p>
             <a href="javascript:void(0)" class="zen-news-link">閱讀全文 →</a>
           </div>
         </article>
@@ -1730,7 +1730,7 @@ export const minimalismJapaneseFullPageHTML = `
       <div class="zen-newsletter-content">
         <span class="zen-section-label">NEWSLETTER</span>
         <h2 class="zen-section-title">訂閱電子報</h2>
-        <p class="zen-newsletter-desc">定期接收設計靈感與行業洞察</p>
+        <p class="zen-newsletter-desc">定期接收设計靈感与行業洞察</p>
         <form class="zen-newsletter-form" onsubmit="return false;">
           <input
             type="email"
@@ -1750,32 +1750,32 @@ export const minimalismJapaneseFullPageHTML = `
       <div class="zen-footer-grid">
         <div class="zen-footer-col">
           <div class="zen-footer-logo">禪 ZEN</div>
-          <p class="zen-footer-tagline">以簡馭繁，返璞歸真</p>
+          <p class="zen-footer-tagline">以简馭繁，返璞歸真</p>
         </div>
         <div class="zen-footer-col">
           <h4 class="zen-footer-title">公司</h4>
           <ul class="zen-footer-links">
-            <li><a href="javascript:void(0)">關於我們</a></li>
-            <li><a href="javascript:void(0)">服務項目</a></li>
+            <li><a href="javascript:void(0)">关於我們</a></li>
+            <li><a href="javascript:void(0)">服务項目</a></li>
             <li><a href="javascript:void(0)">作品集</a></li>
-            <li><a href="javascript:void(0)">聯絡我們</a></li>
+            <li><a href="javascript:void(0)">联絡我們</a></li>
           </ul>
         </div>
         <div class="zen-footer-col">
           <h4 class="zen-footer-title">資源</h4>
           <ul class="zen-footer-links">
             <li><a href="javascript:void(0)">部落格</a></li>
-            <li><a href="javascript:void(0)">設計指南</a></li>
+            <li><a href="javascript:void(0)">设計指南</a></li>
             <li><a href="javascript:void(0)">案例研究</a></li>
             <li><a href="javascript:void(0)">職涯機會</a></li>
           </ul>
         </div>
         <div class="zen-footer-col">
-          <h4 class="zen-footer-title">聯絡</h4>
+          <h4 class="zen-footer-title">联絡</h4>
           <ul class="zen-footer-links">
             <li>taipei@zen.design</li>
             <li>+886 2 1234 5678</li>
-            <li>台北市信義區</li>
+            <li>台北市信義区</li>
           </ul>
         </div>
       </div>
@@ -1792,7 +1792,7 @@ export const minimalismJapaneseFullPageHTML = `
 `;
 
 export const minimalismJapaneseFullPageStyles = `
-  /* ===== 日式極簡色彩系統 ===== */
+  /* ===== 日式極简色彩系統 ===== */
   :root {
     --zen-bg-primary: #FAFAF9;        /* 米白主背景 */
     --zen-bg-secondary: #F5F5F4;      /* 溫暖灰次要背景 */
@@ -1801,7 +1801,7 @@ export const minimalismJapaneseFullPageStyles = `
     --zen-text-secondary: #78716C;    /* 柔和灰次要文字 */
     --zen-text-tertiary: #A8A29E;     /* 石灰色三級文字 */
     --zen-accent: #A8A29E;            /* 石灰色強調 */
-    --zen-border: #E7E5E4;            /* 細膩邊框 */
+    --zen-border: #E7E5E4;            /* 細膩边框 */
   }
 
   /* ===== 全局樣式 ===== */

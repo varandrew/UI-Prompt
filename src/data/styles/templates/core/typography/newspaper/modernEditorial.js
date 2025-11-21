@@ -139,32 +139,32 @@ export const modernEditorialTemplates = [
     // ✨ 模板级 CustomPrompt（用于高精度复刻现代报纸编辑卡片）
     customPrompt: {
       'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「现代报纸编辑排版 Demo」界面风格高度接近的 Modern Newspaper Editorial Typography 模块。
-要求：保持米白背景、上下黑線報頭、兩欄文字和首字下沉等核心特徵不變，只允許替換標題與段落內容。輸出使用语义化 HTML 和 TailwindCSS 風格原子類。
+要求：保持米白背景、上下黑线報頭、兩欄文字和首字下沉等核心特徵不变，只允許替換标題与段落內容。輸出使用语义化 HTML 和 TailwindCSS 風格原子类。
 
 【使用場景】
-- 場景：新聞網站精選文章區、長文導讀模組、品牌故事區塊。
-- 用戶：希望在 Web 上獲得報紙級閱讀體驗的讀者。
-- 目標：重現報紙版面節奏與文字氣質，提升權威感與專業度。
+- 場景：新聞网站精選文章区、長文导讀模組、品牌故事区塊。
+- 用戶：希望在 Web 上獲得報紙級閱讀体驗的讀者。
+- 目标：重現報紙版面節奏与文字氣质，提升權威感与专業度。
 
 【布局結構】
-1. 報頭區（Header）
-   - 上下兩條粗黑邊框包裹報紙名稱。
-   - 名稱使用大寫 serif 字體，字距較大，置中顯示。
-   - 下方一行日期或副標，使用較小、偏灰、斜體字。
-2. 內容區
+1. 報頭区（Header）
+   - 上下兩條粗黑边框包裹報紙名稱。
+   - 名稱使用大写 serif 字体，字距較大，置中显示。
+   - 下方一行日期或副标，使用較小、偏灰、斜体字。
+2. 內容区
    - 使用兩欄或三欄文字佈局，正文採兩端對齊。
    - 第一欄前段落使用首字下沉（Drop Cap），首字放大並加粗。
 
-【色彩與字體】
-1. 背景：米白（如 #FAF8F5）模擬紙張質感。
-2. 標題：深藍或純黑，強調重要信息。
+【色彩与字体】
+1. 背景：米白（如 #FAF8F5）模擬紙張质感。
+2. 标題：深藍或純黑，強調重要信息。
 3. 正文：深灰色，確保長時間閱讀舒適。
-4. 字體：整體使用 serif 字體，如 Georgia / Times New Roman。
+4. 字体：整体使用 serif 字体，如 Georgia / Times New Roman。
 
 【輸出要求】
-- 使用 header / article / h2 / p 等語義化標籤。
-- 透過 CSS columns 或 Tailwind 實現多欄（columns-*）與首字下沉效果。
-- 生成的版塊在「報頭 + 首字下沉 + 多欄文字 + 米白背景」這幾點需與當前 Demo 視覺風格高度接近。`,
+- 使用 header / article / h2 / p 等語義化标籤。
+- 透過 CSS columns 或 Tailwind 實現多欄（columns-*）与首字下沉效果。
+- 生成的版塊在「報頭 + 首字下沉 + 多欄文字 + 米白背景」這幾點需与當前 Demo 視覺風格高度接近。`,
       'en-US': `You are a senior UI designer and front-end engineer. Generate a newspaper/editorial typography module that looks very close to the current “Newspaper Editorial Demo”.
 Keep the off-white background, double-line masthead header, two-column text layout and drop-cap first letter intact; only allow changing headlines and paragraphs. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
 
@@ -198,12 +198,12 @@ Keep the off-white background, double-line masthead header, two-column text layo
     stylePrompt: {
       'zh-CN': `### 報紙編輯排版（Newspaper/Editorial Typography）核心實現要點
 
-**設計理念**
-通過傳統報紙排版技術（首字下沉、多列佈局、襯線字體）營造權威、專業、嚴肅的閱讀體驗。適用於新聞網站、編輯內容、長文閱讀。
+**设計理念**
+通過傳統報紙排版技術（首字下沉、多列佈局、襯线字体）營造權威、专業、嚴肅的閱讀体驗。適用於新聞网站、編輯內容、長文閱讀。
 
 **核心排版技術**
 
-1. **首字下沉（Drop Cap）** - 標誌性特徵
+1. **首字下沉（Drop Cap）** - 标誌性特徵
    \`\`\`css
    /* 基礎首字下沉 */
    .drop-cap::first-letter {
@@ -211,12 +211,12 @@ Keep the off-white background, double-line masthead header, two-column text layo
      font-size: 4.5rem;        /* 3-5 行高度 */
      line-height: 0.85;        /* 緊湊行高 */
      font-weight: 900;
-     margin-right: 0.15rem;    /* 與正文間距 */
+     margin-right: 0.15rem;    /* 与正文間距 */
      margin-top: 0.1rem;       /* 微調對齊 */
      color: #1e3a8a;           /* 深藍強調色 */
    }
 
-   /* 進階：帶邊框的首字下沉 */
+   /* 進階：帶边框的首字下沉 */
    .drop-cap-bordered::first-letter {
      float: left;
      font-size: 4rem;
@@ -234,9 +234,9 @@ Keep the off-white background, double-line masthead header, two-column text layo
    \`\`\`css
    /* 三欄報紙排版 */
    .editorial-columns {
-     column-count: 3;           /* 列數 */
+     column-count: 3;           /* 列数 */
      column-gap: 2rem;          /* 列間距（32px） */
-     column-rule: 1px solid #e5e7eb; /* 分隔線 */
+     column-rule: 1px solid #e5e7eb; /* 分隔线 */
      text-align: justify;       /* 兩端對齊 */
      font-size: 0.9375rem;      /* 15px */
      line-height: 1.6;          /* 閱讀舒適度 */
@@ -255,7 +255,7 @@ Keep the off-white background, double-line masthead header, two-column text layo
    }
    \`\`\`
 
-3. **報紙標題欄（Masthead）** - 視覺錨點
+3. **報紙标題欄（Masthead）** - 視覺錨點
    \`\`\`css
    .newspaper-masthead {
      font-size: clamp(2.5rem, 6vw, 5rem);
@@ -271,9 +271,9 @@ Keep the off-white background, double-line masthead header, two-column text layo
    }
    \`\`\`
 
-4. **經典分隔線（Dividers）**
+4. **經典分隔线（Dividers）**
    \`\`\`css
-   /* 雙線分隔 */
+   /* 双线分隔 */
    .newspaper-divider {
      border-top: 3px double #000;
      border-bottom: 1px solid #000;
@@ -281,7 +281,7 @@ Keep the off-white background, double-line masthead header, two-column text layo
      margin: 2rem 0;
    }
 
-   /* 點線分隔 */
+   /* 點线分隔 */
    .dotted-divider {
      border-bottom: 1px dotted #d1d5db;
      margin: 1rem 0;
@@ -291,20 +291,20 @@ Keep the off-white background, double-line masthead header, two-column text layo
 **配色方案**
 
 經典報紙色系：
-- 主強調色：\`#1e3a8a\` (深藍) - 用於標題、首字下沉
-- 標題黑：\`#1f2937\`, \`#111827\` - 用於主標題
+- 主強調色：\`#1e3a8a\` (深藍) - 用於标題、首字下沉
+- 标題黑：\`#1f2937\`, \`#111827\` - 用於主标題
 - 正文灰：\`#374151\`, \`#4b5563\` - 用於正文文字
 - 輔助灰：\`#6b7280\`, \`#9ca3af\` - 用於日期、說明文字
 
 背景色：
-- 米白背景：\`#faf8f5\`, \`#f9fafb\` (模擬報紙紙張質感)
-- 純白背景：\`#ffffff\` (現代數字報紙)
+- 米白背景：\`#faf8f5\`, \`#f9fafb\` (模擬報紙紙張质感)
+- 純白背景：\`#ffffff\` (現代数字報紙)
 
-**字體選擇**
+**字体選擇**
 
-核心原則：使用**襯線字體（Serif）**營造傳統權威感
+核心原則：使用**襯线字体（Serif）**營造傳統權威感
 
-推薦字體堆疊：
+推薦字体堆疊：
 \`\`\`css
 font-family: 'Georgia', 'Times New Roman', 'Merriweather', serif;
 \`\`\`
@@ -317,7 +317,7 @@ TailwindCSS：
 **TailwindCSS 實現**
 
 \`\`\`html
-<!-- 報紙標題欄 -->
+<!-- 報紙标題欄 -->
 <header class="border-t-4 border-b-4 border-black py-6 text-center font-serif">
   <h1 class="text-5xl md:text-7xl font-black tracking-[0.2em] text-blue-900 uppercase">
     THE DAILY CHRONICLE
@@ -349,7 +349,7 @@ TailwindCSS：
   </div>
 </article>
 
-<!-- 側邊欄信息框 -->
+<!-- 側边欄信息框 -->
 <aside class="border-2 border-blue-900 p-4 bg-gray-50 font-serif">
   <h3 class="text-lg font-bold text-blue-900 border-b-2 border-blue-900 pb-2 mb-3">
     Inside Today
@@ -367,24 +367,24 @@ TailwindCSS：
 </aside>
 \`\`\`
 
-**排版層級系統**
+**排版层級系統**
 
 \`\`\`css
-/* 報紙標題欄（Masthead） */
+/* 報紙标題欄（Masthead） */
 .masthead {
   font-size: 3-5rem;
   font-weight: 900;
   letter-spacing: 0.2em;
 }
 
-/* 主標題（Headline） */
+/* 主标題（Headline） */
 .main-headline {
   font-size: 2-3rem;
   font-weight: 900;
   line-height: 1.2;
 }
 
-/* 副標題（Subheadline） */
+/* 副标題（Subheadline） */
 .subheadline {
   font-size: 1.125-1.5rem;
   font-weight: 600;
@@ -419,13 +419,13 @@ TailwindCSS：
 /* 段落間距 */
 p { margin-bottom: 1rem; }  /* 16px */
 
-/* 標題上下間距 */
+/* 标題上下間距 */
 h2 {
   margin-top: 2rem;    /* 32px */
   margin-bottom: 1rem; /* 16px */
 }
 
-/* 分隔線間距 */
+/* 分隔线間距 */
 .divider {
   margin: 2rem 0;  /* 32px 上下 */
 }
@@ -436,7 +436,7 @@ h2 {
 }
 \`\`\`
 
-**打印樣式優化**
+**打印樣式优化**
 
 \`\`\`css
 @media print {
@@ -467,22 +467,22 @@ h2 {
 
 1. **語義化 HTML**：
    - 使用 \`<article>\`, \`<section>\`, \`<aside>\` 結構化內容
-   - 標題層級遵循 \`<h1>\` → \`<h2>\` → \`<h3>\` 順序
+   - 标題层級遵循 \`<h1>\` → \`<h2>\` → \`<h3>\` 順序
 
-2. **對比度檢查**：
+2. **對比度检查**：
    - 正文（#374151）vs 背景（#faf8f5）對比度 > 7:1
-   - 標題（#1e3a8a）vs 背景（#faf8f5）對比度 > 4.5:1
+   - 标題（#1e3a8a）vs 背景（#faf8f5）對比度 > 4.5:1
 
 3. **閱讀寬度限制**：
    - 最大行長度：600-800px（約 60-75 字符）
    - TailwindCSS：\`max-w-prose\` 或 \`max-w-4xl\`
 
 **使用場景**
-- 新聞網站主頁
-- 在線雜誌編輯內容
-- 長文閱讀頁面
+- 新聞网站主页
+- 在线雜誌編輯內容
+- 長文閱讀页面
 - 學術文章發布
-- 專業博客內容
+- 专業博客內容
 `,
 
       'en-US': `### Newspaper/Editorial Typography Core Implementation Guide
@@ -775,12 +775,12 @@ h2 {
 `
     },
 
-    // ✨ 新增：預覽數組系統
+    // ✨ 新增：預覽数組系統
     previews: [
       {
         id: 'editorial-fullpage',
         name: {
-          'zh-CN': '完整頁面',
+          'zh-CN': '完整页面',
           'en-US': 'Full Page'
         },
         type: 'fullPage',

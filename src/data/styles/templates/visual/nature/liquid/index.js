@@ -10,289 +10,424 @@ export const liquid = {
   description: 'styles.visual.liquid.description',
 
   customPrompt: {
-    'zh-CN': `请使用 TailwindCSS 创建一个 Liquid Motion（液体流动）风格的界面，以深海科技为主题，通过有机形态的 blob 变形动画和半透明渐变营造出流动、动态、未来感的视觉体验。
+    'zh-CN': `
+你现在是一名非常熟悉「Liquid Motion 深海科技仪表盘」风格的资深 UI 设计师兼前端工程师，需要为一个全新页面生成一套与当前预览 /styles/preview/visual-nature-liquid（LiquidFullPage）高度一致的 UI。
 
-**核心设计要求**
+你的目标：在不复制现有文案和具体数据的前提下，编写一段可直接给 LLM 使用的完整指令，让它生成一个「一眼看上去就是同一套 Liquid Ocean Dashboard 系统」的全屏 HTML 页面。必须严格复刻当前模板的核心特征：多层背景液体动画（深层/中层/表层 blob）、上升气泡、发光浮游生物、玻璃态信息卡片、液体进度条与发光按钮交互，只替换品牌名称、模块文案和数据内容。
 
-1. **液体形态变形系统**
-   - 使用复杂的 8 值 border-radius 创建有机形状：
-     \`\`\`css
-     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-     \`\`\`
-   - 通过 @keyframes 动画在 4 个关键帧之间变形：
-     \`\`\`css
-     @keyframes liquidMorph {
-       0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(0, 0) rotate(0deg) scale(1); }
-       25% { border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%; transform: translate(30px, -30px) rotate(90deg) scale(1.1); }
-       50% { border-radius: 30% 70% 60% 40% / 60% 40% 50% 60%; transform: translate(-20px, 40px) rotate(180deg) scale(0.95); }
-       75% { border-radius: 70% 30% 40% 60% / 40% 60% 70% 30%; transform: translate(40px, 20px) rotate(270deg) scale(1.05); }
-     }
-     \`\`\`
-   - 动画周期应为 15-25 秒，使用 ease-in-out 缓动函数
+【使用场景设定】
+- 页面类型：深海观测 / 海洋数据监控仪表盘（Ocean Observation / Ocean Analytics Dashboard）。
+- 用户对象：海洋科学家、数据分析师、环境监测团队、科研单位或从事海洋业务的企业团队。
+- 目标：在一个沉浸式深海场景中浏览关键指标（深度剖面、物种活动、流速、盐度等），同时保持极高的信息可读性与高科技感。
 
-2. **多层模糊背景**
-   - 3-4 个 blob 层叠加，每层使用不同的动画时长和延迟
-   - 容器层应用 filter: blur(30-60px) 创造融合效果
-   - 使用 radial-gradient 定义 blob 颜色：
-     \`\`\`css
-     background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, rgba(0, 229, 255, 0.1) 50%, transparent 70%);
-     \`\`\`
+【整体布局结构（请生成完整 HTML 结构）】
+1. 外层容器
+  - 使用一个顶层容器（例如 class="liquid-page"）包裹整页内容：
+    - 设置 min-height: 100vh；
+    - 背景为垂直渐变（如 #020617 → #0a192f → #112240），模拟深海由表层到深层的光线变化；
+    - position: relative；overflow-x: hidden，便于放置绝对定位的背景动画层。
 
-3. **深海科技配色**
-   - 主背景渐变：#0a192f → #0d3b66 → #112240
-   - 主要 blob：rgba(0, 229, 255, 0.35) 青蓝色
-   - 次要 blob：rgba(100, 255, 218, 0.3) 青绿色
-   - 点缀 blob：rgba(139, 92, 246, 0.25) 紫罗兰
-   - 高亮色：#64ffda
-   - 文字色：#ccd6f6（主）/ #8892b0（次）
+2. 背景动画层（必须包含至少 5 个层级）
+  - LAYER 1：深层洋流 blob（Deep Ocean Current）
+    - 对应类：.ocean-blob-deep.ocean-blob-deep-1、.ocean-blob-deep.ocean-blob-deep-2
+    - 它们是大尺寸、有机形态的线性渐变 blob，周期较长（~30s），缓慢漂移。
+    - 关键动画示例：
+      \`\`\`css
+      @keyframes deepOceanCurrent {
+        0%, 100% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+          border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        20% {
+          transform: translate(150px, -100px) rotate(72deg) scale(1.3);
+          border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%;
+        }
+        40% {
+          transform: translate(-80px, 120px) rotate(144deg) scale(0.8);
+          border-radius: 30% 70% 60% 40% / 60% 40% 50% 60%;
+        }
+        60% {
+          transform: translate(200px, 80px) rotate(216deg) scale(1.2);
+          border-radius: 70% 30% 40% 60% / 40% 60% 70% 30%;
+        }
+        80% {
+          transform: translate(-120px, -60px) rotate(288deg) scale(0.9);
+          border-radius: 50% 50% 60% 40% / 55% 45% 55% 45%;
+        }
+      }
 
-4. **玻璃态卡片组件**
-   - 半透明背景：rgba(17, 34, 64, 0.6)
-   - backdrop-filter: blur(12px)
-   - 边框发光：border: 1px solid rgba(100, 255, 218, 0.15)
-   - hover 状态增强边框和阴影：
-     \`\`\`css
-     .card:hover {
-       border-color: rgba(100, 255, 218, 0.4);
-       transform: translateY(-4px);
-       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-     }
-     \`\`\`
+      .ocean-blob-deep {
+        position: fixed;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(circle, rgba(0, 229, 255, 0.45), transparent 70%);
+        filter: blur(40px);
+        opacity: 0.55;
+        animation: deepOceanCurrent 30s ease-in-out infinite;
+        will-change: transform, border-radius;
+        pointer-events: none;
+        z-index: 0;
+      }
+      \`\`\`
+    - 通过不同的「top/left」和「animation-delay」创建两块缓慢漂移的深层光团。
 
-5. **发光交互效果**
-   - 按钮使用边框发光而非填充背景
-   - hover 时添加 box-shadow 发光效果：
-     \`\`\`css
-     .btn:hover {
-       box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-     }
-     \`\`\`
-   - 内部 ripple 效果使用 radial-gradient 扩展动画
+  - LAYER 2：中层水体 blob（Mid-Layer Water Mass）
+    - 至少 3 个中等尺寸 blob：.ocean-blob-mid-1/2/3，周期 ~20s；
+    - 颜色偏青绿和蓝紫，滤镜模糊略小，位置覆盖中间区域；
+    - 与深层动画类似，但位移与缩放幅度略小，使整体动感分层。
 
-6. **性能优化**
-   - 所有动画元素添加 will-change: transform, border-radius
-   - 使用 transform3d 启用 GPU 加速
-   - blob 容器使用 pointer-events: none 避免交互阻断
+  - LAYER 3：表层浪涌 blob（Surface Surge）
+    - 两个较小的 blob：.ocean-blob-surface-1/2，周期 ~12s；
+    - 常见设置：靠近顶部或上半区，模拟表层水体的快速波动；
+    - 可以在 keyframes 中增加更明显的 scale 与 translate，让表层动感更活跃。
 
-**配色方案（深海科技）**
+  - LAYER 4：上升气泡（Rising Bubbles）
+    - 使用多个带 CSS 变量的 .bubble 元素，从底部向上漂浮：
+      \`\`\`html
+      <div class="bubble"
+           style="left: 5%; --bubble-size: 8px; --bubble-duration: 9s; --bubble-delay: 0s; --bubble-drift: 15px;"></div>
+      \`\`\`
+      \`\`\`css
+      @keyframes bubbleRise {
+        0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+        10%  { opacity: 0.9; }
+        80%  { opacity: 0.9; }
+        100% { transform: translate3d(var(--bubble-drift), -120vh, 0); opacity: 0; }
+      }
 
-主色调：
-- 背景深色：#0a192f, #0d3b66, #112240
-- 高亮青绿：#64ffda, #00e5ff
-- 点缀紫色：#8b5cf6
+      .bubble {
+        position: fixed;
+        bottom: -40px;
+        width: var(--bubble-size);
+        height: var(--bubble-size);
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(148, 163, 255, 0.9), rgba(59, 130, 246, 0.2));
+        animation: bubbleRise var(--bubble-duration) linear infinite;
+        animation-delay: var(--bubble-delay);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+      \`\`\`
+    - 至少使用 20+ 个 .bubble，分布在不同的 left 位置和随机的 duration/delay/drift，避免同步上升。
 
-中性色：
-- 主要文字：#ccd6f6, #e6f1ff
-- 次要文字：#8892b0
-- 边框/分割：rgba(136, 146, 176, 0.3)
+  - LAYER 5：发光浮游生物（Bioluminescent Plankton）
+    - 使用 .plankton 元素模拟漂浮的光点：
+      \`\`\`css
+      @keyframes planktonFlicker {
+        0%, 100% { opacity: 0.2; transform: translate3d(0, 0, 0) scale(1); }
+        40%      { opacity: 0.9; transform: translate3d(4px, -6px, 0) scale(1.2); }
+        70%      { opacity: 0.5; transform: translate3d(-3px, 3px, 0) scale(0.9); }
+      }
 
-**关键 CSS 类示例**
+      .plankton {
+        position: fixed;
+        width: var(--plankton-size);
+        height: var(--plankton-size);
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(125, 211, 252, 1), rgba(56, 189, 248, 0.1));
+        animation: planktonFlicker var(--plankton-duration) ease-in-out infinite;
+        animation-delay: var(--plankton-delay);
+        pointer-events: none;
+        z-index: 1;
+      }
+      \`\`\`
+    - 通过 top/left 与 CSS 变量控制不同的光点位置、大小与节奏。
 
-\`\`\`css
-/* 液体背景容器 */
-.liquid-bg-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(60px);
-  opacity: 0.6;
-  pointer-events: none;
-}
+3. 内容层（Ocean Dashboard Content）
+  - 内容容器（例如 .ocean-content）需设置较高 z-index（如 10），确保所有文本与卡片在 blob 层之上；
+  - 布局结构建议如下：
+    - 顶部：一组发光统计卡片（Stats Row），展示关键指标（深度、温度、流速、监测站数量）。
+    - 中间：Hero 区域（.hero-section/.hero-card），包含大标题、副标题和两个主按钮。
+    - 底部：两张或多张玻璃态信息卡（.info-cards-row），展示不同维度的详细数据（例如“Depth Profile”、“Species Activity”等）。
 
-/* 液体 blob */
-.liquid-blob {
-  position: absolute;
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, transparent 70%);
-  animation: liquidMorph 20s ease-in-out infinite;
-  will-change: transform, border-radius;
-}
+【玻璃态卡片与进度条】
+1. 信息卡片（Glass Cards）
+  - 使用 .glass-card 作为通用卡片样式：
+    \`\`\`css
+    .glass-card {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.7);
+      transition: all 0.35s ease;
+    }
 
-/* 玻璃态卡片 */
-.glass-card {
-  background: rgba(17, 34, 64, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  border: 1px solid rgba(100, 255, 218, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    .glass-card:hover {
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 32px 90px rgba(15, 23, 42, 0.9);
+      transform: translateY(-4px);
+    }
+    \`\`\`
+  - 卡片内部包含：图标、标题、副标题、图表占位（渐变条状图）、发光标签（.glow-badge）等。
 
-.glass-card:hover {
-  border-color: rgba(100, 255, 218, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+2. 液体进度条（Liquid Progress）
+  - 使用线性渐变模拟“液体填充”的进度：
+    \`\`\`css
+    .liquid-progress {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
 
-/* 发光按钮 */
-.glow-btn {
-  padding: 12px 28px;
-  background: transparent;
-  border: 1px solid #64ffda;
-  border-radius: 8px;
-  color: #64ffda;
-  transition: all 0.3s ease;
-}
+    .liquid-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00e5ff, #64ffda);
+      border-radius: 4px;
+      animation: liquidFill 2s ease-out forwards;
+    }
 
-.glow-btn:hover {
-  background: rgba(100, 255, 218, 0.1);
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-  transform: translateY(-2px);
-}
-\`\`\`
+    @keyframes liquidFill {
+      from { width: 0; }
+    }
+    \`\`\`
 
-**间距系统（8px 基础单位）**
-- xs: 8px, sm: 16px, md: 24px, lg: 32px, xl: 48px, 2xl: 64px
+【按钮与交互效果】
+- 主按钮使用渐变填充与波纹效果：
+  \`\`\`css
+  .liquid-button {
+    position: relative;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #00e5ff, #64ffda);
+    border-radius: 12px;
+    border: none;
+    color: #020617;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
 
-**重要提示**
-- 所有 blob 动画应使用不同的 duration 和 delay 避免同步
-- 内容层必须设置 z-index 高于背景层
-- 移动端应减小 blob 尺寸和模糊程度以优化性能
-- 避免在 blob 上使用 box-shadow，使用 radial-gradient 代替
-- 文字应有足够对比度，必要时添加 text-shadow`,
+  .liquid-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
 
-    'en-US': `Please create a Liquid Motion style interface using TailwindCSS, featuring a deep ocean tech theme with organic blob morphing animations and translucent gradients to create a fluid, dynamic, and futuristic visual experience.
+  .liquid-button:hover::before {
+    width: 280px;
+    height: 280px;
+  }
+  \`\`\`
+- outline 版本（次级按钮）使用透明背景 + 青色描边，hover 时填充浅色并保留发光边缘。
 
-**Core Design Requirements**
+【色彩体系（深海科技）】
+- 背景主色：#020617, #0a192f, #112240；
+- 高亮青绿：#00e5ff, #64ffda；
+- 辅助紫色：#8b5cf6；
+- 主文字：#e2e8f0 / #cbd5f5；
+- 次要文字：rgba(226, 232, 240, 0.7) / #94a3b8。
 
-1. **Liquid Shape Morphing System**
-   - Use complex 8-value border-radius for organic shapes:
-     \`\`\`css
-     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-     \`\`\`
-   - Animate through 4 keyframes with @keyframes:
-     \`\`\`css
-     @keyframes liquidMorph {
-       0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(0, 0) rotate(0deg) scale(1); }
-       25% { border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%; transform: translate(30px, -30px) rotate(90deg) scale(1.1); }
-       50% { border-radius: 30% 70% 60% 40% / 60% 40% 50% 60%; transform: translate(-20px, 40px) rotate(180deg) scale(0.95); }
-       75% { border-radius: 70% 30% 40% 60% / 40% 60% 70% 30%; transform: translate(40px, 20px) rotate(270deg) scale(1.05); }
-     }
-     \`\`\`
-   - Animation cycles should be 15-25 seconds with ease-in-out timing
+【输出要求】
+- 输出一个完整 HTML5 页面结构（至少包含 <header>、<main>、<section>、<footer>），布局与当前 LiquidFullPage 相同或高度相似：
+  - 含多层背景动画节点（deep/mid/surface blobs、bubbles、plankton）；
+  - 含顶部指标卡、居中 Hero 卡片、底部信息卡区域；
+- 布局类名可采用 Tailwind 风格原子类（如 flex、grid、gap-8、max-w-5xl、mx-auto、px-6、py-10 等），但背景动画部分请保留明确的 class 名（如 .ocean-blob-deep、.bubble、.plankton、.glass-card、.liquid-button 等），以便复用 CSS。
+- 不输出额外解释文字，只输出最终 HTML 结构代码。`,
 
-2. **Multi-layer Blur Backgrounds**
-   - Stack 3-4 blob layers with different animation durations and delays
-   - Apply filter: blur(30-60px) to container for blending effect
-   - Define blob colors with radial-gradient:
-     \`\`\`css
-     background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, rgba(0, 229, 255, 0.1) 50%, transparent 70%);
-     \`\`\`
+    'en-US': `
+You are a senior UI designer and front-end engineer who deeply understands the "Liquid Motion Deep Ocean Dashboard" style. Your job is to generate a brand new full-page HTML layout that looks like a sibling of the existing /styles/preview/visual-nature-liquid (LiquidFullPage) demo, without copying its text or exact data.
 
-3. **Deep Ocean Tech Color Palette**
-   - Main background gradient: #0a192f → #0d3b66 → #112240
-   - Primary blob: rgba(0, 229, 255, 0.35) cyan-blue
-   - Secondary blob: rgba(100, 255, 218, 0.3) teal
-   - Accent blob: rgba(139, 92, 246, 0.25) violet
-   - Highlight: #64ffda
-   - Text: #ccd6f6 (primary) / #8892b0 (secondary)
+Your goal: provide a single, self-contained instruction that can be pasted into an LLM so it can generate a complete HTML page. The new page must preserve the same layered background animation system (deep/mid/surface blobs, rising bubbles, bioluminescent plankton), glassmorphism data cards, liquid progress bars, and glowing buttons, while changing scenario labels, metrics and copy.
 
-4. **Glassmorphism Card Components**
-   - Semi-transparent background: rgba(17, 34, 64, 0.6)
-   - backdrop-filter: blur(12px)
-   - Glowing border: border: 1px solid rgba(100, 255, 218, 0.15)
-   - Enhanced hover state:
-     \`\`\`css
-     .card:hover {
-       border-color: rgba(100, 255, 218, 0.4);
-       transform: translateY(-4px);
-       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-     }
-     \`\`\`
+[Scenario]
+- Full-screen "Ocean Analytics Dashboard" for monitoring deep-ocean data:
+  - Surface and deep-water temperatures, depth profiles, current dynamics, biodiversity activity;
+  - Users are scientists, analysts, and technical teams who need both immersion and clarity;
+  - The interface should feel like a live control center under the sea.
 
-5. **Glow Interaction Effects**
-   - Buttons use border glow instead of filled backgrounds
-   - Add box-shadow glow on hover:
-     \`\`\`css
-     .btn:hover {
-       box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-     }
-     \`\`\`
-   - Internal ripple effect using expanding radial-gradient
+[Layout Structure]
+1. Root container
+  - A top-level wrapper (e.g. class="liquid-page") with:
+    - min-height: 100vh;
+    - background: vertical gradient from #020617 through #0a192f to #112240;
+    - position: relative and overflow-x: hidden.
 
-6. **Performance Optimization**
-   - Add will-change: transform, border-radius to all animated elements
-   - Use transform3d for GPU acceleration
-   - Set pointer-events: none on blob containers
+2. Background animation layers (at least 5 distinct layers)
+  - LAYER 1 – Deep Ocean Current blobs:
+    - Two large organic shapes: .ocean-blob-deep.ocean-blob-deep-1/2;
+    - They slowly drift and morph over ~30s using complex border-radius + transform.
+    - Example:
+      \`\`\`css
+      @keyframes deepOceanCurrent {
+        0%, 100% {
+          transform: translate(0, 0) rotate(0deg) scale(1);
+          border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        20% {
+          transform: translate(150px, -100px) rotate(72deg) scale(1.3);
+          border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%;
+        }
+        40% {
+          transform: translate(-80px, 120px) rotate(144deg) scale(0.8);
+          border-radius: 30% 70% 60% 40% / 60% 40% 50% 60%;
+        }
+      }
 
-**Color Palette (Deep Ocean Tech)**
+      .ocean-blob-deep {
+        position: fixed;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(circle, rgba(0, 229, 255, 0.45), transparent 70%);
+        filter: blur(40px);
+        opacity: 0.55;
+        animation: deepOceanCurrent 30s ease-in-out infinite;
+        will-change: transform, border-radius;
+        pointer-events: none;
+        z-index: 0;
+      }
+      \`\`\`
 
-Primary colors:
-- Background darks: #0a192f, #0d3b66, #112240
-- Highlight teal: #64ffda, #00e5ff
-- Accent purple: #8b5cf6
+  - LAYER 2 – Mid-layer water masses:
+    - 3+ mid-sized blobs (.ocean-blob-mid-1/2/3) with ~20s cycles;
+    - Colors lean toward teal and violet; blur radius smaller than deep layer;
+    - Positions fill the central band of the viewport.
 
-Neutral colors:
-- Primary text: #ccd6f6, #e6f1ff
-- Secondary text: #8892b0
-- Borders/dividers: rgba(136, 146, 176, 0.3)
+  - LAYER 3 – Surface surge:
+    - 2 smaller blobs (.ocean-blob-surface-1/2) with ~12s cycles;
+    - Placed nearer the top half, with slightly more energetic motion (translation + scale).
 
-**Key CSS Class Examples**
+  - LAYER 4 – Rising bubbles:
+    - Many .bubble elements anchored at the bottom, rising upward and drifting horizontally.
+    - Each bubble uses CSS custom properties:
+      \`\`\`html
+      <div class="bubble"
+           style="left: 25%; --bubble-size: 8px; --bubble-duration: 9s; --bubble-delay: 0.5s; --bubble-drift: 20px;"></div>
+      \`\`\`
+      \`\`\`css
+      @keyframes bubbleRise {
+        0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+        10%  { opacity: 0.9; }
+        80%  { opacity: 0.9; }
+        100% { transform: translate3d(var(--bubble-drift), -120vh, 0); opacity: 0; }
+      }
 
-\`\`\`css
-/* Liquid background container */
-.liquid-bg-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(60px);
-  opacity: 0.6;
-  pointer-events: none;
-}
+      .bubble {
+        position: fixed;
+        bottom: -40px;
+        width: var(--bubble-size);
+        height: var(--bubble-size);
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(148, 163, 255, 0.9), rgba(59, 130, 246, 0.2));
+        animation: bubbleRise var(--bubble-duration) linear infinite;
+        animation-delay: var(--bubble-delay);
+        pointer-events: none;
+        z-index: 1;
+      }
+      \`\`\`
+    - Use 20+ bubbles with varied positions and timing to avoid synchronization.
 
-/* Liquid blob */
-.liquid-blob {
-  position: absolute;
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, transparent 70%);
-  animation: liquidMorph 20s ease-in-out infinite;
-  will-change: transform, border-radius;
-}
+  - LAYER 5 – Bioluminescent plankton:
+    - Use .plankton elements scattered across the screen as tiny glowing dots:
+      \`\`\`css
+      @keyframes planktonFlicker {
+        0%, 100% { opacity: 0.2; transform: translate3d(0, 0, 0) scale(1); }
+        40%      { opacity: 0.9; transform: translate3d(4px, -6px, 0) scale(1.2); }
+        70%      { opacity: 0.5; transform: translate3d(-3px, 3px, 0) scale(0.9); }
+      }
 
-/* Glass card */
-.glass-card {
-  background: rgba(17, 34, 64, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  border: 1px solid rgba(100, 255, 218, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+      .plankton {
+        position: fixed;
+        width: var(--plankton-size);
+        height: var(--plankton-size);
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(125, 211, 252, 1), rgba(56, 189, 248, 0.1));
+        animation: planktonFlicker var(--plankton-duration) ease-in-out infinite;
+        animation-delay: var(--plankton-delay);
+        pointer-events: none;
+        z-index: 1;
+      }
+      \`\`\`
 
-.glass-card:hover {
-  border-color: rgba(100, 255, 218, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+3. Foreground Content (Dashboard)
+  - Place all content inside a high z-index wrapper (e.g. .ocean-content) so it sits above background layers.
+  - Structure:
+    - Top: a row of glowing stats (cards showing depth, temperature, current speed, etc.).
+    - Middle: hero section with large title, descriptive subtitle and two primary buttons.
+    - Bottom: a grid of glass cards with charts, progress bars and labels.
 
-/* Glow button */
-.glow-btn {
-  padding: 12px 28px;
-  background: transparent;
-  border: 1px solid #64ffda;
-  border-radius: 8px;
-  color: #64ffda;
-  transition: all 0.3s ease;
-}
+[Glass Cards & Liquid Progress]
+- Use .glass-card as the shared container style:
+  \`\`\`css
+  .glass-card {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    border: 1px solid rgba(148, 163, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.7);
+    transition: all 0.35s ease;
+  }
 
-.glow-btn:hover {
-  background: rgba(100, 255, 218, 0.1);
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-  transform: translateY(-2px);
-}
-\`\`\`
+  .glass-card:hover {
+    border-color: rgba(56, 189, 248, 0.7);
+    box-shadow: 0 32px 90px rgba(15, 23, 42, 0.9);
+    transform: translateY(-4px);
+  }
+  \`\`\`
 
-**Spacing System (8px base unit)**
-- xs: 8px, sm: 16px, md: 24px, lg: 32px, xl: 48px, 2xl: 64px
+- For liquid progress bars:
+  \`\`\`css
+  .liquid-progress {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
 
-**Important Notes**
-- All blob animations should use different durations and delays to avoid synchronization
-- Content layer must have higher z-index than background layer
-- Reduce blob size and blur intensity on mobile for performance
-- Avoid box-shadow on blobs, use radial-gradient instead
-- Text should have sufficient contrast, add text-shadow when necessary`
+  .liquid-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00e5ff, #64ffda);
+    border-radius: 4px;
+    animation: liquidFill 2s ease-out forwards;
+  }
+
+  @keyframes liquidFill {
+    from { width: 0; }
+  }
+  \`\`\`
+
+[Buttons & Interaction]
+- Primary liquid button:
+  \`\`\`css
+  .liquid-button {
+    position: relative;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #00e5ff, #64ffda);
+    border-radius: 12px;
+    border: none;
+    color: #020617;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  \`\`\`
+- Hover should add a subtle ripple via ::before and a soft shadow; outline variant uses a transparent background with cyan border that fills slightly on hover.
+
+[Color System]
+- Background: #020617, #0a192f, #112240;
+- Highlights: #00e5ff, #64ffda;
+- Accent: #8b5cf6;
+- Primary text: #e2e8f0 / #cbd5f5;
+- Secondary text: rgba(226, 232, 240, 0.7).
+
+[Output Requirements]
+- Output a complete HTML5 page structure using <header>, <main>, <section> and <footer>, with:
+  - Multiple background animation elements for deep/mid/surface blobs, bubbles and plankton;
+  - A stats row, hero section and one or more glass-card rows for detailed metrics.
+- For layout, you may use Tailwind-like utilities (flex, grid, gap-8, max-w-5xl, mx-auto, px-6, py-10, etc.).
+- For background animation and key visual components, keep explicit class names (.ocean-blob-deep, .ocean-blob-mid, .ocean-blob-surface, .bubble, .plankton, .glass-card, .liquid-button, .liquid-progress) so CSS can be attached.
+- Do not output explanations—only the final HTML structure with class names that clearly support this liquid ocean animation style.`
   },
 
   stylePrompt: {
@@ -399,6 +534,357 @@ Technical Implementation:
   customStyles,
   fullPageHTML,
   fullPageStyles,
+  previews: [
+    {
+      id: 'visual-nature-liquid-flow-home-office',
+      name: 'Liquid Flow Home Office',
+      type: 'full',
+      previewId: 'visual-nature-liquid-flow-home-office',
+      customPrompt: {
+        'zh-CN': `
+你现在是一名非常熟悉「Liquid Motion 深海科技仪表盘」风格的资深 UI 设计师兼前端工程师，需要为一个全新页面生成一套与当前预览 /styles/preview/visual-nature-liquid（LiquidFullPage）在「背景动画结构」上高度一致的 UI。
+
+你的重点任务：请完整复刻当前模板中所有背景动画层（至少 8 层），并在新页面的 HTML/CSS 中保留相同的 class 名称与动画逻辑，只替换文案、业务数据和部分布局结构。下面给出当前模板使用的完整背景动画代码，请严格按照这些层级来设计和生成新的页面。
+
+【背景动画总览】
+- LAYER 1：Deep Ocean Current（深海洋流 blob，30s 循环）
+- LAYER 2：Mid-Layer Water Mass（中层水体 blob，20s 循环）
+- LAYER 3：Surface Surge（表层浪涌 blob，12s 循环）
+- LAYER 4：Rising Bubbles（上升气泡粒子）
+- LAYER 5：Bioluminescent Plankton（发光浮游生物）
+- LAYER 6：Light Refraction Beams（光线折射光束）
+- LAYER 7：Auto Ripples（自动扩散水波纹）
+- LAYER 8：Seaweed Sway（摇曳的海草 silohuette）
+
+你生成的新页面必须至少保留这 8 层中的核心层级（1~5 必须保留，6~8 可在性能允许时保留），并使用与下方一致或等价的 CSS 动画结构。
+
+【基础容器与页面背景】
+请使用一个顶层容器 .liquid-page 包住所有背景层与内容层：
+
+.liquid-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #020617 0%, #0a192f 50%, #112240 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #e2e8f0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+【LAYER 1：Deep Ocean Current（深海洋流 blob，30s）】
+@keyframes deepOceanCurrent {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  20% {
+    transform: translate(150px, -100px) rotate(72deg) scale(1.3);
+    border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%;
+  }
+  40% {
+    transform: translate(-80px, 120px) rotate(144deg) scale(0.8);
+    border-radius: 30% 70% 60% 40% / 60% 40% 50% 60%;
+  }
+  60% {
+    transform: translate(200px, 80px) rotate(216deg) scale(1.2);
+    border-radius: 70% 30% 40% 60% / 40% 60% 70% 30%;
+  }
+  80% {
+    transform: translate(-120px, -60px) rotate(288deg) scale(0.9);
+    border-radius: 50% 50% 60% 40% / 55% 45% 55% 45%;
+  }
+}
+
+.ocean-blob-deep {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, rgba(100, 255, 218, 0.08) 50%, transparent 70%);
+  filter: blur(80px);
+  animation: deepOceanCurrent 30s ease-in-out infinite;
+  will-change: transform, border-radius;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ocean-blob-deep-1 {
+  top: -20%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.ocean-blob-deep-2 {
+  bottom: -30%;
+  right: -15%;
+  animation-delay: -15s;
+  background: radial-gradient(circle, rgba(100, 255, 218, 0.12) 0%, rgba(0, 229, 255, 0.06) 50%, transparent 70%);
+}
+
+【LAYER 2：Mid-Layer Water Mass（中层水体 blob，20s）】
+@keyframes midLayerFlow {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+  }
+  25% {
+    transform: translate(100px, -80px) rotate(90deg) scale(1.15);
+    border-radius: 40% 60% 50% 50% / 50% 50% 50% 50%;
+  }
+  50% {
+    transform: translate(-60px, 100px) rotate(180deg) scale(0.85);
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  }
+  75% {
+    transform: translate(80px, 40px) rotate(270deg) scale(1.1);
+    border-radius: 45% 55% 55% 45% / 55% 45% 55% 45%;
+  }
+}
+
+.ocean-blob-mid {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.2) 0%, rgba(100, 255, 218, 0.1) 60%, transparent 80%);
+  filter: blur(60px);
+  animation: midLayerFlow 20s ease-in-out infinite;
+  will-change: transform, border-radius;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ocean-blob-mid-1 {
+  top: 20%;
+  left: 30%;
+  animation-delay: -5s;
+}
+
+.ocean-blob-mid-2 {
+  top: 50%;
+  right: 20%;
+  animation-delay: -10s;
+}
+
+.ocean-blob-mid-3 {
+  bottom: 20%;
+  left: 10%;
+  animation-delay: -15s;
+}
+
+【LAYER 3：Surface Surge（表层浪涌 blob，12s）】
+@keyframes surfaceSurge {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  33% {
+    transform: translate(120px, -60px) rotate(120deg) scale(1.25);
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  }
+  66% {
+    transform: translate(-80px, 80px) rotate(240deg) scale(0.75);
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+}
+
+.ocean-blob-surface {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.25) 0%, rgba(100, 255, 218, 0.15) 50%, transparent 70%);
+  filter: blur(40px);
+  animation: surfaceSurge 12s ease-in-out infinite;
+  will-change: transform, border-radius;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ocean-blob-surface-1 {
+  top: 10%;
+  right: 30%;
+  animation-delay: -3s;
+}
+
+.ocean-blob-surface-2 {
+  bottom: 30%;
+  left: 40%;
+  animation-delay: -6s;
+}
+
+【LAYER 4：Rising Bubbles（上升气泡粒子）】
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.3);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(50vh) translateX(var(--bubble-drift, 20px)) scale(0.6);
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(calc(var(--bubble-drift, 20px) * -1)) scale(1);
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+  width: var(--bubble-size, 10px);
+  height: var(--bubble-size, 10px);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(0, 229, 255, 0.3));
+  border-radius: 50%;
+  animation: bubbleRise var(--bubble-duration, 8s) ease-in-out infinite;
+  animation-delay: var(--bubble-delay, 0s);
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 1;
+}
+
+【LAYER 5：Bioluminescent Plankton（发光浮游生物）】
+@keyframes planktonGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translate(0, 0) scale(0.8);
+    filter: blur(1px);
+  }
+  25% {
+    opacity: 0.5;
+    transform: translate(30px, -20px) scale(1.1);
+    filter: blur(0px);
+    box-shadow: 0 0 20px #00e5ff, 0 0 40px #64ffda;
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-25px, 35px) scale(0.9);
+    filter: blur(2px);
+  }
+  75% {
+    opacity: 0.95;
+    transform: translate(40px, 15px) scale(1.2);
+    filter: blur(0px);
+    box-shadow: 0 0 25px #00e5ff, 0 0 50px #64ffda;
+  }
+}
+
+.plankton {
+  position: absolute;
+  width: var(--plankton-size, 4px);
+  height: var(--plankton-size, 4px);
+  background: #00e5ff;
+  border-radius: 50%;
+  animation: planktonGlow var(--plankton-duration, 15s) ease-in-out infinite;
+  animation-delay: var(--plankton-delay, 0s);
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+  z-index: 1;
+}
+
+【LAYER 6：Light Refraction Beams（光线折射光束）】
+@keyframes lightBeam {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateY(0) scaleY(1) skewX(0deg);
+  }
+  25% {
+    opacity: 0.5;
+    transform: translateY(30px) scaleY(1.1) skewX(2deg);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(10px) scaleY(0.95) skewX(-1deg);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translateY(40px) scaleY(1.15) skewX(3deg);
+  }
+}
+
+.light-beam {
+  position: absolute;
+  top: 0;
+  width: var(--beam-width, 100px);
+  height: 100%;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(0, 229, 255, 0.08) 30%,
+    rgba(100, 255, 218, 0.03) 70%,
+    transparent 100%
+  );
+  filter: blur(20px);
+  animation: lightBeam var(--beam-duration, 25s) ease-in-out infinite;
+  animation-delay: var(--beam-delay, 0s);
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 0;
+}
+
+【LAYER 7：Auto Ripples（自动水波纹）】
+@keyframes autoRipple {
+  0%, 100% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.auto-ripple {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+  border-radius: 50%;
+  animation: autoRipple 10s ease-in-out infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 0;
+}
+
+【LAYER 8：Seaweed Sway（海草摇曳）】
+@keyframes seaweedSway {
+  0%, 100% {
+    transform: rotate(-5deg) scaleY(1);
+  }
+  25% {
+    transform: rotate(3deg) scaleY(1.02);
+  }
+  50% {
+    transform: rotate(-8deg) scaleY(0.98);
+  }
+  75% {
+    transform: rotate(6deg) scaleY(1.01);
+  }
+}
+
+.seaweed {
+  position: absolute;
+  bottom: 0;
+  width: var(--seaweed-width, 20px);
+  height: var(--seaweed-height, 150px);
+  background: linear-gradient(180deg, rgba(100, 255, 218, 0.4) 0%, rgba(0, 229, 255, 0.2) 100%);
+  border-radius: 50% 50% 0 0;
+  transform-origin: bottom center;
+  animation: seaweedSway var(--seaweed-duration, 18s) ease-in-out infinite;
+  animation-delay: var(--seaweed-delay, 0s);
+  will-change: transform;
+  pointer-events: none;
+  z-index: 1;
+}
+
+【输出与约束要求】
+- 生成的新 HTML 页面必须：
+  - 使用 .liquid-page 容器和上述所有背景层 class 名称（可以增减元素数量，但不要完全删除某一层的存在）；
+  - 保留「多层液体 blob + 气泡 + 发光粒子 + 光束 + 水波纹 + 海草」的整体视觉结构；
+  - 内容层（.ocean-content 及内部卡片/按钮）可以改成新的业务场景，但仍然使用玻璃态卡片、液体进度条和发光按钮等元素。
+- 你输出的内容只需要给出完整的 HTML 结构（包括这些背景层节点与内容层），不需要再解释原理。CSS 可以通过上述代码片段推导或复用。`
+      }
+    }
+  ],
 };
 
 export default liquid;

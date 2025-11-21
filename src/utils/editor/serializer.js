@@ -12,7 +12,7 @@ import { mapStyleObject } from './tailwindMapper';
  */
 
 /**
- * 主序列化函數
+ * 主序列化函数
  */
 export const serializeToPrompt = (canvasState, globalSettings, options = {}) => {
   // 1. 校验
@@ -60,7 +60,7 @@ function traverseTree(node, propsMap, depth = 0) {
       lines.push(...describeLayout(props.layoutProps, depth + 1));
     }
 
-    // 描述響應式覆蓋 (僅差異)
+    // 描述響應式覆蓋 (仅差異)
     if (props?.responsiveOverrides || props?.responsiveLayoutOverrides) {
       lines.push(...describeResponsiveOverrides(props, depth + 1));
     }
@@ -175,7 +175,7 @@ function describeLayout(layoutProps, depth) {
 }
 
 /**
- * 描述響應式覆蓋 (僅差異)
+ * 描述響應式覆蓋 (仅差異)
  */
 function describeResponsiveOverrides(props, depth) {
   const indent = '  '.repeat(depth);
@@ -268,21 +268,21 @@ ${structureLines.join('\n')}
 # AI 提示词 - UI 布局描述
 
 ## 角色与目标
-你是资深 UI/UX 設計師與前端樣式專家 (TailwindCSS)。
+你是资深 UI/UX 设計師与前端樣式专家 (TailwindCSS)。
 目标: 根据下方布局描述,用「极简主义」风格生成可复用的 HTML + Tailwind UI 组件。
 
 ## 风格说明
-- **极简主义**: 「少即是多」,減少不必要元素,大量留白,注重功能性與排版。
+- **极简主义**: 「少即是多」,減少不必要元素,大量留白,注重功能性与排版。
 - **配色**: 低對比度,以灰阶為主 (gray-50 ~ gray-900),点缀藍色 (blue-500/600)。
-- **层次**: 通過间距 (gap/padding) 而非陰影建立层次。
+- **层次**: 通過间距 (gap/padding) 而非阴影建立层次。
 
 ## 技术要求
 1. **结构**: 语义化 HTML (header/main/section/button/label 等)。
-2. **呈现**: 使用 Tailwind 体现配色、层次、间距與狀態 (hover/focus/disabled)。
+2. **呈现**: 使用 Tailwind 体现配色、层次、间距与狀態 (hover/focus/disabled)。
 3. **可达性**: 足夠對比度、可見焦點、ARIA/label、可鍵盤操作。
 4. **自适应**: Mobile-first,至少覆蓋 md/lg 斷點。
-5. **交互**: 描述微交互 (过渡/动画) 與觸發時機。
-6. **性能**: 避免過度陰影/滤镜;可复用樣式;禁止 SVG 與 Mermaid。
+5. **交互**: 描述微交互 (过渡/动画) 与觸發時機。
+6. **性能**: 避免過度阴影/滤镜;可复用樣式;禁止 SVG 与 Mermaid。
 
 ---
 
@@ -352,7 +352,7 @@ function validateComponentTree(canvasState) {
         errors.push({
           type: 'EMPTY_CONTENT',
           componentId: node.id,
-          message: `组件 ${node.id} 内容為空 (可能導致 LLM 幻覺)`
+          message: `组件 ${node.id} 内容為空 (可能导致 LLM 幻覺)`
         });
       }
     }

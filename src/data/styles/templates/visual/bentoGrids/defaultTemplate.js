@@ -102,7 +102,7 @@ export const visualTechBentoGrids = {
   `,
   demoBoxClass: 'bg-gray-50',
   colorScheme: {
-    'zh-cn': '白色背景 (#FFFFFF)、灰色邊框 (#E5E7EB)、靛藍高亮 (#6366F1)',
+    'zh-cn': '白色背景 (#FFFFFF)、灰色边框 (#E5E7EB)、靛藍高亮 (#6366F1)',
     'en-US': 'White background (#FFFFFF), gray border (#E5E7EB), indigo highlight (#6366F1)',
   },
   fullPagePreviewId: 'bento-grids',

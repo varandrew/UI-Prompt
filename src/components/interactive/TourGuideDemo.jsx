@@ -3,7 +3,7 @@ import { TourGuide } from './TourGuide'
 import { useLanguage } from '../../hooks/useLanguage'
 
 /**
- * TourGuideDemo - React 版示範頁（i18n）
+ * TourGuideDemo - React 版示範页（i18n）
  */
 export function TourGuideDemo({ autoStart = true, mode = 'card' }) {
   const { t } = useLanguage()
@@ -33,7 +33,7 @@ export function TourGuideDemo({ autoStart = true, mode = 'card' }) {
   if (mode === 'full') {
     return (
       <div className="min-h-[600px] h-full w-full bg-gray-50">
-        {/* 頂部導覽列 */}
+        {/* 頂部导覽列 */}
         <header ref={navRef} className="sticky top-0 z-10 bg-white border-b">
           <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ export function TourGuideDemo({ autoStart = true, mode = 'card' }) {
           </div>
         </header>
 
-        {/* Hero 區域 */}
+        {/* Hero 区域 */}
         <section ref={heroRef} className="max-w-5xl mx-auto px-4 py-8">
           <h1 className="text-3xl md:text-4xl font-light mb-2">{t('demo.interactive.tourGuide.welcomeTitle')}</h1>
           <p className="text-gray-600 mb-6">{t('demo.interactive.tourGuide.welcomeDesc')}</p>
@@ -74,7 +74,7 @@ export function TourGuideDemo({ autoStart = true, mode = 'card' }) {
           </div>
         </section>
 
-        {/* 主內容區域 */}
+        {/* 主內容区域 */}
         <section className="max-w-5xl mx-auto px-4 pb-10">
           <div ref={featureRef} className="bg-white rounded-xl border p-6 shadow-sm mb-6">
             <h3 className="text-lg font-semibold mb-2">{t('demo.interactive.tourGuide.featureTitle')}</h3>
@@ -104,7 +104,7 @@ export function TourGuideDemo({ autoStart = true, mode = 'card' }) {
     )
   }
 
-  // card 模式（原精簡版）
+  // card 模式（原精简版）
   return (
     <div className="w-full max-w-3xl mx-auto p-6">
       <div className="mb-6 flex items-center justify-between">

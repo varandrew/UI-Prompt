@@ -1,6 +1,6 @@
 /**
- * 對齊輔助線 Overlay（簡化版）
- * 固定定位於視窗，根據傳入的水平/垂直線座標繪製參考線。
+ * 對齊輔助线 Overlay（简化版）
+ * 固定定位於視窗，根据傳入的水平/垂直线座标繪製參考线。
  */
 export function GuidesOverlay({ v = [], h = [] }) {
   return (

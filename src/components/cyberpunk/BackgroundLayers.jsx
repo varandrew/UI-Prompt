@@ -24,7 +24,7 @@ export function CyberBackground({ progress }) {
 }
 
 /**
- * CyberGrid - 背景網格效果
+ * CyberGrid - 背景网格效果
  */
 export function CyberGrid({ progress }) {
   return (
@@ -54,7 +54,7 @@ export function CyberGrid({ progress }) {
 }
 
 /**
- * CyberScanLine - 掃描線動畫效果
+ * CyberScanLine - 掃描线動画效果
  */
 export function CyberScanLine({ progress }) {
   return (

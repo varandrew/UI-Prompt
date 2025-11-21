@@ -1,6 +1,6 @@
 /**
  * Gradients - FullPage Custom Prompt
- * 漸變風格完整頁面的 AI 指令（針對 Gradients 全屏控制面板）
+ * 漸变風格完整页面的 AI 指令（針對 Gradients 全屏控制面板）
  */
 
 export const fullPageCustomPrompt = {

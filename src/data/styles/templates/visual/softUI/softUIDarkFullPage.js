@@ -1,5 +1,5 @@
 // Soft UI - Creative Studio Hub (Dark Mode)
-// 完整頁面預覽：15+ UI 組件展示 Soft UI (Neumorphism) 原則 - Nord 深色主題
+// 完整页面預覽：15+ UI 組件展示 Soft UI (Neumorphism) 原則 - Nord 深色主題
 
 export const softUIDarkFullPageHTML = `
   <!-- TOP NAVIGATION -->

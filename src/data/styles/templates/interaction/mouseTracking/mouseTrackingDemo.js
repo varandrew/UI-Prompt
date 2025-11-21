@@ -1,4 +1,4 @@
-// Mouse Tracking Demo Panel - 專用於分類卡片展示
+// Mouse Tracking Demo Panel - 专用於分类卡片展示
 export const mouseTrackingDemo = {
   id: 'interaction-mouse-tracking-demo',
   title: 'styles.interaction.mouseTrackingDemo.title',

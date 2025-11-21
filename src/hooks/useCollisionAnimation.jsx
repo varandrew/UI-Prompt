@@ -7,13 +7,13 @@ import {
 } from '../utils/animations';
 
 /**
- * 碰撞動畫 Hook
+ * 碰撞動画 Hook
  *
- * 用於檢測和處理組件拖動時的碰撞效果
- * 提供碰撞狀態、動畫控制和視覺反饋
+ * 用於检測和處理組件拖動時的碰撞效果
+ * 提供碰撞狀態、動画控制和視覺反饋
  *
  * @param {string} componentId - 組件 ID
- * @returns {object} 碰撞動畫控制器
+ * @returns {object} 碰撞動画控制器
  */
 export function useCollisionAnimation() {
   const [scope, animate] = useAnimate();
@@ -22,25 +22,25 @@ export function useCollisionAnimation() {
   const collisionTimeoutRef = useRef(null);
 
   /**
-   * 觸發碰撞動畫
-   * @param {DOMRect} movingRect - 移動組件的邊界矩形
-   * @param {DOMRect} targetRect - 目標組件的邊界矩形
+   * 觸發碰撞動画
+   * @param {DOMRect} movingRect - 移動組件的边界矩形
+   * @param {DOMRect} targetRect - 目标組件的边界矩形
    * @param {number} intensity - 碰撞強度 (0-1)
    */
   const triggerCollision = useCallback((movingRect, targetRect, intensity = 0.5) => {
-    // 清除之前的動畫
+    // 清除之前的動画
     if (collisionTimeoutRef.current) {
       clearTimeout(collisionTimeoutRef.current);
     }
 
-    // 設置碰撞狀態
+    // 设置碰撞狀態
     setIsColliding(true);
 
     // 計算碰撞方向
     const direction = getCollisionDirection(movingRect, targetRect);
 
     if (direction && scope.current) {
-      // 執行反彈動畫
+      // 執行反彈動画
       const collisionAnim = getCollisionAnimation(direction, intensity);
       animate(scope.current, collisionAnim);
     }
@@ -52,7 +52,7 @@ export function useCollisionAnimation() {
   }, [animate, scope]);
 
   /**
-   * 設置可放置狀態
+   * 设置可放置狀態
    * @param {boolean} droppable - 是否可放置
    */
   const setDroppable = useCallback((droppable) => {
@@ -71,7 +71,7 @@ export function useCollisionAnimation() {
   }, []);
 
   /**
-   * 獲取當前動畫變體
+   * 獲取當前動画變体
    */
   const getVariant = useCallback(() => {
     if (isColliding) return 'collision';
@@ -103,24 +103,24 @@ export function useCollisionAnimation() {
 /**
  * 全局碰撞管理 Hook
  *
- * 用於在 LayoutEditorPage 層級管理所有組件的碰撞狀態
- * 追蹤當前拖動的組件和可能的碰撞目標
+ * 用於在 LayoutEditorPage 层級管理所有組件的碰撞狀態
+ * 追蹤當前拖動的組件和可能的碰撞目标
  */
 export function useGlobalCollisionManager() {
   const [activeCollisions, setActiveCollisions] = useState(new Map());
   const activeRectRef = useRef(null);
 
   /**
-   * 設置當前拖動組件的邊界
+   * 设置當前拖動組件的边界
    */
   const setActiveDragRect = useCallback((rect) => {
     activeRectRef.current = rect;
   }, []);
 
   /**
-   * 註冊碰撞檢測
-   * @param {string} targetId - 目標組件 ID
-   * @param {DOMRect} targetRect - 目標組件邊界
+   * 註冊碰撞检測
+   * @param {string} targetId - 目标組件 ID
+   * @param {DOMRect} targetRect - 目标組件边界
    * @returns {boolean} 是否發生碰撞
    */
   const checkCollision = useCallback((targetId, targetRect) => {

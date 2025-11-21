@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 import { shouldShow, getAnimationProgress } from '../../utils/cyberpunkTimeline';
 
 /**
- * AnimatedWrapper - 動畫包裝器 HOC
- * 根據進度控制子組件的顯示和動畫效果
+ * AnimatedWrapper - 動画包裝器 HOC
+ * 根据進度控制子組件的显示和動画效果
  *
  * @param {string} componentName - 組件名稱 (對應 timeline 中的 key)
  * @param {number} progress - 當前進度 (0-100)
- * @param {string} animationType - 動畫類型
+ * @param {string} animationType - 動画类型
  * @param {ReactNode} children - 子組件
  */
 export function AnimatedWrapper({
@@ -17,19 +17,19 @@ export function AnimatedWrapper({
   className = '',
   children
 }) {
-  // 檢查是否應該顯示
+  // 检查是否應該显示
   const visible = useMemo(() =>
     shouldShow(componentName, progress),
     [componentName, progress]
   );
 
-  // 計算動畫進度 (0-1)
+  // 計算動画進度 (0-1)
   const animProgress = useMemo(() =>
     getAnimationProgress(componentName, progress),
     [componentName, progress]
   );
 
-  // 根據動畫類型生成樣式
+  // 根据動画类型生成樣式
   const animationStyle = useMemo(() => {
     if (!visible) {
       return {

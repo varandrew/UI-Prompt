@@ -13,7 +13,7 @@ export const demoUI = demoHTML;
 export const customStyles = demoCustomStyles;
 export const description = 'styles.retro.arcadeCRT.description';
 
-// Family-level customPrompt (核心理念和設計原則)
+// Family-level customPrompt (核心理念和设計原則)
 export const customPrompt = {
   'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Arcade CRT 街机显示器」核心样式卡展示界面风格高度接近的 UI。
 要求：保持黑暗街机厅氛围、CRT 扫描线、霓虹发光色和像素化按键这些核心特征，只允许替换文案与模块内容，不改变整体构图与配色气质。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。

@@ -1,4 +1,4 @@
-// Brutalism Developer Workspace 完整頁面數據 - 開發者工作台風格
+// Brutalism Developer Workspace 完整页面数据 - 開發者工作台風格
 export const brutalismDevWorkspaceHTML = `
   <div class="min-full-page" style="background: #f5f5f5; min-height: 100vh; font-family: Arial, 'Helvetica Neue', sans-serif;">
 

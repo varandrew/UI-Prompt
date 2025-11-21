@@ -1,6 +1,6 @@
 // Phase 3 Batch 2 - Anti-Design Template
-// 視覺元素：反設計風格
-// 從 visualTechStyles.js 遷移
+// 視覺元素：反设計風格
+// 从 visualTechStyles.js 遷移
 
 import {
   visualTechAntiDesignFullPageHTML,
@@ -62,7 +62,7 @@ export const visualTechAntiDesign = {
     'en-US': 'Chaotic typography, clashing colors (bright red #FF0000, electric green #00FF00), Comic Sans font, broken grids, intentionally raw'
   },
 
-  // 風格說明 Prompt（StylePrompt）：用於解釋 Anti-Design 的設計理念
+  // 風格說明 Prompt（StylePrompt）：用於解釋 Anti-Design 的设計理念
   stylePrompt: {
     'zh-CN': `角色设定：
 你是一位专精于「反设计（Anti-Design）」风格的 UI 设计师，擅长通过打破网格、冲突配色和不对齐排版，制造「不舒服但记得住」的视觉体验。你的任务不是让界面看起来乖巧、理性，而是帮助那些想要表达态度、反叛和个性的品牌，用界面本身讲一句：我们不按常理出牌。
@@ -126,7 +126,7 @@ Overall Mood:
 Being inside an Anti-Design interface should feel like standing in front of a punk gig poster wall or flipping through an underground zine. It is loud, opinionated and unapologetic. Done well, it does not simply look “ugly”; it feels like controlled chaos with a point, giving brands a visual voice that refuses to blend into the endless sea of clean, minimal SaaS dashboards.`
   },
 
-  // 自定義生成 Prompt（CustomPrompt）：用於讓 LLM 生成 Anti-Design 風格全頁面 HTML
+  // 自定義生成 Prompt（CustomPrompt）：用於让 LLM 生成 Anti-Design 風格全页面 HTML
   customPrompt: {
     'zh-CN': `你现在是一名偏爱「反设计（Anti-Design）」美学的资深 UI 设计师兼前端工程师，请为一个 Anti-Design 主题的单页官网生成完整 HTML 结构（可配合 TailwindCSS 风格的原子类）。目标是让这个页面在布局、配色和动线上都明显违背传统「整齐、克制、对齐」的规范，但仍然保持基本可读性和可操作性。
 
@@ -1398,7 +1398,7 @@ Being inside an Anti-Design interface should feel like standing in front of a pu
         }
       },
 
-      // Preview 3: Article Detail Page (部分實現 - 精簡版)
+      // Preview 3: Article Detail Page (部分實現 - 精简版)
       {
         id: 'article-detail',
         name: 'styles.visual.anti-design.previews.articleDetail',

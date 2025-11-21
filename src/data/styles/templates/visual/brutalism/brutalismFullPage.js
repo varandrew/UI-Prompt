@@ -1,4 +1,4 @@
-// Brutalism 完整頁面數據 - 純粹粗野主義風格
+// Brutalism 完整页面数据 - 純粹粗野主義風格
 export const brutalismFullPageHTML = `
   <div class="min-full-page" style="background: #ffffff; min-height: 100vh; font-family: Arial, sans-serif;">
 

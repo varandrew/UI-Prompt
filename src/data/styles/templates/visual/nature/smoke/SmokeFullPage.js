@@ -1,6 +1,6 @@
 /**
  * Smoke Effect - Full Page Preview
- * 煙霧效果 - 全頁面預覽
+ * 煙霧效果 - 全页面預覽
  * 
  * A mesmerizing immersive single-page experience featuring:
  * - Real-time Canvas particle system (60-80 particles)

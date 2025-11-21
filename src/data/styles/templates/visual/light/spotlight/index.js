@@ -1,7 +1,7 @@
 // Single template module: Light — Spotlight Effect
 // 聚光灯 - 聚焦式光束效果
 
-// ✨ 穩定的空數組引用（防止 useMemo 無限循環）
+// ✨ 稳定的空数組引用（防止 useMemo 無限循環）
 const EMPTY_PREVIEWS = [];
 
 import { demoHTML, customStyles } from './Demo';
@@ -366,29 +366,29 @@ Background & content:
 6. Avoid too many spotlights moving simultaneously, keep 1-2 main light sources`
   },
 
-  // 模板級 stylePrompt：描述聚光燈式光效的設計語彙
+  // 模板級 stylePrompt：描述聚光灯式光效的设計語彙
   stylePrompt: {
-    'zh-CN': `角色：你是一位擅长舞台光效與焦點營造的 UI 设计师，需要用「聚光灯」将注意力集中在少数关键模块上。
+    'zh-CN': `角色：你是一位擅长舞台光效与焦點營造的 UI 设计师，需要用「聚光灯」将注意力集中在少数关键模块上。
 
 场景定位：
-- 用於強調單一或少數幾個關鍵區塊，例如主要卡片、登入框、行銷重點模組。
-- 特別適合活動頁、產品發布頁、演示型介面或需要「舞台感」的設計。
+- 用於強調單一或少数幾個关鍵区塊，例如主要卡片、登入框、行銷重點模組。
+- 特別適合活動页、产品發布页、演示型介面或需要「舞台感」的设計。
 
 视觉设计理念：
-- 將背景視作舞台或幕布，整體保持較暗，讓一到數個聚光圓形成為視覺主角。
-- 聚光中心區域亮度最高、對比度最大，越往外越接近透明，使焦點自然落在中心內容上。
+- 將背景視作舞台或幕布，整体保持較暗，让一到数個聚光圓形成為視覺主角。
+- 聚光中心区域亮度最高、對比度最大，越往外越接近透明，使焦點自然落在中心內容上。
 
 材质与质感：
-- 聚光燈以徑向漸變實現，中心用高亮度白或淺色，邊緣快速過渡到透明，搭配適度模糊。
-- 可以在聚光區內疊加輕微陰影或圖案，暗示舞台表面或空氣中的微塵。
+- 聚光灯以徑向漸变實現，中心用高亮度白或淺色，边緣快速過渡到透明，搭配適度模糊。
+- 可以在聚光区內疊加輕微阴影或圖案，暗示舞台表面或空氣中的微塵。
 
 交互体验：
-- 聚光燈位置可隨緩慢動畫在畫面中稍微移動，但整體節奏要穩定，避免讓使用者眼睛疲勞。
-- 當使用者 hover 某個焦點卡片時，可以略微提升該區域的亮度或增加一層次要聚光，強化被「打光」的感覺。
+- 聚光灯位置可隨緩慢動画在画面中稍微移動，但整体節奏要稳定，避免让使用者眼睛疲勞。
+- 當使用者 hover 某個焦點卡片時，可以略微提升該区域的亮度或增加一层次要聚光，強化被「打光」的感覺。
 
 氛围营造：
-- 整體氛圍像演出即將開始的舞台：周圍昏暗、中央有一束明確但溫和的光。
-- 讓使用者感覺主內容是被刻意照亮、值得注視的主角，強化敘事與儀式感。`,
+- 整体氛圍像演出即將開始的舞台：周圍昏暗、中央有一束明確但溫和的光。
+- 让使用者感覺主內容是被刻意照亮、值得注視的主角，強化敘事与儀式感。`,
 
     'en-US': `Role: You are a UI designer who specializes in stage lighting and focus, using “spotlights” to direct attention to a small set of key modules.
 
@@ -417,7 +417,7 @@ Mood:
   customStyles,
   fullPageHTML: spotlightFullPageHTML,
   fullPageStyles: spotlightFullPageStyles,
-  previews: EMPTY_PREVIEWS,  // ✨ 使用穩定的空數組引用
+  previews: EMPTY_PREVIEWS,  // ✨ 使用稳定的空数組引用
 };
 
 export default spotlight;

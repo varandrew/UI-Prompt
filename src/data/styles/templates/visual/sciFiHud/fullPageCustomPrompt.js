@@ -1,6 +1,6 @@
 /**
  * Sci-Fi HUD - FullPage Custom Prompt
- * 科幻 HUD 儀表板完整頁面的 AI 指令（針對全屏控制台 / 儀表板佈局）
+ * 科幻 HUD 儀表板完整页面的 AI 指令（針對全屏控制台 / 儀表板佈局）
  */
 
 export const fullPageCustomPrompt = {
@@ -14,7 +14,7 @@ export const fullPageCustomPrompt = {
 - 视觉印象：像在黑暗的舰桥中操作一块巨大的透明 HUD 屏幕，所有状态与数据以发光线条和几何仪表形式呈现
 
 【整体布局结构】
-请使用一个最大宽度约为 1280px~1440px 的中央控制面板，外层使用 'min-h-screen'、'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950' 等類似類名營造深空背景。
+请使用一个最大宽度约为 1280px~1440px 的中央控制面板，外层使用 'min-h-screen'、'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950' 等类似类名營造深空背景。
 
 1. 顶部系统状态栏（Top System Status Bar）
    - 使用 '<header>' 元素，固定在页面顶部，宽度占满内容区域，高度约 56~72px
@@ -41,7 +41,7 @@ export const fullPageCustomPrompt = {
 
    3.1 全局系统概览卡（System Overview Card）
    - 使用带截角的 HUD 面板风格：
-     - 外层容器使用 'relative rounded-xl border border-cyan-500/30 bg-slate-900/70 backdrop-blur-xl' 等類似類名
+     - 外层容器使用 'relative rounded-xl border border-cyan-500/30 bg-slate-900/70 backdrop-blur-xl' 等类似类名
      - 在伪元素或额外 '<div>' 中添加截角效果（可用 'before' 模擬，或用內嵌 HTML 描述）
    - 内容结构：
      - 顶部标题行：左侧显示 "SYSTEM OVERVIEW"，右侧显示 "LOAD: 73%" 等摘要
@@ -56,7 +56,7 @@ export const fullPageCustomPrompt = {
    - 雷达结构：
      - 外层圆形边框使用 'border border-cyan-400/60 rounded-full'
      - 内部绘制 3~4 圈同心圆 + 纵横十字线，线条使用低透明度青色
-     - 使用 'conic-gradient' 或 SVG 模拟扫描扇形，并添加 'animate-[spin_6s_linear_infinite]' 之類的旋轉動畫
+     - 使用 'conic-gradient' 或 SVG 模拟扫描扇形，并添加 'animate-[spin_6s_linear_infinite]' 之类的旋轉動画
      - 在雷达上随机分布 3~6 个发光节点，使用小圆形 + 'animate-ping' 或自定义脉冲动画
    - 卡片标题："THREAT MAP" 或 "TACTICAL RADAR"，下方可展示目标数量、锁定目标、干扰源等数值
 
@@ -90,59 +90,59 @@ export const fullPageCustomPrompt = {
    - 顶部显示 "EVENT LOG" 标题，附带小型过滤按钮（如 ALL / WARN / CRIT），按钮在 hover 时发光
 
    4.3 底部次级信息带（Secondary Info Strip）
-   - 在右侧或整个底部区域放置一条细长信息带，滚动显示系统消息或广播（可用 CSS 動畫模擬 marquee 效果，但保持克制）
+   - 在右侧或整个底部区域放置一条细长信息带，滚动显示系统消息或广播（可用 CSS 動画模擬 marquee 效果，但保持克制）
 
-5. 底部控制條與版權區（Footer Control Strip）
+5. 底部控制條与版權区（Footer Control Strip）
 - 使用 '<footer>' 元素，背景為更深的 'bg-slate-950/90 border-t border-cyan-500/20'
-- 左側顯示系統名稱縮寫與版本號，例如：'HUD CORE v3.2.1'
-- 中間可以顯示當前節點 / 數據中心資訊，例如：'NODE: ORBITAL-03 / CLUSTER: AURORA'
-- 右側提供操作按鈕，如「OPEN COMMAND CONSOLE」「EXPORT REPORT」，使用實心青色按鈕 + 邊框高亮
+- 左側显示系統名稱縮写与版本號，例如：'HUD CORE v3.2.1'
+- 中間可以显示當前節點 / 数据中心資訊，例如：'NODE: ORBITAL-03 / CLUSTER: AURORA'
+- 右側提供操作按鈕，如「OPEN COMMAND CONSOLE」「EXPORT REPORT」，使用實心青色按鈕 + 边框高亮
 
-【色彩與樣式規範】
-請在 Prompt 中明確要求使用以下色彩思路，並鼓勵 LLM 使用實際色值：
+【色彩与樣式規範】
+请在 Prompt 中明確要求使用以下色彩思路，並鼓勵 LLM 使用實際色值：
 - 背景基色：'#020617', '#020617', '#0f172a'
 - HUD 主色（青色 / 藍綠）：'#06B6D4', '#0EA5E9', '#22D3EE'
 - 警告色：'#F97316'（橙）、'#EAB308'（黃）、'#EF4444'（紅）
 - 成功 / 安全色：'#22C55E', '#10B981'
-- 文本主色與次級文字：'#E5F2FF', '#94A3B8', '#6B7280'
+- 文本主色与次級文字：'#E5F2FF', '#94A3B8', '#6B7280'
 - 卡片背景：深色 + 半透明，如 'bg-slate-900/70' 搭配 'backdrop-blur-xl'
-- 邊框與分割線：使用 'border-cyan-500/30' 或 'border-slate-700/60'，並在重要區域加內外發光陰影
+- 边框与分割线：使用 'border-cyan-500/30' 或 'border-slate-700/60'，並在重要区域加內外發光阴影
 
-【關鍵 HUD 視覺元素要求】
-在 Prompt 中，請讓 LLM 明確包含以下 HUD 元素描述，並在 HTML 中使用語義化區塊搭配 Tailwind 類名：
-1. 雷達掃描圈（含掃描扇形動畫與發光節點）
-2. 多組實時數據 KPI 卡片（以網格呈現，具有單位與標籤）
-3. 資源／能量條（使用漸變填充與狀態顏色）
-4. 告警事件列表（帶顏色標籤與時間戳）
-5. 任務階段時間軸或狀態流（使用步驟節點與連線）
-6. 頂部狀態條與底部控制條
+【关鍵 HUD 視覺元素要求】
+在 Prompt 中，请让 LLM 明確包含以下 HUD 元素描述，並在 HTML 中使用語義化区塊搭配 Tailwind 类名：
+1. 雷達掃描圈（含掃描扇形動画与發光節點）
+2. 多組實時数据 KPI 卡片（以网格呈現，具有單位与标籤）
+3. 資源／能量條（使用漸变填充与狀態颜色）
+4. 告警事件列表（帶颜色标籤与時間戳）
+5. 任务階段時間軸或狀態流（使用步驟節點与連线）
+6. 頂部狀態條与底部控制條
 
-【交互與動效設計】
+【交互与動效设計】
 - 懸停（Hover）：
   - 卡片：'hover:-translate-y-1 hover:border-cyan-400/60 hover:shadow-[0_0_30px_rgba(34,211,238,0.35)]'
   - 按鈕：'hover:bg-cyan-400 hover:text-slate-950 hover:shadow-lg'
 - 按壓（Active）：
   - 卡片和按鈕在 'active' 時縮放至 'scale-95' 左右，並稍微降低亮度以模擬按壓感
-- 常駐動畫：
-  - 雷達掃描使用緩慢旋轉動畫（6~10 秒一圈）
-  - 指示燈使用 1.8~2.4 秒的呼吸動畫（透明度與外發光交替）
-  - 粒子或背景掃描線可使用低頻率移動動畫，但要明確要求「不要影響文字可讀性」
+- 常駐動画：
+  - 雷達掃描使用緩慢旋轉動画（6~10 秒一圈）
+  - 指示灯使用 1.8~2.4 秒的呼吸動画（透明度与外發光交替）
+  - 粒子或背景掃描线可使用低頻率移動動画，但要明確要求「不要影響文字可讀性」
 
 【輸出格式要求】
-請在生成時遵循以下約束：
-1. 使用語義化結構：必須包含 '<header>', '<main>', '<section>', '<aside>', '<footer>' 等元素；可輔以 '<nav>', '<ul>', '<li>' 來組織導航與列表。
-2. 使用 Tailwind 類似原子類：例如 'min-h-screen', 'bg-slate-950', 'grid', 'gap-6', 'px-8', 'py-6', 'rounded-xl', 'border', 'border-cyan-500/30', 'backdrop-blur-xl', 'text-cyan-400', 'shadow-[0_0_40px_rgba(34,211,238,0.35)]' 等。
-3. 不需要提供實際 Tailwind 配置檔，只需在 class 中使用原子類名；若需自訂動畫，可使用內聯 '<style>' 或自定義 '@keyframes' 並在 class 中引用。
-4. 生成的 HTML 必须是一个可单独渲染的完整页面结构（含 '<html>', '<head>', '<body>'），但樣例中可略寫 '<head>' 內容，只需說明字體可使用類似 Orbitron / Space Grotesk 等科幻感字體。
+请在生成時遵循以下約束：
+1. 使用語義化結構：必須包含 '<header>', '<main>', '<section>', '<aside>', '<footer>' 等元素；可輔以 '<nav>', '<ul>', '<li>' 來組織导航与列表。
+2. 使用 Tailwind 类似原子类：例如 'min-h-screen', 'bg-slate-950', 'grid', 'gap-6', 'px-8', 'py-6', 'rounded-xl', 'border', 'border-cyan-500/30', 'backdrop-blur-xl', 'text-cyan-400', 'shadow-[0_0_40px_rgba(34,211,238,0.35)]' 等。
+3. 不需要提供實際 Tailwind 配置档，只需在 class 中使用原子类名；若需自訂動画，可使用內联 '<style>' 或自定義 '@keyframes' 並在 class 中引用。
+4. 生成的 HTML 必须是一个可单独渲染的完整页面结构（含 '<html>', '<head>', '<body>'），但樣例中可略写 '<head>' 內容，只需說明字体可使用类似 Orbitron / Space Grotesk 等科幻感字体。
 5. 文案內容可以自由更換，但應保持用語偏「系統狀態」「指令」「模組名稱」等科技術語，而非日常生活語言。
 
-【額外提示與限制】
-- 請避免使用過於花俏的多色漸變背景遮蓋文字；所有動畫與光效應以「不影響閱讀」為最高原則。
-- 儀表與圖形可以使用純 CSS 或簡單的 div 結構模擬，無需依賴 Canvas 或 SVG；如果需要，可用簡單占位符表示圖表區域。
-- 不要加入與 Sci-Fi HUD 無關的插畫、人物大照片或卡通元素；整體風格應保持嚴謹科技與專業感。
-- 若有空白區域，可以使用細線、刻度、小型數值標註填充，而不是大面積純色。
+【額外提示与限制】
+- 请避免使用過於花俏的多色漸变背景遮蓋文字；所有動画与光效應以「不影響閱讀」為最高原則。
+- 儀表与圖形可以使用純 CSS 或简單的 div 結構模擬，無需依賴 Canvas 或 SVG；如果需要，可用简單占位符表示圖表区域。
+- 不要加入与 Sci-Fi HUD 無关的插画、人物大照片或卡通元素；整体風格應保持嚴謹科技与专業感。
+- 若有空白区域，可以使用細线、刻度、小型数值标註填充，而不是大面積純色。
 
-請根據以上完整說明，輸出一個完整的 Sci-Fi HUD 風格控制台 HTML 全頁示例。',
+请根据以上完整說明，輸出一個完整的 Sci-Fi HUD 風格控制台 HTML 全页示例。',
 
   'en-US': 'You are now a senior UI designer and front-end engineer. Please generate a full-page Sci-Fi HUD control interface whose visual style is highly similar to the existing "Sci-Fi HUD Dashboard" page.
 Requirements: Keep the overall layout, HUD texture, and color system very close to the described design. You may freely change copywriting, labels, and data values, but the structural logic and visual style should remain consistent. Output must use semantic HTML elements (header / main / section / aside / footer) and Tailwind-like utility classes (e.g. flex, grid, gap-6, bg-slate-950, text-cyan-400).

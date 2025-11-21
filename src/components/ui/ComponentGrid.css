@@ -1,4 +1,4 @@
-/* ComponentGrid - 組件頁面專用響應式網格佈局 */
+/* ComponentGrid - 組件页面专用響應式网格佈局 */
 .component-grid {
   display: grid;
   gap: 1.5rem; /* 24px */

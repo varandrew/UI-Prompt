@@ -1,12 +1,12 @@
 // Duotone Full Page Design
-// 創意設計工作室網站 - Creative Design Studio Website
+// 創意设計工作室网站 - Creative Design Studio Website
 // 配色方案：黑色 (#000000) + 青色 (#00D9FF / Cyan-400)
 
 export const duotoneFullPageHTML = `
 <!-- Duotone Creative Studio Website -->
 <div class="min-h-screen bg-black text-white overflow-x-hidden">
 
-  <!-- 1. Top Navigation Bar - 頂部導航欄 -->
+  <!-- 1. Top Navigation Bar - 頂部导航欄 -->
   <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-cyan-400/20 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 py-4">
       <div class="flex items-center justify-between">
@@ -48,7 +48,7 @@ export const duotoneFullPageHTML = `
     </div>
   </nav>
 
-  <!-- 2. Hero Section - 全屏英雄區 -->
+  <!-- 2. Hero Section - 全屏英雄区 -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Background Gradient -->
     <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
@@ -91,7 +91,7 @@ export const duotoneFullPageHTML = `
     </div>
   </section>
 
-  <!-- 3. Stats Bar - 統計數據條 -->
+  <!-- 3. Stats Bar - 統計数据條 -->
   <section class="py-16 bg-gradient-to-r from-black via-cyan-950/20 to-black border-y border-cyan-400/20">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -124,7 +124,7 @@ export const duotoneFullPageHTML = `
     </div>
   </section>
 
-  <!-- 4. Services Grid - 服務卡片網格 -->
+  <!-- 4. Services Grid - 服务卡片网格 -->
   <section class="py-20 bg-black">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
@@ -295,7 +295,7 @@ export const duotoneFullPageHTML = `
     </div>
   </section>
 
-  <!-- 6. Team Section - 團隊成員 -->
+  <!-- 6. Team Section - 团隊成員 -->
   <section class="py-20 bg-black">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
@@ -501,7 +501,7 @@ export const duotoneFullPageHTML = `
     </div>
   </section>
 
-  <!-- 8. CTA Section with Form - CTA 信息區 ⭐ -->
+  <!-- 8. CTA Section with Form - CTA 信息区 ⭐ -->
   <section class="py-24 bg-gradient-to-br from-black via-cyan-950/30 to-black relative overflow-hidden">
     <!-- Glow Effects -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl"></div>
@@ -651,7 +651,7 @@ export const duotoneFullPageHTML = `
     </div>
   </section>
 
-  <!-- 9. Footer - 頁腳 -->
+  <!-- 9. Footer - 页腳 -->
   <footer class="bg-black border-t border-cyan-400/20 py-12">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -744,7 +744,7 @@ export const duotoneFullPageHTML = `
 
 export const duotoneFullPageStyles = `
 /* Duotone Full Page Custom Styles */
-/* 黑色 + 青色雙色調設計系統 */
+/* 黑色 + 青色双色調设計系統 */
 
 /* Smooth Scrolling */
 html {

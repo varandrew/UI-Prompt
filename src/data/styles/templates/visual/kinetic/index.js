@@ -18,7 +18,7 @@ export const kineticTypography = {
   demoHTML,
   customStyles,
 
-  // 全頁面預覽
+  // 全页面預覽
   fullPageHTML,
   fullPageStyles,
   fullPageCustomPrompt,  // Template-specific prompt for FullPage

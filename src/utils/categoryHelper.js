@@ -1,4 +1,4 @@
-// 分類系統工具函數
+// 分类系統工具函数
 // Category System Helper Functions
 
 import {
@@ -10,13 +10,13 @@ import { applyTranslations } from './i18n/translations';
 import { DEFAULT_LANGUAGE } from './i18n/languageConstants';
 
 /**
- * 根據標籤篩選風格
+ * 根据标籤篩選風格
  * Filter styles by tags
  *
- * @param {Array} styles - 風格數組
- * @param {Array} selectedTags - 選中的標籤ID數組
+ * @param {Array} styles - 風格数組
+ * @param {Array} selectedTags - 選中的标籤ID数組
  * @param {String} matchMode - 匹配模式: 'any'(任一匹配) 或 'all'(全部匹配)
- * @returns {Array} 篩選後的風格數組
+ * @returns {Array} 篩選後的風格数組
  */
 export const filterStylesByTags = (styles, selectedTags = [], matchMode = 'any') => {
   if (!selectedTags || selectedTags.length === 0) {
@@ -27,22 +27,22 @@ export const filterStylesByTags = (styles, selectedTags = [], matchMode = 'any')
     const styleTags = style.tags || [];
 
     if (matchMode === 'all') {
-      // 全部匹配模式：風格必須包含所有選中的標籤
+      // 全部匹配模式：風格必須包含所有選中的标籤
       return selectedTags.every(tag => styleTags.includes(tag));
     } else {
-      // 任一匹配模式：風格包含任一選中標籤即可
+      // 任一匹配模式：風格包含任一選中标籤即可
       return selectedTags.some(tag => styleTags.includes(tag));
     }
   });
 };
 
 /**
- * 根據分類篩選風格
+ * 根据分类篩選風格
  * Filter styles by categories
  *
- * @param {Array} styles - 風格數組
- * @param {Array} selectedCategories - 選中的分類ID數組
- * @returns {Array} 篩選後的風格數組
+ * @param {Array} styles - 風格数組
+ * @param {Array} selectedCategories - 選中的分类ID数組
+ * @returns {Array} 篩選後的風格数組
  */
 export const filterStylesByCategories = (styles, selectedCategories = []) => {
   if (!selectedCategories || selectedCategories.length === 0) {
@@ -59,9 +59,9 @@ export const filterStylesByCategories = (styles, selectedCategories = []) => {
  * 搜索風格
  * Search styles by keyword
  *
- * @param {Array} styles - 風格數組
- * @param {String} keyword - 搜索關鍵詞
- * @returns {Array} 搜索結果數組
+ * @param {Array} styles - 風格数組
+ * @param {String} keyword - 搜索关鍵詞
+ * @returns {Array} 搜索結果数組
  */
 export const searchStyles = (styles, keyword = '') => {
   if (!keyword || keyword.trim() === '') {
@@ -71,7 +71,7 @@ export const searchStyles = (styles, keyword = '') => {
   const lowerKeyword = keyword.toLowerCase().trim();
 
   return styles.filter(style => {
-    // 搜索標題
+    // 搜索标題
     const titleMatch = (style.title || '').toLowerCase().includes(lowerKeyword);
 
     // 搜索ID
@@ -88,9 +88,9 @@ export const searchStyles = (styles, keyword = '') => {
  * 組合篩選和搜索
  * Combined filter and search
  *
- * @param {Array} styles - 風格數組
+ * @param {Array} styles - 風格数組
  * @param {Object} filters - 篩選條件對象
- * @returns {Array} 結果數組
+ * @returns {Array} 結果数組
  */
 export const applyFilters = (styles, filters = {}) => {
   let result = styles;
@@ -100,12 +100,12 @@ export const applyFilters = (styles, filters = {}) => {
     result = searchStyles(result, filters.keyword);
   }
 
-  // 應用分類篩選
+  // 應用分类篩選
   if (filters.categories && filters.categories.length > 0) {
     result = filterStylesByCategories(result, filters.categories);
   }
 
-  // 應用標籤篩選
+  // 應用标籤篩選
   if (filters.tags && filters.tags.length > 0) {
     result = filterStylesByTags(result, filters.tags, filters.matchMode);
   }
@@ -114,25 +114,25 @@ export const applyFilters = (styles, filters = {}) => {
 };
 
 /**
- * 獲取風格的關聯風格
+ * 獲取風格的关联風格
  * Get related styles for a given style
  *
- * @param {Object} style - 目標風格對象
- * @param {Array} allStyles - 所有風格數組
- * @param {Number} limit - 返回數量限制
- * @returns {Array} 關聯風格數組
+ * @param {Object} style - 目标風格對象
+ * @param {Array} allStyles - 所有風格数組
+ * @param {Number} limit - 返回数量限制
+ * @returns {Array} 关联風格数組
  */
 export const getRelatedStyles = (style, allStyles, limit = 3) => {
   if (!style) return [];
 
-  // 如果有明確指定的關聯風格
+  // 如果有明確指定的关联風格
   if (style.relatedStyles && style.relatedStyles.length > 0) {
     return allStyles
       .filter(s => style.relatedStyles.includes(s.id))
       .slice(0, limit);
   }
 
-  // 否則基於標籤和分類計算相關性
+  // 否則基於标籤和分类計算相关性
   const styleTags = style.tags || [];
   const styleCategories = style.categories || [style.primaryCategory];
 
@@ -143,30 +143,30 @@ export const getRelatedStyles = (style, allStyles, limit = 3) => {
       const sTags = s.tags || [];
       const sCategories = s.categories || [s.primaryCategory];
 
-      // 共享標籤加分
+      // 共享标籤加分
       sTags.forEach(tag => {
         if (styleTags.includes(tag)) score += 2;
       });
 
-      // 共享分類加分
+      // 共享分类加分
       sCategories.forEach(cat => {
         if (styleCategories.includes(cat)) score += 1;
       });
 
       return { style: s, score };
     })
-    .filter(item => item.score > 0) // 至少有一些相關性
-    .sort((a, b) => b.score - a.score); // 按分數降序
+    .filter(item => item.score > 0) // 至少有一些相关性
+    .sort((a, b) => b.score - a.score); // 按分数降序
 
   return scored.slice(0, limit).map(item => item.style);
 };
 
 /**
- * 統計標籤使用頻率
+ * 統計标籤使用頻率
  * Count tag usage frequency
  *
- * @param {Array} styles - 風格數組
- * @returns {Object} 標籤計數對象 { tagId: count }
+ * @param {Array} styles - 風格数組
+ * @returns {Object} 标籤計数對象 { tagId: count }
  */
 export const getTagStatistics = (styles) => {
   const tagCounts = {};
@@ -182,12 +182,12 @@ export const getTagStatistics = (styles) => {
 };
 
 /**
- * 獲取熱門標籤
+ * 獲取熱門标籤
  * Get popular tags
  *
- * @param {Array} styles - 風格數組
- * @param {Number} limit - 返回數量限制
- * @returns {Array} 熱門標籤數組 [{ tagId, count, label, color }]
+ * @param {Array} styles - 風格数組
+ * @param {Number} limit - 返回数量限制
+ * @returns {Array} 熱門标籤数組 [{ tagId, count, label, color }]
  */
 export const getPopularTags = (styles, limit = 10) => {
   const tagCounts = getTagStatistics(styles);
@@ -204,7 +204,7 @@ export const getPopularTags = (styles, limit = 10) => {
 };
 
 /**
- * 檢查風格是否匹配篩選條件
+ * 检查風格是否匹配篩選條件
  * Check if style matches filters
  *
  * @param {Object} style - 風格對象
@@ -212,7 +212,7 @@ export const getPopularTags = (styles, limit = 10) => {
  * @returns {Boolean} 是否匹配
  */
 export const isStyleMatchingFilters = (style, filters = {}) => {
-  // 檢查關鍵詞
+  // 检查关鍵詞
   if (filters.keyword) {
     const keyword = filters.keyword.toLowerCase();
     const title = (style.title || '').toLowerCase();
@@ -224,7 +224,7 @@ export const isStyleMatchingFilters = (style, filters = {}) => {
     }
   }
 
-  // 檢查分類
+  // 检查分类
   if (filters.categories && filters.categories.length > 0) {
     const styleCategories = style.categories || [style.primaryCategory];
     if (!filters.categories.some(cat => styleCategories.includes(cat))) {
@@ -232,7 +232,7 @@ export const isStyleMatchingFilters = (style, filters = {}) => {
     }
   }
 
-  // 檢查標籤
+  // 检查标籤
   if (filters.tags && filters.tags.length > 0) {
     const styleTags = style.tags || [];
     const matchMode = filters.matchMode || 'any';
@@ -252,11 +252,11 @@ export const isStyleMatchingFilters = (style, filters = {}) => {
 };
 
 /**
- * 獲取風格的完整分類信息
+ * 獲取風格的完整分类信息
  * Get complete category information for a style
  *
  * @param {Object} style - 風格對象
- * @returns {Array} 分類配置數組
+ * @returns {Array} 分类配置数組
  */
 export const getStyleCategories = (style) => {
   const categories = style.categories || [style.primaryCategory];
@@ -294,7 +294,7 @@ export function applyTranslationsToCategories(categories, language) {
 
   return categories.map(category => {
     // 注意：applyTranslations 的簽名為 (obj, language)
-    // 先前錯把 keyPrefix 傳入第二參數，導致語言參數錯位，默認回退到 'zh-ch'
+    // 先前错把 keyPrefix 傳入第二參数，导致語言參数错位，默認回退到 'zh-ch'
     // 此處不使用 keyPrefix，因為 data 內部鍵值已採用完整命名空間（如 'styles.core.xxx'）
     return {
       ...category,

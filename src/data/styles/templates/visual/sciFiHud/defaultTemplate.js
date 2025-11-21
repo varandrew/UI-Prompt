@@ -1,6 +1,6 @@
 // Phase 3 Batch 2 - Sci-Fi HUD Template
 // 視覺元素：科幻HUD界面
-// 從 visualTechStyles.js 遷移
+// 从 visualTechStyles.js 遷移
 
 import {
   visualTechSciFiHudFullPageHTML,
@@ -96,7 +96,7 @@ export const visualTechSciFiHud = {
   demoBoxClass: 'bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900',
   
   colorScheme: {
-    'zh-cn': '深色背景 (#0F172A)、青色光效 (#06B6D4)、綠色掃描線 (#10B981)、HUD橙色 (#F97316)',
+    'zh-cn': '深色背景 (#0F172A)、青色光效 (#06B6D4)、綠色掃描线 (#10B981)、HUD橙色 (#F97316)',
     'en-US': 'Dark background (#0F172A), cyan glow (#06B6D4), green scanlines (#10B981), HUD orange (#F97316)'
   },
   

@@ -1,6 +1,6 @@
 // 视觉风格库数据 - Visual Style Library
-// ✅ 階段 3.1 優化: 移除所有靜態 import，改用動態加載
-// 這將大幅減少 visualStyles chunk 的大小（從 630 KB 降至 ~100 KB）
+// ✅ 階段 3.1 优化: 移除所有静態 import，改用動態加載
+// 這將大幅減少 visualStyles chunk 的大小（从 630 KB 降至 ~100 KB）
 
 // ✅ Phase 2 批次 4 遷移完成 (2025-11-13)
 // 已遷移到 templates/visual/ 的風格:
@@ -12,15 +12,15 @@
 // ✅ Phase 2 批次 5 遷移完成 (2025-11-13)
 // 已遷移到 templates/visual/ 的風格:
 //   - aurora → templates/visual/aurora/ (visual-aurora) [完全遷移]
-//   - clay → templates/visual/clay/ (visual-clay) [簡化模板]
+//   - clay → templates/visual/clay/ (visual-clay) [简化模板]
 // 文件大小: 4,878 行 → 1,743 行 (減少 3,135 行, 64%)
 //
-// 📊 Phase 2 總計優化:
+// 📊 Phase 2 總計优化:
 // 原始: 5,851 行 → 最終: 1,743 行
-// 總減少: 4,108 行 (70% 體積優化) ✨
+// 總減少: 4,108 行 (70% 体積优化) ✨
 //
 // Note: Clay 的完整 fullPageHTML 保留在此文件中。
-// Natural 風格已合併，使用 visual-natural-default 的預覽頁面內容。
+// Natural 風格已合併，使用 visual-natural-default 的預覽页面內容。
 
 import {
   naturalDefaultFullPageHTML,
@@ -63,7 +63,7 @@ export const visualStyles = [
       'zh-CN': '背景自然渐变石橙色 (Stone-50 / Amber-50 / Orange-50)、主色翠绿蓝绿 (Emerald-200/300 / Teal-100)、蓝色 (Blue-200)、辅助石灰中性色 (Stone-200/600 / Neutral-100/200/300)、琥珀橙色 (Amber-500/700 / Orange-600)、白色半透明 (rgba(255,255,255,0.6-0.9))',
       'en-US': 'Background natural gradient stone-amber-orange (Stone-50 / Amber-50 / Orange-50), primary emerald-teal (Emerald-200/300 / Teal-100), blue (Blue-200), secondary stone-neutral (Stone-200/600 / Neutral-100/200/300), amber-orange (Amber-500/700 / Orange-600), white semi-transparent (rgba(255,255,255,0.6-0.9))'
     },
-    // 自然有機風格的 StylePrompt（較長版敘事，用於說明設計理念）
+    // 自然有機風格的 StylePrompt（較長版敘事，用於說明设計理念）
     stylePrompt: {
       'zh-CN': `角色：你是一位擅长自然有机风格的 UI 设计师，需要为知识管理、写作工具或专注面板设计一套「像在木桌旁工作」的界面。
 
@@ -170,7 +170,7 @@ The overall mood should be that of a quiet, sunlit workspace—inviting enough t
 **配色方案（Natural / Organic）**
 
 - 背景：\`#FAF3E0\`、\`#F5F5F4\`、\`#E5E7EB\`
-- 主體卡片：\`#FFFFFF\` + \`border-stone-200/60\`
+- 主体卡片：\`#FFFFFF\` + \`border-stone-200/60\`
 - 强调色：\`#10B981\`（绿色）、\`#38BDF8\`（天空蓝）
 - 文本：\`#1F2933\`（主）、\`#6B7280\`（辅）
 

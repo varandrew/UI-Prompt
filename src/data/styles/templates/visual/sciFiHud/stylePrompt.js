@@ -1,6 +1,6 @@
 /**
  * Sci-Fi HUD - Style Prompt
- * 科幻 HUD 風格的設計理念說明
+ * 科幻 HUD 風格的设計理念說明
  */
 
 export const stylePrompt = {

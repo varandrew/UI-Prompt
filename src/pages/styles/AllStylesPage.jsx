@@ -17,7 +17,7 @@ export function AllStylesPage() {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  // 取消分頁：一次渲染全部（如需優化可改虛擬清單）
+  // 取消分页：一次渲染全部（如需优化可改虛擬清單）
   const [filters, setFilters] = useState({
     keyword: '',
     categories: [],
@@ -27,7 +27,7 @@ export function AllStylesPage() {
 
   
 
-  // 載入分類資料（動態 import），僅在本頁需要時載入風格資料
+  // 載入分类資料（動態 import），仅在本页需要時載入風格資料
   useEffect(() => {
     let active = true;
     setIsLoading(true);
@@ -51,7 +51,7 @@ export function AllStylesPage() {
     };
   }, [])
 
-  // 獲取所有風格數據 (已增強 with 標籤 + 翻譯)
+  // 獲取所有風格数据 (已增強 with 标籤 + 翻譯)
   const allStyles = useMemo(() => {
     const translatedCategories = applyTranslationsToCategories(categories, language);
     const items = translatedCategories.flatMap(cat =>
@@ -61,8 +61,8 @@ export function AllStylesPage() {
         _categoryKey: cat.key
       }))
     );
-    // 為了避免重複 key（如同分類內存在相同 id）
-    // 生成穩定且唯一的 _uniqueKey："<catId>-<id>"，若重複則加序號
+    // 為了避免重複 key（如同分类內存在相同 id）
+    // 生成稳定且唯一的 _uniqueKey："<catId>-<id>"，若重複則加序號
     const counts = {};
     return items.map((it) => {
       const base = `${it._categoryId}-${it.id || 'noid'}`;
@@ -78,7 +78,7 @@ export function AllStylesPage() {
     return applyFilters(allStyles, filters);
   }, [allStyles, filters]);
 
-  // 分頁 + 虛擬化參數與切片
+  // 分页 + 虛擬化參数与切片
   // eslint-disable-next-line no-unused-vars
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 18;
@@ -105,7 +105,7 @@ export function AllStylesPage() {
         </p>
       </div>
 
-      {/* 工具列：載入時顯示骨架，完成後顯示實際 FilterBar */}
+      {/* 工具列：載入時显示骨架，完成後显示實際 FilterBar */}
       {isLoading ? (
         <div role="status" aria-live="polite" className="animate-pulse motion-reduce:animate-none mb-6">
           <div className="flex flex-col md:flex-row md:items-center gap-3">
@@ -123,7 +123,7 @@ export function AllStylesPage() {
         />
       )}
 
-      {/* 结果统计（載入中顯示占位，高對比、極簡） */}
+      {/* 结果统计（載入中显示占位，高對比、極简） */}
       <div className="mb-6 flex items-center justify-between">
         {isLoading ? (
           <div className="h-4 w-40 rounded bg-slate-200 dark:bg-slate-700 animate-pulse motion-reduce:animate-none" />
@@ -141,7 +141,7 @@ export function AllStylesPage() {
           </p>
         )}
 
-        {/* 右側：總數 */}
+        {/* 右側：總数 */}
         <div className="flex items-center gap-3">
           {!isLoading && (
             <div className="text-xs text-gray-500">
@@ -151,7 +151,7 @@ export function AllStylesPage() {
         </div>
       </div>
 
-      {/* 內容：載入中→骨架；完成→結果或空態。避免初始顯示「無結果」。 */}
+      {/* 內容：載入中→骨架；完成→結果或空態。避免初始显示「無結果」。 */}
       {isLoading ? (
         <section role="status" aria-live="polite" className="space-y-4" id="loading">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -223,10 +223,10 @@ export function AllStylesPage() {
         </div>
       ) : isError ? (
         <div className="rounded-lg border border-red-200 dark:border-red-800 p-6 bg-red-50/60 dark:bg-red-900/20">
-          <p className="text-red-700 dark:text-red-300 text-sm">{t('common.loadFailed') || '載入失敗，請稍後重試。'}</p>
+          <p className="text-red-700 dark:text-red-300 text-sm">{t('common.loadFailed') || '載入失敗，请稍後重試。'}</p>
         </div>
       ) : (
-        // 空狀態（僅在非載入且確定 0 筆時顯示）
+        // 空狀態（仅在非載入且確定 0 筆時显示）
         <div className="text-center py-16 opacity-0 transition-opacity duration-300 ease-out" style={{ opacity: isLoading ? 0 : 1 }}>
           <div className="text-6xl mb-4">🔍</div>
           <h3 className="text-xl font-medium text-gray-900 mb-2">
@@ -251,7 +251,7 @@ export function AllStylesPage() {
         </div>
       )}
 
-      {/* 已移除分頁控制，單屏展示 */}
+      {/* 已移除分页控制，單屏展示 */}
     </section>
   );
 }

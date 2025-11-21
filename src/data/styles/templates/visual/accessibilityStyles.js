@@ -809,7 +809,7 @@ export const accessibilityStyles = [
     customStyles: '',
     fullPageHTML: accessibilityHighContrastFullPageHTML,
     fullPageStyles: accessibilityHighContrastFullPageStyles,
-    // Accessibility High Contrast StylePrompt（較長版，貼近無障礙設計說明）
+    // Accessibility High Contrast StylePrompt（較長版，貼近無障礙设計說明）
     stylePrompt: {
       'zh-CN': `角色：你是一位专注于无障碍与高对比设计的 UI 设计师，需要为企业仪表板提供一套满足 WCAG AA/AAA 标准的高对比主题。
 

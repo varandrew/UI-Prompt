@@ -1,7 +1,7 @@
 import { AnimatedWrapper } from './AnimatedWrapper';
 
 /**
- * CyberNavbar - Cyberpunk 風格導航欄
+ * CyberNavbar - Cyberpunk 風格导航欄
  */
 export function CyberNavbar({ progress }) {
   const navLinks = ['MONITOR', 'TERMINAL', 'SYSTEMS', 'CONFIG'];

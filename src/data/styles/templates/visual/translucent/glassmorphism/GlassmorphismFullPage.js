@@ -1,5 +1,5 @@
 // Glassmorphism Music Player - Full Page Design
-// 音樂播放器完整頁面設計 - 高透明度玻璃效果 + 動態粒子背景
+// 音樂播放器完整页面设計 - 高透明度玻璃效果 + 動態粒子背景
 
 export const glassmorphismFullPageHTML = `
 <!-- Glassmorphism Music Player Full Page -->
@@ -23,7 +23,7 @@ export const glassmorphismFullPageHTML = `
     <div class="particle particle-15"></div>
   </div>
 
-  <!-- 頂部導航欄 (Glass Navigation) -->
+  <!-- 頂部导航欄 (Glass Navigation) -->
   <header class="glass-nav">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-8">
@@ -55,10 +55,10 @@ export const glassmorphismFullPageHTML = `
 
   <!-- 主容器 -->
   <div class="container mx-auto px-6 py-8 max-w-7xl">
-    <!-- Hero - 主播放控制區 -->
+    <!-- Hero - 主播放控制区 -->
     <section class="glass-hero mb-8">
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- 專輯封面 -->
+        <!-- 专輯封面 -->
         <div class="glass-album-cover">
           <div class="aspect-square rounded-3xl bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 flex items-center justify-center">
             <svg width="120" height="120" viewBox="0 0 120 120" class="text-white opacity-40">
@@ -132,7 +132,7 @@ export const glassmorphismFullPageHTML = `
       </div>
     </section>
 
-    <!-- 統計卡片網格 -->
+    <!-- 統計卡片网格 -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
       <div class="glass-stat-card">
         <div class="text-4xl mb-2">❤️</div>
@@ -156,7 +156,7 @@ export const glassmorphismFullPageHTML = `
       </div>
     </section>
 
-    <!-- 主內容區 -->
+    <!-- 主內容区 -->
     <div class="grid md:grid-cols-3 gap-8">
       <!-- 左側 - 播放列表 -->
       <div class="md:col-span-2">
@@ -327,7 +327,7 @@ export const glassmorphismFullPageHTML = `
       </div>
     </section>
 
-    <!-- Loading 動畫展示 -->
+    <!-- Loading 動画展示 -->
     <section class="mt-8">
       <h3 class="text-2xl font-bold text-white mb-6">Loading States</h3>
       <div class="grid grid-cols-3 gap-6">
@@ -391,7 +391,7 @@ export const glassmorphismFullPageHTML = `
 export const glassmorphismFullPageStyles = `
 /* Glassmorphism Music Player - Full Page Styles */
 
-/* 頁面容器 */
+/* 页面容器 */
 .glass-music-page {
   min-height: 100vh;
   position: relative;
@@ -461,7 +461,7 @@ export const glassmorphismFullPageStyles = `
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
-/* ========== 頂部導航欄 ========== */
+/* ========== 頂部导航欄 ========== */
 .glass-nav {
   position: sticky;
   top: 0;
@@ -509,7 +509,7 @@ export const glassmorphismFullPageStyles = `
   transform: translateY(-2px);
 }
 
-/* ========== Hero 區塊 ========== */
+/* ========== Hero 区塊 ========== */
 .glass-hero {
   padding: 2rem;
   border-radius: 24px;
@@ -787,7 +787,7 @@ export const glassmorphismFullPageStyles = `
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ========== Loading 動畫 ========== */
+/* ========== Loading 動画 ========== */
 .glass-loading-card {
   padding: 2rem;
   border-radius: 16px;
@@ -907,7 +907,7 @@ export const glassmorphismFullPageStyles = `
   transform: translateY(-4px);
 }
 
-/* ========== 響應式設計 ========== */
+/* ========== 響應式设計 ========== */
 @media (max-width: 768px) {
   .glass-nav .container {
     flex-direction: column;
@@ -929,7 +929,7 @@ export const glassmorphismFullPageStyles = `
   }
 }
 
-/* 容器層級 */
+/* 容器层級 */
 .container {
   position: relative;
   z-index: 1;

@@ -7,8 +7,8 @@ import { applyTranslationsToCategories } from '../../utils/categoryHelper';
 import { loadComponentCategories } from '../../data/components/loaders';
 
 /**
- * AllComponentsPage - 統一組件畫廊頁面
- * 合併所有 8 個組件分類,支持搜索和篩選,使用網格佈局
+ * AllComponentsPage - 統一組件画廊页面
+ * 合併所有 8 個組件分类,支持搜索和篩選,使用网格佈局
  */
 export function AllComponentsPage() {
   const { t, language } = useLanguage();
@@ -24,7 +24,7 @@ export function AllComponentsPage() {
     return () => { active = false }
   }, [])
 
-  // 獲取翻譯後的分類數據
+  // 獲取翻譯後的分类数据
   const translatedCategories = useMemo(() => {
     return applyTranslationsToCategories(categories, language);
   }, [language, categories]);
@@ -42,11 +42,11 @@ export function AllComponentsPage() {
     );
   }, [translatedCategories, t]);
 
-  // 篩選邏輯 (結合分類篩選和搜索)
+  // 篩選邏輯 (結合分类篩選和搜索)
   const filteredComponents = useMemo(() => {
     let components = allComponents;
 
-    // 1. 按分類篩選
+    // 1. 按分类篩選
     if (activeCategory !== 'all') {
       components = components.filter(c => c._categoryId === activeCategory);
     }
@@ -64,12 +64,12 @@ export function AllComponentsPage() {
     return components;
   }, [allComponents, activeCategory, searchQuery]);
 
-  // 處理分類點擊
+  // 處理分类點擊
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
   };
 
-  // 處理卡片中分類標籤點擊
+  // 處理卡片中分类标籤點擊
   const handleCategoryClick = (categoryId) => {
     setActiveCategory(categoryId);
     // 滾動到頂部
@@ -78,7 +78,7 @@ export function AllComponentsPage() {
 
   return (
     <section className="mb-24">
-      {/* 頁面標題 */}
+      {/* 页面标題 */}
       <div className="mb-8">
         <h2 className="text-3xl md:text-4xl font-light mb-2">
           {t('common.components')}
@@ -97,7 +97,7 @@ export function AllComponentsPage() {
           placeholder={t('common.searchComponents')}
         />
 
-        {/* 分類標籤 */}
+        {/* 分类标籤 */}
         <FilterTabs
           categories={translatedCategories}
           activeCategory={activeCategory}
@@ -125,7 +125,7 @@ export function AllComponentsPage() {
         </p>
       </div>
 
-      {/* 組件卡片網格 - 使用密集佈局 */}
+      {/* 組件卡片网格 - 使用密集佈局 */}
       {filteredComponents.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredComponents.map((component, index) => (
@@ -139,7 +139,7 @@ export function AllComponentsPage() {
               categoryId={component._categoryId}
               categoryIcon={component._categoryIcon}
               categoryLabel={component._categoryLabel}
-              variants={component.variants || []}  // 傳遞變體數組
+              variants={component.variants || []}  // 傳遞變体数組
               onCategoryClick={handleCategoryClick}
             />
           ))}

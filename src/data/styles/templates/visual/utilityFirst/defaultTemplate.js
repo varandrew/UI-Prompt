@@ -37,12 +37,12 @@ export const modernUtilityFirst = {
   },
 
   features: [
-    'Tailwind CSS 工具類優先',
+    'Tailwind CSS 工具类优先',
     '最小化自定義 CSS',
-    '系統化間距和字體',
-    'Monospace 字體風格',
-    '黑白簡約配色',
-    '功能導向設計',
+    '系統化間距和字体',
+    'Monospace 字体風格',
+    '黑白简約配色',
+    '功能导向设計',
     '快速開發迭代',
     '易於維護和擴展'
   ]

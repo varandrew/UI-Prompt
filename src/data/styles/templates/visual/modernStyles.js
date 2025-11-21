@@ -1,5 +1,5 @@
 // 现代/流行风格数据 - Modern Styles
-// ✅ 階段 3.2 優化: 移除所有靜態 import，改用動態加載
+// ✅ 階段 3.2 优化: 移除所有静態 import，改用動態加載
 // ✅ Phase 1 完成: 所有 Modern 風格已遷移到模板架構
 
 export const modernStyles = [

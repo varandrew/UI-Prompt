@@ -25,7 +25,7 @@ export const techCorpHomepage = {
   title: 'styles.core.skeuomorphism.techCorpHomepage.title',
   description: 'styles.core.skeuomorphism.techCorpHomepage.description',
 
-  // ✨ AI 專用 Prompt（用於生成與當前「科技公司主頁」極為接近的擬物化 UI）
+  // ✨ AI 专用 Prompt（用於生成与當前「科技公司主页」極為接近的擬物化 UI）
   customPrompt: {
     'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「科技公司主页」界面风格高度接近的拟物化 (Skeuomorphism) 科技公司官网首页。
 要求：保持整体布局、质感和配色思路基本不变，只允许替换文案、品牌名称和少量细节。输出使用语义化 HTML 结构和类似 TailwindCSS 的原子类。
@@ -267,7 +267,7 @@ The overall interface creates the professional atmosphere of a high-end tech com
       type: 'fullpage',
       html: skeuomorphismTechCompanyFullPageHTML,
       styles: skeuomorphismTechCompanyFullPageStyles,
-      // 使用 Tech Corp Homepage 專用 customPrompt（含專屬色彩與材質說明）
+      // 使用 Tech Corp Homepage 专用 customPrompt（含专屬色彩与材质說明）
       get customPrompt() {
         return techCorpHomepage.customPrompt;
       },
@@ -283,7 +283,7 @@ The overall interface creates the professional atmosphere of a high-end tech com
       type: 'fullpage',
       html: skeuomorphismHomeOfficeFullPageHTML,
       styles: skeuomorphismHomeOfficeFullPageStyles,
-      // ✨ 使用 homeOfficeDashboard 專用 customPrompt
+      // ✨ 使用 homeOfficeDashboard 专用 customPrompt
       customPrompt: homeOfficeDashboard.customPrompt,
       // ✨ 引用 homeOfficeDashboard 的 stylePrompt
       stylePrompt: homeOfficeDashboard.stylePrompt,
@@ -295,7 +295,7 @@ The overall interface creates the professional atmosphere of a high-end tech com
       type: 'fullpage',
       html: vintageLibraryFullPageHTML,
       styles: vintageLibraryFullPageStyles,
-      // ✨ 使用 vintageLibraryLanding 專用 customPrompt
+      // ✨ 使用 vintageLibraryLanding 专用 customPrompt
       customPrompt: vintageLibraryLanding.customPrompt,
       // ✨ 引用 vintageLibraryLanding 的 stylePrompt
       stylePrompt: vintageLibraryLanding.stylePrompt,

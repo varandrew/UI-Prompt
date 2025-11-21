@@ -1,6 +1,6 @@
 // Phase 3 Batch 2 - 3D Elements Template
 // 視覺元素：3D元素
-// 從 visualTechStyles.js 遷移
+// 从 visualTechStyles.js 遷移
 
 import {
   visualTech3dElementsFullPageHTML,
@@ -80,7 +80,7 @@ export const visualTech3dElements = {
   demoBoxStyle: 'perspective: 1000px;',
   
   colorScheme: {
-    'zh-cn': '深藍漸變 (#1E40AF)、紫色漸變 (#7C3AED)、白色文字 (#FFFFFF)、3D陰影效果',
+    'zh-cn': '深藍漸变 (#1E40AF)、紫色漸变 (#7C3AED)、白色文字 (#FFFFFF)、3D阴影效果',
     'en-US': 'Deep blue gradient (#1E40AF), purple gradient (#7C3AED), white text (#FFFFFF), 3D shadow effects'
   },
 
@@ -122,7 +122,7 @@ Overall Mood:
 The 3D Elements mood lives somewhere between a futuristic control room and a designer’s prototype workbench. The page feels like a space full of instruments and artefacts rather than flat panels. Deep blues, purples and cyans dominate, with warm accents highlighting calls-to-action or key metrics. Done well, this style makes users feel they are interacting with a sophisticated piece of equipment or a carefully arranged product stage, reinforcing a perception of technical excellence and attention to detail.`
   },
 
-  // Family-level CustomPrompt：用於生成 STUDIO 3D 全頁風格
+  // Family-level CustomPrompt：用於生成 STUDIO 3D 全页風格
   customPrompt: {
     'zh-CN': `你现在是一名专注于 3D 网页体验的资深 UI 设计师兼前端工程师，请根据当前「STUDIO 3D 创意工作室」示例页的视觉特征，生成一个风格高度相似的全屏主页。你必须保留「3D 浮动立方体 Hero」「可翻转的统计卡片」「3D 轮播作品区」「服务 Tab 模块」「团队卡片 + Modal」「FAQ 手风琴」等结构逻辑，但允许替换文案和具体内容。生成结果应让人一眼认出这是同一个 3D Elements 设计体系下的创意工作室主页变体。
 
@@ -306,27 +306,27 @@ The 3D Elements mood lives somewhere between a futuristic control room and a des
    - Hover 在任意卡片上时，该卡向前移动（translateZ）、稍微放大并提高亮度和阴影；
    - 画廊整体需要设置 perspective，使用户从略微仰视的角度看到一叠产品卡片。
 
-5. CTA 區（強行動召喚）
-   - 使用一個寬幅 CTA 區塊總結購買理由（如「Ready to Upgrade?」+ 三個簡短 bullet：Free shipping / 30-day returns / 2-year warranty）；
-   - 主按鈕採用更大型的 3D 按鈕，添加「光帶掃過」的動畫（線性漸變從左到右穿過）；
-   - 背景可以使用深色漸變疊加細微噪點，讓 CTA 區塊像一個被打光的舞台正中央。
+5. CTA 区（強行動召喚）
+   - 使用一個寬幅 CTA 区塊總結購買理由（如「Ready to Upgrade?」+ 三個简短 bullet：Free shipping / 30-day returns / 2-year warranty）；
+   - 主按鈕採用更大型的 3D 按鈕，添加「光帶掃過」的動画（线性漸变从左到右穿過）；
+   - 背景可以使用深色漸变疊加細微噪點，让 CTA 区塊像一個被打光的舞台正中央。
 
-【色彩與材質】
-1. 背景：深藍到深紫的對角漸變，帶有微弱的網格或噪點，表現科技感與夜間光線；
-2. 前景：使用藍紫漸變（#1e3a8a → #3b82f6）、紫色漸變（#8b5cf6 → #a78bfa）、青色光暈 (#06b6d4) 以及白色高光；
+【色彩与材质】
+1. 背景：深藍到深紫的對角漸变，帶有微弱的网格或噪點，表現科技感与夜間光线；
+2. 前景：使用藍紫漸变（#1e3a8a → #3b82f6）、紫色漸变（#8b5cf6 → #a78bfa）、青色光暈 (#06b6d4) 以及白色高光；
 3. 阴影：手表和主卡片的阴影需要有足够的模糊和距离，以表现出「悬浮在舞台上」的感觉。
 
-【交互與動效】
+【交互与動效】
 1. 旋轉舞台：手表主視圖持續緩慢旋轉，在 Hover 時可以稍微加速或停止旋轉；
 2. 功能卡片：翻轉動效要流暢（0.4–0.6 秒），並在 hover 時略微放大；
-3. 產品堆疊：Hover 卡片向前移動並增加透光陰影，未被 hover 的卡片保持原位但略微變暗；
-4. CTA 按鈕：Hover 時觸發光帶掃過動畫並略微抬起；Active 狀態向下按壓，陰影縮小。
+3. 产品堆疊：Hover 卡片向前移動並增加透光阴影，未被 hover 的卡片保持原位但略微变暗；
+4. CTA 按鈕：Hover 時觸發光帶掃過動画並略微抬起；Active 狀態向下按壓，阴影縮小。
 
 【輸出要求】
-- 使用語義化 HTML 結構（header/nav/main/section/footer），並為各區塊賦予清晰的 class 名稱；
-- 樣式可使用 Tailwind 風格的原子類或自定義類，不強制使用任何框架，但必須能表達 3D 變換與陰影效果；
-- 不引入外部 JS 或動畫庫，交互效果（如翻轉、堆疊 hover）可用 CSS 與少量原生 JS（只處理 state，不負責動畫）實現；
-- 生成頁面應與當前示例高度貼近：深色 3D 背景、玻璃導航、旋轉產品舞台、翻轉功能卡片、分層畫廊和強 CTA，同時確保產品賣點與行動路徑清晰可見。`,
+- 使用語義化 HTML 結構（header/nav/main/section/footer），並為各区塊賦予清晰的 class 名稱；
+- 樣式可使用 Tailwind 風格的原子类或自定義类，不強制使用任何框架，但必須能表達 3D 变換与阴影效果；
+- 不引入外部 JS 或動画庫，交互效果（如翻轉、堆疊 hover）可用 CSS 与少量原生 JS（只處理 state，不負責動画）實現；
+- 生成页面應与當前示例高度貼近：深色 3D 背景、玻璃导航、旋轉产品舞台、翻轉功能卡片、分层画廊和強 CTA，同時確保产品賣點与行動路徑清晰可見。`,
           'en-US': `You are a senior UI designer and front-end engineer specialising in 3D product pages. Based on the existing “NEXUS 3D Smartwatch” demo, generate a full product showcase page that feels like part of the same design system. The new page should highlight a hero product in a 3D scene, communicate key features through flippable cards, and present multiple color/variant options in a depth-stacked gallery, all while preserving the deep, neon-infused 3D aesthetic.
 
 [Use Case]

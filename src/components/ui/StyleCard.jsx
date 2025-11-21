@@ -22,7 +22,7 @@ export function StyleCard({
   fullPagePreviewId = '', // ✅ 階段 3.1: 新增動態加載 ID
   demoBoxClass = 'bg-gray-50',
   demoBoxStyle = '',
-  // 新增的標籤相關屬性
+  // 新增的标籤相关屬性
   tags = [],
   onTagClick,
   // 可選：多預覽
@@ -31,12 +31,12 @@ export function StyleCard({
   colorScheme = null,
   // React 組件預覽 (用於交互式組件)
   variant = null,
-  // 新增：風格 ID (用於數據識別)
+  // 新增：風格 ID (用於数据識別)
   id = null,
-  // 新增：佈局模式 (控制 iframe 容器的顯示方式)
+  // 新增：佈局模式 (控制 iframe 容器的显示方式)
   layoutMode = 'centered', // 'centered' | 'fullWidth' | 'fullPage'
   // ✨ 新增：自定義 Prompt 支持
-  customPrompt = null, // 簡短 Prompt（用於 StyleCard）
+  customPrompt = null, // 简短 Prompt（用於 StyleCard）
   stylePrompt = null // 風格 Prompt（用於 PreviewModal）
 }) {
   const [showPrompt, setShowPrompt] = useState(false);
@@ -45,14 +45,14 @@ export function StyleCard({
   const iframeRef = useRef(null);
   const cardRef = useRef(null);
 
-  // 🚀 性能優化：延遲載入 iframe
+  // 🚀 性能优化：延遲載入 iframe
   const [isVisible, setIsVisible] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
 
   // 語系對應的 demo HTML 須先計算，供 iframe 注入使用
   const currentDemoHTML = getDemoHTML(demoHTML, language);
 
-  // 🚀 性能優化：IntersectionObserver 監測卡片可見性
+  // 🚀 性能优化：IntersectionObserver 監測卡片可見性
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
@@ -67,7 +67,7 @@ export function StyleCard({
         });
       },
       {
-        rootMargin: '200px', // 提前 200px 開始載入，改善用戶體驗
+        rootMargin: '200px', // 提前 200px 開始載入，改善用戶体驗
         threshold: 0.01 // 只需 1% 可見即觸發
       }
     );
@@ -80,15 +80,15 @@ export function StyleCard({
   }, [hasLoaded]);
 
   // 在 iframe 中渲染 demo，避免自定義 CSS 外溢影響全域（如 Header/Menu）
-  // 🚀 性能優化：只在卡片可見時才創建和渲染 iframe
+  // 🚀 性能优化：只在卡片可見時才創建和渲染 iframe
   useEffect(() => {
-    if (!isVisible) return; // 關鍵：延遲載入，只有可見時才執行
+    if (!isVisible) return; // 关鍵：延遲載入，只有可見時才執行
     const iframe = iframeRef.current;
     if (!iframe) return;
     const doc = iframe.contentDocument || iframe.contentWindow?.document;
     if (!doc) return;
 
-    // 對 demoHTML 進行清理與樣式抽取，避免外部資源與 style 樣式被剝除
+    // 對 demoHTML 進行清理与樣式抽取，避免外部資源与 style 樣式被剝除
     const stripExternalAssets = (html) => {
       if (!html) return html;
       try {
@@ -134,7 +134,7 @@ export function StyleCard({
     const sanitizedHTML = DOMPurify.sanitize(bodyInner || '');
     const combinedStyles = sanitizeCss(`${inlineStyles || ''}\n${customStyles || ''}`);
 
-    // 檢測是否需要全寬佈局（明確指定或自動檢測）
+    // 检測是否需要全寬佈局（明確指定或自動检測）
     const isFullWidthLayout = layoutMode === 'fullWidth' ||
                               layoutMode === 'fullPage' ||
                               customStyles.includes('grid-container') ||
@@ -149,7 +149,7 @@ export function StyleCard({
 <style>
   html, body { margin: 0; padding: 0; height: 100%; }
   *, *::before, *::after { box-sizing: border-box; }
-  /* demo 容器，根據 layoutMode 調整顯示方式 */
+  /* demo 容器，根据 layoutMode 調整显示方式 */
   .demo-root {
     height: 100%;
     ${isFullWidthLayout
@@ -206,7 +206,7 @@ export function StyleCard({
 
     // 如果值是對象（i18n 對象格式，如 { 'zh-cn': '...', 'zh-CN': '...', 'en-US': '...' }）
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      // 首先嘗試當前語言的精確匹配，然後嘗試大小寫變體
+      // 首先嘗試當前語言的精確匹配，然後嘗試大小写變体
       result = value[language];
       if (!result && language === LANGUAGES.ZH_CN) {
         result = value[LANGUAGES.ZH_CN_LOWER];
@@ -229,7 +229,7 @@ export function StyleCard({
     // 如果值包含點號，可能是翻譯鍵，嘗試翻譯
     else if (typeof value === 'string' && value.includes('.')) {
       const translation = t(value);
-      // 如果翻譯結果與原值相同，說明翻譯鍵不存在，直接返回原值
+      // 如果翻譯結果与原值相同，說明翻譯鍵不存在，直接返回原值
       result = translation !== value ? translation : value;
     }
     // 其他情況嘗試翻譯
@@ -237,7 +237,7 @@ export function StyleCard({
       result = t(value);
     }
 
-    // 確保返回值始終是字符串，避免顯示 [object Object]
+    // 確保返回值始終是字符串，避免显示 [object Object]
     return String(result || '');
   };
 
@@ -252,7 +252,7 @@ export function StyleCard({
       const fullUrl = window.location.origin + previewUrl;
       window.open(fullUrl, '_blank');
     } else {
-      // 後備方案：模態框預覽（當沒有 id 時）
+      // 後备方案：模態框預覽（當沒有 id 時）
       console.warn('StyleCard: 缺少 id 屬性，使用模態框預覽');
       setShowPreview(true);
     }
@@ -271,7 +271,7 @@ export function StyleCard({
     fullPageHTML
   }), [displayTitle, displayDescription, customPrompt, stylePrompt, demoHTML, fullPageHTML]);
 
-  // ✨ 使用 useMemo 避免每次渲染都重新生成 Prompt（性能優化）
+  // ✨ 使用 useMemo 避免每次渲染都重新生成 Prompt（性能优化）
   const promptContent = useMemo(() => {
     return PromptGenerator.generate(
       styleObject,
@@ -294,7 +294,7 @@ export function StyleCard({
         let key = decl.slice(0, idx).trim();
         let value = decl.slice(idx + 1).trim();
         if (!key) return acc;
-        // 去除值末尾分號與多餘空白
+        // 去除值末尾分號与多餘空白
         if (value.endsWith(';')) value = value.slice(0, -1).trim();
         key = toCamel(key);
         acc[key] = value;
@@ -308,10 +308,10 @@ export function StyleCard({
   return (
     <>
       <div ref={cardRef} className="minimal-card bg-white rounded-lg overflow-hidden relative">
-        {/* 演示區：改為 iframe 沙箱，隔離自定義 CSS 對全域的影響 */}
+        {/* 演示区：改為 iframe 沙箱，隔離自定義 CSS 對全域的影響 */}
         <div className={`demo-box ${demoBoxClass}`} style={demoBoxInlineStyle}>
           {!isVisible ? (
-            // 🚀 性能優化：佔位符，避免初始載入時創建所有 iframe
+            // 🚀 性能优化：佔位符，避免初始載入時創建所有 iframe
             <div className="w-full h-full flex items-center justify-center bg-gray-50">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
@@ -330,14 +330,14 @@ export function StyleCard({
 
         {/* 内容区域 */}
         <div className="p-6">
-          {/* 標題和分類徽章 */}
+          {/* 标題和分类徽章 */}
           <div className="flex items-start justify-between mb-2">
             <h3 className="text-xl font-semibold flex-1">{displayTitle}</h3>
           </div>
 
           <p className="text-gray-600 text-sm mb-3">{displayDescription}</p>
 
-          {/* 標籤組 */}
+          {/* 标籤組 */}
           {tags && tags.length > 0 && (
             <div className="mb-4">
               <TagGroup

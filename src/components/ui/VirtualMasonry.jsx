@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 /**
  * VirtualMasonry - 每欄虛擬化瀑布流（PoC）
- * - 動態 import react-window，避免首屏體積增加
+ * - 動態 import react-window，避免首屏体積增加
  * - 以固定項高近似（itemHeight）降低複雜度；後續可切換 VariableSizeList + 量測
  */
 export function VirtualMasonry({
@@ -28,7 +28,7 @@ export function VirtualMasonry({
     return () => { mounted = false }
   }, [])
 
-  // 依視窗寬度推算欄數（若未指定）
+  // 依視窗寬度推算欄数（若未指定）
   useEffect(() => {
     if (_columnCount) return
     const calc = () => {

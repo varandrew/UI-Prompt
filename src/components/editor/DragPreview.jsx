@@ -8,13 +8,13 @@ import { useLanguage } from '../../hooks/useLanguage';
  * 拖動預覽組件
  *
  * 職責:
- * - 顯示正在拖動的組件的詳細信息
- * - 顯示中文名稱和描述
- * - 跟隨鼠標移動
+ * - 显示正在拖動的組件的詳細信息
+ * - 显示中文名稱和描述
+ * - 跟隨鼠标移動
  *
- * 設計:
- * - 極簡風格:白色背景、藍色邊框、柔和陰影
- * - 清晰層次:圖標 + 文本垂直排列
+ * 设計:
+ * - 極简風格:白色背景、藍色边框、柔和阴影
+ * - 清晰层次:圖标 + 文本垂直排列
  * - 可讀性:足夠對比度、合適字號
  */
 export function DragPreview({ activeData }) {
@@ -25,7 +25,7 @@ export function DragPreview({ activeData }) {
 
     const { componentType } = activeData.current;
 
-    // 從組件庫查找定義
+    // 从組件庫查找定義
     const componentDef = componentLibrary.find(
       c => c.componentType === componentType
     );
@@ -42,7 +42,7 @@ export function DragPreview({ activeData }) {
   const info = getComponentInfo();
 
   if (!info) {
-    // 降級顯示:無法找到組件定義時
+    // 降級显示:無法找到組件定義時
     return (
       <motion.div
         initial="initial"
@@ -64,7 +64,7 @@ export function DragPreview({ activeData }) {
       className="bg-white border-2 border-blue-500 rounded-lg p-3 shadow-xl opacity-95 max-w-xs pointer-events-none"
     >
       <div className="flex items-start gap-3">
-        {/* 組件圖標 */}
+        {/* 組件圖标 */}
         <motion.span
           className="text-3xl flex-shrink-0"
           aria-hidden="true"

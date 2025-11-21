@@ -1,4 +1,4 @@
-// Gradients Full Page - 漸變效果完整頁面
+// Gradients Full Page - 漸变效果完整页面
 // 提取自 visualTechStyles.js (Phase 3 Batch 1)
 
 export const gradientsFullPageHTML = `

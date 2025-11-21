@@ -1047,38 +1047,38 @@ export const advancedComponents = [
                 M
               </div>
               <div>
-                <h3 class="font-medium text-lg text-gray-900">極簡現代滾動條</h3>
-                <p class="text-sm text-gray-500">乾淨簡潔的現代設計</p>
+                <h3 class="font-medium text-lg text-gray-900">極简現代滾動條</h3>
+                <p class="text-sm text-gray-500">乾淨简潔的現代设計</p>
               </div>
             </div>
 
             <div class="scrollbar-minimal-modern h-64 overflow-y-auto rounded-lg border border-gray-200 bg-gray-50 p-4">
               <div class="space-y-4">
                 <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
-                  <h4 class="font-medium text-gray-900 mb-2">🎯 設計理念</h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">極簡主義追求純粹的功能性美學，去除一切不必要的裝飾元素，讓內容成為主角。</p>
+                  <h4 class="font-medium text-gray-900 mb-2">🎯 设計理念</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">極简主義追求純粹的功能性美學，去除一切不必要的裝飾元素，让內容成為主角。</p>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
                   <h4 class="font-medium text-gray-900 mb-2">🔧 技術特點</h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">使用細線條設計，淺灰色調，微妙的圓角處理，確保在任何界面中都能完美融入。</p>
+                  <p class="text-sm text-gray-600 leading-relaxed">使用細线條设計，淺灰色調，微妙的圓角處理，確保在任何界面中都能完美融入。</p>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
                   <h4 class="font-medium text-gray-900 mb-2">💡 適用場景</h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">完美適用於企業級應用、文檔編輯器、管理後台等需要專注內容的界面設計。</p>
+                  <p class="text-sm text-gray-600 leading-relaxed">完美適用於企業級應用、文档編輯器、管理後台等需要专注內容的界面设計。</p>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
                   <h4 class="font-medium text-gray-900 mb-2">🎨 色彩方案</h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">採用中性灰色系，不與品牌色產生衝突，具有出色的通用性和持久的視覺吸引力。</p>
+                  <p class="text-sm text-gray-600 leading-relaxed">採用中性灰色系，不与品牌色产生衝突，具有出色的通用性和持久的視覺吸引力。</p>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
                   <h4 class="font-medium text-gray-900 mb-2">✨ 交互反饋</h4>
-                  <p class="text-sm text-gray-600 leading-relaxed">懸停時的顏色變化提供恰到好處的視覺反饋，不會過於突兀或引人注意。</p>
+                  <p class="text-sm text-gray-600 leading-relaxed">懸停時的颜色變化提供恰到好處的視覺反饋，不會過於突兀或引人注意。</p>
                 </div>
               </div>
             </div>
 
             <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
-              <span>極簡設計 • 6px寬度 • 中性色調</span>
+              <span>極简设計 • 6px寬度 • 中性色調</span>
               <span>現代經典</span>
             </div>
           </div>
@@ -1119,7 +1119,7 @@ export const advancedComponents = [
               </div>
               <div>
                 <h3 class="font-semibold text-lg bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">漸變特效滾動條</h3>
-                <p class="text-sm text-gray-600">動態漸變與光效融合</p>
+                <p class="text-sm text-gray-600">動態漸變与光效融合</p>
               </div>
             </div>
 
@@ -1127,19 +1127,19 @@ export const advancedComponents = [
               <div class="space-y-4">
                 <div class="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-blue-400 shadow-sm">
                   <h4 class="font-semibold text-blue-700 mb-2">🌈 動態漸變</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">滾動條採用多層漸變設計，從深藍到紫色的平滑過渡，營造出現代科技感的視覺體驗。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">滾動條採用多层漸變设計，从深藍到紫色的平滑過渡，營造出現代科技感的視覺体驗。</p>
                 </div>
                 <div class="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-purple-400 shadow-sm">
                   <h4 class="font-semibold text-purple-700 mb-2">✨ 光暈效果</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">結合 CSS box-shadow 技術創造柔和的外發光效果，讓滾動條在視覺上更加突出且富有層次感。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">結合 CSS box-shadow 技術創造柔和的外發光效果，让滾動條在視覺上更加突出且富有层次感。</p>
                 </div>
                 <div class="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-blue-400 shadow-sm">
-                  <h4 class="font-semibold text-blue-700 mb-2">🎬 動畫過渡</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">懸停狀態下的漸變位移和陰影增強，搭配平滑的 CSS 過渡動畫，提供流暢的交互體驗。</p>
+                  <h4 class="font-semibold text-blue-700 mb-2">🎬 動画過渡</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">懸停狀態下的漸變位移和阴影增強，搭配平滑的 CSS 過渡動画，提供流暢的交互体驗。</p>
                 </div>
                 <div class="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-purple-400 shadow-sm">
-                  <h4 class="font-semibold text-purple-700 mb-2">🎨 設計趨勢</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">遵循當前流行的漸變設計趨勢，完美適配創意作品展示、設計工具、或需要視覺衝擊的現代應用。</p>
+                  <h4 class="font-semibold text-purple-700 mb-2">🎨 设計趨勢</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">遵循當前流行的漸變设計趨勢，完美適配創意作品展示、设計工具、或需要視覺衝擊的現代應用。</p>
                 </div>
                 <div class="bg-white/80 backdrop-blur-sm rounded-lg p-4 border-l-4 border-blue-400 shadow-sm">
                   <h4 class="font-semibold text-blue-700 mb-2">🔧 技術實現</h4>
@@ -1149,7 +1149,7 @@ export const advancedComponents = [
             </div>
 
             <div class="mt-4 flex items-center justify-between text-xs text-blue-600">
-              <span>動態漸變 • 光暈效果 • 流暢動畫</span>
+              <span>動態漸變 • 光暈效果 • 流暢動画</span>
               <span>現代科技</span>
             </div>
           </div>
@@ -1239,15 +1239,15 @@ export const advancedComponents = [
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 scrollbar-brand-accent">
                   <h4 class="font-semibold mb-2" style="color: var(--scrollbar-brand-primary);">🛠 開發友好</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">開發者可以通過JavaScript動態修改CSS變量，或者在構建時通過預處理器自動生成不同的主題變體。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">開發者可以通過JavaScript動態修改CSS變量，或者在構建時通過預處理器自動生成不同的主題變体。</p>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 scrollbar-brand-accent">
                   <h4 class="font-semibold mb-2" style="color: var(--scrollbar-brand-primary);">🎯 品牌識別</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">點擊上方的色彩按鈕體驗即時主題切換，看看滾動條如何完美融入不同的品牌色彩方案中。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">點擊上方的色彩按鈕体驗即時主題切換，看看滾動條如何完美融入不同的品牌色彩方案中。</p>
                 </div>
                 <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 scrollbar-brand-accent">
                   <h4 class="font-semibold mb-2" style="color: var(--scrollbar-brand-primary);">🔧 靈活配置</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">支持主色調、輔助色、背景色等多個維度的定制，滿足不同設計需求和視覺偏好。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">支持主色調、輔助色、背景色等多個維度的定制，滿足不同设計需求和視覺偏好。</p>
                 </div>
               </div>
             </div>
@@ -1264,7 +1264,7 @@ export const advancedComponents = [
               document.documentElement.style.setProperty('--scrollbar-brand-light', light);
             }
 
-            // 設置默認主題
+            // 设置默認主題
             setScrollbarTheme('#3b82f6', '#dbeafe');
           </script>
         `,
@@ -1319,7 +1319,7 @@ export const advancedComponents = [
               </div>
               <div>
                 <h3 class="font-semibold text-lg text-gray-900">交互增強滾動條</h3>
-                <p class="text-sm text-gray-500">智能反饋與進度顯示</p>
+                <p class="text-sm text-gray-500">智能反饋与進度显示</p>
               </div>
             </div>
 
@@ -1337,38 +1337,38 @@ export const advancedComponents = [
               <div class="space-y-4">
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
                   <h4 class="font-semibold text-indigo-700 mb-2">🎯 智能交互</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">這個滾動條具備智能交互功能，包括實時的滾動進度顯示、動態寬度調整，以及多層次的視覺反饋系統。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">這個滾動條具备智能交互功能，包括實時的滾動進度显示、動態寬度調整，以及多层次的視覺反饋系統。</p>
                 </div>
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-purple-100 shadow-sm">
                   <h4 class="font-semibold text-purple-700 mb-2">📊 進度指示</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">頂部的進度條會根據滾動位置實時更新，讓用戶清楚知道當前瀏覽進度，提升長內容的閱讀體驗。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">頂部的進度條會根据滾動位置實時更新，让用戶清楚知道當前瀏覽進度，提升長內容的閱讀体驗。</p>
                 </div>
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
                   <h4 class="font-semibold text-indigo-700 mb-2">🔄 動態適應</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">滾動條會根據用戶的交互狀態動態調整外觀：正常時較細、懸停時變寬、拖動時增強視覺效果。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">滾動條會根据用戶的交互狀態動態調整外觀：正常時較細、懸停時變寬、拖動時增強視覺效果。</p>
                 </div>
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-purple-100 shadow-sm">
-                  <h4 class="font-semibold text-purple-700 mb-2">✨ 微動畫</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">集成了微妙的動畫效果，包括懸停時的脈衝效果、拖動時的陰影增強，以及平滑的尺寸變化動畫。</p>
+                  <h4 class="font-semibold text-purple-700 mb-2">✨ 微動画</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">集成了微妙的動画效果，包括懸停時的脈衝效果、拖動時的阴影增強，以及平滑的尺寸變化動画。</p>
                 </div>
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
-                  <h4 class="font-semibold text-indigo-700 mb-2">🎨 視覺層次</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">通過漸變背景、多重陰影、邊框高光等技術創造豐富的視覺層次，讓滾動條成為界面的亮點。</p>
+                  <h4 class="font-semibold text-indigo-700 mb-2">🎨 視覺层次</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">通過漸變背景、多重阴影、边框高光等技術創造豐富的視覺层次，让滾動條成為界面的亮點。</p>
                 </div>
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-purple-100 shadow-sm">
                   <h4 class="font-semibold text-purple-700 mb-2">🔧 技術細節</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">使用現代CSS特性如 backdrop-filter、CSS變量、動畫關鍵幀，結合JavaScript實現完整的交互體驗。</p>
+                  <p class="text-sm text-gray-700 leading-relaxed">使用現代CSS特性如 backdrop-filter、CSS變量、動画关鍵幀，結合JavaScript實現完整的交互体驗。</p>
                 </div>
                 <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
-                  <h4 class="font-semibold text-indigo-700 mb-2">📱 觸摸優化</h4>
-                  <p class="text-sm text-gray-700 leading-relaxed">針對觸摸設備優化了交互區域大小和響應靈敏度，確保在移動設備上也能提供優秀的用戶體驗。</p>
+                  <h4 class="font-semibold text-indigo-700 mb-2">📱 觸摸优化</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">針對觸摸设备优化了交互区域大小和響應靈敏度，確保在移動设备上也能提供优秀的用戶体驗。</p>
                 </div>
               </div>
             </div>
 
             <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
-              <span>智能交互 • 進度顯示 • 動態反饋</span>
-              <span>增強體驗</span>
+              <span>智能交互 • 進度显示 • 動態反饋</span>
+              <span>增強体驗</span>
             </div>
           </div>
 
@@ -1496,7 +1496,7 @@ export const advancedComponents = [
 
         </div>
 
-        <!-- 極淡網格背景 -->
+        <!-- 極淡网格背景 -->
         <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
       </div>
     `,
@@ -1508,7 +1508,7 @@ export const advancedComponents = [
     description: 'data.components.advanced.code-editor.description',
     demoHTML: `
       <div class="relative w-full h-[400px] bg-white overflow-hidden">
-        <!-- 雙面板佈局 -->
+        <!-- 双面板佈局 -->
         <div class="grid grid-cols-2 gap-px bg-gray-200 h-full">
 
           <!-- 左側：編輯器面板 -->
@@ -1560,7 +1560,7 @@ export const advancedComponents = [
 
         </div>
 
-        <!-- 極淡網格背景 -->
+        <!-- 極淡网格背景 -->
         <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
       </div>
     `,
@@ -1580,11 +1580,11 @@ export const advancedComponents = [
             <div class="w-12 h-12 rounded-full border-2 border-black bg-white flex items-center justify-center shadow-md">
               <div class="w-2 h-2 bg-black rounded-full"></div>
             </div>
-            <!-- 垂直連接線 -->
+            <!-- 垂直連接线 -->
             <div class="w-px h-12 bg-gray-400"></div>
           </div>
 
-          <!-- 第二層：分支 -->
+          <!-- 第二层：分支 -->
           <div class="flex items-start gap-20">
             <!-- 左分支：條件卡片 -->
             <div class="flex flex-col items-center gap-4">
@@ -1608,12 +1608,12 @@ export const advancedComponents = [
             </div>
           </div>
 
-          <!-- 水平連接線 -->
+          <!-- 水平連接线 -->
           <div class="absolute top-32 left-1/2 w-40 h-px bg-gray-400 -translate-x-1/2"></div>
 
         </div>
 
-        <!-- 極淡網格背景 -->
+        <!-- 極淡网格背景 -->
         <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
       </div>
     `,
@@ -1626,11 +1626,11 @@ export const advancedComponents = [
     demoHTML: `
       <div class="relative w-full h-[450px] bg-white overflow-hidden flex flex-col">
 
-        <!-- 地圖區域 -->
+        <!-- 地圖区域 -->
         <div class="relative flex-1 bg-gray-50 p-4">
-          <!-- CSS Grid 網格地圖 -->
+          <!-- CSS Grid 网格地圖 -->
           <div class="grid grid-cols-8 grid-rows-5 gap-px bg-gray-300 h-full rounded overflow-hidden">
-            <!-- 網格單元 -->
+            <!-- 网格單元 -->
             ${Array(40).fill(0).map((_, i) => `
               <div class="bg-gray-100 relative">
                 ${[8, 15, 23].includes(i) ? '<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full shadow-md"></div>' : ''}
@@ -1647,7 +1647,7 @@ export const advancedComponents = [
           </div>
         </div>
 
-        <!-- 地點列表區域 -->
+        <!-- 地點列表区域 -->
         <div class="border-t border-gray-200 p-4 space-y-2 bg-white">
           <div class="flex items-center gap-3 p-2 rounded hover:bg-gray-50">
             <div class="w-2 h-2 rounded-full border border-gray-400"></div>
@@ -1663,7 +1663,7 @@ export const advancedComponents = [
           </div>
         </div>
 
-        <!-- 極淡網格背景 -->
+        <!-- 極淡网格背景 -->
         <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
       </div>
     `,

@@ -8,7 +8,7 @@ import { deepCloneComponent } from './utils/componentHelpers';
  *
  * 職責:
  * - 管理組件複製/剪切/粘貼操作
- * - 支持跨項目複製 (導出/導入)
+ * - 支持跨項目複製 (导出/导入)
  * - 預留剪貼板歷史功能
  */
 
@@ -35,7 +35,7 @@ export const useClipboardStore = create(
         copiedAt: new Date().toISOString()
       };
 
-      // 添加到歷史記錄 (最多保留 10 個)
+      // 添加到歷史記录 (最多保留 10 個)
       state.clipboardHistory.unshift(state.clipboard);
       if (state.clipboardHistory.length > 10) {
         state.clipboardHistory.pop();
@@ -101,8 +101,8 @@ export const useClipboardStore = create(
     }),
 
     /**
-     * 從歷史記錄恢復 (預留功能)
-     * @param {number} index - 歷史記錄索引
+     * 从歷史記录恢復 (預留功能)
+     * @param {number} index - 歷史記录索引
      */
     restoreFromHistory: (index) => set((state) => {
       if (index >= 0 && index < state.clipboardHistory.length) {
@@ -120,7 +120,7 @@ export const useClipboardStore = create(
     // ========== Getters ==========
 
     /**
-     * 檢查剪貼板是否有內容
+     * 检查剪貼板是否有內容
      * @returns {boolean}
      */
     hasClipboard: () => {
@@ -128,7 +128,7 @@ export const useClipboardStore = create(
     },
 
     /**
-     * 獲取剪貼板元數據
+     * 獲取剪貼板元数据
      * @returns {Object|null}
      */
     getClipboardInfo: () => {
@@ -143,7 +143,7 @@ export const useClipboardStore = create(
     },
 
     /**
-     * 獲取剪貼板歷史記錄
+     * 獲取剪貼板歷史記录
      * @returns {Array}
      */
     getHistory: () => {
@@ -165,7 +165,7 @@ export const useClipboardStore = create(
     }),
 
     /**
-     * 導出剪貼板 (用於跨項目複製)
+     * 导出剪貼板 (用於跨項目複製)
      * @returns {string} JSON 字符串
      */
     exportClipboard: () => {
@@ -180,7 +180,7 @@ export const useClipboardStore = create(
     },
 
     /**
-     * 導入剪貼板 (用於跨項目複製)
+     * 导入剪貼板 (用於跨項目複製)
      * @param {string} jsonString - JSON 字符串
      */
     importClipboard: (jsonString) => set((state) => {

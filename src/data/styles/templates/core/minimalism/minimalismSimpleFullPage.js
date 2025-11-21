@@ -1,8 +1,8 @@
-// 極簡主義：簡單全頁示例（登入頁）
-// 說明：此為極簡風格的純黑白登入頁，作為 Minimalism 額外預覽範例
+// 極简主義：简單全页示例（登入页）
+// 說明：此為極简風格的純黑白登入页，作為 Minimalism 額外預覽範例
 
 export const minimalismSimpleFullPageHTML = `
-  <!-- 頂部導覽 -->
+  <!-- 頂部导覽 -->
   <header class="minml-header">
     <div class="minml-container">
       <div class="minml-logo">MINIMAL</div>
@@ -52,7 +52,7 @@ export const minimalismSimpleFullPageHTML = `
 `;
 
 export const minimalismSimpleFullPageStyles = `
-  /* 全局與排版 */
+  /* 全局与排版 */
   :root { --line: #E5E5E5; --text: #111; --muted: #666; --bg: #fff; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }

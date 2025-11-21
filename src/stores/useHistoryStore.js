@@ -3,7 +3,7 @@ import { immer } from 'zustand/middleware/immer';
 import { useViewportStore } from './useViewportStore';
 
 /**
- * 歷史記錄管理 Store (撤銷/重做) - 加入壓縮與上限控制
+ * 歷史記录管理 Store (撤銷/重做) - 加入壓縮与上限控制
  */
 
 function safeJSONStringify(obj) {
@@ -13,7 +13,7 @@ function safeJSONStringify(obj) {
 }
 
 function estimateBytes(snap) {
-  // 粗估：序列化長度（UTF-16 近似 2bytes/char，但我們以字元數為近似即可）
+  // 粗估：序列化長度（UTF-16 近似 2bytes/char，但我們以字元数為近似即可）
   const a = safeJSONStringify(snap.canvasState || {});
   const b = safeJSONStringify(snap.viewportState || {});
   return (a.length + b.length);
@@ -27,7 +27,7 @@ export const useHistoryStore = create(
     applySnapshotFn: null,
     getCurrentSnapshotFn: null,
 
-    maxHistory: 50, // 最大歷史記錄條數
+    maxHistory: 50, // 最大歷史記录條数
     maxHistoryBytes: 1500000, // ~1.5MB 近似上限（避免快照爆量）
     isRecording: true,
 
@@ -43,7 +43,7 @@ export const useHistoryStore = create(
         ...(viewportState && { viewportState })
       };
 
-      // 與上一個快照完全一致則略過（最小變更）
+      // 与上一個快照完全一致則略過（最小變更）
       const last = get().past.at(-1)?.state;
       if (last) {
         const sameCanvas = safeJSONStringify(last.canvasState) === safeJSONStringify(snapshot.canvasState);
@@ -57,7 +57,7 @@ export const useHistoryStore = create(
         state.past.push({ state: snapshot });
       });
 
-      // 執行容量裁剪與條數上限
+      // 執行容量裁剪与條数上限
       set((state) => {
         const bytes = () => state.past.reduce((sum, it) => sum + estimateBytes(it.state), 0);
         while (state.past.length > state.maxHistory || bytes() > state.maxHistoryBytes) {
@@ -79,7 +79,7 @@ export const useHistoryStore = create(
     /**
      * 壓縮歷史：
      * - 刪除時間間隔內（interval ms）重覆或極相近快照（以序列化相等為準）
-     * - 仍保留關鍵節點（每段的最後一筆）
+     * - 仍保留关鍵節點（每段的最後一筆）
      */
     compressHistory: (interval = 1000) => {
       set((state) => {

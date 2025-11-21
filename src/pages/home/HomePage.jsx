@@ -8,7 +8,7 @@ import { getComponentsStatsAsync, getStylesStatsAsync } from '../../data/compone
 
 /**
  * HomePage - 新首页
- * 展示 AI Prompt 演示區域和統計信息
+ * 展示 AI Prompt 演示区域和統計信息
  */
 export function HomePage() {
   const { t } = useLanguage();
@@ -26,7 +26,7 @@ export function HomePage() {
     return () => { active = false }
   }, [])
 
-  // 已移除頁面載入時的自動聚焦功能
+  // 已移除页面載入時的自動聚焦功能
 
   return (
     <section className="min-h-screen flex flex-col">

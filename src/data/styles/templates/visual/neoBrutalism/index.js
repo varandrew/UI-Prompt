@@ -17,7 +17,7 @@ export const neoBrutalism = {
   fullPageHTML,
   fullPageStyles,
 
-  // ⭐ 提供兩個完整頁面預覽模板：Neo-Brutalism 與 Brutalism
+  // ⭐ 提供兩個完整页面預覽模板：Neo-Brutalism 与 Brutalism
   previews: [
     {
       id: 'neo-brutalism',
@@ -33,7 +33,7 @@ export const neoBrutalism = {
     }
   ],
 
-  // ⭐ customPrompt（雙語 AI 指令）
+  // ⭐ customPrompt（双語 AI 指令）
   customPrompt: {
     'zh-CN': `请使用 TailwindCSS 创建一个新粗野主义（Neo-Brutalism）风格的界面，通过粗黑边框、强烈阴影偏移、大胆色彩对比和不对称布局创造视觉冲击力。
 
@@ -109,7 +109,7 @@ export const neoBrutalism = {
      }
      \`\`\`
 
-4. **傾斜旋轉變換**
+4. **傾斜旋轉变換**
    - 元素輕微傾斜（rotate -5deg ~ 5deg）
    - 創造不對稱、動態視覺感
    - 懸停時反向旋轉或放大
@@ -128,7 +128,7 @@ export const neoBrutalism = {
        transition: all 0.3s ease;
      }
 
-     /* 導航欄元素 */
+     /* 导航欄元素 */
      .neo-brutal-logo {
        transform: rotate(-3deg);
      }
@@ -144,9 +144,9 @@ export const neoBrutalism = {
      \`\`\`
 
 5. **扁平化幾何形狀**
-   - 使用簡單幾何形狀（矩形、圓形、正方形）
+   - 使用简單幾何形狀（矩形、圓形、正方形）
    - 圓角較小或無圓角：\`border-radius: 0-4px\`
-   - 避免複雜曲線和裝飾
+   - 避免複雜曲线和裝飾
    - 示例：
      \`\`\`css
      /* 矩形卡片 */
@@ -156,7 +156,7 @@ export const neoBrutalism = {
        aspect-ratio: 16/9;
      }
 
-     /* 正方形圖標容器 */
+     /* 正方形圖标容器 */
      .neo-brutal-square {
        width: 60px;
        height: 60px;
@@ -177,10 +177,10 @@ export const neoBrutalism = {
      }
      \`\`\`
 
-6. **不對稱佈局與層疊**
+6. **不對稱佈局与层疊**
    - 元素不完全對齊，創造動態感
-   - 使用 z-index 和 transform 製造層次
-   - 邊框和陰影錯位排列
+   - 使用 z-index 和 transform 製造层次
+   - 边框和阴影错位排列
    - 示例：
      \`\`\`css
      .neo-brutal-stack > div:nth-child(1) {
@@ -203,9 +203,9 @@ export const neoBrutalism = {
      \`\`\`
 
 7. **強烈視覺反饋**
-   - 懸停/按下時明顯的視覺變化
-   - 陰影偏移量增大或減小
-   - 顏色反轉或高飽和度變化
+   - 懸停/按下時明显的視覺变化
+   - 阴影偏移量增大或減小
+   - 颜色反轉或高飽和度变化
    - 示例：
      \`\`\`css
      .neo-brutal-interactive {
@@ -232,7 +232,7 @@ export const neoBrutalism = {
 
 主色調：
 - 背景淺灰：#f5f5f5, #e5e7eb
-- 純黑邊框：#000000
+- 純黑边框：#000000
 - 純白背景：#ffffff
 
 強調色（鮮艷高飽和度）：
@@ -245,7 +245,7 @@ export const neoBrutalism = {
 功能色：
 - 成功：#22c55e（鮮綠）
 - 警告：#f59e0b（橙黃）
-- 錯誤：#ef4444（紅）
+- 错誤：#ef4444（紅）
 - 資訊：#3b82f6（藍）
 
 **关键 CSS 类示例**
@@ -335,7 +335,7 @@ export const neoBrutalism = {
   font-weight: 600;
 }
 
-/* Neo-Brutal 導航欄 */
+/* Neo-Brutal 导航欄 */
 .neo-brutal-nav {
   background: white;
   border-bottom: 6px solid #000;
@@ -407,7 +407,7 @@ export const neoBrutalism = {
   transform: scale(1.01);
 }
 
-/* Neo-Brutal 標籤 */
+/* Neo-Brutal 标籤 */
 .neo-brutal-badge {
   padding: 0.5rem 1rem;
   background: #10b981;
@@ -462,13 +462,13 @@ export const neoBrutalism = {
 - xl: 48px
 - 2xl: 64px
 
-**字體系統**
+**字体系統**
 
-標題：
-- 巨大標題：48px-72px, font-weight: 900
-- 大標題：36px-48px, font-weight: 900
-- 中標題：24px-32px, font-weight: 900
-- 小標題：18px-24px, font-weight: 700
+标題：
+- 巨大标題：48px-72px, font-weight: 900
+- 大标題：36px-48px, font-weight: 900
+- 中标題：24px-32px, font-weight: 900
+- 小标題：18px-24px, font-weight: 700
 
 正文：
 - 大正文：18px, font-weight: 600
@@ -476,23 +476,23 @@ export const neoBrutalism = {
 - 小正文：14px, font-weight: 600
 
 特殊：
-- 所有文字預設使用粗體（font-weight: 600 以上）
-- 標題使用超粗體（font-weight: 900）
+- 所有文字預设使用粗体（font-weight: 600 以上）
+- 标題使用超粗体（font-weight: 900）
 - 字母間距略寬：letter-spacing: 0.02em - 0.05em
-- 可使用全大寫（text-transform: uppercase）增強衝擊力
+- 可使用全大写（text-transform: uppercase）增強衝擊力
 
 **重要提示**
 
-- ✅ 必須使用粗黑邊框（4px-6px solid #000）
-- ✅ 必須使用實色陰影偏移（6px-12px，無模糊）
+- ✅ 必須使用粗黑边框（4px-6px solid #000）
+- ✅ 必須使用實色阴影偏移（6px-12px，無模糊）
 - ✅ 使用高飽和度鮮艷色彩
 - ✅ 元素輕微傾斜創造動態感
-- ✅ 交互必須有明顯視覺反饋
+- ✅ 交互必須有明显視覺反饋
 - ❌ 避免圓角過大（最多 4px）
-- ❌ 避免使用模糊陰影（blur shadow）
+- ❌ 避免使用模糊阴影（blur shadow）
 - ❌ 避免低飽和度柔和色彩
 - ❌ 避免過於對稱和工整的佈局
-- ❌ 避免細線邊框（必須 4px 以上）
+- ❌ 避免細线边框（必須 4px 以上）
 - ❌ 避免過度裝飾和複雜圖案
 - 保持視覺張力和衝擊感
 - 黑白對比是基礎，鮮艷色彩是點綴

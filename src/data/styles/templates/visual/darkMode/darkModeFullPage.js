@@ -1,10 +1,10 @@
-// Dark Mode 完整頁面設計 - Developer Tools Dashboard
-// 展示高對比度、數據視覺化、動畫效果
+// Dark Mode 完整页面设計 - Developer Tools Dashboard
+// 展示高對比度、数据視覺化、動画效果
 
 export const darkModeFullPageHTML = `
 <div class="dark-mode-full-page min-h-screen" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: #e5e7eb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 
-  <!-- 頂部導航欄 -->
+  <!-- 頂部导航欄 -->
   <nav class="dark-navbar" style="position: sticky; top: 0; z-index: 50; background: rgba(26, 26, 26, 0.95); border-bottom: 1px solid #2a2a2a; backdrop-filter: blur(12px);">
     <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
 
@@ -19,7 +19,7 @@ export const darkModeFullPageHTML = `
           <span style="font-size: 20px; font-weight: 700; color: #e5e7eb;">DevMonitor</span>
         </div>
 
-        <!-- 主導航 -->
+        <!-- 主导航 -->
         <div style="display: flex; gap: 2rem; align-items: center;">
           <a href="javascript:void(0)" class="dark-nav-link" style="color: #3b82f6; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s; border-bottom: 2px solid #3b82f6; padding-bottom: 0.25rem;">Dashboard</a>
           <a href="javascript:void(0)" class="dark-nav-link" style="color: #9ca3af; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s;">Projects</a>
@@ -28,7 +28,7 @@ export const darkModeFullPageHTML = `
         </div>
       </div>
 
-      <!-- 右側工具區 -->
+      <!-- 右側工具区 -->
       <div style="display: flex; gap: 1rem; align-items: center;">
         <!-- 搜尋框 -->
         <div style="position: relative;">
@@ -42,7 +42,7 @@ export const darkModeFullPageHTML = `
           </svg>
         </div>
 
-        <!-- 通知圖標 -->
+        <!-- 通知圖标 -->
         <div style="position: relative; cursor: pointer;">
           <div style="width: 40px; height: 40px; background: #2a2a2a; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
             <svg style="width: 20px; height: 20px; color: #9ca3af;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,10 +60,10 @@ export const darkModeFullPageHTML = `
     </div>
   </nav>
 
-  <!-- 主容器 (側邊欄 + 內容區) -->
+  <!-- 主容器 (側边欄 + 內容区) -->
   <div style="display: flex; max-width: 1400px; margin: 0 auto;">
 
-    <!-- 側邊欄 -->
+    <!-- 側边欄 -->
     <aside style="width: 260px; background: rgba(26, 26, 26, 0.5); padding: 1.5rem; border-right: 1px solid #2a2a2a; min-height: calc(100vh - 73px);">
       <div style="margin-bottom: 2rem;">
         <h3 style="font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Active Projects</h3>
@@ -96,7 +96,7 @@ export const darkModeFullPageHTML = `
       </div>
     </aside>
 
-    <!-- 主內容區 -->
+    <!-- 主內容区 -->
     <main style="flex: 1; padding: 2rem;">
 
       <!-- Hero Section -->
@@ -105,7 +105,7 @@ export const darkModeFullPageHTML = `
         <p style="color: #9ca3af; font-size: 16px;">Here's what's happening with your projects today.</p>
       </section>
 
-      <!-- 統計卡片區 -->
+      <!-- 統計卡片区 -->
       <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
         <!-- CPU Usage -->
         <div class="dark-stat-card" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 1.5rem; border-radius: 12px; border: 1px solid #2a2a2a; transition: all 0.3s; cursor: pointer;">
@@ -192,7 +192,7 @@ export const darkModeFullPageHTML = `
         <h2 style="font-size: 20px; font-weight: 700; color: #e5e7eb; margin-bottom: 1.5rem;">Build Status Timeline</h2>
 
         <div style="position: relative; padding-left: 2rem;">
-          <!-- 時間軸線條 -->
+          <!-- 時間軸线條 -->
           <div style="position: absolute; left: 0.375rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6, #2a2a2a);"></div>
 
           <!-- Timeline Item 1 -->
@@ -431,7 +431,7 @@ export const darkModeFullPageHTML = `
 `;
 
 export const darkModeFullPageStyles = `
-/* ===== Dark Mode 動畫效果 ===== */
+/* ===== Dark Mode 動画效果 ===== */
 
 /* 卡片 Hover 效果 */
 .dark-stat-card:hover {
@@ -440,35 +440,35 @@ export const darkModeFullPageStyles = `
   box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2) !important;
 }
 
-/* 導航鏈接 Hover */
+/* 导航鏈接 Hover */
 .dark-nav-link:hover {
   color: #3b82f6 !important;
   border-bottom: 2px solid #3b82f6 !important;
 }
 
-/* 側邊欄項目 Hover */
+/* 側边欄項目 Hover */
 .dark-sidebar-item:hover:not(.active) {
   background: rgba(59, 130, 246, 0.05) !important;
   border-left-color: #3b82f6 !important;
 }
 
-/* 任務項目 Hover */
+/* 任务項目 Hover */
 .dark-task-item:hover {
   background: rgba(59, 130, 246, 0.05) !important;
   border-color: #3b82f6 !important;
   transform: translateX(4px);
 }
 
-/* ===== 關鍵幀動畫 ===== */
+/* ===== 关鍵幀動画 ===== */
 
-/* 旋轉動畫 (Spinner) */
+/* 旋轉動画 (Spinner) */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* 彈跳動畫 (Dots) */
+/* 彈跳動画 (Dots) */
 @keyframes bounce {
   0%, 80%, 100% {
     transform: scale(0);
@@ -480,7 +480,7 @@ export const darkModeFullPageStyles = `
   }
 }
 
-/* 脈衝動畫 (Pulse) */
+/* 脈衝動画 (Pulse) */
 @keyframes pulse {
   0% {
     transform: scale(0.8);
@@ -492,7 +492,7 @@ export const darkModeFullPageStyles = `
   }
 }
 
-/* 淡入上移動畫 (Timeline) */
+/* 淡入上移動画 (Timeline) */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -504,14 +504,14 @@ export const darkModeFullPageStyles = `
   }
 }
 
-/* 進度條填充動畫 */
+/* 進度條填充動画 */
 @keyframes progressFill {
   from {
     width: 0%;
   }
 }
 
-/* ===== 響應式設計 ===== */
+/* ===== 響應式设計 ===== */
 @media (max-width: 768px) {
   .dark-navbar > div {
     flex-direction: column;

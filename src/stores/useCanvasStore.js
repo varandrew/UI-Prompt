@@ -11,10 +11,10 @@ import { useHistoryStore } from './useHistoryStore';
 import { useViewportStore } from './useViewportStore';
 
 /**
- * 畫布與組件管理 Store
+ * 画布与組件管理 Store
  *
  * 職責:
- * - 管理組件樹結構 (層級關係)
+ * - 管理組件樹結構 (层級关係)
  * - 管理組件屬性映射表 (扁平結構)
  * - 提供組件 CRUD 操作
  * - 處理組件移動和嵌套
@@ -54,7 +54,7 @@ export const useCanvasStore = create(
     /**
      * 添加組件到父容器
      * @param {string} parentId - 父組件 ID
-     * @param {string} componentType - 組件類型
+     * @param {string} componentType - 組件类型
      * @param {number|null} position - 插入位置 (null 表示末尾)
      * @returns {string|null} 新組件的 ID
      */
@@ -133,7 +133,7 @@ export const useCanvasStore = create(
         return;
       }
 
-      // 從舊位置移除
+      // 从舊位置移除
       const component = removeComponentFromTree(state.componentTree, componentId);
       if (!component) {
         console.error(`Component ${componentId} not found`);
@@ -180,11 +180,11 @@ export const useCanvasStore = create(
 
         const idsToDelete = collectAllComponentIds(component);
 
-        // 從樹中移除
+        // 从樹中移除
         const removed = removeComponentFromTree(state.componentTree, componentId);
         if (!removed) return;
 
-        // 從 Props 映射中移除所有相關 Props
+        // 从 Props 映射中移除所有相关 Props
         idsToDelete.forEach(id => {
           delete state.componentProps[id];
         });
@@ -198,7 +198,7 @@ export const useCanvasStore = create(
     /**
      * 複製組件 (深拷貝)
      * @param {string} componentId - 組件 ID
-     * @param {string} targetParentId - 目標父組件 ID
+     * @param {string} targetParentId - 目标父組件 ID
      * @returns {string|null} 新組件的 ID
      */
     duplicateComponent: (componentId, targetParentId) => {
@@ -313,7 +313,7 @@ export const useCanvasStore = create(
     },
 
     /**
-     * 批次設置子組件的 flex-grow
+     * 批次设置子組件的 flex-grow
      * @param {string} parentId - 父組件 ID
      * @param {number} weight - flex-grow 值
      */
@@ -409,7 +409,7 @@ export const useCanvasStore = create(
     // ========== Getters ==========
 
     /**
-     * 獲取組件完整數據 (Tree + Props)
+     * 獲取組件完整数据 (Tree + Props)
      * @param {string} componentId - 組件 ID
      * @returns {Object|null}
      */
@@ -448,7 +448,7 @@ export const useCanvasStore = create(
     },
 
     /**
-     * 檢查組件是否存在
+     * 检查組件是否存在
      * @param {string} componentId - 組件 ID
      * @returns {boolean}
      */
@@ -459,7 +459,7 @@ export const useCanvasStore = create(
     // ========== Utils ==========
 
     /**
-     * 重置畫布
+     * 重置画布
      */
     reset: () => {
       // 快照：變更前
@@ -479,7 +479,7 @@ export const useCanvasStore = create(
     },
 
     /**
-     * 導入畫布數據
+     * 导入画布数据
      * @param {Object} canvasData - { componentTree, componentProps }
      */
     importCanvas: (canvasData) => set((state) => {
@@ -492,7 +492,7 @@ export const useCanvasStore = create(
     }),
 
     /**
-     * 導出畫布數據
+     * 导出画布数据
      * @returns {Object} { componentTree, componentProps }
      */
     exportCanvas: () => {

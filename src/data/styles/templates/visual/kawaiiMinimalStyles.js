@@ -1,6 +1,6 @@
 // Kawaii Minimal 風格定義
-// ✅ 階段 3.2 優化: 移除所有靜態 import，改用動態加載
-// 預期減少構建體積：25 KB
+// ✅ 階段 3.2 优化: 移除所有静態 import，改用動態加載
+// 預期減少構建体積：25 KB
 
 export const kawaiiMinimalStyles = [
   {
@@ -8,80 +8,214 @@ export const kawaiiMinimalStyles = [
     title: 'styles.visual.kawaii-minimal.title',
     description: 'styles.visual.kawaii-minimal.description',
     demoHTML: `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 2rem; background: linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%); border-radius: 20px;">
-        <!-- 標題區 -->
-        <div style="text-align: center; margin-bottom: 2rem;">
-          <svg width="64" height="64" viewBox="0 0 64 64" style="margin-bottom: 1rem;">
-            <circle cx="32" cy="32" r="26" stroke="#FFB6D9" stroke-width="2.5" fill="none"/>
-            <circle cx="24" cy="28" r="3" fill="#FFB6D9"/>
-            <circle cx="40" cy="28" r="3" fill="#FFB6D9"/>
-            <path d="M 20 38 Q 32 46 44 38" stroke="#FFB6D9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 2rem; background: linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%); border-radius: 20px; position: relative; overflow: hidden;">
+
+        <!-- 🎈 浮動裝飾形狀 (6個) -->
+        <!-- 粉紅愛心 -->
+        <div style="position: absolute; top: 20px; left: 30px; animation: kawaii-float 4s ease-in-out infinite;">
+          <svg width="32" height="32" viewBox="0 0 32 32">
+            <path d="M 16 28 C 16 28 4 18 4 12 C 4 8 7 6 10 6 C 12 6 14 7 16 9 C 18 7 20 6 22 6 C 25 6 28 8 28 12 C 28 18 16 28 16 28 Z" fill="#FFB6D9" opacity="0.6"/>
           </svg>
-          <h2 style="font-size: 1.75rem; font-weight: 800; background: linear-gradient(135deg, #FFB6D9, #E6D5FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">Kawaii Minimal</h2>
-          <p style="color: #666; margin-top: 0.5rem;">Sweet, simple & expressive</p>
+        </div>
+        <!-- 紫色星星 -->
+        <div style="position: absolute; top: 50px; right: 40px; animation: kawaii-rotate 12s linear infinite;">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <path d="M 14 2 L 16 10 L 24 10 L 18 15 L 20 24 L 14 19 L 8 24 L 10 15 L 4 10 L 12 10 Z" fill="#E6D5FF" opacity="0.5"/>
+          </svg>
+        </div>
+        <!-- 黃色笑臉 -->
+        <div style="position: absolute; top: 140px; left: 20px; animation: kawaii-pulse 3s ease-in-out infinite;">
+          <svg width="30" height="30" viewBox="0 0 30 30">
+            <circle cx="15" cy="15" r="13" fill="none" stroke="#FFE87C" stroke-width="2" opacity="0.7"/>
+            <circle cx="11" cy="12" r="1.5" fill="#FFE87C"/>
+            <circle cx="19" cy="12" r="1.5" fill="#FFE87C"/>
+            <path d="M 9 17 Q 15 21 21 17" stroke="#FFE87C" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- 綠色云朵 -->
+        <div style="position: absolute; bottom: 100px; right: 30px; animation: kawaii-float 5s ease-in-out infinite;">
+          <svg width="36" height="24" viewBox="0 0 36 24">
+            <path d="M 8 16 C 4 16 2 13 2 10 C 2 7 4 5 7 5 C 8 3 10 2 12 2 C 15 2 17 4 18 6 C 19 5 21 5 23 5 C 26 5 28 7 28 10 C 28 13 26 15 23 15 L 8 16 Z" fill="#A8E6CF" opacity="0.5" transform="translate(4, 4)"/>
+          </svg>
+        </div>
+        <!-- 粉紅音符 -->
+        <div style="position: absolute; bottom: 60px; left: 50px; animation: kawaii-float 3.5s ease-in-out infinite;">
+          <svg width="24" height="32" viewBox="0 0 24 32">
+            <circle cx="8" cy="24" r="4" fill="#FFC1E3"/>
+            <rect x="12" y="4" width="3" height="20" fill="#FFC1E3" rx="1.5"/>
+            <path d="M 12 4 Q 20 2 20 8" stroke="#FFC1E3" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- 薰衣草禮物 -->
+        <div style="position: absolute; bottom: 140px; left: 45%; animation: kawaii-pulse 4s ease-in-out infinite;">
+          <svg width="28" height="28" viewBox="0 0 28 28">
+            <rect x="6" y="10" width="16" height="14" rx="2" fill="none" stroke="#E6D5FF" stroke-width="2"/>
+            <path d="M 14 10 L 14 2 M 6 10 L 6 6 L 14 2 L 22 6 L 22 10" stroke="#E6D5FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="6" y1="17" x2="22" y2="17" stroke="#E6D5FF" stroke-width="2"/>
+          </svg>
         </div>
 
-        <!-- 按鈕組 -->
-        <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
-          <button style="padding: 0.75rem 1.75rem; border: none; border-radius: 50px; background: linear-gradient(135deg, #FFB6D9, #E6D5FF); color: #333; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3); transition: transform 0.3s;">
-            Primary Button
-          </button>
-          <button style="padding: 0.75rem 1.75rem; border: 2px solid #E6D5FF; border-radius: 50px; background: #FFFFFF; color: #333; font-weight: 600; cursor: pointer; transition: transform 0.3s;">
-            Secondary
-          </button>
+        <!-- 📌 Header 区 - 仅显示标題 -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h2 style="font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #FFB6D9 0%, #E6D5FF 50%, #A8E6CF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; letter-spacing: -0.5px;">Kawaii Minimal</h2>
         </div>
 
-        <!-- 卡片網格 -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-          <!-- 粉紅卡片 -->
-          <div style="background: #FFFFFF; padding: 1.5rem; border-radius: 25px; border: 2px solid #FFB6D9; text-align: center; transition: transform 0.3s;">
-            <svg width="40" height="40" viewBox="0 0 48 48" style="margin-bottom: 0.75rem;">
-              <circle cx="24" cy="24" r="18" stroke="#FFB6D9" stroke-width="2" fill="none"/>
-              <path d="M 18 20 L 22 24 L 30 16" stroke="#FFB6D9" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- 🎨 Mini Navigation (5個純色塊) -->
+        <div style="display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1.5rem;">
+          <div style="width: 48px; height: 10px; background: linear-gradient(135deg, #FFB6D9, #FFC1E3); border-radius: 999px; box-shadow: 0 2px 8px rgba(255,182,217,0.3); transition: transform 0.3s;" class="kawaii-nav-item"></div>
+          <div style="width: 48px; height: 10px; background: linear-gradient(135deg, #E6D5FF, #C9A0FF); border-radius: 999px; box-shadow: 0 2px 8px rgba(230,213,255,0.3); transition: transform 0.3s;" class="kawaii-nav-item"></div>
+          <div style="width: 48px; height: 10px; background: linear-gradient(135deg, #FFE87C, #FFFACD); border-radius: 999px; box-shadow: 0 2px 8px rgba(255,232,124,0.3); transition: transform 0.3s;" class="kawaii-nav-item"></div>
+          <div style="width: 48px; height: 10px; background: linear-gradient(135deg, #A8E6CF, #D4F4DD); border-radius: 999px; box-shadow: 0 2px 8px rgba(168,230,207,0.3); transition: transform 0.3s;" class="kawaii-nav-item"></div>
+          <div style="width: 48px; height: 10px; background: linear-gradient(135deg, #AED9E0, #B8E3E9); border-radius: 999px; box-shadow: 0 2px 8px rgba(174,217,224,0.3); transition: transform 0.3s;" class="kawaii-nav-item"></div>
+        </div>
+
+        <!-- 📊 Statistics Cards (4列网格) -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- 卡片 1: 笑臉圖标 -->
+          <div style="background: linear-gradient(135deg, #FFE5EC, #FFFFFF); padding: 1.25rem 1rem; border-radius: 20px; text-align: center; border: 2px solid #FFB6D9; transition: all 0.3s;" class="kawaii-stat-card">
+            <svg width="36" height="36" viewBox="0 0 36 36" style="margin: 0 auto;">
+              <circle cx="18" cy="18" r="15" fill="none" stroke="#FFB6D9" stroke-width="2.5"/>
+              <circle cx="13" cy="15" r="2" fill="#FFB6D9"/>
+              <circle cx="23" cy="15" r="2" fill="#FFB6D9"/>
+              <path d="M 11 22 Q 18 28 25 22" stroke="#FFB6D9" stroke-width="2.5" fill="none" stroke-linecap="round"/>
             </svg>
-            <h3 style="font-size: 1.125rem; font-weight: 700; color: #333; margin: 0 0 0.5rem 0;">Feature One</h3>
-            <p style="color: #666; margin: 0; font-size: 0.875rem;">Simple and delightful</p>
+          </div>
+          <!-- 卡片 2: 星星圖标 -->
+          <div style="background: linear-gradient(135deg, #F3E5FF, #FFFFFF); padding: 1.25rem 1rem; border-radius: 20px; text-align: center; border: 2px solid #E6D5FF; transition: all 0.3s;" class="kawaii-stat-card">
+            <svg width="36" height="36" viewBox="0 0 36 36" style="margin: 0 auto;">
+              <path d="M 18 4 L 20.5 14 L 30 14 L 22.5 20 L 25 30 L 18 24 L 11 30 L 13.5 20 L 6 14 L 15.5 14 Z" stroke="#E6D5FF" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- 卡片 3: 愛心圖标 -->
+          <div style="background: linear-gradient(135deg, #FFF8DC, #FFFFFF); padding: 1.25rem 1rem; border-radius: 20px; text-align: center; border: 2px solid #FFE87C; transition: all 0.3s;" class="kawaii-stat-card">
+            <svg width="36" height="36" viewBox="0 0 36 36" style="margin: 0 auto;">
+              <path d="M 18 30 C 18 30 6 20 6 13 C 6 9 9 7 12 7 C 14.5 7 16.5 8.5 18 11 C 19.5 8.5 21.5 7 24 7 C 27 7 30 9 30 13 C 30 20 18 30 18 30 Z" stroke="#FFE87C" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- 卡片 4: 鈴鐺圖标 -->
+          <div style="background: linear-gradient(135deg, #E8F8F5, #FFFFFF); padding: 1.25rem 1rem; border-radius: 20px; text-align: center; border: 2px solid #A8E6CF; transition: all 0.3s;" class="kawaii-stat-card">
+            <svg width="36" height="36" viewBox="0 0 36 36" style="margin: 0 auto;">
+              <path d="M 18 6 L 18 8 M 12 26 L 24 26 M 18 8 C 14 8 11 11 11 15 L 11 21 C 11 23 10 24 9 25 L 27 25 C 26 24 25 23 25 21 L 25 15 C 25 11 22 8 18 8 Z" stroke="#A8E6CF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 15 26 C 15 28 16 30 18 30 C 20 30 21 28 21 26" stroke="#A8E6CF" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 🎯 Content Grid (3x2 网格) -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+          <!-- 粉紅漸变卡片 -->
+          <div style="background: linear-gradient(135deg, #FFC1E3, #FFE5EC); padding: 1.5rem; border-radius: 24px; display: flex; align-items: center; justify-content: center; min-height: 80px; transition: all 0.3s;" class="kawaii-content-card">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <circle cx="16" cy="16" r="12" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+              <path d="M 12 14 L 15 17 L 21 11" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- 紫色漸变卡片 -->
+          <div style="background: linear-gradient(135deg, #C9A0FF, #E5D4FF); padding: 1.5rem; border-radius: 24px; display: flex; align-items: center; justify-content: center; min-height: 80px; transition: all 0.3s;" class="kawaii-content-card">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <rect x="8" y="8" width="16" height="16" rx="4" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+              <path d="M 12 16 L 16 20 L 24 12" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- 黃色漸变卡片 -->
+          <div style="background: linear-gradient(135deg, #FFFACD, #FFF8DC); padding: 1.5rem; border-radius: 24px; display: flex; align-items: center; justify-content: center; min-height: 80px; transition: all 0.3s;" class="kawaii-content-card">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <path d="M 16 6 L 18 14 L 26 14 L 20 19 L 22 27 L 16 22 L 10 27 L 12 19 L 6 14 L 14 14 Z" stroke="#FFE87C" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <!-- 綠色漸变卡片 -->
+          <div style="background: linear-gradient(135deg, #A8E6CF, #D4F4DD); padding: 1.5rem; border-radius: 24px; display: flex; align-items: center; justify-content: center; min-height: 80px; transition: all 0.3s;" class="kawaii-content-card">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <circle cx="16" cy="16" r="10" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+              <path d="M 16 10 L 16 16 L 21 19" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- 藍綠漸变卡片 -->
+          <div style="background: linear-gradient(135deg, #AED9E0, #B8E3E9); padding: 1.5rem; border-radius: 24px; display: flex; align-items: center; justify-content: center; min-height: 80px; transition: all 0.3s;" class="kawaii-content-card">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <path d="M 10 12 L 16 6 L 22 12 M 16 6 L 16 20 M 10 20 L 22 20 L 22 26 L 10 26 Z" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <!-- 淡粉漸变卡片 -->
+          <div style="background: linear-gradient(135deg, #FFDBE9, #FFF0F5); padding: 1.5rem; border-radius: 24px; display: flex; align-items: center; justify-content: center; min-height: 80px; transition: all 0.3s;" class="kawaii-content-card">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <path d="M 8 16 C 8 16 11 11 16 11 C 21 11 24 16 24 16 C 24 16 21 21 16 21 C 11 21 8 16 8 16 Z" stroke="#FFB6D9" stroke-width="2" fill="none"/>
+              <circle cx="16" cy="16" r="3" stroke="#FFB6D9" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 🔘 Interactive Elements -->
+        <div style="margin-bottom: 1.5rem;">
+          <!-- 3個按鈕 (無文字) -->
+          <div style="display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap;">
+            <div style="width: 60px; height: 40px; background: linear-gradient(135deg, #FFB6D9, #E6D5FF); border-radius: 999px; box-shadow: 0 4px 12px rgba(255,182,217,0.35); transition: all 0.3s; cursor: pointer;" class="kawaii-button"></div>
+            <div style="width: 60px; height: 40px; background: linear-gradient(135deg, #E6D5FF, #C9A0FF); border-radius: 999px; box-shadow: 0 4px 12px rgba(230,213,255,0.35); transition: all 0.3s; cursor: pointer;" class="kawaii-button"></div>
+            <div style="width: 60px; height: 40px; background: transparent; border: 2.5px solid #A8E6CF; border-radius: 999px; transition: all 0.3s; cursor: pointer;" class="kawaii-button"></div>
           </div>
 
-          <!-- 紫色卡片 -->
-          <div style="background: #FFFFFF; padding: 1.5rem; border-radius: 25px; border: 2px solid #E6D5FF; text-align: center; transition: transform 0.3s;">
-            <svg width="40" height="40" viewBox="0 0 48 48" style="margin-bottom: 0.75rem;">
-              <path d="M 24 8 L 28 20 L 40 20 L 30 28 L 34 40 L 24 32 L 14 40 L 18 28 L 8 20 L 20 20 Z" stroke="#E6D5FF" stroke-width="2" fill="none"/>
-            </svg>
-            <h3 style="font-size: 1.125rem; font-weight: 700; color: #333; margin: 0 0 0.5rem 0;">Feature Two</h3>
-            <p style="color: #666; margin: 0; font-size: 0.875rem;">Colorful & friendly</p>
+          <!-- 3個進度條 (無标籤) -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="width: 100%; height: 8px; background: #F5F5F5; border-radius: 999px; overflow: hidden;">
+              <div style="width: 75%; height: 100%; background: linear-gradient(90deg, #FFB6D9, #FFC1E3); border-radius: 999px;"></div>
+            </div>
+            <div style="width: 100%; height: 8px; background: #F5F5F5; border-radius: 999px; overflow: hidden;">
+              <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #E6D5FF, #C9A0FF); border-radius: 999px;"></div>
+            </div>
+            <div style="width: 100%; height: 8px; background: #F5F5F5; border-radius: 999px; overflow: hidden;">
+              <div style="width: 90%; height: 100%; background: linear-gradient(90deg, #A8E6CF, #D4F4DD); border-radius: 999px;"></div>
+            </div>
           </div>
 
-          <!-- 綠色卡片 -->
-          <div style="background: #FFFFFF; padding: 1.5rem; border-radius: 25px; border: 2px solid #D4F1D4; text-align: center; transition: transform 0.3s;">
-            <svg width="40" height="40" viewBox="0 0 48 48" style="margin-bottom: 0.75rem;">
-              <path d="M 24 10 L 24 24 M 24 24 L 38 24 M 24 24 L 24 38 M 24 24 L 10 24" stroke="#D4F1D4" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <circle cx="24" cy="24" r="4" stroke="#D4F1D4" stroke-width="2" fill="none"/>
-            </svg>
-            <h3 style="font-size: 1.125rem; font-weight: 700; color: #333; margin: 0 0 0.5rem 0;">Feature Three</h3>
-            <p style="color: #666; margin: 0; font-size: 0.875rem;">Fresh & organic</p>
+          <!-- 8個标籤 (純色塊，無文字) -->
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #FFB6D9, #FFDBE9); border-radius: 999px; box-shadow: 0 2px 6px rgba(255,182,217,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #E6D5FF, #F5EDFF); border-radius: 999px; box-shadow: 0 2px 6px rgba(230,213,255,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #FFE87C, #FFFACD); border-radius: 999px; box-shadow: 0 2px 6px rgba(255,232,124,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #A8E6CF, #D4F4DD); border-radius: 999px; box-shadow: 0 2px 6px rgba(168,230,207,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #AED9E0, #B8E3E9); border-radius: 999px; box-shadow: 0 2px 6px rgba(174,217,224,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #FFC1E3, #FFE5EC); border-radius: 999px; box-shadow: 0 2px 6px rgba(255,193,227,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #C9A0FF, #E5D4FF); border-radius: 999px; box-shadow: 0 2px 6px rgba(201,160,255,0.25);"></div>
+            <div style="width: 52px; height: 26px; background: linear-gradient(135deg, #FFFACD, #FFF8DC); border-radius: 999px; box-shadow: 0 2px 6px rgba(255,250,205,0.25);"></div>
           </div>
         </div>
 
-        <!-- 標籤雲 -->
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
-          <span style="padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #FFB6D9, #FFDBE9); border: 1.5px solid #FFB6D9; border-radius: 50px; color: #333; font-weight: 600; font-size: 0.875rem;">Design</span>
-          <span style="padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #E6D5FF, #F5EDFF); border: 1.5px solid #E6D5FF; border-radius: 50px; color: #333; font-weight: 600; font-size: 0.875rem;">UI/UX</span>
-          <span style="padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #D4F1D4, #E8F8E8); border: 1.5px solid #D4F1D4; border-radius: 50px; color: #333; font-weight: 600; font-size: 0.875rem;">Creative</span>
-          <span style="padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #FFF9E6, #FFFCF0); border: 1.5px solid #FFE5A0; border-radius: 50px; color: #333; font-weight: 600; font-size: 0.875rem;">Playful</span>
+        <!-- 🎨 Bottom Decoration (3個大型漸变圓形) -->
+        <div style="position: relative; height: 60px; margin-top: 1rem;">
+          <div style="position: absolute; left: 10%; bottom: -20px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(255,182,217,0.3), rgba(255,182,217,0)); border-radius: 50%;"></div>
+          <div style="position: absolute; left: 40%; bottom: -30px; width: 100px; height: 100px; background: radial-gradient(circle, rgba(230,213,255,0.25), rgba(230,213,255,0)); border-radius: 50%;"></div>
+          <div style="position: absolute; right: 15%; bottom: -25px; width: 90px; height: 90px; background: radial-gradient(circle, rgba(168,230,207,0.28), rgba(168,230,207,0)); border-radius: 50%;"></div>
         </div>
 
+        <!-- 🎬 動画樣式 -->
         <style>
-          @keyframes kawaiiBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-14px); }
+          @keyframes kawaii-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
           }
-          button:hover {
-            animation: kawaiiBounce 0.6s ease-in-out;
+          @keyframes kawaii-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.08); opacity: 0.9; }
           }
-          div[style*="border: 2px solid"]:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 16px rgba(255, 182, 217, 0.2);
+          @keyframes kawaii-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+
+          .kawaii-nav-item:hover {
+            transform: translateY(-3px) scale(1.05);
+          }
+          .kawaii-stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(255, 182, 217, 0.3);
+          }
+          .kawaii-content-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+          }
+          .kawaii-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(255, 182, 217, 0.4);
           }
         </style>
       </div>

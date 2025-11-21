@@ -4,9 +4,9 @@ export const feedbackComponents = [
     id: 'alert-messages',
     title: 'data.components.feedback.alert-messages.title',
     description: 'data.components.feedback.alert-messages.description',
-    // 五種 UI 風格設計
+    // 五種 UI 風格设計
     variants: [
-      // 1. Minimalism - 極簡主義
+      // 1. Minimalism - 極简主義
       {
         id: 'minimalism',
         name: 'data.components.feedback.alert-messages.variants.minimalism.name',
@@ -461,7 +461,7 @@ export const feedbackComponents = [
         `
       },
 
-      // 5. Material Design Inspired - Material 設計風格
+      // 5. Material Design Inspired - Material 设計風格
       {
         id: 'material',
         name: 'data.components.feedback.alert-messages.variants.material.name',

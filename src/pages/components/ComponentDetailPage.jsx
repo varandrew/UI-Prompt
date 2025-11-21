@@ -12,7 +12,7 @@ import DOMPurify from 'dompurify';
 import { stripTailwindCdn } from '../../utils/previewCss';
 
 /**
- * ComponentDetailPage - 組件詳情頁 (支持多變體瀑布流佈局)
+ * ComponentDetailPage - 組件詳情页 (支持多變体瀑布流佈局)
  * 路由: /components/:category/:componentId
  * 支持: 點擊預覽 + Prompt 功能
  */
@@ -48,7 +48,7 @@ export function ComponentDetailPage() {
     return () => { active = false };
   }, [])
 
-  // 查找當前組件數據
+  // 查找當前組件数据
   const componentData = useMemo(() => {
     const translatedCategories = applyTranslationsToCategories(categories, language);
     const categoryData = translatedCategories.find(cat => cat.id === category);
@@ -99,11 +99,11 @@ export function ComponentDetailPage() {
     navigate('/components');
   };
 
-  // 載入中：顯示骨架屏（避免短暫顯示「不存在」）
+  // 載入中：显示骨架屏（避免短暫显示「不存在」）
   if (isLoading) {
     return (
       <section className="mb-24" aria-busy={true}>
-        {/* 標題骨架 */}
+        {/* 标題骨架 */}
         <div className="mb-8 space-y-4 animate-pulse motion-reduce:animate-none" role="status" aria-live="polite">
           <div className="h-6 w-28 rounded bg-slate-200 dark:bg-slate-700" />
           <div className="h-9 w-1/2 rounded bg-slate-200 dark:bg-slate-700" />
@@ -113,7 +113,7 @@ export function ComponentDetailPage() {
           </div>
         </div>
 
-        {/* 內容骨架（模擬變體卡片） */}
+        {/* 內容骨架（模擬變体卡片） */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="animate-pulse motion-reduce:animate-none rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
@@ -144,7 +144,7 @@ export function ComponentDetailPage() {
     );
   }
 
-  // 找不到組件（僅在非載入狀態時顯示）
+  // 找不到組件（仅在非載入狀態時显示）
   if (!componentData) {
     return (
       <section className="mb-24">
@@ -167,13 +167,13 @@ export function ComponentDetailPage() {
     );
   }
 
-  // 檢查是否有變體
+  // 检查是否有變体
   const hasVariants = componentData.variants && componentData.variants.length > 0;
 
   return (
     <>
       <section className="mb-24">
-        {/* 頂部導航欄 */}
+        {/* 頂部导航欄 */}
         <div className="mb-8">
           <button
             onClick={handleBack}
@@ -185,10 +185,10 @@ export function ComponentDetailPage() {
             <span>{t('common.backToGallery')}</span>
           </button>
 
-          {/* 標題和分類 */}
+          {/* 标題和分类 */}
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              {/* 分類徽章 */}
+              {/* 分类徽章 */}
               <div className="mb-3">
                 <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-purple-100 text-purple-700 rounded-lg text-sm font-medium">
                   <span>{componentData.categoryIcon}</span>
@@ -196,7 +196,7 @@ export function ComponentDetailPage() {
                 </span>
               </div>
 
-              {/* 組件標題 */}
+              {/* 組件标題 */}
               <h1 className="text-3xl md:text-4xl font-light mb-3">
                 {typeof componentData.title === 'string' && componentData.title.startsWith('data.') 
                   ? t(componentData.title) 
@@ -210,7 +210,7 @@ export function ComponentDetailPage() {
                   : componentData.description}
               </p>
 
-              {/* 變體數量提示 */}
+              {/* 變体数量提示 */}
               {hasVariants && (
                 <p className="text-sm text-purple-600 font-medium">
                   {t('common.variantsCount', {
@@ -223,7 +223,7 @@ export function ComponentDetailPage() {
           </div>
         </div>
 
-        {/* 變體網格 (瀑布流佈局) */}
+        {/* 變体网格 (瀑布流佈局) */}
         {hasVariants ? (
           <VariantGrid
             variants={componentData.variants}

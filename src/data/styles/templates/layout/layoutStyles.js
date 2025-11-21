@@ -77,10 +77,10 @@ export const layoutStyles = [
     `,
     demoBoxClass: 'bg-white',
     colorScheme: 'styles.brokenGrid.colorScheme',
-    // 全頁預覽數據
+    // 全页預覽数据
     fullPageHTML: `
       <div class="breaking-page">
-        <!-- 導航欄 -->
+        <!-- 导航欄 -->
         <nav class="nav-tilted">
           <div class="nav-logo">BRK<span class="accent-gold">.</span>GRID</div>
           <div class="nav-menu">
@@ -90,14 +90,14 @@ export const layoutStyles = [
           </div>
         </nav>
 
-        <!-- Hero 區域 -->
+        <!-- Hero 区域 -->
         <section class="hero-chaos">
           <h1 class="hero-title hero-title-1">BREAKING</h1>
           <h1 class="hero-title hero-title-2">THE GRID</h1>
           <p class="hero-subtitle">Design Without Boundaries</p>
         </section>
 
-        <!-- 卡片網格區 -->
+        <!-- 卡片网格区 -->
         <section class="card-mosaic">
           <div class="chaos-card card-1">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -169,7 +169,7 @@ export const layoutStyles = [
           </div>
         </section>
 
-        <!-- 文字排版區 -->
+        <!-- 文字排版区 -->
         <section class="text-flow">
           <div class="text-col text-col-1">
             <svg class="text-icon icon-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -216,7 +216,7 @@ export const layoutStyles = [
         overflow-x: hidden;
       }
 
-      /* 導航欄 */
+      /* 导航欄 */
       .nav-tilted {
         display: flex;
         justify-content: space-between;
@@ -274,7 +274,7 @@ export const layoutStyles = [
         width: 100%;
       }
 
-      /* Hero 區域 */
+      /* Hero 区域 */
       .hero-chaos {
         padding: 8rem 4rem 6rem;
         position: relative;
@@ -312,7 +312,7 @@ export const layoutStyles = [
         letter-spacing: 0.2em;
       }
 
-      /* 卡片網格區 */
+      /* 卡片网格区 */
       .card-mosaic {
         padding: 4rem;
         display: grid;
@@ -372,7 +372,7 @@ export const layoutStyles = [
         line-height: 1.4;
       }
 
-      /* 文字排版區 */
+      /* 文字排版区 */
       .text-flow {
         padding: 6rem 4rem;
         display: grid;
@@ -432,7 +432,7 @@ export const layoutStyles = [
         margin-top: 0.2rem;
       }
 
-      /* 響應式設計 */
+      /* 響應式设計 */
       @media (max-width: 1200px) {
         .card-mosaic {
           grid-template-columns: repeat(3, 1fr);
@@ -483,7 +483,7 @@ export const layoutStyles = [
         }
       }
     `,
-    // 布局級 CustomPrompt：Broken Grid 破格網格
+    // 布局級 CustomPrompt：Broken Grid 破格网格
     customPrompt: {
       'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Broken Grid」示例界面布局风格高度接近的破格网格页面。
 要求：延续当前 Demo 中「倾斜导航 + 破碎标题 + 旋转卡片 + 打散网格」的整体节奏，只允许替换文案、图标和配色，不允许将布局简化为规则栅格。输出语义化 HTML 和 TailwindCSS 风格原子类（或等价工具类方案）。

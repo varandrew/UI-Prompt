@@ -1,5 +1,5 @@
 // Visual Design Family: Nature — 自然元素視覺效果
-// 包含：極光、波浪、粒子、液體、煙霧
+// 包含：極光、波浪、粒子、液体、煙霧
 
 import { wave } from './wave';
 import { particle } from './particle';
@@ -184,10 +184,10 @@ export const customStyles = `
 }
 `;
 
-export const description = '自然元素視覺效果家族，包含極光、波浪、粒子、液體和煙霧五種自然現象的動態模擬。通過 CSS 動畫、SVG 路徑和濾鏡效果實現流動、飄渺、有機的視覺體驗。';
+export const description = '自然元素視覺效果家族，包含極光、波浪、粒子、液体和煙霧五種自然現象的動態模擬。通過 CSS 動画、SVG 路徑和濾鏡效果實現流動、飄渺、有機的視覺体驗。';
 
 export const customPrompt = {
-  'zh-CN': `# Nature Elements（自然元素視覺效果）家族完整設計指南
+  'zh-CN': `# Nature Elements（自然元素視覺效果）家族完整设計指南
 
 请使用 TailwindCSS 和原生 CSS 创建自然元素风格的界面，通过模拟极光、波浪、粒子、液体和烟雾等自然现象，实现流动、有机、飘渺的视觉效果。
 

@@ -1,14 +1,14 @@
 /* eslint-disable no-irregular-whitespace */
 // Vaporwave 風格使用全形字符是刻意的美學選擇
-// Vaporwave 風格 - 完整頁面設計
+// Vaporwave 風格 - 完整页面设計
 // Social Media Feed 風格 - 80/90 年代復古社交平台
 
 export const vaporwaveFullPageHTML = `
 <div class="vaporwave-full-page">
-  <!-- CRT 掃描線效果 -->
+  <!-- CRT 掃描线效果 -->
   <div class="vaporwave-scanlines"></div>
 
-  <!-- 數字雨背景 -->
+  <!-- 数字雨背景 -->
   <div class="vaporwave-matrix">
     <div class="vaporwave-matrix-column" style="left: 5%; animation-delay: 0s;">01010<br>11001<br>00110</div>
     <div class="vaporwave-matrix-column" style="left: 15%; animation-delay: 2s;">10101<br>01100<br>11001</div>
@@ -24,7 +24,7 @@ export const vaporwaveFullPageHTML = `
 
   <!-- 主容器 -->
   <div class="vaporwave-container">
-    <!-- Windows 95 風格頂部導航 -->
+    <!-- Windows 95 風格頂部导航 -->
     <header class="vaporwave-header">
       <div class="vaporwave-window-bar">
         <div class="vaporwave-window-title">
@@ -71,7 +71,7 @@ export const vaporwaveFullPageHTML = `
       </nav>
     </header>
 
-    <!-- 統計卡片區 -->
+    <!-- 統計卡片区 -->
     <section class="vaporwave-stats-section">
       <div class="vaporwave-stat-card">
         <div class="vaporwave-stat-icon">👥</div>
@@ -110,7 +110,7 @@ export const vaporwaveFullPageHTML = `
       </div>
     </section>
 
-    <!-- 主內容區（貼文 + 側邊欄） -->
+    <!-- 主內容区（貼文 + 側边欄） -->
     <div class="vaporwave-main-content">
       <!-- 貼文列表 -->
       <div class="vaporwave-feed">
@@ -243,7 +243,7 @@ export const vaporwaveFullPageHTML = `
           </div>
         </article>
 
-        <!-- 評論輸入區 -->
+        <!-- 評論輸入区 -->
         <div class="vaporwave-comment-box">
           <div class="vaporwave-comment-header">
             <span class="vaporwave-pixel-text">💬 {{t:demo.retroSocialMedia.leaveComment}}</span>
@@ -265,7 +265,7 @@ export const vaporwaveFullPageHTML = `
         </div>
       </div>
 
-      <!-- 右側邊欄 -->
+      <!-- 右側边欄 -->
       <aside class="vaporwave-sidebar">
         <!-- Online Friends -->
         <div class="vaporwave-sidebar-card">
@@ -365,7 +365,7 @@ export const vaporwaveFullPageHTML = `
       </aside>
     </div>
 
-    <!-- 數據表格區 -->
+    <!-- 数据表格区 -->
     <section class="vaporwave-table-section">
       <div class="vaporwave-table-header">
         <span class="vaporwave-pixel-icon">📊</span>
@@ -448,7 +448,7 @@ export const vaporwaveFullPageHTML = `
       </div>
     </section>
 
-    <!-- 頁腳 -->
+    <!-- 页腳 -->
     <footer class="vaporwave-footer">
       <div class="vaporwave-footer-content">
         <div class="vaporwave-footer-section">
@@ -487,7 +487,7 @@ export const vaporwaveFullPageHTML = `
 `;
 
 export const vaporwaveFullPageStyles = `
-/* Vaporwave 完整頁面樣式 */
+/* Vaporwave 完整页面樣式 */
 
 /* 全局容器 */
 .vaporwave-full-page {
@@ -498,7 +498,7 @@ export const vaporwaveFullPageStyles = `
   overflow-x: hidden;
 }
 
-/* CRT 掃描線效果 */
+/* CRT 掃描线效果 */
 .vaporwave-scanlines {
   position: fixed;
   top: 0;
@@ -521,7 +521,7 @@ export const vaporwaveFullPageStyles = `
   100% { background-position: 0 100%; }
 }
 
-/* 數字雨背景 */
+/* 数字雨背景 */
 .vaporwave-matrix {
   position: fixed;
   top: 0;
@@ -651,7 +651,7 @@ export const vaporwaveFullPageStyles = `
   border-right-color: #FFFFFF;
 }
 
-/* 導航欄 */
+/* 导航欄 */
 .vaporwave-nav {
   display: flex;
   align-items: center;
@@ -769,7 +769,7 @@ export const vaporwaveFullPageStyles = `
   box-shadow: 0 0 10px #FF6EC7;
 }
 
-/* 統計卡片區 */
+/* 統計卡片区 */
 .vaporwave-stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -864,7 +864,7 @@ export const vaporwaveFullPageStyles = `
   transition: width 1s ease;
 }
 
-/* 主內容區 */
+/* 主內容区 */
 .vaporwave-main-content {
   display: grid;
   grid-template-columns: 1fr 350px;
@@ -1182,7 +1182,7 @@ export const vaporwaveFullPageStyles = `
   transform: translateY(-2px);
 }
 
-/* 側邊欄 */
+/* 側边欄 */
 .vaporwave-sidebar {
   display: flex;
   flex-direction: column;
@@ -1268,7 +1268,7 @@ export const vaporwaveFullPageStyles = `
   animation: vaporwave-pulse 2s infinite;
 }
 
-/* 時間線 */
+/* 時間线 */
 .vaporwave-timeline {
   display: flex;
   flex-direction: column;
@@ -1323,7 +1323,7 @@ export const vaporwaveFullPageStyles = `
   color: #9D4EDD;
 }
 
-/* 標籤 */
+/* 标籤 */
 .vaporwave-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1348,7 +1348,7 @@ export const vaporwaveFullPageStyles = `
   transform: translateY(-2px);
 }
 
-/* 數據表格 */
+/* 数据表格 */
 .vaporwave-table-section {
   background: rgba(0, 0, 0, 0.7);
   border: 2px solid #06FFA5;
@@ -1476,7 +1476,7 @@ export const vaporwaveFullPageStyles = `
   color: #808080;
 }
 
-/* 頁腳 */
+/* 页腳 */
 .vaporwave-footer {
   background: linear-gradient(180deg, #000000 0%, #1A0B2E 100%);
   border-top: 3px solid #FF6EC7;
@@ -1546,7 +1546,7 @@ export const vaporwaveFullPageStyles = `
   font-size: 11px;
 }
 
-/* 響應式設計 */
+/* 響應式设計 */
 @media (max-width: 768px) {
   .vaporwave-container {
     padding: 10px;

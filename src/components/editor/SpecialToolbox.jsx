@@ -3,12 +3,12 @@ import { useEditorStore } from '../../stores';
 import { findComponentById } from '../../stores/utils/componentHelpers';
 
 /**
- * 專用工具箱（SpecialToolbox）
+ * 专用工具箱（SpecialToolbox）
  *
  * 適用：當前選中組件不支援完整屬性面板時，提供退化但實用的工具集合。
- * - 顯示基本資訊（ID、型別）
+ * - 显示基本資訊（ID、型別）
  * - 提供通用動作（刪除）
- * - 針對 Page（根節點）提供簡化設定（背景色、最小高度）
+ * - 針對 Page（根節點）提供简化设定（背景色、最小高度）
  */
 export function SpecialToolbox() {
   const canvasState = useEditorStore((s) => s.canvasState);
@@ -37,7 +37,7 @@ export function SpecialToolbox() {
     <div className="space-y-6">
       {/* 基本資訊 */}
       <section className="space-y-2">
-        <h3 className="text-sm font-semibold text-gray-700">專用工具箱</h3>
+        <h3 className="text-sm font-semibold text-gray-700">专用工具箱</h3>
         <div className="rounded-md border border-gray-200 bg-gray-50 p-3 text-xs text-gray-700">
           <div className="flex items-center justify-between">
             <span>組件型別</span>
@@ -48,17 +48,17 @@ export function SpecialToolbox() {
             <span className="font-mono truncate max-w-[160px]" title={node.id}>{node.id}</span>
           </div>
           <p className="mt-2 text-[11px] text-gray-500">
-            此組件暫未支援完整屬性編輯；以下提供簡化設定與通用操作。
+            此組件暫未支援完整屬性編輯；以下提供简化设定与通用操作。
           </p>
         </div>
       </section>
 
-      {/* Page 專屬：最小高度 / 背景色 */}
+      {/* Page 专屬：最小高度 / 背景色 */}
       {isRootPage && (
         <section className="space-y-3">
-          <h4 className="text-xs font-semibold text-gray-600">頁面設定</h4>
+          <h4 className="text-xs font-semibold text-gray-600">页面设定</h4>
           <div className="space-y-2">
-            <label className="block text-xs text-gray-600">背景顏色</label>
+            <label className="block text-xs text-gray-600">背景颜色</label>
             <input
               type="color"
               value={props?.baseProps?.style?.backgroundColor || '#FFFFFF'}
@@ -93,11 +93,11 @@ export function SpecialToolbox() {
             className="rounded bg-red-50 px-3 py-1.5 text-xs font-medium text-red-600 hover:bg-red-100 disabled:opacity-50"
             disabled={isRootPage}
             onClick={() => deleteComponent(selectedComponentId)}
-            title={isRootPage ? '根頁面不可刪除' : '刪除選中組件'}
+            title={isRootPage ? '根页面不可刪除' : '刪除選中組件'}
           >
             刪除
           </button>
-          {/* 預留更多操作：複製、包裹為容器、轉換類型等 */}
+          {/* 預留更多操作：複製、包裹為容器、轉換类型等 */}
           <button
             className="rounded px-3 py-1.5 text-xs font-medium text-gray-600 border border-gray-200 hover:bg-gray-50"
             disabled
@@ -107,7 +107,7 @@ export function SpecialToolbox() {
           </button>
         </div>
         <p className="text-[11px] text-gray-500">
-          小提示：對於不支援的組件，建議先用容器（Flex/Grid）包裹，再調整間距與對齊。
+          小提示：對於不支援的組件，建議先用容器（Flex/Grid）包裹，再調整間距与對齊。
         </p>
       </section>
     </div>

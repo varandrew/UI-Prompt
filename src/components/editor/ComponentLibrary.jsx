@@ -8,8 +8,8 @@ import { useLanguage } from '../../hooks/useLanguage';
  *
  * 職責:
  * - 展示可拖動的組件列表
- * - 按類別分組 (原子/容器/複合)
- * - 極簡視覺設計
+ * - 按类別分組 (原子/容器/複合)
+ * - 極简視覺设計
  */
 export function ComponentLibrary({ onClearCanvas }) {
   const { language } = useLanguage();
@@ -17,7 +17,7 @@ export function ComponentLibrary({ onClearCanvas }) {
 
   return (
     <div className="h-full flex flex-col">
-      {/* 標題 */}
+      {/* 标題 */}
       <header className="p-4 border-b border-gray-200 flex items-center justify-between">
         <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
           组件库
@@ -26,8 +26,8 @@ export function ComponentLibrary({ onClearCanvas }) {
           <button
             onClick={onClearCanvas}
             className="ml-4 px-3 py-1.5 rounded-md text-xs font-medium text-red-600 border border-red-200 hover:bg-red-50 transition"
-            aria-label="清空畫布所有元件"
-            title="清空畫布所有元件"
+            aria-label="清空画布所有元件"
+            title="清空画布所有元件"
           >
             清空
           </button>
@@ -62,14 +62,14 @@ export function ComponentLibrary({ onClearCanvas }) {
 }
 
 /**
- * 組件分類 - 支持展開/收起
+ * 組件分类 - 支持展開/收起
  */
 function ComponentCategory({ title, components, language }) {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <section>
-      {/* 可點擊的標題按鈕 */}
+      {/* 可點擊的标題按鈕 */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-between text-xs font-medium text-gray-500 uppercase tracking-wider mb-3 hover:text-gray-700 transition-colors cursor-pointer group"
@@ -80,7 +80,7 @@ function ComponentCategory({ title, components, language }) {
           {title}
         </h3>
 
-        {/* 展開/收起圖標 */}
+        {/* 展開/收起圖标 */}
         <svg
           className={`w-4 h-4 transition-transform duration-200 ${
             isExpanded ? 'rotate-180' : 'rotate-0'
@@ -151,7 +151,7 @@ function DraggableComponent({ component, language }) {
           {component.icon}
         </span>
 
-        {/* 名稱與描述 */}
+        {/* 名稱与描述 */}
         <div className="flex-1 min-w-0">
           <p className="text-sm font-medium text-gray-900 truncate">
             {displayName}

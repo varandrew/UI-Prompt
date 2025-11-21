@@ -1,5 +1,5 @@
 // Hand-Drawn Sketch 手繪風格家族演示 UI
-// 展示手寫字體、SVG 濾鏡和便簽效果
+// 展示手写字体、SVG 濾鏡和便簽效果
 
 export const demoHTML = `
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">

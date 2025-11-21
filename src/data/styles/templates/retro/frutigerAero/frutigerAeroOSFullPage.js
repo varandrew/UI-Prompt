@@ -2,7 +2,7 @@
 // 包含玻璃透明效果、自然元素、浮动气泡动画
 
 export const frutigerAeroOSFullPageHTML = `
-<!-- FRUTIGER AERO - 生產力工具界面全頁預覽 -->
+<!-- FRUTIGER AERO - 生产力工具界面全页預覽 -->
 <div class="frutiger-aero-container">
   
   <!-- 浮动气泡背景 -->

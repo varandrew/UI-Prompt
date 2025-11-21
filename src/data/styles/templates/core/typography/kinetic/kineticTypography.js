@@ -1,5 +1,5 @@
 // Kinetic Typography - Dynamic Text Animation Style
-// 動態文字排版 - 運動文字動畫風格
+// 動態文字排版 - 運動文字動画風格
 
 export const kineticTypographyTemplates = [
   {
@@ -163,10 +163,10 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
     stylePrompt: {
       'zh-CN': `### 動態文字排版（Kinetic Typography）核心實現要點
 
-**設計理念**
-通過文字的運動、變形和顏色變化創造視覺衝擊力，適用於產品落地頁、創意展示和動態內容。
+**设計理念**
+通過文字的運動、变形和颜色变化創造視覺衝擊力，適用於产品落地页、創意展示和動態內容。
 
-**核心動畫實現**
+**核心動画實現**
 
 1. **文字脈衝效果**（最常用）
    \`\`\`css
@@ -178,7 +178,7 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
      50% {
        transform: scale(1.1);
        opacity: 0.8;
-       letter-spacing: 0.05em; /* 可選：字間距變化 */
+       letter-spacing: 0.05em; /* 可選：字間距变化 */
      }
    }
 
@@ -207,7 +207,7 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
    .bounce-char:nth-child(3) { animation-delay: 0.2s; }
    \`\`\`
 
-3. **霓虹色彩漸變**（核心特徵）
+3. **霓虹色彩漸变**（核心特徵）
    \`\`\`css
    .neon-text {
      font-size: 4rem;
@@ -226,7 +226,7 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
    }
    \`\`\`
 
-4. **多層文字陰影（發光效果）**
+4. **多层文字阴影（發光效果）**
    \`\`\`css
    .glow-text {
      color: #fff;
@@ -255,23 +255,23 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
 
 **配色方案**
 
-核心霓虹漸變組合：
-- 主漸變：\`linear-gradient(135deg, #667eea 0%, #764ba2 100%)\` （藍紫漸變）
+核心霓虹漸变組合：
+- 主漸变：\`linear-gradient(135deg, #667eea 0%, #764ba2 100%)\` （藍紫漸变）
 - 彩虹模式：#3b82f6（藍）、#ec4899（粉）、#fbbf24（黃）、#10b981（綠）、#8b5cf6（紫）
 
-背景與對比：
+背景与對比：
 - 深色背景：#000000 或 #0f0f0f
 - 文字高對比：#ffffff（純白）
 
 **TailwindCSS 實現**
 
 \`\`\`html
-<!-- 主標題（漸變+動畫） -->
+<!-- 主标題（漸变+動画） -->
 <h1 class="text-6xl md:text-8xl font-black bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 bg-clip-text text-transparent animate-pulse">
   DYNAMIC
 </h1>
 
-<!-- 彩色字母（分別動畫） -->
+<!-- 彩色字母（分別動画） -->
 <div class="flex gap-2">
   <span class="text-5xl font-bold text-blue-400 animate-bounce">K</span>
   <span class="text-5xl font-bold text-pink-400 animate-bounce [animation-delay:100ms]">I</span>
@@ -288,17 +288,17 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
 </button>
 \`\`\`
 
-**性能優化建議**
+**性能优化建議**
 
-1. 使用 \`will-change: transform;\` 提示瀏覽器優化動畫元素
-2. 避免同時動畫過多文字（建議 ≤ 20 個字符）
-3. 優先使用 \`transform\` 和 \`opacity\`（GPU 加速）
-4. 避免頻繁改變 \`text-shadow\`（消耗性能）
+1. 使用 \`will-change: transform;\` 提示瀏覽器优化動画元素
+2. 避免同時動画過多文字（建議 ≤ 20 個字符）
+3. 优先使用 \`transform\` 和 \`opacity\`（GPU 加速）
+4. 避免頻繁改变 \`text-shadow\`（消耗性能）
 
 **無障礙性（Accessibility）**
 
 \`\`\`css
-/* 支持減少動畫偏好 */
+/* 支持減少動画偏好 */
 @media (prefers-reduced-motion: reduce) {
   .kinetic-text,
   .bounce-char,
@@ -310,11 +310,11 @@ Requirements: Keep the black background, central large "TYPE" word, colorful bou
 \`\`\`
 
 **使用場景**
-- 產品落地頁的主標題
+- 产品落地页的主标題
 - 創意作品集展示
-- 音樂/娛樂網站
-- 科技公司品牌頁
-- 活動宣傳頁面
+- 音樂/娛樂网站
+- 科技公司品牌页
+- 活動宣傳页面
 `,
 
       'en-US': `### Kinetic Typography Core Implementation Guide
@@ -474,12 +474,12 @@ Background & Contrast:
 `
     },
 
-    // ✨ 新增：預覽數組系統
+    // ✨ 新增：預覽数組系統
     previews: [
       {
         id: 'kinetic-fullpage',
         name: {
-          'zh-CN': '完整頁面',
+          'zh-CN': '完整页面',
           'en-US': 'Full Page'
         },
         type: 'fullPage',

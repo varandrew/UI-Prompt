@@ -1,23 +1,23 @@
 /**
- * 數據轉換工具函數
+ * 数据轉換工具函数
  *
- * 提供組件數據的轉換和處理功能
+ * 提供組件数据的轉換和處理功能
  */
 
 /**
- * 展平組件數據中的變體
+ * 展平組件数据中的變体
  *
- * 將包含 variants 的組件數據展平為單層變體數組,便於統一渲染
+ * 將包含 variants 的組件数据展平為單层變体数組,便於統一渲染
  *
- * @param {Array} components - 組件數據數組
- * @returns {Array} 展平後的變體數組
+ * @param {Array} components - 組件数据数組
+ * @returns {Array} 展平後的變体数組
  *
  * @example
  * const components = [
  *   {
  *     id: 'breadcrumbs',
  *     title: '麵包屑',
- *     variants: [{ name: '基礎', ... }, { name: '帶圖標', ... }]
+ *     variants: [{ name: '基礎', ... }, { name: '帶圖标', ... }]
  *   },
  *   {
  *     id: 'tabs',
@@ -29,7 +29,7 @@
  * const flattened = flattenVariants(components);
  * // 結果: [
  * //   { name: '基礎', _componentTitle: '麵包屑', _variantIndex: 0, ... },
- * //   { name: '帶圖標', _componentTitle: '麵包屑', _variantIndex: 1, ... },
+ * //   { name: '帶圖标', _componentTitle: '麵包屑', _variantIndex: 1, ... },
  * //   { id: 'tabs', name: 'Tabs', _componentTitle: 'Tabs', _variantIndex: 0, ... }
  * // ]
  */
@@ -41,7 +41,7 @@ export function flattenVariants(components) {
 
   return components.flatMap((component) => {
     if (component.variants && Array.isArray(component.variants) && component.variants.length > 0) {
-      // 有變體: 返回所有變體,並附加組件信息
+      // 有變体: 返回所有變体,並附加組件信息
       return component.variants.map((variant, idx) => ({
         ...variant,
         _componentTitle: component.title,
@@ -49,7 +49,7 @@ export function flattenVariants(components) {
         _variantIndex: idx
       }));
     } else {
-      // 無變體: 將主體數據作為單一變體
+      // 無變体: 將主体数据作為單一變体
       return [{
         id: component.id,
         name: component.title,
@@ -69,10 +69,10 @@ export function flattenVariants(components) {
 }
 
 /**
- * 生成變體的唯一鍵
+ * 生成變体的唯一鍵
  *
- * @param {Object} variant - 變體對象
- * @param {number} fallbackIndex - 備用索引
+ * @param {Object} variant - 變体對象
+ * @param {number} fallbackIndex - 备用索引
  * @returns {string} 唯一鍵
  */
 export function getVariantKey(variant, fallbackIndex = 0) {

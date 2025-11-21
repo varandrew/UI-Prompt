@@ -1,7 +1,7 @@
 // Single template module: Nature — Particle System
 // 粒子系统 - 动态浮动的粒子效果
 
-// ✨ 穩定的空數組引用（防止 useMemo 無限循環）
+// ✨ 稳定的空数組引用（防止 useMemo 無限循環）
 const EMPTY_PREVIEWS = [];
 
 import { demoHTML, customStyles } from './Demo';
@@ -672,29 +672,29 @@ Neutral colors:
 - All animations use \`ease-in-out\` timing function`
   },
 
-  // 模板級 stylePrompt：描述粒子場景的視覺氛圍與使用方式
+  // 模板級 stylePrompt：描述粒子場景的視覺氛圍与使用方式
   stylePrompt: {
-    'zh-CN': `角色：你是一位擅長設計「粒子背景與星空效果」的 UI 設計師，需要用大量細小發光點營造科技感或夜空氛圍。
+    'zh-CN': `角色：你是一位擅長设計「粒子背景与星空效果」的 UI 设計師，需要用大量細小發光點營造科技感或夜空氛圍。
 
 场景定位：
-- 適用於科技產品首頁、Landing Page 背景、數據或開發者平台的裝飾層。
-- 粒子應該作為襯底，為內容增加活力與深度，而不是主角。
+- 適用於科技产品首页、Landing Page 背景、数据或開發者平台的裝飾层。
+- 粒子應該作為襯底，為內容增加活力与深度，而不是主角。
 
 视觉设计理念：
-- 使用大量尺寸接近的小圓點，以不規則但平衡的分佈方式填滿畫面，避免出現明顯圖案或網格。
-- 透過透明度與模糊控制，讓部分粒子更亮、更近，部分更暗、更遠，營造三維空間感。
+- 使用大量尺寸接近的小圓點，以不規則但平衡的分佈方式填滿画面，避免出現明显圖案或网格。
+- 透過透明度与模糊控制，让部分粒子更亮、更近，部分更暗、更遠，營造三維空間感。
 
 材质与质感：
-- 粒子本身多為純白或接近主題色的淺色，搭配細緻的外發光陰影。
-- 背景可以是深色（類似宇宙 / 終端機）或柔和漸變，以凸顯粒子的光點效果。
+- 粒子本身多為純白或接近主題色的淺色，搭配細緻的外發光阴影。
+- 背景可以是深色（类似宇宙 / 終端機）或柔和漸变，以凸显粒子的光點效果。
 
 交互体验：
 - 粒子運動節奏應該輕盈且隨機，像漂浮的塵埃或微小光點，而非快速閃爍。
-- 若加入游標或滾動交互，只讓局部粒子被「推開」或略微聚集，保持整體安靜感。
+- 若加入游标或滾動交互，只让局部粒子被「推開」或略微聚集，保持整体安静感。
 
 氛围营造：
-- 粒子背景應讓人聯想到夜空、數據流或能量場，既動態又不吵雜。
-- 適合用來為冷靜的介面增加一層柔和、未來感的「空氣」。`,
+- 粒子背景應让人联想到夜空、数据流或能量場，既動態又不吵雜。
+- 適合用來為冷静的介面增加一层柔和、未來感的「空氣」。`,
 
     'en-US': `Role: You are a UI designer focused on particle fields and starry backgrounds, using many tiny glowing dots to suggest technology or night-sky moods.
 
@@ -725,7 +725,7 @@ Mood:
   // Full page preview (Home Office webpage with 90 particles)
   fullPageHTML,
   fullPageStyles,
-  previews: EMPTY_PREVIEWS,  // ✨ 使用穩定的空數組引用
+  previews: EMPTY_PREVIEWS,  // ✨ 使用稳定的空数組引用
 };
 
 export default particle;

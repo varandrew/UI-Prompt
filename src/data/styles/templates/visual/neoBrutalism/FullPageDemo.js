@@ -1,4 +1,4 @@
-// Neo-Brutalism 完整頁面預覽
+// Neo-Brutalism 完整页面預覽
 export const fullPageHTML = `
       <div class="min-full-page" style="background: #f5f5f5; min-height: 100vh; font-family: 'Arial', sans-serif;">
 

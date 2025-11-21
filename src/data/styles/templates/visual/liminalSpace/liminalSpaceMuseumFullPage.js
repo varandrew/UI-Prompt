@@ -1,5 +1,5 @@
 // Liminal Space - Digital Museum Archive Full Page Template
-// 數位博物館檔案館 - 冷清神秘的博物館系統
+// 数位博物馆档案馆 - 冷清神秘的博物馆系統
 
 export const liminalSpaceMuseumFullPageHTML = `
 <!DOCTYPE html>

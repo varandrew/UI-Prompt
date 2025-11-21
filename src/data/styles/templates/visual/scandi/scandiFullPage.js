@@ -1,5 +1,5 @@
 // Scandinavian Design Full Page - Home Office Theme
-// 北歐極簡風格 (功能優先 + 自然元素) with Complete Component Suite
+// 北歐極简風格 (功能优先 + 自然元素) with Complete Component Suite
 
 export const scandiFullPageHTML = `
   <!-- Scroll Progress Bar -->

@@ -1,5 +1,5 @@
 // Phase 3 Batch 2 - 3D Elements Fullpage
-// 從 visualTechStyles.js 遷移
+// 从 visualTechStyles.js 遷移
 
 export const visualTech3dElementsFullPageHTML = `
       <!-- 3D Elements Creative Studio Full Page -->

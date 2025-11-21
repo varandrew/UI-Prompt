@@ -1,19 +1,19 @@
-// Data Visualization Full Page - 數據可視化完整頁面
-// Phase 3 Batch 1 - 簡化模板（主風格沒有 fullPageHTML）
+// Data Visualization Full Page - 数据可視化完整页面
+// Phase 3 Batch 1 - 简化模板（主風格沒有 fullPageHTML）
 
 // 注意：data-visualization 風格沒有獨立的 fullPageHTML
-// 它只有簡單的 demoHTML 和一個包含元數據的 preview
-// 這個文件作為占位符，未來可以根據需要添加完整的數據可視化頁面
+// 它只有简單的 demoHTML 和一個包含元数据的 preview
+// 這個文件作為占位符，未來可以根据需要添加完整的数据可視化页面
 
 export const dataVisualizationFullPageHTML = `
   <div class="min-h-screen bg-gray-50 p-8">
     <div class="max-w-7xl mx-auto">
       <h1 class="text-4xl font-bold text-gray-800 mb-8">Data Visualization</h1>
-      <p class="text-gray-600 mb-8">這是一個簡化的數據可視化頁面占位符。</p>
+      <p class="text-gray-600 mb-8">這是一個简化的数据可視化页面占位符。</p>
 
-      <!-- 簡單的圖表展示 -->
+      <!-- 简單的圖表展示 -->
       <div class="bg-white rounded-2xl p-6 shadow-lg">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6">季度數據分析</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">季度数据分析</h2>
         <div class="flex items-end justify-around gap-4 h-64">
           <div class="flex-1 flex flex-col items-center">
             <div class="w-full bg-gradient-to-t from-blue-600 to-blue-400 rounded-t-lg" style="height: 60%;"></div>

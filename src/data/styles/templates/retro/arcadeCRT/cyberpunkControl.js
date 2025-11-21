@@ -49,73 +49,160 @@ export const cyberpunkControl = {
 
   // Template-level customPrompt
   customPrompt: {
-    'zh-CN': `請創建一個賽博龐克控制中心頁面，包含以下元素：
+    'zh-CN': `
+你现在是一名对「赛博朋克城市 / 数据中枢 / CRT 控制台」极其熟悉的资深 UI 设计师兼前端工程师，需要为一个全新的「Cyberpunk Control Center」页面，编写一段可以直接复制给 LLM 使用的完整生成指令。
 
-**核心組件**
-1. 系統儀表板 — CPU、記憶體、網路、儲存統計卡片（包含進度條）
-2. 表單系統 — 文字輸入、選擇器、密碼欄位、核取方塊、單選按鈕、文字區域
-3. 狀態反饋 — 載入動畫（旋轉器、進度條）、通知訊息（成功/警告/錯誤/資訊）、Toast 訊息
-4. 數據可視化 — 統計卡片（帶趨勢指標）、時間軸、數據表格（帶分頁）
-5. 互動控制 — 切換開關、範圍滑桿、標籤頁、手風琴面板
+你的目标：让 LLM 生成一个与当前样式 /styles/preview/retro-arcadeCRT 中「Cyberpunk Control Center」预览高度一致、但业务场景和文案完全不同的全屏 HTML 页面。生成结果在布局、色彩、光效和交互上，必须一眼就能被识别为 Arcade CRT 家族下的赛博控制中心变体。
 
-**視覺效果**
-- CRT 掃描線效果（固定全屏覆蓋）
-- RGB 色散文字（使用 text-shadow）
-- 霓虹發光按鈕和邊框
-- 數據流動效果（背景漸變動畫）
-- 脈衝動畫（狀態指示器、計時器）
+【使用场景设定】
+- 场景：一座未来赛博城市中的「系统控制中枢」，用于监控城市网络、设备节点、能源分配、安防状态与任务队列。
+- 用户：城市运维工程师、网络安全分析师、AI 运维人员，甚至是地下黑客组织的操作手。
+- 目标：在同一页面内快速感知系统整体健康状况，查看告警、下发指令、修改配置，并通过 UI 的节奏感与灯光氛围传达“高压但可控”的状态。
+- 体验：像在控制一台巨大的主机或塔楼顶端的运营中心，而不是在操作普通的企业后台。
 
-**配色方案**
-- 背景: #0a0a0a（純黑）
-- 霓虹粉: #ff00ff
-- 霓虹藍: #00ffff
-- 霓虹黃: #ffff00
-- 霓虹綠: #00ff41
-- 霓虹橙: #ff6600
-- 霓虹紅: #ff0040
+【页面整体结构（必须具备的主要区块）】
+1. 顶部系统栏（System HUD）
+   - 固定在页面顶部，背景为半透明深色面板，带轻微模糊与内发光边缘。
+   - 左侧显示系统 Logo 或代号（例如「NEON-NET CORE」「CYBER OPS NODE」），使用锐利几何或等宽字体，并叠加 RGB 色散 text-shadow。
+   - 中间可显示当前环境信息，例如「CITY-NET · REGION: DELTA」「SECURITY LEVEL: HIGH」「ACTIVE NODES: 128」。
+   - 右侧为关键信息：时间戳、当前值班人员、系统模式（LIVE / SIMULATION）、一个小型状态灯条（绿色=正常、黄=告警、红=危急）。
 
-**響應式設計**
-- 桌面: 多欄佈局
-- 平板: 雙欄佈局
-- 手機: 單欄佈局
+2. 主控制面板区（Main Control Grid）
+   - 使用多列响应式 grid，将多个「核心仪表卡片」整齐排列在一个大型面板中，看起来像被嵌在同一控制台上。
+   - 至少包含以下类型的卡片：
+     - 资源监控卡片：CPU / Memory / Network / Storage 等，每张卡片有标题、小标签（利用霓虹色）、主数值（带巨大数字和单位）、一个进度条或环形余量条。
+     - 状态概览卡片：例如「ONLINE NODES」「ACTIVE SESSIONS」「FAILED JOBS」「SECURITY INCIDENTS」，主数值下方用小字说明趋势和更新时间。
+     - 模式切换卡片：例如「MAINTENANCE MODE」「FIREWALL PROFILE」，包含开关、单选按钮、Tag 标签等交互控件。
+   - 卡片背景为极深灰 / 黑色，边框采用霓虹色线条和内阴影；悬停时卡片轻微上浮，边框发光增强。
 
-請使用 TailwindCSS 創建，確保所有表單組件和互動元素都有完整的樣式。`,
-    'en-US': `Please create a cyberpunk control center page with the following elements:
+3. 告警与日志区（Alerts & Activity Stream）
+   - 页面一侧（建议右侧）设置一列纵向面板，用于显示最新告警、系统事件和操作日志。
+   - 告警条目以颜色区分等级：红色（Critical）、橙色（High）、黄色（Medium）、蓝色（Info），每条包含时间戳、模块名、简短描述。
+   - 日志列表可采用类似终端 / 控制台的布局：等宽字体、小字号、颜色区分模块标签，如 [NET] / [AUTH] / [STORAGE] 等。
+   - 列表区域背景略亮，顶部固定一个 Filter / Tabs 行，可以切换「All · Alerts · System · Security」等类别。
 
-**Core Components**
-1. System Dashboard — CPU, Memory, Network, Storage stat cards (with progress bars)
-2. Form System — Text inputs, selects, password fields, checkboxes, radio buttons, textareas
-3. Status Feedback — Loading animations (spinners, progress bars), notifications (success/warning/error/info), toast messages
-4. Data Visualization — Stat cards (with trend indicators), timeline, data tables (with pagination)
-5. Interactive Controls — Toggle switches, range sliders, tabs, accordion panels
+4. 指令/表单区（Command & Forms）
+   - 页面下半部分或左侧，保留一个「指令面板」，包含若干表单元素和操作按钮：
+     - 文本输入框（如「Target Node」「Command」），带占位符与标签文案，标签用清晰的系统风格英文，如「TARGET NODE ID」「EXECUTION PAYLOAD」。
+     - 下拉选择/多选（例如环境 ENV、优先级 PRIORITY），视觉上采用霓虹描边 + 暗色下拉面板。
+     - 开关 / Toggle：用于切换「SAFE MODE」「AUTO-RECOVER」「LOG VERBOSITY」等选项，开关轨道带发光边缘，开启状态使用霓虹亮色。
+     - 主操作按钮：例如「EXECUTE」「ARM SEQUENCE」「DISPATCH PATCH」，按钮大而厚重，具有明显的 hover / active 按压反馈。
+   - 所有表单控件的视觉语言必须与整体控制台相符：没有默认浅灰边框，而是深底 + 霓虹描边 + 内部渐变 / 微小高光。
 
-**Visual Effects**
-- CRT scanlines effect (fixed full-screen overlay)
-- RGB chromatic aberration text (using text-shadow)
-- Neon glow buttons and borders
-- Data stream effects (background gradient animation)
-- Pulse animations (status indicators, timers)
+5. 数据可视化区（Data Visualization / Timelines）
+   - 可在主面板下方或中部添加一块「趋势视图」区域，用折线图 / 条形图 / 时间线展示最近的网络负载、请求流量或错误率。
+   - 图表背景保持暗色，并用霓虹线条绘制曲线；Y 轴 / X 轴可使用细线和暗色刻度，避免显得喧宾夺主。
+   - 可以加入少量动效，例如沿着折线移动的光点、轻微的扫描光扫过曲线区域，强化“数据流动”的感觉。
 
-**Color Scheme**
-- Background: #0a0a0a (pure black)
-- Neon Magenta: #ff00ff
-- Neon Cyan: #00ffff
-- Neon Yellow: #ffff00
-- Neon Green: #00ff41
-- Neon Orange: #ff6600
-- Neon Red: #ff0040
+【色彩与光效规范】
+1. 基础背景
+   - 全局背景为接近黑的色值，如 #050509 ~ #0A0A0A，允许融入轻微蓝紫或品红渐变，暗示霓虹城市夜景。
+2. 霓虹主色（与 Arcade CRT 一致，但偏向控制台）
+   - 霓虹粉：#FF00FF（用于强调性按钮、主标题部分）
+   - 霓虹蓝：#00FFFF（用于边框和数据标签）
+   - 霓虹绿：#00FF41（用于「在线 / 正常」状态）
+   - 霓虹黄：#FFFF00（用于警告 / 临界值接近）
+   - 霓虹橙：#FF6600（用于高风险操作 / 高优先级任务）
+   - 霓虹红：#FF0040（用于 Critical error / lockdown）
+   - 指出：大面积背景仍应保持暗色，霓虹色多用于文字、描边、图标和细节点缀。
+3. CRT/赛博效果
+   - 在整页或主面板上叠加极细水平扫描线（scanlines），可使用 ::before 伪元素 + repeating-linear-gradient 并加入缓慢位移动画。
+   - 文字可使用 RGB 分离 text-shadow、轻微故障感（glitch）动画，但仅用在标题和关键标识上，避免过多闪烁。
 
-**Responsive Design**
-- Desktop: Multi-column layout
-- Tablet: Two-column layout
-- Mobile: Single-column layout
+【交互与动效】
+1. 悬停与按下
+   - 卡片 hover：上移 2–4px，边框和顶部高光增强，box-shadow 产生蓝/品红色光晕。
+   - 按钮 hover：外轮廓发光增强，背景渐变略微偏移；active 时按钮下压，阴影变小，模拟实体机械按钮。
+2. 实时状态与呼吸灯
+   - 状态灯（在线/离线/告警）使用小圆点或小矩形，与 soft 呼吸动画结合（透明度在 0.6–1 之间轻微变化）。
+   - 某些关键指标可以有缓慢的数字滚动动画，例如 CPU 使用率变化时数字平滑过渡而不是瞬间跳变。
+3. 性能与舒适度
+   - 所有动画节奏应控制在 150–300ms 的过渡、或 2–6 秒的循环周期；避免高频闪烁和快速抖动。
 
-Create using TailwindCSS with complete styling for all form components and interactive elements.`
+【输出 HTML / CSS 技術要求】
+- 仅输出完整 HTML5 页面（<!DOCTYPE html>、<html>、<head>、<body>），不得包含解释说明文字。
+- 使用语义化结构标籤：<header>、<nav>、<main>、<section>、<aside>、<footer> 將上述区塊清晰分段。
+- 使用类 TailwindCSS 原子类（例如：flex、grid、gap-4、gap-6、px-6、py-4、rounded-lg、border、bg-...、text-...、shadow-lg 等）描述布局与間距；可搭配少量語義化类名（如 cyber-console、crt-overlay、neon-border、stat-card）。
+- 不依赖外部 CDN 字体与图标；如需图标，可使用 emoji 或純文字符號（例如 ● ◆ ■ ▲）。
+- 页面必須包含：頂部系統欄、主控制面板 grid、告警/日志側欄、指令/表單区、至少一個数据可視化区，以及底部狀態/版權信息欄，並保持与現有 Cyberpunk Control 範例在氛圍、色彩与佈局密度上的高度一致性。`,
+    'en-US': `
+You are a senior UI designer and front-end engineer with deep experience in cyberpunk control-room interfaces and CRT-inspired dashboards. Your job is to craft a full, copy‑pasteable instruction for an LLM to generate a brand new “Cyberpunk Control Center” HTML full page.
+
+Goal: the resulting layout must look like a close sibling of the existing Cyberpunk Control Center demo under /styles/preview/retro-arcadeCRT, while using completely different copy and business context. The page should clearly belong to the same Arcade CRT family: dark city background, neon edges, CRT scanlines, dense stat cards and command controls.
+
+[Scenario]
+- Setting: a futuristic city-wide operations center that monitors network health, device clusters, energy grids, security incidents and automated jobs.
+- Users: operators, SREs, security analysts, AI ops engineers or even underground hackers in a cyberpunk narrative.
+- Purpose: provide a single-screen overview of system health, alerts and commands, with a strong sense of tension and control—feeling like a physical control deck, not a generic enterprise admin UI.
+
+[Required Layout Sections]
+1. System HUD (Top Bar)
+   - Fixed at the top with a dark translucent background and light blur, like a glass overlay.
+   - Left: logo or codename (e.g., “NEON-NET CORE”, “CYBER OPS NODE”) using a bold, techno or monospace font with RGB-split glow.
+   - Center: environment status such as “REGION: DELTA GRID”, “SECURITY LEVEL: HIGH”, “ACTIVE NODES: 128”.
+   - Right: current time, on-duty operator name, mode indicator (LIVE / SIM), plus a small status indicator bar using green/yellow/red lights.
+
+2. Main Control Grid
+   - A multi-column grid of “console cards” forming the heart of the page.
+   - Include at least:
+     - Resource cards: CPU, Memory, Network, Storage with big numeric values, unit labels and progress bars or radial meters.
+     - Status overview cards: e.g., ONLINE NODES, ACTIVE SESSIONS, FAILED JOBS, SECURITY INCIDENTS with trend hints and last-update timestamps.
+     - Mode / profile cards: switches or radio-style controls for “MAINTENANCE MODE”, “FIREWALL PROFILE”, “AUTO-RECOVERY”, etc.
+   - Each card uses a dark background, neon border and subtle inner shadow; on hover they lift slightly and intensify their glow.
+
+3. Alerts & Activity Stream
+   - A vertical side panel (preferably on the right) listing real-time alerts and system logs.
+   - Alerts: color-coded rows for severity (red/orange/yellow/blue) with timestamp, subsystem tag and a short message.
+   - Logs: console-style lines in monospace font, small size, with prefixed tags like [NET], [AUTH], [STORAGE], [AI].
+   - Provide tabs or filters (All / Alerts / System / Security) at the top of the panel.
+
+4. Command & Forms Panel
+   - A dedicated section for sending commands and editing configuration.
+   - Include:
+     - Text inputs with labels like “TARGET NODE ID”, “COMMAND PAYLOAD”.
+     - Selects and dropdowns for ENV, PRIORITY, REGION, etc.
+     - Toggles for flags such as SAFE MODE, AUTO PATCH, LOG VERBOSITY.
+     - Primary action buttons (“EXECUTE”, “DISPATCH”, “ARM SEQUENCE”) styled as thick neon blocks with strong hover/active states.
+   - All form controls must visually match the console: dark fills, neon outlines, subtle gradients/highlights inside.
+
+5. Data Visualization / Timeline
+   - A chart or timeline block showing recent metrics: traffic volume, error rate, or node utilization trends.
+   - Use neon lines over a dark grid, with small moving points or a slow sweeping light to suggest live data.
+
+[Color & Effects]
+- Global background: near‑black (#050509–#0A0A0A) with faint gradients hinting at distant city lights.
+- Neon palette:
+  - Neon Magenta: #FF00FF
+  - Neon Cyan: #00FFFF
+  - Neon Green: #00FF41
+  - Neon Yellow: #FFFF00
+  - Neon Orange: #FF6600
+  - Neon Red: #FF0040
+- Use neon colors primarily for text, borders and accent strips, not as large flat backgrounds.
+- Describe a CRT scanline overlay (horizontal stripes, low opacity) plus very subtle noise or RGB tinting in main console areas.
+
+[Interaction & Motion]
+- Hover:
+  - Cards shift up by a few pixels, borders and top accents glow more strongly.
+  - Buttons brighten and cast stronger glows; on press they sink slightly and their glow tightens.
+- Continuous motion:
+  - Status lights use slow “breathing” opacity changes to indicate activity.
+  - Key numeric metrics can animate between values smoothly rather than jumping.
+- Timing:
+  - Transitions around 150–250ms with ease-out or ease-in-out.
+  - Long-running animations (scanlines, breathing lights) cycle over several seconds; avoid fast flickering.
+
+[Output Requirements]
+- Output a complete HTML5 document only (<!DOCTYPE html>, <html>, <head>, <body>) with no explanations.
+- Use semantic tags: <header>, <nav>, <main>, <section>, <aside>, <footer>.
+- Express layout and spacing using TailwindCSS-like utilities (flex, grid, gap-6, gap-8, px-6, py-4, rounded-lg, border, shadow-lg, bg-..., text-...) plus a few semantic custom classes like cyber-console, crt-overlay, neon-border, stat-card, alert-list.
+- Do not rely on external CDN fonts or icon libraries; use system fonts and simple glyphs/emoji for icons.
+- The resulting page must include: a fixed top HUD, a main control grid, an alerts/logs side panel, a command/forms section, at least one data visualization block and a bottom status/footer bar, all clearly matching the mood and density of the existing Cyberpunk Control Center demo.`
   },
 
   // Template-level stylePrompt
   stylePrompt: {
-    'zh-CN': `使用 TailwindCSS 創建賽博龐克控制中心界面，包含完整的表單組件、狀態反饋、數據可視化和實時監控系統。`,
+    'zh-CN': `使用 TailwindCSS 創建賽博龐克控制中心界面，包含完整的表單組件、狀態反饋、数据可視化和實時監控系統。`,
     'en-US': `Create cyberpunk control center interface using TailwindCSS with complete form components, status feedback, data visualization, and real-time monitoring system.`
   }
 };

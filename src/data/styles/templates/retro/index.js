@@ -91,7 +91,7 @@ export const description = 'styles.retro.description'
 export const demoUI = digitalRetroDemoUI
 export const customStyles = digitalRetroCustomStyles
 
-// ✨ arcadeCRT 家族配置（類似 core 風格的格式）
+// ✨ arcadeCRT 家族配置（类似 core 風格的格式）
 export const arcadeCRTConfig = {
   id: 'retro-arcadeCRT',
   name: arcadeCRTName,
@@ -109,7 +109,7 @@ export const retroTemplateStyles = [
   ...retroOSTemplates,
   ...retroFuturismTemplates,
   ...digitalRetroTemplates,
-  // arcadeCRT 使用家族卡片格式，不在這裡展開模板
+  // arcadeCRT 使用家族卡片格式，不在這里展開模板
   ...darkAcademiaTemplates,
   ...frutigerAeroTemplates,
   ...swissDesignTemplates,

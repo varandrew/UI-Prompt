@@ -1,6 +1,6 @@
 // Phase 3 Batch 2 - Anti-Design Fullpage
-// 視覺元素：反設計風格
-// 從 visualTechStyles.js 遷移
+// 視覺元素：反设計風格
+// 从 visualTechStyles.js 遷移
 
 export const visualTechAntiDesignFullPageHTML = `
       <div class="min-full-page" style="background: #fff; min-height: 100vh; font-family: 'Arial Black', 'Impact', sans-serif; position: relative; overflow-x: hidden;">

@@ -1,9 +1,9 @@
 /*
- * 簡易性能 Profiler 與基準工具（開發模式）
+ * 简易性能 Profiler 与基準工具（開發模式）
  *
  * 功能：
- * - 生成 1000/2000 節點的測試樹並替換畫布
- * - 粗略渲染耗時量測（非嚴謹，僅供對比）
+ * - 生成 1000/2000 節點的測試樹並替換画布
+ * - 粗略渲染耗時量測（非嚴謹，仅供對比）
  * - 透過 window.EditorBench 暴露 API
  *
  * 用法（開發模式）：
@@ -56,7 +56,7 @@ function replaceCanvasFast(newCanvas) {
   if (typeof store.replaceCanvas === 'function') {
     store.replaceCanvas(newCanvas);
   } else {
-    // 後備：直接重設（較慢）
+    // 後备：直接重设（較慢）
     store.reset?.();
   }
 }

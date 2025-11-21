@@ -1,11 +1,11 @@
 /**
  * 翻譯文件驗證工具
- * 檢測重複鍵值、路徑一致性等問題
+ * 检測重複鍵值、路徑一致性等問題
  */
 
 /**
- * 檢測對象中的重複鍵值（忽略嵌套情況下的正常重複）
- * @param {object} obj - 要檢查的對象
+ * 检測對象中的重複鍵值（忽略嵌套情況下的正常重複）
+ * @param {object} obj - 要检查的對象
  * @param {string} path - 當前路徑
  * @returns {Array} 重複鍵值列表
  */
@@ -26,7 +26,7 @@ function findDuplicateKeys(obj, path = '') {
       seenKeys.add(key);
     }
 
-    // 遞迴檢查嵌套對象
+    // 遞迴检查嵌套對象
     if (typeof obj[key] === 'object' && obj[key] !== null) {
       const nestedDuplicates = findDuplicateKeys(obj[key], currentPath);
       duplicates.push(...nestedDuplicates);
@@ -52,7 +52,7 @@ export function validateTranslations(translations, fileName = '') {
   };
 
   try {
-    // 檢測重複鍵值
+    // 检測重複鍵值
     const duplicates = findDuplicateKeys(translations);
     if (duplicates.length > 0) {
       results.valid = false;
@@ -60,7 +60,7 @@ export function validateTranslations(translations, fileName = '') {
       results.errors.push(`Found ${duplicates.length} duplicate keys`);
     }
 
-    // 檢查 messageBox 的期望結構
+    // 检查 messageBox 的期望結構
     if (translations.ui && translations.ui.messageBox) {
       const messageBox = translations.ui.messageBox;
       const requiredFields = ['defaultTitle', 'defaultDescription'];
@@ -85,7 +85,7 @@ export function validateTranslations(translations, fileName = '') {
 /**
  * 驗證多個翻譯文件的一致性
  * @param {object} translations - { 'zh-CN': {}, 'en-US': {} }
- * @returns {object} 一致性檢查結果
+ * @returns {object} 一致性检查結果
  */
 export function validateTranslationConsistency(translations) {
   const results = {
@@ -134,7 +134,7 @@ export function validateTranslationConsistency(translations) {
     }
   }
 
-  // 檢查每個鍵值在所有語言中是否存在
+  // 检查每個鍵值在所有語言中是否存在
   for (const key of allUniqueKeys) {
     const missingInLanguages = [];
 
@@ -163,9 +163,9 @@ export function validateTranslationConsistency(translations) {
 }
 
 /**
- * 檢測原始 JavaScript 文件中的語法錯誤
+ * 检測原始 JavaScript 文件中的語法错誤
  * @param {string} fileContent - 文件內容
- * @returns {object} 語法檢查結果
+ * @returns {object} 語法检查結果
  */
 export function validateJSSyntax(fileContent) {
   const results = {
@@ -174,7 +174,7 @@ export function validateJSSyntax(fileContent) {
   };
 
   try {
-    // 簡單的語法檢查 - 檢測明顯的問題
+    // 简單的語法检查 - 检測明显的問題
     const duplicateKeyRegex = /(\w+):\s*{[^}]*},?\s*\1:/g;
     const matches = fileContent.match(duplicateKeyRegex);
 
@@ -183,7 +183,7 @@ export function validateJSSyntax(fileContent) {
       results.errors.push(`Potential duplicate keys detected: ${matches.join(', ')}`);
     }
 
-    // 檢查未閉合的括號
+    // 检查未閉合的括號
     const openBraces = (fileContent.match(/{/g) || []).length;
     const closeBraces = (fileContent.match(/}/g) || []).length;
 

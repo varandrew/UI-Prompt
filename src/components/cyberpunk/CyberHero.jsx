@@ -1,7 +1,7 @@
 import { AnimatedWrapper } from './AnimatedWrapper';
 
 /**
- * CyberHero - Hero 區塊
+ * CyberHero - Hero 区塊
  */
 export function CyberHero({ progress }) {
   return (

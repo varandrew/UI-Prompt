@@ -1,5 +1,5 @@
 // Aurora Wave (極光海浪) - Visual Nature Wave Effect
-// 結合極光現象與海浪律動的夢幻多彩視覺效果
+// 結合極光現象与海浪律動的夢幻多彩視覺效果
 
 import { demoHTML, customStyles as demoStyles } from './Demo.js';
 import {
@@ -11,14 +11,14 @@ import {
   neonAuroraStyles
 } from './variants.js';
 
-// 家族元數據
+// 家族元数据
 export const name = 'Aurora Wave';
 export const description = 'A dreamlike visual effect combining aurora phenomena with wave motion, featuring multi-color gradients and dual animation systems.';
 
-// 簡化的 demo UI（用於分類卡片）
+// 简化的 demo UI（用於分类卡片）
 export const demoUI = `
 <div class="relative w-full h-full overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-900 to-blue-950">
-  <!-- 波浪層 -->
+  <!-- 波浪层 -->
   <div class="absolute inset-0">
     <div class="aurora-wave-mini aurora-wave-1"></div>
     <div class="aurora-wave-mini aurora-wave-2"></div>
@@ -482,7 +482,7 @@ export const wave = {
   demoHTML,
   customStyles: demoStyles,
 
-  // 全頁預覽（3 個變體）
+  // 全页預覽（3 個变体）
   previews: [
     {
       id: 'classic-aurora',

@@ -1,5 +1,5 @@
 // Monochrome / Duotone Full Page Design
-// 極簡黑白風格 Home Office Dashboard
+// 極简黑白風格 Home Office Dashboard
 
 export const monochromeFullPageHTML = `
 <!-- Monochrome Home Office Dashboard -->

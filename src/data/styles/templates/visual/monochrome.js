@@ -5,7 +5,7 @@ export const visualMonochrome = {
   title: 'styles.visual.monochrome.title',
   description: 'styles.visual.monochrome.description',
 
-  // CustomPrompt：提供給 LLM 的完整生成指令（中英雙語）
+  // CustomPrompt：提供給 LLM 的完整生成指令（中英双語）
   customPrompt: {
     'zh-CN': `
 你现在是一名擅长黑白灰「单色 / Monochrome」界面的资深 UI 设计师兼前端工程师，需要为一个新的单色仪表盘页面编写一段可直接复制给 LLM 使用的完整指令。
@@ -50,41 +50,41 @@ export const visualMonochrome = {
 
 4. 主内容区（Main Content）
    - 主体采用两列或三列布局：左侧大区域、右侧窄侧栏；在小螢幕上則調整為單列堆疊。
-   - 左側區塊可以包含：
-     - 「Project Timeline / Sprint」卡片：展示數個項目或衝刺階段，以垂直時間軸或簡單列表表示，使用黑白灰分級。
-     - 「Task Board / Today’s Focus」卡片：列表形式的任務，左側用黑白灰小圓點或細條表示狀態（待辦 / 進行中 / 已完成）。
+   - 左側区塊可以包含：
+     - 「Project Timeline / Sprint」卡片：展示数個項目或衝刺階段，以垂直時間軸或简單列表表示，使用黑白灰分級。
+     - 「Task Board / Today’s Focus」卡片：列表形式的任务，左側用黑白灰小圓點或細條表示狀態（待辦 / 進行中 / 已完成）。
    - 右側側欄可以包含：
-     - 「Upcoming Events」：以簡潔列表列出會議時間，時間文字使用更深的灰色，標題黑色粗體，分隔線用極淡灰。
-     - 「Activity Feed / Notifications」：一列列時間標記 + 事件描述的活動流，全部用黑白灰字體和極細分隔線。
+     - 「Upcoming Events」：以简潔列表列出會議時間，時間文字使用更深的灰色，标題黑色粗体，分隔线用極淡灰。
+     - 「Activity Feed / Notifications」：一列列時間标記 + 事件描述的活動流，全部用黑白灰字体和極細分隔线。
 
-5. 底部頁腳（Footer）
-   - 使用接近白的背景和極細的頂部邊界線（border-t border-gray-200）。
-   - 左側放版權和產品名稱，右側放簡短的連結（Privacy / Terms / Docs）。
-   - 儘量保持低調，文字使用 text-xs 或 text-sm，顏色為 text-gray-500。
+5. 底部页腳（Footer）
+   - 使用接近白的背景和極細的頂部边界线（border-t border-gray-200）。
+   - 左側放版權和产品名稱，右側放简短的連結（Privacy / Terms / Docs）。
+   - 儘量保持低調，文字使用 text-xs 或 text-sm，颜色為 text-gray-500。
 
-【色彩與對比策略】
-1. 色板設計
-   - 背景灰階範圍建議：#f9fafb（頁面背景）、#f3f4f6（區塊背景）、#e5e7eb（分隔線與邊框）、#d1d5db（次級邊線）、#9ca3af（次要文字）、#4b5563（重要文字）、#111827（主文字與黑色元素）。
-   - 嚴格控制色彩數量，只使用不同深度的灰色和純黑、純白，透過明度與對比製造層次和焦點。
+【色彩与對比策略】
+1. 色板设計
+   - 背景灰階範圍建議：#f9fafb（页面背景）、#f3f4f6（区塊背景）、#e5e7eb（分隔线与边框）、#d1d5db（次級边线）、#9ca3af（次要文字）、#4b5563（重要文字）、#111827（主文字与黑色元素）。
+   - 嚴格控制色彩数量，只使用不同深度的灰色和純黑、純白，透過明度与對比製造层次和焦點。
 
-2. 對比與可讀性
-   - 確保主標題文字與背景的對比度 > 7:1，正文與背景的對比度 > 4.5:1，以符合無障礙閱讀要求。
-   - 在 Hero 深色背景上，使用純白或接近白的文字；在白色卡片背景上，標題使用深黑或深灰，副標使用中灰。
+2. 對比与可讀性
+   - 確保主标題文字与背景的對比度 > 7:1，正文与背景的對比度 > 4.5:1，以符合無障礙閱讀要求。
+   - 在 Hero 深色背景上，使用純白或接近白的文字；在白色卡片背景上，标題使用深黑或深灰，副标使用中灰。
 
-【排版與網格】
-- 採用嚴謹的 4px 或 8px 基準網格系統，所有 padding、margin、gap 以 4 的倍數呈現（例如 gap-4、gap-6、px-6、py-4）。
-- 主標題使用字重 800–900 的無襯線字體，副標題使用 600–700，正文 400–500，字距略緊，營造現代感與力量感。
-- 保持充足留白，避免在單一區塊內堆積過多元素；讓黑白灰的對比和空間本身成為設計語言。
+【排版与网格】
+- 採用嚴謹的 4px 或 8px 基準网格系統，所有 padding、margin、gap 以 4 的倍数呈現（例如 gap-4、gap-6、px-6、py-4）。
+- 主标題使用字重 800–900 的無襯线字体，副标題使用 600–700，正文 400–500，字距略緊，營造現代感与力量感。
+- 保持充足留白，避免在單一区塊內堆積過多元素；让黑白灰的對比和空間本身成為设計語言。
 
-【交互與動效】
-- 所有 hover / focus 狀態用灰階變化和陰影變化表達，不要使用彩色陰影或高飽和邊框。
-- 動畫使用快速但沉穩的過渡（約 150–220ms，transition-all ease-out 或 ease-in-out），不使用彈跳或橡皮筋效果，以維持專業冷靜的氣質。
-- 表單輸入框、搜尋欄等可以使用細邊框 + 淺灰背景，在 focus 時邊框加深（如 border-gray-900），而非使用彩色高亮。
+【交互与動效】
+- 所有 hover / focus 狀態用灰階变化和阴影变化表達，不要使用彩色阴影或高飽和边框。
+- 動画使用快速但沉稳的過渡（約 150–220ms，transition-all ease-out 或 ease-in-out），不使用彈跳或橡皮筋效果，以維持专業冷静的氣质。
+- 表單輸入框、搜尋欄等可以使用細边框 + 淺灰背景，在 focus 時边框加深（如 border-gray-900），而非使用彩色高亮。
 
 【輸出要求】
-- 僅輸出完整 HTML 結構（包含 <header>/<nav>/<main>/<section>/<aside>/<footer> 等），以及每個元素的 classNames（使用 TailwindCSS 風格工具類）。
+- 仅輸出完整 HTML 結構（包含 <header>/<nav>/<main>/<section>/<aside>/<footer> 等），以及每個元素的 classNames（使用 TailwindCSS 風格工具类）。
 - 不輸出解說文字或註解，只輸出最終 HTML。
-- 生成結果應在結構和視覺上明顯對應上述說明，並且與現有 Monochrome 儀表盤示例風格高度一致：全黑白灰配色、強對比、嚴謹排版、豐富留白。
+- 生成結果應在結構和視覺上明显對應上述說明，並且与現有 Monochrome 儀表盤示例風格高度一致：全黑白灰配色、強對比、嚴謹排版、豐富留白。
 `,
     'en-US': `
 You are a senior UI designer and front-end engineer specializing in monochrome interfaces. Your task is to write a complete, copy-paste-ready instruction for an LLM so it can generate a full-page monochrome dashboard that looks like a sibling of the existing "visual-monochrome" style.
@@ -156,7 +156,7 @@ Constraints:
 `,
   },
 
-  // StylePrompt：風格說明，給人和 LLM 理解單色設計理念
+  // StylePrompt：風格說明，給人和 LLM 理解單色设計理念
   stylePrompt: {
     'zh-CN': `
 角色设定：

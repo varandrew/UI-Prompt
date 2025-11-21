@@ -1,6 +1,6 @@
-// 新趨勢風格數據 - New Trend Styles
-// ✅ 階段 3.2 優化: 移除所有靜態 import，改用動態加載
-// 預期減少構建體積：55 KB
+// 新趨勢風格数据 - New Trend Styles
+// ✅ 階段 3.2 优化: 移除所有静態 import，改用動態加載
+// 預期減少構建体積：55 KB
 
 export const newTrendStyles = [
   {
@@ -162,846 +162,487 @@ Mood:
 - Users should feel there is “a lot going on, in a fun way” and be encouraged to explore every corner of the page.`
     },
     fullPageHTML: `
-      <!-- 極繁主義藝術博物館完整頁面 -->
-      <div class="min-h-screen bg-black text-white overflow-x-hidden maximalism-page">
+      <!-- 企業級 SaaS Dashboard - 純 CSS 设計 -->
+      <div class="dashboard-wrapper">
 
-        <!-- 背景裝飾層 -->
-        <div class="fixed inset-0 bg-gradient-to-br from-purple-900 via-pink-900 to-black opacity-80 pointer-events-none"></div>
-        <div class="fixed inset-0 max-particles pointer-events-none"></div>
-
-        <!-- 頂部華麗導航 -->
-        <nav class="fixed top-0 left-0 right-0 z-50 max-nav">
-          <div class="max-nav-main">
-            <div class="flex items-center justify-between px-8 py-4">
-              <!-- Logo 區 -->
-              <div class="flex items-center gap-4">
-                <div class="max-logo">
-                  <span class="text-4xl">🏛️</span>
-                </div>
-                <div>
-                  <h1 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 max-glow">
-                    MAXIMUS MUSEUM
-                  </h1>
-                  <p class="text-xs text-pink-300 tracking-widest">WHERE ART MEETS EXTRAVAGANCE</p>
-                </div>
-              </div>
-
-              <!-- 主導航 -->
-              <div class="hidden lg:flex items-center gap-8">
-                <a href="javascript:void(0)" class="max-nav-link">Collections</a>
-                <a href="javascript:void(0)" class="max-nav-link">Exhibitions</a>
-                <a href="javascript:void(0)" class="max-nav-link">Artists</a>
-                <a href="javascript:void(0)" class="max-nav-link">Events</a>
-                <a href="javascript:void(0)" class="max-nav-link">About</a>
-              </div>
-
-              <!-- 右側工具 -->
-              <div class="flex items-center gap-4">
-                <div class="max-search-box">
-                  <input type="text" placeholder="Search masterpieces..." class="max-search-input" />
-                  <span class="text-xl">🔍</span>
-                </div>
-                <button class="max-btn-primary">Visit</button>
-              </div>
+        <!-- 頂部导航欄 -->
+        <header class="navbar">
+          <div class="nav-container">
+            <div class="nav-left">
+              <div class="logo-box"><span class="logo-text">E</span></div>
+              <span class="brand-name">EnterpriseHub</span>
             </div>
-
-            <!-- 次級導航 -->
-            <div class="max-subnav px-8 py-3 flex gap-4 overflow-x-auto">
-              <button class="max-badge">🔥 Trending</button>
-              <button class="max-badge">🌟 Renaissance</button>
-              <button class="max-badge">💎 Modern Art</button>
-              <button class="max-badge">🎨 Impressionism</button>
-              <button class="max-badge">👑 Baroque</button>
-              <button class="max-badge">✨ Contemporary</button>
-              <button class="max-badge">🏺 Ancient</button>
+            <div class="nav-right">
+              <button class="icon-button">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                </svg>
+                <span class="notification-dot"></span>
+              </button>
+              <div class="user-avatar">JD</div>
             </div>
           </div>
-        </nav>
+        </header>
 
-        <!-- Hero 區域 (視差裝飾) -->
-        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
-          <!-- 裝飾元素層 -->
-          <div class="absolute inset-0 max-decorations">
-            <div class="max-deco-circle" style="top: 10%; left: 5%; width: 200px; height: 200px;"></div>
-            <div class="max-deco-square" style="top: 20%; right: 10%; width: 150px; height: 150px;"></div>
-            <div class="max-deco-triangle" style="bottom: 30%; left: 15%;"></div>
-            <div class="max-deco-circle" style="bottom: 10%; right: 20%; width: 180px; height: 180px;"></div>
-            <svg class="absolute top-1/4 left-1/3 w-32 h-32 max-deco-svg" viewBox="0 0 100 100">
-              <path d="M50 10 L90 90 L10 90 Z" fill="none" stroke="url(#gold-gradient)" stroke-width="2"/>
-            </svg>
-          </div>
-
-          <!-- 主內容 -->
-          <div class="relative z-10 text-center max-w-5xl mx-auto px-6">
-            <div class="mb-8">
-              <span class="max-label">✨ EXPERIENCE MAGNIFICENCE ✨</span>
-            </div>
-
-            <h2 class="text-7xl md:text-9xl font-black mb-6 max-hero-title">
-              <span class="max-word">MORE</span>
-              <span class="max-word">IS</span>
-              <span class="max-word">MORE</span>
-            </h2>
-
-            <p class="text-2xl md:text-3xl text-pink-200 mb-8 max-subtitle">
-              Immerse yourself in a world where every detail matters,<br/>
-              every color sings, and every moment is a masterpiece.
-            </p>
-
-            <div class="flex justify-center gap-6 mb-12">
-              <button class="max-btn-hero max-btn-gold">🎨 Explore Gallery</button>
-              <button class="max-btn-hero max-btn-outline">📅 Book Tour</button>
-            </div>
-
-            <!-- 懸浮預覽卡片 -->
-            <div class="flex justify-center gap-6 flex-wrap">
-              <div class="max-preview-card" style="animation-delay: 0s;">
-                <div class="aspect-square bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center text-6xl">
-                  🎨
-                </div>
-                <p class="mt-2 font-bold">Renaissance</p>
-              </div>
-              <div class="max-preview-card" style="animation-delay: 0.2s;">
-                <div class="aspect-square bg-gradient-to-br from-yellow-600 to-orange-600 rounded-lg flex items-center justify-center text-6xl">
-                  👑
-                </div>
-                <p class="mt-2 font-bold">Baroque</p>
-              </div>
-              <div class="max-preview-card" style="animation-delay: 0.4s;">
-                <div class="aspect-square bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center text-6xl">
-                  💎
-                </div>
-                <p class="mt-2 font-bold">Modern</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 滾動提示 -->
-          <div class="absolute bottom-8 left-1/2 -translate-x-1/2 max-scroll-hint">
-            <p class="text-sm text-pink-300 mb-2">Scroll to Discover</p>
-            <div class="w-6 h-10 border-2 border-pink-400 rounded-full flex justify-center pt-2">
-              <div class="w-1 h-2 bg-pink-400 rounded-full max-scroll-dot"></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 展覽卡片網格 -->
-        <section class="relative py-20 px-8">
-          <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-              <h3 class="text-5xl font-black mb-4 max-section-title">
-                ✨ FEATURED EXHIBITIONS ✨
-              </h3>
-              <p class="text-xl text-pink-200">A curated collection of visual splendor</p>
-            </div>
-
-            <!-- 不規則網格 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <!-- 展覽卡片 1 -->
-              <div class="max-exhibition-card">
-                <div class="max-card-frame">
-                  <div class="aspect-[3/4] bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-lg overflow-hidden">
-                    <div class="h-full flex items-center justify-center text-8xl">🎭</div>
-                  </div>
-                  <div class="max-card-overlay">
-                    <h4 class="text-2xl font-black mb-2">The Golden Era</h4>
-                    <p class="text-sm text-pink-200 mb-4">Renaissance Masters Collection</p>
-                    <div class="flex gap-2 flex-wrap">
-                      <span class="max-tag">🎨 Painting</span>
-                      <span class="max-tag">📅 1400-1600</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 展覽卡片 2 -->
-              <div class="max-exhibition-card">
-                <div class="max-card-frame">
-                  <div class="aspect-[3/4] bg-gradient-to-br from-yellow-500 via-orange-500 to-red-600 rounded-lg overflow-hidden">
-                    <div class="h-full flex items-center justify-center text-8xl">👑</div>
-                  </div>
-                  <div class="max-card-overlay">
-                    <h4 class="text-2xl font-black mb-2">Royal Splendor</h4>
-                    <p class="text-sm text-pink-200 mb-4">Baroque Grandeur & Drama</p>
-                    <div class="flex gap-2 flex-wrap">
-                      <span class="max-tag">👑 Baroque</span>
-                      <span class="max-tag">📅 1600-1750</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 展覽卡片 3 -->
-              <div class="max-exhibition-card">
-                <div class="max-card-frame">
-                  <div class="aspect-[3/4] bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 rounded-lg overflow-hidden">
-                    <div class="h-full flex items-center justify-center text-8xl">💎</div>
-                  </div>
-                  <div class="max-card-overlay">
-                    <h4 class="text-2xl font-black mb-2">Modern Visions</h4>
-                    <p class="text-sm text-pink-200 mb-4">Contemporary Expressions</p>
-                    <div class="flex gap-2 flex-wrap">
-                      <span class="max-tag">💎 Modern</span>
-                      <span class="max-tag">📅 1900-Now</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 展覽卡片 4 -->
-              <div class="max-exhibition-card">
-                <div class="max-card-frame">
-                  <div class="aspect-[3/4] bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 rounded-lg overflow-hidden">
-                    <div class="h-full flex items-center justify-center text-8xl">🌸</div>
-                  </div>
-                  <div class="max-card-overlay">
-                    <h4 class="text-2xl font-black mb-2">Light & Color</h4>
-                    <p class="text-sm text-pink-200 mb-4">Impressionist Masterworks</p>
-                    <div class="flex gap-2 flex-wrap">
-                      <span class="max-tag">🌸 Impressionism</span>
-                      <span class="max-tag">📅 1860-1890</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 展覽卡片 5 -->
-              <div class="max-exhibition-card">
-                <div class="max-card-frame">
-                  <div class="aspect-[3/4] bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600 rounded-lg overflow-hidden">
-                    <div class="h-full flex items-center justify-center text-8xl">🏺</div>
-                  </div>
-                  <div class="max-card-overlay">
-                    <h4 class="text-2xl font-black mb-2">Ancient Wonders</h4>
-                    <p class="text-sm text-pink-200 mb-4">Timeless Artifacts</p>
-                    <div class="flex gap-2 flex-wrap">
-                      <span class="max-tag">🏺 Ancient</span>
-                      <span class="max-tag">📅 3000BC-500AD</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 展覽卡片 6 -->
-              <div class="max-exhibition-card">
-                <div class="max-card-frame">
-                  <div class="aspect-[3/4] bg-gradient-to-br from-red-500 via-rose-500 to-pink-600 rounded-lg overflow-hidden">
-                    <div class="h-full flex items-center justify-center text-8xl">✨</div>
-                  </div>
-                  <div class="max-card-overlay">
-                    <h4 class="text-2xl font-black mb-2">Digital Dreams</h4>
-                    <p class="text-sm text-pink-200 mb-4">New Media Art</p>
-                    <div class="flex gap-2 flex-wrap">
-                      <span class="max-tag">✨ Digital</span>
-                      <span class="max-tag">📅 2020-Now</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 時間軸 -->
-        <section class="relative py-20 px-8 bg-gradient-to-b from-transparent via-purple-900/30 to-transparent">
-          <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-              <h3 class="text-5xl font-black mb-4 max-section-title">
-                📅 EXHIBITION TIMELINE 📅
-              </h3>
-              <p class="text-xl text-pink-200">Journey through our celebrated history</p>
-            </div>
-
-            <div class="max-timeline">
-              <!-- 時間軸節點 1 -->
-              <div class="max-timeline-item">
-                <div class="max-timeline-icon">🎨</div>
-                <div class="max-timeline-content">
-                  <h4 class="text-2xl font-black mb-2">Renaissance Revival</h4>
-                  <p class="text-pink-200 mb-2">January - March 2025</p>
-                  <p class="text-sm">An unprecedented collection of Renaissance masterpieces featuring works from the greatest artists of the era.</p>
-                </div>
-              </div>
-
-              <!-- 時間軸節點 2 -->
-              <div class="max-timeline-item">
-                <div class="max-timeline-icon">👑</div>
-                <div class="max-timeline-content">
-                  <h4 class="text-2xl font-black mb-2">Baroque Brilliance</h4>
-                  <p class="text-pink-200 mb-2">April - June 2025</p>
-                  <p class="text-sm">Experience the drama and grandeur of the Baroque period with ornate sculptures and theatrical paintings.</p>
-                </div>
-              </div>
-
-              <!-- 時間軸節點 3 -->
-              <div class="max-timeline-item">
-                <div class="max-timeline-icon">💎</div>
-                <div class="max-timeline-content">
-                  <h4 class="text-2xl font-black mb-2">Modern Marvels</h4>
-                  <p class="text-pink-200 mb-2">July - September 2025</p>
-                  <p class="text-sm">Discover groundbreaking works from modern masters pushing the boundaries of artistic expression.</p>
-                </div>
-              </div>
-
-              <!-- 時間軸節點 4 -->
-              <div class="max-timeline-item">
-                <div class="max-timeline-icon">✨</div>
-                <div class="max-timeline-content">
-                  <h4 class="text-2xl font-black mb-2">Digital Frontiers</h4>
-                  <p class="text-pink-200 mb-2">October - December 2025</p>
-                  <p class="text-sm">Explore the intersection of technology and art in this cutting-edge digital exhibition.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="relative py-16 px-8 mt-20 bg-gradient-to-t from-black via-purple-900/40 to-transparent">
-          <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <!-- 主內容区 -->
+        <main class="main-content">
+          <div class="container">
+            <!-- 页面标題 -->
+            <div class="page-header">
               <div>
-                <div class="flex items-center gap-3 mb-4">
-                  <span class="text-4xl">🏛️</span>
-                  <h4 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
-                    MAXIMUS
-                  </h4>
-                </div>
-                <p class="text-pink-200 text-sm">Where art becomes an experience, and every visit is a journey through magnificence.</p>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back! Here's your performance summary.</p>
               </div>
-
-              <div>
-                <h5 class="font-black text-lg mb-4 text-pink-300">Collections</h5>
-                <ul class="space-y-2 text-sm">
-                  <li><a href="javascript:void(0)" class="max-footer-link">🎨 Renaissance</a></li>
-                  <li><a href="javascript:void(0)" class="max-footer-link">👑 Baroque</a></li>
-                  <li><a href="javascript:void(0)" class="max-footer-link">💎 Modern</a></li>
-                  <li><a href="javascript:void(0)" class="max-footer-link">✨ Contemporary</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h5 class="font-black text-lg mb-4 text-pink-300">Visit</h5>
-                <ul class="space-y-2 text-sm">
-                  <li><a href="javascript:void(0)" class="max-footer-link">📅 Plan Your Visit</a></li>
-                  <li><a href="javascript:void(0)" class="max-footer-link">🎟️ Tickets</a></li>
-                  <li><a href="javascript:void(0)" class="max-footer-link">🕐 Hours</a></li>
-                  <li><a href="javascript:void(0)" class="max-footer-link">📍 Location</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h5 class="font-black text-lg mb-4 text-pink-300">Connect</h5>
-                <div class="flex gap-3 mb-4">
-                  <a href="javascript:void(0)" class="max-social-btn">📱</a>
-                  <a href="javascript:void(0)" class="max-social-btn">💬</a>
-                  <a href="javascript:void(0)" class="max-social-btn">📧</a>
-                  <a href="javascript:void(0)" class="max-social-btn">🌐</a>
-                </div>
-                <p class="text-xs text-pink-300">Subscribe to our newsletter for exclusive updates</p>
+              <div class="button-group">
+                <button class="btn btn-secondary">Export</button>
+                <button class="btn btn-primary">+ New Project</button>
               </div>
             </div>
 
-            <div class="border-t-2 border-pink-500/30 pt-8 text-center">
-              <p class="text-sm text-pink-300">
-                © 2025 Maximus Museum. All rights reserved. | Crafted with ✨ Maximalist Love ✨
-              </p>
+            <!-- KPI 卡片网格 -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Total Revenue</span>
+                  <div class="icon-box icon-box-blue">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">$2.4M</span>
+                  <span class="kpi-change kpi-change-positive">↑ 12.5%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Active Users</span>
+                  <div class="icon-box icon-box-green">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">18.2K</span>
+                  <span class="kpi-change kpi-change-positive">↑ 8.3%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Conversion Rate</span>
+                  <div class="icon-box icon-box-purple">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">3.6%</span>
+                  <span class="kpi-change kpi-change-negative">↓ 2.1%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Growth Rate</span>
+                  <div class="icon-box icon-box-orange">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">+94%</span>
+                  <span class="kpi-change kpi-change-positive">↑ 5.2%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+            </div>
+
+            <!-- 数据表格 -->
+            <div class="data-section">
+              <div class="section-header">
+                <h2 class="section-title">Recent Transactions</h2>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Acme Corporation</td>
+                      <td>$12,450</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 15, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Tech Innovations Inc</td>
+                      <td>$8,320</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>Oct 14, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Global Solutions Ltd</td>
+                      <td>$5,100</td>
+                      <td><span class="badge badge-danger">Failed</span></td>
+                      <td>Oct 13, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#004</td>
+                      <td>StartupXYZ</td>
+                      <td>$9,800</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 12, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#005</td>
+                      <td>Enterprise Group</td>
+                      <td>$15,600</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 11, 2025</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </footer>
-
-        <!-- SVG Gradients -->
-        <svg width="0" height="0" style="position: absolute;">
-          <defs>
-            <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-        </svg>
+        </main>
       </div>
+
     `,
     fullPageStyles: `
-      /* 極繁主義核心樣式 */
+      /* 企業級 SaaS Dashboard - 純 CSS 樣式 */
 
-      @keyframes maxGlow {
-        0%, 100% {
-          text-shadow: 0 0 20px #FFD700, 0 0 40px #FF69B4, 0 0 60px #9370DB;
-        }
-        50% {
-          text-shadow: 0 0 30px #FFD700, 0 0 60px #FF69B4, 0 0 90px #9370DB;
-        }
+      /* 重置与基礎 */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+      /* 主容器 */
+      .dashboard-wrapper {
+        min-height: 100vh;
+        background: #f9fafb;
       }
 
-      @keyframes maxFloat {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(5deg); }
-      }
-
-      @keyframes maxPulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.05); opacity: 0.9; }
-      }
-
-      @keyframes maxShine {
-        0% { background-position: -200% center; }
-        100% { background-position: 200% center; }
-      }
-
-      @keyframes maxParticle {
-        0% { transform: translateY(0) translateX(0); opacity: 0; }
-        50% { opacity: 1; }
-        100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-      }
-
-      @keyframes maxScrollDot {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(12px); }
-      }
-
-      @keyframes maxRotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-
-      /* 頁面基礎 */
-      .maximalism-page {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        position: relative;
-      }
-
-      /* 粒子背景 */
-      .max-particles::before,
-      .max-particles::after {
-        content: '✨';
-        position: absolute;
-        font-size: 20px;
-        animation: maxParticle 8s linear infinite;
-      }
-
-      .max-particles::before {
-        left: 10%;
-        animation-delay: 0s;
-      }
-
-      .max-particles::after {
-        left: 80%;
-        animation-delay: 4s;
-      }
-
-      /* 導航樣式 */
-      .max-nav {
-        backdrop-filter: blur(20px);
-        background: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.9),
-          rgba(75, 0, 130, 0.8)
-        );
-        border-bottom: 3px solid;
-        border-image: linear-gradient(to right, #FFD700, #FF69B4, #9370DB) 1;
-        box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
-      }
-
-      .max-nav-main {
-        background: linear-gradient(135deg,
-          rgba(212, 175, 55, 0.1),
-          rgba(255, 105, 180, 0.1),
-          rgba(147, 112, 219, 0.1)
-        );
-      }
-
-      .max-logo {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #FFD700, #FF69B4);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-        animation: maxPulse 2s ease-in-out infinite;
-      }
-
-      .max-glow {
-        animation: maxGlow 3s ease-in-out infinite;
-      }
-
-      .max-nav-link {
-        position: relative;
-        padding: 8px 16px;
-        font-weight: bold;
-        color: #FFD700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        border-radius: 8px;
-      }
-
-      .max-nav-link:hover {
-        border-color: #FF69B4;
-        background: rgba(255, 105, 180, 0.2);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
-      }
-
-      .max-search-box {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .max-search-input {
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid #FF69B4;
-        border-radius: 20px;
-        padding: 8px 16px;
-        color: white;
-        outline: none;
-        transition: all 0.3s ease;
-      }
-
-      .max-search-input:focus {
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-      }
-
-      .max-btn-primary {
-        background: linear-gradient(135deg, #FFD700, #FF69B4);
-        border: none;
-        padding: 10px 24px;
-        font-weight: bold;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
-      }
-
-      .max-btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
-      }
-
-      .max-subnav {
-        background: rgba(147, 112, 219, 0.3);
-        border-top: 1px solid rgba(255, 105, 180, 0.3);
-      }
-
-      .max-badge {
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 105, 180, 0.2));
-        border: 2px solid #FFD700;
-        padding: 6px 16px;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        font-weight: bold;
-        color: #FFD700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-      }
-
-      .max-badge:hover {
-        background: linear-gradient(135deg, #FFD700, #FF69B4);
-        color: black;
-        transform: scale(1.1);
-      }
-
-      /* Hero 區裝飾 */
-      .max-decorations {
-        opacity: 0.4;
-      }
-
-      .max-deco-circle {
-        position: absolute;
-        border-radius: 50%;
-        border: 4px solid #FFD700;
-        animation: maxFloat 6s ease-in-out infinite;
-        box-shadow: 0 0 40px rgba(255, 215, 0, 0.5);
-      }
-
-      .max-deco-square {
-        position: absolute;
-        border: 4px solid #FF69B4;
-        animation: maxFloat 8s ease-in-out infinite;
-        transform: rotate(45deg);
-        box-shadow: 0 0 40px rgba(255, 105, 180, 0.5);
-      }
-
-      .max-deco-triangle {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-left: 80px solid transparent;
-        border-right: 80px solid transparent;
-        border-bottom: 140px solid #9370DB;
-        animation: maxFloat 7s ease-in-out infinite;
-        filter: drop-shadow(0 0 40px rgba(147, 112, 219, 0.5));
-      }
-
-      .max-deco-svg {
-        animation: maxRotate 20s linear infinite;
-      }
-
-      /* Hero 文字 */
-      .max-label {
-        display: inline-block;
-        background: linear-gradient(135deg, #FFD700, #FF69B4);
-        padding: 8px 24px;
-        border-radius: 25px;
-        font-weight: bold;
-        font-size: 0.875rem;
-        letter-spacing: 2px;
-        animation: maxPulse 2s ease-in-out infinite;
-      }
-
-      .max-hero-title {
-        line-height: 1;
-        background: linear-gradient(135deg, #FFD700, #FF69B4, #9370DB, #FFD700);
-        background-size: 300% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: maxShine 3s linear infinite;
-        text-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
-      }
-
-      .max-word {
-        display: inline-block;
-        animation: maxFloat 3s ease-in-out infinite;
-      }
-
-      .max-word:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-
-      .max-word:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-
-      .max-subtitle {
-        animation: maxPulse 4s ease-in-out infinite;
-      }
-
-      /* Hero 按鈕 */
-      .max-btn-hero {
-        padding: 16px 40px;
-        font-size: 1.125rem;
-        font-weight: bold;
-        border-radius: 30px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 3px solid transparent;
-      }
-
-      .max-btn-gold {
-        background: linear-gradient(135deg, #FFD700, #FFA500);
-        color: black;
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
-      }
-
-      .max-btn-gold:hover {
-        transform: translateY(-5px) scale(1.05);
-        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7);
-      }
-
-      .max-btn-outline {
-        background: transparent;
-        border-color: #FF69B4;
-        color: #FF69B4;
-      }
-
-      .max-btn-outline:hover {
-        background: #FF69B4;
-        color: white;
-        transform: translateY(-5px) scale(1.05);
-      }
-
-      /* 預覽卡片 */
-      .max-preview-card {
-        width: 140px;
-        animation: maxFloat 4s ease-in-out infinite;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-
-      .max-preview-card:hover {
-        transform: translateY(-10px) scale(1.1);
-      }
-
-      /* 滾動提示 */
-      .max-scroll-hint {
-        animation: maxPulse 2s ease-in-out infinite;
-      }
-
-      .max-scroll-dot {
-        animation: maxScrollDot 1.5s ease-in-out infinite;
-      }
-
-      /* 區塊標題 */
-      .max-section-title {
-        background: linear-gradient(135deg, #FFD700, #FF69B4, #9370DB);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: maxGlow 3s ease-in-out infinite;
-      }
-
-      /* 展覽卡片 */
-      .max-exhibition-card {
-        transition: all 0.3s ease;
-        animation: maxFloat 5s ease-in-out infinite;
-      }
-
-      .max-exhibition-card:nth-child(2n) {
-        animation-delay: 1s;
-      }
-
-      .max-exhibition-card:hover {
-        transform: translateY(-10px) scale(1.05);
-      }
-
-      .max-card-frame {
-        position: relative;
-        padding: 12px;
-        background: linear-gradient(135deg, #FFD700, #FF69B4, #9370DB);
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      .max-card-frame:hover {
-        box-shadow: 0 20px 60px rgba(255, 215, 0, 0.6);
-      }
-
-      .max-card-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
-        padding: 24px;
-        border-radius: 0 0 20px 20px;
-        transform: translateY(60%);
-        transition: all 0.3s ease;
-      }
-
-      .max-exhibition-card:hover .max-card-overlay {
-        transform: translateY(0);
-      }
-
-      .max-tag {
-        display: inline-block;
-        background: rgba(255, 215, 0, 0.2);
-        border: 1px solid #FFD700;
-        padding: 4px 12px;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        color: #FFD700;
-      }
-
-      /* 時間軸 */
-      .max-timeline {
-        position: relative;
-        padding-left: 80px;
-      }
-
-      .max-timeline::before {
-        content: '';
-        position: absolute;
-        left: 30px;
+      /* 导航欄 */
+      .navbar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0;
+        position: sticky;
         top: 0;
-        bottom: 0;
-        width: 4px;
-        background: linear-gradient(to bottom, #FFD700, #FF69B4, #9370DB);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        z-index: 50;
       }
-
-      .max-timeline-item {
-        position: relative;
-        margin-bottom: 60px;
-        animation: maxFloat 6s ease-in-out infinite;
+      .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
-
-      .max-timeline-item:nth-child(2n) {
-        animation-delay: 1s;
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-
-      .max-timeline-icon {
-        position: absolute;
-        left: -80px;
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #FFD700, #FF69B4);
-        border-radius: 50%;
+      .logo-box {
+        width: 32px;
+        height: 32px;
+        background: #2563eb;
+        border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-        border: 4px solid #1A1A1A;
       }
-
-      .max-timeline-content {
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 105, 180, 0.1));
-        padding: 24px;
-        border-radius: 16px;
-        border: 2px solid #FF69B4;
-        box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
-        transition: all 0.3s ease;
+      .logo-text {
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
       }
-
-      .max-timeline-content:hover {
-        transform: translateX(10px);
-        box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+      .brand-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111827;
       }
-
-      /* Footer */
-      .max-footer-link {
-        color: #FF69B4;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
       }
-
-      .max-footer-link:hover {
-        color: #FFD700;
-        transform: translateX(5px);
+      .icon-button {
+        position: relative;
+        padding: 8px;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: #6b7280;
+        transition: all 0.2s;
       }
-
-      .max-social-btn {
+      .icon-button:hover {
+        background: #f3f4f6;
+        color: #374151;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+      .notification-dot {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 8px;
+        height: 8px;
+        background: #ef4444;
+        border-radius: 50%;
+      }
+      .user-avatar {
         width: 40px;
         height: 40px;
-        background: linear-gradient(135deg, #FFD700, #FF69B4);
+        background: #2563eb;
+        color: white;
         border-radius: 50%;
         display: flex;
         align-items: center;
+        justify-center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      /* 主內容区 */
+      .main-content {
+        padding: 32px 0;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* 页面标題 */
+      .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+      .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 4px;
+      }
+      .page-subtitle {
+        font-size: 14px;
+        color: #6b7280;
+      }
+      .button-group {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #1d4ed8;
+      }
+      .btn-secondary {
+        background: white;
+        color: #374151;
+        border: 1px solid #d1d5db;
+      }
+      .btn-secondary:hover {
+        background: #f9fafb;
+      }
+
+      /* KPI 卡片网格 */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .kpi-card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+        transition: box-shadow 0.2s;
+      }
+      .kpi-card:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .kpi-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .kpi-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
         justify-content: center;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+      }
+      .icon-box-blue {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      .icon-box-green {
+        background: #d1fae5;
+        color: #10b981;
+      }
+      .icon-box-purple {
+        background: #e9d5ff;
+        color: #9333ea;
+      }
+      .icon-box-orange {
+        background: #fed7aa;
+        color: #ea580c;
+      }
+      .icon-box .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .kpi-value-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .kpi-value {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+      }
+      .kpi-change {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .kpi-change-positive {
+        color: #10b981;
+      }
+      .kpi-change-negative {
+        color: #ef4444;
+      }
+      .kpi-note {
+        font-size: 12px;
+        color: #9ca3af;
       }
 
-      .max-social-btn:hover {
-        transform: translateY(-5px) scale(1.1);
-        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+      /* 数据区塊 */
+      .data-section {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .section-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .data-table thead {
+        background: #f9fafb;
+      }
+      .data-table th {
+        padding: 12px 24px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .data-table td {
+        padding: 16px 24px;
+        font-size: 14px;
+        color: #374151;
+        border-top: 1px solid #e5e7eb;
+      }
+      .data-table tbody tr:hover {
+        background: #f9fafb;
       }
 
-      /* 響應式調整 */
+      /* 徽章 */
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .badge-success {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-warning {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge-danger {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* 響應式 */
       @media (max-width: 768px) {
-        .max-hero-title {
-          font-size: 3rem;
+        .page-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
         }
-
-        .max-timeline {
-          padding-left: 60px;
-        }
-
-        .max-timeline-icon {
-          left: -60px;
-          width: 40px;
-          height: 40px;
-          font-size: 1.5rem;
+        .kpi-grid {
+          grid-template-columns: 1fr;
         }
       }
+
     `
   },
   {
@@ -1010,7 +651,7 @@ Mood:
     description: 'styles.newTrend.scandi.description',
     demoHTML: `
       <div class="w-full h-full bg-gray-50 p-6 space-y-4">
-        <!-- 簡約卡片 -->
+        <!-- 简約卡片 -->
         <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
@@ -1038,7 +679,7 @@ Mood:
     colorScheme: 'styles.newTrend.scandi.colorScheme',
     customStyles: '',
     demoBoxClass: 'bg-gray-50 p-0',
-    // 北歐極簡風格的 CustomPrompt（給 LLM 的生成指令）
+    // 北歐極简風格的 CustomPrompt（給 LLM 的生成指令）
     customPrompt: {
       'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Scandi 北欧极简」示例界面风格高度接近的 UI。
 要求：保持大量白色与浅灰、极少量柔和彩色点缀以及工整栅格布局的整体气质，只允许替换文案、图标与局部模块，不允许引入高饱和大色块或复杂纹理。输出语义化 HTML 与 TailwindCSS 风格原子类（或等价工具类方案）。
@@ -1114,7 +755,7 @@ Keep the large white and light-gray surfaces, tiny muted color accents and order
 - Use semantic sections (main/section/header) to structure the layout.
 - Use Tailwind utilities for spacing, alignment and neutral color palette.
 - The resulting UI must clearly express Scandi minimalism: bright, quiet, orderly and warm enough to feel like a tidy Nordic apartment.`},
-    // 北歐極簡風格的 stylePrompt
+    // 北歐極简風格的 stylePrompt
     stylePrompt: {
       'zh-CN': `角色：你是一名擅长北欧（Scandi）极简风格的 UI 设计师，需要设计一个安静、明亮、功能清晰的日常工具界面。
 
@@ -1174,11 +815,11 @@ Mood:
           <div class="absolute top-8 right-8 w-2 h-2 bg-cyan-400 rounded-full"></div>
           <div class="absolute bottom-6 left-12 w-2 h-2 bg-pink-500 rounded-full"></div>
 
-          <!-- 線條 -->
+          <!-- 线條 -->
           <div class="absolute top-12 left-8 w-16 h-1 bg-black rotate-45"></div>
           <div class="absolute bottom-12 right-4 w-12 h-1 bg-pink-500 -rotate-12"></div>
 
-          <!-- 波浪線 -->
+          <!-- 波浪线 -->
           <svg class="absolute top-20 right-2 w-16 h-4" viewBox="0 0 100 20">
             <path d="M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10" stroke="#000" stroke-width="2" fill="none"/>
           </svg>
@@ -1331,7 +972,7 @@ Mood:
             <div class="absolute top-4 left-6 w-8 h-8 bg-white/40 rounded-full blur-sm"></div>
             <div class="absolute top-6 left-8 w-4 h-4 bg-white/60 rounded-full"></div>
           </div>
-          <!-- 陰影 -->
+          <!-- 阴影 -->
           <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black/10 rounded-full blur-md"></div>
         </div>
 
@@ -1469,354 +1110,487 @@ Mood:
 - The UI should evoke toy shelves, candy stores or picture book covers, not sterile admin consoles.`
     },
     fullPageHTML: `
-      <!-- 玩具電商網站完整頁面 -->
-      <div class="min-h-screen bg-gradient-to-b from-yellow-50 via-pink-50 to-blue-50">
-        <!-- 導航欄 -->
-        <nav class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b-4 border-yellow-400">
-          <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-              <!-- Logo -->
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 toy-button toy-red rounded-full flex items-center justify-center text-2xl">
-                  🧸
-                </div>
-                <div>
-                  <h1 class="text-2xl font-black text-gray-800">TOY SHOP</h1>
-                  <p class="text-xs text-gray-500">Happy Shopping!</p>
-                </div>
-              </div>
+      <!-- 企業級 SaaS Dashboard - 純 CSS 设計 -->
+      <div class="dashboard-wrapper">
 
-              <!-- 搜索欄 -->
-              <div class="flex-1 max-w-md mx-8">
-                <div class="relative">
-                  <input
-                    type="text"
-                    placeholder="Search toys..."
-                    class="toy-input w-full pl-12"
-                  />
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-2xl">🔍</span>
-                </div>
-              </div>
-
-              <!-- 購物車 -->
-              <div class="flex items-center gap-4">
-                <button class="toy-button toy-blue px-6 py-2 text-sm">
-                  🛒 Cart (3)
-                </button>
-              </div>
+        <!-- 頂部导航欄 -->
+        <header class="navbar">
+          <div class="nav-container">
+            <div class="nav-left">
+              <div class="logo-box"><span class="logo-text">E</span></div>
+              <span class="brand-name">EnterpriseHub</span>
             </div>
-
-            <!-- 分類導航 -->
-            <div class="mt-4 flex gap-2 overflow-x-auto pb-2">
-              <button class="toy-badge toy-red">🔥 HOT</button>
-              <button class="toy-badge toy-blue">🚗 Cars</button>
-              <button class="toy-badge toy-pink">🧸 Plush</button>
-              <button class="toy-badge toy-green">🧩 Puzzles</button>
-              <button class="toy-badge toy-yellow">🎨 Art</button>
-              <button class="toy-badge toy-purple">🎮 Games</button>
-              <button class="toy-badge toy-orange">🏀 Sports</button>
-            </div>
-          </div>
-        </nav>
-
-        <!-- 英雄橫幅 -->
-        <section class="max-w-7xl mx-auto px-6 py-12">
-          <div class="toy-card p-12 bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 text-center toy-highlight overflow-hidden relative">
-            <!-- 裝飾元素 -->
-            <div class="absolute top-4 left-8 text-6xl opacity-30 toy-spin">⭐</div>
-            <div class="absolute bottom-4 right-8 text-6xl opacity-30" style="animation: toy-spin 3s linear infinite reverse;">🌈</div>
-
-            <h2 class="text-5xl font-black text-white mb-4 drop-shadow-lg toy-pulse">
-              🎉 MEGA TOY SALE! 🎉
-            </h2>
-            <p class="text-xl text-white/90 mb-6">Up to 50% OFF on all toys!</p>
-            <button class="toy-button toy-yellow text-xl px-12 py-4 toy-wiggle">
-              SHOP NOW 🚀
-            </button>
-          </div>
-        </section>
-
-        <!-- 產品網格 -->
-        <section class="max-w-7xl mx-auto px-6 py-8">
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="text-3xl font-black text-gray-800">⭐ Featured Toys</h3>
-            <div class="flex gap-2">
-              <button class="text-sm px-4 py-2 border-2 border-gray-300 rounded-full hover:border-gray-800 transition-colors">
-                All
+            <div class="nav-right">
+              <button class="icon-button">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                </svg>
+                <span class="notification-dot"></span>
               </button>
-              <button class="text-sm px-4 py-2 border-2 border-gray-300 rounded-full hover:border-gray-800 transition-colors">
-                New
-              </button>
-              <button class="text-sm px-4 py-2 border-2 border-gray-300 rounded-full hover:border-gray-800 transition-colors">
-                Popular
-              </button>
+              <div class="user-avatar">JD</div>
             </div>
           </div>
+        </header>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 產品卡片 1 -->
-            <div class="toy-card p-6 bg-white">
-              <div class="relative">
-                <span class="absolute -top-3 -right-3 toy-badge toy-red z-10">SALE</span>
-                <div class="aspect-square bg-gradient-to-br from-red-100 to-red-200 rounded-3xl mb-4 flex items-center justify-center text-8xl">
-                  🚗
-                </div>
+        <!-- 主內容区 -->
+        <main class="main-content">
+          <div class="container">
+            <!-- 页面标題 -->
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back! Here's your performance summary.</p>
               </div>
-              <h4 class="text-xl font-bold text-gray-800 mb-2">Super Race Car</h4>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</span>
-                <span class="text-sm text-gray-500">(128)</span>
-              </div>
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-2xl font-black text-red-600">$29.99</span>
-                <span class="text-lg text-gray-400 line-through">$59.99</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="toy-quantity flex-1">
-                  <button class="toy-blue text-white">−</button>
-                  <span class="font-bold min-w-[2rem] text-center">1</span>
-                  <button class="toy-blue text-white">+</button>
-                </div>
-                <button class="toy-button toy-green py-2 px-4 text-sm">
-                  Add to Cart 🛒
-                </button>
+              <div class="button-group">
+                <button class="btn btn-secondary">Export</button>
+                <button class="btn btn-primary">+ New Project</button>
               </div>
             </div>
 
-            <!-- 產品卡片 2 -->
-            <div class="toy-card p-6 bg-white">
-              <div class="relative">
-                <span class="absolute -top-3 -right-3 toy-badge toy-yellow z-10">NEW</span>
-                <div class="aspect-square bg-gradient-to-br from-pink-100 to-pink-200 rounded-3xl mb-4 flex items-center justify-center text-8xl">
-                  🧸
+            <!-- KPI 卡片网格 -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Total Revenue</span>
+                  <div class="icon-box icon-box-blue">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <h4 class="text-xl font-bold text-gray-800 mb-2">Cute Teddy Bear</h4>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</span>
-                <span class="text-sm text-gray-500">(256)</span>
-              </div>
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-2xl font-black text-pink-600">$39.99</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="toy-quantity flex-1">
-                  <button class="toy-pink text-white">−</button>
-                  <span class="font-bold min-w-[2rem] text-center">1</span>
-                  <button class="toy-pink text-white">+</button>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">$2.4M</span>
+                  <span class="kpi-change kpi-change-positive">↑ 12.5%</span>
                 </div>
-                <button class="toy-button toy-green py-2 px-4 text-sm">
-                  Add to Cart 🛒
-                </button>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Active Users</span>
+                  <div class="icon-box icon-box-green">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">18.2K</span>
+                  <span class="kpi-change kpi-change-positive">↑ 8.3%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Conversion Rate</span>
+                  <div class="icon-box icon-box-purple">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">3.6%</span>
+                  <span class="kpi-change kpi-change-negative">↓ 2.1%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Growth Rate</span>
+                  <div class="icon-box icon-box-orange">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">+94%</span>
+                  <span class="kpi-change kpi-change-positive">↑ 5.2%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
               </div>
             </div>
 
-            <!-- 產品卡片 3 -->
-            <div class="toy-card p-6 bg-white">
-              <div class="relative">
-                <span class="absolute -top-3 -right-3 toy-badge toy-blue z-10">HOT</span>
-                <div class="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl mb-4 flex items-center justify-center text-8xl">
-                  🧩
-                </div>
+            <!-- 数据表格 -->
+            <div class="data-section">
+              <div class="section-header">
+                <h2 class="section-title">Recent Transactions</h2>
               </div>
-              <h4 class="text-xl font-bold text-gray-800 mb-2">Magic Puzzle Set</h4>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</span>
-                <span class="text-sm text-gray-500">(89)</span>
-              </div>
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-2xl font-black text-blue-600">$24.99</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="toy-quantity flex-1">
-                  <button class="toy-blue text-white">−</button>
-                  <span class="font-bold min-w-[2rem] text-center">1</span>
-                  <button class="toy-blue text-white">+</button>
-                </div>
-                <button class="toy-button toy-green py-2 px-4 text-sm">
-                  Add to Cart 🛒
-                </button>
-              </div>
-            </div>
-
-            <!-- 產品卡片 4 -->
-            <div class="toy-card p-6 bg-white">
-              <div class="relative">
-                <div class="aspect-square bg-gradient-to-br from-purple-100 to-purple-200 rounded-3xl mb-4 flex items-center justify-center text-8xl">
-                  🎨
-                </div>
-              </div>
-              <h4 class="text-xl font-bold text-gray-800 mb-2">Art Studio Kit</h4>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-yellow-400 text-lg">⭐⭐⭐⭐</span>
-                <span class="text-sm text-gray-500">(45)</span>
-              </div>
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-2xl font-black text-purple-600">$44.99</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="toy-quantity flex-1">
-                  <button class="toy-purple text-white">−</button>
-                  <span class="font-bold min-w-[2rem] text-center">1</span>
-                  <button class="toy-purple text-white">+</button>
-                </div>
-                <button class="toy-button toy-green py-2 px-4 text-sm">
-                  Add to Cart 🛒
-                </button>
-              </div>
-            </div>
-
-            <!-- 產品卡片 5 -->
-            <div class="toy-card p-6 bg-white">
-              <div class="relative">
-                <div class="aspect-square bg-gradient-to-br from-green-100 to-green-200 rounded-3xl mb-4 flex items-center justify-center text-8xl">
-                  🏀
-                </div>
-              </div>
-              <h4 class="text-xl font-bold text-gray-800 mb-2">Sport Ball Set</h4>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-yellow-400 text-lg">⭐⭐⭐⭐</span>
-                <span class="text-sm text-gray-500">(72)</span>
-              </div>
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-2xl font-black text-green-600">$34.99</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="toy-quantity flex-1">
-                  <button class="toy-green text-white">−</button>
-                  <span class="font-bold min-w-[2rem] text-center">1</span>
-                  <button class="toy-green text-white">+</button>
-                </div>
-                <button class="toy-button toy-green py-2 px-4 text-sm">
-                  Add to Cart 🛒
-                </button>
-              </div>
-            </div>
-
-            <!-- 產品卡片 6 -->
-            <div class="toy-card p-6 bg-white">
-              <div class="relative">
-                <span class="absolute -top-3 -right-3 toy-badge toy-orange z-10">-30%</span>
-                <div class="aspect-square bg-gradient-to-br from-orange-100 to-orange-200 rounded-3xl mb-4 flex items-center justify-center text-8xl">
-                  🎮
-                </div>
-              </div>
-              <h4 class="text-xl font-bold text-gray-800 mb-2">Game Console</h4>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</span>
-                <span class="text-sm text-gray-500">(312)</span>
-              </div>
-              <div class="flex items-center gap-2 mb-4">
-                <span class="text-2xl font-black text-orange-600">$69.99</span>
-                <span class="text-lg text-gray-400 line-through">$99.99</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="toy-quantity flex-1">
-                  <button class="toy-orange text-white">−</button>
-                  <span class="font-bold min-w-[2rem] text-center">1</span>
-                  <button class="toy-orange text-white">+</button>
-                </div>
-                <button class="toy-button toy-green py-2 px-4 text-sm">
-                  Add to Cart 🛒
-                </button>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Acme Corporation</td>
+                      <td>$12,450</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 15, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Tech Innovations Inc</td>
+                      <td>$8,320</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>Oct 14, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Global Solutions Ltd</td>
+                      <td>$5,100</td>
+                      <td><span class="badge badge-danger">Failed</span></td>
+                      <td>Oct 13, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#004</td>
+                      <td>StartupXYZ</td>
+                      <td>$9,800</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 12, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#005</td>
+                      <td>Enterprise Group</td>
+                      <td>$15,600</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 11, 2025</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        </section>
-
-        <!-- Toast 通知 (示例) -->
-        <div class="fixed bottom-8 right-8 toy-card bg-white p-4 shadow-2xl max-w-sm toy-bounce">
-          <div class="flex items-center gap-3">
-            <div class="text-4xl">✅</div>
-            <div class="flex-1">
-              <h5 class="font-bold text-gray-800">Added to Cart!</h5>
-              <p class="text-sm text-gray-600">Super Race Car x1</p>
-            </div>
-            <button class="text-gray-400 hover:text-gray-800 text-2xl">✕</button>
-          </div>
-        </div>
-
-        <!-- 底部 -->
-        <footer class="bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 mt-16 py-12">
-          <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-              <div>
-                <h4 class="font-black text-white text-xl mb-4">🧸 TOY SHOP</h4>
-                <p class="text-white/80 text-sm">Making kids smile since 2020!</p>
-              </div>
-              <div>
-                <h5 class="font-bold text-white mb-3">Categories</h5>
-                <ul class="space-y-2 text-white/80 text-sm">
-                  <li>Cars & Vehicles</li>
-                  <li>Plush Toys</li>
-                  <li>Educational</li>
-                  <li>Outdoor Play</li>
-                </ul>
-              </div>
-              <div>
-                <h5 class="font-bold text-white mb-3">Support</h5>
-                <ul class="space-y-2 text-white/80 text-sm">
-                  <li>Help Center</li>
-                  <li>Track Order</li>
-                  <li>Returns</li>
-                  <li>Contact Us</li>
-                </ul>
-              </div>
-              <div>
-                <h5 class="font-bold text-white mb-3">Newsletter</h5>
-                <p class="text-white/80 text-sm mb-3">Get toy deals!</p>
-                <div class="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    class="toy-input flex-1 text-sm"
-                  />
-                  <button class="toy-button toy-yellow px-4 py-2 text-sm">GO</button>
-                </div>
-              </div>
-            </div>
-            <div class="border-t-2 border-white/30 pt-6 text-center text-white/80 text-sm">
-              <p>© 2025 TOY SHOP. All rights reserved. Made with 💖 for kids!</p>
-            </div>
-          </div>
-        </footer>
+        </main>
       </div>
+
     `,
     fullPageStyles: `
-      /* 玩具風格已在 index.css 中定義,這裡添加頁面特定樣式 */
+      /* 企業級 SaaS Dashboard - 純 CSS 樣式 */
 
-      /* 確保 toy-* 類在 iframe 中也能使用 */
-      @import url('/src/index.css');
+      /* 重置与基礎 */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
 
-      /* 額外的動畫增強 */
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
+      /* 主容器 */
+      .dashboard-wrapper {
+        min-height: 100vh;
+        background: #f9fafb;
       }
 
-      .toy-card:hover {
-        animation: float 0.6s ease-in-out;
+      /* 导航欄 */
+      .navbar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-box {
+        width: 32px;
+        height: 32px;
+        background: #2563eb;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-text {
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .brand-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .icon-button {
+        position: relative;
+        padding: 8px;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: #6b7280;
+        transition: all 0.2s;
+      }
+      .icon-button:hover {
+        background: #f3f4f6;
+        color: #374151;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+      .notification-dot {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 8px;
+        height: 8px;
+        background: #ef4444;
+        border-radius: 50%;
+      }
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        background: #2563eb;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-center;
+        font-weight: 600;
+        font-size: 14px;
       }
 
-      /* 滾動條美化 */
-      ::-webkit-scrollbar {
-        width: 12px;
+      /* 主內容区 */
+      .main-content {
+        padding: 32px 0;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
       }
 
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
+      /* 页面标題 */
+      .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+      .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 4px;
+      }
+      .page-subtitle {
+        font-size: 14px;
+        color: #6b7280;
+      }
+      .button-group {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #1d4ed8;
+      }
+      .btn-secondary {
+        background: white;
+        color: #374151;
+        border: 1px solid #d1d5db;
+      }
+      .btn-secondary:hover {
+        background: #f9fafb;
       }
 
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #FF69B4, #FFD700);
-        border-radius: 10px;
-        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      /* KPI 卡片网格 */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .kpi-card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+        transition: box-shadow 0.2s;
+      }
+      .kpi-card:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .kpi-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .kpi-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-box-blue {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      .icon-box-green {
+        background: #d1fae5;
+        color: #10b981;
+      }
+      .icon-box-purple {
+        background: #e9d5ff;
+        color: #9333ea;
+      }
+      .icon-box-orange {
+        background: #fed7aa;
+        color: #ea580c;
+      }
+      .icon-box .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .kpi-value-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .kpi-value {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+      }
+      .kpi-change {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .kpi-change-positive {
+        color: #10b981;
+      }
+      .kpi-change-negative {
+        color: #ef4444;
+      }
+      .kpi-note {
+        font-size: 12px;
+        color: #9ca3af;
       }
 
-      ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(to bottom, #FF1493, #FFA500);
+      /* 数据区塊 */
+      .data-section {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
       }
+      .section-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .data-table thead {
+        background: #f9fafb;
+      }
+      .data-table th {
+        padding: 12px 24px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .data-table td {
+        padding: 16px 24px;
+        font-size: 14px;
+        color: #374151;
+        border-top: 1px solid #e5e7eb;
+      }
+      .data-table tbody tr:hover {
+        background: #f9fafb;
+      }
+
+      /* 徽章 */
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .badge-success {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-warning {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge-danger {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* 響應式 */
+      @media (max-width: 768px) {
+        .page-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        .kpi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
     `
   },
   {
@@ -1827,7 +1601,7 @@ Mood:
       <div class="w-full h-full bg-white p-6">
         <!-- 企業級卡片 -->
         <div class="border border-gray-300 rounded-sm bg-white shadow-sm p-4 space-y-3">
-          <!-- 標題區 -->
+          <!-- 标題区 -->
           <div class="flex items-center justify-between pb-3 border-b border-gray-200">
             <div class="flex items-center gap-2">
               <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
@@ -1843,7 +1617,7 @@ Mood:
             <div class="text-xs text-gray-400">Q4 2025</div>
           </div>
 
-          <!-- 數據指標 -->
+          <!-- 数据指标 -->
           <div class="grid grid-cols-3 gap-2">
             <div class="text-center">
               <div class="text-lg font-bold text-gray-800">94%</div>
@@ -1971,8 +1745,8 @@ Keep the light neutral backgrounds, white cards, cool primary accents (blues/gre
 - 重点在于信息密度与可读性：过滤器、标签、分页、表格交互应优先保证易操作和清晰反馈。
 
 氛围营造：
-- 整體氛圍應該是「專業、可靠但不壓迫」，讓使用者長時間使用也不覺得疲累。
-- 介面要表現出組織性與可預測性，讓新用戶一眼看出結構，老用戶能形成穩定操作肌肉記憶。`,
+- 整体氛圍應該是「专業、可靠但不壓迫」，让使用者長時間使用也不覺得疲累。
+- 介面要表現出組織性与可預測性，让新用戶一眼看出結構，老用戶能形成稳定操作肌肉記憶。`,
 
       'en-US': `Role: You are a UI designer specializing in enterprise SaaS dashboards, creating stable, professional large-screen interfaces for B2B products.
 
@@ -1997,655 +1771,487 @@ Mood:
 - The interface should convey organization and predictability so new users grasp structure quickly and experienced users build reliable muscle memory.`
     },
     fullPageHTML: `
-      <!-- 企業級 SaaS Dashboard 完整頁面 -->
-      <div class="min-h-screen bg-gray-50 font-sans">
+      <!-- 企業級 SaaS Dashboard - 純 CSS 设計 -->
+      <div class="dashboard-wrapper">
 
-        <!-- 頂部導航欄 -->
-        <header class="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
-          <div class="flex items-center justify-between px-6 h-16">
-            <!-- Logo 區域 -->
-            <div class="flex items-center gap-8">
-              <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                  <span class="text-white font-bold text-lg">E</span>
-                </div>
-                <span class="text-xl font-semibold text-gray-900">EnterpriseHub</span>
-              </div>
-
-              <!-- 全局搜索 -->
-              <div class="hidden md:block">
-                <div class="relative">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    class="w-96 pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                  <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                  </svg>
-                </div>
-              </div>
+        <!-- 頂部导航欄 -->
+        <header class="navbar">
+          <div class="nav-container">
+            <div class="nav-left">
+              <div class="logo-box"><span class="logo-text">E</span></div>
+              <span class="brand-name">EnterpriseHub</span>
             </div>
-
-            <!-- 右側工具欄 -->
-            <div class="flex items-center gap-4">
-              <!-- 通知 -->
-              <button class="relative p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-md transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="nav-right">
+              <button class="icon-button">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
                 </svg>
-                <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                <span class="notification-dot"></span>
               </button>
-
-              <!-- 用戶菜單 -->
-              <div class="flex items-center gap-3 pl-4 border-l border-gray-200">
-                <div class="text-right hidden sm:block">
-                  <div class="text-sm font-medium text-gray-900">John Doe</div>
-                  <div class="text-xs text-gray-500">Admin</div>
-                </div>
-                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  JD
-                </div>
-              </div>
+              <div class="user-avatar">JD</div>
             </div>
           </div>
         </header>
 
-        <!-- 主內容區 -->
-        <div class="flex pt-16">
-          <!-- 側邊導航欄 -->
-          <aside class="w-64 bg-white border-r border-gray-200 fixed left-0 top-16 bottom-0 overflow-y-auto">
-            <nav class="p-4 space-y-1">
-              <!-- Dashboard -->
-              <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-md">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                </svg>
-                Dashboard
-              </a>
-
-              <!-- Projects -->
-              <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-                Projects
-                <span class="ml-auto bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded">12</span>
-              </a>
-
-              <!-- Team -->
-              <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-                Team
-              </a>
-
-              <!-- Analytics -->
-              <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-                Analytics
-              </a>
-
-              <div class="pt-4 mt-4 border-t border-gray-200">
-                <p class="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Management</p>
-
-                <!-- Settings -->
-                <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md transition-colors">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                  Settings
-                </a>
+        <!-- 主內容区 -->
+        <main class="main-content">
+          <div class="container">
+            <!-- 页面标題 -->
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back! Here's your performance summary.</p>
               </div>
-            </nav>
-          </aside>
-
-          <!-- 主內容 -->
-          <main class="flex-1 ml-64 p-8">
-            <!-- 頁面標題 -->
-            <div class="mb-8">
-              <div class="flex items-center justify-between">
-                <div>
-                  <h1 class="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
-                  <p class="text-sm text-gray-500 mt-1">Welcome back, John! Here's your performance summary.</p>
-                </div>
-                <div class="flex gap-3">
-                  <button class="px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors">
-                    Export
-                  </button>
-                  <button class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 transition-colors">
-                    + New Project
-                  </button>
-                </div>
+              <div class="button-group">
+                <button class="btn btn-secondary">Export</button>
+                <button class="btn btn-primary">+ New Project</button>
               </div>
             </div>
 
-            <!-- KPI 卡片網格 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              <!-- 總收入 -->
-              <div class="bg-white rounded-lg border border-gray-200 p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-sm font-medium text-gray-500">Total Revenue</span>
-                  <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- KPI 卡片网格 -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Total Revenue</span>
+                  <div class="icon-box icon-box-blue">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                   </div>
                 </div>
-                <div class="flex items-baseline gap-2">
-                  <span class="text-3xl font-bold text-gray-900">$2.4M</span>
-                  <span class="inline-flex items-center text-xs font-medium text-green-600">
-                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                    </svg>
-                    12.5%
-                  </span>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">$2.4M</span>
+                  <span class="kpi-change kpi-change-positive">↑ 12.5%</span>
                 </div>
-                <p class="text-xs text-gray-500 mt-2">vs last month</p>
+                <p class="kpi-note">vs last month</p>
               </div>
 
-              <!-- 活躍用戶 -->
-              <div class="bg-white rounded-lg border border-gray-200 p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-sm font-medium text-gray-500">Active Users</span>
-                  <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Active Users</span>
+                  <div class="icon-box icon-box-green">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                     </svg>
                   </div>
                 </div>
-                <div class="flex items-baseline gap-2">
-                  <span class="text-3xl font-bold text-gray-900">18.2K</span>
-                  <span class="inline-flex items-center text-xs font-medium text-green-600">
-                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                    </svg>
-                    8.3%
-                  </span>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">18.2K</span>
+                  <span class="kpi-change kpi-change-positive">↑ 8.3%</span>
                 </div>
-                <p class="text-xs text-gray-500 mt-2">vs last month</p>
+                <p class="kpi-note">vs last month</p>
               </div>
 
-              <!-- 轉換率 -->
-              <div class="bg-white rounded-lg border border-gray-200 p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-sm font-medium text-gray-500">Conversion Rate</span>
-                  <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Conversion Rate</span>
+                  <div class="icon-box icon-box-purple">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                     </svg>
                   </div>
                 </div>
-                <div class="flex items-baseline gap-2">
-                  <span class="text-3xl font-bold text-gray-900">3.6%</span>
-                  <span class="inline-flex items-center text-xs font-medium text-red-600">
-                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                    </svg>
-                    2.1%
-                  </span>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">3.6%</span>
+                  <span class="kpi-change kpi-change-negative">↓ 2.1%</span>
                 </div>
-                <p class="text-xs text-gray-500 mt-2">vs last month</p>
+                <p class="kpi-note">vs last month</p>
               </div>
 
-              <!-- 成長率 -->
-              <div class="bg-white rounded-lg border border-gray-200 p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-sm font-medium text-gray-500">Growth Rate</span>
-                  <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M trending-up M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Growth Rate</span>
+                  <div class="icon-box icon-box-orange">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                     </svg>
                   </div>
                 </div>
-                <div class="flex items-baseline gap-2">
-                  <span class="text-3xl font-bold text-gray-900">+94%</span>
-                  <span class="inline-flex items-center text-xs font-medium text-green-600">
-                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                    </svg>
-                    5.2%
-                  </span>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">+94%</span>
+                  <span class="kpi-change kpi-change-positive">↑ 5.2%</span>
                 </div>
-                <p class="text-xs text-gray-500 mt-2">vs last month</p>
+                <p class="kpi-note">vs last month</p>
               </div>
             </div>
 
-            <!-- 數據可視化與表格區域 -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-              <!-- 圖表區 (2/3) -->
-              <div class="lg:col-span-2">
-                <div class="bg-white rounded-lg border border-gray-200 p-6">
-                  <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-lg font-semibold text-gray-900">Revenue Overview</h3>
-                    <div class="flex gap-2">
-                      <button class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200 transition-colors">7d</button>
-                      <button class="px-3 py-1 text-xs font-medium text-white bg-blue-600 rounded">30d</button>
-                      <button class="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200 transition-colors">90d</button>
-                    </div>
-                  </div>
-
-                  <!-- CSS 模擬折線圖 -->
-                  <div class="h-64 flex items-end gap-2">
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 45%"></div>
-                    </div>
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 62%"></div>
-                    </div>
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 55%"></div>
-                    </div>
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 78%"></div>
-                    </div>
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 68%"></div>
-                    </div>
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 85%"></div>
-                    </div>
-                    <div class="flex-1 h-full flex flex-col justify-end">
-                      <div class="bg-gradient-to-t from-blue-500 to-blue-400 rounded-t opacity-80" style="height: 92%"></div>
-                    </div>
-                  </div>
-
-                  <!-- 圖例 -->
-                  <div class="mt-4 flex items-center justify-center gap-6 text-sm">
-                    <div class="flex items-center gap-2">
-                      <div class="w-3 h-3 bg-blue-500 rounded"></div>
-                      <span class="text-gray-600">Revenue</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                      <div class="w-3 h-3 bg-gray-300 rounded"></div>
-                      <span class="text-gray-600">Target</span>
-                    </div>
-                  </div>
-                </div>
+            <!-- 数据表格 -->
+            <div class="data-section">
+              <div class="section-header">
+                <h2 class="section-title">Recent Transactions</h2>
               </div>
-
-              <!-- 統計卡片 (1/3) -->
-              <div class="space-y-6">
-                <!-- 團隊活動 -->
-                <div class="bg-white rounded-lg border border-gray-200 p-6">
-                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Team Activity</h3>
-                  <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold text-sm">
-                        AM
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate">Alice Martin</p>
-                        <p class="text-xs text-gray-500">Updated project</p>
-                      </div>
-                      <span class="text-xs text-gray-400">2m</span>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-semibold text-sm">
-                        BJ
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate">Bob Johnson</p>
-                        <p class="text-xs text-gray-500">Completed task</p>
-                      </div>
-                      <span class="text-xs text-gray-400">5m</span>
-                    </div>
-
-                    <div class="flex items-center gap-3">
-                      <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-semibold text-sm">
-                        CW
-                      </div>
-                      <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-gray-900 truncate">Carol White</p>
-                        <p class="text-xs text-gray-500">Added comment</p>
-                      </div>
-                      <span class="text-xs text-gray-400">12m</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 進度追蹤 -->
-                <div class="bg-white rounded-lg border border-gray-200 p-6">
-                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Project Progress</h3>
-                  <div class="space-y-3">
-                    <div>
-                      <div class="flex items-center justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Website Redesign</span>
-                        <span class="text-sm font-semibold text-gray-900">75%</span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="flex items-center justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Mobile App</span>
-                        <span class="text-sm font-semibold text-gray-900">45%</span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-green-600 h-2 rounded-full" style="width: 45%"></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div class="flex items-center justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">API Integration</span>
-                        <span class="text-sm font-semibold text-gray-900">90%</span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 數據表格 -->
-            <div class="bg-white rounded-lg border border-gray-200">
-              <div class="px-6 py-4 border-b border-gray-200">
-                <div class="flex items-center justify-between">
-                  <h3 class="text-lg font-semibold text-gray-900">Recent Transactions</h3>
-                  <div class="flex items-center gap-3">
-                    <button class="px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 border border-gray-300 rounded-md transition-colors">
-                      <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
-                      </svg>
-                      Filter
-                    </button>
-                    <button class="px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 border border-gray-300 rounded-md transition-colors">
-                      <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                      </svg>
-                      Export
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="overflow-x-auto">
-                <table class="w-full">
-                  <thead class="bg-gray-50 border-b border-gray-200">
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
                     <tr>
-                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
-                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                      <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                      <th>ID</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
                     </tr>
                   </thead>
-                  <tbody class="bg-white divide-y divide-gray-200">
-                    <tr class="hover:bg-gray-50 transition-colors">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TXN-001</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xs font-semibold mr-3">
-                            AC
-                          </div>
-                          <div>
-                            <div class="text-sm font-medium text-gray-900">Acme Corp</div>
-                            <div class="text-xs text-gray-500">acme@example.com</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">$12,500</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="inline-flex px-2 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full">
-                          Completed
-                        </span>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jan 15, 2025</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <button class="text-blue-600 hover:text-blue-800 mr-3">View</button>
-                        <button class="text-gray-600 hover:text-gray-800">Edit</button>
-                      </td>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Acme Corporation</td>
+                      <td>$12,450</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 15, 2025</td>
                     </tr>
-
-                    <tr class="hover:bg-gray-50 transition-colors">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TXN-002</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-xs font-semibold mr-3">
-                            GI
-                          </div>
-                          <div>
-                            <div class="text-sm font-medium text-gray-900">GlobalTech Inc</div>
-                            <div class="text-xs text-gray-500">global@example.com</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">$8,200</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="inline-flex px-2 py-1 text-xs font-semibold text-yellow-700 bg-yellow-100 rounded-full">
-                          Pending
-                        </span>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jan 14, 2025</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <button class="text-blue-600 hover:text-blue-800 mr-3">View</button>
-                        <button class="text-gray-600 hover:text-gray-800">Edit</button>
-                      </td>
+                    <tr>
+                      <td>#002</td>
+                      <td>Tech Innovations Inc</td>
+                      <td>$8,320</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>Oct 14, 2025</td>
                     </tr>
-
-                    <tr class="hover:bg-gray-50 transition-colors">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TXN-003</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xs font-semibold mr-3">
-                            SS
-                          </div>
-                          <div>
-                            <div class="text-sm font-medium text-gray-900">StartupStudio</div>
-                            <div class="text-xs text-gray-500">startup@example.com</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">$15,750</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="inline-flex px-2 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full">
-                          Completed
-                        </span>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jan 13, 2025</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <button class="text-blue-600 hover:text-blue-800 mr-3">View</button>
-                        <button class="text-gray-600 hover:text-gray-800">Edit</button>
-                      </td>
+                    <tr>
+                      <td>#003</td>
+                      <td>Global Solutions Ltd</td>
+                      <td>$5,100</td>
+                      <td><span class="badge badge-danger">Failed</span></td>
+                      <td>Oct 13, 2025</td>
                     </tr>
-
-                    <tr class="hover:bg-gray-50 transition-colors">
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#TXN-004</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                          <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-xs font-semibold mr-3">
-                            DL
-                          </div>
-                          <div>
-                            <div class="text-sm font-medium text-gray-900">DigitalLab</div>
-                            <div class="text-xs text-gray-500">digital@example.com</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-semibold">$6,300</td>
-                      <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="inline-flex px-2 py-1 text-xs font-semibold text-red-700 bg-red-100 rounded-full">
-                          Failed
-                        </span>
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jan 12, 2025</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <button class="text-blue-600 hover:text-blue-800 mr-3">View</button>
-                        <button class="text-gray-600 hover:text-gray-800">Edit</button>
-                      </td>
+                    <tr>
+                      <td>#004</td>
+                      <td>StartupXYZ</td>
+                      <td>$9,800</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 12, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#005</td>
+                      <td>Enterprise Group</td>
+                      <td>$15,600</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 11, 2025</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-
-              <!-- 分頁 -->
-              <div class="px-6 py-4 border-t border-gray-200">
-                <div class="flex items-center justify-between">
-                  <p class="text-sm text-gray-500">Showing <span class="font-medium">1</span> to <span class="font-medium">4</span> of <span class="font-medium">28</span> results</p>
-                  <div class="flex gap-2">
-                    <button class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                      Previous
-                    </button>
-                    <button class="px-3 py-1.5 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded-md">
-                      1
-                    </button>
-                    <button class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                      2
-                    </button>
-                    <button class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                      3
-                    </button>
-                    <button class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
-                      Next
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
+
     `,
     fullPageStyles: `
-      /* 企業級設計樣式 */
+      /* 企業級 SaaS Dashboard - 純 CSS 樣式 */
 
-      /* 重置默認樣式 */
-      * {
-        margin: 0;
+      /* 重置与基礎 */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+      /* 主容器 */
+      .dashboard-wrapper {
+        min-height: 100vh;
+        background: #f9fafb;
+      }
+
+      /* 导航欄 */
+      .navbar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
         padding: 0;
-        box-sizing: border-box;
+        position: sticky;
+        top: 0;
+        z-index: 50;
       }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+      .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
-
-      /* 確保 Tailwind 樣式生效 */
-      @layer utilities {
-        .text-balance {
-          text-wrap: balance;
-        }
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-
-      /* 自定義滾動條 */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #F9FAFB;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #D1D5DB;
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #9CA3AF;
-      }
-
-      /* 表格懸停動畫 */
-      tbody tr {
-        transition: background-color 0.15s ease-in-out;
-      }
-
-      /* 按鈕懸停效果 */
-      button {
-        transition: all 0.15s ease-in-out;
-      }
-
-      /* 輸入框焦點效果 */
-      input:focus,
-      select:focus,
-      textarea:focus {
-        outline: none;
-      }
-
-      /* 卡片陰影漸變 */
-      .bg-white {
-        transition: box-shadow 0.2s ease-in-out;
-      }
-
-      /* KPI 卡片懸停效果 */
-      .bg-white.rounded-lg.border:hover {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
-
-      /* 側邊欄鏈接過渡 */
-      aside nav a {
-        transition: all 0.2s ease-in-out;
-      }
-
-      /* 確保固定佈局正確 */
-      header {
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-      }
-
-      aside {
-        box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.1);
-      }
-
-      /* 響應式調整 */
-      @media (max-width: 1024px) {
-        aside {
-          transform: translateX(-100%);
-          transition: transform 0.3s ease-in-out;
-        }
-
-        main {
-          margin-left: 0 !important;
-        }
-      }
-
-      /* 數據可視化柱狀圖動畫 */
-      .h-64 > div > div {
-        transition: height 0.3s ease-in-out;
-      }
-
-      .h-64 > div:hover > div {
-        opacity: 1 !important;
-      }
-
-      /* 進度條動畫 */
-      .bg-blue-600,
-      .bg-green-600,
-      .bg-purple-600 {
-        transition: width 0.3s ease-in-out;
-      }
-
-      /* 狀態標籤樣式增強 */
-      .inline-flex {
-        white-space: nowrap;
-      }
-
-      /* 表格單元格對齊優化 */
-      table {
-        border-collapse: separate;
-        border-spacing: 0;
-      }
-
-      /* 頭像字母居中 */
-      .w-8.h-8,
-      .w-10.h-10 {
-        display: inline-flex;
+      .logo-box {
+        width: 32px;
+        height: 32px;
+        background: #2563eb;
+        border-radius: 6px;
+        display: flex;
         align-items: center;
         justify-content: center;
       }
+      .logo-text {
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .brand-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .icon-button {
+        position: relative;
+        padding: 8px;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: #6b7280;
+        transition: all 0.2s;
+      }
+      .icon-button:hover {
+        background: #f3f4f6;
+        color: #374151;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+      .notification-dot {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 8px;
+        height: 8px;
+        background: #ef4444;
+        border-radius: 50%;
+      }
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        background: #2563eb;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      /* 主內容区 */
+      .main-content {
+        padding: 32px 0;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* 页面标題 */
+      .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+      .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 4px;
+      }
+      .page-subtitle {
+        font-size: 14px;
+        color: #6b7280;
+      }
+      .button-group {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #1d4ed8;
+      }
+      .btn-secondary {
+        background: white;
+        color: #374151;
+        border: 1px solid #d1d5db;
+      }
+      .btn-secondary:hover {
+        background: #f9fafb;
+      }
+
+      /* KPI 卡片网格 */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .kpi-card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+        transition: box-shadow 0.2s;
+      }
+      .kpi-card:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .kpi-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .kpi-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-box-blue {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      .icon-box-green {
+        background: #d1fae5;
+        color: #10b981;
+      }
+      .icon-box-purple {
+        background: #e9d5ff;
+        color: #9333ea;
+      }
+      .icon-box-orange {
+        background: #fed7aa;
+        color: #ea580c;
+      }
+      .icon-box .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .kpi-value-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .kpi-value {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+      }
+      .kpi-change {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .kpi-change-positive {
+        color: #10b981;
+      }
+      .kpi-change-negative {
+        color: #ef4444;
+      }
+      .kpi-note {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      /* 数据区塊 */
+      .data-section {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .section-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .data-table thead {
+        background: #f9fafb;
+      }
+      .data-table th {
+        padding: 12px 24px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .data-table td {
+        padding: 16px 24px;
+        font-size: 14px;
+        color: #374151;
+        border-top: 1px solid #e5e7eb;
+      }
+      .data-table tbody tr:hover {
+        background: #f9fafb;
+      }
+
+      /* 徽章 */
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .badge-success {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-warning {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge-danger {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* 響應式 */
+      @media (max-width: 768px) {
+        .page-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        .kpi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
     `
   }
 ];

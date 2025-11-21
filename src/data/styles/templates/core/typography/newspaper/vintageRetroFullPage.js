@@ -1,4 +1,4 @@
-// Retro/Vintage 完整頁面設計 - 復古報紙/打字機風格
+// Retro/Vintage 完整页面设計 - 復古報紙/打字機風格
 // Dashboard Home Office 風格
 
 export const retroVintageFullPageHTML = `
@@ -14,10 +14,10 @@ export const retroVintageFullPageHTML = `
     <header class="retro-masthead" style="background: linear-gradient(to bottom, #e8d5b7, #f5e6d3); border-bottom: 4px double #3e2723; padding: 2rem 2rem 1rem; box-shadow: 0 2px 8px rgba(62, 39, 35, 0.2);">
       <div style="max-width: 1400px; margin: 0 auto;">
 
-        <!-- 主標題報頭 -->
+        <!-- 主标題報頭 -->
         <div style="text-align: center; border-bottom: 2px solid #3e2723; padding-bottom: 1rem; margin-bottom: 1.5rem;">
           <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
-            <!-- 裝飾花邊左 -->
+            <!-- 裝飾花边左 -->
             <div style="width: 80px; height: 2px; background: linear-gradient(to right, transparent, #8b4513, transparent);"></div>
 
             <!-- 郵票 Logo -->
@@ -30,12 +30,12 @@ export const retroVintageFullPageHTML = `
               <div style="position: absolute; bottom: -4px; left: -4px; right: -4px; height: 4px; background: repeating-linear-gradient(90deg, #e8d5b7 0px, #e8d5b7 4px, #8b4513 4px, #8b4513 8px);"></div>
             </div>
 
-            <!-- 主標題 -->
+            <!-- 主标題 -->
             <h1 style="font-size: 48px; font-weight: 900; color: #3e2723; margin: 0; letter-spacing: 2px; text-shadow: 2px 2px 0px rgba(139, 69, 19, 0.2); font-family: Georgia, serif;">
               THE VINTAGE TIMES
             </h1>
 
-            <!-- 裝飾花邊右 -->
+            <!-- 裝飾花边右 -->
             <div style="width: 80px; height: 2px; background: linear-gradient(to right, transparent, #8b4513, transparent);"></div>
           </div>
 
@@ -44,7 +44,7 @@ export const retroVintageFullPageHTML = `
           </div>
         </div>
 
-        <!-- 導航欄 (報紙欄目) -->
+        <!-- 导航欄 (報紙欄目) -->
         <nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
           <a href="javascript:void(0)" class="retro-nav-link" style="color: #3e2723; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 1px; padding: 0.5rem 1rem; border: 2px solid transparent; transition: all 0.3s; text-transform: uppercase; font-family: 'Courier New', monospace;">Dashboard</a>
           <a href="javascript:void(0)" class="retro-nav-link" style="color: #4e342e; text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 1px; padding: 0.5rem 1rem; border: 2px solid transparent; transition: all 0.3s; text-transform: uppercase; font-family: 'Courier New', monospace;">Projects</a>
@@ -54,18 +54,18 @@ export const retroVintageFullPageHTML = `
       </div>
     </header>
 
-    <!-- Hero 區塊 - 頭版頭條 -->
+    <!-- Hero 区塊 - 頭版頭條 -->
     <section class="retro-hero" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(232, 213, 183, 0.2)); padding: 3rem 2rem; border-bottom: 2px dashed #8b4513;">
       <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
 
-        <!-- 裝飾線 -->
+        <!-- 裝飾线 -->
         <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
           <div style="width: 100px; height: 1px; background: #8b4513;"></div>
           <span style="font-size: 18px; color: #8b4513;">★</span>
           <div style="width: 100px; height: 1px; background: #8b4513;"></div>
         </div>
 
-        <!-- 頭條標題 -->
+        <!-- 頭條标題 -->
         <h2 style="font-size: 42px; font-weight: 900; color: #3e2723; margin: 0 0 1rem; line-height: 1.2; text-shadow: 1px 1px 0px rgba(139, 69, 19, 0.2); font-family: Georgia, serif;">
           DAILY OPERATIONS REPORT
         </h2>
@@ -84,7 +84,7 @@ export const retroVintageFullPageHTML = `
           </button>
         </div>
 
-        <!-- 裝飾線 -->
+        <!-- 裝飾线 -->
         <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2rem;">
           <div style="width: 100px; height: 1px; background: #8b4513;"></div>
           <span style="font-size: 18px; color: #8b4513;">★</span>
@@ -93,7 +93,7 @@ export const retroVintageFullPageHTML = `
       </div>
     </section>
 
-    <!-- 統計卡片網格 - 信封/明信片風格 -->
+    <!-- 統計卡片网格 - 信封/明信片風格 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h3 style="font-size: 28px; font-weight: 900; color: #3e2723; margin-bottom: 2rem; text-align: center; border-bottom: 3px double #3e2723; padding-bottom: 1rem; font-family: Georgia, serif; letter-spacing: 1px;">
         PERFORMANCE METRICS
@@ -209,13 +209,13 @@ export const retroVintageFullPageHTML = `
       </div>
     </section>
 
-    <!-- 雙欄內容區 -->
+    <!-- 双欄內容区 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem;">
 
         <!-- 左欄: 項目列表 (打字機清單風格) -->
         <div class="retro-paper-section" style="background: #fff; border: 3px solid #3e2723; padding: 2rem; box-shadow: 4px 4px 0px rgba(62, 39, 35, 0.3); position: relative;">
-          <!-- 撕邊效果頂部 -->
+          <!-- 撕边效果頂部 -->
           <div style="position: absolute; top: -3px; left: 0; right: 0; height: 8px; background: repeating-linear-gradient(90deg, transparent, transparent 10px, #e8d5b7 10px, #e8d5b7 12px);"></div>
 
           <h3 style="font-size: 22px; font-weight: 900; color: #3e2723; margin-bottom: 1.5rem; border-bottom: 2px solid #3e2723; padding-bottom: 0.75rem; font-family: 'Courier New', monospace; letter-spacing: 1px;">
@@ -288,7 +288,7 @@ export const retroVintageFullPageHTML = `
 
         <!-- 右欄: 活動時間軸 (報紙編年史風格) -->
         <div class="retro-paper-section" style="background: #fff; border: 3px solid #3e2723; padding: 2rem; box-shadow: 4px 4px 0px rgba(62, 39, 35, 0.3); position: relative;">
-          <!-- 撕邊效果頂部 -->
+          <!-- 撕边效果頂部 -->
           <div style="position: absolute; top: -3px; left: 0; right: 0; height: 8px; background: repeating-linear-gradient(90deg, transparent, transparent 10px, #e8d5b7 10px, #e8d5b7 12px);"></div>
 
           <h3 style="font-size: 22px; font-weight: 900; color: #3e2723; margin-bottom: 1.5rem; border-bottom: 2px solid #3e2723; padding-bottom: 0.75rem; font-family: 'Courier New', monospace; letter-spacing: 1px;">
@@ -296,7 +296,7 @@ export const retroVintageFullPageHTML = `
           </h3>
 
           <div style="position: relative; padding-left: 2.5rem;">
-            <!-- 垂直虛線 -->
+            <!-- 垂直虛线 -->
             <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: repeating-linear-gradient(to bottom, #8b4513 0px, #8b4513 6px, transparent 6px, transparent 12px);"></div>
 
             <!-- 活動 1 -->
@@ -354,13 +354,13 @@ export const retroVintageFullPageHTML = `
       </div>
     </section>
 
-    <!-- 組件展示區 -->
+    <!-- 組件展示区 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h3 style="font-size: 28px; font-weight: 900; color: #3e2723; margin-bottom: 2rem; text-align: center; border-bottom: 3px double #3e2723; padding-bottom: 1rem; font-family: Georgia, serif; letter-spacing: 1px;">
         UI COMPONENTS SHOWCASE
       </h3>
 
-      <!-- 數據表格 -->
+      <!-- 数据表格 -->
       <div class="retro-paper-section" style="background: #fff; border: 3px solid #3e2723; padding: 2rem; box-shadow: 4px 4px 0px rgba(62, 39, 35, 0.3); margin-bottom: 3rem;">
         <h4 style="font-size: 20px; font-weight: 900; color: #3e2723; margin-bottom: 1.5rem; font-family: 'Courier New', monospace;">
           TRANSACTION RECORDS
@@ -478,7 +478,7 @@ export const retroVintageFullPageHTML = `
           </div>
         </div>
 
-        <!-- 錯誤提示 -->
+        <!-- 错誤提示 -->
         <div style="background: #fff; border: 3px solid #a0522d; padding: 1rem; box-shadow: 4px 4px 0px rgba(160, 82, 45, 0.3); display: flex; align-items: start; gap: 1rem;">
           <div style="width: 40px; height: 40px; background: #a0522d; color: #f5e6d3; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">✕</div>
           <div style="flex: 1;">
@@ -488,7 +488,7 @@ export const retroVintageFullPageHTML = `
         </div>
       </div>
 
-      <!-- 載入動畫 -->
+      <!-- 載入動画 -->
       <div class="retro-paper-section" style="background: #fff; border: 3px solid #3e2723; padding: 2rem; box-shadow: 4px 4px 0px rgba(62, 39, 35, 0.3);">
         <h4 style="font-size: 18px; font-weight: 900; color: #3e2723; margin-bottom: 1.5rem; font-family: 'Courier New', monospace;">
           LOADING INDICATORS
@@ -522,11 +522,11 @@ export const retroVintageFullPageHTML = `
       </div>
     </section>
 
-    <!-- 頁腳 -->
+    <!-- 页腳 -->
     <footer style="background: linear-gradient(to bottom, #e8d5b7, #d4c4a8); border-top: 4px double #3e2723; padding: 2rem; margin-top: 4rem; box-shadow: 0 -2px 8px rgba(62, 39, 35, 0.2);">
       <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
 
-        <!-- 裝飾線 -->
+        <!-- 裝飾线 -->
         <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
           <div style="width: 100px; height: 1px; background: #8b4513;"></div>
           <span style="font-size: 16px; color: #8b4513;">❖</span>
@@ -548,7 +548,7 @@ export const retroVintageFullPageHTML = `
           <a href="javascript:void(0)" style="color: #3e2723; text-decoration: none; transition: all 0.3s;">SUBSCRIBE</a>
         </div>
 
-        <!-- 裝飾線 -->
+        <!-- 裝飾线 -->
         <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
           <div style="width: 100px; height: 1px; background: #8b4513;"></div>
           <span style="font-size: 16px; color: #8b4513;">❖</span>
@@ -613,7 +613,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* 響應式設計 */
+/* 響應式设計 */
 @media (max-width: 768px) {
   h1 {
     font-size: 32px !important;
@@ -652,7 +652,7 @@ footer a:hover {
   }
 }
 
-/* 動畫效果 */
+/* 動画效果 */
 @keyframes retro-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }

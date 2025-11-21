@@ -19,7 +19,7 @@ export function useToast() {
   });
 
   /**
-   * 顯示 Toast
+   * 显示 Toast
    * @param {string|object} options - 訊息字符串或配置對象
    */
   const showToast = useCallback((options = {}) => {

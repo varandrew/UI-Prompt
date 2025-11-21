@@ -1,5 +1,5 @@
 // Hand-drawn Sketch Style - UI Components Showcase Full Page
-// 英文為默認界面語言；支援繁體中文翻譯鍵值（由外部 i18n 處理）
+// 英文為默認界面語言；支援繁体中文翻譯鍵值（由外部 i18n 處理）
 
 export const handDrawnSketchComponentsFullPageHTML = `
   <!-- Google Fonts: Hand-drawn fonts -->

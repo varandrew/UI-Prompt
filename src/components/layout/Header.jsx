@@ -26,7 +26,7 @@ export function Header() {
     { path: '/layout', label: t('nav.layout'), openInNewTab: true },
   ];
 
-  // 處理 Escape 鍵關閉菜單
+  // 處理 Escape 鍵关閉菜單
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isMobileMenuOpen) {
@@ -76,7 +76,7 @@ export function Header() {
           role="navigation"
           aria-label={t('ui.mainNavigation')}
         >
-          {/* Logo 區域 (左側) */}
+          {/* Logo 区域 (左側) */}
           <div className="flex items-center">
             <Link
               to="/home"
@@ -131,7 +131,7 @@ export function Header() {
             })}
           </ul>
 
-          {/* 右側功能區 (語言切換 + 移動端菜單) */}
+          {/* 右側功能区 (語言切換 + 移動端菜單) */}
           <div className="flex items-center gap-2">
             <button
               onClick={switchLanguage}
@@ -141,7 +141,7 @@ export function Header() {
               {language === LANGUAGES.ZH_CN || language === LANGUAGES.ZH_CN_LOWER ? 'EN' : t('language.label')}
             </button>
 
-            {/* 移動端菜單按鈕 (靜態圖標) */}
+            {/* 移動端菜單按鈕 (静態圖标) */}
             <button
               ref={menuButtonRef}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

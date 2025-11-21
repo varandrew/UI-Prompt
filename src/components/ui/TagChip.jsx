@@ -2,15 +2,15 @@ import { getTagColor, getTagLabel } from '../../data/metadata/categoryMetadata';
 import { DEFAULT_LANGUAGE } from '../../utils/i18n/languageConstants';
 
 /**
- * TagChip 組件 - 顯示風格標籤
+ * TagChip 組件 - 显示風格标籤
  *
  * @param {Object} props
- * @param {String} props.tagId - 標籤 ID
+ * @param {String} props.tagId - 标籤 ID
  * @param {String} props.language - 語言 ('zh-CN' | 'en-US')
  * @param {String} props.size - 尺寸 ('sm' | 'md' | 'lg')
  * @param {Boolean} props.clickable - 是否可點擊
  * @param {Function} props.onClick - 點擊回調
- * @param {String} props.className - 額外的 CSS 類
+ * @param {String} props.className - 額外的 CSS 类
  */
 export function TagChip({
   tagId,
@@ -54,7 +54,7 @@ export function TagChip({
         backgroundColor: `${color}15`, // 15% 透明度背景
         color: color,
         borderWidth: '1px',
-        borderColor: `${color}40` // 40% 透明度邊框
+        borderColor: `${color}40` // 40% 透明度边框
       }}
       onClick={handleClick}
       role={clickable ? 'button' : undefined}
@@ -66,16 +66,16 @@ export function TagChip({
 }
 
 /**
- * TagGroup 組件 - 顯示一組標籤
+ * TagGroup 組件 - 显示一組标籤
  *
  * @param {Object} props
- * @param {Array<String>} props.tags - 標籤 ID 數組
+ * @param {Array<String>} props.tags - 标籤 ID 数組
  * @param {String} props.language - 語言
  * @param {String} props.size - 尺寸
  * @param {Boolean} props.clickable - 是否可點擊
- * @param {Function} props.onTagClick - 標籤點擊回調
- * @param {Number} props.maxDisplay - 最多顯示數量
- * @param {String} props.className - 額外的 CSS 類
+ * @param {Function} props.onTagClick - 标籤點擊回調
+ * @param {Number} props.maxDisplay - 最多显示数量
+ * @param {String} props.className - 額外的 CSS 类
  */
 export function TagGroup({
   tags = [],
@@ -117,14 +117,14 @@ export function TagGroup({
 }
 
 /**
- * CategoryBadge 組件 - 顯示主分類徽章
+ * CategoryBadge 組件 - 显示主分类徽章
  *
  * @param {Object} props
- * @param {String} props.categoryId - 分類 ID
- * @param {String} props.icon - 圖標
- * @param {String} props.label - 標籤文本
- * @param {Boolean} props.primary - 是否為主分類
- * @param {String} props.className - 額外的 CSS 類
+ * @param {String} props.categoryId - 分类 ID
+ * @param {String} props.icon - 圖标
+ * @param {String} props.label - 标籤文本
+ * @param {Boolean} props.primary - 是否為主分类
+ * @param {String} props.className - 額外的 CSS 类
  */
 export function CategoryBadge({
   icon,

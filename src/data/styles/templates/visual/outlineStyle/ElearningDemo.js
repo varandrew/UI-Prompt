@@ -1783,23 +1783,23 @@ export const outlineStyleElearningStyles = `
   }
 `;
 
-// 標準模板對象
+// 标準模板對象
 export const elearningDemo = {
   id: 'visual-outlineStyle-elearning',
   title: 'styles.outlineStyle.elearningDemo.title',
   description: 'styles.outlineStyle.elearningDemo.description',
 
-  // Demo 預覽 (在 StyleCard 中顯示，使用 Demo.js 的內容)
+  // Demo 預覽 (在 StyleCard 中显示，使用 Demo.js 的內容)
   demoHTML: `<!-- 使用 Demo.js 提供的預覽 -->`,
   customStyles: `/* 使用 Demo.js 提供的樣式 */`,
 
-  // 完整頁面預覽
+  // 完整页面預覽
   fullPageHTML: outlineStyleElearningHTML,
   fullPageStyles: outlineStyleElearningStyles,
 
   // 配色方案
   colorScheme: {
-    'zh-CN': '主色藍色 (#3B82F6)、次色綠色 (#10B981)、紫色 (#A855F7)、黃色 (#FBBF24)、紅色 (#EF4444)、黑色線條 (#000000)、白色背景 (#ffffff)',
+    'zh-CN': '主色藍色 (#3B82F6)、次色綠色 (#10B981)、紫色 (#A855F7)、黃色 (#FBBF24)、紅色 (#EF4444)、黑色线條 (#000000)、白色背景 (#ffffff)',
     'en-US': 'Primary blue (#3B82F6), secondary green (#10B981), purple (#A855F7), yellow (#FBBF24), red (#EF4444), black outlines (#000000), white background (#ffffff)'
   }
 };

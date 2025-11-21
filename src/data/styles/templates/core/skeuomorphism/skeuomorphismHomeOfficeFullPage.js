@@ -1,20 +1,20 @@
 /**
  * Skeuomorphism Home Office Full Page - Digital Studio Theme
- * 拟物化家庭辦公室完整頁面 - 數位工作室主題
+ * 拟物化家庭辦公室完整页面 - 数位工作室主題
  *
  * 特色組件：
- * - 木質紋理導航欄
- * - 皮革筆記本 Hero 區域
+ * - 木质紋理导航欄
+ * - 皮革筆記本 Hero 区域
  * - 便簽紙統計卡片
- * - 木質任務看板
- * - 翻頁日曆
+ * - 木质任务看板
+ * - 翻页日曆
  * - 文件櫃抽屜
  * - 金屬旋鈕控制面板
  * - 時間追蹤器
- * - 軟木通知板
+ * - 软木通知板
  * - 計算器
  * - 便利貼牆
- * - 木質書架
+ * - 木质書架
  */
 
 export const skeuomorphismHomeOfficeFullPageHTML = `

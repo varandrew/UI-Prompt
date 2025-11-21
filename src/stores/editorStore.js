@@ -4,21 +4,21 @@ import { nanoid } from 'nanoid';
 import { useHistoryStore } from './useHistoryStore';
 
 /**
- * 交互式 UI 布局編輯器 - 核心狀態管理（含性能優化）
+ * 交互式 UI 布局編輯器 - 核心狀態管理（含性能优化）
  *
- * 架構設計:
- * - 單向數據流 (UDF): State → View → Event → Update
- * - 正規化數據模型: componentTree (層級關係) + componentProps (扁平映射)
+ * 架構设計:
+ * - 單向数据流 (UDF): State → View → Event → Update
+ * - 正規化数据模型: componentTree (层級关係) + componentProps (扁平映射)
  * - Desktop-first 響應式策略: baseProps + responsiveOverrides
  *
- * 性能優化:
+ * 性能优化:
  * - RAF 批次/節流更新 API（Throttled）
  * - 批次快照（一次 flush 記一次）
  */
 
 // 初始狀態
 const initialState = {
-  // 全局設置
+  // 全局设置
   globalSettings: {
     activeViewport: 'desktop', // 'desktop' | 'tablet' | 'mobile' | 'custom'
     customWidth: null,
@@ -27,9 +27,9 @@ const initialState = {
     snapToGrid: true,
   },
 
-  // 畫布狀態
+  // 画布狀態
   canvasState: {
-    // 組件樹 (僅層級關係,無樣式數據)
+    // 組件樹 (仅层級关係,無樣式数据)
     componentTree: {
       id: 'root',
       componentType: 'Page',
@@ -67,7 +67,7 @@ const initialState = {
   }
 };
 
-// 工具函數: 在樹中查找組件
+// 工具函数: 在樹中查找組件
 const findComponentById = (tree, id) => {
   if (tree.id === id) return tree;
   for (const child of tree.children || []) {
@@ -77,7 +77,7 @@ const findComponentById = (tree, id) => {
   return null;
 };
 
-// 工具函數: 生成默認 Props
+// 工具函数: 生成默認 Props
 const createDefaultProps = (componentType) => {
   const defaults = {
     Button: {
@@ -268,7 +268,7 @@ export const useEditorStore = create(
       ...initialState,
 
       /**
-       * 以整體替換畫布（供基準/測試使用）
+       * 以整体替換画布（供基準/測試使用）
        */
       replaceCanvas: (canvas) => set((state) => {
         state.canvasState = {
@@ -277,7 +277,7 @@ export const useEditorStore = create(
         };
       }),
 
-      // ========== 全局設置 ==========
+      // ========== 全局设置 ==========
       setViewport: (viewport, customDimensions = {}) => set((state) => {
         state.globalSettings.activeViewport = viewport;
         if (viewport === 'custom') {
@@ -378,7 +378,7 @@ export const useEditorStore = create(
           const a = findParentAndIndex(state.canvasState.componentTree, idA);
           const b = findParentAndIndex(state.canvasState.componentTree, idB);
           if (!a || !b) return;
-          if (a.parentId !== b.parentId) return; // 僅允許同父交换
+          if (a.parentId !== b.parentId) return; // 仅允許同父交换
           const arr = a.parentNode.children;
           const tmp = arr[a.index];
           arr[a.index] = arr[b.index];
@@ -555,7 +555,7 @@ export const useEditorStore = create(
           });
           const cloned = cloneWithNewIds(state.clipboard);
           parent.children.push(cloned);
-          // 初始化屬性（簡化：只為根克隆節點生成默認屬性）
+          // 初始化屬性（简化：只為根克隆節點生成默認屬性）
           state.canvasState.componentProps[cloned.id] = createDefaultProps(cloned.componentType);
           newId = cloned.id;
         });

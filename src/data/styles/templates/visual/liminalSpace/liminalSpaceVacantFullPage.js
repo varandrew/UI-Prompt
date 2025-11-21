@@ -1,5 +1,5 @@
 // Liminal Space - Vacant Space Full Page Template
-// VACANT_SPACE.EXE - 數位虛空空間完整頁面預覽
+// VACANT_SPACE.EXE - 数位虛空空間完整页面預覽
 
 export const liminalSpaceVacantFullPageHTML = `
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ export const liminalSpaceVacantFullPageHTML = `
   <style>INJECT_STYLES_HERE</style>
 </head>
 <body class="liminal-body">
-  <!-- 背景效果層 -->
+  <!-- 背景效果层 -->
   <div class="liminal-background">
     <div class="liminal-fog-overlay"></div>
     <div class="liminal-noise-texture"></div>
@@ -28,7 +28,7 @@ export const liminalSpaceVacantFullPageHTML = `
     <div class="liminal-particle liminal-particle-cyan" style="left: 85%; top: 15%; --delay: 8s; --duration: 11s;"></div>
   </div>
 
-  <!-- Hero 區 -->
+  <!-- Hero 区 -->
   <section class="liminal-hero">
     <div class="liminal-hero-content">
       <h1 class="liminal-neon-title">
@@ -43,7 +43,7 @@ export const liminalSpaceVacantFullPageHTML = `
     </div>
   </section>
 
-  <!-- 霧化玻璃導航 -->
+  <!-- 霧化玻璃导航 -->
   <nav class="liminal-nav">
     <div class="liminal-glass-bar">
       <a href="javascript:void(0)" class="liminal-nav-item active">SECTOR_01</a>
@@ -53,7 +53,7 @@ export const liminalSpaceVacantFullPageHTML = `
     </div>
   </nav>
 
-  <!-- 內容卡片網格 -->
+  <!-- 內容卡片网格 -->
   <section class="liminal-content">
     <div class="liminal-card-grid">
       <!-- 卡片 1 -->
@@ -122,7 +122,7 @@ export const liminalSpaceVacantFullPageHTML = `
     </div>
   </section>
 
-  <!-- 交互元素區 -->
+  <!-- 交互元素区 -->
   <section class="liminal-interaction">
     <div class="liminal-form-container">
       <h3 class="liminal-section-title">SYSTEM_ACCESS</h3>
@@ -153,14 +153,14 @@ export const liminalSpaceVacantFullPageHTML = `
     </div>
   </section>
 
-  <!-- 頁腳 -->
+  <!-- 页腳 -->
   <footer class="liminal-footer">
     <p class="liminal-timestamp">SYSTEM_TIME: 03:47:21 AM</p>
     <p class="liminal-system-info">[ LIMINAL_OS v1.0.0 ] // NO_SIGNAL_DETECTED</p>
   </footer>
 
   <script>
-    // 導航高亮切換
+    // 导航高亮切換
     document.querySelectorAll('.liminal-nav-item').forEach((item, index) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
@@ -222,7 +222,7 @@ export const liminalSpaceVacantFullPageStyles = `
   overflow-x: hidden;
 }
 
-/* 背景效果層 */
+/* 背景效果层 */
 .liminal-background {
   position: fixed;
   top: 0;
@@ -319,7 +319,7 @@ export const liminalSpaceVacantFullPageStyles = `
   }
 }
 
-/* Hero 區 */
+/* Hero 区 */
 .liminal-hero {
   position: relative;
   z-index: 2;
@@ -392,7 +392,7 @@ export const liminalSpaceVacantFullPageStyles = `
   transform: translateY(-2px);
 }
 
-/* 霧化玻璃導航 */
+/* 霧化玻璃导航 */
 .liminal-nav {
   position: sticky;
   top: 0;
@@ -448,7 +448,7 @@ export const liminalSpaceVacantFullPageStyles = `
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 內容卡片網格 */
+/* 內容卡片网格 */
 .liminal-content {
   position: relative;
   z-index: 2;
@@ -583,7 +583,7 @@ export const liminalSpaceVacantFullPageStyles = `
   letter-spacing: 0.1em;
 }
 
-/* 交互元素區 */
+/* 交互元素区 */
 .liminal-interaction {
   position: relative;
   z-index: 2;
@@ -722,7 +722,7 @@ export const liminalSpaceVacantFullPageStyles = `
   box-shadow: 0 0 15px rgba(255, 0, 106, 0.3);
 }
 
-/* 頁腳 */
+/* 页腳 */
 .liminal-footer {
   position: relative;
   z-index: 2;
@@ -746,7 +746,7 @@ export const liminalSpaceVacantFullPageStyles = `
   opacity: 0.3;
 }
 
-/* 響應式設計 */
+/* 響應式设計 */
 @media (max-width: 768px) {
   .liminal-hero {
     padding: 15vh 5vw;

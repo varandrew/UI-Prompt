@@ -7,8 +7,8 @@ import { clearLoadersCache } from './data/components/loaders.js'
 if (import.meta.env.DEV && typeof window !== 'undefined') {   
   window.__clearLoadersCache = clearLoadersCache
 
-  // 載入 Profiler/Bench（僅開發模式且僅在編輯器頁面）
-  // 避免在其他頁面初始化 store 導致無限循環
+  // 載入 Profiler/Bench（仅開發模式且仅在編輯器页面）
+  // 避免在其他页面初始化 store 导致無限循環
   if (window.location.pathname.includes('/layout')) {
     import('./utils/editor/profiler.js').catch(() => {})
   }

@@ -1,10 +1,10 @@
 /**
  * Scroll Narrative - FullPage Custom Prompt
- * 滾動敘事主頁面專屬的 AI Prompt (針對完整 7 章節頁面)
+ * 滾動敘事主页面专屬的 AI Prompt (針對完整 7 章節页面)
  */
 
 export const fullPageCustomPrompt = {
-  'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师,请生成一个与当前「滾動敘事完整頁面」界面风格高度接近的 UI。
+  'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师,请生成一个与当前「滾動敘事完整页面」界面风格高度接近的 UI。
 要求:保持整体布局、滚动动画效果和配色思路基本不变,只允许替换文案、品牌名称和少量细节。输出使用语义化 HTML 结构和类似 TailwindCSS 的原子类。
 
 【使用场景】

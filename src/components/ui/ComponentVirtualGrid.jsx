@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { VirtualMasonryVariable } from './VirtualMasonryVariable';
 
 /**
- * ComponentVirtualGrid - 組件頁面專用虛擬化網格
+ * ComponentVirtualGrid - 組件页面专用虛擬化网格
  * 響應式: 手機2欄, iPad3欄, 電腦4欄
  */
 export function ComponentVirtualGrid({ items, renderItem, ...props }) {

@@ -1,19 +1,19 @@
-// Cyberpunk / Neon Noir 完整頁面設計 - Matrix 駭客風格
+// Cyberpunk / Neon Noir 完整页面设計 - Matrix 駭客風格
 // Home Office Dashboard 風格
 
 export const cyberpunkFullPageHTML = `
 <div class="cyberpunk-full-page min-h-screen" style="background: #0a0a0a; color: #00ff41; font-family: 'Courier New', monospace; position: relative; overflow-x: hidden;">
 
-  <!-- 背景網格效果 -->
+  <!-- 背景网格效果 -->
   <div class="cyber-grid" style="position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px); background-size: 50px 50px; perspective: 1000px; transform: rotateX(60deg) translateZ(-100px);"></div>
 
-  <!-- 掃描線動畫 -->
+  <!-- 掃描线動画 -->
   <div class="cyber-scanline" style="position: fixed; inset: 0; pointer-events: none; z-index: 1; background: linear-gradient(transparent 50%, rgba(0, 255, 65, 0.03) 50%); background-size: 100% 4px; animation: cyber-scan 8s linear infinite;"></div>
 
   <!-- 主內容容器 -->
   <div style="position: relative; z-index: 2;">
 
-    <!-- 頂部導航欄 - 霓虹導航 -->
+    <!-- 頂部导航欄 - 霓虹导航 -->
     <nav class="cyber-navbar" style="position: sticky; top: 0; z-index: 50; background: rgba(10, 10, 10, 0.95); border-bottom: 2px solid #00ff41; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);">
       <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
 
@@ -26,7 +26,7 @@ export const cyberpunkFullPageHTML = `
           <span style="font-size: 20px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;">CYBER_TERMINAL</span>
         </div>
 
-        <!-- 主導航 -->
+        <!-- 主导航 -->
         <div style="display: flex; gap: 2rem; align-items: center;">
           <a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ff41; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s; text-shadow: 0 0 5px #00ff41;">MONITOR</a>
           <a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ffff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s;">TERMINAL</a>
@@ -42,7 +42,7 @@ export const cyberpunkFullPageHTML = `
             <span style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); color: #00ff41;">🔍</span>
           </div>
 
-          <!-- 通知圖標 -->
+          <!-- 通知圖标 -->
           <div style="position: relative; cursor: pointer;">
             <div style="width: 36px; height: 36px; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41; display: flex; align-items: center; justify-content: center; animation: cyber-pulse 2s ease-in-out infinite;">
               <span style="font-size: 16px;">🔔</span>
@@ -58,7 +58,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </nav>
 
-    <!-- Hero 區塊 -->
+    <!-- Hero 区塊 -->
     <section style="background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%); padding: 4rem 2rem; border-bottom: 1px solid #00ff41; position: relative; overflow: hidden;">
       <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
         <h1 class="cyber-glitch" style="font-size: 56px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41; margin: 0; line-height: 1.2; position: relative;">
@@ -77,7 +77,7 @@ export const cyberpunkFullPageHTML = `
         </div>
       </div>
 
-      <!-- 數據流背景 -->
+      <!-- 数据流背景 -->
       <div class="cyber-dataflow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.1; overflow: hidden;">
         <div style="position: absolute; top: -50%; left: 10%; font-size: 12px; animation: cyber-flow 15s linear infinite; animation-delay: 0s;">010101010101</div>
         <div style="position: absolute; top: -50%; left: 30%; font-size: 12px; animation: cyber-flow 20s linear infinite; animation-delay: 2s;">110110110110</div>
@@ -87,7 +87,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- 監控面板區 - 4 統計卡 -->
+    <!-- 監控面板区 - 4 統計卡 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// SYSTEM_MONITOR</h2>
 
@@ -138,7 +138,7 @@ export const cyberpunkFullPageHTML = `
           </div>
         </div>
 
-        <!-- 監控卡 3: 網絡流量 -->
+        <!-- 監控卡 3: 网絡流量 -->
         <div class="cyber-card" style="background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); transition: all 0.3s; position: relative;">
           <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0, 255, 65, 0.2), transparent); animation: cyber-pulse 2s ease-in-out infinite 1s;"></div>
 
@@ -160,7 +160,7 @@ export const cyberpunkFullPageHTML = `
           </div>
         </div>
 
-        <!-- 監控卡 4: 威脅檢測 -->
+        <!-- 監控卡 4: 威脅检測 -->
         <div class="cyber-card" style="background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); transition: all 0.3s; position: relative;">
           <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent); animation: cyber-pulse 2s ease-in-out infinite 1.5s;"></div>
 
@@ -184,12 +184,12 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- 數據終端區 - Data Terminal -->
+    <!-- 数据終端区 - Data Terminal -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// DATA_TERMINAL</h2>
 
       <div style="background: rgba(0, 0, 0, 0.8); border: 1px solid #00ff41; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 65, 0.3); font-family: 'Courier New', monospace; position: relative; overflow: hidden;">
-        <!-- 終端標題欄 -->
+        <!-- 終端标題欄 -->
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #00ff41; padding-bottom: 0.5rem;">
           <span style="color: #00ff41; font-size: 14px; font-weight: 700;">root@cyber-terminal:~#</span>
           <div style="display: flex; gap: 0.5rem;">
@@ -215,7 +215,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- 全息投影區 - Hologram Display -->
+    <!-- 全息投影区 - Hologram Display -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// HOLOGRAM_DISPLAY</h2>
 
@@ -255,7 +255,7 @@ export const cyberpunkFullPageHTML = `
       <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// ACTIVITY_LOG</h2>
 
       <div style="position: relative; padding-left: 2rem;">
-        <!-- 垂直線 -->
+        <!-- 垂直线 -->
         <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #00ff41, #00ffff); box-shadow: 0 0 10px #00ff41;"></div>
 
         <!-- Timeline 項目 1 -->
@@ -296,7 +296,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- Loading 動畫區 -->
+    <!-- Loading 動画区 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// LOADING_ANIMATIONS</h2>
 
@@ -317,7 +317,7 @@ export const cyberpunkFullPageHTML = `
           <p style="color: #00ffff; font-size: 12px; margin-top: 1rem;">PULSE</p>
         </div>
 
-        <!-- Loading 3: 數據流 -->
+        <!-- Loading 3: 数据流 -->
         <div style="text-align: center;">
           <div style="width: 60px; height: 60px; position: relative; overflow: hidden; border: 1px solid #00ff41;">
             <div style="position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent, #00ff41, transparent); animation: cyber-data-stream 2s linear infinite;"></div>
@@ -327,7 +327,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- 進度條區 -->
+    <!-- 進度條区 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// PROGRESS_BARS</h2>
 
@@ -354,7 +354,7 @@ export const cyberpunkFullPageHTML = `
           </div>
         </div>
 
-        <!-- 進度條 3: 掃描線效果 -->
+        <!-- 進度條 3: 掃描线效果 -->
         <div>
           <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
             <span style="color: #00ff41; font-size: 14px; font-weight: 700;">System Scan</span>
@@ -390,7 +390,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- 表單區 -->
+    <!-- 表單区 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// INPUT_FORMS</h2>
 
@@ -432,7 +432,7 @@ export const cyberpunkFullPageHTML = `
       </div>
     </section>
 
-    <!-- 數據表格 -->
+    <!-- 数据表格 -->
     <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
       <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// DATA_TABLE</h2>
 
@@ -503,7 +503,7 @@ export const cyberpunkFullPageHTML = `
 `;
 
 export const cyberpunkFullPageStyles = `
-/* Cyberpunk 核心動畫 */
+/* Cyberpunk 核心動画 */
 @keyframes cyber-scan {
   0% { background-position: 0 0; }
   100% { background-position: 0 100vh; }
@@ -635,7 +635,7 @@ footer a:hover {
   animation: cyber-glitch 5s infinite;
 }
 
-/* 響應式設計 */
+/* 響應式设計 */
 @media (max-width: 768px) {
   .cyber-navbar > div {
     flex-direction: column;

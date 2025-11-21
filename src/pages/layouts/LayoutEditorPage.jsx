@@ -18,20 +18,20 @@ import { TEMPLATES } from '../../data/components/templates';
 import { MinimalismModal } from '../../components/feedback/MinimalismModal';
 import { calculatePreviewSwap, findParentAndIndex } from '../../utils/editor/visualOrder';
 import { TutorialProvider, TutorialUI, tutorialEvents, TUTORIAL_EVENTS } from '../../components/tutorial';
-// 重新啟用對齊辅助线覆蓋層（藍色十字）
+// 重新啟用對齊辅助线覆蓋层（藍色十字）
 
 /**
- * 布局編輯器主頁面
+ * 布局編輯器主页面
  *
- * 設計原則:
- * - 極簡主義: 大量留白、清晰層次、功能優先
+ * 设計原則:
+ * - 極简主義: 大量留白、清晰层次、功能优先
  * - 三栏布局: 组件库(左) | 画布(中) | 层级/属性(右)
  * - 固定工具栏: 顶部视口切换
- * - Mobile-first: 小屏幕摺疊側邊欄
+ * - Mobile-first: 小屏幕摺疊側边欄
  */
 export function LayoutEditorPage() {
   const { t } = useLanguage();
-  // 從狀態管理讀取所需動作與狀態
+  // 从狀態管理讀取所需動作与狀態
   const globalSettings = useEditorStore((s) => s.globalSettings);
   const canvasState = useEditorStore((s) => s.canvasState);
   const exportProject = useEditorStore((s) => s.exportProject);
@@ -45,8 +45,8 @@ export function LayoutEditorPage() {
   const [rightPanelTab, setRightPanelTab] = useState('layers'); // 'layers' | 'properties'
   const [showPromptModal, setShowPromptModal] = useState(false);
   const [generatedPrompt, setGeneratedPrompt] = useState('');
-  const [showClearModal, setShowClearModal] = useState(false); // 清空畫布確認對話框
-  // 辅助线狀態與計算（視窗中心十字線）
+  const [showClearModal, setShowClearModal] = useState(false); // 清空画布確認對話框
+  // 辅助线狀態与計算（視窗中心十字线）
   const [showGuides, setShowGuides] = useState(false);
   const [guideV, setGuideV] = useState([]);
   const [guideH, setGuideH] = useState([]);
@@ -62,7 +62,7 @@ export function LayoutEditorPage() {
     return () => window.removeEventListener('resize', update);
   }, []);
 
-  // 對齊/分佈快捷操作（僅在 Flex 容器上啟用）
+  // 對齊/分佈快捷操作（仅在 Flex 容器上啟用）
   const isSelectedFlexContainer = (() => {
     const id = selectedComponentId;
     const props = canvasState?.componentProps?.[id];
@@ -96,7 +96,7 @@ export function LayoutEditorPage() {
   const applyTemplate = (key) => {
     const preset = TEMPLATES[key];
     if (!preset) return;
-    // 追加模式：不清空畫布，將模板結構附加至 root
+    // 追加模式：不清空画布，將模板結構附加至 root
 
     const { addComponent, updateBaseProps, updateLayoutProps } = useEditorStore.getState();
 
@@ -142,18 +142,18 @@ export function LayoutEditorPage() {
     useSensor(PointerSensor, { activationConstraint })
   );
 
-  // 清空畫布上的所有元件
+  // 清空画布上的所有元件
   const handleClearCanvas = () => {
     setShowClearModal(true);
   };
 
-  // 確認清空畫布
+  // 確認清空画布
   const handleConfirmClear = () => {
     try {
-      // 使用舊有 editorStore 重置畫布狀態，與 Canvas.jsx 的狀態來源保持一致
+      // 使用舊有 editorStore 重置画布狀態，与 Canvas.jsx 的狀態來源保持一致
       useEditorStore.getState().reset();
     } catch (e) {
-      console.error('清空畫布失敗:', e);
+      console.error('清空画布失敗:', e);
     }
   };
 
@@ -165,7 +165,7 @@ export function LayoutEditorPage() {
     try {
       const hs = useHistoryStore.getState();
 
-      // 註冊快照套用函數，並保存取消註冊函數
+      // 註冊快照套用函数，並保存取消註冊函数
       unregisterApplier = hs.registerSnapshotApplier((snap) => {
         if (snap?.canvasState) {
           try { useCanvasStore.getState().importCanvas(snap.canvasState); } catch {
@@ -182,7 +182,7 @@ export function LayoutEditorPage() {
         }
       });
 
-      // 註冊快照提供函數，並保存取消註冊函數
+      // 註冊快照提供函数，並保存取消註冊函数
       unregisterProvider = hs.registerSnapshotProvider(() => ({
         canvasState: useCanvasStore.getState().exportCanvas(),
         viewportState: useViewportStore.getState().exportSettings(),
@@ -193,7 +193,7 @@ export function LayoutEditorPage() {
       // Ignore initialization errors
     }
 
-    // 清理函數：在組件卸載時取消註冊，防止內存洩漏
+    // 清理函数：在組件卸載時取消註冊，防止內存洩漏
     return () => {
       if (typeof unregisterApplier === 'function') {
         try { unregisterApplier(); } catch {
@@ -208,7 +208,7 @@ export function LayoutEditorPage() {
     };
   }, []);
 
-  // 使用 ref 保存最新的選中與刪除函式，鍵盤事件只需綁一次
+  // 使用 ref 保存最新的選中与刪除函式，鍵盤事件只需綁一次
   const keyCtxRef = useRef({ selectedComponentId, deleteComponent });
   useEffect(() => {
     keyCtxRef.current = { selectedComponentId, deleteComponent };
@@ -256,7 +256,7 @@ export function LayoutEditorPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // 🔧 簡化碰撞檢測 - 測試診斷用
+  // 🔧 简化碰撞检測 - 測試診斷用
   const customCollisionDetection = useCallback((args) => pointerWithin(args), []);
 
   const handleDragStart = useCallback((event) => {
@@ -268,7 +268,7 @@ export function LayoutEditorPage() {
     tutorialEvents.emit(TUTORIAL_EVENTS.DRAG_START);
   }, []);
 
-  // 使用 ref 保存最新畫布樹，避免把巨大物件作為依賴導致 handler 每次重建
+  // 使用 ref 保存最新画布樹，避免把巨大物件作為依賴导致 handler 每次重建
   const canvasRef = useRef(canvasState?.componentTree);
   useEffect(() => { canvasRef.current = canvasState?.componentTree; }, [canvasState?.componentTree]);
 
@@ -515,7 +515,7 @@ export function LayoutEditorPage() {
         </div>
       </header>
 
-      {/* 主體區域 - 三欄布局 + DndContext */}
+      {/* 主体区域 - 三欄布局 + DndContext */}
       <main className="flex-1 flex overflow-hidden">
         <DndContext
           sensors={sensors}
@@ -534,7 +534,7 @@ export function LayoutEditorPage() {
             </aside>
           )}
 
-          {/* 中間: 畫布區域 */}
+          {/* 中間: 画布区域 */}
           <section className="flex-1 flex flex-col overflow-hidden">
             <div className="bg-white border-b px-2 py-1 flex items-center gap-1">
               <button className="px-2 py-1 text-xs rounded border border-gray-200 hover:bg-gray-50 disabled:opacity-50" onClick={() => alignHorizontal('flex-start') } disabled={!isSelectedFlexContainer} aria-label="水平左对齐" title="水平左对齐"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" /><rect x="5" y="9" width="8" height="6" rx="1" /></svg></button>
@@ -556,7 +556,7 @@ export function LayoutEditorPage() {
                 </svg>
               </label>
             </div>
-            {/* 畫布容器 */}
+            {/* 画布容器 */}
             <div data-guide="canvas" className="flex-1 overflow-auto p-6">
               <Canvas onComponentClick={handleComponentClick} previewSwap={previewSwap} />
             </div>
@@ -616,7 +616,7 @@ export function LayoutEditorPage() {
                 </button>
               </nav>
 
-              {/* 內容區域 */}
+              {/* 內容区域 */}
               <div className="flex-1 overflow-y-auto">
                 {rightPanelTab === 'layers' ? (
                   <div data-guide="layer-panel">
@@ -647,7 +647,7 @@ export function LayoutEditorPage() {
       {showPromptModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col">
-            {/* 標題 */}
+            {/* 标題 */}
             <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-gray-900">{t('layoutEditor.generatedPrompt')}</h2>
               <button
@@ -689,7 +689,7 @@ export function LayoutEditorPage() {
         </div>
       )}
 
-      {/* 清空畫布確認對話框 */}
+      {/* 清空画布確認對話框 */}
       <MinimalismModal
         open={showClearModal}
         title="清空画布"

@@ -1,5 +1,5 @@
 // Typography Family - Core Design System
-// 排版驅動設計家族 - 核心設計系統
+// 排版驅動设計家族 - 核心设計系統
 
 // 家族名稱
 export const name = 'nav.typography';
@@ -7,7 +7,7 @@ export const name = 'nav.typography';
 // 家族描述
 export const description = 'styles.typography.description';
 
-// 家族級 AI Prompt（雙語）
+// 家族級 AI Prompt（双語）
 export const customPrompt = {
   'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Typography」核心样式卡展示界面风格高度接近的「排版驱动设计」风格 UI。
 请使用 TailwindCSS 创建一个排版驱动设计风格的界面，**通过文字本身的视觉表现力传达信息**。
@@ -673,7 +673,7 @@ Neutral (Grayscale):
 `
 };
 
-// 分類首卡的專屬 Demo UI（不再複用子模板）
+// 分类首卡的专屬 Demo UI（不再複用子模板）
 export const demoUI = `
 <div class="typography-family-demo">
   <!-- 左側：Kinetic Typography 預覽 -->
@@ -682,7 +682,7 @@ export const demoUI = `
     <div class="kinetic-subtitle">動態排版</div>
   </div>
 
-  <!-- 中間分隔線 -->
+  <!-- 中間分隔线 -->
   <div class="demo-divider"></div>
 
   <!-- 右側：Editorial Typography 預覽 -->
@@ -696,7 +696,7 @@ export const demoUI = `
 </div>
 `;
 
-// 分類首卡的自定義樣式
+// 分类首卡的自定義樣式
 export const customStyles = `
 .typography-family-demo {
   display: grid;
@@ -752,7 +752,7 @@ export const customStyles = `
   }
 }
 
-/* 中間分隔線 */
+/* 中間分隔线 */
 .demo-divider {
   background: linear-gradient(180deg,
     rgba(102, 126, 234, 0.3) 0%,
@@ -827,7 +827,7 @@ export const customStyles = `
 }
 `;
 
-// 導入子模板
+// 导入子模板
 import { kineticTypographyTemplates } from './kinetic/kineticTypography.js';
 import { newspaperEditorialTemplates } from './editorial/newspaperEditorial.js';
 
@@ -837,7 +837,7 @@ export const typographyTemplates = [
   // ...newspaperEditorialTemplates
 ];
 
-// 導出聚合數據
+// 导出聚合数据
 export default {
   name,
   description,

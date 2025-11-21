@@ -1,4 +1,4 @@
-// Kawaii Minimal 完整頁面預覽 - 個人作品集主題
+// Kawaii Minimal 完整页面預覽 - 個人作品集主題
 
 export const kawaiiMinimalFullPageHTML = `
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ export const kawaiiMinimalFullPageHTML = `
   <!-- 主容器 -->
   <div class="kawaii-full-page">
 
-    <!-- 導航欄 -->
+    <!-- 导航欄 -->
     <nav class="kawaii-nav">
       <div class="nav-container">
         <div class="nav-logo">
@@ -33,7 +33,7 @@ export const kawaiiMinimalFullPageHTML = `
       </div>
     </nav>
 
-    <!-- Hero 區塊 -->
+    <!-- Hero 区塊 -->
     <section class="kawaii-hero">
       <div class="hero-content">
         <div class="hero-emoji">
@@ -54,7 +54,7 @@ export const kawaiiMinimalFullPageHTML = `
       </div>
     </section>
 
-    <!-- 關於我區塊 -->
+    <!-- 关於我区塊 -->
     <section class="kawaii-section">
       <div class="section-container">
         <h2 class="section-title">About Me</h2>
@@ -87,7 +87,7 @@ export const kawaiiMinimalFullPageHTML = `
       </div>
     </section>
 
-    <!-- 作品展示區 -->
+    <!-- 作品展示区 -->
     <section class="kawaii-section bg-gradient">
       <div class="section-container">
         <h2 class="section-title">Featured Works</h2>
@@ -135,7 +135,7 @@ export const kawaiiMinimalFullPageHTML = `
       </div>
     </section>
 
-    <!-- 技能標籤雲 -->
+    <!-- 技能标籤云 -->
     <section class="kawaii-section">
       <div class="section-container">
         <h2 class="section-title">Skills & Tools</h2>
@@ -154,7 +154,7 @@ export const kawaiiMinimalFullPageHTML = `
       </div>
     </section>
 
-    <!-- 聯絡表單 -->
+    <!-- 联絡表單 -->
     <section class="kawaii-section">
       <div class="section-container">
         <h2 class="section-title">Let's Work Together</h2>
@@ -181,7 +181,7 @@ export const kawaiiMinimalFullPageHTML = `
       </div>
     </section>
 
-    <!-- 頁腳 -->
+    <!-- 页腳 -->
     <footer class="kawaii-footer">
       <div class="footer-container">
         <div class="footer-content">
@@ -207,7 +207,7 @@ export const kawaiiMinimalFullPageHTML = `
 `;
 
 export const kawaiiMinimalFullPageStyles = `
-/* ========== 基礎設置 ========== */
+/* ========== 基礎设置 ========== */
 * {
   margin: 0;
   padding: 0;
@@ -225,7 +225,7 @@ body {
   min-height: 100vh;
 }
 
-/* ========== 導航欄 ========== */
+/* ========== 导航欄 ========== */
 .kawaii-nav {
   background: linear-gradient(135deg, #FFB6D9 0%, #E6D5FF 50%, #D4F1D4 100%);
   padding: 1rem 0;
@@ -277,7 +277,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ========== Hero 區塊 ========== */
+/* ========== Hero 区塊 ========== */
 .kawaii-hero {
   padding: 5rem 2rem;
   text-align: center;
@@ -360,7 +360,7 @@ body {
   font-size: 1.125rem;
 }
 
-/* ========== 區塊容器 ========== */
+/* ========== 区塊容器 ========== */
 .kawaii-section {
   padding: 4rem 2rem;
 }
@@ -385,7 +385,7 @@ body {
   background-clip: text;
 }
 
-/* ========== 關於我卡片 ========== */
+/* ========== 关於我卡片 ========== */
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -518,7 +518,7 @@ body {
   font-weight: 500;
 }
 
-/* ========== 技能標籤雲 ========== */
+/* ========== 技能标籤云 ========== */
 .skills-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -616,7 +616,7 @@ body {
   min-height: 120px;
 }
 
-/* ========== 頁腳 ========== */
+/* ========== 页腳 ========== */
 .kawaii-footer {
   background: linear-gradient(135deg, #FFB6D9, #E6D5FF, #D4F1D4);
   padding: 3rem 2rem;
@@ -667,7 +667,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ========== 動畫定義 ========== */
+/* ========== 動画定義 ========== */
 @keyframes kawaiiBounce {
   0%, 100% {
     transform: translateY(0);
@@ -686,7 +686,7 @@ body {
   }
 }
 
-/* ========== 響應式設計 ========== */
+/* ========== 響應式设計 ========== */
 @media (max-width: 768px) {
   .nav-menu {
     display: none;

@@ -15,17 +15,17 @@ import { getVisualOrder } from '../../utils/editor/visualOrder';
 import { motion } from 'framer-motion';
 
 /**
- * 畫布組件渲染器（優化版）
+ * 画布組件渲染器（优化版）
  *
- * 優化點：
- * - 使用 selector 訂閱選中狀態：僅選中/取消選中節點重渲染 → 稀疏選框渲染
- * - 接收 getProps 函式取得當前節點 props，避免傳整張映射造成級聯重渲染
+ * 优化點：
+ * - 使用 selector 訂閱選中狀態：仅選中/取消選中節點重渲染 → 稀疏選框渲染
+ * - 接收 getProps 函式取得當前節點 props，避免傳整張映射造成級联重渲染
  * - 以 React.memo 搭配淺比較保護未變更子樹
  */
 const InnerCanvasComponent = ({ component, onClick, getProps, previewSwap = null }) => {
   const props = getProps?.(component.id) || {};
 
-  // 僅當前節點與選中關聯時觸發更新
+  // 仅當前節點与選中关联時觸發更新
   const isSelected = useSelectionStore(useCallback((s) => s.selectedComponentId === component.id, [component.id]));
 
   const isContainer = canHaveChildren(component.componentType);
@@ -35,10 +35,10 @@ const InnerCanvasComponent = ({ component, onClick, getProps, previewSwap = null
   const isPreviewDragged = previewSwap?.draggedId === component.id;
   const previewOpacity = isPreviewDragged ? 0.3 : 1;
 
-  // 碰撞動畫控制
+  // 碰撞動画控制
   const { setNodeRef: _ignore } = useCollisionAnimation();
 
-  // 僅 Page 不可拖動；容器可接收放置
+  // 仅 Page 不可拖動；容器可接收放置
   const { attributes, listeners, setNodeRef: setSortableRef, transform, transition, isDragging } = useSortable({
     id: component.id,
     disabled: isRootPage,
@@ -51,7 +51,7 @@ const InnerCanvasComponent = ({ component, onClick, getProps, previewSwap = null
     data: { componentType: component.componentType }
   });
 
-  // 合併 sortable 與 droppable 的 ref
+  // 合併 sortable 与 droppable 的 ref
   const setMultipleRefs = useCallback((node) => {
     if (isContainer) {
       setSortableRef(node);
@@ -74,7 +74,7 @@ const InnerCanvasComponent = ({ component, onClick, getProps, previewSwap = null
     ...(props?.baseProps?.style || {})
   };
 
-  // Framer Motion 動畫配置
+  // Framer Motion 動画配置
   const motionConfig = {
     layout: true,
     transition: getAdaptiveTransition(smoothSwapTransition),
@@ -85,7 +85,7 @@ const InnerCanvasComponent = ({ component, onClick, getProps, previewSwap = null
     style: { opacity: previewOpacity }
   };
 
-  // 在組件頂層計算虛擬子組件順序（避免 hooks 位置變動）
+  // 在組件頂层計算虛擬子組件順序（避免 hooks 位置變動）
   const visualChildren = useMemo(() => {
     if (!component.children || component.children.length === 0) return [];
     if (!previewSwap || previewSwap.parentId !== component.id) return component.children;
@@ -195,7 +195,7 @@ const InnerCanvasComponent = ({ component, onClick, getProps, previewSwap = null
 };
 
 export const CanvasComponent = React.memo(InnerCanvasComponent, (prev, next) => {
-  // 若節點引用、預覽狀態與回調皆未變更，則跳過重渲染
+  // 若節點引用、預覽狀態与回調皆未變更，則跳過重渲染
   return (
     prev.component === next.component &&
     prev.previewSwap === next.previewSwap &&

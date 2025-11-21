@@ -1,69 +1,25 @@
-// Glassmorphism 玻璃态设计 - Demo UI (技術參數對比版本)
+// Glassmorphism 玻璃态设计 - Visual Demo (Minimal Text)
 
 export const demoHTML = `
   <div class="glass-showcase">
-    <div class="glass-header">
-      <h3 class="glass-main-title">Glassmorphism</h3>
-      <p class="glass-subtitle">玻璃态设计效果对比 / Glass Effect Comparison</p>
+    <!-- 背景彩色圓球（提供內容用於模糊效果） -->
+    <div class="bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
 
-    <div class="glass-grid">
-      <!-- 第一行：Alpha 0.1 -->
-      <div class="glass-param-card" data-blur="10" data-alpha="0.1">
-        <div class="glass-label-top">Blur 10px</div>
-        <div class="glass-surface glass-blur-10 glass-alpha-10">
-          <div class="glass-icon">🔍</div>
-        </div>
-        <div class="glass-label-bottom">Alpha 0.1</div>
-      </div>
-
-      <div class="glass-param-card" data-blur="15" data-alpha="0.1">
-        <div class="glass-label-top">Blur 15px</div>
-        <div class="glass-surface glass-blur-15 glass-alpha-10">
-          <div class="glass-icon">✨</div>
-        </div>
-        <div class="glass-label-bottom">Alpha 0.1</div>
-      </div>
-
-      <div class="glass-param-card" data-blur="20" data-alpha="0.1">
-        <div class="glass-label-top">Blur 20px</div>
-        <div class="glass-surface glass-blur-20 glass-alpha-10">
-          <div class="glass-icon">💎</div>
-        </div>
-        <div class="glass-label-bottom">Alpha 0.1</div>
-      </div>
-
-      <!-- 第二行：Alpha 0.15 -->
-      <div class="glass-param-card" data-blur="10" data-alpha="0.15">
-        <div class="glass-label-top">Blur 10px</div>
-        <div class="glass-surface glass-blur-10 glass-alpha-15">
-          <div class="glass-icon">⚡</div>
-        </div>
-        <div class="glass-label-bottom">Alpha 0.15</div>
-      </div>
-
-      <div class="glass-param-card" data-blur="15" data-alpha="0.15">
-        <div class="glass-label-top">Blur 15px</div>
-        <div class="glass-surface glass-blur-15 glass-alpha-15">
-          <div class="glass-icon">🌟</div>
-        </div>
-        <div class="glass-label-bottom">Alpha 0.15</div>
-      </div>
-
-      <div class="glass-param-card" data-blur="20" data-alpha="0.15">
-        <div class="glass-label-top">Blur 20px</div>
-        <div class="glass-surface glass-blur-20 glass-alpha-15">
-          <div class="glass-icon">✨</div>
-        </div>
-        <div class="glass-label-bottom">Alpha 0.15</div>
-      </div>
+    <!-- 主玻璃卡片 -->
+    <div class="glass-card">
+      <h3 class="glass-title">Glassmorphism</h3>
+      <div class="glass-divider"></div>
     </div>
 
-    <div class="glass-footer">
-      <div class="glass-note">
-        <span class="glass-note-icon">💡</span>
-        <span class="glass-note-text">Blur 值越高 = 玻璃感越強 | Alpha 值越高 = 不透明度越高</span>
-      </div>
+    <!-- 小型玻璃元素 -->
+    <div class="glass-pills">
+      <div class="glass-pill"></div>
+      <div class="glass-pill"></div>
+      <div class="glass-pill"></div>
     </div>
   </div>
 `;
@@ -77,96 +33,85 @@ export const customStyles = `
 
   .glass-showcase {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 32px 24px;
+    padding: 48px 32px;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    gap: 24px;
-  }
-
-  /* Header */
-  .glass-header {
-    text-align: center;
-    color: white;
-    margin-bottom: 8px;
-  }
-
-  .glass-main-title {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
-
-  .glass-subtitle {
-    font-size: 14px;
-    opacity: 0.9;
-    font-weight: 400;
-  }
-
-  /* Grid Layout */
-  .glass-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 800px;
-    width: 100%;
-  }
-
-  /* Parameter Card */
-  .glass-param-card {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transition: transform 0.3s ease;
-  }
-
-  .glass-param-card:hover {
-    transform: translateY(-4px);
-  }
-
-  /* Labels */
-  .glass-label-top,
-  .glass-label-bottom {
-    text-align: center;
-    color: white;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .glass-label-top {
-    letter-spacing: 0.5px;
-  }
-
-  .glass-label-bottom {
-    opacity: 0.9;
-  }
-
-  /* Glass Surface */
-  .glass-surface {
-    width: 100%;
-    height: 120px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    gap: 40px;
     position: relative;
     overflow: hidden;
   }
 
-  .glass-surface::before {
+  /* 背景彩色圓球 */
+  .bg-orbs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    animation: orb-float 6s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 220px;
+    height: 220px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa6c1 100%);
+    top: 8%;
+    left: 8%;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    bottom: 12%;
+    right: 12%;
+    animation-delay: 2s;
+  }
+
+  .orb-3 {
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    top: 45%;
+    right: 18%;
+    animation-delay: 4s;
+  }
+
+  @keyframes orb-float {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.08);
+    }
+  }
+
+  /* 主玻璃卡片 */
+  .glass-card {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 48px 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+
+  .glass-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -182,138 +127,151 @@ export const customStyles = `
     transition: left 0.6s ease;
   }
 
-  .glass-param-card:hover .glass-surface::before {
+  .glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .glass-card:hover::before {
     left: 100%;
   }
 
-  .glass-param-card:hover .glass-surface {
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  .glass-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .glass-divider {
+    width: 120px;
+    height: 3px;
+    margin: 0 auto;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+  }
+
+  /* 小型玻璃膠囊元素 */
+  .glass-pills {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .glass-pill {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+  }
+
+  .glass-pill:nth-child(1) {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .glass-pill:nth-child(2) {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-pill:nth-child(3) {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-pill:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
     border-color: rgba(255, 255, 255, 0.3);
   }
 
-  /* Blur Variants */
-  .glass-blur-10 {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .glass-blur-15 {
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-  }
-
-  .glass-blur-20 {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-
-  /* Alpha Variants */
-  .glass-alpha-10 {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .glass-alpha-15 {
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  /* Icon */
-  .glass-icon {
-    font-size: 36px;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
-  /* Footer Note */
-  .glass-footer {
-    width: 100%;
-    max-width: 800px;
-  }
-
-  .glass-note {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
-  }
-
-  .glass-note-icon {
-    font-size: 18px;
-  }
-
-  .glass-note-text {
-    font-size: 13px;
-    opacity: 0.95;
-    font-weight: 400;
-  }
-
-  /* Responsive Design */
+  /* 響應式设計 */
   @media (max-width: 768px) {
     .glass-showcase {
-      padding: 24px 16px;
-      min-height: 600px;
+      padding: 40px 24px;
+      gap: 32px;
     }
 
-    .glass-main-title {
-      font-size: 24px;
+    .glass-card {
+      max-width: 100%;
+      padding: 40px 32px;
     }
 
-    .glass-subtitle {
-      font-size: 12px;
+    .glass-title {
+      font-size: 30px;
     }
 
-    .glass-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .orb-1 {
+      width: 160px;
+      height: 160px;
     }
 
-    .glass-surface {
+    .orb-2 {
+      width: 130px;
+      height: 130px;
+    }
+
+    .orb-3 {
+      width: 100px;
       height: 100px;
-    }
-
-    .glass-icon {
-      font-size: 28px;
-    }
-
-    .glass-note-text {
-      font-size: 11px;
     }
   }
 
   @media (max-width: 480px) {
-    .glass-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .glass-showcase {
+      padding: 32px 16px;
+      gap: 28px;
     }
 
-    .glass-surface {
+    .glass-card {
+      padding: 32px 24px;
+    }
+
+    .glass-title {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .glass-divider {
+      width: 100px;
+      height: 2px;
+    }
+
+    .glass-pills {
+      gap: 12px;
+    }
+
+    .glass-pill {
+      width: 50px;
+      height: 50px;
+    }
+
+    .orb-1,
+    .orb-2,
+    .orb-3 {
+      width: 80px;
       height: 80px;
-    }
-
-    .glass-label-top,
-    .glass-label-bottom {
-      font-size: 10px;
-      padding: 3px 6px;
-    }
-
-    .glass-note {
-      flex-direction: column;
-      text-align: center;
-      gap: 4px;
     }
   }
 `;

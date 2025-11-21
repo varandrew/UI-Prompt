@@ -63,7 +63,7 @@ export const useSelectionStore = create(
     }),
 
     /**
-     * 從多選中移除 (預留功能)
+     * 从多選中移除 (預留功能)
      * @param {string} componentId - 組件 ID
      */
     removeFromSelection: (componentId) => set((state) => {
@@ -90,7 +90,7 @@ export const useSelectionStore = create(
     // ========== Getters ==========
 
     /**
-     * 檢查組件是否被選中
+     * 检查組件是否被選中
      * @param {string} componentId - 組件 ID
      * @returns {boolean}
      */
@@ -99,7 +99,7 @@ export const useSelectionStore = create(
     },
 
     /**
-     * 檢查組件是否在多選中 (預留功能)
+     * 检查組件是否在多選中 (預留功能)
      * @param {string} componentId - 組件 ID
      * @returns {boolean}
      */
@@ -108,7 +108,7 @@ export const useSelectionStore = create(
     },
 
     /**
-     * 獲取選中的組件數量
+     * 獲取選中的組件数量
      * @returns {number}
      */
     getSelectionCount: () => {

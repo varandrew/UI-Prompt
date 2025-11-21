@@ -1,6 +1,6 @@
 /**
  * Scroll Narrative - Preview 2 Custom Prompt
- * 產品發布時間軸頁專屬的 AI Prompt
+ * 产品發布時間軸页专屬的 AI Prompt
  */
 
 export const preview2CustomPrompt = {

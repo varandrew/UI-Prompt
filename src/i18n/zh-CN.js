@@ -1548,7 +1548,7 @@ export default {
       },
       "terminal-cli": {
         "title": "终端 CLI",
-        "colorScheme": "主色深灰黑背景 (#1e1e1e, #252526 / VS Code Dark+)、青色 (#4EC9B0 / 命令提示符)、藍色 (#569cd6 / 路徑關鍵字)、黃色 (#dcdcaa / 警告)、紫色 (#c586c0 / 變量)、紅色 (#f48771 / 錯誤)、次色灰白文字 (#cccccc)、邊框灰 (#424242)"
+        "colorScheme": "主色深灰黑背景 (#1e1e1e, #252526 / VS Code Dark+)、青色 (#4EC9B0 / 命令提示符)、藍色 (#569cd6 / 路徑关鍵字)、黃色 (#dcdcaa / 警告)、紫色 (#c586c0 / 變量)、紅色 (#f48771 / 错誤)、次色灰白文字 (#cccccc)、边框灰 (#424242)"
       },
       "duotone": {
         "title": "双色调",
@@ -1789,10 +1789,6 @@ export default {
       }
     },
     "modern": {
-      "saas-minimal": {
-        "title": "SaaS 极简主义",
-        "description": "企业级 SaaS 产品的极简设计风格，通过大面积留白、低饱和灰阶和单一强调色，创造清晰、专业、高效的用户界面。"
-      },
       "darkMode": {
         "colorScheme": "主色深黑 (#0a0a0a, #1a1a1a)、次色藍色 (#3b82f6 / Blue-500)、綠色 (#10b981 / Green-500)、强调色紫色 (#8b5cf6 / Purple-500)、紅色 (#ef4444 / Red-500)、灰色調 (#2a2a2a, #9ca3af, #6b7280)"
       },
@@ -1800,9 +1796,9 @@ export default {
         "colorScheme": "主色黑色 (#000000)、白色 (#ffffff)、強調色紅色 (#ff0000)、次色淺灰 (#cccccc)、深灰 (#f5f5f5)",
         "preview": {
           "projectManagement": "项目管理看板",
-          "projectManagementDesc": "展示項目卡片、進度條、狀態標籤、截止日期、團隊活動時間軸、提交記錄、用戶頭像、表單組件、數據表格等",
+          "projectManagementDesc": "展示項目卡片、進度條、狀態标籤、截止日期、团隊活動時間軸、提交記录、用戶頭像、表單組件、数据表格等",
           "developerWorkspace": "开发者工作空间",
-          "developerWorkspaceDesc": "代碼編輯器界面、終端命令窗口、Git 提交時間軸、API 調試工具、文件樹導航、系統監控面板、快捷鍵卡片、狀態指示燈"
+          "developerWorkspaceDesc": "代碼編輯器界面、終端命令窗口、Git 提交時間軸、API 調試工具、文件樹导航、系統監控面板、快捷鍵卡片、狀態指示灯"
         }
       },
       "organic": {
@@ -1817,22 +1813,22 @@ export default {
       "utilityFirst": {
         "title": "实用优先",
         "description": "实用优先的设计理念，最小化自定义 CSS，专注于功能性 Tailwind 类。",
-        "colorScheme": "主色白色 (#ffffff)、黑色 (#000000)、次色淺灰 (#f9fafb / Gray-50)、邊框灰 (#d1d5db / Gray-300)、文本灰 (#6b7280 / Gray-500)、藍紫漸變強調色 (#3b82f6 to #9333ea)"
+        "colorScheme": "主色白色 (#ffffff)、黑色 (#000000)、次色淺灰 (#f9fafb / Gray-50)、边框灰 (#d1d5db / Gray-300)、文本灰 (#6b7280 / Gray-500)、藍紫漸變強調色 (#3b82f6 to #9333ea)"
       },
       "brutalism": {
         "title": "新粗野主义",
         "colorScheme": "主色黑色 (#000000)、白色 (#ffffff)、強調色紅色 (#ff0000)、次色淺灰 (#cccccc)、深灰 (#f5f5f5)",
         "preview": {
           "projectManagement": "项目管理看板",
-          "projectManagementDesc": "展示項目卡片、進度條、狀態標籤、截止日期、團隊活動時間軸、提交記錄、用戶頭像、表單組件、數據表格等",
+          "projectManagementDesc": "展示項目卡片、進度條、狀態标籤、截止日期、团隊活動時間軸、提交記录、用戶頭像、表單組件、数据表格等",
           "developerWorkspace": "开发者工作空间",
-          "developerWorkspaceDesc": "代碼編輯器界面、終端命令窗口、Git 提交時間軸、API 調試工具、文件樹導航、系統監控面板、快捷鍵卡片、狀態指示燈"
+          "developerWorkspaceDesc": "代碼編輯器界面、終端命令窗口、Git 提交時間軸、API 調試工具、文件樹导航、系統監控面板、快捷鍵卡片、狀態指示灯"
         }
       },
       "outlineStyle": {
         "title": "线条风格",
         "description": "通过线条勾勒形状，简洁专业，强调极简主义和清晰的视觉层次",
-        "colorScheme": "主色黑色線條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、邊框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
+        "colorScheme": "主色黑色线條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
         "businessDemo": {
           "title": "商业网站模板",
           "description": "专业商业场景的线条风格实现，包含导航、服务展示、特性网格和联系表单"
@@ -2001,13 +1997,13 @@ export default {
       "frutigerAero": {}
     },
     "brokenGrid": {
-      "title": "打破常規的網格佈局",
-      "description": "挑戰傳統網格系統，通過旋轉、重疊和不規則排列創造視覺衝擊力。",
+      "title": "打破常規的网格佈局",
+      "description": "挑戰傳統网格系統，通過旋轉、重疊和不規則排列創造視覺衝擊力。",
       "colorScheme": "黑色背景 (#0A0A0A)、金色强调 (#FFD700)、粉红渐变 (#FF69B4)、紫色渐变 (#667EEA)"
     },
     "splitScreen": {
       "title": "分屏佈局",
-      "description": "經典的左右分割佈局，適用於對比展示、雙重內容或黑白配色方案。"
+      "description": "經典的左右分割佈局，適用於對比展示、双重內容或黑白配色方案。"
     },
     "masonry": {
       "title": "瀑布流佈局",
@@ -2080,7 +2076,7 @@ export default {
     "outlineStyle": {
       "title": "线条风格",
       "description": "通过线条勾勒形状，简洁专业，强调极简主义和清晰的视觉层次",
-      "colorScheme": "主色黑色線條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、邊框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
+      "colorScheme": "主色黑色线條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
       "businessDemo": {
         "title": "商业网站模板",
         "description": "专业商业场景的线条风格实现，包含导航、服务展示、特性网格和联系表单"
@@ -2126,11 +2122,11 @@ export default {
         "colorScheme": "深灰基調 (#1a1d24, #2c3038)、霓虹粉紅 (#ff006a)、霓虹青藍 (#00ffcc)、灰色文字 (#5f6472, #8a8f9e)",
         "preview": {
           "vacantSpace": {
-            "description": "VACANT_SPACE.EXE - 展示數位虛空空間，包含霧化導航、卡片網格、系統訪問表單和霓虹效果",
+            "description": "VACANT_SPACE.EXE - 展示数位虛空空間，包含霧化导航、卡片网格、系統访問表單和霓虹效果",
             "colorScheme": "深灰基調 #1a1d24/#2c3038、霓虹粉紅 #ff006a、霓虹青藍 #00ffcc、灰色文字 #5f6472/#8a8f9e/#3d4250"
           },
           "digitalMuseum": {
-            "description": "數位博物館檔案館 - 冷清神秘的博物館系統，包含鼠標探照燈、檔案卡片、監控攝像頭、訪問控制表單和系統日誌",
+            "description": "数位博物馆档案馆 - 冷清神秘的博物馆系統，包含鼠标探照灯、档案卡片、監控攝像頭、访問控制表單和系統日誌",
             "colorScheme": "深灰基調 #0f1419/#1a1d24/#141820、霓虹粉紅 #ff006a、霓虹青藍 #00ffcc、灰色文字 #5f6472/#8a8f9e/#3d4250"
           }
         }
@@ -2436,6 +2432,33 @@ export default {
         "featureList2": "智能遮罩高亮",
         "featureList3": "支持 ref 定位"
       }
+    },
+    "special": {
+      "noData": "暂无数据",
+      "noDataDesc": "您的项目列表还是空的，开始创建您的第一个项目吧！",
+      "createProject": "创建新项目",
+      "importTemplate": "导入模板",
+      "noResults": "未找到相关结果",
+      "noResultsDesc": "尝试使用其他关键词搜索，或浏览我们的分类",
+      "searchSuggestions": "搜索建议：",
+      "clearSearch": "清除搜索并重试",
+      "pageNotFound": "页面未找到",
+      "pageNotFoundDesc": "抱歉，您访问的页面不存在或已被移除。",
+      "tryOptions": "您可以尝试：",
+      "checkUrl": "检查网址是否正确",
+      "returnPrev": "返回上一页",
+      "contactAdmin": "联系网站管理员",
+      "returnHome": "返回首页",
+      "returnPrevPage": "返回上页",
+      "serverError": "服务器错误",
+      "serverErrorDesc": "抱歉，服务器遇到了问题，请稍后再试。",
+      "errorCode": "错误代码：",
+      "errorMessage": "错误信息：",
+      "monitoringFix": "我们正在监控并修复此问题。您可以：",
+      "refreshPage": "稍后重新刷新页面",
+      "checkStatus": "查看系统状态",
+      "contactSupport": "联系技术支持团队",
+      "reload": "重新载入"
     },
     "hover": {
       "minimalism": {

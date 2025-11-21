@@ -1,5 +1,5 @@
 // Memphis Design Full Page - Creative Education Platform
-// 孟菲斯設計完整頁面 - 創意教育平台 "Memphis Academy"
+// 孟菲斯设計完整页面 - 創意教育平台 "Memphis Academy"
 
 export const memphisFullPageHTML = `
 <!-- MEMPHIS DESIGN - CREATIVE EDUCATION PLATFORM -->

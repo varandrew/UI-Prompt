@@ -2,16 +2,16 @@ import { useEffect, useRef } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 /**
- * MinimalismModal - 極簡主義確認對話框組件
+ * MinimalismModal - 極简主義確認對話框組件
  *
- * @param {boolean} open - 是否顯示 Modal
- * @param {string} title - 標題文本
+ * @param {boolean} open - 是否显示 Modal
+ * @param {string} title - 标題文本
  * @param {string} message - 消息內容
  * @param {string} confirmText - 確認按鈕文本
  * @param {string} cancelText - 取消按鈕文本
  * @param {Function} onConfirm - 確認回調
  * @param {Function} onCancel - 取消回調
- * @param {Function} onOpenChange - 開關狀態變化回調
+ * @param {Function} onOpenChange - 開关狀態變化回調
  */
 export function MinimalismModal({
   open = false,
@@ -25,7 +25,7 @@ export function MinimalismModal({
 }) {
   const { t } = useLanguage();
   
-  // 使用 i18n 翻譯作為預設值
+  // 使用 i18n 翻譯作為預设值
   const defaultTitle = title || t('ui.messageBox.defaultTitle');
   const defaultMessage = message || t('ui.messageBox.defaultDescription');
   const defaultConfirmText = confirmText || t('buttons.confirm');
@@ -35,7 +35,7 @@ export function MinimalismModal({
   const cancelButtonRef = useRef(null);
   const closeButtonRef = useRef(null);
 
-  // ESC 鍵關閉
+  // ESC 鍵关閉
   useEffect(() => {
     if (!open) return;
 
@@ -112,7 +112,7 @@ export function MinimalismModal({
   };
 
   const handleOverlayClick = (e) => {
-    // 點擊遮罩層關閉（不包括 Modal 內容區域）
+    // 點擊遮罩层关閉（不包括 Modal 內容区域）
     if (e.target === overlayRef.current) {
       handleCancel();
     }

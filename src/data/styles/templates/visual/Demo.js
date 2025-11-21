@@ -1,22 +1,22 @@
-// Visual 總分類演示 UI
+// Visual 總分类演示 UI
 // 展示 7 個子家族的代表性視覺效果
 
 export const demoHTML = `
 <div class="visual-showcase">
   <div class="showcase-grid">
-    <!-- 透明質感預覽 -->
+    <!-- 透明质感預覽 -->
     <div class="translucent-preview">
       <div class="glass-card">
         <h3>Translucent</h3>
-        <p>透明質感</p>
+        <p>透明质感</p>
       </div>
     </div>
 
-    <!-- 漸變藝術預覽 -->
+    <!-- 漸变藝術預覽 -->
     <div class="gradient-preview">
       <div class="mesh-bg">
         <h3>Gradient</h3>
-        <p>漸變藝術</p>
+        <p>漸变藝術</p>
       </div>
     </div>
 
@@ -36,19 +36,19 @@ export const demoHTML = `
       </div>
     </div>
 
-    <!-- 質感表現預覽 -->
+    <!-- 质感表現預覽 -->
     <div class="texture-preview">
       <div class="clay-card">
         <h3>Texture</h3>
-        <p>質感表現</p>
+        <p>质感表現</p>
       </div>
     </div>
 
-    <!-- 光效設計預覽 -->
+    <!-- 光效设計預覽 -->
     <div class="light-preview">
       <div class="neon-sign">
         <h3>Light</h3>
-        <p>光效設計</p>
+        <p>光效设計</p>
       </div>
     </div>
 
@@ -76,7 +76,7 @@ export const customStyles = `
   gap: 24px;
 }
 
-/* 透明質感預覽 */
+/* 透明质感預覽 */
 .translucent-preview .glass-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -89,7 +89,7 @@ export const customStyles = `
   text-align: center;
 }
 
-/* 漸變藝術預覽 */
+/* 漸变藝術預覽 */
 .gradient-preview .mesh-bg {
   background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
   background-size: 400% 400%;
@@ -140,7 +140,7 @@ export const customStyles = `
   50% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
 }
 
-/* 質感表現預覽 */
+/* 质感表現預覽 */
 .texture-preview .clay-card {
   background: #e0e5ec;
   border-radius: 16px;
@@ -154,7 +154,7 @@ export const customStyles = `
     inset -3px -3px 6px rgba(255, 255, 255, 0.7);
 }
 
-/* 光效設計預覽 */
+/* 光效设計預覽 */
 .light-preview .neon-sign {
   background: #0a0a0a;
   border-radius: 16px;

@@ -37,53 +37,53 @@ export const retroFuture = {
 
   customPrompt: {
     'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Retro Future DOS Console」示例风格高度接近的 UI。
-要求：保持 1980 年代 DOS 終端視覺、黑底磷光文字、ASCII 邊框和 CRT 掃描線等核心特徵，只允许替换文案與指令內容，而不改变整体界面结构与色彩语言。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。
+要求：保持 1980 年代 DOS 終端視覺、黑底磷光文字、ASCII 边框和 CRT 掃描线等核心特徵，只允许替换文案与指令內容，而不改变整体界面结构与色彩语言。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。
 
 【使用场景】
-- 黑客主題活動頁、復古科幻遊戲啟動畫面
+- 黑客主題活動页、復古科幻遊戲啟動画面
 - 展示系統監控、日誌輸出或部署進度的懷舊控制台
-- 需要傳達「80年代科幻 + 終端界面」氛圍的品牌頁或實驗性 UI
+- 需要傳達「80年代科幻 + 終端界面」氛圍的品牌页或實驗性 UI
 
 【整体布局结构】
-1. 背景層
-   - 使用純黑或近黑背景 (#000000)，可以帶極輕微顆粒，以模擬老舊顯示器。
+1. 背景层
+   - 使用純黑或近黑背景 (#000000)，可以帶極輕微顆粒，以模擬老舊显示器。
 2. 主控制台窗口
-   - 居中放置一個帶 ASCII 框線的「視窗」，擁有標題區和內容區：
-     - 標題區顯示系統名稱、狀態或時間戳。
-     - 內容區顯示命令提示符與系統輸出。
-   - 外框使用雙線或粗線 ASCII 字元（如 ┏━┓、┃ ┃、┗━┛）。
-3. 命令與輸出區
-   - 多行 \`C:\\>\` 或類似提示符，後接命令與回應。
-   - 可以加入簡短 ASCII Logo 或小塊狀圖表，均以字元繪製。
+   - 居中放置一個帶 ASCII 框线的「視窗」，擁有标題区和內容区：
+     - 标題区显示系統名稱、狀態或時間戳。
+     - 內容区显示命令提示符与系統輸出。
+   - 外框使用双线或粗线 ASCII 字元（如 ┏━┓、┃ ┃、┗━┛）。
+3. 命令与輸出区
+   - 多行 \`C:\\>\` 或类似提示符，後接命令与回應。
+   - 可以加入简短 ASCII Logo 或小塊狀圖表，均以字元繪製。
 
 【色彩与材质】
 1. 終端配色
    - 文本主色：磷光綠 (#00FF00) 或略偏冷綠，部分提示使用琥珀黃 (#FFA500)。
-   - 背景：純黑 (#000000) 不帶漸變，確保對比度極高。
-2. 磷光質感
-   - 利用 text-shadow 建立輕微發光邊緣，例如 \`text-shadow: 0 0 5px #00ff00\`。
+   - 背景：純黑 (#000000) 不帶漸变，確保對比度極高。
+2. 磷光质感
+   - 利用 text-shadow 建立輕微發光边緣，例如 \`text-shadow: 0 0 5px #00ff00\`。
    - 適度控制光暈，保持可讀性，不要全屏泛光。
 
-【CRT 與 ASCII 細節】
-1. 掃描線
-   - 可在整個視窗上疊加極淡的橫線紋理，模擬 CRT 掃描線。
+【CRT 与 ASCII 細節】
+1. 掃描线
+   - 可在整個視窗上疊加極淡的橫线紋理，模擬 CRT 掃描线。
 2. ASCII 圖形
-   - 使用 ┌─┐│└┘、═╔╗ 等字元構成框線與分隔條，避免現代 UI 元素（圓角卡片等）。
-3. 等寬字體
-   - 全局採用等寬字體（如 Courier New），確保 ASCII 圖形對齊。
+   - 使用 ┌─┐│└┘、═╔╗ 等字元構成框线与分隔條，避免現代 UI 元素（圓角卡片等）。
+3. 等寬字体
+   - 全局採用等寬字体（如 Courier New），確保 ASCII 圖形對齊。
 
 【交互与動效】
-1. 光標動畫
-   - 使用閃爍下劃線或方塊作為光標，節奏約 1 秒一閃。
-2. 命令輸出動畫
+1. 光标動画
+   - 使用閃爍下劃线或方塊作為光标，節奏約 1 秒一閃。
+2. 命令輸出動画
    - 新命令和輸出可以用淡入或打字機效果出現，營造操作過程感。
-3. 整體動效
-   - 避免過多現代動畫，只在光標、掃描線和偶爾的錯誤提示上使用細微動態。
+3. 整体動效
+   - 避免過多現代動画，只在光标、掃描线和偶爾的错誤提示上使用細微動態。
 
 【输出要求】
-- 使用语义化 HTML 將背景、控制台窗與內容區分層結構化。
-- 使用 TailwindCSS 风格原子类管理顏色、字體與間距，可額外定義類名實現 ASCII 邊框與掃描線。
-- 生成的 UI 必須保留「黑底綠字 + ASCII 框線 + CRT 掃描線 + 閃爍光標」這些關鍵特徵，讓人一眼看出是 80 年代 DOS 終端風格控制台。`,
+- 使用语义化 HTML 將背景、控制台窗与內容区分层結構化。
+- 使用 TailwindCSS 风格原子类管理颜色、字体与間距，可額外定義类名實現 ASCII 边框与掃描线。
+- 生成的 UI 必須保留「黑底綠字 + ASCII 框线 + CRT 掃描线 + 閃爍光标」這些关鍵特徵，让人一眼看出是 80 年代 DOS 終端風格控制台。`,
 
     'en-US': `You are a senior UI designer and front-end engineer. Generate a retro future DOS console style interface that looks very close to the current “Retro Future” demo.
 Keep the 1980s DOS terminal visuals, black background with phosphor text, ASCII borders and CRT scanlines as the main traits. You may change messages and commands, but you should not change the overall console layout or color language. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).

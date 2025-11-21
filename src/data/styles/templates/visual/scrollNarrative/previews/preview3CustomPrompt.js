@@ -1,10 +1,10 @@
 /**
  * Scroll Narrative - Preview 3 Custom Prompt
- * 視差動畫叙事體驗頁專屬的 AI Prompt
+ * 視差動画叙事体驗页专屬的 AI Prompt
  */
 
 export const preview3CustomPrompt = {
-  'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师,请生成一个与当前「視差動畫叙事體驗頁」界面风格高度接近的 UI。
+  'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师,请生成一个与当前「視差動画叙事体驗页」界面风格高度接近的 UI。
 要求:保持整体布局、多层视差动画和配色思路基本不变,只允许替换文案、品牌名称和少量细节。输出使用语义化 HTML 结构和类似 TailwindCSS 的原子类。
 
 【使用场景】

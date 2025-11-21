@@ -5,8 +5,8 @@ import { immer } from 'zustand/middleware/immer';
  * 項目管理 Store
  *
  * 職責:
- * - 管理項目元數據
- * - 協調所有 Store 的數據導入/導出
+ * - 管理項目元数据
+ * - 協調所有 Store 的数据导入/导出
  * - 處理項目保存和加載
  * - 支持多項目管理 (預留)
  */
@@ -32,8 +32,8 @@ export const useProjectStore = create(
     // ========== Actions ==========
 
     /**
-     * 更新項目元數據
-     * @param {Object} meta - 元數據
+     * 更新項目元数据
+     * @param {Object} meta - 元数据
      */
     updateProjectMeta: (meta) => set((state) => {
       state.projectMeta = {
@@ -45,7 +45,7 @@ export const useProjectStore = create(
     }),
 
     /**
-     * 設置項目名稱
+     * 设置項目名稱
      * @param {string} name - 項目名稱
      */
     setProjectName: (name) => set((state) => {
@@ -55,7 +55,7 @@ export const useProjectStore = create(
     }),
 
     /**
-     * 標記項目為已保存
+     * 标記項目為已保存
      */
     markAsSaved: () => set((state) => {
       state.isDirty = false;
@@ -63,42 +63,42 @@ export const useProjectStore = create(
     }),
 
     /**
-     * 標記項目為已修改
+     * 标記項目為已修改
      */
     markAsDirty: () => set((state) => {
       state.isDirty = true;
     }),
 
     /**
-     * 導入完整項目數據
-     * @param {Object} projectData - 項目數據
+     * 导入完整項目数据
+     * @param {Object} projectData - 項目数据
      */
     importProject: (projectData) => {
       const { projectMeta } = projectData;
 
       set((state) => {
-        // 更新項目元數據
+        // 更新項目元数据
         state.projectMeta = {
           ...state.projectMeta,
           ...projectMeta,
           modifiedAt: new Date().toISOString()
         };
 
-        // 重置臟標記
+        // 重置臟标記
         state.isDirty = false;
       });
 
-      // 這裡需要通知其他 Store 導入數據
-      // 由於我們要避免循環依賴，使用事件總線或回調方式
+      // 這里需要通知其他 Store 导入数据
+      // 由於我們要避免循環依賴，使用事件總线或回調方式
       if (typeof window !== 'undefined' && window.projectStoreCallbacks) {
         window.projectStoreCallbacks.onImportProject?.(projectData);
       }
     },
 
     /**
-     * 導出完整項目數據
-     * @param {Object} storesData - 各個 Store 的數據
-     * @returns {Object} 項目數據
+     * 导出完整項目数据
+     * @param {Object} storesData - 各個 Store 的数据
+     * @returns {Object} 項目数据
      */
     exportProject: (storesData) => {
       const state = get();
@@ -158,7 +158,7 @@ export const useProjectStore = create(
 
     /**
      * 保存項目到列表 (預留)
-     * @param {Object} project - 項目數據
+     * @param {Object} project - 項目数据
      */
     saveProjectToList: (project) => set((state) => {
       const existingIndex = state.projects.findIndex(p => p.id === project.id);
@@ -202,7 +202,7 @@ export const useProjectStore = create(
     // ========== 獲取器 ==========
 
     /**
-     * 獲取項目簡要信息
+     * 獲取項目简要信息
      * @returns {Object}
      */
     getProjectInfo: () => {
@@ -217,7 +217,7 @@ export const useProjectStore = create(
     },
 
     /**
-     * 檢查項目是否有未保存的更改
+     * 检查項目是否有未保存的更改
      * @returns {boolean}
      */
     hasUnsavedChanges: () => {
@@ -226,7 +226,7 @@ export const useProjectStore = create(
 
     /**
      * 獲取項目統計信息
-     * @param {Object} storesData - Store 數據
+     * @param {Object} storesData - Store 数据
      * @returns {Object}
      */
     getProjectStats: (storesData) => {

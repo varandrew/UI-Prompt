@@ -1,5 +1,5 @@
 // Soft UI - Creative Studio Hub (Light Mode)
-// 完整頁面預覽：15+ UI 組件展示 Soft UI (Neumorphism) 原則
+// 完整页面預覽：15+ UI 組件展示 Soft UI (Neumorphism) 原則
 
 export const softUILightFullPageHTML = `
   <!-- TOP NAVIGATION -->

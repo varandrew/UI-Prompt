@@ -22,7 +22,7 @@ export const visualNeonCyberpunk = {
   // Demo HTML - Mini cyberpunk terminal
   demoHTML: `
     <div class="w-full h-full flex items-center justify-center p-4" style="background: #0a0a0a; position: relative; overflow: hidden;">
-      <!-- 背景數據流 -->
+      <!-- 背景数据流 -->
       <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; pointer-events: none; font-family: 'Courier New', monospace; font-size: 10px; color: #00ff41; line-height: 1.2; overflow: hidden;">
         <div style="position: absolute; top: -20%; left: 5%; animation: cyber-mini-flow 8s linear infinite;">01010101<br>11001100<br>00110011</div>
         <div style="position: absolute; top: -20%; left: 25%; animation: cyber-mini-flow 10s linear infinite; animation-delay: 1s;">10101010<br>01100110<br>11001100</div>
@@ -76,7 +76,7 @@ export const visualNeonCyberpunk = {
         </div>
       </div>
 
-      <!-- 掃描線效果 -->
+      <!-- 掃描线效果 -->
       <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(transparent 50%, rgba(0, 255, 65, 0.03) 50%); background-size: 100% 4px; animation: cyber-mini-scan 6s linear infinite;"></div>
     </div>
   `,
@@ -205,15 +205,15 @@ The atmosphere should be deep, cool, and intensely technological: as if standing
      }
      \`\`\`
 
-3. **終端視覺與佈局**
-   - 整體佈局以「控制台儀表板」為核心：
+3. **終端視覺与佈局**
+   - 整体佈局以「控制台儀表板」為核心：
      - 左側 / 上方：終端視窗（命令列 + 狀態輸出）
      - 中間：系統監控卡片（CPU / GPU / Network）
-     - 右側 / 下方：事件時間軸、主控按鈕、狀態指示燈
+     - 右側 / 下方：事件時間軸、主控按鈕、狀態指示灯
    - 終端視窗建議：
-     - 等寬字體：\`font-family: 'Courier New', monospace\`
+     - 等寬字体：\`font-family: 'Courier New', monospace\`
      - 行高緊湊：\`line-height: 1.2\`
-     - 邊框：霓虹綠 / 青色外框 + 內發光
+     - 边框：霓虹綠 / 青色外框 + 內發光
    - 示例：
      \`\`\`css
      .cyberpunk-terminal {
@@ -238,10 +238,10 @@ The atmosphere should be deep, cool, and intensely technological: as if standing
      }
      \`\`\`
 
-4. **系統監控卡片與 LED 指示燈**
-   - CPU / GPU / Network 使用獨立卡片，顯示數值與標籤
-   - 每個卡片使用霓虹邊框 + 內發光陰影
-   - LED 指示燈使用圓形 + 多層發光陰影，支援「正常 / 警告 / 危險」狀態
+4. **系統監控卡片与 LED 指示灯**
+   - CPU / GPU / Network 使用獨立卡片，显示数值与标籤
+   - 每個卡片使用霓虹边框 + 內發光阴影
+   - LED 指示灯使用圓形 + 多层發光阴影，支援「正常 / 警告 / 危險」狀態
    - 示例：
      \`\`\`css
      .cyberpunk-stat-card {
@@ -272,10 +272,10 @@ The atmosphere should be deep, cool, and intensely technological: as if standing
      }
      \`\`\`
 
-5. **掃描線、數據雨與指標動畫**
-   - 背景疊加 Matrix 風格數位雨：多列縱向字串，自上而下緩慢移動
-   - 添加 1 條或多條掃描線（2px 高度），使用線性漸變從上到下循環
-   - 終端游標使用閃爍動畫（opacity 在 0–1 之間切換）
+5. **掃描线、数据雨与指标動画**
+   - 背景疊加 Matrix 風格数位雨：多列縱向字串，自上而下緩慢移動
+   - 添加 1 條或多條掃描线（2px 高度），使用线性漸变从上到下循環
+   - 終端游标使用閃爍動画（opacity 在 0–1 之間切換）
    - 示例：
      \`\`\`css
      .cyberpunk-scanline {
@@ -317,13 +317,13 @@ The atmosphere should be deep, cool, and intensely technological: as if standing
 - 背景：\`#000000\`、\`#050810\`、\`#0a0f0a\`
 - 主霓虹色：\`#00FF41\`（霓虹绿）、\`#00FFFF\`（霓虹青）
 - 輔霓虹色：\`#B967FF\`（霓虹紫）、\`#FF00FF\`（霓虹粉）
-- 文本顏色：\`#e5e7eb\`（主文本）、\`#9ca3af\`（次文本）
+- 文本颜色：\`#e5e7eb\`（主文本）、\`#9ca3af\`（次文本）
 
 **重要提示**
-- 所有主要元素應有明顯霓虹發光（text-shadow / box-shadow）
+- 所有主要元素應有明显霓虹發光（text-shadow / box-shadow）
 - 背景必須保持極深色，避免破壞霓虹對比度
-- 儀表盤數據與終端文字應使用等寬字體
-- 動效可以多但節奏要一致（2–8 秒區間）
+- 儀表盤数据与終端文字應使用等寬字体
+- 動效可以多但節奏要一致（2–8 秒区間）
 - 避免使用低對比的柔和色，保持高度「賽博朋克」辨識度`,
 
     'en-US': `Please create a **Neon Cyberpunk** style interface using TailwindCSS, with deep dark backgrounds and high-contrast neon colors that highlight futuristic terminals, data streams, and system monitoring dashboards.

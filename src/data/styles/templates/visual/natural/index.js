@@ -1,6 +1,6 @@
 // Natural Templates Aggregator
 // 自然風格模板聚合器
-// 注意：natural 風格已合併到 visualStyles.js 中，此文件僅保留用於兼容性
+// 注意：natural 風格已合併到 visualStyles.js 中，此文件仅保留用於兼容性
 
 export const name = 'styles.visual.natural.title';
 

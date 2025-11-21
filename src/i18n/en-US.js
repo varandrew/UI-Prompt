@@ -377,48 +377,48 @@ export default {
         "modal-dialog": {
           "variants": {
             "minimalism": {
-              "description": "",
-              "name": ""
+              "description": "Minimal and clean modal dialog design with simplified styling",
+              "name": "Minimalism"
             },
             "material": {
-              "description": "",
-              "name": ""
+              "description": "Material Design modal dialog with elevation and motion effects",
+              "name": "Material"
             },
             "glassmorphism": {
-              "description": "",
-              "name": ""
+              "description": "Glassmorphic modal dialog featuring a frosted glass effect",
+              "name": "Glassmorphism"
             },
             "neumorphism": {
-              "description": "",
-              "name": ""
+              "description": "Soft neumorphic modal dialog with gentle shadows and highlights",
+              "name": "Neumorphism"
             },
             "bootstrap": {
-              "description": "",
-              "name": ""
+              "description": "Bootstrap modal dialog design that follows the default Bootstrap look",
+              "name": "Bootstrap"
             },
             "neo-brutalism": {
-              "description": "",
-              "name": ""
+              "description": "Neo-brutalist modal dialog with bold borders and contrasting colors",
+              "name": "Neo Brutalism"
             },
             "cyberpunk": {
-              "description": "",
-              "name": ""
+              "description": "Cyberpunk modal dialog with futuristic neon accents and tech styling",
+              "name": "Cyberpunk"
             },
             "bottom-sheet": {
-              "description": "",
-              "name": ""
+              "description": "Bottom sheet modal dialog that slides up from the bottom edge",
+              "name": "Bottom Sheet"
             },
             "side-drawer": {
-              "description": "",
-              "name": ""
+              "description": "Side drawer modal dialog that slides in from either side",
+              "name": "Side Drawer"
             },
             "notification": {
-              "description": "",
-              "name": ""
+              "description": "Notification-style modal dialog for presenting alerts or confirmations",
+              "name": "Notification"
             },
             "image-preview": {
-              "description": "",
-              "name": ""
+              "description": "Image preview modal dialog ideal for showcasing photos and mockups",
+              "name": "Image Preview"
             }
           },
           "description": "Modal dialog component for displaying content in an overlay window with various style variants",
@@ -1761,10 +1761,6 @@ export default {
       }
     },
     "modern": {
-      "saas-minimal": {
-        "title": "SaaS Minimal",
-        "description": "Minimalist design style for enterprise SaaS products, creating clear, professional, and efficient user interfaces through generous whitespace, low-saturation grayscale, and single accent color."
-      },
       "darkMode": {
         "colorScheme": "Primary deep black (#0a0a0a, #1a1a1a), secondary blue (#3b82f6 / Blue-500), green (#10b981 / Green-500), accent purple (#8b5cf6 / Purple-500), red (#ef4444 / Red-500), gray tones (#2a2a2a, #9ca3af, #6b7280)"
       },
@@ -2407,6 +2403,33 @@ export default {
         "featureList2": "Smart overlay highlighting",
         "featureList3": "Support ref positioning"
       }
+    },
+    "special": {
+      "noData": "No Data Yet",
+      "noDataDesc": "Your project list is empty, start by creating your first project!",
+      "createProject": "Create New Project",
+      "importTemplate": "Import Template",
+      "noResults": "No Results Found",
+      "noResultsDesc": "Try searching with different keywords, or browse our categories",
+      "searchSuggestions": "Search Suggestions:",
+      "clearSearch": "Clear Search and Retry",
+      "pageNotFound": "Page Not Found",
+      "pageNotFoundDesc": "Sorry, the page you are accessing does not exist or has been removed.",
+      "tryOptions": "You can try:",
+      "checkUrl": "Check if the URL is correct",
+      "returnPrev": "Go BackPrevious",
+      "contactAdmin": "Contact Website Admin",
+      "returnHome": "Back to Home",
+      "returnPrevPage": "Return to Previous Page",
+      "serverError": "Server Error",
+      "serverErrorDesc": "Sorry, the server encountered a problem, please try again later.",
+      "errorCode": "Error Code:",
+      "errorMessage": "Error Message:",
+      "monitoringFix": "We are monitoring and fixing this issue. You can:",
+      "refreshPage": "Refresh the page later",
+      "checkStatus": "Check System Status",
+      "contactSupport": "Contact Technical Support Team",
+      "reload": "Reload"
     },
     "input": {
       "smartSearch": "Smart Search",

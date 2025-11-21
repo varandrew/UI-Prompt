@@ -1,5 +1,5 @@
 // Hydration fallback component for React Router v7
-// 極簡風格三點序列載入動畫 - 無文字干擾，純視覺傳達
+// 極简風格三點序列載入動画 - 無文字干擾，純視覺傳達
 export function HydrateFallback() {
   return (
     <main

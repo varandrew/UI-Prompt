@@ -8,58 +8,58 @@ export const materialDesign = {
   title: 'styles.core.material-design.title',
   description: 'styles.core.material-design.description',
 
-  // ✨ AI Prompt（用于生成與當前 Material Design Landing 頁面高度接近的 UI）
+  // ✨ AI Prompt（用于生成与當前 Material Design Landing 页面高度接近的 UI）
   customPrompt: {
-    'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Material Design Landing」界面风格高度接近的 Material Design 風格首頁。
-要求：保持紙片隱喻、Elevation 陰影層級、主色 / 次色體系和 FAB 浮動按鈕的布局不變，只允許替換文案與圖示。輸出使用語義化 HTML 和 TailwindCSS 風格原子類。
+    'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Material Design Landing」界面风格高度接近的 Material Design 風格首页。
+要求：保持紙片隱喻、Elevation 阴影层級、主色 / 次色体系和 FAB 浮動按鈕的布局不变，只允許替換文案与圖示。輸出使用語義化 HTML 和 TailwindCSS 風格原子类。
 
 【使用場景】
-- 場景：現代應用 / SaaS 產品的宣傳 Landing 頁。
-- 用戶：首次接觸產品的訪客，希望快速理解產品價值與規模感。
-- 目標：用 Material Design 規範下的卡片 / FAB / 色彩系統建立清晰、可信的產品印象。
+- 場景：現代應用 / SaaS 产品的宣傳 Landing 页。
+- 用戶：首次接觸产品的访客，希望快速理解产品價值与規模感。
+- 目标：用 Material Design 規範下的卡片 / FAB / 色彩系統建立清晰、可信的产品印象。
 
-【整體佈局結構】
+【整体佈局結構】
 1. 頂部 App Bar
-   - 含品牌 LOGO / 名稱 + 導航按鈕（如 Features / Pricing / Docs）。
-   - 采用 Surface 顏色（白色）和中等 Elevation 陰影，表明其位於內容上方。
-2. Hero 區域
-   - 左側：主標題、副標題和主操作按鈕（使用 primary 色、具 2dp–4dp 陰影）。
-   - 右側：示意卡片群組或圖示，展示 app 主要畫面或信息結構，同樣使用 Card 樣式。
-3. 功能卡片區
-   - 使用 3–4 個 Material Card，展示功能或優勢。
-   - 每張卡片使用 4dp 陰影、白色背景、4px 圓角。
+   - 含品牌 LOGO / 名稱 + 导航按鈕（如 Features / Pricing / Docs）。
+   - 采用 Surface 颜色（白色）和中等 Elevation 阴影，表明其位於內容上方。
+2. Hero 区域
+   - 左側：主标題、副标題和主操作按鈕（使用 primary 色、具 2dp–4dp 阴影）。
+   - 右側：示意卡片群組或圖示，展示 app 主要画面或信息結構，同樣使用 Card 樣式。
+3. 功能卡片区
+   - 使用 3–4 個 Material Card，展示功能或优勢。
+   - 每張卡片使用 4dp 阴影、白色背景、4px 圓角。
 4. 浮動操作按鈕（FAB）
-   - 在右下角固定一個圓形 FAB，使用主色填充，具 16dp 陰影。
-   - FAB 代表最重要的全局操作，例如「聯絡銷售 / 開始使用」。
+   - 在右下角固定一個圓形 FAB，使用主色填充，具 16dp 阴影。
+   - FAB 代表最重要的全局操作，例如「联絡銷售 / 開始使用」。
 
 【色彩系統】
 1. Primary / Secondary / Accent
    - Primary：紫 / 藍系，如 #6200ee，應用於 AppBar 中部分元素、主按鈕、FAB。
-   - Secondary：青色，如 #03dac6，用於次要操作或標籤。
+   - Secondary：青色，如 #03dac6，用於次要操作或标籤。
    - Accent：如 #ff0266，用於強調警示 / 特殊焦點。
 2. Surface / Background
-   - 卡片與 AppBar 使用白色 surface，背景可用 #fafafa 淺灰。
-   - 文本顏色遵循 Material 規範：主文本使用 rgba(0,0,0,0.87)，次文本 rgba(0,0,0,0.6)。
+   - 卡片与 AppBar 使用白色 surface，背景可用 #fafafa 淺灰。
+   - 文本颜色遵循 Material 規範：主文本使用 rgba(0,0,0,0.87)，次文本 rgba(0,0,0,0.6)。
 
-【Elevation 陰影規則】
+【Elevation 阴影規則】
 1. 卡片（Card）
-   - 默認使用 4dp 陰影；hover 時可提升至 8dp。
+   - 默認使用 4dp 阴影；hover 時可提升至 8dp。
 2. FAB
    - 默認 16dp，hover 或焦點時提升至 24dp。
 3. 對話框 / 菜單（若存在）
-   - 使用更高層級（8dp–16dp），明確表達浮層關係。
+   - 使用更高层級（8dp–16dp），明確表達浮层关係。
 
-【觸摸涟漪與交互】
+【觸摸涟漪与交互】
 1. Ripple 效果
-   - 按鈕、卡片可點擊區域需具有波紋效果，從觸點向外擴散，持續 300–600ms。
-2. Hover 與 Active
-   - Hover：背景顏色略微變亮或變深，陰影略提升。
-   - Active：顏色加深、波紋完成後返回正常狀態。
+   - 按鈕、卡片可點擊区域需具有波紋效果，从觸點向外擴散，持續 300–600ms。
+2. Hover 与 Active
+   - Hover：背景颜色略微变亮或变深，阴影略提升。
+   - Active：颜色加深、波紋完成後返回正常狀態。
 
 【輸出要求】
-- 使用 header/nav/main/section/footer 語義化標籤。
-- 使用 Tailwind 原子類實現 grid/flex 排版及陰影（可用自定義 class 映射 Elevation）。
-- 生成的 UI 必須保留「紙片隱喻 + Elevation 陰影 + Primary/Secondary/Accent 色板 + FAB」這些 Material Design 核心特徵，讓人一眼看出是典型 Material Landing。`,
+- 使用 header/nav/main/section/footer 語義化标籤。
+- 使用 Tailwind 原子类實現 grid/flex 排版及阴影（可用自定義 class 映射 Elevation）。
+- 生成的 UI 必須保留「紙片隱喻 + Elevation 阴影 + Primary/Secondary/Accent 色板 + FAB」這些 Material Design 核心特徵，让人一眼看出是典型 Material Landing。`,
     'en-US': `You are a senior UI designer and front-end engineer. Generate a Material Design landing page that looks very close to the current “Material Design Landing” demo.
 Keep the paper metaphor, elevation hierarchy, primary/secondary/accent color system and floating action button layout essentially unchanged. You may replace copy and icons, but not the core structure or Material Design visual language. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
 

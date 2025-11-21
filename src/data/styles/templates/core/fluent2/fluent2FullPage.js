@@ -1,4 +1,4 @@
-// Fluent 2 / Acrylic (Windows 11) 完整預覽頁面
+// Fluent 2 / Acrylic (Windows 11) 完整預覽页面
 // Complete Fluent 2 / Acrylic (Windows 11) Full Page Preview
 
 export const fluent2AcrylicFullPageHTML = `

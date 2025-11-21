@@ -21,8 +21,8 @@ export function TerminalDemo({ onProgressChange, totalProgress = 0, typingSpeed 
     language
   );
 
-  // 動態計算打字速度，確保中英文動畫時長一致
-  // 目標時長 3500ms (3.5秒)，使用精確計算來減少誤差
+  // 動態計算打字速度，確保中英文動画時長一致
+  // 目标時長 3500ms (3.5秒)，使用精確計算來減少誤差
   const targetDuration = 3500;
 
   // 精確計算速度，避免四捨五入造成的誤差
@@ -49,7 +49,7 @@ export function TerminalDemo({ onProgressChange, totalProgress = 0, typingSpeed 
     }
   }, [currentIndex, neonNoirPrompt, onProgressChange, finalTypingSpeed]);
 
-  // 游標閃爍效果
+  // 游标閃爍效果
   useEffect(() => {
     const interval = setInterval(() => {
       setShowCursor(prev => !prev);
@@ -79,7 +79,7 @@ export function TerminalDemo({ onProgressChange, totalProgress = 0, typingSpeed 
         <button
           onClick={() => window.location.reload()}
           className="text-[#00ffff] hover:text-[#00ff41] text-xs transition-colors"
-          aria-label="刷新網頁"
+          aria-label="刷新网页"
         >
           ↻
         </button>

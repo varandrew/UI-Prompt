@@ -864,7 +864,7 @@ Tailwind class example:
 `
 };
 
-// StylePrompt：描述手绘涂鸦风格理念與氛圍（說明書風格）
+// StylePrompt：描述手绘涂鸦风格理念与氛圍（說明書風格）
 export const stylePrompt = {
   'zh-CN': `
 角色设定：

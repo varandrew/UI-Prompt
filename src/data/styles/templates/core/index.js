@@ -56,7 +56,7 @@ import {
   stylePrompt as newspaperStylePrompt,
 } from './typography/newspaper';
 
-// typography 已移除 - 重複顯示
+// typography 已移除 - 重複显示
 
 // ✨ 創建核心模板配置陣列
 export const coreTemplateConfigs = [
@@ -114,10 +114,10 @@ export const coreTemplateConfigs = [
     stylePrompt: newspaperStylePrompt,
     templates: newspaperTemplates,
   },
-  // core-typography 已移除 - 重複顯示
+  // core-typography 已移除 - 重複显示
 ];
 
-// 保持向後兼容：單獨匯出所有變數（供其他地方直接使用）
+// 保持向後兼容：單獨匯出所有变数（供其他地方直接使用）
 export {
   skeuomorphismTemplates,
   skeuomorphismName,
@@ -155,5 +155,5 @@ export {
   newspaperDescription,
   newspaperCustomPrompt,
   newspaperStylePrompt,
-  // typography 已移除 - 重複顯示
+  // typography 已移除 - 重複显示
 };

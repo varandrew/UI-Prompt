@@ -9,12 +9,12 @@ import { PreviewSelector } from './PreviewSelector';
 import { hasMultiplePreviews } from '../../utils/previewsHelper';
 import { DataVisualizationPreview } from './DataVisualizationPreview';
 import { LANGUAGES } from "../../utils/i18n/languageConstants";
-// ✅ 階段 3.1: 導入預覽加載器
+// ✅ 階段 3.1: 导入預覽加載器
 import { loadPreview } from '../../utils/previewLoader';
 
 // 預覽模態框：支援單一或多個預覽
-// ✅ 階段 3.1: 新增 fullPagePreviewId 參數支持異步加載
-// 新增參數 previews: Array<{ id, name, type: 'full'|'inline'|'data-visualization', html, styles, previewId }>
+// ✅ 階段 3.1: 新增 fullPagePreviewId 參数支持異步加載
+// 新增參数 previews: Array<{ id, name, type: 'full'|'inline'|'data-visualization', html, styles, previewId }>
 import appCssUrl from '../../index.css?url';
 
 export function PreviewModal({
@@ -47,11 +47,11 @@ export function PreviewModal({
   } else if (typeof title === 'string') {
     // 字符串格式：可能是 i18n 鍵，嘗試翻譯
     const translated = t(title);
-    // 如果翻譯結果與原值不同，說明是有效的 i18n 鍵
+    // 如果翻譯結果与原值不同，說明是有效的 i18n 鍵
     displayTitle = translated !== title ? translated : title;
   }
   
-  // 強制轉換為字符串，確保不會顯示 [object Object]
+  // 強制轉換為字符串，確保不會显示 [object Object]
   displayTitle = String(displayTitle || '');
   
   // 處理 description：確保始終是字符串
@@ -75,18 +75,18 @@ export function PreviewModal({
   const previewsList = Array.isArray(previews) ? previews : [];
   const previewsKey = `${previewsList.length}:${previewsList.map(p => p?.id ?? '').join('|')}`;
 
-  // 將資料中的 Markdown 章節標記 (如 "## 配色方案") 做最小轉換，並清理純文字色彩說明，避免在預覽中顯示
+  // 將資料中的 Markdown 章節标記 (如 "## 配色方案") 做最小轉換，並清理純文字色彩說明，避免在預覽中显示
   const normalizeMarkdownHeadings = (html) => {
     if (!html) return html;
 
     let out = html;
 
-    // 1) 將 Markdown 標題轉為 H3（保底轉換）
+    // 1) 將 Markdown 标題轉為 H3（保底轉換）
     out = out
       .replace(/(^|\n)##\s*配色方案/g, '$1<h3 class="md-section-title">配色方案</h3>')
       .replace(/(^|\n)##\s*Color\s*Scheme/g, '$1<h3 class="md-section-title">Color Scheme</h3>');
 
-    // 2) 清理：移除緊接在「配色方案/Color Scheme」標題後的純文字描述（通常包含多個色碼），直到遇到下一個 HTML 標籤
+    // 2) 清理：移除緊接在「配色方案/Color Scheme」标題後的純文字描述（通常包含多個色碼），直到遇到下一個 HTML 标籤
     // Markdown 形式
     out = out.replace(/(^|\n)##\s*(配色方案|Color\s*Scheme)[\t ]*\n[\s\S]*?(?=(\n\s*<|$))/g, '$1');
     // 已轉為 H3 的形式
@@ -95,7 +95,7 @@ export function PreviewModal({
     return out;
   };
 
-  // 移除外部資源（避免因無網路或被阻擋導致預覽卡在載入）
+  // 移除外部資源（避免因無网路或被阻擋导致預覽卡在載入）
   const stripExternalAssets = (html) => {
     if (!html) return html;
     try {
@@ -109,7 +109,7 @@ export function PreviewModal({
     }
   };
 
-  // 找到第一個 full 類型預覽的索引作為默認值
+  // 找到第一個 full 类型預覽的索引作為默認值
   const getDefaultIndex = () => {
     if (previewsList && previewsList.length > 0) {
       const firstFullIndex = previewsList.findIndex(p => p.type === 'full');
@@ -151,7 +151,7 @@ export function PreviewModal({
     }
   }, [isOpen, activeIndex, fullPagePreviewId, previewsKey]);
 
-  // 當打開或預覽內容集合變化時重置索引與載入狀態
+  // 當打開或預覽內容集合變化時重置索引与載入狀態
   useEffect(() => {
     if (isOpen) {
       setActiveIndex(getDefaultIndex());
@@ -159,13 +159,13 @@ export function PreviewModal({
     }
   }, [isOpen, previewsKey]);
 
-  // 切換預覽索引時，先顯示 Loading 覆蓋，待 iframe onLoad 再關閉
+  // 切換預覽索引時，先显示 Loading 覆蓋，待 iframe onLoad 再关閉
   useEffect(() => {
     if (!isOpen) return;
     setIsLoading(true);
   }, [isOpen, activeIndex]);
 
-  // 載入逾時後備：若 iframe onLoad 未觸發，最長 2 秒自動隱藏 Loading，避免無網路資源導致卡住
+  // 載入逾時後备：若 iframe onLoad 未觸發，最長 2 秒自動隱藏 Loading，避免無网路資源导致卡住
   useEffect(() => {
     if (!isOpen) return;
     const timer = setTimeout(() => {
@@ -188,7 +188,7 @@ export function PreviewModal({
   if (!isOpen) return null;
 
   const buildPreviewHTML = () => {
-    // ✅ 階段 3.1: 優先使用異步加載的內容（且內容非空）
+    // ✅ 階段 3.1: 优先使用異步加載的內容（且內容非空）
     if (previewContent && (previewContent.html || previewContent.styles)) {
       const processedHTML = getDemoHTML(previewContent.html || '', language);
       const normalizedHTML = stripExternalAssets(normalizeMarkdownHeadings(processedHTML));
@@ -213,11 +213,11 @@ export function PreviewModal({
 </html>`;
     }
 
-    // 若提供多個預覽，優先採用
+    // 若提供多個預覽，优先採用
     if (previewsList && previewsList.length > 0) {
       const current = previewsList[Math.min(activeIndex, previewsList.length - 1)];
       // 若當前預覽需要異步載入內容（有 previewId 或傳入 fullPagePreviewId），且內容尚未到位，
-      // 返回一個簡單骨架頁面，避免先渲染到回退內容，導致錯誤畫面閃現。
+      // 返回一個简單骨架页面，避免先渲染到回退內容，导致错誤画面閃現。
       if ((current?.previewId || fullPagePreviewId) && !previewContent) {
         return `<!DOCTYPE html>
 <html lang="${language}">
@@ -237,11 +237,11 @@ let previewHTML = current.html || '';
       let previewStyles = current.styles || '';
       // 佔位符回退：若預覽提供「使用原有的 demoHTML/樣式」註解，使用父級內容
       if (previewHTML && previewHTML.includes('使用原有的 demoHTML')) {
-        // 使用卡片層級的 demoHTML 作為預覽內容
+        // 使用卡片层級的 demoHTML 作為預覽內容
         previewHTML = htmlContent || '';
       }
       if (previewStyles && (previewStyles.includes('使用原有的 customStyles') || previewStyles.includes('fullPageStyles'))) {
-        // 合併 fullPageStyles 與 customStyles 作為預覽樣式
+        // 合併 fullPageStyles 与 customStyles 作為預覽樣式
         previewStyles = `${fullPageStyles || ''}
 ${customStyles || ''}`.trim();
       }
@@ -252,7 +252,7 @@ ${customStyles || ''}`.trim();
           previewHTML = fullPageHTML;
           previewStyles = fullPageStyles || customStyles || '';
         } else {
-          // 從 htmlContent 提取隱藏的完整頁面
+          // 从 htmlContent 提取隱藏的完整页面
           const extractFullPageContent = (html) => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(`<div>${html}</div>`, 'text/html');
@@ -283,7 +283,7 @@ ${customStyles || ''}`.trim();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${t('preview.fullTitle', { title: displayTitle })}</title>
-  <!-- 優先使用本地樣式，確保離線可用；CDN 作為後備 -->
+  <!-- 优先使用本地樣式，確保離线可用；CDN 作為後备 -->
   <link rel="stylesheet" href="${appCssUrl}">
   <style>
     ${sanitizedStyles}
@@ -296,14 +296,14 @@ ${customStyles || ''}`.trim();
 </html>`;
       }
 
-      // inline 類型：嵌入小型區塊
+      // inline 类型：嵌入小型区塊
       return `<!DOCTYPE html>
 <html lang="${language}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${t('preview.title', { title: displayTitle })}</title>
-  <!-- 優先使用本地樣式，確保離線可用；CDN 作為後備 -->
+  <!-- 优先使用本地樣式，確保離线可用；CDN 作為後备 -->
   <link rel="stylesheet" href="${appCssUrl}">
   <style>
     ${sanitizedStyles}
@@ -332,7 +332,7 @@ ${customStyles || ''}`.trim();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${t('preview.fullTitle', { title: displayTitle })}</title>
-  <!-- 優先使用本地樣式，確保離線可用；CDN 作為後備 -->
+  <!-- 优先使用本地樣式，確保離线可用；CDN 作為後备 -->
   <link rel="stylesheet" href="${appCssUrl}">
   <style>
     ${sanitizedStyles}
@@ -346,9 +346,9 @@ ${customStyles || ''}`.trim();
     }
 
     // 否则使用原有的逻辑 (小型demo)
-    // 只在開發模式下顯示警告，因為不是所有組件都有 fullPageHTML
+    // 只在開發模式下显示警告，因為不是所有組件都有 fullPageHTML
     if (import.meta.env?.DEV) {
-      console.log('ℹ️ 使用標準預覽模式（fullPageHTML 為空，這是正常的）');
+      console.log('ℹ️ 使用标準預覽模式（fullPageHTML 為空，這是正常的）');
     }
     // 提取完整页面内容(隐藏的部分)
     const extractFullPageContent = (html) => {
@@ -384,7 +384,7 @@ ${customStyles || ''}`.trim();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${t('preview.title', { title: displayTitle })}</title>
-  <!-- 優先使用本地樣式，確保離線可用；CDN 作為後備 -->
+  <!-- 优先使用本地樣式，確保離线可用；CDN 作為後备 -->
   <link rel="stylesheet" href="${appCssUrl}">
   <style>
     ${sanitizedCustomStyles}
@@ -407,10 +407,10 @@ ${customStyles || ''}`.trim();
         : t(currentPreview.description))
     : '';
   const previewFeatures = currentPreview?.features || [];
-  // 優先使用 preview 的 colorScheme，如果沒有則使用主風格對象的 colorScheme
+  // 优先使用 preview 的 colorScheme，如果沒有則使用主風格對象的 colorScheme
   const previewColorScheme = currentPreview?.colorScheme?.[language] || colorScheme?.[language] || '';
 
-  // ✨ 構建 Prompt 內容（生成成本可接受，直接計算以避免 hooks 次數受條件渲染影響）
+  // ✨ 構建 Prompt 內容（生成成本可接受，直接計算以避免 hooks 次数受條件渲染影響）
   const styleObject = {
     title: displayTitle,
     description: displayDescription,
@@ -493,7 +493,7 @@ ${customStyles || ''}`.trim();
                   <div className="minimalism-loader-dot"></div>
                   <div className="minimalism-loader-dot"></div>
                 </div>
-                {/* ✅ 顯示加載狀態 */}
+                {/* ✅ 显示加載狀態 */}
                 {isLoadingPreview && (
                   <div className="mt-4 text-sm text-gray-600">
                     {t('preview.loadingContent')} ...
@@ -511,7 +511,7 @@ ${customStyles || ''}`.trim();
                 key={`${displayTitle}:${activeIndex}:${previewContent ? 'ready' : 'loading'}`}
                 title={t('preview.header', { title: displayTitle })}
                 srcDoc={buildPreviewHTML()}
-                className="w-full min-h-[600px] border-0"
+                className="w-full h-full border-0"
                 onLoad={() => setIsLoading(false)}
                 sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
               />

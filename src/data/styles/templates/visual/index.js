@@ -1,5 +1,5 @@
 // Aggregator for Visual templates (含 modern 和 visualTech)
-// 新增：7 個 Visual 家族（符合 Core 標準結構）
+// 新增：7 個 Visual 家族（符合 Core 标準結構）
 import { translucentTemplates } from './translucent'
 import { gradientTemplates } from './gradient'
 import { threedTemplates } from './threed'
@@ -17,17 +17,16 @@ import { visualNeonCyberpunk } from './neonCyberpunk'
 import { visualNeonNoir } from './neonNoir'
 import { outlineStyleTemplates } from './outlineStyle'
 import { handDrawnSketchTemplates } from './handDrawnSketch'
-// natural 風格已合併到 visualStyles.js，不再需要從 natural 目錄導入
+// natural 風格已合併到 visualStyles.js，不再需要从 natural 目录导入
 import { visualStyles } from './visualStyles'
 import { modernStyles } from './modernStyles'
-import { saasMinimalStyles } from './saasMinimalStyles'
 import { kawaiiMinimalStyles } from './kawaiiMinimalStyles'
 import { accessibilityStyles } from './accessibilityStyles'
 import { paperCutoutStyles } from './paperCutoutStyles'
 import { newTrendStyles } from './newTrendStyles'
 import { visualTechStyles } from './visualTechStyles'
 
-// Modern 子模板 (已整合在 modernStyles.js 中，無需單獨導入)
+// Modern 子模板 (已整合在 modernStyles.js 中，無需單獨导入)
 
 // VisualTech 子模板
 import { visualTechGradients } from './gradients'
@@ -55,9 +54,9 @@ import { biophilic } from './biophilic'
 export const name = 'nav.visual'
 
 export const visualTemplateStyles = [
-  // 新增：前 4 個 Visual 家族（符合 Core 標準）
-  ...translucentTemplates,   // 5 個透明質感風格
-  ...gradientTemplates,      // 5 個漸變風格
+  // 新增：前 4 個 Visual 家族（符合 Core 标準）
+  ...translucentTemplates,   // 5 個透明质感風格
+  ...gradientTemplates,      // 5 個漸变風格
   ...threedTemplates,        // 5 個 3D 風格
   ...shapeTemplates,         // 5 個形狀風格
 
@@ -69,12 +68,11 @@ export const visualTemplateStyles = [
   y2kStyle,
   visualNeonCyberpunk,
   visualNeonNoir,
-  ...outlineStyleTemplates,  // Outline Style (線條風格)
+  ...outlineStyleTemplates,  // Outline Style (线條風格)
   ...handDrawnSketchTemplates,  // Hand-Drawn Sketch (手繪涂鸦风格)
   // natural 風格已合併到 visualStyles.js 中
   // Modern 系列 (已整合在 modernStyles.js)
   ...modernStyles,
-  ...saasMinimalStyles,
   ...accessibilityStyles,
   // VisualTech 系列
   ...visualTechStyles,

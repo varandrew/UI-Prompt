@@ -4,9 +4,9 @@
 import { demoHTML, customStyles } from './Demo';
 
 // 导入所有模板（从子文件夹）
-// neon 已移除 - 與 visual-neon-cyberpunk / visual-neon-noir 重複（無 preview HTML）
-// glow 已移除 - 與其他風格重複（無 preview HTML）
-// backlight 已移除 - 與其他風格重複（無 preview HTML）
+// neon 已移除 - 与 visual-neon-cyberpunk / visual-neon-noir 重複（無 preview HTML）
+// glow 已移除 - 与其他風格重複（無 preview HTML）
+// backlight 已移除 - 与其他風格重複（無 preview HTML）
 import { ambient } from './ambient';
 import { spotlight } from './spotlight';
 
@@ -412,9 +412,9 @@ Ambient light:
 
 // 导出模板数组
 export const lightTemplates = [
-  // neon 已移除 - 與 visual-neon-cyberpunk / visual-neon-noir 重複（無 preview HTML）
-  // glow 已移除 - 與其他風格重複（無 preview HTML）
-  // backlight 已移除 - 與其他風格重複（無 preview HTML）
+  // neon 已移除 - 与 visual-neon-cyberpunk / visual-neon-noir 重複（無 preview HTML）
+  // glow 已移除 - 与其他風格重複（無 preview HTML）
+  // backlight 已移除 - 与其他風格重複（無 preview HTML）
   spotlight,
   ambient,
 ];

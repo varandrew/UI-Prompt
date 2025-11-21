@@ -353,7 +353,7 @@ export const financialPlatform = {
     <body class="bg-gray-50 min-h-screen">
       <!-- 統一的外部容器背景 -->
       <div class="bg-gray-50 min-h-screen">
-        <!-- 深色主題內容區域 -->
+        <!-- 深色主題內容区域 -->
         <div class="bg-gray-900 text-white min-h-screen">
           <!-- Header -->
       <header class="bg-gray-800 border-b border-gray-700">
@@ -1120,7 +1120,7 @@ export const realTimeMonitoring = {
     <body class="bg-gray-50 min-h-screen">
       <!-- 統一的外部容器背景 -->
       <div class="bg-gray-50 min-h-screen">
-        <!-- 深色主題內容區域 -->
+        <!-- 深色主題內容区域 -->
         <div class="bg-gray-900 text-white min-h-screen">
           <!-- Header -->
       <header class="bg-gray-800 border-b border-gray-700">

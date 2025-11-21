@@ -6,7 +6,7 @@ export const navigationComponents = [
     id: 'breadcrumbs',
     title: 'data.components.navigation.breadcrumbs.title',
     description: 'data.components.navigation.breadcrumbs.description',
-    // 五種 UI 風格設計
+    // 五種 UI 風格设計
     variants: [
       {
         id: 'minimalism',
@@ -349,7 +349,7 @@ export const navigationComponents = [
         `
       }
     ],
-    // 保留原有數據作為回退 (向後兼容)
+    // 保留原有数据作為回退 (向後兼容)
     demoHTML: `
       <nav class="w-3/4 text-sm">
         <ol class="flex items-center gap-1 text-neutral-500">
@@ -969,7 +969,7 @@ export const navigationComponents = [
     id: 'pagination',
     title: 'data.components.navigation.pagination.title',
     description: 'data.components.navigation.pagination.description',
-    // 五種 UI 風格設計
+    // 五種 UI 風格设計
     variants: [
       {
         id: 'minimalism',
@@ -1299,7 +1299,7 @@ export const navigationComponents = [
         `
       }
     ],
-    // 保留原有數據作為回退 (向後兼容)
+    // 保留原有数据作為回退 (向後兼容)
     demoHTML: `
       <div class="w-full flex items-center justify-between text-sm px-4">
         <button class="px-3 py-1 border rounded-md">{{t:demo.navigation.previousPage}}</button>
@@ -1320,7 +1320,7 @@ export const navigationComponents = [
     id: 'stepper',
     title: 'data.components.navigation.stepper.title',
     description: 'data.components.navigation.stepper.description',
-    // 五種 UI 風格設計
+    // 五種 UI 風格设計
     variants: [
       {
         id: 'minimalism',
@@ -1339,7 +1339,7 @@ export const navigationComponents = [
                 <span class="text-xs font-medium text-gray-900">{{t:demo.navigation.step1}}</span>
               </li>
 
-              <!-- 連接線 1: 已完成 -->
+              <!-- 連接线 1: 已完成 -->
               <div class="stepper-min-line-completed"></div>
 
               <!-- 步驟 2: 當前 -->
@@ -1348,7 +1348,7 @@ export const navigationComponents = [
                 <span class="text-xs font-semibold text-black">{{t:demo.navigation.step2}}</span>
               </li>
 
-              <!-- 連接線 2: 未完成 -->
+              <!-- 連接线 2: 未完成 -->
               <div class="stepper-min-line-pending"></div>
 
               <!-- 步驟 3: 未完成 -->
@@ -1434,7 +1434,7 @@ export const navigationComponents = [
                 <span class="text-xs font-bold text-green-700 text-shadow-sm">{{t:demo.navigation.step1}}</span>
               </li>
 
-              <!-- 連接線 1: 已完成 -->
+              <!-- 連接线 1: 已完成 -->
               <div class="stepper-skeuo-line-completed"></div>
 
               <!-- 步驟 2: 當前 -->
@@ -1443,7 +1443,7 @@ export const navigationComponents = [
                 <span class="text-xs font-bold text-blue-800 text-shadow-sm">{{t:demo.navigation.step2}}</span>
               </li>
 
-              <!-- 連接線 2: 未完成 -->
+              <!-- 連接线 2: 未完成 -->
               <div class="stepper-skeuo-line-pending"></div>
 
               <!-- 步驟 3: 未完成 -->
@@ -1567,7 +1567,7 @@ export const navigationComponents = [
                 <span class="text-xs font-semibold text-green-700">{{t:demo.navigation.step1}}</span>
               </li>
 
-              <!-- 連接線 1: 已完成 -->
+              <!-- 連接线 1: 已完成 -->
               <div class="stepper-neomorph-line-completed"></div>
 
               <!-- 步驟 2: 當前 -->
@@ -1576,7 +1576,7 @@ export const navigationComponents = [
                 <span class="text-xs font-semibold text-blue-700">{{t:demo.navigation.step2}}</span>
               </li>
 
-              <!-- 連接線 2: 未完成 -->
+              <!-- 連接线 2: 未完成 -->
               <div class="stepper-neomorph-line-pending"></div>
 
               <!-- 步驟 3: 未完成 -->
@@ -1681,7 +1681,7 @@ export const navigationComponents = [
                 <span class="text-xs font-semibold text-green-700">{{t:demo.navigation.step1}}</span>
               </li>
 
-              <!-- 連接線 1: 已完成 -->
+              <!-- 連接线 1: 已完成 -->
               <div class="stepper-glass-line-completed"></div>
 
               <!-- 步驟 2: 當前 -->
@@ -1690,7 +1690,7 @@ export const navigationComponents = [
                 <span class="text-xs font-bold text-purple-700">{{t:demo.navigation.step2}}</span>
               </li>
 
-              <!-- 連接線 2: 未完成 -->
+              <!-- 連接线 2: 未完成 -->
               <div class="stepper-glass-line-pending"></div>
 
               <!-- 步驟 3: 未完成 -->
@@ -1815,7 +1815,7 @@ export const navigationComponents = [
                 <span class="text-xs font-black text-black">{{t:demo.navigation.step1}}</span>
               </li>
 
-              <!-- 連接線 1: 已完成 -->
+              <!-- 連接线 1: 已完成 -->
               <div class="stepper-brutal-line-completed"></div>
 
               <!-- 步驟 2: 當前 -->
@@ -1824,7 +1824,7 @@ export const navigationComponents = [
                 <span class="text-xs font-black text-black">{{t:demo.navigation.step2}}</span>
               </li>
 
-              <!-- 連接線 2: 未完成 -->
+              <!-- 連接线 2: 未完成 -->
               <div class="stepper-brutal-line-pending"></div>
 
               <!-- 步驟 3: 未完成 -->
@@ -1927,7 +1927,7 @@ export const navigationComponents = [
         `
       }
     ],
-    // 保留原有數據作為回退 (向後兼容)
+    // 保留原有数据作為回退 (向後兼容)
     demoHTML: `
       <ol class="w-5/6 flex items-center justify-between text-sm">
         <li class="flex items-center gap-2">
@@ -3412,7 +3412,7 @@ export const navigationComponents = [
     id: 'progress-indicators',
     title: 'data.components.navigation.progress-indicators.title',
     description: 'data.components.navigation.progress-indicators.description',
-    // 四種 UI 風格設計
+    // 四種 UI 風格设計
     variants: [
       {
         id: 'minimalism',
@@ -3421,7 +3421,7 @@ export const navigationComponents = [
         demoHTML: `
           <div class="min-h-screen flex items-center justify-center p-8 bg-white">
             <div class="w-full max-w-xl space-y-8" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-              <!-- 線性進度條 1: 簡潔細線 -->
+              <!-- 线性進度條 1: 简潔細线 -->
               <div>
                 <div class="flex justify-between items-center mb-2">
                   <span class="text-sm font-medium text-gray-900">{{t:demo.progressIndicators.uploadingFile}}</span>
@@ -3433,7 +3433,7 @@ export const navigationComponents = [
                 <p class="text-xs text-gray-500 mt-1">{{t:demo.progressIndicators.processingFile}}</p>
               </div>
 
-              <!-- 線性進度條 2: 粗條帶標籤 -->
+              <!-- 线性進度條 2: 粗條帶标籤 -->
               <div>
                 <div class="flex justify-between items-center mb-3">
                   <span class="text-base font-semibold text-gray-900">{{t:demo.progressIndicators.dataSync}}</span>
@@ -3448,7 +3448,7 @@ export const navigationComponents = [
                 </div>
               </div>
 
-              <!-- 線性進度條 3: 多段進度 -->
+              <!-- 线性進度條 3: 多段進度 -->
               <div>
                 <h4 class="text-sm font-semibold text-gray-900 mb-4">{{t:demo.progressIndicators.installationProgress}}</h4>
                 <div class="space-y-4">
@@ -3527,7 +3527,7 @@ export const navigationComponents = [
           <div class="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-gray-100 to-gray-200">
             <div class="w-full max-w-2xl" style="font-family: 'Courier New', monospace;">
               <div class="grid md:grid-cols-2 gap-8">
-              <!-- 圓形進度環 1: 立體感 -->
+              <!-- 圓形進度環 1: 立体感 -->
               <div class="progress-skeuo-card">
                 <h4 class="text-sm font-bold text-gray-800 mb-4 text-center">{{t:demo.progressIndicators.downloadProgress}}</h4>
                 <div class="flex justify-center mb-4">
@@ -3582,7 +3582,7 @@ export const navigationComponents = [
                 </div>
               </div>
 
-              <!-- 立體條形進度 -->
+              <!-- 立体條形進度 -->
               <div class="md:col-span-2 progress-skeuo-card">
                 <h4 class="text-sm font-bold text-gray-800 mb-4">{{t:demo.progressIndicators.uploadQueue}}</h4>
                 <div class="space-y-4">
@@ -3786,7 +3786,7 @@ export const navigationComponents = [
                 <p class="text-sm text-gray-600">{{t:demo.progressIndicators.tasksCompleted}}</p>
               </div>
 
-              <!-- 線性進度條 -->
+              <!-- 线性進度條 -->
               <div class="space-y-6">
                 <div>
                   <div class="flex justify-between items-center mb-3">
@@ -4001,7 +4001,7 @@ export const navigationComponents = [
           <div class="min-h-screen flex items-center justify-center">
             <div class="progress-glass-container w-full max-w-5xl">
               <div class="max-w-2xl mx-auto space-y-8">
-              <!-- 圓形進度 + 漸變動畫 -->
+              <!-- 圓形進度 + 漸變動画 -->
               <div class="progress-glass-card">
                 <h4 class="text-sm font-semibold text-purple-800 mb-6 text-center">{{t:demo.progressIndicators.processingProgress}}</h4>
                 <div class="flex justify-center mb-6">
@@ -4031,7 +4031,7 @@ export const navigationComponents = [
                 </div>
               </div>
 
-              <!-- 漸變線性進度條 -->
+              <!-- 漸變线性進度條 -->
               <div class="progress-glass-card">
                 <div class="space-y-6">
                   <div>
@@ -4075,7 +4075,7 @@ export const navigationComponents = [
                 </div>
               </div>
 
-              <!-- 多層次進度 -->
+              <!-- 多层次進度 -->
               <div class="progress-glass-card">
                 <h4 class="text-sm font-semibold text-purple-800 mb-5">{{t:demo.progressIndicators.taskQueue}}</h4>
                 <div class="space-y-4">
@@ -4327,7 +4327,7 @@ export const navigationComponents = [
         `
       }
     ],
-    // 保留原有數據作為回退 (向後兼容)
+    // 保留原有数据作為回退 (向後兼容)
     demoHTML: `
       <div class="w-full max-w-md">
         <div class="bg-white rounded-lg border border-gray-200 p-6">

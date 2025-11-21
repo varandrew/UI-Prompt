@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 
 /**
  * 生成組件的默認屬性
- * @param {string} componentType - 組件類型
+ * @param {string} componentType - 組件类型
  * @param {Object} baseContent - 基礎內容覆蓋
  * @returns {Object} - 默認屬性對象
  */
@@ -99,8 +99,8 @@ export const createDefaultProps = (componentType, baseContent = {}) => {
 };
 
 /**
- * 獲取組件類型的默認佈局屬性
- * @param {string} componentType - 組件類型
+ * 獲取組件类型的默認佈局屬性
+ * @param {string} componentType - 組件类型
  * @returns {Object} - 默認佈局屬性
  */
 export const getDefaultLayoutProps = (componentType) => {
@@ -128,8 +128,8 @@ export const getDefaultLayoutProps = (componentType) => {
 };
 
 /**
- * 獲取組件類型的默認樣式
- * @param {string} componentType - 組件類型
+ * 獲取組件类型的默認樣式
+ * @param {string} componentType - 組件类型
  * @returns {Object} - 默認樣式對象
  */
 export const getDefaultStyle = (componentType) => {

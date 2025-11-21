@@ -4,7 +4,7 @@ import './VariantGrid.css';
 
 /**
  * VariantGrid - 瀑布流佈局容器
- * 使用 Masonry 佈局展示組件的多個變體
+ * 使用 Masonry 佈局展示組件的多個變体
  * 支持: 點擊預覽 + Prompt 功能
  */
 export function VariantGrid({
@@ -25,7 +25,7 @@ export function VariantGrid({
       <div className="text-center py-12">
         <div className="text-gray-400 text-4xl mb-4">📦</div>
         <p className="text-gray-600">
-          暫無變體數據
+          暫無變体数据
         </p>
       </div>
     );

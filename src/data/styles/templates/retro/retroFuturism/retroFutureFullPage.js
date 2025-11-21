@@ -1,5 +1,5 @@
 // Retro Future Full Page HTML and Styles
-// 復古未來主義完整頁面（1980年代個人電腦風格）
+// 復古未來主義完整页面（1980年代個人電腦風格）
 
 export const retroFutureFullPageHTML = `
       <div class="crt-monitor">

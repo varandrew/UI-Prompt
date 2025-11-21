@@ -4,7 +4,7 @@
  */
 export function GlobalStyles() {
   const styles = `
-    /* 動畫定義（作用域：全局，但只被 .live-preview 內的元素使用） */
+    /* 動画定義（作用域：全局，但只被 .live-preview 內的元素使用） */
     @keyframes cyber-scan {
       0% { transform: translateY(-100%); }
       100% { transform: translateY(100vh); }
@@ -57,18 +57,18 @@ export function GlobalStyles() {
       color: #00ff41;
       position: relative;
       min-height: 100%;
-      /* 移除 overflow-x: hidden，避免與 LivePreview 的內聯樣式衝突 */
+      /* 移除 overflow-x: hidden，避免与 LivePreview 的內联樣式衝突 */
     }
 
-    /* 內容層 */
+    /* 內容层 */
     .live-preview .content-layer {
       position: relative;
       z-index: 10;
     }
 
     /*
-     * 滾動條樣式由 index.css 中的 .custom-scrollbar-dark 類控制
-     * 這裡不再重複定義，避免樣式衝突
+     * 滾動條樣式由 index.css 中的 .custom-scrollbar-dark 类控制
+     * 這里不再重複定義，避免樣式衝突
      */
 
     /* Hover 效果（限定在 .live-preview 內） */

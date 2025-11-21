@@ -1,5 +1,5 @@
 // Cyberpunk Control Center Full Page Template
-// 賽博龐克控制中心完整頁面模板
+// 賽博龐克控制中心完整页面模板
 
 export const cyberpunkControlFullPageHTML = `<!-- CYBERPUNK CONTROL CENTER -->
 <div class="cyberpunk-page">
@@ -618,7 +618,7 @@ export const cyberpunkControlFullPageHTML = `<!-- CYBERPUNK CONTROL CENTER -->
 
 export const cyberpunkControlFullPageStyles = `/* ═══════════════════════════════════════════════════════════════
    CYBERPUNK CONTROL CENTER STYLES
-   配色方案: 霓虹粉/藍/黃/綠/橙/紅 + CRT 掃描線效果
+   配色方案: 霓虹粉/藍/黃/綠/橙/紅 + CRT 掃描线效果
    ═══════════════════════════════════════════════════════════════ */
 
 :root {

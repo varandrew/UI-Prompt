@@ -1,6 +1,6 @@
 /**
  * Kinetic Typography - Full Page Demo
- * 完整的動態排版登陸頁面範例
+ * 完整的動態排版登陸页面範例
  * 包含: Hero, Stats, Demo, Pricing, FAQ, Footer 共 6 個章節
  */
 

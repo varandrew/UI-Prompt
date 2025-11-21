@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { HydrateFallback } from '../components/HydrateFallback';
 
-// 基於 Vite BASE_URL 設定 Router basename，支援子路徑部署（如 /styles）
+// 基於 Vite BASE_URL 设定 Router basename，支援子路徑部署（如 /styles）
 const __BASENAME__ = (import.meta.env.DEV ? '' : (import.meta.env.BASE_URL || '/')).replace(/\/$/, '');
 
 export const router = createBrowserRouter([
@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     lazy: async () => ({ Component: (await import('../pages/layouts/LayoutEditorPage')).LayoutEditorPage, ErrorBoundary: (await import('../components/RouteError')).RouteError }),
   },
 
-  // 風格預覽頁面路由 (不使用主 Layout)
+  // 風格預覽页面路由 (不使用主 Layout)
   {
     path: '/styles/preview/:styleId',
     lazy: async () => {
@@ -65,7 +65,7 @@ export const router = createBrowserRouter([
       // 新的统一风格页面
       {
         path: 'styles',
-        // 顯式附上副檔名以避免個別環境的副檔名解析問題
+        // 显式附上副档名以避免個別環境的副档名解析問題
         lazy: async () => ({ Component: (await import('../pages/styles/AllStylesPage.jsx')).AllStylesPage, ErrorBoundary: (await import('../components/RouteError')).RouteError }),
       },
       // 新的统一组件页面
@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
         path: 'layouts',
         lazy: async () => ({ Component: (await import('../pages/layouts/LayoutsPage')).LayoutsPage, ErrorBoundary: (await import('../components/RouteError')).RouteError }),
       },
-      // 新增: 組件詳情頁 (動態路由)
+      // 新增: 組件詳情页 (動態路由)
       { path: 'components/:category/:componentId', lazy: async () => ({ Component: (await import('../pages/components/ComponentDetailPage')).ComponentDetailPage, ErrorBoundary: (await import('../components/RouteError')).RouteError }) },
       // 404 通配符路由 - 必須放在最後
       { path: '*', lazy: async () => ({ Component: (await import('../pages/special/NotFoundPage')).NotFoundPage, ErrorBoundary: (await import('../components/RouteError')).RouteError }) },

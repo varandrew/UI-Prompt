@@ -1,28 +1,28 @@
 /**
- * previewsHelper.js - 預覽相關的輔助工具函數
+ * previewsHelper.js - 預覽相关的輔助工具函数
  *
- * 提供標準化的預覽配置管理功能
+ * 提供标準化的預覽配置管理功能
  */
 
 /**
- * 預覽類型枚舉
+ * 預覽类型枚舉
  */
 export const PreviewType = {
-  FULL: 'full',      // 完整頁面預覽
-  INLINE: 'inline'   // 內嵌區塊預覽
+  FULL: 'full',      // 完整页面預覽
+  INLINE: 'inline'   // 內嵌区塊預覽
 };
 
 /**
  * 創建預覽配置對象
  *
  * @param {Object} options - 預覽選項
- * @param {string} options.id - 唯一標識符
- * @param {string} options.name - 顯示名稱
+ * @param {string} options.id - 唯一标識符
+ * @param {string} options.name - 显示名稱
  * @param {string} options.html - HTML 內容
- * @param {string} [options.type='full'] - 預覽類型
+ * @param {string} [options.type='full'] - 預覽类型
  * @param {string} [options.styles=''] - CSS 樣式
  * @param {string} [options.description=''] - 描述 (用於 tooltip)
- * @returns {Object} 標準化的預覽配置對象
+ * @returns {Object} 标準化的預覽配置對象
  */
 export function createPreview(options) {
   if (!options.id) {
@@ -80,12 +80,12 @@ function validateSinglePreview(preview) {
     return false;
   }
 
-  // 必需字段檢查
+  // 必需字段检查
   if (!preview.id || !preview.name || !preview.html) {
     return false;
   }
 
-  // 類型檢查
+  // 类型检查
   if (preview.type && !Object.values(PreviewType).includes(preview.type)) {
     console.warn(`Invalid preview type: ${preview.type}. Expected 'full' or 'inline'.`);
     return false;
@@ -95,10 +95,10 @@ function validateSinglePreview(preview) {
 }
 
 /**
- * 從多個預覽中提取特定類型
+ * 从多個預覽中提取特定类型
  *
  * @param {Object[]} previews - 預覽陣列
- * @param {string} type - 預覽類型
+ * @param {string} type - 預覽类型
  * @returns {Object[]} 篩選後的預覽陣列
  */
 export function filterPreviewsByType(previews, type) {
@@ -110,7 +110,7 @@ export function filterPreviewsByType(previews, type) {
 }
 
 /**
- * 根據 ID 查找預覽
+ * 根据 ID 查找預覽
  *
  * @param {Object[]} previews - 預覽陣列
  * @param {string} id - 預覽 ID
@@ -143,7 +143,7 @@ export function getPreviewIndex(previews, id) {
  * 批量創建預覽配置
  *
  * @param {Object[]} optionsArray - 預覽選項陣列
- * @returns {Object[]} 標準化的預覽配置陣列
+ * @returns {Object[]} 标準化的預覽配置陣列
  */
 export function createPreviews(optionsArray) {
   if (!Array.isArray(optionsArray)) {
@@ -194,7 +194,7 @@ export function addDefaultStyles(previews, defaultStyles) {
 }
 
 /**
- * 檢查是否有多個預覽
+ * 检查是否有多個預覽
  *
  * @param {Object[]} previews - 預覽陣列
  * @returns {boolean} 是否有多個預覽
@@ -204,12 +204,12 @@ export function hasMultiplePreviews(previews) {
 }
 
 /**
- * 獲取預覽的顯示名稱
+ * 獲取預覽的显示名稱
  *
  * @param {Object} preview - 預覽對象
- * @param {number} index - 預覽索引 (作為備選)
+ * @param {number} index - 預覽索引 (作為备選)
  * @param {string} [language='en-US'] - 語言代碼
- * @returns {string} 顯示名稱
+ * @returns {string} 显示名稱
  */
 export function getPreviewDisplayName(preview, index, language = 'en-US') {
   if (!preview) {
@@ -231,6 +231,6 @@ export function getPreviewDisplayName(preview, index, language = 'en-US') {
     result = preview.name;
   }
   
-  // 確保返回值始終是字符串，避免顯示 [object Object]
+  // 確保返回值始終是字符串，避免显示 [object Object]
   return String(result || `P${index + 1}`);
 }

@@ -1,5 +1,5 @@
-// Data Visualization 數據可視化風格模板
-// Phase 3 Batch 1 - 從 visualTechStyles.js 遷移
+// Data Visualization 数据可視化風格模板
+// Phase 3 Batch 1 - 从 visualTechStyles.js 遷移
 
 import {
   dataVisualizationFullPageHTML,
@@ -40,7 +40,7 @@ export const visualTechDataVisualization = {
 
   customStyles: '',
 
-  // Demo Box 樣式類
+  // Demo Box 樣式类
   demoBoxClass: 'bg-gray-50',
 
   // 全屏預覽
@@ -48,7 +48,7 @@ export const visualTechDataVisualization = {
   fullPageHTML: dataVisualizationFullPageHTML,
   fullPageStyles: dataVisualizationFullPageStyles,
 
-  // 預覽場景（保留元數據）
+  // 預覽場景（保留元数据）
   previews: [
     {
       id: 'professional-scenarios',

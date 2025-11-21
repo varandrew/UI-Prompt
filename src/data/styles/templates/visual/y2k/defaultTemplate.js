@@ -1,5 +1,5 @@
 // Visual Style Template: Y2K (Frutiger Aero)
-// Y2K 千禧年設計美學 - 氣泡裝飾、玻璃態效果、青藍色漸變
+// Y2K 千禧年设計美學 - 氣泡裝飾、玻璃態效果、青藍色漸变
 
 import {
   y2kFullPageHTML,
@@ -13,7 +13,7 @@ export const y2kStyle = {
   title: 'styles.visual.y2k.title',
   description: 'styles.visual.y2k.description',
 
-  // Demo HTML - Y2K bubble showcase (保持當前設計)
+  // Demo HTML - Y2K bubble showcase (保持當前设計)
   demoHTML: `
     <div class="w-full h-full flex flex-col items-center justify-center p-6 gap-6">
       <div class="relative group">
@@ -64,7 +64,7 @@ export const y2kStyle = {
         'Responsive Design (Desktop/Tablet/Mobile)'
       ],
       colorScheme: {
-        'zh-CN': '背景青藍漸變 (#ECFEFF / Cyan-50, #EFF6FF / Blue-50, #CCFBF1 / Teal-50)、主色青色 (#06b6d4 / Cyan-500)、藍色 (#3b82f6 / Blue-500)、翠綠色 (#10b981 / Emerald-500)、玻璃效果半透明白 (rgba(255,255,255,0.7))、內陰影高光 (rgba(255,255,255,0.5))',
+        'zh-CN': '背景青藍漸变 (#ECFEFF / Cyan-50, #EFF6FF / Blue-50, #CCFBF1 / Teal-50)、主色青色 (#06b6d4 / Cyan-500)、藍色 (#3b82f6 / Blue-500)、翠綠色 (#10b981 / Emerald-500)、玻璃效果半透明白 (rgba(255,255,255,0.7))、內阴影高光 (rgba(255,255,255,0.5))',
         'en-US': 'Background cyan-blue gradient (#ECFEFF / Cyan-50, #EFF6FF / Blue-50, #CCFBF1 / Teal-50), primary cyan (#06b6d4 / Cyan-500), blue (#3b82f6 / Blue-500), emerald (#10b981 / Emerald-500), glass effect semi-transparent white (rgba(255,255,255,0.7)), inner shadow highlight (rgba(255,255,255,0.5))'
       },
       html: y2kFullPageHTML,
@@ -74,7 +74,7 @@ export const y2kStyle = {
 
   // Template-level color scheme
   colorScheme: {
-    'zh-CN': '背景青藍漸變 (#ECFEFF, #EFF6FF, #CCFBF1)、主色青色 (#22D3EE)、藍色 (#60A5FA)、青綠色 (#2DD4BF)、玻璃效果半透明白 (rgba(255,255,255,0.7))',
+    'zh-CN': '背景青藍漸变 (#ECFEFF, #EFF6FF, #CCFBF1)、主色青色 (#22D3EE)、藍色 (#60A5FA)、青綠色 (#2DD4BF)、玻璃效果半透明白 (rgba(255,255,255,0.7))',
     'en-US': 'Background cyan-blue gradient (#ECFEFF, #EFF6FF, #CCFBF1), primary cyan (#22D3EE), blue (#60A5FA), teal (#2DD4BF), glass effect semi-transparent white (rgba(255,255,255,0.7))'
   }
 };

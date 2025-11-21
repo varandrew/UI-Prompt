@@ -1,6 +1,6 @@
 /**
- * Cyberpunk 頁面漸進式生成器
- * 根據進度百分比生成對應階段的 HTML 內容
+ * Cyberpunk 页面漸進式生成器
+ * 根据進度百分比生成對應階段的 HTML 內容
  */
 
 // 基礎樣式 (總是包含)
@@ -16,7 +16,7 @@ const baseStyles = `
   }
 `;
 
-// 動畫樣式 (從一開始就啟用,確保所有動畫效果可見)
+// 動画樣式 (从一開始就啟用,確保所有動画效果可見)
 const animationStyles = `
   @keyframes cyber-scan {
     0% { transform: translateY(-100%); }
@@ -71,16 +71,16 @@ const hoverStyles = `
 `;
 
 /**
- * 根據進度百分比返回對應的 HTML 內容
+ * 根据進度百分比返回對應的 HTML 內容
  * @param {number} progress - 進度百分比 (0-100)
  * @returns {string} - 生成的 HTML 內容
  */
 export function generateProgressiveHTML(progress) {
   let html = '';
-  // 動畫樣式從一開始就啟用,確保所有元素都有動畫效果
+  // 動画樣式从一開始就啟用,確保所有元素都有動画效果
   let styles = baseStyles + animationStyles + hoverStyles;
 
-  // ==================== 背景層 (0-8%) ====================
+  // ==================== 背景层 (0-8%) ====================
   // 階段 1: 0-2% - 背景色
   if (progress >= 0) {
     html += `
@@ -88,14 +88,14 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 階段 2: 2-4% - 背景網格
+  // 階段 2: 2-4% - 背景网格
   if (progress >= 2) {
     html += `
       <div class="cyber-grid" style="position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px); background-size: 50px 50px; perspective: 1000px; transform: rotateX(60deg) translateZ(-100px);"></div>
     `;
   }
 
-  // 階段 3: 4-6% - 掃描線
+  // 階段 3: 4-6% - 掃描线
   if (progress >= 4) {
     html += `
       <div class="cyber-scanline" style="position: fixed; inset: 0; pointer-events: none; z-index: 1; background: linear-gradient(transparent 50%, rgba(0, 255, 65, 0.03) 50%); background-size: 100% 4px; animation: cyber-scan 8s linear infinite;"></div>
@@ -107,8 +107,8 @@ export function generateProgressiveHTML(progress) {
     html += `<div style="position: relative; z-index: 2;">`;
   }
 
-  // ==================== 導航欄 (8-35%) ====================
-  // 階段 5: 8-10% - 導航欄容器
+  // ==================== 导航欄 (8-35%) ====================
+  // 階段 5: 8-10% - 导航欄容器
   if (progress >= 8) {
     html += `
       <nav class="cyber-navbar" style="position: sticky; top: 0; z-index: 50; background: rgba(10, 10, 10, 0.95); border-bottom: 2px solid #00ff41; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);">
@@ -121,7 +121,7 @@ export function generateProgressiveHTML(progress) {
     html += `<div style="display: flex; align-items: center; gap: 1rem;">`;
   }
 
-  // 階段 7: 12-14% - Logo 圖標
+  // 階段 7: 12-14% - Logo 圖标
   if (progress >= 12) {
     html += `
       <div style="width: 40px; height: 40px; background: #00ff41; border: 2px solid #00ffff; display: flex; align-items: center; justify-content: center; position: relative; animation: cyber-pulse 2s ease-in-out infinite;">
@@ -138,17 +138,17 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉 Logo 容器
+  // 关閉 Logo 容器
   if (progress >= 10) {
     html += `</div>`;
   }
 
-  // 階段 9: 16-18% - 導航連結容器
+  // 階段 9: 16-18% - 导航連結容器
   if (progress >= 16) {
     html += `<div style="display: flex; gap: 2rem; align-items: center;">`;
   }
 
-  // 階段 10-13: 18-26% - 導航連結逐一生成
+  // 階段 10-13: 18-26% - 导航連結逐一生成
   if (progress >= 18) {
     html += `<a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ff41; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s; text-shadow: 0 0 5px #00ff41;">MONITOR</a>`;
   }
@@ -162,7 +162,7 @@ export function generateProgressiveHTML(progress) {
     html += `<a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ffff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s;">CONFIG</a>`;
   }
 
-  // 關閉導航連結容器
+  // 关閉导航連結容器
   if (progress >= 16) {
     html += `</div>`;
   }
@@ -182,7 +182,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 階段 16: 30-32% - 通知圖標
+  // 階段 16: 30-32% - 通知圖标
   if (progress >= 30) {
     html += `
       <div style="position: relative; cursor: pointer;">
@@ -203,12 +203,12 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉工具欄容器
+  // 关閉工具欄容器
   if (progress >= 26) {
     html += `</div>`;
   }
 
-  // 關閉導航欄
+  // 关閉导航欄
   if (progress >= 8) {
     html += `
           </div>
@@ -216,7 +216,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // ==================== Hero 區塊 (35-52%) ====================
+  // ==================== Hero 区塊 (35-52%) ====================
   // 階段 18: 35-37% - Hero 背景容器
   if (progress >= 35) {
     html += `
@@ -225,7 +225,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 階段 19: 37-40% - Hero 主標題
+  // 階段 19: 37-40% - Hero 主标題
   if (progress >= 37) {
     html += `
       <h1 class="cyber-glitch" style="font-size: 56px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41; margin: 0; line-height: 1.2; position: relative;">
@@ -234,7 +234,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 階段 20: 40-42% - Hero 副標題
+  // 階段 20: 40-42% - Hero 副标題
   if (progress >= 40) {
     html += `
       <p style="font-size: 18px; font-weight: 400; color: #00ffff; margin-top: 1rem; max-width: 600px; text-shadow: 0 0 5px #00ffff;">
@@ -266,12 +266,12 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉按鈕容器
+  // 关閉按鈕容器
   if (progress >= 42) {
     html += `</div>`;
   }
 
-  // 階段 24: 48-50% - 數據流容器
+  // 階段 24: 48-50% - 数据流容器
   if (progress >= 48) {
     html += `
       </div>
@@ -279,7 +279,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 階段 25-29: 50-52% - 數據流逐一生成
+  // 階段 25-29: 50-52% - 数据流逐一生成
   if (progress >= 50) {
     html += `<div style="position: absolute; top: -50%; left: 10%; font-size: 12px; animation: cyber-flow 15s linear infinite; animation-delay: 0s;">010101010101</div>`;
   }
@@ -296,7 +296,7 @@ export function generateProgressiveHTML(progress) {
     html += `<div style="position: absolute; top: -50%; left: 90%; font-size: 12px; animation: cyber-flow 16s linear infinite; animation-delay: 3s;">100100100100</div>`;
   }
 
-  // 關閉數據流和 Hero 區塊
+  // 关閉数据流和 Hero 区塊
   if (progress >= 48) {
     html += `
       </div>
@@ -305,7 +305,7 @@ export function generateProgressiveHTML(progress) {
   }
 
   // ==================== 監控面板 (52-78%) ====================
-  // 階段 30: 52-54% - 監控面板標題和網格容器
+  // 階段 30: 52-54% - 監控面板标題和网格容器
   if (progress >= 52) {
     html += `
       <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
@@ -325,17 +325,17 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 階段 32: 56-57% - CPU 圖標
+  // 階段 32: 56-57% - CPU 圖标
   if (progress >= 56) {
     html += `<div style="width: 50px; height: 50px; background: rgba(0, 255, 65, 0.2); border: 2px solid #00ff41; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 1rem;">💻</div>`;
   }
 
-  // 階段 33: 57-58% - CPU 標題
+  // 階段 33: 57-58% - CPU 标題
   if (progress >= 57) {
     html += `<h3 style="font-size: 12px; font-weight: 700; color: #00ffff; margin: 0; text-transform: uppercase; letter-spacing: 1px;">CPU_USAGE</h3>`;
   }
 
-  // 階段 34: 58-59% - CPU 數據
+  // 階段 34: 58-59% - CPU 数据
   if (progress >= 58) {
     html += `
       <p style="font-size: 36px; font-weight: 900; color: #00ff41; margin: 0.5rem 0; text-shadow: 0 0 10px #00ff41;">78%</p>
@@ -354,7 +354,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉 CPU 卡片
+  // 关閉 CPU 卡片
   if (progress >= 54) {
     html += `
           </div>
@@ -397,7 +397,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉 GPU 卡片
+  // 关閉 GPU 卡片
   if (progress >= 60) {
     html += `
           </div>
@@ -486,7 +486,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉監控面板
+  // 关閉監控面板
   if (progress >= 52) {
     html += `
         </div>
@@ -494,8 +494,8 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // ==================== 終端區塊 (78-90%) ====================
-  // 階段 41: 78-80% - 終端容器和標題
+  // ==================== 終端区塊 (78-90%) ====================
+  // 階段 41: 78-80% - 終端容器和标題
   if (progress >= 78) {
     html += `
       <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
@@ -543,7 +543,7 @@ export function generateProgressiveHTML(progress) {
     html += `<div style="margin-bottom: 0.5rem; color: #00ffff;">[2077-11-05 23:42:06] All systems operational</div>`;
   }
 
-  // 階段 50: 89-90% - 終端游標
+  // 階段 50: 89-90% - 終端游标
   if (progress >= 89.5) {
     html += `
       <div style="margin-top: 1rem; display: flex; align-items: center;">
@@ -553,7 +553,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉終端內容和終端區塊
+  // 关閉終端內容和終端区塊
   if (progress >= 82) {
     html += `</div>`;
   }
@@ -589,7 +589,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉 Footer
+  // 关閉 Footer
   if (progress >= 90) {
     html += `
         </div>
@@ -597,7 +597,7 @@ export function generateProgressiveHTML(progress) {
     `;
   }
 
-  // 關閉主容器和最外層 div
+  // 关閉主容器和最外层 div
   if (progress >= 6) {
     html += `</div>`;
   }

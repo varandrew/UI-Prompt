@@ -8,8 +8,8 @@ import { demoHTML, customStyles } from './Demo';
 import { glassmorphism } from './glassmorphism';
 // acrylicMaterial 已移除 - 無 preview HTML
 // frostGlass 已移除 - 無 preview HTML
-// auroraGlass 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-// translucentLayers 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
+// auroraGlass 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+// translucentLayers 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
 
 // 导出家族元数据
 export const name = 'styles.visual.translucent.title';
@@ -454,6 +454,6 @@ export const translucentTemplates = [
   glassmorphism,
   // acrylicMaterial 已移除 - 無 preview HTML
   // frostGlass 已移除 - 無 preview HTML
-  // auroraGlass 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-  // translucentLayers 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
+  // auroraGlass 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+  // translucentLayers 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
 ];

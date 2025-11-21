@@ -49,6 +49,19 @@ export const demoHTML = `
     animation-delay: 2s;
   }
 
+  .smoke-title {
+    position: relative;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: clamp(32px, 5vw, 64px);
+    letter-spacing: 0.35em;
+    color: #ffffff;
+    text-transform: uppercase;
+    z-index: 4;
+    mix-blend-mode: screen;
+    text-align: center;
+    padding-left: 0.35em;
+  }
+
   .smoke-source {
     position: absolute;
     bottom: 30px;
@@ -94,6 +107,7 @@ export const demoHTML = `
     <div class="smoke-layer smoke-layer-1"></div>
     <div class="smoke-layer smoke-layer-2"></div>
   </div>
+  <div class="smoke-title">Smoke</div>
   <div class="smoke-source">
     <div class="glow-dot"></div>
   </div>
@@ -190,6 +204,19 @@ export const customStyles = `
   left: 40%;
   animation: denseSmoke2 14s ease-in-out infinite;
   animation-delay: 2s;
+}
+
+.smoke-title {
+  position: relative;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: 0.4em;
+  color: #ffffff;
+  text-transform: uppercase;
+  z-index: 6;
+  mix-blend-mode: screen;
+  text-align: center;
+  padding-left: 0.4em;
 }
 
 .smoke-layer-3 {

@@ -1,6 +1,6 @@
 /**
  * Kinetic Typography - FullPage Custom Prompt
- * NEUROTYPE 登陸頁專屬的 AI Prompt (針對完整 6 章節頁面)
+ * NEUROTYPE 登陸页专屬的 AI Prompt (針對完整 6 章節页面)
  */
 
 export const fullPageCustomPrompt = {

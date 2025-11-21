@@ -303,8 +303,8 @@
 
 @keyframes tutorialModalIn {
   /* 調整：移除 translate(-50%, -50%)，避免初次渲染時位置由左上角跳至置中。
-     Modal 的置中由外層容器（fixed + 50% + translate）負責，
-     這裡僅保留縮放/旋轉動畫以避免干擾定位。 */
+     Modal 的置中由外层容器（fixed + 50% + translate）負責，
+     這里仅保留縮放/旋轉動画以避免干擾定位。 */
   from {
     opacity: 0;
     transform: scale(0.9) rotate(-2deg);

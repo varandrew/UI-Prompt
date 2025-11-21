@@ -1,5 +1,5 @@
 // Pixel Art - Digital Retro Gaming
-// 像素藝術 - 數位復古遊戲
+// 像素藝術 - 数位復古遊戲
 
 export const pixelArtGame = {
     id: 'pixelArt',
@@ -1040,48 +1040,48 @@ export const pixelArtGame = {
     // 模板級 customPrompt（長版 Prompt，可直接給 LLM 高精度復刻 UI）
     customPrompt: {
       'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Pixel Art Game 像素遊戲面板」示例风格高度接近的 UI。
-要求：保持 8-bit/16-bit 像素藝術、Game Boy 或早期掌機配色、像素完美對齊與點陣字體這些核心特徵，只允许替换文案、遊戲內容與圖示，而不改变整体布局和像素化視覺語言。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。
+要求：保持 8-bit/16-bit 像素藝術、Game Boy 或早期掌機配色、像素完美對齊与點陣字体這些核心特徵，只允许替换文案、遊戲內容与圖示，而不改变整体布局和像素化視覺語言。输出使用语义化 HTML 结构和 TailwindCSS 风格原子类（或等价工具类方案）。
 
 【使用场景】
 - 复古像素游戏的菜单页、存档选择界面或关卡选择界面
-- 像素艺术作品集、復古遊戲平台首頁
+- 像素艺术作品集、復古遊戲平台首页
 - 需要表現「掌機 / 街機時代」風格的資訊面板
 
 【整体布局结构】
 1. 背景层
-   - 使用 Game Boy 式單色或四色調背景，例如多層綠色方塊或棋盤格圖案。
-   - 可以加入簡單的山脈 / 雲朵 / 城堡輪廓，全部用像素方塊構成。
+   - 使用 Game Boy 式單色或四色調背景，例如多层綠色方塊或棋盤格圖案。
+   - 可以加入简單的山脈 / 云朵 / 城堡輪廓，全部用像素方塊構成。
 2. 主遊戲視窗
-   - 中央或上半部分為「遊戲畫面」區域，可顯示角色、障礙物或場景的一部分。
-   - 外框使用粗實線方框（4px 邊框），四角完全直角，無圓角。
-3. 信息與控制區
-   - 底部或側邊放置狀態欄：生命值、分數、時間、道具欄等。
+   - 中央或上半部分為「遊戲画面」区域，可显示角色、障礙物或場景的一部分。
+   - 外框使用粗實线方框（4px 边框），四角完全直角，無圓角。
+3. 信息与控制区
+   - 底部或側边放置狀態欄：生命值、分数、時間、道具欄等。
    - 利用小圖示 + 點陣文字組合，依然保持像素栅格對齊。
 
 【色彩与材质】
 1. Game Boy 配色
    - 使用經典四色綠調：深綠、暗綠、淺綠、最淺綠，或等效的單色像素調色板。
    - 也可以選擇紅 / 藍 / 黃主題的 4 色配色，但整個界面仍應限制於小色板內。
-2. 像素質感
-   - 所有邊緣必須清晰硬朗，避免任何模糊或插值（需強調 image-rendering: pixelated 類效果）。
-   - 不使用漸變、模糊陰影或光暈，僅用純色方塊表現高光與陰影。
+2. 像素质感
+   - 所有边緣必須清晰硬朗，避免任何模糊或插值（需強調 image-rendering: pixelated 类效果）。
+   - 不使用漸变、模糊阴影或光暈，仅用純色方塊表現高光与阴影。
 
 【排版与像素字形】
-1. 字體
-   - 使用點陣 / 像素風格字體（如 Press Start 2P、像素字型或 Courier New 等宽字），字級採 8px/12px/16px 等整數。
+1. 字体
+   - 使用點陣 / 像素風格字体（如 Press Start 2P、像素字型或 Courier New 等宽字），字級採 8px/12px/16px 等整数。
 2. 對齊
-   - 所有文字和圖示都要對齊至 4px 或 8px 的網格單位，避免半格偏移。
+   - 所有文字和圖示都要對齊至 4px 或 8px 的网格單位，避免半格偏移。
 
 【交互与动效】
 1. Hover / 選中狀態
-   - 按鈕或選項在 hover / focus 時，切換為相反色或增加一圈像素邊框（例如反白高亮）。
+   - 按鈕或選項在 hover / focus 時，切換為相反色或增加一圈像素边框（例如反白高亮）。
 2. 動效
-   - 角色或圖示可以做輕微的 2 幀或 4 幀動畫（上下抖動、眨眼等），節奏較慢以保持復古感。
+   - 角色或圖示可以做輕微的 2 幀或 4 幀動画（上下抖動、眨眼等），節奏較慢以保持復古感。
 
 【输出要求】
-- 使用语义化 HTML（main / section / nav 等）组织遊戲面板結構，將主畫面與狀態欄分層表達。
-- 使用 TailwindCSS 风格原子类控制排版與間距，並在必要處用自定義類實現像素邊框與網格對齊。
-- 生成 UI 必須保留「低解析像素塊 + 小色板 + 點陣字體 + 完全直角邊框」這些關鍵特徵，讓人一眼看出是像素遊戲 UI。`,
+- 使用语义化 HTML（main / section / nav 等）组织遊戲面板結構，將主画面与狀態欄分层表達。
+- 使用 TailwindCSS 风格原子类控制排版与間距，並在必要處用自定義类實現像素边框与网格對齊。
+- 生成 UI 必須保留「低解析像素塊 + 小色板 + 點陣字体 + 完全直角边框」這些关鍵特徵，让人一眼看出是像素遊戲 UI。`,
 
       'en-US': `You are a senior UI designer and front-end engineer. Generate a pixel art game interface that looks very close to the current “Pixel Art Game” demo.
 Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-perfect alignment and bitmap fonts as the main traits. You may change copy, game content and icons, but you should not alter the overall layout or pixelated visual language. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
@@ -1130,14 +1130,14 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
 
     // 模板級 stylePrompt (詳細 Prompt，1000-2000字)
     stylePrompt: {
-      'zh-CN': `角色：你是專精於像素藝術（Pixel Art）風格的 UI 設計師，專注於 8-bit/16-bit 時代的遊戲美學和 Game Boy 配色系統。
+      'zh-CN': `角色：你是专精於像素藝術（Pixel Art）風格的 UI 设計師，专注於 8-bit/16-bit 時代的遊戲美學和 Game Boy 配色系統。
 
-場景定位：為復古遊戲、像素藝術作品展示或懷舊遊戲平台打造像素完美的界面，通過點陣字體和像素網格傳達經典遊戲機美學。
+場景定位：為復古遊戲、像素藝術作品展示或懷舊遊戲平台打造像素完美的界面，通過點陣字体和像素网格傳達經典遊戲機美學。
 
-核心設計語言：
+核心设計語言：
 
 1. **像素完美渲染系統**：
-   - 全局像素化設置：
+   - 全局像素化设置：
      \`\`\`css
      .pixel-container {
        image-rendering: pixelated;
@@ -1147,9 +1147,9 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
      }
      \`\`\`
 
-   - 像素網格對齊：
+   - 像素网格對齊：
      \`\`\`css
-     /* 所有尺寸必須是 4px 的倍數 */
+     /* 所有尺寸必須是 4px 的倍数 */
      .pixel-element {
        width: 64px;   /* 16 * 4 */
        height: 64px;
@@ -1162,10 +1162,10 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
    - 完整配色：
      \`\`\`css
      :root {
-       --gb-darkest: #0f380f;  /* 最深綠（背景、陰影） */
-       --gb-dark: #306230;     /* 暗綠（邊框、文字） */
+       --gb-darkest: #0f380f;  /* 最深綠（背景、阴影） */
+       --gb-dark: #306230;     /* 暗綠（边框、文字） */
        --gb-light: #8bac0f;    /* 淺綠（高光、強調） */
-       --gb-lightest: #9bbc0f; /* 最淺綠（主文字、圖標） */
+       --gb-lightest: #9bbc0f; /* 最淺綠（主文字、圖标） */
      }
 
      .pixel-gameboy {
@@ -1188,7 +1188,7 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
 - 藍色主題：#000066, #0000cc, #3333ff, #9999ff
 - 黃色主題：#666600, #cccc00, #ffff33, #ffff99
 
-3. **像素化按鈕設計**：
+3. **像素化按鈕设計**：
    \`\`\`css
    .pixel-button {
      background: linear-gradient(180deg, #8bac0f 0%, #306230 100%);
@@ -1238,7 +1238,7 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
      .pixel-heart::before { left: -12px; }
      .pixel-heart::after { top: -12px; }
 
-     /* 心跳動畫 */
+     /* 心跳動画 */
      @keyframes pixel-beat {
        0%, 100% { transform: rotate(45deg) scale(1); }
        50% { transform: rotate(45deg) scale(1.1); }
@@ -1249,16 +1249,16 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
      }
      \`\`\`
 
-5. **點陣字體系統**：
+5. **點陣字体系統**：
    \`\`\`css
    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
    .pixel-text {
      font-family: 'Press Start 2P', 'Courier New', monospace;
-     font-size: 16px; /* 必須是偶數 */
+     font-size: 16px; /* 必須是偶数 */
      line-height: 1.6;
      letter-spacing: 0.1em;
-     text-shadow: none; /* 像素字體不使用陰影 */
+     text-shadow: none; /* 像素字体不使用阴影 */
    }
 
    .pixel-text-large {
@@ -1282,17 +1282,17 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
    - xl: 24px
    - 2xl: 32px
 
-2. **字體大小（偶數值）**：
+2. **字体大小（偶数值）**：
    - 小字：12px
    - 正文：14px、16px
-   - 標題：24px、32px、48px
+   - 标題：24px、32px、48px
 
 3. **禁用平滑效果**：
-   - transition: none（不使用過渡動畫）
+   - transition: none（不使用過渡動画）
    - filter: none（不使用模糊濾鏡）
-   - text-shadow: none（不使用文字陰影）
+   - text-shadow: none（不使用文字阴影）
 
-4. **動畫使用步進**：
+4. **動画使用步進**：
    \`\`\`css
    @keyframes pixel-walk {
      0% { background-position: 0 0; }
@@ -1306,13 +1306,13 @@ Keep 8-bit/16-bit pixel art, Game Boy or early handheld color palettes, pixel-pe
    \`\`\`
 
 重要提示：
-- 所有尺寸必須是 4px 的倍數
-- 字體大小必須是偶數（12px、14px、16px）
+- 所有尺寸必須是 4px 的倍数
+- 字体大小必須是偶数（12px、14px、16px）
 - 絕對不使用 border-radius
-- 避免使用 box-shadow 的模糊值（只用偏移陰影）
+- 避免使用 box-shadow 的模糊值（只用偏移阴影）
 - 所有圖像使用 image-rendering: pixelated
-- 顏色使用 Game Boy 四色調或類似限定色板
-- 動畫使用 steps() 而非 ease
+- 颜色使用 Game Boy 四色調或类似限定色板
+- 動画使用 steps() 而非 ease
 - 不使用 text-shadow 和 filter 效果`,
 
       'en-US': `Role: You are a UI designer specializing in Pixel Art style, focusing on 8-bit/16-bit era gaming aesthetics and Game Boy color palette systems.

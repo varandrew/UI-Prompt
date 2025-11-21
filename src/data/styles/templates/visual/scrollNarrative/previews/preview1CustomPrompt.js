@@ -1,6 +1,6 @@
 /**
  * Scroll Narrative - Preview 1 Custom Prompt
- * SaaS 產品功能展示頁專屬的 AI Prompt
+ * SaaS 产品功能展示页专屬的 AI Prompt
  */
 
 export const preview1CustomPrompt = {

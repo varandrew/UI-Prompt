@@ -11,7 +11,7 @@ export const GLM_4_6_1_SelfContained_HTML = `
     <title>Arcade CRT - Retro Gaming Experience</title>
     <style>
         /* ===== FONTS: System Font Fallback ===== */
-        /* 使用系統字體回退，避免依賴 Google Fonts */
+        /* 使用系統字体回退，避免依賴 Google Fonts */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
         }
@@ -51,7 +51,7 @@ export const GLM_4_6_1_SelfContained_HTML = `
             position: relative;
         }
 
-        /* ===== TAILWIND UTILITY CLASSES (內聯替換) ===== */
+        /* ===== TAILWIND UTILITY CLASSES (內联替換) ===== */
         .container {
             width: 100%;
             margin-left: auto;

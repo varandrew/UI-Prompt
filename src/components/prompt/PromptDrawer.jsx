@@ -18,7 +18,7 @@ export function PromptDrawer({ isOpen, onClose, title, content }) {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose]);
 
-  // 動態統計 Prompt 長度（字數與字元數）
+  // 動態統計 Prompt 長度（字数与字元数）
   const { wordCount, charCount } = useMemo(() => {
     if (!content || typeof content !== 'string') {
       return { wordCount: 0, charCount: 0 };
@@ -34,7 +34,7 @@ export function PromptDrawer({ isOpen, onClose, title, content }) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(content);
-      // 顯示 Toast 通知
+      // 显示 Toast 通知
       showToast();
     } catch (err) {
       console.error('Copy failed:', err);

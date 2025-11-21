@@ -7,25 +7,25 @@ export function AIPromptDemo(props) {
   // 語言上下文目前未在此組件中使用
   const [totalProgress, setTotalProgress] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  // 取消重置控制與進度頭部顯示
+  // 取消重置控制与進度頭部显示
 
   // 處理打字進度 (0-50%)
   const handleProgressChange = (typingProgress) => {
     setTotalProgress(typingProgress);
 
-    // 當打字達到 50% 時,標記為完成
+    // 當打字達到 50% 時,标記為完成
     if (typingProgress >= 50 && !isTypingComplete) {
       setIsTypingComplete(true);
     }
   };
 
-  // 當打字完成後,自動啟動生成動畫 (50% → 100%)
+  // 當打字完成後,自動啟動生成動画 (50% → 100%)
   useEffect(() => {
     if (isTypingComplete) {
       const duration = 15000; // 生成階段持續 15 秒
       const fps = 30;         // 每秒 30 幀 (避免更新過快被跳過)
       const totalFrames = (duration / 1000) * fps;
-      const increment = 50 / totalFrames; // 從 50% 增加到 100%
+      const increment = 50 / totalFrames; // 从 50% 增加到 100%
 
       let frame = 0;
       const timer = setInterval(() => {
@@ -49,7 +49,7 @@ export function AIPromptDemo(props) {
 
   return (
     <section className="ai-prompt-demo w-full mb-16">
-      {/* 已移除進度條與重置按鈕 */}
+      {/* 已移除進度條与重置按鈕 */}
 
       {/* Demo Container - 3/7 Layout */}
       <div className="grid grid-cols-1 md:grid-cols-10 gap-6 h-[600px]">

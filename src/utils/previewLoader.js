@@ -1,10 +1,10 @@
 // 預覽內容動態加載器
-// 按需加載完整頁面 HTML/CSS，避免首屏打包
-// 作者: UI Style 架構優化階段 3.1
+// 按需加載完整页面 HTML/CSS，避免首屏打包
+// 作者: UI Style 架構优化階段 3.1
 
 /**
  * 預覽加載器映射表
- * 將預覽 ID 映射到對應的動態 import 函數
+ * 將預覽 ID 映射到對應的動態 import 函数
  * 每個加載器返回 { html, styles } 對象
  */
 const previewLoaders = {
@@ -71,7 +71,7 @@ const previewLoaders = {
     html: m.softUIDarkFullPageHTML,
     styles: m.softUIDarkFullPageStyles
   })),
-  // 修正：對齊實際導出名稱（無 FullPage 後綴）
+  // 修正：對齊實際导出名稱（無 FullPage 後綴）
   'cyberpunk-gaming-store': () => import('../data/styles/templates/visual/neonCyberpunk/cyberpunkGamingStoreFullPage').then(m => ({
     html: m.cyberpunkGamingStoreHTML,
     styles: m.cyberpunkGamingStoreStyles
@@ -87,6 +87,18 @@ const previewLoaders = {
   'neon-noir': () => import('../data/styles/templates/visual/neonNoir/neonNoirFullPage').then(m => ({
     html: m.neonNoirFullPageHTML,
     styles: m.neonNoirFullPageStyles
+  })),
+  'visual-nature-liquid-dashboard': () => import('../data/styles/templates/visual/nature/liquid/LiquidFullPage').then(m => ({
+    html: m.fullPageHTML,
+    styles: m.fullPageStyles
+  })),
+  'visual-nature-liquid-flow-home-office': () => import('../data/styles/templates/visual/nature/liquid/LiquidFlowHomeOffice').then(m => ({
+    html: m.liquidFlowHomeOfficeHTML,
+    styles: ''
+  })),
+  'visual-nature-liquid-ocean-office': () => import('../data/styles/templates/visual/nature/liquid/LiquidOceanOffice').then(m => ({
+    html: m.liquidOceanOfficeHTML,
+    styles: ''
   })),
   'holographic-foil': () => import('../data/styles/templates/visual/holographicFoil/holographicFoilFullPage').then(m => ({
     html: m.holographicFoilFullPageHTML,
@@ -247,12 +259,12 @@ const previewCache = new Map();
  * @returns {Promise<{html: string, styles: string}>} 預覽內容
  */
 export async function loadPreview(previewId) {
-  // 檢查緩存
+  // 检查緩存
   if (previewCache.has(previewId)) {
     return previewCache.get(previewId);
   }
 
-  // 檢查加載器是否存在
+  // 检查加載器是否存在
   const loader = previewLoaders[previewId];
   if (!loader) {
     console.warn(`Preview loader not found: ${previewId}`);
@@ -282,7 +294,7 @@ export async function loadPreview(previewId) {
 
 /**
  * 預加載預覽內容（不等待結果）
- * 用於提升用戶體驗，在用戶可能需要之前就開始加載
+ * 用於提升用戶体驗，在用戶可能需要之前就開始加載
  * @param {string} previewId - 預覽ID
  */
 export function preloadPreview(previewId) {
@@ -307,7 +319,7 @@ export function preloadPreview(previewId) {
 
 /**
  * 批量預加載多個預覽
- * @param {string[]} previewIds - 預覽ID數組
+ * @param {string[]} previewIds - 預覽ID数組
  * @param {number} delay - 每個預覽之間的延遲 (ms)
  */
 export function batchPreloadPreviews(previewIds, delay = 100) {
@@ -347,7 +359,7 @@ export function getAvailablePreviewIds() {
 }
 
 /**
- * 檢查預覽ID是否可用
+ * 检查預覽ID是否可用
  * @param {string} previewId
  * @returns {boolean}
  */

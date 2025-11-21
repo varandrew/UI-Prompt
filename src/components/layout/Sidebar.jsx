@@ -31,7 +31,7 @@ export function Sidebar() {
 
         <div className="flex-1 py-8 space-y-1 overflow-y-auto">
           {navItems.map((item) => {
-            // 外部連結使用 <a> 標籤
+            // 外部連結使用 <a> 标籤
             if (item.external) {
               return (
                 <a

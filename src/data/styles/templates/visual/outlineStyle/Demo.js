@@ -1,5 +1,5 @@
 // Demo.js - StyleCard 預覽組件
-// 用於在 AllStylesPage 的瀑布流中顯示 outlineStyle 的縮略圖
+// 用於在 AllStylesPage 的瀑布流中显示 outlineStyle 的縮略圖
 
 export const demoHTML = `
   <div class="w-full h-full flex flex-col items-center justify-center p-6 gap-6 bg-white">

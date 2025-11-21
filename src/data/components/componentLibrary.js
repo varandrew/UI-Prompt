@@ -27,7 +27,7 @@ export const componentLibrary = [
       baseProps: {
         content: { text: 'componentLibrary.button.content' },
         style: {
-          // 預設邊距為 0
+          // 預设边距為 0
           padding: 0,
           margin: 0,
           backgroundColor: '#3B82F6',
@@ -77,7 +77,7 @@ export const componentLibrary = [
           fontSize: 16,
           color: '#000000',
           lineHeight: 1.5,
-          // 預設邊距為 0
+          // 預设边距為 0
           margin: 0,
           padding: 0
         }
@@ -128,7 +128,7 @@ export const componentLibrary = [
           height: 300,
           objectFit: 'cover',
           borderRadius: 0,
-          // 預設邊距為 0
+          // 預设边距為 0
           margin: 0,
           padding: 0
         }
@@ -155,7 +155,7 @@ export const componentLibrary = [
     defaultProps: {
       baseProps: {
         style: {
-          // 預設邊距為 0
+          // 預设边距為 0
           padding: 0,
           margin: 0,
           backgroundColor: 'transparent'
@@ -195,7 +195,7 @@ export const componentLibrary = [
     defaultProps: {
       baseProps: {
         style: {
-          // 預設邊距為 0
+          // 預设边距為 0
           padding: 0,
           margin: 0,
           backgroundColor: 'transparent'
@@ -241,7 +241,7 @@ export const componentLibrary = [
     defaultProps: {
       baseProps: {
         style: {
-          // 預設邊距為 0
+          // 預设边距為 0
           padding: 0,
           margin: 0,
           border: '1px solid #E5E7EB',
@@ -268,7 +268,7 @@ export const getComponentDef = (componentType) => {
 };
 
 /**
- * 按類別分組
+ * 按类別分組
  */
 export const getComponentsByCategory = () => {
   return {
@@ -279,7 +279,7 @@ export const getComponentsByCategory = () => {
 };
 
 /**
- * 校驗父子關係
+ * 校驗父子关係
  */
 export const canDropIntoParent = (childType, parentType) => {
   const childDef = getComponentDef(childType);
@@ -289,7 +289,7 @@ export const canDropIntoParent = (childType, parentType) => {
   // Page 可以包含任何組件
   if (parentType === 'Page') return true;
 
-  // 檢查 allowedParents 約束
+  // 检查 allowedParents 約束
   if (childDef.allowedParents) {
     return childDef.allowedParents.includes(parentType);
   }

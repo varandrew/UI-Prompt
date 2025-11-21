@@ -9,55 +9,55 @@ export const portfolio = {
   id: 'core-minimalism-portfolio',
   title: 'styles.core.minimalism.portfolio.title',
   description: 'styles.core.minimalism.portfolio.description',
-  // ✨ AI Prompt（用于生成與當前極簡作品集頁面高度接近的 UI）
+  // ✨ AI Prompt（用于生成与當前極简作品集页面高度接近的 UI）
   customPrompt: {
     'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「极简作品集页面」界面风格高度接近的极简主义（Minimalism）作品集页面。
-要求：保持大量留白、黑白灰配色和單欄 / 雙欄簡潔佈局不變，只允許替換文案與作品內容。輸出使用語義化 HTML 和 TailwindCSS 風格原子類。
+要求：保持大量留白、黑白灰配色和單欄 / 双欄简潔佈局不变，只允許替換文案与作品內容。輸出使用語義化 HTML 和 TailwindCSS 風格原子类。
 
 【使用場景】
-- 場景：設計師 / 攝影師 / 創作者的個人作品集。
-- 用戶：潛在客戶、HR、合作方，希望快速掃描作品品質。
-- 目標：在極簡視覺下突出作品標題與描述，讓內容本身成為主角。
+- 場景：设計師 / 攝影師 / 創作者的個人作品集。
+- 用戶：潛在客戶、HR、合作方，希望快速掃描作品品质。
+- 目标：在極简視覺下突出作品标題与描述，让內容本身成為主角。
 
-【整體佈局結構】
-1. 頂部區域
-   - 簡單標題（姓名 / 品牌）與極少量導航（Work / About / Contact），可以靠左或置中。
-2. 主內容區
-   - 使用單欄或雙欄布局展示作品條目，每個條目包含：
-     - 作品標題；
-     - 極簡縮略圖或純文字標記；
+【整体佈局結構】
+1. 頂部区域
+   - 简單标題（姓名 / 品牌）与極少量导航（Work / About / Contact），可以靠左或置中。
+2. 主內容区
+   - 使用單欄或双欄布局展示作品條目，每個條目包含：
+     - 作品标題；
+     - 極简縮略圖或純文字标記；
      - 一小段描述（可選）。
 3. 次要內容
-   - 可在底部加入聯絡方式 / 社交連結，仍須保持簡潔，避免視覺噪音。
+   - 可在底部加入联絡方式 / 社交連結，仍須保持简潔，避免視覺噪音。
 
-【色彩與排版】
+【色彩与排版】
 1. 色彩
-   - 主體使用黑白灰：背景純白或極淺灰，文字為深灰 / 黑色，分隔線與邊框使用更淺灰。
-   - 點綴色極少，僅用於鏈接或重點標註（如單一品牌色）。
+   - 主体使用黑白灰：背景純白或極淺灰，文字為深灰 / 黑色，分隔线与边框使用更淺灰。
+   - 點綴色極少，仅用於鏈接或重點标註（如單一品牌色）。
 2. 排版
-   - 大標題使用較大字號、輕字重（例如細體），字間距略放大。
+   - 大标題使用較大字號、輕字重（例如細体），字間距略放大。
    - 正文使用 16–18px 字號，行高 1.7–1.8。
-   - 作品標題與描述之間留有足夠垂直間距，讓每個條目有獨立呼吸感。
+   - 作品标題与描述之間留有足夠垂直間距，让每個條目有獨立呼吸感。
 
-【留白與網格】
+【留白与网格】
 1. 留白
-   - 頂部與內容區之間保留較大空間（例如 64px+ 的 padding-top）。
+   - 頂部与內容区之間保留較大空間（例如 64px+ 的 padding-top）。
    - 每個作品條目之間垂直間距統一，如 32 或 40px。
-2. 網格
+2. 网格
    - 使用 max-width 限制內容寬度（如 720–960px），避免長行。
-   - 雙欄模式需確保左右欄對齊，維持極簡秩序感。
+   - 双欄模式需確保左右欄對齊，維持極简秩序感。
 
-【交互與動效】
+【交互与動效】
 1. Hover 效果
-   - 作品條目 hover 僅做極細微變化，例如文字顏色稍微加深或底色淺灰。
-   - 鏈接 hover 下劃線或顏色變化，不使用陰影或位移。
+   - 作品條目 hover 仅做極細微变化，例如文字颜色稍微加深或底色淺灰。
+   - 鏈接 hover 下劃线或颜色变化，不使用阴影或位移。
 2. 動效節奏
    - 過渡時間約 150–200ms，保持自然但不花俏。
 
 【輸出要求】
-- 使用 header/main/footer/section 等語義化標籤。
-- 使用 Tailwind 原子類控制排版與間距。
-- 生成的 UI 必須保留「大量留白 + 黑白灰 + 嚴謹對齊 + 作品內容為主」這些核心特徵，讓人一眼看出是極簡風作品集。`,
+- 使用 header/main/footer/section 等語義化标籤。
+- 使用 Tailwind 原子类控制排版与間距。
+- 生成的 UI 必須保留「大量留白 + 黑白灰 + 嚴謹對齊 + 作品內容為主」這些核心特徵，让人一眼看出是極简風作品集。`,
     'en-US': `You are a senior UI designer and front-end engineer. Generate a Minimalist portfolio page that looks very close to the current “Minimal Portfolio” demo.
 Keep the extensive whitespace, black–white–grey palette and simple single- or two-column layout almost identical. You may change text and project content, but not the basic structure, spacing rhythm or minimalist visual style. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
 

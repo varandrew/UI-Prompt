@@ -5,7 +5,7 @@ import { useLanguage } from '../../hooks/useLanguage';
 
 /**
  * CodeModal - 代碼查看彈窗
- * 顯示組件變體的 HTML 和 CSS 代碼,支持語法高亮和複製
+ * 显示組件變体的 HTML 和 CSS 代碼,支持語法高亮和複製
  */
 export function CodeModal({ isOpen, onClose, variant }) {
   const { t } = useLanguage();
@@ -48,14 +48,14 @@ export function CodeModal({ isOpen, onClose, variant }) {
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
               {variant.name ? (() => {
-                // 檢查是否為 i18n 鍵（包含點分隔的命名空間）
+                // 检查是否為 i18n 鍵（包含點分隔的命名空間）
                 const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.name);
                 return isI18nKey ? t(variant.name) : variant.name;
               })() : ''}
             </h3>
             <p className="text-sm text-gray-600 mt-1">
               {variant.description ? (() => {
-                // 檢查是否為 i18n 鍵（包含點分隔的命名空間）
+                // 检查是否為 i18n 鍵（包含點分隔的命名空間）
                 const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.description);
                 return isI18nKey ? t(variant.description) : variant.description;
               })() : ''}
@@ -71,7 +71,7 @@ export function CodeModal({ isOpen, onClose, variant }) {
           </button>
         </div>
 
-        {/* Tab 導航 */}
+        {/* Tab 导航 */}
         <div className="flex items-center gap-2 px-6 py-3 bg-gray-50 border-b border-gray-200">
           <button
             onClick={() => setActiveTab('html')}
@@ -129,7 +129,7 @@ export function CodeModal({ isOpen, onClose, variant }) {
           </button>
         </div>
 
-        {/* 代碼內容區域 */}
+        {/* 代碼內容区域 */}
         <div className="flex-1 overflow-auto bg-gray-900">
           <SyntaxHighlighter
             language={activeTab === 'css' ? 'css' : 'html'}

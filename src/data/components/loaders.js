@@ -1,17 +1,17 @@
-// 動態載入資料的 Loader，避免首屏一次性載入所有分類資料
+// 動態載入資料的 Loader，避免首屏一次性載入所有分类資料
 // 提供：
-// - loadStyleCategories(): 只載入風格類別資料（委派給 src/data/index 的 styleCategories）
-// - loadComponentCategories(): 只載入組件類別資料
+// - loadStyleCategories(): 只載入風格类別資料（委派給 src/data/index 的 styleCategories）
+// - loadComponentCategories(): 只載入組件类別資料
 // - getStylesStatsAsync() / getComponentsStatsAsync(): 統計資訊（動態載入後計算）
 
-// 簡易記憶體快取層（頁面存活期間）
+// 简易記憶体快取层（页面存活期間）
 let __styleCategoriesCache = null;
 let __styleCategoriesPromise = null;
 let __componentCategoriesCache = null;
 let __componentCategoriesPromise = null;
 
 /**
- * 清理所有快取（僅限記憶體、頁面生命週期內）
+ * 清理所有快取（仅限記憶体、页面生命週期內）
  */
 export function clearLoadersCache() {
   __styleCategoriesCache = null;
@@ -20,14 +20,14 @@ export function clearLoadersCache() {
   __componentCategoriesPromise = null;
 }
 
-// 風格類別載入器
-// 注意：具體「core 只保留 4 張卡片」等資料結構，統一在 src/data/index.js 的 styleCategories 中維護。
+// 風格类別載入器
+// 注意：具体「core 只保留 4 張卡片」等資料結構，統一在 src/data/index.js 的 styleCategories 中維護。
 export async function loadStyleCategories(forceRefresh = false) {
   if (!forceRefresh && __styleCategoriesCache) return __styleCategoriesCache;
   if (!forceRefresh && __styleCategoriesPromise) return __styleCategoriesPromise;
 
   __styleCategoriesPromise = (async () => {
-    // 集中從 src/data/index 載入已組合好的 styleCategories
+    // 集中从 src/data/index 載入已組合好的 styleCategories
     const dataMod = await import('../index');
     const result = dataMod.styleCategories || [];
 
@@ -39,7 +39,7 @@ export async function loadStyleCategories(forceRefresh = false) {
   return __styleCategoriesPromise;
 }
 
-// 組件類別載入器
+// 組件类別載入器
 export async function loadComponentCategories(forceRefresh = false) {
   if (!forceRefresh && __componentCategoriesCache) return __componentCategoriesCache;
   if (!forceRefresh && __componentCategoriesPromise) return __componentCategoriesPromise;
@@ -84,7 +84,7 @@ export async function loadComponentCategories(forceRefresh = false) {
   return __componentCategoriesPromise;
 }
 
-// 統計：動態載入後計算數量與分類
+// 統計：動態載入後計算数量与分类
 export async function getStylesStatsAsync() {
   const cats = await loadStyleCategories();
   return {

@@ -148,11 +148,11 @@
           "fullPage": {
             "nav": {
               "logo": "AeroDesk",
-              "searchPlaceholder": "搜尋程式、檔案和設定..."
+              "searchPlaceholder": "搜尋程式、档案和设定..."
             },
             "hero": {
               "title": "歡迎使用 AeroDesk",
-              "subtitle": "體驗 Windows Vista/7 時代的經典玻璃美學 · 透明 · 光澤 · 自然",
+              "subtitle": "体驗 Windows Vista/7 時代的經典玻璃美學 · 透明 · 光澤 · 自然",
               "windowTitle": "我的文件"
             },
             "features": {
@@ -160,7 +160,7 @@
               "open": "開啟",
               "mail": {
                 "title": "郵件",
-                "desc": "管理您的電子郵件和聯絡人"
+                "desc": "管理您的電子郵件和联絡人"
               },
               "calendar": {
                 "title": "行事曆",
@@ -168,18 +168,18 @@
               },
               "notes": {
                 "title": "記事本",
-                "desc": "快速記錄想法和備忘錄"
+                "desc": "快速記录想法和备忘录"
               },
               "browser": {
                 "title": "瀏覽器",
-                "desc": "探索網路世界"
+                "desc": "探索网路世界"
               },
               "paint": {
-                "title": "小畫家",
+                "title": "小画家",
                 "desc": "創作和編輯圖像"
               },
               "media": {
-                "title": "媒體播放器",
+                "title": "媒体播放器",
                 "desc": "播放音樂和影片"
               }
             },
@@ -196,19 +196,19 @@
               "title": "視窗管理",
               "document": "文件 1",
               "browser": "瀏覽器",
-              "media": "媒體播放器"
+              "media": "媒体播放器"
             },
             "fileManager": {
-              "title": "檔案總管",
+              "title": "档案總管",
               "downloads": "下載",
               "documents": "我的文件",
               "pictures": "圖片",
               "music": "音樂",
               "videos": "影片",
-              "projects": "專案資料夾"
+              "projects": "专案資料夾"
             },
             "settings": {
-              "title": "個人化設定",
+              "title": "個人化设定",
               "appearance": "外觀",
               "colors": "色彩",
               "system": "系統",
@@ -224,33 +224,33 @@
                 "text": "您收到 3 封新郵件"
               },
               "backup": {
-                "title": "備份完成",
-                "text": "系統備份已成功完成"
+                "title": "备份完成",
+                "text": "系統备份已成功完成"
               },
               "update": {
                 "title": "更新可用",
-                "text": "系統更新已準備就緒"
+                "text": "系統更新已準备就緒"
               }
             },
             "search": {
               "title": "即時搜尋",
               "placeholder": "搜尋任何內容...",
               "apps": "應用程式",
-              "files": "檔案",
-              "settings": "設定",
-              "personalization": "個人化設定"
+              "files": "档案",
+              "settings": "设定",
+              "personalization": "個人化设定"
             },
             "taskbar": {
               "start": "開始"
             },
             "startMenu": {
-              "searchPlaceholder": "搜尋程式和檔案...",
+              "searchPlaceholder": "搜尋程式和档案...",
               "pinned": "已釘選",
               "allPrograms": "所有程式",
-              "browser": "網頁瀏覽器",
+              "browser": "网页瀏覽器",
               "mail": "電子郵件",
-              "explorer": "檔案總管",
-              "media": "媒體播放器",
+              "explorer": "档案總管",
+              "media": "媒体播放器",
               "accessories": "附屬應用程式",
               "games": "遊戲",
               "user": "使用者",
@@ -260,15 +260,15 @@
               "controlPanel": "控制台",
               "lock": "鎖定",
               "logoff": "登出",
-              "shutdown": "關機"
+              "shutdown": "关機"
             },
             "footer": {
-              "about": "關於 AeroDesk",
+              "about": "关於 AeroDesk",
               "description": "重現 Windows Vista/7 時代的經典 Aero Glass 美學",
               "features": "特色功能",
               "glassEffect": "玻璃透明效果",
               "naturalElements": "自然元素背景",
-              "animations": "流暢動畫",
+              "animations": "流暢動画",
               "resources": "資源",
               "documentation": "文件",
               "support": "支援",

@@ -1,5 +1,5 @@
 // index.js - Outline Style 主風格和子模板
-// 包含主風格對象和兩個完整的子模板變體
+// 包含主風格對象和兩個完整的子模板变体
 
 import { demoHTML, customStyles } from './Demo';
 import { fullPageHTML as businessFullPageHTML, fullPageStyles as businessFullPageStyles } from './BusinessDemo';
@@ -15,17 +15,17 @@ export const outlineStyle = {
   demoHTML,
   customStyles,
 
-  // 使用 Business Demo 作為默認的完整頁面預覽
+  // 使用 Business Demo 作為默認的完整页面預覽
   fullPageHTML: businessFullPageHTML,
   fullPageStyles: businessFullPageStyles,
 
   // 配色方案
   colorScheme: {
-    'zh-CN': '主色黑色線條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、邊框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)',
+    'zh-CN': '主色黑色线條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)',
     'en-US': 'Primary black outlines (#000000), white background (#ffffff), secondary light gray (#f5f5f5), border black (#000000 / stroke-width: 1-2px), text dark gray (#333333)'
   },
 
-  // 敘事型 stylePrompt：說明 Outline Style 的設計理念
+  // 敘事型 stylePrompt：說明 Outline Style 的设計理念
   stylePrompt: {
     'zh-CN': `角色：你是一名擅长 Outline Style（线条风格）的 UI 设计师，需要用黑白线条勾勒出清晰的结构和专业感，而不是依赖大面积填色。
 
@@ -71,7 +71,7 @@ Mood:
 - Users should feel they are looking at an interface whose structure has been carefully thought through, not a purely decorative marketing page.`
   },
 
-  // 預覽變體（Business 和 E-learning）
+  // 預覽变体（Business 和 E-learning）
   previews: [
     // Preview 1: Business Website
     {
@@ -461,9 +461,9 @@ Mood:
   }
 };
 
-// 僅導出主風格對象（Business 和 E-learning 作為 previews 變體，不需要獨立卡片）
+// 仅导出主風格對象（Business 和 E-learning 作為 previews 变体，不需要獨立卡片）
 export const outlineStyleTemplates = [
-  outlineStyle    // 僅主風格對象
+  outlineStyle    // 仅主風格對象
 ];
 
 export default outlineStyleTemplates;

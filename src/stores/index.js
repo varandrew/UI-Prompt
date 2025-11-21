@@ -1,14 +1,14 @@
 /**
- * Store 統一導出文件
+ * Store 統一导出文件
  *
  * 提供:
- * - 所有 Store 的導出
- * - 工具函數導出
+ * - 所有 Store 的导出
+ * - 工具函数导出
  * - Store 協調工具
  */
 
 // ========== Stores ==========
-// 本檔案內需直接使用各個 store，因此必須顯式引入（僅重新導出不會產生本地綁定）
+// 本档案內需直接使用各個 store，因此必須显式引入（仅重新导出不會产生本地綁定）
 import { useViewportStore } from './useViewportStore';
 import { useSelectionStore } from './useSelectionStore';
 import { useClipboardStore } from './useClipboardStore';
@@ -16,7 +16,7 @@ import { useCanvasStore } from './useCanvasStore';
 import { useHistoryStore } from './useHistoryStore';
 import { useProjectStore } from './useProjectStore';
 
-// 對外仍保留原有導出
+// 對外仍保留原有导出
 export { useViewportStore } from './useViewportStore';
 export { useSelectionStore } from './useSelectionStore';
 export { useClipboardStore } from './useClipboardStore';
@@ -24,7 +24,7 @@ export { useCanvasStore } from './useCanvasStore';
 export { useHistoryStore } from './useHistoryStore';
 export { useProjectStore } from './useProjectStore';
 
-// 向後兼容:保留舊的 editorStore 導出
+// 向後兼容:保留舊的 editorStore 导出
 export { useEditorStore } from './editorStore';
 
 // ========== Utils ==========
@@ -46,7 +46,7 @@ export {
 // ========== 組合 Hooks ==========
 
 /**
- * 組合 Hook: 獲取所有編輯器相關的 Store
+ * 組合 Hook: 獲取所有編輯器相关的 Store
  * @returns {Object} 所有 Store 的實例
  */
 export const useEditorStores = () => {
@@ -68,7 +68,7 @@ export const useEditorStores = () => {
 };
 
 /**
- * 組合 Hook: 獲取所有 Store 的數據快照
+ * 組合 Hook: 獲取所有 Store 的数据快照
  * @returns {Object} 所有 Store 的當前狀態
  */
 export const useEditorSnapshot = () => {
@@ -104,8 +104,8 @@ export const resetAllStores = () => {
 };
 
 /**
- * 導出完整項目數據
- * @returns {Object} 項目數據
+ * 导出完整項目数据
+ * @returns {Object} 項目数据
  */
 export const exportCompleteProject = () => {
   const canvasState = useCanvasStore.getState();
@@ -123,8 +123,8 @@ export const exportCompleteProject = () => {
 };
 
 /**
- * 導入完整項目數據
- * @param {Object} projectData - 項目數據
+ * 导入完整項目数据
+ * @param {Object} projectData - 項目数据
  */
 export const importCompleteProject = (projectData) => {
   const { canvasState, globalSettings, selectionState } = projectData;
@@ -132,7 +132,7 @@ export const importCompleteProject = (projectData) => {
   // 重置所有 Store
   resetAllStores();
 
-  // 導入數據
+  // 导入数据
   if (canvasState) {
     useCanvasStore.getState().importCanvas(canvasState);
   }
@@ -145,14 +145,14 @@ export const importCompleteProject = (projectData) => {
     useSelectionStore.getState().selectComponent(selectionState);
   }
 
-  // 更新項目元數據
+  // 更新項目元数据
   useProjectStore.getState().importProject(projectData);
 
-  // 標記為已保存
+  // 标記為已保存
   useProjectStore.getState().markAsSaved();
 };
 
-// ========== 跨 Store 操作輔助函數 ==========
+// ========== 跨 Store 操作輔助函数 ==========
 
 /**
  * 複製組件 (整合 Canvas + Clipboard)
@@ -184,7 +184,7 @@ export const pasteComponentCrossStore = (parentId) => {
 
   const { tree, props } = clipboardData;
 
-  // 添加組件樹到畫布
+  // 添加組件樹到画布
   const parent = canvasStore.getComponentTree(parentId);
   if (!parent) return null;
 
@@ -219,7 +219,7 @@ export const deleteComponentCrossStore = (componentId) => {
 // ========== DevTools 支持 ==========
 
 if (typeof window !== 'undefined') {
-  // 在開發環境下暴露 Store 到全局對象，避免未綁定變數造成錯誤
+  // 在開發環境下暴露 Store 到全局對象，避免未綁定變数造成错誤
   if (import.meta.env.DEV) {
     try {
       const devStores = {};
@@ -230,7 +230,7 @@ if (typeof window !== 'undefined') {
       if (typeof useHistoryStore !== 'undefined') devStores.history = useHistoryStore;
       if (typeof useProjectStore !== 'undefined') devStores.project = useProjectStore;
 
-      // 輔助工具固定可用（為同檔案內定義）
+      // 輔助工具固定可用（為同档案內定義）
       devStores.resetAll = resetAllStores;
       devStores.export = exportCompleteProject;
       devStores.import = importCompleteProject;
@@ -238,12 +238,12 @@ if (typeof window !== 'undefined') {
       window.__EDITOR_STORES__ = devStores;
       console.log('[DevTools] Editor stores available at window.__EDITOR_STORES__');
     } catch (e) {
-      // 任何初始化時的引用錯誤都不應阻止應用啟動
+      // 任何初始化時的引用错誤都不應阻止應用啟動
       console.warn('[DevTools] Failed to init editor stores devtools:', e);
     }
   }
 
-  // 設置項目 Store 回調（不依賴即時綁定）
+  // 设置項目 Store 回調（不依賴即時綁定）
   window.projectStoreCallbacks = {
     onNewProject: (project) => {
       resetAllStores();

@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import DOMPurify from 'dompurify';
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
 import { PromptDrawer } from '../../components/prompt/PromptDrawer';
 import { PreviewPromptGenerator } from '../../utils/promptGenerator';
@@ -9,13 +9,13 @@ import { PreviewSelector } from '../../components/preview/PreviewSelector';
 import { hasMultiplePreviews } from '../../utils/previewsHelper';
 import { DataVisualizationPreview } from '../../components/preview/DataVisualizationPreview';
 import appCssUrl from '../../index.css?url';
-// 新增：動態預覽加載器，與 PreviewModal 保持一致
+// 新增：動態預覽加載器，与 PreviewModal 保持一致
 import { loadPreview } from '../../utils/previewLoader';
 
 /**
- * 獨立風格預覽頁面
+ * 獨立風格預覽页面
  * - 支持 URL 分享（如 /styles/preview/glassmorphism）
- * - 支持瀏覽器歷史導航
+ * - 支持瀏覽器歷史导航
  * - 支持多預覽切換
  * - 支持 React 組件預覽
  */
@@ -24,15 +24,16 @@ export function StylePreviewPage() {
   const { style } = useLoaderData();
   const navigate = useNavigate();
   const { t, language } = useLanguage();
+  const [searchParams] = useSearchParams();
 
   const [showPrompt, setShowPrompt] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
-  // 新增：異步預覽內容與載入狀態（用於依 previewId 動態載入完整頁面）
+  // 新增：異步預覽內容与載入狀態（用於依 previewId 動態載入完整页面）
   const [asyncPreview, setAsyncPreview] = useState(null);
   const [isLoadingPreview, setIsLoadingPreview] = useState(false);
 
-  // 提取風格數據
+  // 提取風格数据
   const {
     title,
     description = '',
@@ -40,26 +41,26 @@ export function StylePreviewPage() {
     customStyles = '',
     fullPageHTML = '',
     fullPageStyles = '',
-    // 新增：支援以 ID 動態載入完整頁面預覽
+    // 新增：支援以 ID 動態載入完整页面預覽
     fullPagePreviewId = '',
     previews = [],
     colorScheme = null,
     variant = null
   } = style;
 
-  // 將 title 從翻譯鍵轉換為翻譯值
+  // 將 title 从翻譯鍵轉換為翻譯值
   const displayTitle = typeof title === 'string' && title.includes('.')
     ? t(title)
     : title;
 
   const isReactPreview = !!(variant && variant.reactComponent);
 
-  // ✨ 穩定 previewsList 引用（避免無限循環）
+  // ✨ 稳定 previewsList 引用（避免無限循環）
   const previewsList = useMemo(() => {
     return Array.isArray(previews) ? previews : [];
   }, [previews]);
 
-  // 移除外部資源（避免因無網路或被阻擋導致預覽卡在載入）
+  // 移除外部資源（避免因無网路或被阻擋导致預覽卡在載入）
   const stripExternalAssets = (html) => {
     if (!html) return html;
     try {
@@ -71,7 +72,7 @@ export function StylePreviewPage() {
     }
   };
 
-  // 將資料中的 Markdown 章節標記做最小轉換
+  // 將資料中的 Markdown 章節标記做最小轉換
   const normalizeMarkdownHeadings = (html) => {
     if (!html) return html;
     let out = html;
@@ -83,7 +84,7 @@ export function StylePreviewPage() {
     return out;
   };
 
-  // 找到第一個 full 類型預覽的索引作為默認值
+  // 找到第一個 full 类型預覽的索引作為默認值
   const getDefaultIndex = () => {
     if (previewsList && previewsList.length > 0) {
       const firstFullIndex = previewsList.findIndex(p => p.type === 'full');
@@ -98,25 +99,25 @@ export function StylePreviewPage() {
     setIsLoading(true);
   }, [style.id, previewsList]);
 
-  // 預覽切換時，顯示 Loading 視覺（避免先渲染到回退內容）
+  // 預覽切換時，显示 Loading 視覺（避免先渲染到回退內容）
   useEffect(() => {
     setIsLoading(true);
   }, [activeIndex]);
 
-  // 新增：當切換預覽或進入頁面時，若當前預覽具備 previewId，透過動態載入取得 html/styles
+  // 新增：當切換預覽或進入页面時，若當前預覽具备 previewId，透過動態載入取得 html/styles
   useEffect(() => {
     const current = (previewsList && previewsList.length > 0)
       ? previewsList[Math.min(activeIndex, previewsList.length - 1)] || previewsList[0]
       : null;
 
-    // 若無多預覽配置，回退到風格級 fullPagePreviewId（動態載入完整頁）
+    // 若無多預覽配置，回退到風格級 fullPagePreviewId（動態載入完整页）
     const previewId = current?.previewId || fullPagePreviewId;
 
     // 重置上次結果
     setAsyncPreview(null);
 
     if (!previewId) {
-      // 沒有 async loader，直接由 iframe onLoad 關閉 Loading
+      // 沒有 async loader，直接由 iframe onLoad 关閉 Loading
       setIsLoadingPreview(false);
       return;
     }
@@ -130,7 +131,7 @@ export function StylePreviewPage() {
       })
       .catch((err) => {
         console.error(`預覽載入失敗: ${previewId}`, err);
-        // 標記已嘗試但失敗，使用空內容以觸發後續回退邏輯
+        // 标記已嘗試但失敗，使用空內容以觸發後續回退邏輯
         if (!cancelled) setAsyncPreview({ html: '', styles: '' });
       })
       .finally(() => {
@@ -140,7 +141,7 @@ export function StylePreviewPage() {
     return () => { cancelled = true; };
   }, [activeIndex, previewsList, fullPagePreviewId]);
 
-  // 載入逾時後備
+  // 載入逾時後备
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -160,7 +161,7 @@ export function StylePreviewPage() {
   }, [navigate]);
 
   const buildPreviewHTML = () => {
-    // 新增：若已成功透過 previewId 異步載入，優先返回該內容
+    // 新增：若已成功透過 previewId 異步載入，优先返回該內容
     if (asyncPreview && !isLoadingPreview && (asyncPreview.html || asyncPreview.styles)) {
       const sanitizedStyles = DOMPurify.sanitize(asyncPreview.styles || '');
       const processedHTML = normalizeMarkdownHeadings(
@@ -183,14 +184,14 @@ export function StylePreviewPage() {
 </html>`;
     }
 
-    // 若提供多個預覽，優先採用當前預覽的內容
+    // 若提供多個預覽，优先採用當前預覽的內容
     if (previewsList && previewsList.length > 0) {
       const current = previewsList[Math.min(activeIndex, previewsList.length - 1)] || previewsList[0];
 
-      // 若當前預覽有 previewId（需異步載入），在載入完成前不要使用回退內容，避免顯示不正確
+      // 若當前預覽有 previewId（需異步載入），在載入完成前不要使用回退內容，避免显示不正確
       if (current?.previewId) {
         if (asyncPreview === null || isLoadingPreview) {
-          // 回傳輕量骨架頁面，等待載入完成
+          // 回傳輕量骨架页面，等待載入完成
           return `<!DOCTYPE html>
 <html lang="${language}">
 <head>
@@ -204,7 +205,7 @@ export function StylePreviewPage() {
 <body><div class="center">${t('loading')}</div></body>
 </html>`;
         }
-        // 已有 async 預覽，前面頂部路徑會 return；理論上不會走到這裡
+        // 已有 async 預覽，前面頂部路徑會 return；理論上不會走到這里
       }
 
       let previewHTML = current.html || '';
@@ -277,7 +278,7 @@ export function StylePreviewPage() {
 </html>`;
     }
 
-    // 如果有完整頁面 HTML，優先使用
+    // 如果有完整页面 HTML，优先使用
     if (fullPageHTML) {
       const processedHTML = getDemoHTML(fullPageHTML, language);
       const normalizedHTML = stripExternalAssets(normalizeMarkdownHeadings(processedHTML));
@@ -299,7 +300,7 @@ export function StylePreviewPage() {
 </html>`;
     }
 
-    // 後備方案
+    // 後备方案
     const extractFullPageContent = (html) => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(`<div>${html}</div>`, 'text/html');
@@ -334,9 +335,9 @@ export function StylePreviewPage() {
   };
 
   // ✨ 使用 useMemo 避免無限渲染循環
-  // ⚠️ 只依賴穩定的值 (style, language, activeIndex)，其他值在內部訪問
+  // ⚠️ 只依賴稳定的值 (style, language, activeIndex)，其他值在內部访問
   const promptContent = useMemo(() => {
-    // 在 useMemo 內部訪問所有派生值
+    // 在 useMemo 內部访問所有派生值
     const previewsList = Array.isArray(style.previews) ? style.previews : [];
     const currentPreview = previewsList && previewsList.length > 0 ? previewsList[activeIndex] : null;
 
@@ -385,51 +386,95 @@ export function StylePreviewPage() {
   // 獲取當前預覽對象（供其他代碼使用）
   const currentPreview = previewsList && previewsList.length > 0 ? previewsList[activeIndex] : null;
 
-  // 檢查是否為數據可視化類型
+  // 检查是否為数据可視化类型
   const isDataVisualization = currentPreview?.type === 'data-visualization';
+
+  // 是否為「純 HTML 完整页面」模式（無頂部 Header）
+  const isFullPageMode =
+    searchParams.get('full') === '1' ||
+    searchParams.get('fullpage') === '1';
+
+  // 在新页面中打開「純 HTML 完整页面預覽」（無頂部 Header）
+  const handleOpenFullPageWindow = () => {
+    try {
+      const hasSearch = window.location.search && window.location.search.length > 0;
+      const separator = hasSearch ? '&' : '?';
+      const targetUrl = `${window.location.href}${separator}full=1`;
+      const win = window.open(targetUrl, '_blank', 'noopener');
+      if (!win) {
+        console.warn('[StylePreviewPage] Failed to open full-page preview window (popup blocked)');
+      }
+    } catch (error) {
+      console.error('[StylePreviewPage] Failed to open full-page HTML preview', error);
+    }
+  };
 
   return (
     <>
       <div className="fixed inset-0 z-50 bg-white flex flex-col">
-        <header className="border-b p-4 flex flex-col md:flex-row justify-between items-start md:items-center bg-white gap-3 md:gap-2">
-          <h3 className="text-lg font-semibold">{t('preview.header', { title: displayTitle })}</h3>
-          <div className="flex flex-col md:flex-row gap-3 md:gap-2 items-stretch md:items-center w-full md:w-auto">
-            {/* 預覽選擇器 */}
-            {hasMultiplePreviews(previewsList) && (
-              <div className="w-full md:w-auto md:mr-2">
-                <PreviewSelector
-                  previews={previewsList}
-                  activeIndex={activeIndex}
-                  onChange={setActiveIndex}
-                  variant="auto"
-                />
+        {!isFullPageMode && (
+          <header className="border-b p-4 flex flex-col md:flex-row justify-between items-start md:items-center bg-white gap-3 md:gap-2">
+            <h3 className="text-lg font-semibold flex items-center gap-2">
+              {t('preview.header', { title: displayTitle })}
+              {/* 右側僅顯示圖示的「新頁面預覽」入口 */}
+              {!isReactPreview && (
+                <button
+                  type="button"
+                  onClick={handleOpenFullPageWindow}
+                  className="inline-flex items-center justify-center text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                  title={t('ui.openInNewPage')}
+                  aria-label={t('ui.openInNewPage')}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M11 3a1 1 0 100 2h2.586L8.293 10.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                </button>
+              )}
+            </h3>
+            <div className="flex flex-col md:flex-row gap-3 md:gap-2 items-stretch md:items-center w-full md:w-auto">
+              {/* 預覽選擇器 */}
+              {hasMultiplePreviews(previewsList) && (
+                <div className="w-full md:w-auto md:mr-2">
+                  <PreviewSelector
+                    previews={previewsList}
+                    activeIndex={activeIndex}
+                    onChange={setActiveIndex}
+                    variant="auto"
+                  />
+                </div>
+              )}
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    console.log('[StylePreviewPage] AI Prompt button clicked:', {
+                      styleId: style?.id,
+                      promptLength: promptContent?.length || 0,
+                      hasPrompt: !!promptContent,
+                      language,
+                      isLoadingPreview
+                    });
+                    setShowPrompt(true);
+                  }}
+                  className="flex-1 md:flex-none px-4 py-2 text-sm rounded border hover:bg-gray-100 transition-colors"
+                >
+                  {t('buttons.prompt')}
+                </button>
+                <button
+                  onClick={() => window.close()}
+                  className="flex-1 md:flex-none px-4 py-2 text-sm rounded border hover:bg-gray-100 transition-colors"
+                >
+                  ✕ {t('buttons.close')}
+                </button>
               </div>
-            )}
-            <div className="flex gap-2">
-              <button
-                onClick={() => {
-                  console.log('[StylePreviewPage] AI Prompt button clicked:', {
-                    styleId: style?.id,
-                    promptLength: promptContent?.length || 0,
-                    hasPrompt: !!promptContent,
-                    language,
-                    isLoadingPreview
-                  });
-                  setShowPrompt(true);
-                }}
-                className="flex-1 md:flex-none px-4 py-2 text-sm rounded border hover:bg-gray-100 transition-colors"
-              >
-                {t('buttons.prompt')}
-              </button>
-              <button
-                onClick={() => window.close()}
-                className="flex-1 md:flex-none px-4 py-2 text-sm rounded border hover:bg-gray-100 transition-colors"
-              >
-                ✕ {t('buttons.close')}
-              </button>
             </div>
-          </div>
-        </header>
+          </header>
+        )}
         <div className="flex-1 overflow-auto custom-scrollbar relative">
           {/* Loading Overlay */}
           {!isReactPreview && isLoading && (
@@ -466,7 +511,7 @@ export function StylePreviewPage() {
               key={`${style.id}:${activeIndex}:${asyncPreview ? 'ready' : 'loading'}`}
               title={t('preview.header', { title: displayTitle })}
               srcDoc={buildPreviewHTML()}
-              className="w-full min-h-[600px] border-0"
+              className="w-full h-full border-0"
               onLoad={() => setIsLoading(false)}
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
             />
@@ -485,7 +530,7 @@ export function StylePreviewPage() {
   );
 }
 
-// 帶錯誤邊界的導出版本
+// 帶错誤边界的导出版本
 export function StylePreviewPageWithErrorBoundary() {
   return <StylePreviewPage />;
 }

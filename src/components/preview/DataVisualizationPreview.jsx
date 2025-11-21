@@ -15,10 +15,10 @@ export function DataVisualizationPreview({
 }) {
   const { t, language } = useLanguage();
 
-  // 語言取值助手：支援不同大小寫/連字號鍵，並提供穩健後備
+  // 語言取值助手：支援不同大小写/連字號鍵，並提供稳健後备
   const pickI18n = (obj) => {
     if (!obj || typeof obj !== 'object') return '';
-    // 常見鍵位變體
+    // 常見鍵位變体
     const candidates = [
       language,
       (language || '').toLowerCase(),
@@ -27,7 +27,7 @@ export function DataVisualizationPreview({
     for (const key of candidates) {
       if (key && obj[key]) return String(obj[key]);
     }
-    // 後備：第一個非空值
+    // 後备：第一個非空值
     const first = Object.values(obj).find(v => !!v);
     return String(first || '');
   };
@@ -57,7 +57,7 @@ export function DataVisualizationPreview({
 
   // Enhanced HTML with dynamic data injection
   const getEnhancedHTML = (scenario) => {
-    // 先移除 Tailwind CDN 以避免生產環境警告與外部依賴
+    // 先移除 Tailwind CDN 以避免生产環境警告与外部依賴
     let html = stripTailwindCdn(scenario.html || '');
 
     // Add Chart.js for dynamic charts if needed

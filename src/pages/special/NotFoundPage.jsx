@@ -7,14 +7,14 @@ export function NotFoundPage() {
   return (
     <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center px-8">
       <div className="max-w-2xl w-full text-center">
-        {/* 404 大號數字 */}
+        {/* 404 */}
         <div className="mb-8">
           <h1 className="text-[12rem] md:text-[16rem] font-light leading-none tracking-tighter text-black">
             404
           </h1>
         </div>
 
-        {/* 錯誤提示 */}
+        {/* Error Message */}
         <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-light mb-4">
             {t('errors.pageNotFound.title')}
@@ -64,7 +64,7 @@ export function NotFoundPage() {
           </button>
         </div>
 
-        {/* 快速導航 */}
+        {/* 快速导航 */}
         <div className="mt-16 pt-8 border-t border-gray-200">
           <p className="text-xs text-gray-500 font-light mb-4">
             {t('errors.pageNotFound.quickNav')}

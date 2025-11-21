@@ -6,8 +6,8 @@ import { injectAppStylesIntoIframe } from '../../utils/previewCss'
 import appCssUrl from '../../index.css?url'
 
 /**
- * VariantCard - 單個組件變體卡片（重建）
- * 目標：移除 Tailwind CDN，改為注入主應用已編譯之 CSS 到 iframe
+ * VariantCard - 單個組件變体卡片（重建）
+ * 目标：移除 Tailwind CDN，改為注入主應用已編譯之 CSS 到 iframe
  */
 export function VariantCard({
   variant,
@@ -37,7 +37,7 @@ export function VariantCard({
     return () => observer.disconnect()
   }, [])
 
-  // 空閒時允許注入，降低主線阻塞
+  // 空閒時允許注入，降低主线阻塞
   useEffect(() => {
     let idleId = null
     let timeoutId = null
@@ -54,7 +54,7 @@ export function VariantCard({
     }
   }, [])
 
-  // 預先組裝 iframe 文檔（不含 CDN，由父頁注入樣式）
+  // 預先組裝 iframe 文档（不含 CDN，由父页注入樣式）
   const memoIframeContent = useMemo(() => {
     if (!variant?.demoHTML) return ''
     const translatedHTML = translateHTML(variant.demoHTML, language)
@@ -66,14 +66,14 @@ export function VariantCard({
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <!-- 使用已編譯的應用 CSS，確保 Tailwind 與自定義樣式在 iframe 中生效 -->
+          <!-- 使用已編譯的應用 CSS，確保 Tailwind 与自定義樣式在 iframe 中生效 -->
           <link rel="stylesheet" href="${appCssUrl}" />
           <style>
             * { box-sizing: border-box; }
             body { margin: 0; padding: 16px; overflow-x: hidden; overflow-y: auto; min-height: 100px; max-height: 600px; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; }
             body > * { max-width: 100%; width: fit-content; }
             @media (max-width: 500px) { body > * { transform: scale(0.85); transform-origin: center center; } }
-            /* 簡易備援樣式（Tailwind 未注入時仍可閱讀） */
+            /* 简易备援樣式（Tailwind 未注入時仍可閱讀） */
             ol, ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
             .flex { display: flex !important; }
             .items-center { align-items: center !important; }
@@ -89,7 +89,7 @@ export function VariantCard({
       </html>`
   }, [variant?.demoHTML, variant?.customStyles, language])
 
-  // 寫入 iframe 文檔（需同時滿足進入視窗 + 空閒可注入）
+  // 写入 iframe 文档（需同時滿足進入視窗 + 空閒可注入）
   useEffect(() => {
     if (!isIntersecting || !readyToInject || !iframeRef.current || !memoIframeContent || hasInjected) return
     const iframe = iframeRef.current
@@ -113,7 +113,7 @@ export function VariantCard({
     if (!iframe) return undefined
     const handleLoad = () => injectAppStylesIntoIframe(iframe)
     iframe.addEventListener('load', handleLoad)
-    // 嘗試立即注入（部分瀏覽器 srcdoc 設定後同步可用）
+    // 嘗試立即注入（部分瀏覽器 srcdoc 设定後同步可用）
     setTimeout(() => { 
       try { injectAppStylesIntoIframe(iframe); } catch {
         // Ignore injection errors
@@ -137,11 +137,11 @@ export function VariantCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 標題欄 */}
+      {/* 标題欄 */}
       <div className="px-4 pt-4 pb-2">
         <h3 className="text-base font-semibold text-gray-900 mb-2">
           {index + 1}. {variant.name ? (() => {
-            // 檢查是否為 i18n 鍵（包含點分隔的命名空間）
+            // 检查是否為 i18n 鍵（包含點分隔的命名空間）
             const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.name);
             return isI18nKey ? t(variant.name) : variant.name;
           })() : ''}
@@ -150,7 +150,7 @@ export function VariantCard({
         {variant.description && (
           <p className="text-xs text-gray-600 leading-relaxed">
             {(() => {
-              // 檢查是否為 i18n 鍵（包含點分隔的命名空間）
+              // 检查是否為 i18n 鍵（包含點分隔的命名空間）
               const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.description);
               return isI18nKey ? t(variant.description) : variant.description;
             })()}
@@ -158,7 +158,7 @@ export function VariantCard({
         )}
       </div>
 
-      {/* 預覽區域 */}
+      {/* 預覽区域 */}
       <div className="px-4 pb-4">
         <div
           className={`
@@ -169,7 +169,7 @@ export function VariantCard({
           onClick={onPreview ? () => onPreview(variant) : undefined}
           title={onPreview ? t('ui.clickToPreview') : undefined}
         >
-          {/* 懸停遮罩層（僅在有預覽功能時顯示） */}
+          {/* 懸停遮罩层（仅在有預覽功能時显示） */}
           {onPreview && (
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-200 pointer-events-none z-10 flex items-center justify-center">
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 rounded-full p-3 shadow-lg">
@@ -211,7 +211,7 @@ export function VariantCard({
         </div>
       </div>
 
-      {/* 操作按鈕 - 僅顯示 Prompt */}
+      {/* 操作按鈕 - 仅显示 Prompt */}
       <div className="px-4 pb-4">
         {onGetPrompt && (
           <button

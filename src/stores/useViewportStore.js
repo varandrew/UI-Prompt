@@ -2,12 +2,12 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
 /**
- * 視口與網格管理 Store
+ * 視口与网格管理 Store
  *
  * 職責:
  * - 管理當前視口模式 (desktop/tablet/mobile/custom)
  * - 管理自定義視口尺寸
- * - 管理網格設置 (網格大小、吸附開關)
+ * - 管理网格设置 (网格大小、吸附開关)
  */
 
 export const useViewportStore = create(
@@ -23,8 +23,8 @@ export const useViewportStore = create(
     // ========== Actions ==========
 
     /**
-     * 設置視口模式
-     * @param {string} viewport - 視口類型
+     * 设置視口模式
+     * @param {string} viewport - 視口类型
      * @param {Object} customDimensions - 自定義尺寸 { width, height }
      */
     setViewport: (viewport, customDimensions = {}) => set((state) => {
@@ -53,7 +53,7 @@ export const useViewportStore = create(
     }),
 
     /**
-     * 設置自定義視口尺寸
+     * 设置自定義視口尺寸
      * @param {number} width - 寬度
      * @param {number} height - 高度
      */
@@ -72,22 +72,22 @@ export const useViewportStore = create(
     }),
 
     /**
-     * 設置網格大小
-     * @param {number} size - 網格大小
+     * 设置网格大小
+     * @param {number} size - 网格大小
      */
     setGridSize: (size) => set((state) => {
       state.gridSize = Math.max(1, size);
     }),
 
     /**
-     * 切換網格吸附
+     * 切換网格吸附
      */
     toggleSnapToGrid: () => set((state) => {
       state.snapToGrid = !state.snapToGrid;
     }),
 
     /**
-     * 設置網格吸附狀態
+     * 设置网格吸附狀態
      * @param {boolean} enabled - 是否啟用
      */
     setSnapToGrid: (enabled) => set((state) => {
@@ -119,7 +119,7 @@ export const useViewportStore = create(
     },
 
     /**
-     * 重置為默認設置
+     * 重置為默認设置
      */
     reset: () => set({
       activeViewport: 'desktop',
@@ -130,8 +130,8 @@ export const useViewportStore = create(
     }),
 
     /**
-     * 導入設置
-     * @param {Object} settings - 設置對象
+     * 导入设置
+     * @param {Object} settings - 设置對象
      */
     importSettings: (settings) => set((state) => {
       if (settings.activeViewport && state.activeViewport !== settings.activeViewport) {
@@ -152,8 +152,8 @@ export const useViewportStore = create(
     }),
 
     /**
-     * 導出設置
-     * @returns {Object} 設置對象
+     * 导出设置
+     * @returns {Object} 设置對象
      */
     exportSettings: () => {
       const state = get();

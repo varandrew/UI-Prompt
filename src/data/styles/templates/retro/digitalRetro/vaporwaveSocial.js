@@ -1,5 +1,5 @@
 // Vaporwave - Digital Retro Aesthetic
-// 蒸汽波 - 數位復古美學
+// 蒸汽波 - 数位復古美學
 
 export const vaporwaveSocial = 
   {
@@ -53,7 +53,7 @@ export const vaporwaveSocial =
           'Recent Sales Marquee Scroller'
         ],
         colorScheme: {
-          'zh-cn': '霓虹粉 (#ff6ec7)、霓虹藍 (#00d9ff)、紫色 (#b967ff)、深紫漸變背景 (#1a0033 → #330066)、檸檬黃強調 (#ffff00)',
+          'zh-cn': '霓虹粉 (#ff6ec7)、霓虹藍 (#00d9ff)、紫色 (#b967ff)、深紫漸变背景 (#1a0033 → #330066)、檸檬黃強調 (#ffff00)',
           'en-US': 'Neon pink (#ff6ec7), neon blue (#00d9ff), purple (#b967ff), dark purple gradient background (#1a0033 → #330066), lemon yellow accent (#ffff00)'
         },
         html: `<!DOCTYPE html>
@@ -756,14 +756,14 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
 
     // 模板級 stylePrompt (詳細 Prompt，1000-2000字)
     stylePrompt: {
-      'zh-CN': `角色：你是專精於蒸汽波（Vaporwave）風格的 UI 設計師，專注於 90 年代網絡文化、日式美學和賽博朋克粉紫配色。
+      'zh-CN': `角色：你是专精於蒸汽波（Vaporwave）風格的 UI 设計師，专注於 90 年代网絡文化、日式美學和賽博朋克粉紫配色。
 
-場景定位：為藝術作品展示、音樂平台或賽博朋克主題網站打造具有蒸汽波氛圍的界面，通過粉紫漸變和 VHS 故障效果傳達復古未來主義。
+場景定位：為藝術作品展示、音樂平台或賽博朋克主題网站打造具有蒸汽波氛圍的界面，通過粉紫漸变和 VHS 故障效果傳達復古未來主義。
 
-核心設計語言：
+核心设計語言：
 
-1. **粉紫漸變系統**：
-   - 霓虹三色漸變：
+1. **粉紫漸变系統**：
+   - 霓虹三色漸变：
      \`\`\`css
      .vaporwave-gradient {
        background: linear-gradient(
@@ -775,7 +775,7 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
      }
      \`\`\`
 
-   - 全景漸變背景：
+   - 全景漸变背景：
      \`\`\`css
      .vaporwave-bg {
        background: linear-gradient(
@@ -790,7 +790,7 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
      }
      \`\`\`
 
-   - 全息漸變邊框：
+   - 全息漸变边框：
      \`\`\`css
      .vaporwave-border {
        border: 2px solid transparent;
@@ -807,7 +807,7 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
      \`\`\`
 
 2. **VHS 故障效果系統**：
-   - 畫面抖動故障：
+   - 画面抖動故障：
      \`\`\`css
      .vhs-glitch {
        animation: vhs-glitch 0.3s ease-in-out infinite;
@@ -822,7 +822,7 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
      }
      \`\`\`
 
-   - CRT 掃描線：
+   - CRT 掃描线：
      \`\`\`css
      .vaporwave-scanlines::before {
        content: '';
@@ -857,7 +857,7 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
 - 霓虹紫：#b967ff
 - 檸檬黃：#ffff00（強調色）
 
-背景色（深紫漸變）：
+背景色（深紫漸变）：
 - 最深紫：#1a0033
 - 中紫：#2d1854
 - 亮紫：#330066
@@ -889,7 +889,7 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
    // "VAPORWAVE" → "ＶＡＰＯＲＷＡＶＥ"
    \`\`\`
 
-4. **透視網格背景**：
+4. **透視网格背景**：
    \`\`\`css
    .vaporwave-grid {
      position: fixed;
@@ -966,23 +966,23 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
 
 技術實現要點：
 
-1. **字體選擇**：
-   - Courier New（等寬字體，用於全角字符）
-   - MS PGothic（日文字體）
-   - Noto Sans JP（現代日文字體）
+1. **字体選擇**：
+   - Courier New（等寬字体，用於全角字符）
+   - MS PGothic（日文字体）
+   - Noto Sans JP（現代日文字体）
 
-2. **動畫組合**：
+2. **動画組合**：
    - VHS 故障：0.3s 快速抖動
    - 霓虹閃爍：3s 緩慢循環
    - 雕像浮動：3s ease-in-out
    - Matrix 雨：8-12s 隨機延遲
 
-3. **視覺層次**：
-   - 背景層：透視網格 + Matrix 雨（z-index: 1）
-   - 內容層：主要元素（z-index: 10）
-   - 掃描線層：CRT 效果（z-index: 1000）
+3. **視覺层次**：
+   - 背景层：透視网格 + Matrix 雨（z-index: 1）
+   - 內容层：主要元素（z-index: 10）
+   - 掃描线层：CRT 效果（z-index: 1000）
 
-4. **響應式優化**：
+4. **響應式优化**：
    \`\`\`css
    @media (max-width: 768px) {
      .vaporwave-grid {
@@ -996,11 +996,11 @@ Keep the pink–blue–purple neon gradient background, CRT scanlines, full-widt
    \`\`\`
 
 重要提示：
-- 避免使用純黑背景，使用深紫漸變
-- 霓虹效果至少使用 3 層 text-shadow
-- 全角字符優先使用 JavaScript 轉換（toFullWidth 函數）
+- 避免使用純黑背景，使用深紫漸变
+- 霓虹效果至少使用 3 层 text-shadow
+- 全角字符优先使用 JavaScript 轉換（toFullWidth 函数）
 - VHS 故障效果使用隨機 transform 和 filter: hue-rotate
-- 透視網格使用 transform: perspective + rotateX
+- 透視网格使用 transform: perspective + rotateX
 - 整合日式元素：🗿（雕像）、🐬（海豚）、🌴（棕櫚樹）、🌸（櫻花）、💿（CD）
 - 使用 mix-blend-mode: screen 模擬 CRT 發光效果`,
 

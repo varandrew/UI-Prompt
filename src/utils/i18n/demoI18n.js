@@ -75,8 +75,8 @@ function processDemoHTMLI18n(html, language) {
 function processDataI18nAttributes(html, language) {
   if (!html) return html;
 
-  // 匹配帶有 data-i18n 屬性的標籤及其內容
-  // 支持自閉合標籤和帶內容的標籤
+  // 匹配帶有 data-i18n 屬性的标籤及其內容
+  // 支持自閉合标籤和帶內容的标籤
   const regex = /<([a-z][a-z0-9]*)\b[^>]*?\bdata-i18n=["']([^"']+)["'][^>]*?(?:>([\s\S]*?)<\/\1>|\/?>)/gi;
 
   return html.replace(regex, (match, tagName, i18nKey, innerContent) => {
@@ -84,12 +84,12 @@ function processDataI18nAttributes(html, language) {
 
     // 如果找到翻譯,替換內容
     if (translation && translation !== i18nKey) {
-      // 如果是自閉合標籤或沒有內容
+      // 如果是自閉合标籤或沒有內容
       if (innerContent === undefined) {
         // 保持原樣(例如 input, button 等可能使用 value 或 placeholder)
         return match;
       }
-      // 替換標籤內的文本內容
+      // 替換标籤內的文本內容
       const tagWithoutContent = match.substring(0, match.lastIndexOf('>') - innerContent.length - tagName.length - 2);
       return `${tagWithoutContent}>${translation}</${tagName}>`;
     }

@@ -9,59 +9,59 @@ export const japaneseStyle = {
   id: 'core-minimalism-japanese-style',
   title: 'styles.core.minimalism.japaneseStyle.title',
   description: 'styles.core.minimalism.japaneseStyle.description',
-  // ✨ AI Prompt（用于生成與當前「日式極簡」頁面高度接近的 UI）
+  // ✨ AI Prompt（用于生成与當前「日式極简」页面高度接近的 UI）
   customPrompt: {
     'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「日式极简页面」界面风格高度接近的日式极简（Japanese Minimalism）風格 UI。
-要求：保持大量留白、縱向閱讀節奏以及柔和中性色 + 少量紅色 / 深色點綴的特徵不變，只允許替換文案與內容模組。輸出使用語義化 HTML 和 TailwindCSS 原子類。
+要求：保持大量留白、縱向閱讀節奏以及柔和中性色 + 少量紅色 / 深色點綴的特徵不变，只允許替換文案与內容模組。輸出使用語義化 HTML 和 TailwindCSS 原子类。
 
 【使用場景】
-- 場景：生活品牌 / 手作 / 文創網站首頁或專題頁。
-- 用戶：欣賞日式美學、追求安靜與秩序感的使用者。
-- 目標：營造「和風紙本」般的安靜、克制、儀式感，同時保持資訊清晰可讀。
+- 場景：生活品牌 / 手作 / 文創网站首页或专題页。
+- 用戶：欣賞日式美學、追求安静与秩序感的使用者。
+- 目标：營造「和風紙本」般的安静、克制、儀式感，同時保持資訊清晰可讀。
 
-【整體佈局結構】
-1. 頂部區
-   - 精簡 LOGO + 少量文字導航，靠左或置中。
-   - 可加入一條非常細的上邊框作為視覺起點。
-2. Hero 區域
-   - 大標題可置中或靠左，以細體或中等字重呈現。
-   - 下方為短副標或詩意句子，字距略大、行距充足。
-3. 內容區塊
-   - 使用 2–3 個主要區塊，按垂直順序排列：
-     - 圖文組合：左圖右文或反之，圖片可為簡單留白插圖或單色塊。
-     - 列表或段落：短句式文案分行排列，中間穿插細分隔線。
-     - 特殊強調區：例如一句名言 / 品牌宣言，以大字或紅色點綴呈現。
-4. 底部區
-   - 簡潔版權信息、品牌標誌和少量連結。
+【整体佈局結構】
+1. 頂部区
+   - 精简 LOGO + 少量文字导航，靠左或置中。
+   - 可加入一條非常細的上边框作為視覺起點。
+2. Hero 区域
+   - 大标題可置中或靠左，以細体或中等字重呈現。
+   - 下方為短副标或詩意句子，字距略大、行距充足。
+3. 內容区塊
+   - 使用 2–3 個主要区塊，按垂直順序排列：
+     - 圖文組合：左圖右文或反之，圖片可為简單留白插圖或單色塊。
+     - 列表或段落：短句式文案分行排列，中間穿插細分隔线。
+     - 特殊強調区：例如一句名言 / 品牌宣言，以大字或紅色點綴呈現。
+4. 底部区
+   - 简潔版權信息、品牌标誌和少量連結。
 
-【色彩與材質】
+【色彩与材质】
 1. 色彩
    - 背景：接近和紙的米白 / 淺灰（如 #f5f5f0 / #faf5e9）。
    - 文字：深灰黑（#111827 / #1f2937），避免純黑刺眼。
-   - 點綴：少量紅色（#b91c1c）或墨色作為標記線 / 小圖形。
+   - 點綴：少量紅色（#b91c1c）或墨色作為标記线 / 小圖形。
 2. 視覺元素
-   - 分隔線極細，顏色淺（#e5e7eb），可以用來創造縱向節奏感。
-   - 圖片 / 色塊面積不宜過大，以免打破留白主體。
+   - 分隔线極細，颜色淺（#e5e7eb），可以用來創造縱向節奏感。
+   - 圖片 / 色塊面積不宜過大，以免打破留白主体。
 
-【排版與留白】
+【排版与留白】
 1. 排版
-   - 大標題可使用較大文字但字重不要太粗，營造「輕」的感覺。
-   - 正文使用較小字體但行距充分（行高 1.8 左右），適合慢讀。
+   - 大标題可使用較大文字但字重不要太粗，營造「輕」的感覺。
+   - 正文使用較小字体但行距充分（行高 1.8 左右），適合慢讀。
 2. 留白
-   - 上下段落間距拉大，讓每一段文字像「段落短詩」。
-   - 左右邊距比一般設計略大，令版心更窄，強化縱向閱讀。
+   - 上下段落間距拉大，让每一段文字像「段落短詩」。
+   - 左右边距比一般设計略大，令版心更窄，強化縱向閱讀。
 
-【交互與動效】
+【交互与動效】
 1. Hover
-   - 文字鏈接 hover 僅增加下劃線或輕微改變顏色（可使用紅色或深灰）。
-   - 按鈕（若存在）風格極簡，可為文字 + 細框，hover 時填充淡色或改變邊框。
+   - 文字鏈接 hover 仅增加下劃线或輕微改变颜色（可使用紅色或深灰）。
+   - 按鈕（若存在）風格極简，可為文字 + 細框，hover 時填充淡色或改变边框。
 2. 動效
-   - 避免誇張動畫，必要時使用非常輕微的淡入或位移，時長 150–200ms。
+   - 避免誇張動画，必要時使用非常輕微的淡入或位移，時長 150–200ms。
 
 【輸出要求】
-- 使用語義化 HTML：section 之間有明確結構，方便 LLM 明白不同內容區塊。
-- 使用 Tailwind 原子類控制 max-width、margin、padding、typography 和 borders。
-- 生成的 UI 必須在「日式留白 + 和紙感背景 + 細線條 + 極少量紅色點綴」這幾個方面與當前日式極簡界面高度接近。`,
+- 使用語義化 HTML：section 之間有明確結構，方便 LLM 明白不同內容区塊。
+- 使用 Tailwind 原子类控制 max-width、margin、padding、typography 和 borders。
+- 生成的 UI 必須在「日式留白 + 和紙感背景 + 細线條 + 極少量紅色點綴」這幾個方面与當前日式極简界面高度接近。`,
     'en-US': `You are a senior UI designer and front-end engineer. Generate a Japanese Minimalism style page that looks very close to the current “Japanese Minimal” demo.
 Keep the generous whitespace, vertical reading rhythm and combination of soft neutral background with very small red or dark accents essentially unchanged. You may replace text and content modules, but not the core composition, spacing or calm Japanese aesthetic. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
 

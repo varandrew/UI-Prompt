@@ -6,14 +6,14 @@ import { canHaveChildren, canDropIntoParent } from '../../data/components/compon
 import { useEffect, useState } from 'react';
 
 /**
- * 層級面板 - 樹狀結構展示
+ * 层級面板 - 樹狀結構展示
  *
  * 職責:
- * - 顯示組件樹層級
+ * - 显示組件樹层級
  * - 支持點擊選中
  * - 支持拖動重排 (TODO)
  *
- * 設計: 極簡主義
+ * 设計: 極简主義
  */
 export function LayersPanel() {
   const [ListComponent, setListComponent] = useState(null);
@@ -82,7 +82,7 @@ export function LayersPanel() {
     const fromInfo = findParentAndIndex(canvasState.componentTree, draggedId);
     if (!fromInfo) return;
 
-    // 目標節點與父節點資訊
+    // 目标節點与父節點資訊
     const targetNode = findComponentById(canvasState.componentTree, overId);
     if (!targetNode) return;
 
@@ -96,12 +96,12 @@ export function LayersPanel() {
       const children = targetNode.children || [];
       newIndex = children.length; // 追加至尾
     } else {
-      // 投放到目標的父節點，插入到目標索引位置（之前）
+      // 投放到目标的父節點，插入到目标索引位置（之前）
       const overInfo = findParentAndIndex(canvasState.componentTree, overId);
       if (!overInfo) return;
       newParentId = overInfo.parentId;
-      newIndex = overInfo.index; // 插入到目標之前
-      // 若同父且原位置在目標之前，移除後目標索引會左移 1，需要校正
+      newIndex = overInfo.index; // 插入到目标之前
+      // 若同父且原位置在目标之前，移除後目标索引會左移 1，需要校正
       if (fromInfo.parentId === newParentId && fromInfo.index < newIndex) {
         newIndex = Math.max(0, newIndex - 1);
       }
@@ -125,7 +125,7 @@ export function LayersPanel() {
       moveComponent(draggedId, newParentId, newIndex);
       selectComponent(draggedId);
     } catch (e) {
-      // 防禦：避免例外導致 UI 中斷
+      // 防禦：避免例外导致 UI 中斷
       console.warn('moveComponent 失敗:', e);
     }
   };
@@ -232,7 +232,7 @@ export function LayersPanel() {
             strategy={verticalListSortingStrategy}
           >
             {hasChildren && node.children.map((child) => renderTree(child, depth + 1))}
-            {/* 空/末位放置區 */}
+            {/* 空/末位放置区 */}
             <ContainerDropZone containerId={node.id} depth={depth + 1} />
           </SortableContext>
         )}
@@ -276,7 +276,7 @@ export function LayersPanel() {
       return;
     }
 
-    // 否則：按目標項的父層與索引決定
+    // 否則：按目标項的父层与索引決定
     const fromInfo = findParentAndIndex(root, activeId);
     const toInfo = findParentAndIndex(root, overId);
     if (!fromInfo || !toInfo) return;

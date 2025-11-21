@@ -4,11 +4,11 @@
 import { demoHTML, customStyles } from './Demo';
 
 // 导入所有模板（从子文件夹）
-// meshGradient 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-// holographic 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-// duotone 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-// colorTransition 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-// animatedGradient 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
+// meshGradient 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+// holographic 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+// duotone 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+// colorTransition 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+// animatedGradient 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
 
 // 导出家族元数据
 export const name = 'styles.visual.gradient.title';
@@ -230,11 +230,11 @@ Primary colors:
 
 // 导出模板数组
 export const gradientTemplates = [
-  // meshGradient 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-  // holographic 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-  // duotone 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-  // colorTransition 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
-  // animatedGradient 已移除 - 與 visual-tech-gradients 重複（無 preview HTML）
+  // meshGradient 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+  // holographic 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+  // duotone 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+  // colorTransition 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
+  // animatedGradient 已移除 - 与 visual-tech-gradients 重複（無 preview HTML）
 ];
 
 export default gradientTemplates;

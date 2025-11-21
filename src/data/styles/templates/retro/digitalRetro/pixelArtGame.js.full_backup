@@ -1,0 +1,1770 @@
+// Pixel Art - Platform Jumper Game Style
+// 像素藝術 - 平台跳躍遊戲風格
+
+export const pixelArtGame = {
+    id: 'pixelArt',
+    title: 'styles.retro.pixelArt.title',
+    description: 'styles.retro.pixelArt.description',
+    demoHTML: `
+      <div class="w-full h-full flex items-center justify-center" style="background: #0f380f; padding: 24px; font-family: 'Courier New', monospace;">
+        <!-- Game Scene Container -->
+        <div style="position: relative; width: 100%; max-width: 400px; height: 280px; background: #306230; border: 4px solid #9bbc0f; image-rendering: pixelated;">
+
+          <!-- Sky & Clouds -->
+          <div style="position: absolute; top: 12px; left: 20px; width: 32px; height: 16px; background: #8bac0f; opacity: 0.6;"></div>
+          <div style="position: absolute; top: 16px; right: 40px; width: 40px; height: 12px; background: #8bac0f; opacity: 0.6;"></div>
+
+          <!-- Floating Platforms -->
+          <div style="position: absolute; bottom: 120px; left: 40px; width: 80px; height: 12px; background: #9bbc0f; border: 2px solid #0f380f;"></div>
+          <div style="position: absolute; bottom: 180px; right: 60px; width: 64px; height: 12px; background: #9bbc0f; border: 2px solid #0f380f;"></div>
+
+          <!-- Coin Animation -->
+          <div class="pixel-coin" style="position: absolute; bottom: 140px; left: 52px; width: 16px; height: 16px; background: #8bac0f; border: 2px solid #9bbc0f;"></div>
+
+          <!-- Jumping Character -->
+          <div class="pixel-jumper" style="position: absolute; bottom: 140px; left: 140px; width: 24px; height: 32px;">
+            <div style="width: 24px; height: 24px; background: #9bbc0f; border: 2px solid #0f380f; position: relative;">
+              <div style="position: absolute; top: 4px; left: 4px; width: 8px; height: 8px; background: #0f380f;"></div>
+              <div style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: #0f380f;"></div>
+            </div>
+            <div style="width: 16px; height: 8px; background: #8bac0f; border: 2px solid #0f380f; margin: 0 auto;"></div>
+          </div>
+
+          <!-- Ground -->
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 16px; background: #9bbc0f; border-top: 4px solid #8bac0f;"></div>
+
+          <!-- HUD Overlay -->
+          <div style="position: absolute; top: 8px; left: 8px; color: #9bbc0f; font-size: 10px; text-shadow: 1px 1px 0 #0f380f;">
+            ❤×3  ⭐250
+          </div>
+        </div>
+      </div>
+    `,
+    customStyles: `
+      @keyframes pixel-jump {
+        0%, 100% { transform: translateY(0); }
+        30% { transform: translateY(-40px); }
+        50% { transform: translateY(-60px); }
+        70% { transform: translateY(-40px); }
+      }
+
+      @keyframes pixel-spin {
+        0%, 100% { transform: rotateY(0deg); }
+        50% { transform: rotateY(180deg); }
+      }
+
+      .pixel-jumper {
+        animation: pixel-jump 2s ease-in-out infinite;
+      }
+
+      .pixel-coin {
+        animation: pixel-spin 1.5s linear infinite;
+      }
+    `,
+    demoBoxClass: 'bg-gray-900',
+    fullPageHTML: `
+<!-- PIXEL ART - PLATFORM JUMPER GAME FULL PAGE -->
+<div class="pixel-platform-container">
+
+  <!-- 1. HERO SECTION - Title Screen -->
+  <section class="pixel-hero-section">
+    <div class="pixel-title-wrapper">
+      <div class="pixel-title-main">PIXEL JUMPER</div>
+      <div class="pixel-title-sub">PLATFORM ADVENTURE</div>
+    </div>
+
+    <!-- Animated Character -->
+    <div class="pixel-hero-character"></div>
+
+    <!-- Menu Buttons -->
+    <div class="pixel-menu-group">
+      <button class="pixel-btn-primary">▶ START GAME</button>
+      <button class="pixel-btn-secondary">LEADERBOARD</button>
+      <button class="pixel-btn-secondary">SETTINGS</button>
+    </div>
+
+    <!-- Press Start Hint -->
+    <div class="pixel-blink-text">PRESS ANY KEY TO START</div>
+  </section>
+
+  <!-- 2. GAME HUD DISPLAY -->
+  <section class="pixel-hud-bar">
+    <div class="pixel-hud-item">
+      <span class="pixel-hud-label">LIVES</span>
+      <span class="pixel-hud-value">❤ ❤ ❤</span>
+    </div>
+    <div class="pixel-hud-item">
+      <span class="pixel-hud-label">SCORE</span>
+      <span class="pixel-hud-value">012500</span>
+    </div>
+    <div class="pixel-hud-item">
+      <span class="pixel-hud-label">TIME</span>
+      <span class="pixel-hud-value">245</span>
+    </div>
+    <div class="pixel-hud-item">
+      <span class="pixel-hud-label">COINS</span>
+      <span class="pixel-hud-value">💰 18</span>
+    </div>
+  </section>
+
+  <!-- 3. LEVEL SELECT GRID -->
+  <section class="pixel-content-section">
+    <h2 class="pixel-section-header">
+      ═══ LEVEL SELECT ═══
+    </h2>
+
+    <div class="pixel-level-container">
+      <div class="pixel-level-box unlocked">
+        <div class="pixel-level-number">1-1</div>
+        <div class="pixel-level-name">GREEN HILLS</div>
+        <div class="pixel-level-stars">★★★</div>
+        <div class="pixel-level-time">BEST: 03:45</div>
+      </div>
+
+      <div class="pixel-level-box unlocked">
+        <div class="pixel-level-number">1-2</div>
+        <div class="pixel-level-name">CAVE TUNNEL</div>
+        <div class="pixel-level-stars">★★☆</div>
+        <div class="pixel-level-time">BEST: 05:12</div>
+      </div>
+
+      <div class="pixel-level-box unlocked">
+        <div class="pixel-level-number">1-3</div>
+        <div class="pixel-level-name">SKY CASTLE</div>
+        <div class="pixel-level-stars">★☆☆</div>
+        <div class="pixel-level-time">BEST: 07:33</div>
+      </div>
+
+      <div class="pixel-level-box locked">
+        <div class="pixel-level-number">1-4</div>
+        <div class="pixel-level-name">🔒 LOCKED</div>
+        <div class="pixel-level-stars">☆☆☆</div>
+        <div class="pixel-level-time">--:--</div>
+      </div>
+
+      <div class="pixel-level-box locked">
+        <div class="pixel-level-number">2-1</div>
+        <div class="pixel-level-name">🔒 LOCKED</div>
+        <div class="pixel-level-stars">☆☆☆</div>
+        <div class="pixel-level-time">--:--</div>
+      </div>
+
+      <div class="pixel-level-box locked">
+        <div class="pixel-level-number">2-2</div>
+        <div class="pixel-level-name">🔒 LOCKED</div>
+        <div class="pixel-level-stars">☆☆☆</div>
+        <div class="pixel-level-time">--:--</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CHARACTER GALLERY -->
+  <section class="pixel-content-section">
+    <h2 class="pixel-section-header">
+      ═══ CHARACTERS ═══
+    </h2>
+
+    <div class="pixel-character-grid">
+      <div class="pixel-character-card">
+        <div class="pixel-char-sprite hero-sprite"></div>
+        <div class="pixel-char-name">HERO</div>
+        <div class="pixel-char-desc">Player Character</div>
+      </div>
+
+      <div class="pixel-character-card">
+        <div class="pixel-char-sprite goomba-sprite"></div>
+        <div class="pixel-char-name">GOOMBA</div>
+        <div class="pixel-char-desc">Basic Enemy</div>
+      </div>
+
+      <div class="pixel-character-card">
+        <div class="pixel-char-sprite bat-sprite"></div>
+        <div class="pixel-char-name">BAT</div>
+        <div class="pixel-char-desc">Flying Enemy</div>
+      </div>
+
+      <div class="pixel-character-card">
+        <div class="pixel-char-sprite shell-sprite"></div>
+        <div class="pixel-char-name">SHELL</div>
+        <div class="pixel-char-desc">Turtle Enemy</div>
+      </div>
+
+      <div class="pixel-character-card">
+        <div class="pixel-char-sprite fire-sprite"></div>
+        <div class="pixel-char-name">FIRE</div>
+        <div class="pixel-char-desc">Hazard</div>
+      </div>
+
+      <div class="pixel-character-card">
+        <div class="pixel-char-sprite boss-sprite"></div>
+        <div class="pixel-char-name">BOSS</div>
+        <div class="pixel-char-desc">Level Boss</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. POWER-UPS & ITEMS -->
+  <section class="pixel-content-section">
+    <h2 class="pixel-section-header">
+      ═══ POWER-UPS & ITEMS ═══
+    </h2>
+
+    <div class="pixel-powerup-list">
+      <div class="pixel-powerup-item">
+        <div class="pixel-powerup-icon">💰</div>
+        <div class="pixel-powerup-info">
+          <div class="pixel-powerup-name">COIN</div>
+          <div class="pixel-powerup-effect">+100 points</div>
+        </div>
+      </div>
+
+      <div class="pixel-powerup-item">
+        <div class="pixel-powerup-icon">⭐</div>
+        <div class="pixel-powerup-info">
+          <div class="pixel-powerup-name">STAR</div>
+          <div class="pixel-powerup-effect">Invincibility (10s)</div>
+        </div>
+      </div>
+
+      <div class="pixel-powerup-item">
+        <div class="pixel-powerup-icon">🍄</div>
+        <div class="pixel-powerup-info">
+          <div class="pixel-powerup-name">MUSHROOM</div>
+          <div class="pixel-powerup-effect">+1 HP restore</div>
+        </div>
+      </div>
+
+      <div class="pixel-powerup-item">
+        <div class="pixel-powerup-icon">🔥</div>
+        <div class="pixel-powerup-info">
+          <div class="pixel-powerup-name">FIRE FLOWER</div>
+          <div class="pixel-powerup-effect">Attack boost</div>
+        </div>
+      </div>
+
+      <div class="pixel-powerup-item">
+        <div class="pixel-powerup-icon">🔑</div>
+        <div class="pixel-powerup-info">
+          <div class="pixel-powerup-name">KEY</div>
+          <div class="pixel-powerup-effect">Unlock doors</div>
+        </div>
+      </div>
+
+      <div class="pixel-powerup-item">
+        <div class="pixel-powerup-icon">💎</div>
+        <div class="pixel-powerup-info">
+          <div class="pixel-powerup-name">GEM</div>
+          <div class="pixel-powerup-effect">+500 points</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LEADERBOARD / HIGH SCORES -->
+  <section class="pixel-content-section">
+    <h2 class="pixel-section-header">
+      ═══ HIGH SCORES ═══
+    </h2>
+
+    <div class="pixel-leaderboard-table">
+      <div class="pixel-leaderboard-header">
+        <div>RANK</div>
+        <div>PLAYER</div>
+        <div>SCORE</div>
+        <div>LEVEL</div>
+      </div>
+
+      <div class="pixel-leaderboard-row gold">
+        <div>🥇 1ST</div>
+        <div>PLAYER1</div>
+        <div>250,000</div>
+        <div>3-4</div>
+      </div>
+
+      <div class="pixel-leaderboard-row silver">
+        <div>🥈 2ND</div>
+        <div>PLAYER2</div>
+        <div>185,000</div>
+        <div>2-3</div>
+      </div>
+
+      <div class="pixel-leaderboard-row bronze">
+        <div>🥉 3RD</div>
+        <div>PLAYER3</div>
+        <div>150,000</div>
+        <div>2-1</div>
+      </div>
+
+      <div class="pixel-leaderboard-row">
+        <div>4TH</div>
+        <div>PLAYER4</div>
+        <div>125,000</div>
+        <div>1-4</div>
+      </div>
+
+      <div class="pixel-leaderboard-row">
+        <div>5TH</div>
+        <div>YOU</div>
+        <div>95,000</div>
+        <div>1-3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. GAME OVER SCREEN -->
+  <section class="pixel-content-section">
+    <h2 class="pixel-section-header">
+      ═══ GAME OVER ═══
+    </h2>
+
+    <div class="pixel-gameover-box">
+      <div class="pixel-gameover-title">GAME OVER</div>
+
+      <div class="pixel-gameover-stats">
+        <div class="pixel-stat-row">
+          <span>FINAL SCORE:</span>
+          <span>12,500</span>
+        </div>
+        <div class="pixel-stat-row">
+          <span>TIME PLAYED:</span>
+          <span>05:23</span>
+        </div>
+        <div class="pixel-stat-row">
+          <span>COINS COLLECTED:</span>
+          <span>18</span>
+        </div>
+        <div class="pixel-stat-row">
+          <span>ENEMIES DEFEATED:</span>
+          <span>42</span>
+        </div>
+      </div>
+
+      <div class="pixel-gameover-buttons">
+        <button class="pixel-btn-retry">TRY AGAIN</button>
+        <button class="pixel-btn-menu">MAIN MENU</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTROLS & SETTINGS -->
+  <section class="pixel-content-section">
+    <h2 class="pixel-section-header">
+      ═══ CONTROLS & SETTINGS ═══
+    </h2>
+
+    <div class="pixel-controls-layout">
+      <!-- Controls Section -->
+      <div class="pixel-controls-box">
+        <div class="pixel-controls-title">CONTROLS</div>
+        <div class="pixel-control-item">
+          <span class="pixel-key">◀ ▶</span>
+          <span class="pixel-action">Move Left/Right</span>
+        </div>
+        <div class="pixel-control-item">
+          <span class="pixel-key">🔼</span>
+          <span class="pixel-action">Jump</span>
+        </div>
+        <div class="pixel-control-item">
+          <span class="pixel-key">🔽</span>
+          <span class="pixel-action">Crouch/Down</span>
+        </div>
+        <div class="pixel-control-item">
+          <span class="pixel-key">[A]</span>
+          <span class="pixel-action">Action/Attack</span>
+        </div>
+        <div class="pixel-control-item">
+          <span class="pixel-key">[B]</span>
+          <span class="pixel-action">Run/Sprint</span>
+        </div>
+      </div>
+
+      <!-- Settings Section -->
+      <div class="pixel-settings-box">
+        <div class="pixel-settings-title">SETTINGS</div>
+
+        <div class="pixel-setting-row">
+          <span>🔊 SOUND</span>
+          <div class="pixel-volume-bar">
+            <div class="pixel-volume-fill" style="width: 80%"></div>
+          </div>
+          <span>80%</span>
+        </div>
+
+        <div class="pixel-setting-row">
+          <span>🎵 MUSIC</span>
+          <div class="pixel-volume-bar">
+            <div class="pixel-volume-fill" style="width: 60%"></div>
+          </div>
+          <span>60%</span>
+        </div>
+
+        <div class="pixel-setting-row">
+          <span>DIFFICULTY</span>
+          <div class="pixel-difficulty-buttons">
+            <button class="pixel-difficulty-btn">EASY</button>
+            <button class="pixel-difficulty-btn active">NORMAL</button>
+            <button class="pixel-difficulty-btn">HARD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pixel-platform-footer">
+    <div class="pixel-footer-wrapper">
+      <div class="pixel-footer-logo">🎮 PIXEL JUMPER © 2025</div>
+      <div class="pixel-footer-links">
+        <a href="javascript:void(0)">ABOUT</a>
+        <span>•</span>
+        <a href="javascript:void(0)">PRIVACY</a>
+        <span>•</span>
+        <a href="javascript:void(0)">SUPPORT</a>
+      </div>
+      <div class="pixel-footer-note">MADE WITH ❤️ FOR RETRO GAMING FANS</div>
+    </div>
+  </footer>
+
+</div>
+    `,
+    fullPageStyles: `
+/* ═══════════════════════════════════════════════════════════════
+   PIXEL ART - PLATFORM JUMPER GAME FULL PAGE STYLES
+   Game Boy Classic Color Palette:
+   - #0f380f (Darkest Green) - Background, Shadows
+   - #306230 (Dark Green) - Borders, Secondary BG
+   - #8bac0f (Light Green) - Highlights, Accents
+   - #9bbc0f (Lightest Green) - Main Text, Icons
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══ GLOBAL CONTAINER ═══ */
+.pixel-platform-container {
+  font-family: 'Courier New', 'Press Start 2P', monospace;
+  background-color: #0f380f;
+  color: #9bbc0f;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  line-height: 1.6;
+}
+
+/* ═══ 1. HERO SECTION - Title Screen ═══ */
+.pixel-hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #0f380f;
+  position: relative;
+  gap: 48px;
+}
+
+.pixel-title-wrapper {
+  text-align: center;
+}
+
+.pixel-title-main {
+  font-size: 64px;
+  color: #9bbc0f;
+  text-shadow:
+    6px 6px 0 #0f380f,
+    -2px -2px 0 #8bac0f;
+  letter-spacing: 8px;
+  margin-bottom: 16px;
+  animation: title-pulse 2s ease-in-out infinite;
+}
+
+@keyframes title-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.pixel-title-sub {
+  font-size: 20px;
+  color: #8bac0f;
+  letter-spacing: 4px;
+}
+
+.pixel-hero-character {
+  width: 80px;
+  height: 80px;
+  background-color: #9bbc0f;
+  border: 4px solid #0f380f;
+  position: relative;
+  animation: character-bob 1.5s ease-in-out infinite;
+}
+
+.pixel-hero-character::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  background-color: #8bac0f;
+}
+
+.pixel-hero-character::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 28px;
+  width: 16px;
+  height: 16px;
+  background-color: #0f380f;
+}
+
+@keyframes character-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.pixel-menu-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 320px;
+}
+
+.pixel-btn-primary,
+.pixel-btn-secondary {
+  background-color: #306230;
+  color: #9bbc0f;
+  border: 4px solid #9bbc0f;
+  padding: 20px 32px;
+  font-size: 18px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: none;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.pixel-btn-primary {
+  background-color: #8bac0f;
+  color: #0f380f;
+  border-color: #9bbc0f;
+}
+
+.pixel-btn-primary:hover,
+.pixel-btn-secondary:hover {
+  background-color: #9bbc0f;
+  color: #0f380f;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn-primary:active,
+.pixel-btn-secondary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-blink-text {
+  text-align: center;
+  font-size: 18px;
+  color: #9bbc0f;
+  animation: blink-animation 1.5s infinite;
+  margin-top: 32px;
+}
+
+@keyframes blink-animation {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ═══ 2. GAME HUD DISPLAY ═══ */
+.pixel-hud-bar {
+  background-color: #306230;
+  border-top: 4px solid #9bbc0f;
+  border-bottom: 4px solid #9bbc0f;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.pixel-hud-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-hud-label {
+  font-size: 12px;
+  color: #8bac0f;
+  letter-spacing: 2px;
+}
+
+.pixel-hud-value {
+  font-size: 20px;
+  color: #9bbc0f;
+  font-weight: bold;
+  animation: hud-glow 2s ease-in-out infinite;
+}
+
+@keyframes hud-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* ═══ CONTENT SECTIONS ═══ */
+.pixel-content-section {
+  padding: 80px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pixel-section-header {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #9bbc0f;
+  text-shadow: 4px 4px 0 #0f380f;
+  letter-spacing: 4px;
+}
+
+/* ═══ 3. LEVEL SELECT GRID ═══ */
+.pixel-level-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.pixel-level-box {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.pixel-level-box.unlocked:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 0 #0f380f;
+}
+
+.pixel-level-box.locked {
+  background-color: #0f380f;
+  border-color: #306230;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pixel-level-number {
+  font-size: 36px;
+  color: #9bbc0f;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.pixel-level-name {
+  font-size: 16px;
+  color: #8bac0f;
+  margin-bottom: 12px;
+}
+
+.pixel-level-stars {
+  font-size: 24px;
+  color: #9bbc0f;
+  margin-bottom: 12px;
+}
+
+.pixel-level-time {
+  font-size: 12px;
+  color: #306230;
+}
+
+/* ═══ 4. CHARACTER GALLERY ═══ */
+.pixel-character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+}
+
+.pixel-character-card {
+  background-color: #0f380f;
+  border: 4px solid #306230;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.pixel-character-card:hover {
+  border-color: #9bbc0f;
+  transform: scale(1.05);
+}
+
+.pixel-char-sprite {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background-color: #9bbc0f;
+  border: 2px solid #8bac0f;
+  position: relative;
+}
+
+.pixel-char-sprite::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  background-color: #306230;
+}
+
+.hero-sprite { background-color: #9bbc0f; }
+.goomba-sprite { background-color: #8bac0f; }
+.bat-sprite { background-color: #306230; }
+.shell-sprite { background-color: #9bbc0f; }
+.fire-sprite { background-color: #8bac0f; }
+.boss-sprite { background-color: #306230; }
+
+.pixel-char-name {
+  font-size: 16px;
+  color: #9bbc0f;
+  margin-bottom: 8px;
+}
+
+.pixel-char-desc {
+  font-size: 12px;
+  color: #8bac0f;
+}
+
+/* ═══ 5. POWER-UPS & ITEMS ═══ */
+.pixel-powerup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pixel-powerup-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background-color: #0f380f;
+  border: 4px solid #306230;
+  padding: 24px;
+  transition: all 0.2s;
+}
+
+.pixel-powerup-item:hover {
+  border-color: #9bbc0f;
+  transform: translateX(8px);
+}
+
+.pixel-powerup-icon {
+  font-size: 48px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.pixel-powerup-info {
+  flex: 1;
+}
+
+.pixel-powerup-name {
+  font-size: 20px;
+  color: #9bbc0f;
+  margin-bottom: 8px;
+}
+
+.pixel-powerup-effect {
+  font-size: 14px;
+  color: #8bac0f;
+}
+
+/* ═══ 6. LEADERBOARD ═══ */
+.pixel-leaderboard-table {
+  background-color: #0f380f;
+  border: 4px solid #9bbc0f;
+}
+
+.pixel-leaderboard-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr 1fr;
+  gap: 16px;
+  padding: 20px 24px;
+  background-color: #306230;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9bbc0f;
+  border-bottom: 4px solid #9bbc0f;
+}
+
+.pixel-leaderboard-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr 1fr;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 2px solid #306230;
+  transition: background-color 0.2s;
+}
+
+.pixel-leaderboard-row:hover {
+  background-color: #306230;
+}
+
+.pixel-leaderboard-row.gold {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.pixel-leaderboard-row.silver {
+  background-color: rgba(192, 192, 192, 0.1);
+}
+
+.pixel-leaderboard-row.bronze {
+  background-color: rgba(205, 127, 50, 0.1);
+}
+
+/* ═══ 7. GAME OVER SCREEN ═══ */
+.pixel-gameover-box {
+  background-color: #0f380f;
+  border: 6px solid #306230;
+  padding: 60px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pixel-gameover-title {
+  font-size: 48px;
+  color: #9bbc0f;
+  text-shadow: 4px 4px 0 #306230;
+  margin-bottom: 48px;
+  animation: gameover-shake 0.5s infinite;
+}
+
+@keyframes gameover-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.pixel-gameover-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.pixel-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #8bac0f;
+  padding: 12px 20px;
+  background-color: #306230;
+  border: 2px solid #9bbc0f;
+}
+
+.pixel-gameover-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pixel-btn-retry,
+.pixel-btn-menu {
+  background-color: #306230;
+  color: #9bbc0f;
+  border: 4px solid #9bbc0f;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: none;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn-retry:hover,
+.pixel-btn-menu:hover {
+  background-color: #9bbc0f;
+  color: #0f380f;
+}
+
+/* ═══ 8. CONTROLS & SETTINGS ═══ */
+.pixel-controls-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.pixel-controls-box,
+.pixel-settings-box {
+  background-color: #0f380f;
+  border: 4px solid #306230;
+  padding: 32px;
+}
+
+.pixel-controls-title,
+.pixel-settings-title {
+  font-size: 20px;
+  color: #9bbc0f;
+  margin-bottom: 24px;
+  text-align: center;
+  border-bottom: 2px solid #306230;
+  padding-bottom: 16px;
+}
+
+.pixel-control-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background-color: #306230;
+  border: 2px solid #8bac0f;
+}
+
+.pixel-key {
+  min-width: 64px;
+  padding: 8px 12px;
+  background-color: #0f380f;
+  border: 2px solid #9bbc0f;
+  color: #9bbc0f;
+  text-align: center;
+  font-size: 16px;
+}
+
+.pixel-action {
+  flex: 1;
+  font-size: 14px;
+  color: #8bac0f;
+}
+
+.pixel-setting-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #306230;
+  border: 2px solid #8bac0f;
+  font-size: 14px;
+}
+
+.pixel-volume-bar {
+  flex: 1;
+  height: 16px;
+  background-color: #0f380f;
+  border: 2px solid #9bbc0f;
+  position: relative;
+}
+
+.pixel-volume-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8bac0f 0%, #9bbc0f 100%);
+  transition: width 0.3s;
+}
+
+.pixel-difficulty-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.pixel-difficulty-btn {
+  padding: 8px 16px;
+  background-color: #0f380f;
+  color: #8bac0f;
+  border: 2px solid #306230;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: none;
+}
+
+.pixel-difficulty-btn.active,
+.pixel-difficulty-btn:hover {
+  background-color: #306230;
+  border-color: #9bbc0f;
+  color: #9bbc0f;
+}
+
+/* ═══ FOOTER ═══ */
+.pixel-platform-footer {
+  background-color: #0f380f;
+  border-top: 4px solid #306230;
+  padding: 60px 32px 40px;
+  margin-top: 80px;
+}
+
+.pixel-footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.pixel-footer-logo {
+  font-size: 20px;
+  color: #9bbc0f;
+}
+
+.pixel-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.pixel-footer-links a {
+  color: #8bac0f;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pixel-footer-links a:hover {
+  color: #9bbc0f;
+  text-decoration: underline;
+}
+
+.pixel-footer-links span {
+  color: #306230;
+}
+
+.pixel-footer-note {
+  font-size: 12px;
+  color: #306230;
+}
+
+/* ═══ RESPONSIVE DESIGN ═══ */
+@media (max-width: 768px) {
+  .pixel-title-main {
+    font-size: 36px;
+    letter-spacing: 4px;
+  }
+
+  .pixel-title-sub {
+    font-size: 14px;
+  }
+
+  .pixel-section-header {
+    font-size: 24px;
+  }
+
+  .pixel-controls-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pixel-leaderboard-header,
+  .pixel-leaderboard-row {
+    grid-template-columns: 80px 1fr 100px 60px;
+    padding: 16px 12px;
+    font-size: 12px;
+  }
+
+  .pixel-menu-group {
+    min-width: 260px;
+  }
+
+  .pixel-btn-primary,
+  .pixel-btn-secondary {
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-hero-section {
+    padding: 40px 16px;
+    gap: 32px;
+  }
+
+  .pixel-content-section {
+    padding: 60px 16px;
+  }
+
+  .pixel-level-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pixel-character-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pixel-gameover-buttons {
+    flex-direction: column;
+  }
+}
+    `,
+
+    // CustomPrompt - Platform Jumper Game Theme (English + 简体中文)
+    customPrompt: {
+      'en-US': `Create a platform jumper game UI using TailwindCSS and pixel art style, inspired by classic 8-bit/16-bit games like Super Mario and Mega Man.
+
+**Core Design Requirements**
+
+1. **Game Boy Color Palette** - Use the classic 4-tone green palette:
+   - Darkest Green: #0f380f (backgrounds, shadows)
+   - Dark Green: #306230 (borders, secondary elements)
+   - Light Green: #8bac0f (highlights, accents)
+   - Lightest Green: #9bbc0f (main text, icons)
+
+2. **Pixel-Perfect Rendering** - Apply crisp pixel rendering:
+   [CSS Code]:
+   image-rendering: pixelated;
+   image-rendering: -moz-crisp-edges;
+   image-rendering: crisp-edges;
+   
+
+3. **Hard-Edge Borders** - Never use rounded corners:
+   [CSS Code]:
+   border-radius: 0; /* Always use sharp corners */
+   border: 4px solid #9bbc0f;
+   
+
+4. **8-Bit Typography** - Use monospace pixel fonts:
+   [CSS Code]:
+   font-family: 'Press Start 2P', 'Courier New', monospace;
+   font-size: 16px; /* Always even numbers */
+   letter-spacing: 2px;
+   
+
+5. **Platform Game Elements** - Include these classic components:
+   - HUD Display: Lives (hearts), Score counter, Time counter, Coins
+   - Level Select: Grid of levels with star ratings and lock icons
+   - Character Gallery: Player character and enemy sprites
+   - Power-ups: Coins, Stars, Mushrooms, Fire Flowers, Keys, Gems
+   - Leaderboard: High scores with ranking medals
+   - Game Over Screen: Final stats and retry options
+   - Controls Panel: Arrow keys and action buttons
+
+**Key CSS Classes**
+
+[CSS Code]:
+/* Platform Jumper Button */
+.pixel-btn-primary {
+  background-color: #8bac0f;
+  color: #0f380f;
+  border: 4px solid #9bbc0f;
+  padding: 20px 32px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: none; /* No smooth animations */
+}
+
+.pixel-btn-primary:hover {
+  background-color: #9bbc0f;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Level Selection Card */
+.pixel-level-box {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pixel-level-box.unlocked:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 0 #0f380f;
+}
+
+.pixel-level-box.locked {
+  background-color: #0f380f;
+  border-color: #306230;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* HUD Display Bar */
+.pixel-hud-bar {
+  background-color: #306230;
+  border-top: 4px solid #9bbc0f;
+  border-bottom: 4px solid #9bbc0f;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Character Sprite */
+.pixel-char-sprite {
+  width: 64px;
+  height: 64px;
+  background-color: #9bbc0f;
+  border: 2px solid #8bac0f;
+  image-rendering: pixelated;
+}
+
+
+**Animation Rules**
+
+Use stepped animations only (no smooth easing):
+[CSS Code]:
+@keyframes pixel-jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-60px); }
+}
+
+.jumping-character {
+  animation: pixel-jump 2s steps(4) infinite;
+}
+
+
+**Important Constraints**
+- All sizes must be multiples of 4px
+- Font sizes must be even numbers (12px, 14px, 16px, 20px)
+- No gradients except for solid 2-color Game Boy gradients
+- No box-shadow blur values (only offset shadows)
+- No border-radius (always 0)
+- Use steps() for animations instead of ease
+- Replace all href="#" with href="javascript:void(0)"`,
+
+      'zh-CN': `使用 TailwindCSS 和像素艺术风格创建平台跳跃游戏 UI，灵感来自经典 8-bit/16-bit 游戏如超级马里奥和洛克人。
+
+**核心设计要求**
+
+1. **Game Boy 配色系统** - 使用经典 4 色调绿色调色板：
+   - 最深绿：#0f380f（背景、阴影）
+   - 暗绿：#306230（边框、次要元素）
+   - 浅绿：#8bac0f（高光、强调）
+   - 最浅绿：#9bbc0f（主文字、图标）
+
+2. **像素完美渲染** - 应用清晰像素渲染：
+   [CSS Code]:
+   image-rendering: pixelated;
+   image-rendering: -moz-crisp-edges;
+   image-rendering: crisp-edges;
+   
+
+3. **硬边框** - 绝不使用圆角：
+   [CSS Code]:
+   border-radius: 0; /* 始终使用尖角 */
+   border: 4px solid #9bbc0f;
+   
+
+4. **8-Bit 字体** - 使用等宽像素字体：
+   [CSS Code]:
+   font-family: 'Press Start 2P', 'Courier New', monospace;
+   font-size: 16px; /* 始终使用偶数 */
+   letter-spacing: 2px;
+   
+
+5. **平台游戏元素** - 包含这些经典组件：
+   - HUD 显示：生命值（心形）、分数计数器、时间计数器、金币
+   - 关卡选择：带星级评分和锁定图标的关卡网格
+   - 角色画廊：玩家角色和敌人精灵
+   - 道具：金币、星星、蘑菇、火花、钥匙、宝石
+   - 排行榜：带排名奖牌的高分榜
+   - 游戏结束画面：最终统计和重试选项
+   - 控制面板：方向键和动作按钮
+
+**关键 CSS 类**
+
+[CSS Code]:
+/* 平台跳跃按钮 */
+.pixel-btn-primary {
+  background-color: #8bac0f;
+  color: #0f380f;
+  border: 4px solid #9bbc0f;
+  padding: 20px 32px;
+  font-family: 'Courier New', monospace;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: none; /* 无平滑动画 */
+}
+
+.pixel-btn-primary:hover {
+  background-color: #9bbc0f;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* 关卡选择卡片 */
+.pixel-level-box {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pixel-level-box.unlocked:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 0 #0f380f;
+}
+
+/* HUD 显示栏 */
+.pixel-hud-bar {
+  background-color: #306230;
+  border-top: 4px solid #9bbc0f;
+  border-bottom: 4px solid #9bbc0f;
+  padding: 20px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+
+**动画规则**
+
+仅使用步进动画（无平滑缓动）：
+[CSS Code]:
+@keyframes pixel-jump {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-60px); }
+}
+
+.jumping-character {
+  animation: pixel-jump 2s steps(4) infinite;
+}
+
+
+**重要约束**
+- 所有尺寸必须是 4px 的倍数
+- 字体大小必须是偶数（12px、14px、16px、20px）
+- 除纯色 2 色 Game Boy 渐变外不使用渐变
+- 不使用 box-shadow 模糊值（仅偏移阴影）
+- 不使用 border-radius（始终为 0）
+- 动画使用 steps() 而非 ease
+- 将所有 href="#" 替换为 href="javascript:void(0)"`
+    },
+
+    // StylePrompt - Detailed Platform Jumper Style Guide (English + 简体中文)
+    stylePrompt: {
+      'en-US': `Role: You are a UI designer specializing in pixel art platform jumper games, focusing on 8-bit/16-bit era gaming aesthetics from classic titles like Super Mario Bros, Mega Man, and Castlevania.
+
+Scenario: Create pixel-perfect platform jumper game interfaces that capture the essence of retro gaming nostalgia, featuring Game Boy color palettes, crisp pixel rendering, and classic gaming UI elements.
+
+Core Design Philosophy:
+
+1. **Platform Jumper Game Structure**
+
+The interface should organize around these core sections:
+- Title Screen: Large pixelated title, animated character sprite, menu buttons
+- HUD Display: Lives, Score, Time, Coins in a fixed bar
+- Level Select: Grid layout showing world-level format (1-1, 1-2, etc.)
+- Character Gallery: Player and enemy sprite showcases
+- Power-ups Section: Item descriptions with icons
+- Leaderboard: Ranking system with medals
+- Game Over: Stats display with retry options
+- Controls Panel: Button mappings and settings
+
+2. **Game Boy Color Palette System**
+
+Complete 4-tone green palette:
+[CSS Code]:
+:root {
+  --gb-darkest: #0f380f;  /* Backgrounds, deep shadows */
+  --gb-dark: #306230;     /* Secondary BG, borders */
+  --gb-light: #8bac0f;    /* Highlights, accents */
+  --gb-lightest: #9bbc0f; /* Primary text, UI elements */
+}
+
+.pixel-game-element {
+  background: var(--gb-darkest);
+  color: var(--gb-lightest);
+  border: 4px solid var(--gb-light);
+}
+
+
+Alternative palettes for variety:
+- Red Theme: #660000, #cc0000, #ff3333, #ff9999
+- Blue Theme: #000066, #0000cc, #3333ff, #9999ff
+
+3. **Pixel-Perfect Rendering**
+
+Global pixelation settings:
+[CSS Code]:
+.pixel-container {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* All elements align to 4px grid */
+.pixel-element {
+  width: 64px;   /* 16 × 4 */
+  height: 64px;
+  margin: 8px;   /* 2 × 4 */
+  padding: 12px; /* 3 × 4 */
+}
+
+
+4. **Platform Jumper HUD System**
+
+Classic game HUD design:
+[CSS Code]:
+.pixel-hud-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #306230;
+  border-bottom: 4px solid #9bbc0f;
+  padding: 16px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  z-index: 1000;
+}
+
+.pixel-hud-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pixel-hud-label {
+  font-size: 10px;
+  color: #8bac0f;
+  letter-spacing: 1px;
+}
+
+.pixel-hud-value {
+  font-size: 16px;
+  color: #9bbc0f;
+  font-weight: bold;
+}
+
+/* Heart/Lives Display */
+.pixel-hearts {
+  display: flex;
+  gap: 4px;
+}
+
+.pixel-heart {
+  width: 16px;
+  height: 16px;
+  background: #9bbc0f;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.pixel-heart::before,
+.pixel-heart::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: #9bbc0f;
+  position: absolute;
+}
+
+.pixel-heart::before { left: -8px; }
+.pixel-heart::after { top: -8px; }
+
+
+5. **Level Selection System**
+
+World-level grid design:
+[CSS Code]:
+.pixel-level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.pixel-level-card {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.pixel-level-card.unlocked:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 0 #0f380f;
+}
+
+.pixel-level-card.locked {
+  background-color: #0f380f;
+  border-color: #306230;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pixel-level-number {
+  font-size: 32px;
+  color: #9bbc0f;
+  margin-bottom: 12px;
+}
+
+.pixel-level-stars {
+  font-size: 20px;
+  color: #8bac0f;
+}
+
+
+6. **Character Sprite System**
+
+Pure CSS pixel sprites:
+[CSS Code]:
+.pixel-character {
+  width: 64px;
+  height: 64px;
+  background-color: #9bbc0f;
+  border: 2px solid #8bac0f;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.pixel-character::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  background-color: #306230;
+}
+
+.pixel-character::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: #0f380f;
+}
+
+/* Walking Animation */
+@keyframes pixel-walk {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.pixel-character.walking {
+  animation: pixel-walk 0.6s steps(2) infinite;
+}
+
+/* Jumping Animation */
+@keyframes pixel-jump {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-40px); }
+  50% { transform: translateY(-60px); }
+  70% { transform: translateY(-40px); }
+}
+
+.pixel-character.jumping {
+  animation: pixel-jump 2s ease-in-out infinite;
+}
+
+
+7. **Power-Up Item System**
+
+[CSS Code]:
+.pixel-powerup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pixel-powerup-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #0f380f;
+  border: 4px solid #306230;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.pixel-powerup-item:hover {
+  border-color: #9bbc0f;
+  transform: translateX(8px);
+}
+
+.pixel-powerup-icon {
+  font-size: 40px;
+  min-width: 60px;
+  text-align: center;
+  animation: powerup-float 2s ease-in-out infinite;
+}
+
+@keyframes powerup-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.pixel-powerup-name {
+  font-size: 18px;
+  color: #9bbc0f;
+}
+
+.pixel-powerup-effect {
+  font-size: 12px;
+  color: #8bac0f;
+}
+
+
+8. **Spacing System (4px base unit)**
+
+- xs: 4px
+- sm: 8px
+- md: 12px
+- base: 16px
+- lg: 20px
+- xl: 24px
+- 2xl: 32px
+- 3xl: 48px
+- 4xl: 64px
+
+9. **Font Size System (even numbers only)**
+
+- Tiny: 10px (HUD labels)
+- Small: 12px (descriptions)
+- Base: 14px (body text)
+- Medium: 16px (buttons)
+- Large: 20px (section headers)
+- XL: 32px (level numbers)
+- 2XL: 48px (game over)
+- 3XL: 64px (title screen)
+
+10. **Button Interaction States**
+
+[CSS Code]:
+.pixel-button {
+  background-color: #306230;
+  color: #9bbc0f;
+  border: 4px solid #9bbc0f;
+  padding: 16px 32px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  transition: none; /* Never use smooth transitions */
+}
+
+.pixel-button:hover {
+  background-color: #8bac0f;
+  color: #0f380f;
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #0f380f;
+  border-color: #306230;
+}
+
+
+Important Technical Constraints:
+- All sizes must be multiples of 4px
+- Font sizes must be even numbers (10px, 12px, 14px, 16px)
+- Never use border-radius (always 0)
+- No box-shadow blur values (only offset shadows like "4px 4px 0")
+- All images use image-rendering: pixelated
+- Colors limited to Game Boy 4-tone palette
+- Animations use steps() function instead of ease
+- No text-shadow or filter effects
+- Replace all href="#" with href="javascript:void(0)"
+- Maintain 4px pixel grid alignment for all elements
+
+Platform Jumper Specific Elements:
+- Lives displayed as pixel hearts (❤)
+- Coins with rotating animation (💰)
+- Stars for invincibility (⭐)
+- Level format: "1-1", "1-2", etc.
+- Star ratings: ★★★, ★★☆, ★☆☆, ☆☆☆
+- Lock icons for locked levels (🔒)
+- Ranking medals: 🥇, 🥈, 🥉
+- Time format: "03:45" (minutes:seconds)
+
+Responsive Design:
+- Desktop: 3-column level grid, full HUD display
+- Tablet: 2-column level grid, compact HUD
+- Mobile: 1-column level grid, stacked HUD items`,
+
+      'zh-CN': `角色：你是专精于像素艺术平台跳跃游戏的 UI 设计师，专注于 8-bit/16-bit 时代的游戏美学，如超级马里奥、洛克人和恶魔城。
+
+场景定位：创建像素完美的平台跳跃游戏界面，捕捉复古游戏怀旧感，采用 Game Boy 配色系统、清晰像素渲染和经典游戏 UI 元素。
+
+核心设计理念：
+
+1. **平台跳跃游戏结构**
+
+界面应围绕这些核心部分组织：
+- 标题画面：大型像素化标题、动画角色精灵、菜单按钮
+- HUD 显示：固定栏中的生命值、分数、时间、金币
+- 关卡选择：显示世界-关卡格式（1-1、1-2 等）的网格布局
+- 角色画廊：玩家和敌人精灵展示
+- 道具部分：带图标的物品描述
+- 排行榜：带奖牌的排名系统
+- 游戏结束：带重试选项的统计显示
+- 控制面板：按钮映射和设置
+
+2. **Game Boy 配色系统**
+
+完整的 4 色调绿色调色板：
+[CSS Code]:
+:root {
+  --gb-darkest: #0f380f;  /* 背景、深阴影 */
+  --gb-dark: #306230;     /* 次要背景、边框 */
+  --gb-light: #8bac0f;    /* 高光、强调 */
+  --gb-lightest: #9bbc0f; /* 主文字、UI 元素 */
+}
+
+
+3. **像素完美渲染**
+
+[CSS Code]:
+.pixel-container {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* 所有元素对齐 4px 网格 */
+.pixel-element {
+  width: 64px;   /* 16 × 4 */
+  height: 64px;
+  margin: 8px;   /* 2 × 4 */
+  padding: 12px; /* 3 × 4 */
+}
+
+
+重要技术约束：
+- 所有尺寸必须是 4px 的倍数
+- 字体大小必须是偶数（10px、12px、14px、16px）
+- 绝不使用 border-radius（始终为 0）
+- 不使用 box-shadow 模糊值（仅偏移阴影如 "4px 4px 0"）
+- 所有图像使用 image-rendering: pixelated
+- 颜色限制为 Game Boy 4 色调调色板
+- 动画使用 steps() 函数而非 ease
+- 不使用 text-shadow 或 filter 效果
+- 将所有 href="#" 替换为 href="javascript:void(0)"
+- 所有元素保持 4px 像素网格对齐
+
+平台跳跃特定元素：
+- 生命值显示为像素心形（❤）
+- 带旋转动画的金币（💰）
+- 无敌星（⭐）
+- 关卡格式："1-1"、"1-2" 等
+- 星级评分：★★★、★★☆、★☆☆、☆☆☆
+- 锁定关卡的锁图标（🔒）
+- 排名奖牌：🥇、🥈、🥉
+- 时间格式："03:45"（分钟:秒）`
+    }
+  }

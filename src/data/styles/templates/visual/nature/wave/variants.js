@@ -1,4 +1,4 @@
-// Aurora Wave - 3 個全頁預覽變體
+// Aurora Wave - 3 個全页預覽变体
 // 1. Classic Aurora（經典極光）
 // 2. Deep Space Aurora（深空極光）
 // 3. Neon Aurora（霓虹極光）
@@ -14,7 +14,7 @@ export const classicAuroraHTML = `
 </head>
 <body>
   <div class="aurora-page">
-    <!-- 背景波浪層 (4 層) -->
+    <!-- 背景波浪层 (4 层) -->
     <div class="aurora-bg-container">
       <div class="aurora-bg-wave aurora-wave-1"></div>
       <div class="aurora-bg-wave aurora-wave-2"></div>
@@ -33,9 +33,9 @@ export const classicAuroraHTML = `
       }).join('')}
     </div>
 
-    <!-- 主內容區 -->
+    <!-- 主內容区 -->
     <div class="aurora-content">
-      <!-- Hero 區域 -->
+      <!-- Hero 区域 -->
       <section class="aurora-hero">
         <div class="aurora-hero-content">
           <h1 class="aurora-title">Aurora Wave</h1>
@@ -64,7 +64,7 @@ body {
   overflow-x: hidden;
 }
 
-/* 頁面容器 */
+/* 页面容器 */
 .aurora-page {
   position: relative;
   width: 100%;
@@ -88,7 +88,7 @@ body {
   z-index: 1;
 }
 
-/* 波浪層 */
+/* 波浪层 */
 .aurora-bg-wave {
   position: absolute;
   top: 0;
@@ -141,13 +141,13 @@ body {
   transform: translateY(25%);
 }
 
-/* 波浪流動動畫 */
+/* 波浪流動動画 */
 @keyframes auroraWaveFlow {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* 色彩變換動畫（4 個不同週期）*/
+/* 色彩变換動画（4 個不同週期）*/
 @keyframes auroraColorShift1 {
   0%, 100% { filter: blur(50px) hue-rotate(0deg); }
   50% { filter: blur(50px) hue-rotate(60deg); }
@@ -201,7 +201,7 @@ body {
   }
 }
 
-/* 主內容區 */
+/* 主內容区 */
 .aurora-content {
   position: relative;
   z-index: 10;
@@ -209,7 +209,7 @@ body {
   min-height: 100vh;
 }
 
-/* Hero 區域 */
+/* Hero 区域 */
 .aurora-hero {
   display: flex;
   align-items: center;
@@ -241,7 +241,7 @@ body {
     0 0 64px rgba(102, 126, 234, 0.2);
 }
 
-/* 標題 */
+/* 标題 */
 .aurora-title {
   font-size: 72px;
   font-weight: 700;
@@ -266,7 +266,7 @@ body {
   50% { background-position: 100% 50%; }
 }
 
-/* 副標題 */
+/* 副标題 */
 .aurora-subtitle {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.8);
@@ -326,7 +326,7 @@ body {
   box-shadow: 0 8px 24px rgba(100, 255, 218, 0.2);
 }
 
-/* 響應式設計 */
+/* 響應式设計 */
 @media (max-width: 1024px) {
   .aurora-bg-wave {
     filter: blur(45px);
@@ -375,7 +375,7 @@ body {
   }
 }
 
-/* 降低動畫偏好 */
+/* 降低動画偏好 */
 @media (prefers-reduced-motion: reduce) {
   .aurora-bg-wave,
   .star-dot,
@@ -406,7 +406,7 @@ export const deepSpaceAuroraHTML = `
 </head>
 <body>
   <div class="deep-space-page">
-    <!-- 背景波浪層 -->
+    <!-- 背景波浪层 -->
     <div class="deep-space-bg-container">
       <div class="deep-space-wave deep-wave-1"></div>
       <div class="deep-space-wave deep-wave-2"></div>
@@ -761,7 +761,7 @@ export const neonAuroraHTML = `
 </head>
 <body>
   <div class="neon-page">
-    <!-- 背景波浪層 -->
+    <!-- 背景波浪层 -->
     <div class="neon-bg-container">
       <div class="neon-wave neon-wave-1"></div>
       <div class="neon-wave neon-wave-2"></div>

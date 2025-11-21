@@ -1,8 +1,8 @@
-// 極簡主義：作品集頁面演示
-// 說明：純黑白極簡風格的作品集展示頁面
+// 極简主義：作品集页面演示
+// 說明：純黑白極简風格的作品集展示页面
 
 export const minimalismPortfolioFullPageHTML = `
-  <!-- 頂部導航 -->
+  <!-- 頂部导航 -->
   <header class="pf-header">
     <div class="pf-container">
       <div class="pf-logo">MINIMAL</div>
@@ -15,7 +15,7 @@ export const minimalismPortfolioFullPageHTML = `
     </div>
   </header>
 
-  <!-- 英雄區塊 -->
+  <!-- 英雄区塊 -->
   <section class="pf-hero">
     <div class="pf-container">
       <h1 class="pf-hero-title" data-i18n="portfolio.hero.title">Designer & Developer</h1>
@@ -23,7 +23,7 @@ export const minimalismPortfolioFullPageHTML = `
     </div>
   </section>
 
-  <!-- 作品網格 -->
+  <!-- 作品网格 -->
   <section class="pf-works">
     <div class="pf-container">
       <h2 class="pf-section-title" data-i18n="portfolio.works.title">Selected Work</h2>
@@ -121,7 +121,7 @@ export const minimalismPortfolioFullPageHTML = `
     </div>
   </section>
 
-  <!-- 關於區塊 -->
+  <!-- 关於区塊 -->
   <section class="pf-about">
     <div class="pf-container">
       <div class="pf-about-grid">
@@ -154,7 +154,7 @@ export const minimalismPortfolioFullPageHTML = `
     </div>
   </section>
 
-  <!-- 頁腳 -->
+  <!-- 页腳 -->
   <footer class="pf-footer">
     <div class="pf-container">
       <div class="pf-footer-content">
@@ -178,7 +178,7 @@ export const minimalismPortfolioFullPageHTML = `
 `;
 
 export const minimalismPortfolioFullPageStyles = `
-  /* ===== 全局變量 ===== */
+  /* ===== 全局变量 ===== */
   :root {
     --pf-bg: #FAFAFA;
     --pf-text: #111111;
@@ -213,7 +213,7 @@ export const minimalismPortfolioFullPageStyles = `
     padding: 0 var(--pf-spacing-xs);
   }
 
-  /* ===== 頂部導航 ===== */
+  /* ===== 頂部导航 ===== */
   .pf-header {
     position: sticky;
     top: 0;
@@ -254,7 +254,7 @@ export const minimalismPortfolioFullPageStyles = `
     color: var(--pf-text);
   }
 
-  /* ===== 英雄區塊 ===== */
+  /* ===== 英雄区塊 ===== */
   .pf-hero {
     padding: var(--pf-spacing-lg) 0;
     border-bottom: 1px solid var(--pf-border);
@@ -276,7 +276,7 @@ export const minimalismPortfolioFullPageStyles = `
     max-width: 600px;
   }
 
-  /* ===== 區塊標題 ===== */
+  /* ===== 区塊标題 ===== */
   .pf-section-title {
     font-size: 12px;
     font-weight: 600;
@@ -286,7 +286,7 @@ export const minimalismPortfolioFullPageStyles = `
     margin-bottom: var(--pf-spacing-md);
   }
 
-  /* ===== 作品區塊 ===== */
+  /* ===== 作品区塊 ===== */
   .pf-works {
     padding: var(--pf-spacing-lg) 0;
     border-bottom: 1px solid var(--pf-border);
@@ -360,7 +360,7 @@ export const minimalismPortfolioFullPageStyles = `
     letter-spacing: 0.05em;
   }
 
-  /* ===== 關於區塊 ===== */
+  /* ===== 关於区塊 ===== */
   .pf-about {
     padding: var(--pf-spacing-lg) 0;
     border-bottom: 1px solid var(--pf-border);
@@ -417,7 +417,7 @@ export const minimalismPortfolioFullPageStyles = `
     color: var(--pf-text);
   }
 
-  /* ===== 頁腳 ===== */
+  /* ===== 页腳 ===== */
   .pf-footer {
     padding: var(--pf-spacing-md) 0;
   }

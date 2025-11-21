@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 
 /**
  * VirtualMasonryVariable - 每欄虛擬化（可變項高）PoC
- * - 動態 import react-window 的 VariableSizeList，避免首屏體積增加
+ * - 動態 import react-window 的 VariableSizeList，避免首屏体積增加
  * - 以 ResizeObserver 度量每個 item 高度，並呼叫 resetAfterIndex
- * - 若未載入/不支援時，回退為簡單的 CSS Grid 佈局
+ * - 若未載入/不支援時，回退為简單的 CSS Grid 佈局
  */
 export function VirtualMasonryVariable({
   items = [],
@@ -27,7 +27,7 @@ export function VirtualMasonryVariable({
     return () => { mounted = false }
   }, [])
 
-  // 依視窗寬度推算欄數（未指定時）
+  // 依視窗寬度推算欄数（未指定時）
   useEffect(() => {
     if (_columnCount) return
     const calc = () => {
@@ -47,7 +47,7 @@ export function VirtualMasonryVariable({
     return cols
   }, [items, columnCount])
 
-  // 回退：未載入 VarList 時使用簡單 Grid
+  // 回退：未載入 VarList 時使用简單 Grid
   if (!VarList) {
     return (
       <div
@@ -125,24 +125,24 @@ function ColumnVariable({ items, renderItem, defaultItemHeight, listHeight, gap 
 
 function Measured({ children, onSize }) {
   const ref = useRef(null)
-  const rafRef = useRef(null) // 🚀 性能優化：使用 requestAnimationFrame 批量處理尺寸更新
-  const lastHeightRef = useRef(0) // 🚀 性能優化：記錄上次高度，避免重複更新
+  const rafRef = useRef(null) // 🚀 性能优化：使用 requestAnimationFrame 批量處理尺寸更新
+  const lastHeightRef = useRef(0) // 🚀 性能优化：記录上次高度，避免重複更新
 
   useEffect(() => {
     if (!ref.current) return
     const el = ref.current
 
     const ro = new ResizeObserver((entries) => {
-      // 🚀 性能優化：取消之前的 RAF，避免多次更新
+      // 🚀 性能优化：取消之前的 RAF，避免多次更新
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current)
       }
 
-      // 🚀 性能優化：使用 RAF 批量處理，在瀏覽器下一幀更新
+      // 🚀 性能优化：使用 RAF 批量處理，在瀏覽器下一幀更新
       rafRef.current = requestAnimationFrame(() => {
         for (const entry of entries) {
           const h = entry.contentRect?.height || el.offsetHeight || 0
-          // 🚀 性能優化：只有高度變化超過 1px 才更新，避免微小變化觸發重排
+          // 🚀 性能优化：只有高度變化超過 1px 才更新，避免微小變化觸發重排
           if (h > 0 && Math.abs(h - lastHeightRef.current) > 1) {
             lastHeightRef.current = h
             onSize(h)

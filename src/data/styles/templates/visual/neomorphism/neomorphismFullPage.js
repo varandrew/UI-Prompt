@@ -1,9 +1,9 @@
-// Neumorphism 風格 - 完整頁面設計
+// Neumorphism 風格 - 完整页面设計
 // Home Office Dashboard 風格 (柔和 UI)
 
 export const neomorphismFullPageHTML = `
 <div class="neomorph-full-page min-h-screen" style="background: linear-gradient(135deg, #e8e8e8 0%, #ecf0f3 100%);">
-  <!-- 頂部導航欄 -->
+  <!-- 頂部导航欄 -->
   <nav class="neomorph-navbar sticky top-0 z-50" style="background: #ecf0f3; box-shadow: 8px 8px 20px rgba(163, 177, 198, 0.4), -8px -8px 20px rgba(255, 255, 255, 0.9);">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
@@ -14,7 +14,7 @@ export const neomorphismFullPageHTML = `
         <span class="text-xl font-bold" style="color: #555;">Neomorph Dashboard</span>
       </div>
 
-      <!-- 導航鏈接 -->
+      <!-- 导航鏈接 -->
       <div class="hidden md:flex items-center gap-6">
         <a href="javascript:void(0)" class="neomorph-nav-link">Home</a>
         <a href="javascript:void(0)" class="neomorph-nav-link">Projects</a>
@@ -43,7 +43,7 @@ export const neomorphismFullPageHTML = `
     </div>
   </nav>
 
-  <!-- Hero 區塊 -->
+  <!-- Hero 区塊 -->
   <section class="py-12 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="neomorph-hero-card text-center">
@@ -61,7 +61,7 @@ export const neomorphismFullPageHTML = `
     </div>
   </section>
 
-  <!-- 統計卡片網格 -->
+  <!-- 統計卡片网格 -->
   <section class="max-w-7xl mx-auto px-6 py-8">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- 統計卡片 1 -->
@@ -122,7 +122,7 @@ export const neomorphismFullPageHTML = `
     </div>
   </section>
 
-  <!-- 內容區 - 兩列佈局 -->
+  <!-- 內容区 - 兩列佈局 -->
   <section class="max-w-7xl mx-auto px-6 py-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- 最近項目 -->
@@ -191,7 +191,7 @@ export const neomorphismFullPageHTML = `
         </div>
       </div>
 
-      <!-- 團隊活動時間線 -->
+      <!-- 团隊活動時間线 -->
       <div class="neomorph-content-card">
         <h3 class="text-xl font-bold mb-6" style="color: #555;">Team Activity</h3>
         <div class="space-y-6">
@@ -255,7 +255,7 @@ export const neomorphismFullPageHTML = `
     </div>
   </section>
 
-  <!-- 表單組件展示區 -->
+  <!-- 表單組件展示区 -->
   <section class="max-w-7xl mx-auto px-6 py-8">
     <div class="neomorph-content-card">
       <h3 class="text-2xl font-bold mb-8" style="color: #555;">Form Components Showcase</h3>
@@ -328,7 +328,7 @@ export const neomorphismFullPageHTML = `
             </div>
           </div>
 
-          <!-- 開關按鈕 -->
+          <!-- 開关按鈕 -->
           <div>
             <label class="block text-sm font-medium mb-3" style="color: #777;">Settings</label>
             <div class="space-y-3">
@@ -387,7 +387,7 @@ export const neomorphismFullPageHTML = `
         </div>
       </div>
 
-      <!-- 標籤/Chips -->
+      <!-- 标籤/Chips -->
       <div class="mt-6">
         <h4 class="text-lg font-semibold mb-4" style="color: #666;">Tags & Chips</h4>
         <div class="flex gap-3 flex-wrap">
@@ -401,7 +401,7 @@ export const neomorphismFullPageHTML = `
     </div>
   </section>
 
-  <!-- 數據表格 -->
+  <!-- 数据表格 -->
   <section class="max-w-7xl mx-auto px-6 py-8">
     <div class="neomorph-content-card overflow-hidden">
       <h3 class="text-2xl font-bold mb-6" style="color: #555;">Recent Transactions</h3>
@@ -523,7 +523,7 @@ export const neomorphismFullPageHTML = `
     <span style="font-size: 24px;">+</span>
   </button>
 
-  <!-- 頁腳 -->
+  <!-- 页腳 -->
   <footer class="mt-16 py-8" style="background: rgba(236, 240, 243, 0.8); backdrop-filter: blur(10px); border-top: 1px solid rgba(0,0,0,0.05);">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -550,14 +550,14 @@ export const neomorphismFullPageHTML = `
 `;
 
 export const neomorphismFullPageStyles = `
-/* Neumorphism 風格完整頁面樣式 */
+/* Neumorphism 風格完整页面樣式 */
 
 /* 全局樣式 */
 .neomorph-full-page {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* 導航欄 */
+/* 导航欄 */
 .neomorph-navbar {
   padding: 0;
 }
@@ -621,7 +621,7 @@ export const neomorphismFullPageStyles = `
   color: #aaa;
 }
 
-/* 圖標按鈕 */
+/* 圖标按鈕 */
 .neomorph-icon-btn {
   width: 44px;
   height: 44px;
@@ -733,7 +733,7 @@ export const neomorphismFullPageStyles = `
     4px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* 狀態標籤 */
+/* 狀態标籤 */
 .neomorph-status-chip {
   padding: 6px 14px;
   border-radius: 12px;
@@ -780,7 +780,7 @@ export const neomorphismFullPageStyles = `
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 時間線頭像 */
+/* 時間线頭像 */
 .neomorph-timeline-avatar {
   width: 44px;
   height: 44px;
@@ -872,7 +872,7 @@ export const neomorphismFullPageStyles = `
   display: none;
 }
 
-/* 開關按鈕 */
+/* 開关按鈕 */
 .neomorph-switch {
   position: relative;
   display: inline-block;
@@ -1064,7 +1064,7 @@ export const neomorphismFullPageStyles = `
     inset -4px -4px 8px rgba(255, 255, 255, 0.6);
 }
 
-/* 標籤/Chips */
+/* 标籤/Chips */
 .neomorph-chip {
   display: inline-block;
   padding: 8px 16px;
@@ -1159,7 +1159,7 @@ export const neomorphismFullPageStyles = `
   transform: scale(1.05) rotate(90deg);
 }
 
-/* 頁腳鏈接 */
+/* 页腳鏈接 */
 .neomorph-footer-link {
   color: #888;
   text-decoration: none;
@@ -1171,7 +1171,7 @@ export const neomorphismFullPageStyles = `
   color: #667eea;
 }
 
-/* 響應式設計 */
+/* 響應式设計 */
 @media (max-width: 768px) {
   .neomorph-hero-card {
     padding: 32px 24px;

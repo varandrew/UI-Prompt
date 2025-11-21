@@ -24,13 +24,13 @@ export class PromptGenerator {
     });
 
     try {
-      // 解析參數：支持舊格式 (title, description, language) 和新格式 (style, options)
+      // 解析參数：支持舊格式 (title, description, language) 和新格式 (style, options)
       let style = null;
       let options = {};
 
       if (typeof titleOrStyle === 'object' && titleOrStyle !== null) {
         style = titleOrStyle;
-        // 如果第二個參數是對象，視為選項
+        // 如果第二個參数是對象，視為選項
         if (typeof descriptionOrOptions === 'object' && descriptionOrOptions !== null) {
           options = descriptionOrOptions;
         }
@@ -42,7 +42,7 @@ export class PromptGenerator {
         mode = 'preview', // 'preview' | 'card'
       } = options;
 
-      // Card mode：優先使用模板/家族級 stylePrompt，其次才使用 customPrompt
+      // Card mode：优先使用模板/家族級 stylePrompt，其次才使用 customPrompt
       if (mode === 'card') {
         if (style?.stylePrompt?.[language]) {
           console.log('[PromptGenerator] ✅ Using style.stylePrompt (card mode)');
@@ -57,7 +57,7 @@ export class PromptGenerator {
       }
 
       // Default preview mode：
-      // 1. currentPreview.customPrompt（單個預覽專用 Prompt，例如色碼/佈局要求）
+      // 1. currentPreview.customPrompt（單個預覽专用 Prompt，例如色碼/佈局要求）
       // 2. style.customPrompt（家族級 / 流派級 Prompt）
       // 3. currentPreview.stylePrompt（單個預覽風格說明）
       // 4. style.stylePrompt（模板級風格說明）
@@ -92,7 +92,7 @@ export class PromptGenerator {
   }
 }
 
-// 添加直接導出以兼容不同的導入方式
+// 添加直接导出以兼容不同的导入方式
 export function generatePrompt(title, description, language = DEFAULT_LANGUAGE) {
   return PromptGenerator.generate(title, description, language);
 }

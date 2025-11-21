@@ -1,0 +1,836 @@
+// Claymorphism Full Page - E-Commerce Product Showcase
+
+export const ecommerceFullPageHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claymorphism - E-Commerce Showcase</title>
+</head>
+<body>
+  <!-- Navigation with Shopping Cart -->
+  <nav class="clay-ecom-nav">
+    <div class="clay-ecom-nav-content">
+      <div class="clay-ecom-logo">Clay Shop</div>
+      <ul class="clay-ecom-nav-menu">
+        <li><a href="javascript:void(0)" class="clay-ecom-nav-link active">Home</a></li>
+        <li><a href="javascript:void(0)" class="clay-ecom-nav-link">Products</a></li>
+        <li><a href="javascript:void(0)" class="clay-ecom-nav-link">About</a></li>
+      </ul>
+      <button class="clay-ecom-cart-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 2L7 6M17 6L15 2M7 6H17M7 6L5 10M17 6L19 10M5 10H19L17 22H7L5 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="clay-cart-badge">3</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Filter Tags Section -->
+  <section class="clay-ecom-filters">
+    <div class="clay-ecom-container">
+      <h2 class="clay-ecom-section-title">Browse Products</h2>
+      <div class="clay-ecom-filter-tags">
+        <button class="clay-filter-tag">All</button>
+        <button class="clay-filter-tag active">Electronics</button>
+        <button class="clay-filter-tag">Fashion</button>
+        <button class="clay-filter-tag">Home & Garden</button>
+        <button class="clay-filter-tag">Sports</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="clay-ecom-products">
+    <div class="clay-ecom-container">
+      <div class="clay-ecom-products-grid">
+
+        <!-- Product Card 1 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-1">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="30" fill="white" opacity="0.3"/>
+              <path d="M40 20v40M25 35h30M25 45h30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Smart Watch Pro</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$299.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-2">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="20" y="25" width="40" height="30" rx="4" fill="white" opacity="0.3"/>
+              <circle cx="40" cy="40" r="8" stroke="white" stroke-width="3"/>
+              <path d="M32 25h16M35 20h10" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Vintage Camera</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$449.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-3">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <path d="M25 50l15-30l15 30M30 42h20" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="40" cy="40" r="28" stroke="white" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Designer T-Shirt</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$39.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-4">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <path d="M30 35h20M30 42h20M30 49h12" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <rect x="25" y="28" width="30" height="28" rx="3" stroke="white" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Leather Notebook</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$24.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-5">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="35" r="12" stroke="white" stroke-width="3"/>
+              <path d="M40 47v8M32 55h16" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <rect x="28" y="55" width="24" height="3" rx="1.5" fill="white" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Table Lamp</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$79.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 6 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-6">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="18" stroke="white" stroke-width="3"/>
+              <path d="M40 28v24M28 40h24M34 34l12 12M46 34l-12 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Sports Ball Set</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$59.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Shopping Cart Panel -->
+  <aside class="clay-cart-panel">
+    <div class="clay-cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="clay-cart-close">×</button>
+    </div>
+    <div class="clay-cart-items">
+      <div class="clay-cart-item">
+        <div class="clay-cart-item-image clay-product-color-1"></div>
+        <div class="clay-cart-item-info">
+          <h4>Smart Watch Pro</h4>
+          <span>$299.99</span>
+        </div>
+        <button class="clay-cart-item-remove">×</button>
+      </div>
+      <div class="clay-cart-item">
+        <div class="clay-cart-item-image clay-product-color-2"></div>
+        <div class="clay-cart-item-info">
+          <h4>Vintage Camera</h4>
+          <span>$449.99</span>
+        </div>
+        <button class="clay-cart-item-remove">×</button>
+      </div>
+      <div class="clay-cart-item">
+        <div class="clay-cart-item-image clay-product-color-4"></div>
+        <div class="clay-cart-item-info">
+          <h4>Leather Notebook</h4>
+          <span>$24.99</span>
+        </div>
+        <button class="clay-cart-item-remove">×</button>
+      </div>
+    </div>
+    <div class="clay-cart-footer">
+      <div class="clay-cart-total">
+        <span>Total:</span>
+        <span class="clay-cart-total-price">$774.97</span>
+      </div>
+      <button class="clay-checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="clay-ecom-footer">
+    <div class="clay-ecom-container">
+      <p>© 2025 Clay Shop - Handcrafted E-Commerce Experience</p>
+    </div>
+  </footer>
+</body>
+</html>
+`;
+
+export const ecommerceFullPageStyles = `
+/* Claymorphism E-Commerce Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rounded Mplus 1c', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #fff4e6 0%, #ffe4c4 50%, #fff4e6 100%);
+  min-height: 100vh;
+  color: #5a4a3a;
+  padding-bottom: 80px;
+}
+
+/* Navigation */
+.clay-ecom-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  background: linear-gradient(145deg, #ffd7ba, #ffb88c);
+  border-radius: 50px;
+  box-shadow:
+    -6px -6px 16px rgba(255, 255, 255, 0.7),
+    6px 6px 16px rgba(210, 180, 140, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.3),
+    inset 2px 2px 4px rgba(210, 180, 140, 0.3);
+}
+
+.clay-ecom-nav-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.clay-ecom-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow:
+    2px 2px 4px rgba(210, 180, 140, 0.3),
+    -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.clay-ecom-nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.clay-ecom-nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(210, 180, 140, 0.2);
+}
+
+.clay-ecom-nav-link:hover,
+.clay-ecom-nav-link.active {
+  color: #ffffff;
+  text-shadow:
+    2px 2px 4px rgba(210, 180, 140, 0.4),
+    -1px -1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Shopping Cart Button */
+.clay-ecom-cart-btn {
+  position: relative;
+  padding: 0.75rem;
+  border: none;
+  background: linear-gradient(145deg, #ff8fab, #ff6a88);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    -4px -4px 12px rgba(255, 255, 255, 0.6),
+    4px 4px 12px rgba(255, 106, 136, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 106, 136, 0.3);
+}
+
+.clay-ecom-cart-btn:hover {
+  transform: translateY(-2px);
+}
+
+.clay-cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(145deg, #ff6b6b, #ee5a6f);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow:
+    -3px -3px 6px rgba(255, 255, 255, 0.5),
+    3px 3px 6px rgba(238, 90, 111, 0.5),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.3),
+    inset 1px 1px 2px rgba(238, 90, 111, 0.4);
+}
+
+/* Container */
+.clay-ecom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Filter Section */
+.clay-ecom-filters {
+  padding: 10rem 0 4rem;
+}
+
+.clay-ecom-section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  text-shadow:
+    4px 4px 8px rgba(210, 180, 140, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.clay-ecom-filter-tags {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.clay-filter-tag {
+  padding: 0.75rem 1.75rem;
+  border: none;
+  background: linear-gradient(145deg, #ffd7ba, #ffb88c);
+  color: #5a4a3a;
+  border-radius: 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    -4px -4px 10px rgba(255, 255, 255, 0.7),
+    4px 4px 10px rgba(210, 180, 140, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(210, 180, 140, 0.3);
+}
+
+.clay-filter-tag:hover {
+  transform: translateY(-2px);
+}
+
+.clay-filter-tag.active {
+  background: linear-gradient(145deg, #ff8fab, #ff6a88);
+  color: #ffffff;
+  box-shadow:
+    -4px -4px 12px rgba(255, 255, 255, 0.6),
+    4px 4px 12px rgba(255, 106, 136, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 106, 136, 0.3);
+}
+
+/* Products Section */
+.clay-ecom-products {
+  padding: 4rem 0 6rem;
+}
+
+.clay-ecom-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Product Card */
+.clay-product-card {
+  background: linear-gradient(145deg, #fff4e6, #ffe4c4);
+  border-radius: 32px;
+  padding: 2rem;
+  box-shadow:
+    -8px -8px 20px rgba(255, 255, 255, 0.7),
+    8px 8px 20px rgba(210, 180, 140, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.3),
+    inset 4px 4px 8px rgba(210, 180, 140, 0.2);
+  transition: all 0.3s ease;
+}
+
+.clay-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    -10px -10px 25px rgba(255, 255, 255, 0.8),
+    10px 10px 25px rgba(210, 180, 140, 0.5),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.3),
+    inset 4px 4px 8px rgba(210, 180, 140, 0.2);
+}
+
+/* Product Image Placeholder */
+.clay-product-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow:
+    -6px -6px 16px rgba(255, 255, 255, 0.5),
+    6px 6px 16px rgba(210, 180, 140, 0.3),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.2),
+    inset 4px 4px 8px rgba(210, 180, 140, 0.2);
+}
+
+.clay-product-color-1 { background: linear-gradient(145deg, #ffb3ba, #ff8fab); }
+.clay-product-color-2 { background: linear-gradient(145deg, #a8dadc, #457b9d); }
+.clay-product-color-3 { background: linear-gradient(145deg, #d8f3dc, #95d5b2); }
+.clay-product-color-4 { background: linear-gradient(145deg, #ffbe0b, #fb8500); }
+.clay-product-color-5 { background: linear-gradient(145deg, #e5d4ff, #c9a0ff); }
+.clay-product-color-6 { background: linear-gradient(145deg, #ffc8dd, #ffafcc); }
+
+/* Product Content */
+.clay-product-content {
+  text-align: center;
+}
+
+.clay-product-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #5a4a3a;
+  text-shadow:
+    2px 2px 4px rgba(210, 180, 140, 0.2),
+    -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Star Rating */
+.clay-product-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.clay-star {
+  width: 20px;
+  height: 20px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  background: linear-gradient(145deg, #e0e0e0, #c0c0c0);
+  box-shadow:
+    -2px -2px 4px rgba(255, 255, 255, 0.5),
+    2px 2px 4px rgba(192, 192, 192, 0.3),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.2),
+    inset 1px 1px 2px rgba(192, 192, 192, 0.2);
+}
+
+.clay-star.filled {
+  background: linear-gradient(145deg, #ffd700, #ffed4e);
+  box-shadow:
+    -2px -2px 4px rgba(255, 255, 255, 0.6),
+    2px 2px 4px rgba(218, 165, 32, 0.4),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.3),
+    inset 1px 1px 2px rgba(218, 165, 32, 0.3);
+}
+
+/* Product Footer */
+.clay-product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.clay-product-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ff6a88;
+  text-shadow:
+    2px 2px 4px rgba(255, 106, 136, 0.2),
+    -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Add to Cart Button */
+.clay-add-to-cart {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ff8fab, #ff6a88);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow:
+    -4px -4px 12px rgba(255, 255, 255, 0.6),
+    4px 4px 12px rgba(255, 106, 136, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 106, 136, 0.3);
+}
+
+.clay-add-to-cart:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    -6px -6px 16px rgba(255, 255, 255, 0.7),
+    6px 6px 16px rgba(255, 106, 136, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 106, 136, 0.3);
+}
+
+.clay-add-to-cart:active {
+  transform: translateY(2px);
+  box-shadow:
+    -2px -2px 6px rgba(255, 255, 255, 0.5),
+    2px 2px 6px rgba(255, 106, 136, 0.4),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.1),
+    inset 3px 3px 6px rgba(255, 106, 136, 0.4);
+}
+
+/* Floating Shopping Cart Panel */
+.clay-cart-panel {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 360px;
+  background: linear-gradient(145deg, #fff4e6, #ffe4c4);
+  border-radius: 32px;
+  padding: 2rem;
+  box-shadow:
+    -10px -10px 25px rgba(255, 255, 255, 0.7),
+    10px 10px 25px rgba(210, 180, 140, 0.5),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.3),
+    inset 4px 4px 8px rgba(210, 180, 140, 0.2);
+  z-index: 999;
+}
+
+.clay-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.clay-cart-header h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #5a4a3a;
+  text-shadow:
+    2px 2px 4px rgba(210, 180, 140, 0.2),
+    -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.clay-cart-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: linear-gradient(145deg, #ff8fab, #ff6a88);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.3s ease;
+  box-shadow:
+    -3px -3px 8px rgba(255, 255, 255, 0.6),
+    3px 3px 8px rgba(255, 106, 136, 0.4);
+}
+
+.clay-cart-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Cart Items */
+.clay-cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.clay-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(145deg, #ffd7ba, #ffb88c);
+  border-radius: 20px;
+  box-shadow:
+    -4px -4px 10px rgba(255, 255, 255, 0.6),
+    4px 4px 10px rgba(210, 180, 140, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(210, 180, 140, 0.3);
+}
+
+.clay-cart-item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  box-shadow:
+    -4px -4px 8px rgba(255, 255, 255, 0.5),
+    4px 4px 8px rgba(210, 180, 140, 0.3);
+}
+
+.clay-cart-item-info {
+  flex: 1;
+}
+
+.clay-cart-item-info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.clay-cart-item-info span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.clay-cart-item-remove {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: linear-gradient(145deg, #ff6b6b, #ee5a6f);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.3s ease;
+  box-shadow:
+    -2px -2px 6px rgba(255, 255, 255, 0.5),
+    2px 2px 6px rgba(238, 90, 111, 0.4);
+}
+
+.clay-cart-item-remove:hover {
+  transform: scale(1.1);
+}
+
+/* Cart Footer */
+.clay-cart-footer {
+  border-top: 2px solid rgba(210, 180, 140, 0.3);
+  padding-top: 1.5rem;
+}
+
+.clay-cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #5a4a3a;
+}
+
+.clay-cart-total-price {
+  color: #ff6a88;
+  text-shadow:
+    2px 2px 4px rgba(255, 106, 136, 0.2),
+    -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Checkout Button */
+.clay-checkout-btn {
+  width: 100%;
+  padding: 1.1rem;
+  border: none;
+  background: linear-gradient(145deg, #ff8fab, #ff6a88);
+  color: white;
+  border-radius: 28px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    -6px -6px 16px rgba(255, 255, 255, 0.6),
+    6px 6px 16px rgba(255, 106, 136, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 106, 136, 0.3);
+}
+
+.clay-checkout-btn:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    -8px -8px 20px rgba(255, 255, 255, 0.7),
+    8px 8px 20px rgba(255, 106, 136, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(255, 106, 136, 0.3);
+}
+
+.clay-checkout-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    -2px -2px 8px rgba(255, 255, 255, 0.5),
+    2px 2px 8px rgba(255, 106, 136, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1),
+    inset 4px 4px 8px rgba(255, 106, 136, 0.4);
+}
+
+/* Footer */
+.clay-ecom-footer {
+  padding: 3rem 0;
+  background: linear-gradient(145deg, #ffd7ba, #ffb88c);
+  box-shadow:
+    0 -8px 20px rgba(210, 180, 140, 0.3),
+    inset 0 4px 8px rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.clay-ecom-footer p {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(210, 180, 140, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clay-ecom-nav {
+    top: 10px;
+    width: calc(100% - 2rem);
+    padding: 0.8rem 1rem;
+  }
+
+  .clay-ecom-nav-content {
+    gap: 1rem;
+  }
+
+  .clay-ecom-nav-menu {
+    display: none;
+  }
+
+  .clay-ecom-products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clay-cart-panel {
+    right: 1rem;
+    bottom: 1rem;
+    width: calc(100% - 2rem);
+    max-width: 360px;
+  }
+}
+`;

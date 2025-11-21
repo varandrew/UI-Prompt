@@ -1,8 +1,8 @@
 import { useRouteError } from 'react-router-dom';
 
 /**
- * 路由錯誤邊界（Minimalism 風格）
- * - 提供更好的錯誤可視化與可操作建議
+ * 路由错誤边界（Minimalism 風格）
+ * - 提供更好的错誤可視化与可操作建議
  */
 export function RouteError() {
   const error = useRouteError();

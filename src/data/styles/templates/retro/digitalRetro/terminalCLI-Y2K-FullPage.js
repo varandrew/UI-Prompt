@@ -1,12 +1,12 @@
-// Y2K Terminal CLI - 融合 Y2K/Frutiger Aero 與 Terminal 美學
-// 結合玻璃態效果、氣泡裝飾、CRT 掃描線與終端界面
+// Y2K Terminal CLI - 融合 Y2K/Frutiger Aero 与 Terminal 美學
+// 結合玻璃態效果、氣泡裝飾、CRT 掃描线与終端界面
 
 export const terminalCLIY2KFullPageHTML = `
 <div class="y2k-terminal-wrapper min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50 relative overflow-hidden">
-  <!-- CRT 掃描線效果層 -->
+  <!-- CRT 掃描线效果层 -->
   <div class="y2k-crt-scanlines"></div>
 
-  <!-- 頂部玻璃態導航欄 -->
+  <!-- 頂部玻璃態导航欄 -->
   <nav class="y2k-terminal-navbar sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-white/30 shadow-lg">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo (終端風格氣泡) -->
@@ -21,7 +21,7 @@ export const terminalCLIY2KFullPageHTML = `
         </div>
       </div>
 
-      <!-- 導航鏈接 (終端風格) -->
+      <!-- 导航鏈接 (終端風格) -->
       <div class="hidden md:flex items-center gap-6 font-mono text-sm">
         <a href="javascript:void(0)" class="y2k-terminal-nav-link">&gt; home</a>
         <a href="javascript:void(0)" class="y2k-terminal-nav-link">&gt; projects</a>
@@ -51,12 +51,12 @@ export const terminalCLIY2KFullPageHTML = `
     </div>
   </nav>
 
-  <!-- Hero 區塊 (終端窗口風格) -->
+  <!-- Hero 区塊 (終端窗口風格) -->
   <section class="y2k-terminal-hero relative overflow-hidden py-16 px-6">
     <div class="max-w-7xl mx-auto relative z-10">
       <!-- 模擬 macOS 終端窗口 -->
       <div class="y2k-terminal-window">
-        <!-- 窗口標題欄 -->
+        <!-- 窗口标題欄 -->
         <div class="y2k-terminal-titlebar">
           <div class="flex items-center gap-2">
             <div class="w-3 h-3 rounded-full bg-red-400"></div>
@@ -109,7 +109,7 @@ export const terminalCLIY2KFullPageHTML = `
     <div class="y2k-terminal-bubble" style="bottom: 20%; left: 25%; width: 100px; height: 100px; animation-delay: 1.5s;"></div>
   </section>
 
-  <!-- 統計卡片網格 (終端風格) -->
+  <!-- 統計卡片网格 (終端風格) -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- 統計卡片 1 -->
@@ -166,7 +166,7 @@ export const terminalCLIY2KFullPageHTML = `
     </div>
   </section>
 
-  <!-- 內容區塊 (雙欄布局) -->
+  <!-- 內容区塊 (双欄布局) -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- 最近項目列表 -->
@@ -237,7 +237,7 @@ export const terminalCLIY2KFullPageHTML = `
         </div>
       </div>
 
-      <!-- 團隊活動時間線 -->
+      <!-- 团隊活動時間线 -->
       <div class="y2k-terminal-glass-card">
         <h3 class="text-xl font-mono font-bold text-gray-800 mb-6 flex items-center gap-2">
           <span class="text-green-500">$</span> tail -f team_activity.log
@@ -292,7 +292,7 @@ export const terminalCLIY2KFullPageHTML = `
     </div>
   </section>
 
-  <!-- 命令面板 & 數據表格 -->
+  <!-- 命令面板 & 数据表格 -->
   <section class="max-w-7xl mx-auto px-6 py-12">
     <div class="y2k-terminal-glass-card">
       <h3 class="text-xl font-mono font-bold text-gray-800 mb-6 flex items-center gap-2">
@@ -369,7 +369,7 @@ export const terminalCLIY2KFullPageHTML = `
     [+]
   </button>
 
-  <!-- 頁腳 -->
+  <!-- 页腳 -->
   <footer class="y2k-terminal-footer mt-16 font-mono">
     <div class="max-w-7xl mx-auto px-6 py-8">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
@@ -396,7 +396,7 @@ export const terminalCLIY2KFullPageStyles = `
   position: relative;
 }
 
-/* CRT 掃描線效果 */
+/* CRT 掃描线效果 */
 .y2k-crt-scanlines {
   position: fixed;
   top: 0;
@@ -420,7 +420,7 @@ export const terminalCLIY2KFullPageStyles = `
   50% { opacity: 0.6; }
 }
 
-/* ===== 導航欄 ===== */
+/* ===== 导航欄 ===== */
 .y2k-terminal-navbar {
   box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1);
 }
@@ -479,7 +479,7 @@ export const terminalCLIY2KFullPageStyles = `
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1), 0 0 16px rgba(16, 185, 129, 0.3);
 }
 
-/* 圖標按鈕 */
+/* 圖标按鈕 */
 .y2k-terminal-icon-button {
   padding: 0.5rem 1rem;
   display: flex;
@@ -554,7 +554,7 @@ export const terminalCLIY2KFullPageStyles = `
   }
 }
 
-/* 閃爍光標 */
+/* 閃爍光标 */
 .y2k-terminal-cursor {
   display: inline-block;
   background: #10b981;
@@ -810,7 +810,7 @@ export const terminalCLIY2KFullPageStyles = `
   100% { transform: translateX(100%); }
 }
 
-/* ===== 時間線 ===== */
+/* ===== 時間线 ===== */
 .y2k-terminal-timeline-avatar {
   width: 40px;
   height: 40px;
@@ -836,7 +836,7 @@ export const terminalCLIY2KFullPageStyles = `
   border-radius: 8px;
 }
 
-/* ===== 芯片/標籤 ===== */
+/* ===== 芯片/标籤 ===== */
 .y2k-terminal-chip-success,
 .y2k-terminal-chip-warning,
 .y2k-terminal-chip-error,
@@ -970,7 +970,7 @@ export const terminalCLIY2KFullPageStyles = `
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* ===== 頁腳 ===== */
+/* ===== 页腳 ===== */
 .y2k-terminal-footer {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
@@ -998,7 +998,7 @@ export const terminalCLIY2KFullPageStyles = `
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
-/* ===== 響應式設計 ===== */
+/* ===== 響應式设計 ===== */
 @media (max-width: 768px) {
   .y2k-terminal-ascii-art {
     font-size: 0.5rem;

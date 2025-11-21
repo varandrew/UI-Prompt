@@ -1,5 +1,5 @@
-// Gradients 漸變效果風格模板
-// Phase 3 Batch 1 - 從 visualTechStyles.js 遷移
+// Gradients 漸变效果風格模板
+// Phase 3 Batch 1 - 从 visualTechStyles.js 遷移
 
 import {
   gradientsFullPageHTML,
@@ -13,7 +13,7 @@ export const visualTechGradients = {
   title: 'styles.visual.gradients.title',
   description: 'styles.visual.gradients.description',
 
-  // Demo 展示（簡化版）
+  // Demo 展示（简化版）
   demoHTML: `
     <div class="text-white text-center">
       <h4 class="text-3xl font-bold">GRADIENT</h4>
@@ -22,7 +22,7 @@ export const visualTechGradients = {
 
   customStyles: '',
 
-  // Demo Box 樣式類
+  // Demo Box 樣式类
   demoBoxClass: 'bg-gradient-to-br from-black via-gray-600 to-white',
 
   // 色彩方案

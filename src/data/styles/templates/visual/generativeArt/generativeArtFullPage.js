@@ -1,6 +1,6 @@
 // Phase 3 Batch 2 - Generative Art Fullpage
 // 視覺元素：生成藝術
-// 從 visualTechStyles.js 遷移
+// 从 visualTechStyles.js 遷移
 
 export const visualTechGenerativeArtFullPageHTML = `
       <!-- Generative Art Interactive Lab -->
