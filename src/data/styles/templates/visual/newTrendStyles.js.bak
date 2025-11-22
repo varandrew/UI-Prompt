@@ -960,6 +960,640 @@ Mood:
     }
   },
   {
+    id: 'claymation',
+    title: 'styles.newTrend.claymation.title',
+    description: 'styles.newTrend.claymation.description',
+    demoHTML: `
+      <div class="w-full h-full bg-gradient-to-b from-blue-100 to-purple-100 p-6 flex flex-col items-center justify-center gap-4">
+        <!-- 玩具風格圓形 -->
+        <div class="relative">
+          <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full shadow-lg">
+            <!-- 高光 -->
+            <div class="absolute top-4 left-6 w-8 h-8 bg-white/40 rounded-full blur-sm"></div>
+            <div class="absolute top-6 left-8 w-4 h-4 bg-white/60 rounded-full"></div>
+          </div>
+          <!-- 阴影 -->
+          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black/10 rounded-full blur-md"></div>
+        </div>
+
+        <!-- 玩具按鈕 -->
+        <div class="flex gap-2">
+          <div class="w-10 h-10 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-2xl shadow-md relative">
+            <div class="absolute top-1 left-2 w-3 h-3 bg-white/50 rounded-full"></div>
+          </div>
+          <div class="w-10 h-10 bg-gradient-to-br from-green-300 to-green-500 rounded-2xl shadow-md relative">
+            <div class="absolute top-1 left-2 w-3 h-3 bg-white/50 rounded-full"></div>
+          </div>
+          <div class="w-10 h-10 bg-gradient-to-br from-blue-300 to-blue-500 rounded-2xl shadow-md relative">
+            <div class="absolute top-1 left-2 w-3 h-3 bg-white/50 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    `,
+    customStyles: '',
+    demoBoxClass: 'p-0',
+    colorScheme: 'styles.newTrend.claymation.colorScheme',
+    // Claymation 黏土玩具風格的 CustomPrompt
+    customPrompt: {
+      'zh-CN': `你现在是一名资深 UI 设计师兼前端工程师，请生成一个与当前「Claymation 黏土玩具」示例界面风格高度接近的 UI。
+要求：保持圆润、饱满的几何形状和软糖般的渐变色，以及轻柔的阴影和高光，只允许替换文案、图标和部分色板，不允许把整体风格改成扁平或金属质感。输出语义化 HTML 与 TailwindCSS 风格原子类（或等价工具类方案）。
+
+【使用场景】
+- 儿童教育/故事应用首页或主要功能入口
+- 玩具电商 Landing Page、亲子活动报名页面
+- 需要传达「安全、可爱、没有压力」的休闲型界面
+
+【整体布局结构】
+1. 主视觉区域
+   - 居中放置一枚或多枚黏土感圆形或胶囊形组件，配合高光和投影，让它们像立在桌面上的玩具。
+   - 主圆形可搭配表情或图标（如笑脸、玩具图案），下方或周围放置几个小按钮或彩色块。
+2. 操作区
+   - 使用多枚色块按钮（如黄色、绿色、蓝色），形状圆润，排列紧凑但不过度拥挤；
+   - 可用于「开始游戏」「进入故事」「选择角色」等操作。
+
+【色彩与材质】
+1. 配色策略
+   - 背景使用柔和渐变（如蓝到紫、粉到橙），避免高对比强烈撞色。
+   - 前景玩具使用明亮但略带奶油感的色彩（黄、绿、蓝、粉），整体风格偏「糖果色」。
+2. 材质表现
+   - 通过上下不均匀的高光和渐变模拟黏土或塑料玩具表面：顶部更亮、下半部更深。
+   - 阴影短而模糊，类似小玩具在桌面下方的投影，不做写实长阴影。
+
+【交互与动效】
+1. 悬停与按下
+   - 按钮在悬停时轻微放大或变亮，按下时略微扁平或缩小，好像被手指按压。
+2. 动画
+   - 粒子或背景元素可缓慢浮动或上下轻微弹起，节奏要舒缓，不能让人紧张。
+
+【输出要求】
+- 使用语义化 HTML 将主玩具区域与按钮区分层。
+- 使用 TailwindCSS 原子类构建渐变背景、圆形/圆角组件（如 rounded-full、rounded-3xl）与投影（shadow-md、shadow-lg）。
+- 生成界面必须保留「圆润形状 + 柔和渐变 + 黏土玩具质感」这些关键特征，让用户一眼就知道这是 Claymation 风格，而不是普通扁平卡片。`,
+      'en-US': `You are a senior UI designer and front-end engineer. Generate a Claymation toy style interface that looks very close to the current demo.
+Keep the rounded, chubby geometry, candy-like gradients, soft highlights and shadows. You may change text, icons and parts of the palette, but you must not turn the design into flat or metallic UI. Output semantic HTML and TailwindCSS-style utility classes (or an equivalent utility-first system).
+
+[Usage scenarios]
+- Home screens or main entry views for kids’ apps and story experiences.
+- Landing pages for toy e-commerce or parent-child activities.
+- Any relaxed, friendly interface that should feel safe and playful rather than serious.
+
+[Layout structure]
+1. Hero / main toy
+   - Center one or more clay-like circles or pill-shaped elements with strong gradients and highlights so they read as physical toys.
+   - Place expressive icons or emojis inside (faces, toys, symbols) and arrange small, colorful buttons around them.
+2. Action area
+   - Use a row or grid of chunky buttons in bright, creamy colors (yellow, green, blue, pink) for primary actions.
+
+[Color and material]
+1. Palette
+   - Backgrounds use gentle, optimistic gradients (blue→purple, pink→orange, etc.).
+   - Foreground toys use bright but soft tones that feel like candy or modeling clay.
+2. Rendering
+   - Apply directional highlights and shading to the shapes so they appear soft and squeezable.
+   - Use short, blurred shadows under the objects to suggest they sit on a surface without looking heavy.
+
+[Interaction and motion]
+1. Hover / active
+   - On hover, let toys and buttons grow slightly or become brighter; on active, let them squash a bit as though pressed.
+2. Motion
+   - Use smooth, slow bobbing or floating animations for decorative elements; avoid nervous jitter.
+
+[Output requirements]
+- Use semantic HTML to separate the hero toy area from the controls.
+- Use Tailwind utilities for gradients, rounded corners, shadows and layout.
+- The resulting UI must clearly read as Claymation/toy-like: rounded forms, soft candy colors and gentle motion that feels playful and safe.`
+    },
+    // Claymation 黏土玩具風格的 stylePrompt
+    stylePrompt: {
+      'zh-CN': `角色：你是一名擅长 Claymation 黏土玩具风格的 UI 设计师，需要让界面看起来像由柔软、可捏的彩色橡皮泥拼出来。
+
+场景定位：
+- 适用于儿童教育产品、亲子类应用、玩具电商、轻松小游戏或任何希望传达“安全、可爱、无压力”的界面。
+- 用户需要一眼就看出：这是为友好、轻松场景设计的，而非严肃商务工具。
+
+视觉设计理念：
+- 以圆润的几何形状和肥厚的比例为主：大圆、大胶囊按钮、胖胖的图标与厚边框。
+- 颜色多为明亮但略带奶油感的暖色与粉彩色，避免过度荧光或纯度过高的刺眼配色。
+
+材质与质感：
+- 利用渐变和高光模拟黏土或塑料玩具表面：一侧有柔和高光，另一侧略暗，边缘始终圆滑。
+- 阴影短而柔和，像玩具放在桌面上投下的小影子，凸显立体感但不过度写实。
+
+交互体验：
+- 悬停与按下时可以有轻微“挤压”感：按钮或组件略微扁一点、缩放一点，好像被手指按压。
+- 动画节奏偏慢、柔和，避免快速抖动或弹跳造成紧张；所有动效应像玩具在慢慢移动。
+
+氛围营造：
+- 整体氛围应当是安全、友善、略带童趣的，适合家长与小朋友共同使用。
+- 用户在浏览时会联想到玩具陈列架、糖果店或儿童绘本封面，而不是冷冰冰的网店后台。`,
+
+      'en-US': `Role: You are a UI designer focusing on claymation and toy-like aesthetics, making the interface look as if it were sculpted from soft, colorful clay.
+
+Scene:
+- Perfect for kids’ educational apps, family products, toy e-commerce, casual games or any UI that needs to feel safe, cute and low-pressure.
+- Users should instantly recognize this as a friendly environment rather than a serious business dashboard.
+
+Visual philosophy:
+- Favor chubby, rounded geometry: big circles, pill-shaped buttons, chunky icons and thick outlines.
+- Color palette leans toward warm, creamy pastels rather than harsh neons—bright but gentle on the eyes.
+
+Material & texture:
+- Use gradients and highlights to mimic clay or plastic toy surfaces: soft specular highlight on one side, gentle shading on the other, with fully rounded edges.
+- Shadows are soft and close to the object, as if toys are sitting on a tabletop, providing depth without heavy realism.
+
+Interaction:
+- Hover and active states may “squish” slightly: components compress or scale down a bit as though pressed by a finger.
+- Animations are smooth and moderately slow; avoid jittery motion so the interface feels relaxed and approachable.
+
+Mood:
+- The overall mood is safe, friendly and play-oriented—appropriate for both children and parents.
+- The UI should evoke toy shelves, candy stores or picture book covers, not sterile admin consoles.`
+    },
+    fullPageHTML: `
+      <!-- 企業級 SaaS Dashboard - 純 CSS 设計 -->
+      <div class="dashboard-wrapper">
+
+        <!-- 頂部导航欄 -->
+        <header class="navbar">
+          <div class="nav-container">
+            <div class="nav-left">
+              <div class="logo-box"><span class="logo-text">E</span></div>
+              <span class="brand-name">EnterpriseHub</span>
+            </div>
+            <div class="nav-right">
+              <button class="icon-button">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                </svg>
+                <span class="notification-dot"></span>
+              </button>
+              <div class="user-avatar">JD</div>
+            </div>
+          </div>
+        </header>
+
+        <!-- 主內容区 -->
+        <main class="main-content">
+          <div class="container">
+            <!-- 页面标題 -->
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back! Here's your performance summary.</p>
+              </div>
+              <div class="button-group">
+                <button class="btn btn-secondary">Export</button>
+                <button class="btn btn-primary">+ New Project</button>
+              </div>
+            </div>
+
+            <!-- KPI 卡片网格 -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Total Revenue</span>
+                  <div class="icon-box icon-box-blue">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">$2.4M</span>
+                  <span class="kpi-change kpi-change-positive">↑ 12.5%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Active Users</span>
+                  <div class="icon-box icon-box-green">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">18.2K</span>
+                  <span class="kpi-change kpi-change-positive">↑ 8.3%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Conversion Rate</span>
+                  <div class="icon-box icon-box-purple">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">3.6%</span>
+                  <span class="kpi-change kpi-change-negative">↓ 2.1%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Growth Rate</span>
+                  <div class="icon-box icon-box-orange">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">+94%</span>
+                  <span class="kpi-change kpi-change-positive">↑ 5.2%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+            </div>
+
+            <!-- 数据表格 -->
+            <div class="data-section">
+              <div class="section-header">
+                <h2 class="section-title">Recent Transactions</h2>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Acme Corporation</td>
+                      <td>$12,450</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 15, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Tech Innovations Inc</td>
+                      <td>$8,320</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>Oct 14, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Global Solutions Ltd</td>
+                      <td>$5,100</td>
+                      <td><span class="badge badge-danger">Failed</span></td>
+                      <td>Oct 13, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#004</td>
+                      <td>StartupXYZ</td>
+                      <td>$9,800</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 12, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#005</td>
+                      <td>Enterprise Group</td>
+                      <td>$15,600</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 11, 2025</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+
+    `,
+    fullPageStyles: `
+      /* 企業級 SaaS Dashboard - 純 CSS 樣式 */
+
+      /* 重置与基礎 */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+      /* 主容器 */
+      .dashboard-wrapper {
+        min-height: 100vh;
+        background: #f9fafb;
+      }
+
+      /* 导航欄 */
+      .navbar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-box {
+        width: 32px;
+        height: 32px;
+        background: #2563eb;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-text {
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .brand-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .icon-button {
+        position: relative;
+        padding: 8px;
+        background: none;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: #6b7280;
+        transition: all 0.2s;
+      }
+      .icon-button:hover {
+        background: #f3f4f6;
+        color: #374151;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+      .notification-dot {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 8px;
+        height: 8px;
+        background: #ef4444;
+        border-radius: 50%;
+      }
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        background: #2563eb;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      /* 主內容区 */
+      .main-content {
+        padding: 32px 0;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* 页面标題 */
+      .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+      .page-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 4px;
+      }
+      .page-subtitle {
+        font-size: 14px;
+        color: #6b7280;
+      }
+      .button-group {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: #2563eb;
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #1d4ed8;
+      }
+      .btn-secondary {
+        background: white;
+        color: #374151;
+        border: 1px solid #d1d5db;
+      }
+      .btn-secondary:hover {
+        background: #f9fafb;
+      }
+
+      /* KPI 卡片网格 */
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+      .kpi-card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 24px;
+        transition: box-shadow 0.2s;
+      }
+      .kpi-card:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .kpi-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .kpi-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-box-blue {
+        background: #dbeafe;
+        color: #2563eb;
+      }
+      .icon-box-green {
+        background: #d1fae5;
+        color: #10b981;
+      }
+      .icon-box-purple {
+        background: #e9d5ff;
+        color: #9333ea;
+      }
+      .icon-box-orange {
+        background: #fed7aa;
+        color: #ea580c;
+      }
+      .icon-box .icon {
+        width: 20px;
+        height: 20px;
+      }
+      .kpi-value-row {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .kpi-value {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+      }
+      .kpi-change {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .kpi-change-positive {
+        color: #10b981;
+      }
+      .kpi-change-negative {
+        color: #ef4444;
+      }
+      .kpi-note {
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      /* 数据区塊 */
+      .data-section {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .section-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111827;
+      }
+      .table-wrapper {
+        overflow-x: auto;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .data-table thead {
+        background: #f9fafb;
+      }
+      .data-table th {
+        padding: 12px 24px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .data-table td {
+        padding: 16px 24px;
+        font-size: 14px;
+        color: #374151;
+        border-top: 1px solid #e5e7eb;
+      }
+      .data-table tbody tr:hover {
+        background: #f9fafb;
+      }
+
+      /* 徽章 */
+      .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .badge-success {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .badge-warning {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .badge-danger {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      /* 響應式 */
+      @media (max-width: 768px) {
+        .page-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        .kpi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+    `
+  },
+  {
     id: 'corporate',
     title: 'styles.newTrend.corporate.title',
     description: 'styles.newTrend.corporate.description',
