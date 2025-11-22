@@ -152,25 +152,37 @@ export const styleEnhancements = {
     tags: ['retro', 'neon', 'futuristic', 'gaming', 'effectDriven', 'creative'],
     relatedStyles: ['retro-digital-arcadeCRT', 'visual-neon-cyberpunk', 'visual-tech-sci-fi-hud']
   },
+  'pixelArt': {
+    primaryCategory: 'retro',
+    categories: ['retro', 'digital'],
+    tags: ['retro', 'gaming', 'pixel', '8bit', 'creative', 'nostalgic'],
+    relatedStyles: ['retro-digital-arcadeCRT', 'terminal-cli', 'vaporwave']
+  },
+  'vaporwave': {
+    primaryCategory: 'retro',
+    categories: ['retro', 'digital'],
+    tags: ['retro', 'colorful', 'gradient', 'aesthetic', 'nostalgic', 'creative'],
+    relatedStyles: ['visual-y2k', 'visual-gradient-holographic', 'pixelArt']
+  },
   'visual-y2k': {
     primaryCategory: 'visual',
     categories: ['visual', 'retro'],
     tags: ['retro', 'colorful', 'translucent', 'futuristic', 'creative'],
-    relatedStyles: ['terminal-cli', 'visual-translucent-glassmorphism']
+    relatedStyles: ['terminal-cli', 'visual-translucent-glassmorphism', 'vaporwave']
   },
 
   // New Styles 2025
-  'visual-glassmorphism-2': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'modern'],
-    tags: ['contemporary', 'translucent', 'depth', 'gradient', 'creative', 'modern'],
-    relatedStyles: ['visual-translucent-glassmorphism', 'core-fluent2', 'visual-y2k']
-  },
   'visual-claymorphism': {
     primaryCategory: 'visual',
     categories: ['visual', 'modern'],
     tags: ['contemporary', 'depth', 'soft', 'colorful', 'playful', 'creative'],
     relatedStyles: ['visual-soft-ui', 'visual-paperCutout', 'visual-kawaii-minimal']
+  },
+  'visual-claymation': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'playful'],
+    tags: ['contemporary', 'playful', 'colorful', 'rounded', 'friendly', 'creative', 'animated'],
+    relatedStyles: ['visual-claymorphism', 'visual-kawaii-minimal', 'visual-paperCutout']
   },
   'visual-neumorphism-dark': {
     primaryCategory: 'visual',
@@ -253,8 +265,8 @@ export const styleEnhancements = {
   'visual-translucent-glassmorphism': {
     primaryCategory: 'visual',
     categories: ['visual', 'translucent'],
-    tags: ['contemporary', 'translucent', 'depth', 'clean', 'creative'],
-    relatedStyles: ['core-fluent2']
+    tags: ['contemporary', 'translucent', 'depth', 'gradient', 'clean', 'creative', 'modern'],
+    relatedStyles: ['core-fluent2', 'visual-y2k', 'visual-translucent-aurora-glass', 'core-material', 'visual-neumorphism-dark']
   },
   'visual-translucent-translucent-layers': {
     primaryCategory: 'visual',

@@ -47,16 +47,17 @@ export function VirtualMasonryVariable({
     return cols
   }, [items, columnCount])
 
-  // 回退：未載入 VarList 時使用简單 Grid
+  // 回退：未載入 VarList 時使用简單 Grid（使用相同的 columns 分配逻辑）
   if (!VarList) {
     return (
-      <div
-        className="masonry"
-        style={{ columnCount, columnGap: gap }}
-      >
-        {items.map((it, i) => (
-          <div className="masonry-item" key={it?._uniqueKey || i}>
-            {renderItem(it, i)}
+      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`, gap }}>
+        {columns.map((col, colIdx) => (
+          <div key={colIdx}>
+            {col.map((it, itemIdx) => (
+              <div key={it?._uniqueKey || itemIdx} style={{ marginBottom: gap }}>
+                {renderItem(it, itemIdx)}
+              </div>
+            ))}
           </div>
         ))}
       </div>

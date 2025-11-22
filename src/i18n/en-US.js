@@ -1449,13 +1449,13 @@ export default {
           "description": "Complete creative studio portfolio website showcasing claymorphism's dual shadows and pink-purple gradient design."
         }
       },
-      "glassmorphism2": {
-        "title": "Glassmorphism 2.0",
-        "description": "Glassmorphism 2.0 is an enhanced version of glass design, suitable for modern web applications and design portfolios. Through stronger background blur effects, multi-layer translucent overlays, and refined border decorations, it creates more depth and fashionable glass texture, delivering avant-garde and sophisticated visual experience."
-      },
       "claymorphism": {
         "title": "Claymorphism",
         "description": "Claymorphism is a 3D clay texture design style, suitable for creative design, illustration style, and children's products. Through multi-layer inner and outer shadows, soft color gradients, and rounded shapes, it creates realistic clay-like tactile feel and soft texture, delivering warm, friendly, and tangible atmosphere."
+      },
+      "claymation": {
+        "title": "Claymation Toy",
+        "description": "Claymation is a stop-motion animation toy style, inspired by classic stop-motion animations (like \"Wallace & Gromit\", \"Chicken Run\"). Using extremely rounded shapes, bright candy color gradients, and character designs (expressions, eyes), it mimics the texture and playfulness of handcrafted clay toys, delivering warm, adorable, and imaginative visual experiences. Perfect for children's education, toy e-commerce, casual games, and products that need to lower barriers to entry."
       },
       "neumorphismDark": {
         "title": "Neumorphism Dark",
@@ -1592,7 +1592,21 @@ export default {
       },
       "glassmorphism": {
         "title": "Glassmorphism",
-        "description": "Transparent material with backdrop-filter blur and soft lighting"
+        "description": "Create modern, translucent interfaces with frosted glass effects and background blur, delivering a lightweight floating visual experience",
+        "features": [
+          "Semi-transparent backgrounds (rgba)",
+          "Background blur effect (backdrop-filter)",
+          "Refined border highlights",
+          "Soft shadow layers",
+          "Smooth interactive animations"
+        ],
+        "useCases": [
+          "Dashboards and data panels",
+          "Settings and configuration UIs",
+          "Music/video players",
+          "Corporate landing pages",
+          "Creative portfolio websites"
+        ]
       },
       "acrylicMaterial": {
         "title": "Acrylic Material",
@@ -3089,6 +3103,18 @@ export default {
       },
       "geometric": {
         "label": "Geometric"
+      },
+      "playful": {
+        "label": "Playful"
+      },
+      "rounded": {
+        "label": "Rounded"
+      },
+      "friendly": {
+        "label": "Friendly"
+      },
+      "animated": {
+        "label": "Animated"
       }
     },
     "technical": {

@@ -1474,13 +1474,13 @@ export default {
           "description": "完整的创意工作室作品集网站，展示黏土质感的双层阴影和粉紫渐变设计。"
         }
       },
-      "glassmorphism2": {
-        "title": "玻璃态 2.0",
-        "description": "Glassmorphism 2.0 是玻璃态设计的增强版本，适合现代 Web 应用和设计作品集。通过更强的背景模糊效果、多层半透明叠加和精致的边框装饰，创造更具深度和时尚感的玻璃质感，营造前卫、精致的视觉体验。"
-      },
       "claymorphism": {
         "title": "黏土质感",
         "description": "Claymorphism 是 3D 黏土质感设计风格，适合创意设计、插画风格和儿童产品。通过多层内外阴影、柔和的色彩渐变和圆润的造型，创造如同真实黏土般的立体触感和柔软质地，营造温暖、友好、富有触感的氛围。"
+      },
+      "claymation": {
+        "title": "黏土动画玩具",
+        "description": "Claymation 是定格动画玩具风格，灵感来自经典定格动画（如《超级无敌掌门狗》《小鸡快跑》）。使用极度圆润的形状、明亮糖果色渐变和角色化设计（表情、眼睛），模拟手工黏土玩具的质感和童趣，营造温暖、可爱、富有想象力的视觉体验。适合儿童教育、玩具电商、轻松小游戏等需要降低使用门槛的产品。"
       },
       "neumorphismDark": {
         "title": "新拟态暗色",
@@ -1619,8 +1619,22 @@ export default {
         "description": "通过透明度、背景模糊和光影穿透创造层次丰富的视觉效果"
       },
       "glassmorphism": {
-        "title": "玻璃态",
-        "description": "透明材质，背景模糊 (backdrop-filter)，柔和光影"
+        "title": "Glassmorphism（玻璃态）",
+        "description": "使用毛玻璃效果和背景模糊创造现代、通透的界面设计，带来轻盈悬浮的视觉体验",
+        "features": [
+          "半透明背景色（rgba）",
+          "背景模糊效果（backdrop-filter）",
+          "精致边框高光",
+          "柔和阴影层次",
+          "流畅交互动效"
+        ],
+        "useCases": [
+          "仪表板和数据面板",
+          "设置和配置界面",
+          "音乐/视频播放器",
+          "企业官网 Landing Page",
+          "创意作品集网站"
+        ]
       },
       "acrylicMaterial": {
         "title": "亚克力材质",
@@ -3118,6 +3132,18 @@ export default {
       },
       "geometric": {
         "label": "几何规整"
+      },
+      "playful": {
+        "label": "趣味童趣"
+      },
+      "rounded": {
+        "label": "圆润造型"
+      },
+      "friendly": {
+        "label": "亲和友好"
+      },
+      "animated": {
+        "label": "动态生动"
       }
     },
     "technical": {

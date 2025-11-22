@@ -149,9 +149,10 @@ body {
   border-color: #000;
 }
 
-/* 演示区域 - 保持原始样式 */
+/* 演示区域 - 正方形設計（寬度 = 高度） */
 .demo-box {
-  height: 320px;
+  aspect-ratio: 1 / 1; /* 🎨 保持正方形比例 */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -93,11 +93,21 @@ export function StylePreviewPage() {
     return 0;
   };
 
-  // 重置預覽索引
+  // 重置預覽索引，並從 URL 參數讀取初始索引
   useEffect(() => {
-    setActiveIndex(getDefaultIndex());
+    const urlPreviewIndex = searchParams.get('previewIndex');
+    if (urlPreviewIndex !== null) {
+      const index = parseInt(urlPreviewIndex, 10);
+      if (!isNaN(index) && index >= 0 && index < previewsList.length) {
+        setActiveIndex(index);
+      } else {
+        setActiveIndex(getDefaultIndex());
+      }
+    } else {
+      setActiveIndex(getDefaultIndex());
+    }
     setIsLoading(true);
-  }, [style.id, previewsList]);
+  }, [style.id, previewsList, searchParams]);
 
   // 預覽切換時，显示 Loading 視覺（避免先渲染到回退內容）
   useEffect(() => {
@@ -399,7 +409,8 @@ export function StylePreviewPage() {
     try {
       const hasSearch = window.location.search && window.location.search.length > 0;
       const separator = hasSearch ? '&' : '?';
-      const targetUrl = `${window.location.href}${separator}full=1`;
+      // ✅ 修復：在 URL 中包含當前預覽索引
+      const targetUrl = `${window.location.href}${separator}full=1&previewIndex=${activeIndex}`;
       const win = window.open(targetUrl, '_blank', 'noopener');
       if (!win) {
         console.warn('[StylePreviewPage] Failed to open full-page preview window (popup blocked)');
@@ -465,12 +476,32 @@ export function StylePreviewPage() {
                 >
                   {t('buttons.prompt')}
                 </button>
-                <button
+                <div
                   onClick={() => window.close()}
-                  className="flex-1 md:flex-none px-4 py-2 text-sm rounded border hover:bg-gray-100 transition-colors"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      window.close();
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className="cursor-pointer flex items-center justify-center"
+                  aria-label={t('buttons.close')}
                 >
-                  ✕ {t('buttons.close')}
-                </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
           </header>
