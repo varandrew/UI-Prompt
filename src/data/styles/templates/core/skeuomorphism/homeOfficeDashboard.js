@@ -1,9 +1,7 @@
 // Single template: Skeuomorphism — Home Office Dashboard (compact)
 // Attach full-page preview by importing the existing fullpage module.
-import {
-  skeuomorphismHomeOfficeFullPageHTML,
-  skeuomorphismHomeOfficeFullPageStyles,
-} from './skeuomorphismHomeOfficeFullPage'
+// Note: Full page exports are used in preview system but not directly imported
+// They are loaded dynamically by the preview loader system
 
 export const homeOfficeDashboard = {
   id: 'core-skeuomorphism-home-office-dashboard',

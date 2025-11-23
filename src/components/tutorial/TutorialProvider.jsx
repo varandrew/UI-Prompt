@@ -67,7 +67,7 @@ export function TutorialProvider({ children }) {
       // 完成导览
       completeTutorial();
     }
-  }, [currentStepIndex, currentStep, showTransition]);
+  }, [currentStepIndex, currentStep, showTransition, completeTutorial]);
 
   // 跳过当前步骤
   const skipStep = useCallback(() => {
@@ -180,6 +180,7 @@ export function TutorialProvider({ children }) {
 }
 
 // Hook for consuming the context
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTutorial() {
   const context = useContext(TutorialContext);
   if (!context) {

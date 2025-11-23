@@ -16,7 +16,6 @@ import { useEffect, useMemo, useRef, useCallback } from 'react';
 export function Canvas({ onComponentClick, previewSwap = null }) {
   // 与层級面板一致，統一使用 editorStore 的画布狀態
   const canvasState = useEditorStore((s) => s.canvasState);
-  const globalSettings = useEditorStore((s) => s.globalSettings);
   const componentTree = canvasState.componentTree;
   const componentProps = canvasState.componentProps;
 

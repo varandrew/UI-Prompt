@@ -3615,5 +3615,429 @@ export const feedbackComponents = [
         `
       }
     ]
+  },
+
+  // Reaction Picker - 表情反应选择器
+  {
+    id: 'reaction-picker',
+    title: 'data.components.feedback.reaction-picker.title',
+    description: 'data.components.feedback.reaction-picker.description',
+    variants: [
+      {
+        id: 'material-design',
+        name: 'data.components.feedback.reaction-picker.variants.material-design.name',
+        description: 'data.components.feedback.reaction-picker.variants.material-design.description',
+        demoHTML: `
+          <div class="w-full max-w-2xl mx-auto p-6">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+              <h3 class="font-medium text-2xl mb-2 text-gray-900">
+                {{t:demo.reactionPicker.material.title}}
+              </h3>
+              <p class="text-gray-600 mb-8 text-sm">{{t:demo.reactionPicker.material.subtitle}}</p>
+
+              <div class="reaction-demo-post bg-gray-50 p-6 rounded-lg">
+                <p class="text-gray-800 mb-4">{{t:demo.reactionPicker.material.postText}}</p>
+
+                <div class="flex items-center space-x-2">
+                  <button class="reaction-trigger-material" onclick="toggleReactionsMaterial(event)">
+                    <span class="reaction-icon">👍</span>
+                    <span class="reaction-count">42</span>
+                  </button>
+
+                  <div class="reaction-picker-material hidden">
+                    <button class="reaction-btn-material" onclick="selectReaction('👍')">👍</button>
+                    <button class="reaction-btn-material" onclick="selectReaction('❤️')">❤️</button>
+                    <button class="reaction-btn-material" onclick="selectReaction('😂')">😂</button>
+                    <button class="reaction-btn-material" onclick="selectReaction('😮')">😮</button>
+                    <button class="reaction-btn-material" onclick="selectReaction('😢')">😢</button>
+                    <button class="reaction-btn-material" onclick="selectReaction('🎉')">🎉</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleReactionsMaterial(event) {
+              event.stopPropagation();
+              const picker = event.currentTarget.parentElement.querySelector('.reaction-picker-material');
+              picker.classList.toggle('hidden');
+            }
+
+            function selectReaction(emoji) {
+              const trigger = event.currentTarget.closest('.flex').querySelector('.reaction-icon');
+              trigger.textContent = emoji;
+              event.currentTarget.closest('.flex').querySelector('.reaction-picker-material').classList.add('hidden');
+            }
+
+            document.addEventListener('click', () => {
+              document.querySelectorAll('.reaction-picker-material').forEach(p => p.classList.add('hidden'));
+            });
+          </script>
+        `,
+        customStyles: `
+          .reaction-trigger-material {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 9999px;
+            transition: all 0.2s;
+            cursor: pointer;
+          }
+
+          .reaction-trigger-material:hover {
+            background: #f3f4f6;
+            transform: scale(1.05);
+          }
+
+          .reaction-picker-material {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.2s ease-out;
+          }
+
+          .reaction-btn-material {
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            border: none;
+            background: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+          }
+
+          .reaction-btn-material:hover {
+            transform: scale(1.3);
+          }
+
+          @keyframes slideUp {
+            from {
+              opacity: 0;
+              transform: translateY(10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `
+      },
+      {
+        id: 'glassmorphism',
+        name: 'data.components.feedback.reaction-picker.variants.glassmorphism.name',
+        description: 'data.components.feedback.reaction-picker.variants.glassmorphism.description',
+        demoHTML: `
+          <div class="w-full max-w-2xl mx-auto p-6">
+            <div class="glass-card-reaction rounded-3xl p-8" style="background: linear-gradient(135deg, rgba(100, 100, 255, 0.3), rgba(200, 100, 255, 0.3)); backdrop-filter: blur(20px);">
+              <h3 class="font-light text-2xl mb-2 text-white">
+                {{t:demo.reactionPicker.glass.title}}
+              </h3>
+              <p class="text-white/80 mb-8 text-sm">{{t:demo.reactionPicker.glass.subtitle}}</p>
+
+              <div class="p-6 rounded-2xl" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                <p class="text-white mb-4">{{t:demo.reactionPicker.glass.postText}}</p>
+
+                <div class="flex items-center gap-2">
+                  <button class="reaction-trigger-glass" onclick="toggleReactionsGlass(event)">
+                    <span class="reaction-icon">✨</span>
+                    <span class="reaction-count">128</span>
+                  </button>
+
+                  <div class="reaction-picker-glass hidden">
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('👍')">👍</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('❤️')">❤️</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('😂')">😂</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('🔥')">🔥</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('✨')">✨</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleReactionsGlass(event) {
+              event.stopPropagation();
+              const picker = event.currentTarget.parentElement.querySelector('.reaction-picker-glass');
+              picker.classList.toggle('hidden');
+            }
+
+            function selectReactionGlass(emoji) {
+              const trigger = event.currentTarget.closest('.flex').querySelector('.reaction-icon');
+              trigger.textContent = emoji;
+              event.currentTarget.closest('.flex').querySelector('.reaction-picker-glass').classList.add('hidden');
+            }
+          </script>
+        `,
+        customStyles: `
+          .reaction-trigger-glass {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 9999px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+          }
+
+          .reaction-trigger-glass:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+          }
+
+          .reaction-picker-glass {
+            display: inline-flex;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 9999px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideUpGlass 0.3s ease-out;
+          }
+
+          .reaction-btn-glass {
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-btn-glass:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.2);
+          }
+
+          @keyframes slideUpGlass {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `
+      },
+      {
+        id: 'neumorphism',
+        name: 'data.components.feedback.reaction-picker.variants.neumorphism.name',
+        description: 'data.components.feedback.reaction-picker.variants.neumorphism.description',
+        demoHTML: `
+          <div class="w-full max-w-2xl mx-auto p-6">
+            <div class="bg-gray-100 rounded-2xl p-8">
+              <h3 class="font-semibold text-2xl mb-2 text-gray-800">
+                {{t:demo.reactionPicker.neomorph.title}}
+              </h3>
+              <p class="text-gray-600 mb-8 text-sm">{{t:demo.reactionPicker.neomorph.subtitle}}</p>
+
+              <div class="neomorph-post-card p-6 rounded-xl">
+                <p class="text-gray-800 mb-4">{{t:demo.reactionPicker.neomorph.postText}}</p>
+
+                <div class="flex items-center gap-2">
+                  <button class="reaction-trigger-neomorph" onclick="toggleReactionsNeomorph(event)">
+                    <span class="reaction-icon">💖</span>
+                    <span class="reaction-count">99</span>
+                  </button>
+
+                  <div class="reaction-picker-neomorph hidden">
+                    <button class="reaction-btn-neomorph" onclick="selectReactionNeomorph('👍')">👍</button>
+                    <button class="reaction-btn-neomorph" onclick="selectReactionNeomorph('❤️')">❤️</button>
+                    <button class="reaction-btn-neomorph" onclick="selectReactionNeomorph('😊')">😊</button>
+                    <button class="reaction-btn-neomorph" onclick="selectReactionNeomorph('🎯')">🎯</button>
+                    <button class="reaction-btn-neomorph" onclick="selectReactionNeomorph('💖')">💖</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleReactionsNeomorph(event) {
+              event.stopPropagation();
+              const picker = event.currentTarget.parentElement.querySelector('.reaction-picker-neomorph');
+              picker.classList.toggle('hidden');
+            }
+
+            function selectReactionNeomorph(emoji) {
+              const trigger = event.currentTarget.closest('.flex').querySelector('.reaction-icon');
+              trigger.textContent = emoji;
+              event.currentTarget.closest('.flex').querySelector('.reaction-picker-neomorph').classList.add('hidden');
+            }
+          </script>
+        `,
+        customStyles: `
+          .neomorph-post-card {
+            background: #e0e0e0;
+            box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+                        -9px -9px 16px rgba(255, 255, 255, 0.5);
+          }
+
+          .reaction-trigger-neomorph {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 9999px;
+            box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.6),
+                        -4px -4px 8px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-trigger-neomorph:active {
+            box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.6),
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+          }
+
+          .reaction-picker-neomorph {
+            display: inline-flex;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #e0e0e0;
+            border-radius: 9999px;
+            box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+                        -9px -9px 16px rgba(255, 255, 255, 0.5);
+            animation: slideUpNeomorph 0.3s ease-out;
+          }
+
+          .reaction-btn-neomorph {
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 4px 4px 8px rgba(163, 177, 198, 0.6),
+                        -4px -4px 8px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-btn-neomorph:hover {
+            transform: scale(1.1);
+          }
+
+          .reaction-btn-neomorph:active {
+            box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.6),
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+          }
+
+          @keyframes slideUpNeomorph {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `
+      },
+      {
+        id: 'minimalism',
+        name: 'data.components.feedback.reaction-picker.variants.minimalism.name',
+        description: 'data.components.feedback.reaction-picker.variants.minimalism.description',
+        demoHTML: `
+          <div class="w-full max-w-2xl mx-auto p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.reactionPicker.minimalism.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.reactionPicker.minimalism.subtitle}}</p>
+
+              <div class="border-l-2 border-black pl-6 py-4">
+                <p class="text-gray-800 mb-4">{{t:demo.reactionPicker.minimalism.postText}}</p>
+
+                <div class="flex items-center gap-2">
+                  <button class="reaction-trigger-min" onclick="toggleReactionsMin(event)">
+                    <span class="reaction-icon">+</span>
+                    <span class="reaction-count">5</span>
+                  </button>
+
+                  <div class="reaction-picker-min hidden">
+                    <button class="reaction-btn-min" onclick="selectReactionMin('👍')">👍</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('❤️')">❤️</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('👏')">👏</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('🎯')">🎯</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('✨')">✨</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleReactionsMin(event) {
+              event.stopPropagation();
+              const picker = event.currentTarget.parentElement.querySelector('.reaction-picker-min');
+              picker.classList.toggle('hidden');
+            }
+
+            function selectReactionMin(emoji) {
+              const trigger = event.currentTarget.closest('.flex').querySelector('.reaction-icon');
+              trigger.textContent = emoji;
+              event.currentTarget.closest('.flex').querySelector('.reaction-picker-min').classList.add('hidden');
+            }
+          </script>
+        `,
+        customStyles: `
+          .reaction-trigger-min {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid black;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-trigger-min:hover {
+            background: black;
+            color: white;
+          }
+
+          .reaction-picker-min {
+            display: inline-flex;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            background: white;
+            border: 1px solid black;
+            animation: slideUpMin 0.2s ease-out;
+          }
+
+          .reaction-btn-min {
+            width: 40px;
+            height: 40px;
+            font-size: 1.25rem;
+            background: white;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-btn-min:hover {
+            border-color: black;
+            transform: scale(1.15);
+          }
+
+          @keyframes slideUpMin {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `
+      }
+    ]
   }
 ];

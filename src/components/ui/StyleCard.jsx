@@ -6,7 +6,7 @@ import { PreviewButton } from '../preview/PreviewButton';
 import { PreviewModal } from '../preview/PreviewModal';
 import { PromptGenerator } from '../../utils/promptGenerator';
 import { useLanguage } from '../../hooks/useLanguage';
-import { TagGroup } from './TagChip';
+import { TagGroup, CategoryBadge } from './TagChip';
 import { getDemoHTML } from "../../utils/i18n/demoI18n";
 import { getStylePreviewUrl } from '../../utils/styleHelper';
 import { LANGUAGES } from "../../utils/i18n/languageConstants";
@@ -14,6 +14,9 @@ import appCssUrl from '../../index.css?url';
 // JSX 編譯和 Preact 運行時
 import { containsJSX, compileForIframe } from '../../utils/jsxCompiler';
 import { generatePreactIframeHTML } from '../../utils/preactRuntime';
+// 🆕 模板元數據（用於顯示 NEW 徽章）
+import templateMetadata from '../../data/metadata/templateMetadata.json';
+import { getCategoryLabel } from '../../data/metadata/categoryMetadata';
 
 export function StyleCard({
   title,
@@ -36,6 +39,9 @@ export function StyleCard({
   variant = null,
   // 新增：風格 ID (用於数据識別)
   id = null,
+   // 主分類與所有分類（用於顯示分類徽章）
+  primaryCategory = null,
+  categories = [],
   // 新增：佈局模式 (控制 iframe 容器的显示方式)
   layoutMode = 'centered', // 'centered' | 'fullWidth' | 'fullPage'
   // ✨ 新增：自定義 Prompt 支持
@@ -56,7 +62,7 @@ export function StyleCard({
   const [hasLoaded, setHasLoaded] = useState(false);
 
   // 🆕 JSX 編譯狀態
-  const [jsxCompileError, setJsxCompileError] = useState(null);
+  const [, setJsxCompileError] = useState(null);
   const [isCompiling, setIsCompiling] = useState(false);
 
   // 語系對應的 demo HTML 須先計算，供 iframe 注入使用
@@ -206,7 +212,7 @@ export function StyleCard({
       if (!css) return '';
       return css
         .replace(/@import[^;]*https?:[^;]*;/gi, '')
-        .replace(/url\(("|')?javascript:[^\)]*\)/gi, '');
+        .replace(/url\(("|')?javascript:[^)]*\)/gi, '');
     };
 
     const noExternal = stripExternalAssets(currentDemoHTML || '');
@@ -342,6 +348,22 @@ export function StyleCard({
   const displayTitle = renderText(title);
   const displayDescription = renderText(description);
 
+  // 🔖 主分類與次級分類徽章資料
+  const primaryCategoryLabel = useMemo(() => {
+    if (!primaryCategory) return null;
+    try {
+      return getCategoryLabel(primaryCategory, language);
+    } catch {
+      return null;
+    }
+  }, [primaryCategory, language]);
+
+  const secondaryCategories = useMemo(() => {
+    if (!categories || categories.length === 0) return [];
+    // 過濾掉主分類本身，避免重覆顯示
+    return categories.filter((catId) => !!catId && catId !== primaryCategory);
+  }, [categories, primaryCategory]);
+
   // ✨ 構建 style 對象以支持自定義 Prompt
   const styleObject = useMemo(() => ({
     title: displayTitle,
@@ -385,10 +407,59 @@ export function StyleCard({
 
   const demoBoxInlineStyle = useMemo(() => parseStyleString(demoBoxStyle), [demoBoxStyle]);
 
+  // 🆕 檢測是否顯示 NEW 徽章（使用智能包含匹配）
+  const metadata = useMemo(() => {
+    if (!id || !templateMetadata?.templates) return null;
+
+    // 策略 1: 精確匹配（最快，優先使用）
+    if (templateMetadata.templates[id]) {
+      return templateMetadata.templates[id];
+    }
+
+    // 策略 2: 雙向模糊匹配 - 查找包含關係（雙向）
+    // 例如：id='flatDesign' ↔ key='core-flatDesign'（key 包含 id）
+    // 例如：id='visual-neo-brutalism' ↔ key='visual-brutalism'（id 包含 key）
+    const allKeys = Object.keys(templateMetadata.templates);
+    const matchedKey = allKeys.find(key => {
+      const keyLower = key.toLowerCase();
+      const idLower = id.toLowerCase();
+      return keyLower.includes(idLower) || idLower.includes(keyLower);
+    });
+
+    return matchedKey ? templateMetadata.templates[matchedKey] : null;
+  }, [id]);
+
+  const isNew = useMemo(() => {
+    if (!metadata) return false;
+    return metadata.isNew === true;
+  }, [metadata]);
+
+  const updatedAt = useMemo(() => {
+    if (!metadata?.updatedAt) return null;
+    try {
+      const date = new Date(metadata.updatedAt);
+      return date.toLocaleDateString(language === 'zh-CN' ? 'zh-CN' : 'en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+    } catch {
+      return null;
+    }
+  }, [metadata, language]);
 
   return (
     <>
       <div ref={cardRef} className="minimal-card bg-white rounded-lg overflow-hidden relative">
+        {/* 🆕 NEW 徽章：顯示在卡片右上角 */}
+        {isNew && (
+          <div className="absolute top-4 right-4 z-10">
+            <span className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+              {t('common.new') || 'NEW'}
+            </span>
+          </div>
+        )}
+
         {/* 演示区：改為 iframe 沙箱，隔離自定義 CSS 對全域的影響 */}
         <div className={`demo-box ${demoBoxClass}`} style={demoBoxInlineStyle}>
           {!isVisible ? (
@@ -420,7 +491,24 @@ export function StyleCard({
         {/* 内容区域 */}
         <div className="p-6">
           {/* 标題和分类徽章 */}
-          <div className="flex items-start justify-between mb-2">
+          <div className="flex flex-col gap-2 mb-2">
+            {(primaryCategoryLabel || (secondaryCategories && secondaryCategories.length > 0)) && (
+              <div className="flex flex-wrap items-center gap-2">
+                {primaryCategoryLabel && (
+                  <CategoryBadge
+                    label={primaryCategoryLabel}
+                    primary={true}
+                  />
+                )}
+                {secondaryCategories.map((catId) => (
+                  <CategoryBadge
+                    key={catId}
+                    label={getCategoryLabel(catId, language)}
+                    primary={false}
+                  />
+                ))}
+              </div>
+            )}
             <h3 className="text-xl font-semibold flex-1">{displayTitle}</h3>
           </div>
 
@@ -437,6 +525,15 @@ export function StyleCard({
                 onTagClick={onTagClick}
                 maxDisplay={4}
               />
+            </div>
+          )}
+
+          {/* 🆕 最近更新時間 */}
+          {updatedAt && (
+            <div className="mb-3">
+              <p className="text-xs text-gray-400">
+                {t('common.lastUpdated') || 'Last Updated'}: {updatedAt}
+              </p>
             </div>
           )}
 

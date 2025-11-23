@@ -3,7 +3,6 @@ import skeuomorphismTemplates, { name as skeuomorphismName } from './skeuomorphi
 import flatDesignTemplates, { name as flatDesignName } from './flatDesign'
 import materialDesignTemplates, { name as materialDesignName } from './materialDesign'
 import minimalismTemplates, { name as minimalismName } from './minimalism'
-import { fluent2Styles } from './fluent2Styles'
 
 // 供其他模組按「設計流派」分組使用（如 4 張核心卡片）
 export { skeuomorphismTemplates, flatDesignTemplates, materialDesignTemplates, minimalismTemplates }

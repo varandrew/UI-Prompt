@@ -2,6 +2,8 @@
 
 import { demoHTML, customStyles } from './Demo';
 import { fullPageHTML, fullPageStyles } from './FullPageDemo';
+// Note: Brutalism full page exports are used in preview system
+// eslint-disable-next-line no-unused-vars
 import { brutalismFullPageHTML, brutalismFullPageStyles } from './BrutalismFullPage';
 
 export const neoBrutalism = {

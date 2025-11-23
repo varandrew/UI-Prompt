@@ -68,7 +68,7 @@ export function MessageBox({
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [open]); // 移除 onOpenChange 依賴
+  }, [open, onOpenChange]);
 
   // Simple focus trap within dialog - 確保事件監聽器正確清理
   useEffect(() => {

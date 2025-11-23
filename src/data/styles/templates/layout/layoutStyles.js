@@ -600,7 +600,7 @@ You must preserve the overall feeling of tilted navigation, fractured hero title
 
 【整体布局结构】
 1. 外层容器
-   - 使用一个全宽容器包裹左右两侧区域：\`<main class=\"w-full h-screen flex\">\`。
+   - 使用一个全宽容器包裹左右两侧区域：\`<main class='w-full h-screen flex'>\`。
    - 高度可为视窗高度（h-screen）或至少铺满首屏。
 2. 左右面板
    - 左面板与右面板在桌面端使用固定 50/50 宽度：\`w-1/2\` + \`flex items-center justify-center\`。
@@ -645,7 +645,7 @@ Keep the strict 50/50 horizontal split: one side uses a dark background with lig
 
 [Layout structure]
 1. Outer container
-   - Use a full-width flex container, for example \`<main class=\"w-full h-screen flex\">\`.
+   - Use a full-width flex container, for example \`<main class='w-full h-screen flex'>\`.
    - Height can be viewport height or at least a full hero section.
 2. Left and right panels
    - On desktop, each panel takes 50% width (\`w-1/2\`) and centers its content with \`flex items-center justify-center\`.
@@ -950,7 +950,7 @@ The mood of a split-screen layout is decisive, clear and somewhat ceremonial. It
    - 可在 active 状态稍微降低高度或减弱阴影，模拟按压效果。
 
 【输出要求】
-- 使用语义化 HTML 将 Masonry 作为一个独立内容区块（如 \`<section aria-label=\"Masonry gallery\">\`）；
+- 使用语义化 HTML 将 Masonry 作为一个独立内容区块（如 \`<section aria-label='Masonry gallery'>\`）；
 - 使用 Tailwind 原子类搭建列容器和卡片（\`flex\`、\`flex-col\`、\`gap-x\`、\`gap-y\`、\`rounded-xl\` 等）；
 - 生成结果必须保留「固定列宽 + 不等高度卡片 + 垂直堆叠」的瀑布流核心特征，让人一眼看出这是 Pinterest 式 Masonry 布局变体，而不是普通整齐网格。`,
       'en-US': `You are a senior UI designer and front-end engineer. Generate a Masonry-style grid section that looks very close to the current “Masonry” demo.
@@ -996,7 +996,7 @@ Preserve the three-column, staggered-height card behaviour: each column stacks c
    - Optionally reduce the lift and shadow slightly on active press to mimic a physical press.
 
 [Output requirements]
-- Use semantic HTML to wrap the Masonry section (e.g. \`<section aria-label=\"Masonry gallery\">\`).
+- Use semantic HTML to wrap the Masonry section (e.g. \`<section aria-label='Masonry gallery'>\`).
 - Use Tailwind-style utilities for columns and cards (\`flex\`, \`flex-col\`, \`gap-x\`, \`gap-y\`, \`rounded-xl\`, etc.).
 - The generated UI must preserve “fixed columns + variable-height stacked cards” as key cues so it is clearly read as a Masonry layout, not a regular uniform grid.`
     },

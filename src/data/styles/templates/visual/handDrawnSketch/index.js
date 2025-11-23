@@ -927,7 +927,7 @@ This style shines when the product wants to encourage brainstorming, learning, c
 // 导出模板数组
 export const handDrawnSketchTemplates = [
   {
-    id: 'hand-drawn-sketch',
+    id: 'visual-handDrawnSketch',
     title: 'styles.visual.handDrawnSketch.title',
     description: 'styles.visual.handDrawnSketch.description',
     demoHTML: demoHTML,

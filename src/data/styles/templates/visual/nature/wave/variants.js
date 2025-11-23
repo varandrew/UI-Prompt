@@ -24,7 +24,7 @@ export const classicAuroraHTML = `
 
     <!-- 星點背景 (30 個) -->
     <div class="aurora-stars-bg">
-      ${Array.from({ length: 30 }, (_, i) => {
+      ${Array.from({ length: 30 }, () => {
         const top = Math.random() * 100;
         const left = Math.random() * 100;
         const size = 2 + Math.random() * 3;
@@ -415,7 +415,7 @@ export const deepSpaceAuroraHTML = `
 
     <!-- 星點背景 (50 個，更多星點) -->
     <div class="deep-space-stars">
-      ${Array.from({ length: 50 }, (_, i) => {
+      ${Array.from({ length: 50 }, () => {
         const top = Math.random() * 100;
         const left = Math.random() * 100;
         const size = 1.5 + Math.random() * 2.5;
@@ -770,7 +770,7 @@ export const neonAuroraHTML = `
 
     <!-- 星點背景 (20 個，較少) -->
     <div class="neon-stars">
-      ${Array.from({ length: 20 }, (_, i) => {
+      ${Array.from({ length: 20 }, () => {
         const top = Math.random() * 100;
         const left = Math.random() * 100;
         const size = 2 + Math.random() * 3;

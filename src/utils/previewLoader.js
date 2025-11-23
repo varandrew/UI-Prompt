@@ -47,11 +47,7 @@ const previewLoaders = {
   })),
 
   // === Visual Styles ===
-  'neo-brutalism': () => import('../data/styles/templates/visual/neoBrutalism/FullPageDemo').then(m => ({
-    html: m.fullPageHTML,
-    styles: m.fullPageStyles
-  })),
-  'brutalism': () => import('../data/styles/templates/visual/neoBrutalism/BrutalismFullPage').then(m => ({
+  'neo-brutalism': () => import('../data/styles/templates/visual/neoBrutalism/BrutalismFullPage').then(m => ({
     html: m.brutalismFullPageHTML,
     styles: m.brutalismFullPageStyles
   })),

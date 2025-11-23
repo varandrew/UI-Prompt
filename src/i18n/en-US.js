@@ -22,7 +22,8 @@ export default {
     "advanced": "Advanced",
     "interactive": "Interactive",
     "inputEnhanced": "Input Enhanced",
-    "specialViews": "Special Views"
+    "specialViews": "Special Views",
+    "visualEffects": "Visual Effects"
   },
   "header": {
     "appName": "UI Design Prompt",
@@ -61,7 +62,10 @@ export default {
     "cancel": "Cancel",
     "backToGallery": "Back to Gallery",
     "loadFailed": "Load failed, please try again later.",
-    "variantsCount": "{count} variant{plural} available"
+    "variantsCount": "{count} variant{plural} available",
+    "new": "NEW",
+    "updated": "Updated",
+    "lastUpdated": "Last Updated"
   },
   "toast": {
     "copied": "Copied to clipboard",
@@ -145,7 +149,7 @@ export default {
         "subtitle": "Complex advanced UI components"
       },
       "inputEnhanced": {
-        "subtitle": "Autocomplete, multi-select, tags, validation and other advanced input components"
+        "subtitle": "Autocomplete, tags, validation and other advanced input components"
       },
       "interactive": {
         "subtitle": "Hover effects, loading animations and other interactive components"
@@ -162,7 +166,17 @@ export default {
     "copy": "Copy",
     "close": "Close",
     "confirm": "Confirm",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "editCode": "Edit Code"
+  },
+  "codeEditor": {
+    "fullCode": "Full Code",
+    "toggleLayout": "Toggle Layout",
+    "toggleTheme": "Toggle Theme",
+    "reset": "Reset",
+    "download": "Download",
+    "html": "HTML",
+    "css": "CSS"
   },
   "filter": {
     "title": "Filter",
@@ -308,10 +322,6 @@ export default {
           "description": "Autocomplete search component with intelligent suggestions and keyboard navigation support",
           "title": "Autocomplete Search"
         },
-        "multi-select": {
-          "description": "Multi-select dropdown component for selecting multiple options from a list",
-          "title": "Multi-Select"
-        },
         "tags-input": {
           "description": "Tags input component for adding and managing multiple tags or labels",
           "title": "Tags Input"
@@ -423,6 +433,28 @@ export default {
           },
           "description": "Modal dialog component for displaying content in an overlay window with various style variants",
           "title": "Modal Dialog"
+        },
+        "reaction-picker": {
+          "title": "Reaction Picker",
+          "description": "Social interaction emoji picker with multiple design styles",
+          "variants": {
+            "material-design": {
+              "name": "Material Design",
+              "description": "Google design specs with rounded cards"
+            },
+            "glassmorphism": {
+              "name": "Glassmorphism",
+              "description": "Semi-transparent frosted glass effect"
+            },
+            "neumorphism": {
+              "name": "Neumorphism",
+              "description": "Soft embossed effect"
+            },
+            "minimalism": {
+              "name": "Minimalism",
+              "description": "Clean black and white design"
+            }
+          }
         }
       },
       "dataDisplay": {
@@ -537,6 +569,32 @@ export default {
           },
           "description": "Statistics card component for displaying key metrics and numerical data",
           "title": "Statistics Card"
+        },
+        "animated-counter": {
+          "title": "Animated Counter",
+          "description": "Number scrolling counter with various animation effects",
+          "variants": {
+            "minimalism": {
+              "name": "Minimalism",
+              "description": "Clean number scrolling, focus on typography and spacing"
+            },
+            "skeuomorphism": {
+              "name": "Skeuomorphism",
+              "description": "Flip effect counter with realistic texture"
+            },
+            "material-design": {
+              "name": "Material Design",
+              "description": "Google design specs with colorful cards"
+            },
+            "terminal-cli": {
+              "name": "Terminal CLI",
+              "description": "Terminal CLI style with system status display"
+            },
+            "cyberpunk": {
+              "name": "Cyberpunk",
+              "description": "Neon glowing numbers with futuristic tech feel"
+            }
+          }
         },
         "data-visualization": {
           "variants": {
@@ -807,6 +865,34 @@ export default {
           },
           "description": "Tour guide component for step-by-step user guidance",
           "title": "Tour Guide"
+        },
+        "comparison-slider": {
+          "title": "Before/After Comparison Slider",
+          "description": "Image comparison slider with drag and touch support",
+          "variants": {
+            "minimalism": {
+              "name": "Minimalism",
+              "description": "Thin line divider, black and white contrast, clean interaction"
+            },
+            "skeuomorphism": {
+              "name": "Skeuomorphism",
+              "description": "3D slider handle, realistic texture, dimensional shadows"
+            },
+            "cyberpunk": {
+              "name": "Cyberpunk",
+              "description": "Neon glowing divider, futuristic handle"
+            }
+          }
+        },
+        "image-magnifier": {
+          "title": "Image Magnifier",
+          "description": "Image zoom effect on mouse hover",
+          "variants": {
+            "universal": {
+              "name": "Universal",
+              "description": "Image magnifier suitable for all scenarios"
+            }
+          }
         }
       },
       "navigation": {
@@ -1197,6 +1283,34 @@ export default {
           "description": "Maintenance mode component for displaying maintenance pages during system maintenance",
           "title": "Maintenance Mode"
         }
+      },
+      "visualEffects": {
+        "confetti-effects": {
+          "title": "Confetti Effects",
+          "description": "Celebration and success feedback animations with multiple design styles",
+          "variants": {
+            "minimalism": {
+              "name": "Minimalism",
+              "description": "Black and white simple confetti, geometric shapes, emphasis on whitespace"
+            },
+            "material-design": {
+              "name": "Material Design",
+              "description": "Google Material color palette, smooth animations, emphasis on hierarchy"
+            },
+            "neo-brutalism": {
+              "name": "Neo-Brutalism",
+              "description": "Bold color blocks, high contrast, strong visual impact"
+            },
+            "glassmorphism": {
+              "name": "Glassmorphism",
+              "description": "Semi-transparent soft confetti, blur effects, floating sensation"
+            },
+            "cyberpunk": {
+              "name": "Cyberpunk",
+              "description": "Neon glowing confetti, futuristic, strong contrast"
+            }
+          }
+        }
       }
     }
   },
@@ -1213,9 +1327,6 @@ export default {
       "searchFrameworks": "Search tech frameworks...",
       "javaScriptLibrary": "JavaScript UI Library",
       "progressiveFramework": "Progressive Framework"
-    },
-    "multiselect": {
-      "addOrSearchSkills": "Add or search skills..."
     },
     "tags": {
       "inputLabel": "Enter tag name, press Enter to create..."
@@ -1522,12 +1633,21 @@ export default {
         }
       },
       "terminal-cli": {
+        "title": "Terminal CLI",
+        "description": "Terminal and command-line interface inspired design with monospace fonts and retro aesthetics.",
         "colorScheme": "Primary dark gray-black background (#1e1e1e, #252526 / VS Code Dark+), cyan (#4EC9B0 / command prompt), blue (#569cd6 / path keywords), yellow (#dcdcaa / warnings), purple (#c586c0 / variables), red (#f48771 / errors), secondary gray-white text (#cccccc), border gray (#424242)"
       },
       "duotone": {
-        "colorScheme": "Primary black (#000000), cyan (#00d9ff / Cyan-400, #22d3ee / Cyan-400), secondary deep purple (#581c87 / Purple-900), deep pink (#831843 / Pink-900), light tones (#a78bfa / Purple-400, #f472b6 / Pink-400)"
+        "title": "Duotone",
+        "description": "Duotone color scheme using two contrasting colors for dramatic visual impact.",
+        "colorScheme": "Primary black (#000000), cyan (#00d9ff / Cyan-400, #22d3ee / Cyan-400), secondary deep purple (#581c87 / Purple-900), deep pink (#831843 / Pink-900), light tones (#a78bfa / Purple-400, #f472b6 / Pink-400)",
+        "preview": {
+          "description": "Full-page duotone design showcase with two-color gradient effects."
+        }
       },
       "liquid-blob": {
+        "title": "Liquid Blob",
+        "description": "Liquid blob shapes with fluid animations and organic morphing effects.",
         "colorScheme": "Primary blue-purple-pink gradient (#3b82f6 / Blue-500, #8b5cf6 / Purple-500, #ec4899 / Pink-500), secondary indigo (#6366f1 / Indigo-500), cyan (#22d3ee / Cyan-500), light gradient backgrounds (#f9fafb / Gray-50, #e0e7ff / Indigo-100, #f3e8ff / Purple-50), semi-transparent white (rgba(255,255,255,0.8))"
       },
       "bento-grids": {
@@ -1543,21 +1663,6 @@ export default {
           "creativeCodingShowcase": "Creative Coding Showcase",
           "creativeCodingShowcaseDesc": "Professional creative coding showcase platform demonstrating practical applications of generative art in business design, data visualization, brand innovation, showcasing the perfect combination of algorithmic aesthetics and practicality"
         }
-      },
-      "terminal-cli": {
-        "title": "Terminal CLI",
-        "description": "Terminal and command-line interface inspired design with monospace fonts and retro aesthetics."
-      },
-      "duotone": {
-        "title": "Duotone",
-        "description": "Duotone color scheme using two contrasting colors for dramatic visual impact.",
-        "preview": {
-          "description": "Full-page duotone design showcase with two-color gradient effects."
-        }
-      },
-      "liquid-blob": {
-        "title": "Liquid Blob",
-        "description": "Liquid blob shapes with fluid animations and organic morphing effects."
       },
       "sci-fi-hud": {
         "title": "Sci-Fi HUD",
@@ -1636,10 +1741,6 @@ export default {
         "title": "Holographic Gradient",
         "description": "Rainbow spectrum with dynamic hue rotation and futuristic glow"
       },
-      "duotone": {
-        "title": "Duotone",
-        "description": "Two-color gradient overlay with high contrast and vintage poster feel"
-      },
       "colorTransition": {
         "title": "Color Transition",
         "description": "Smooth color flow with multi-stop gradients and harmonious transitions"
@@ -1696,7 +1797,7 @@ export default {
         "title": "Texture Effects",
         "description": "Create various material textures using CSS gradients, filters, and patterns"
       },
-      "clay": {
+      "clayTexture": {
         "title": "Clay Texture",
         "description": "Soft 3D with dual shadows and clay material"
       },
@@ -1779,6 +1880,8 @@ export default {
         "colorScheme": "Primary deep black (#0a0a0a, #1a1a1a), secondary blue (#3b82f6 / Blue-500), green (#10b981 / Green-500), accent purple (#8b5cf6 / Purple-500), red (#ef4444 / Red-500), gray tones (#2a2a2a, #9ca3af, #6b7280)"
       },
       "brutalism": {
+        "title": "Neo-Brutalism",
+        "description": "Neo-brutalism design with bold colors, thick borders, and raw geometric shapes.",
         "colorScheme": "Primary black (#000000), white (#ffffff), accent red (#ff0000), secondary light gray (#cccccc), dark gray (#f5f5f5)",
         "preview": {
           "projectManagement": "Project Management",
@@ -1801,16 +1904,6 @@ export default {
         "description": "Utility-first design philosophy with minimal custom CSS, focusing on functional Tailwind classes.",
         "colorScheme": "Primary white (#ffffff), black (#000000), secondary light gray (#f9fafb / Gray-50), border gray (#d1d5db / Gray-300), text gray (#6b7280 / Gray-500), blue-purple gradient accent (#3b82f6 to #9333ea)"
       },
-      "brutalism": {
-        "title": "Neo-Brutalism",
-        "colorScheme": "Primary black (#000000), white (#ffffff), accent red (#ff0000), secondary light gray (#cccccc), dark gray (#f5f5f5)",
-        "preview": {
-          "projectManagement": "Project Management",
-          "projectManagementDesc": "Project cards, progress bars, status badges, deadlines, team activity timeline, commit records, user avatars, form components, data tables",
-          "developerWorkspace": "Developer Workspace",
-          "developerWorkspaceDesc": "Code editor interface, terminal command window, Git commit timeline, API debugging tool, file tree navigation, system monitoring panel, shortcut key cards, status indicators"
-        }
-      },
       "outlineStyle": {
         "title": "Outline Style",
         "description": "Defining shapes through lines, clean and professional, emphasizing minimalism and clear visual hierarchy",
@@ -1832,8 +1925,6 @@ export default {
     "typography": {
       "title": "Typography-Driven Design",
       "description": "Design styles where the visual expressiveness of text itself conveys information, emphasizing font selection, hierarchy systems, and typographic rhythm.",
-
-      // ========== Kinetic Sub-family ==========
       "kinetic": {
         "kineticTypography": {
           "title": "Kinetic Typography",
@@ -1841,8 +1932,6 @@ export default {
           "colorScheme": "Neon gradient: Blue-purple (#667eea) → Deep purple (#764ba2), Background: Pure black (#000000)"
         }
       },
-
-      // ========== Editorial Sub-family ==========
       "editorial": {
         "newspaperEditorial": {
           "title": "Newspaper Editorial Style",
@@ -1854,15 +1943,11 @@ export default {
     "retro": {
       "title": "Retro Art Styles",
       "description": "Retro & Art-Inspired Styles spanning different design eras",
-
-      // ========== Art Deco Family ==========
       "artDeco": {
         "title": "Art Deco",
         "description": "1920-1930s luxury style with geometric patterns and gold decorations",
         "colorScheme": "Art Deco gold (#D4AF37), deep sapphire blue (#357ABD), black (#1A1A1A), amber yellow (#FFA500)"
       },
-
-      // ========== Vintage Newspaper Retro Family ==========
       "vintageNewspaperRetro": {
         "title": "Vintage Newspaper",
         "description": "Print era aesthetics, newspaper typography + paper texture + coffee stains",
@@ -1871,8 +1956,6 @@ export default {
           "description": "Traditional newspaper design with multi-column layout, vintage typography, aged paper texture, and classic print aesthetics"
         }
       },
-
-      // ========== Retro OS Family ==========
       "retroOS": {
         "title": "Retro OS",
         "description": "Windows 95/98 OS, CRT monitors + desktop UI + pixel icons",
@@ -1881,8 +1964,6 @@ export default {
           "description": "Windows 95/98 style interface, classic desktop OS"
         }
       },
-
-      // ========== Retro Futurism Family ==========
       "retroFuturism": {
         "title": "Retro Futurism",
         "description": "1980s DOS terminal, phosphor text + ASCII art + scan line effects",
@@ -1891,8 +1972,6 @@ export default {
           "description": "1980s DOS terminal style, hacker aesthetics"
         }
       },
-
-      // ========== Digital Retro Family ==========
       "digitalRetro": {
         "title": "Digital Retro",
         "description": "Digital retro aesthetics blending 80s-90s computer graphics with modern design",
@@ -1905,8 +1984,6 @@ export default {
           }
         }
       },
-
-      // ========== Dark Academia Family ==========
       "darkAcademia": {
         "title": "Dark Academia",
         "description": "Classical library aesthetics with dark tones + parchment texture + candlelight ambiance",
@@ -1916,8 +1993,6 @@ export default {
           "demoText": "Temple of Knowledge"
         }
       },
-
-      // ========== Frutiger Aero Family ==========
       "frutigerAero": {
         "title": "Frutiger Aero",
         "description": "Y2K futurism with glass texture + crystal bubbles + sky blue gradients",
@@ -1926,8 +2001,6 @@ export default {
           "description": "Windows Vista/7 style glassmorphism interface"
         }
       },
-
-      // ========== Swiss Design Family ==========
       "swissDesign": {
         "title": "Swiss Design",
         "description": "Modernist grid system with Helvetica + minimal palette + mathematical precision",
@@ -1936,8 +2009,6 @@ export default {
           "description": "1950s Swiss Design aesthetics, rationality and order"
         }
       },
-
-      // ========== Existing Styles ==========
       "classic": {
         "title": "Classic Vintage",
         "description": "Classic retro newspaper style with sepia tones and vintage typography"
@@ -2102,7 +2173,7 @@ export default {
         "colorScheme": "Primary blue (#2563EB), gray background (#F9FAFB), white (#FFFFFF), neutral gray (#6B7280)"
       }
     },
-    "additional": {
+    "additionalColorSchemes": {
       "liminal-space": {
         "colorScheme": "Dark gray base (#1a1d24, #2c3038), neon pink (#ff006a), neon cyan (#00ffcc), gray text (#5f6472, #8a8f9e)",
         "preview": {
@@ -2117,7 +2188,7 @@ export default {
         }
       }
     },
-    "mouseTracking": {
+    "mouseTrackingColorScheme": {
       "colorScheme": "Deep gray-black background (#0A0A0A), neon blue (#60A5FA), neon purple (#A78BFA), semi-transparent glow effects"
     }
   },
@@ -2418,51 +2489,12 @@ export default {
         "featureList3": "Support ref positioning"
       }
     },
-    "special": {
-      "noData": "No Data Yet",
-      "noDataDesc": "Your project list is empty, start by creating your first project!",
-      "createProject": "Create New Project",
-      "importTemplate": "Import Template",
-      "noResults": "No Results Found",
-      "noResultsDesc": "Try searching with different keywords, or browse our categories",
-      "searchSuggestions": "Search Suggestions:",
-      "clearSearch": "Clear Search and Retry",
-      "pageNotFound": "Page Not Found",
-      "pageNotFoundDesc": "Sorry, the page you are accessing does not exist or has been removed.",
-      "tryOptions": "You can try:",
-      "checkUrl": "Check if the URL is correct",
-      "returnPrev": "Go BackPrevious",
-      "contactAdmin": "Contact Website Admin",
-      "returnHome": "Back to Home",
-      "returnPrevPage": "Return to Previous Page",
-      "serverError": "Server Error",
-      "serverErrorDesc": "Sorry, the server encountered a problem, please try again later.",
-      "errorCode": "Error Code:",
-      "errorMessage": "Error Message:",
-      "monitoringFix": "We are monitoring and fixing this issue. You can:",
-      "refreshPage": "Refresh the page later",
-      "checkStatus": "Check System Status",
-      "contactSupport": "Contact Technical Support Team",
-      "reload": "Reload"
-    },
     "input": {
       "smartSearch": "Smart Search",
       "searchFrameworks": "Search tech frameworks...",
       "javaScriptLibrary": "JavaScript UI Library",
       "progressiveFramework": "Progressive Framework",
       "popular": "popular",
-      "multiSelectSkills": "Multi-select Skills",
-      "addOrSearchSkills": "Add or search skills...",
-      "selectAll": "Select All",
-      "optionalSkills": "Optional Skills:",
-      "html": "HTML",
-      "css": "CSS",
-      "nodejs": "Node.js",
-      "python": "Python",
-      "docker": "Docker",
-      "git": "Git",
-      "selectedSkills": "Selected 3 skills",
-      "clearAll": "ClearAll",
       "tagManagement": "Tag Management",
       "inputLabel": "Enter tag name, press Enter to create...",
       "suggestedTags": "Suggested Tags",
@@ -3046,6 +3078,128 @@ export default {
       "placeBid": "Place Bid",
       "recentSales": "Recent Sales",
       "topCollectors": "Top Collectors"
+    },
+    "confetti": {
+      "minimalism": {
+        "title": "Minimal Confetti",
+        "subtitle": "Simple Black & White",
+        "simple": "Pure",
+        "geometric": "Geometric",
+        "monochrome": "Monochrome"
+      },
+      "material": {
+        "title": "Material Confetti",
+        "subtitle": "Google Design Specs",
+        "primary": "Primary",
+        "success": "Success",
+        "colorful": "Colorful"
+      },
+      "brutal": {
+        "title": "Brutal Confetti",
+        "subtitle": "Bold Visual Impact",
+        "explosion": "Explosion",
+        "chaos": "Chaos",
+        "mega": "Mega"
+      },
+      "glass": {
+        "title": "Glass Confetti",
+        "subtitle": "Soft Translucent",
+        "soft": "Soft",
+        "pastel": "Pastel",
+        "ethereal": "Ethereal"
+      },
+      "cyberpunk": {
+        "title": "Cyber Confetti",
+        "subtitle": "Neon Future",
+        "neon": "Neon",
+        "glitch": "Glitch",
+        "matrix": "Matrix"
+      }
+    },
+    "comparisonSlider": {
+      "minimalism": {
+        "title": "Minimal Comparison",
+        "subtitle": "Drag slider to compare",
+        "before": "Before",
+        "after": "After"
+      },
+      "skeuomorphism": {
+        "title": "Skeuo Comparison",
+        "subtitle": "Realistic 3D slider",
+        "before": "Original",
+        "after": "Enhanced"
+      },
+      "cyberpunk": {
+        "title": "Cyber Comparison",
+        "subtitle": "Neon glowing divider",
+        "before": "Unmodified",
+        "after": "Modified"
+      }
+    },
+    "animatedCounter": {
+      "minimalism": {
+        "title": "Minimal Counter",
+        "subtitle": "Clean number animation",
+        "users": "Users",
+        "projects": "Projects",
+        "revenue": "Revenue"
+      },
+      "skeuomorphism": {
+        "title": "Skeuo Counter",
+        "subtitle": "Flip number effect",
+        "downloads": "Downloads",
+        "sales": "Sales",
+        "satisfaction": "Satisfaction"
+      },
+      "material": {
+        "title": "Material Counter",
+        "subtitle": "Colorful stat cards",
+        "members": "Members",
+        "completed": "Completed",
+        "active": "Active",
+        "rating": "Rating"
+      },
+      "terminal": {
+        "title": "Terminal Counter",
+        "subtitle": "System status monitor",
+        "refreshing": "Real-time refreshing..."
+      },
+      "cyberpunk": {
+        "title": "Cyber Counter",
+        "subtitle": "Future data panel",
+        "neural": "Neural Network",
+        "quantum": "Quantum Process",
+        "cyber": "Cyber Connect",
+        "matrix": "Matrix Node"
+      }
+    },
+    "reactionPicker": {
+      "material": {
+        "title": "Material Reactions",
+        "subtitle": "Hover to see more reactions",
+        "postText": "This is amazing content! Click the icon below to see more reaction options."
+      },
+      "glass": {
+        "title": "Glass Reactions",
+        "subtitle": "Semi-transparent interaction",
+        "postText": "Experience the frosted glass style emoji reaction picker."
+      },
+      "neomorph": {
+        "title": "Neomorph Reactions",
+        "subtitle": "Soft embossed interaction",
+        "postText": "Enjoy the soft neumorphic design emoji picker."
+      },
+      "minimalism": {
+        "title": "Minimal Reactions",
+        "subtitle": "Clean interaction design",
+        "postText": "The simplest and most direct emoji reaction selector."
+      }
+    },
+    "imageMagnifier": {
+      "title": "Image Magnifier",
+      "subtitle": "Move mouse to see zoom effect",
+      "circle": "Circle Magnifier",
+      "square": "Square Magnifier"
     }
   },
   "aiDemo": {
@@ -3370,4 +3524,4 @@ export default {
     }
   },
   "artGalleryNFT": {}
-}
+};

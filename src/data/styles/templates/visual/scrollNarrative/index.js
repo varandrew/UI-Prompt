@@ -29,6 +29,13 @@ import {
 } from './previews/preview3ParallaxStory';
 import { preview3CustomPrompt } from './previews/preview3CustomPrompt';
 
+import {
+  previewConfig as preview4Config,
+  previewHTML as preview4HTML,
+  previewStyles as preview4Styles,
+  previewCustomPrompt as preview4CustomPrompt
+} from './previews/preview4VisionLaunch';
+
 export const scrollNarrative = {
   id: 'visual-scrollNarrative',
   title: 'styles.visual.scrollNarrative.title',
@@ -43,7 +50,7 @@ export const scrollNarrative = {
   fullPageStyles,
   fullPageCustomPrompt,  // Template-specific prompt for FullPage
 
-  // Additional Preview Templates (3 variants)
+  // Additional Preview Templates (4 variants)
   previews: [
     {
       ...preview1Config,
@@ -62,6 +69,12 @@ export const scrollNarrative = {
       html: preview3HTML,
       styles: preview3Styles,
       customPrompt: preview3CustomPrompt  // Template-specific prompt
+    },
+    {
+      ...preview4Config,
+      html: preview4HTML,
+      styles: preview4Styles,
+      customPrompt: preview4CustomPrompt  // Template-specific prompt
     }
   ],
 

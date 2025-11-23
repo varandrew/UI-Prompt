@@ -8,29 +8,29 @@ import { dataVisualizationScenarios } from '../../data/components/dataVisualizat
 import { useLanguage } from '../../hooks/useLanguage';
 import { injectAppStylesIntoIframe, stripTailwindCdn } from '../../utils/previewCss';
 
+// 語言取值助手：支援不同大小写/連字號鍵，並提供稳健後备
+const pickI18n = (obj, language) => {
+  if (!obj || typeof obj !== 'object') return '';
+  // 常見鍵位變体
+  const candidates = [
+    language,
+    (language || '').toLowerCase(),
+    'zh-cn', 'zh-CN', 'en-US', 'en-us'
+  ];
+  for (const key of candidates) {
+    if (key && obj[key]) return String(obj[key]);
+  }
+  // 後备：第一個非空值
+  const first = Object.values(obj).find(v => !!v);
+  return String(first || '');
+};
+
 export function DataVisualizationPreview({
   isOpen,
   onClose,
   initialScenario = 'enterprise-dashboard'
 }) {
-  const { t, language } = useLanguage();
-
-  // 語言取值助手：支援不同大小写/連字號鍵，並提供稳健後备
-  const pickI18n = (obj) => {
-    if (!obj || typeof obj !== 'object') return '';
-    // 常見鍵位變体
-    const candidates = [
-      language,
-      (language || '').toLowerCase(),
-      'zh-cn', 'zh-CN', 'en-US', 'en-us'
-    ];
-    for (const key of candidates) {
-      if (key && obj[key]) return String(obj[key]);
-    }
-    // 後备：第一個非空值
-    const first = Object.values(obj).find(v => !!v);
-    return String(first || '');
-  };
+  const { t } = useLanguage();
   const [selectedScenario, setSelectedScenario] = useState(initialScenario);
   const [isLoading, setIsLoading] = useState(true);
   const [iframeKey, setIframeKey] = useState(0);
@@ -328,10 +328,10 @@ export function ScenarioPreviewCard({ scenario, isSelected, onSelect, language }
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-medium text-gray-900 truncate">
-            {pickI18n(scenario.name)}
+            {pickI18n(scenario.name, language)}
           </div>
           <div className="text-sm text-gray-500 truncate">
-            {pickI18n(scenario.description)}
+            {pickI18n(scenario.description, language)}
           </div>
         </div>
       </div>

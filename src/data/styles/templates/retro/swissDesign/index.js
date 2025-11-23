@@ -3,6 +3,8 @@
 
 import { swissDesign } from './swissDesign'
 import { demoHTML, customStyles as demoCustomStyles } from './Demo'
+// Note: fullPageCustomPrompt is imported but used for future enhancements
+// eslint-disable-next-line no-unused-vars
 import { fullPageCustomPrompt } from './fullPageCustomPrompt'
 
 // Demo UI for style card display

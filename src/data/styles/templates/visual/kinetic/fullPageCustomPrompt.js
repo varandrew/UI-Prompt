@@ -59,7 +59,7 @@ export const fullPageCustomPrompt = {
 
 【关键动画实现】
 1. Hero 字母弹跳：
-   \'\'\'css
+   '''css
    @keyframes hero-bounce {
      0%, 100% { transform: translateY(0) rotate(0deg); }
      25% { transform: translateY(-30px) rotate(-5deg); }
@@ -68,10 +68,10 @@ export const fullPageCustomPrompt = {
    .hero-letter {
      animation: hero-bounce 2s ease-in-out infinite, gradient-flow 3s ease infinite;
    }
-   \'\'\'
+   '''
 
 2. 数字计数器 (JavaScript):
-   \'\'\'javascript
+   '''javascript
    const counters = document.querySelectorAll('.count-up');
    counters.forEach(counter => {
      const target = parseInt(counter.getAttribute('data-target'));
@@ -87,10 +87,10 @@ export const fullPageCustomPrompt = {
        }
      }, 20);
    });
-   \'\'\'
+   '''
 
 3. 字符波浪动画：
-   \'\'\'css
+   '''css
    @keyframes char-wave {
      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
      25% { transform: translateY(-20px) rotate(-10deg) scale(1.2); }
@@ -100,7 +100,7 @@ export const fullPageCustomPrompt = {
    .demo-char:nth-child(1) { animation-delay: 0s; color: #3b82f6; }
    .demo-char:nth-child(2) { animation-delay: 0.1s; color: #ec4899; }
    .demo-char:nth-child(3) { animation-delay: 0.2s; color: #fbbf24; }
-   \'\'\'
+   '''
 
 【交互与动效】
 - 卡片 hover：translateY(-10px) + 边框发光 (border-color: rgba(59, 130, 246, 0.5) + box-shadow)
@@ -171,7 +171,7 @@ Requirements: Maintain overall layout, animation effects, and color scheme uncha
 
 【Key Animation Implementations】
 1. Hero letter bounce:
-   \'\'\'css
+   '''css
    @keyframes hero-bounce {
      0%, 100% { transform: translateY(0) rotate(0deg); }
      25% { transform: translateY(-30px) rotate(-5deg); }
@@ -180,10 +180,10 @@ Requirements: Maintain overall layout, animation effects, and color scheme uncha
    .hero-letter {
      animation: hero-bounce 2s ease-in-out infinite, gradient-flow 3s ease infinite;
    }
-   \'\'\'
+   '''
 
 2. Number counter (JavaScript):
-   \'\'\'javascript
+   '''javascript
    const counters = document.querySelectorAll('.count-up');
    counters.forEach(counter => {
      const target = parseInt(counter.getAttribute('data-target'));
@@ -199,10 +199,10 @@ Requirements: Maintain overall layout, animation effects, and color scheme uncha
        }
      }, 20);
    });
-   \'\'\'
+   '''
 
 3. Character wave animation:
-   \'\'\'css
+   '''css
    @keyframes char-wave {
      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
      25% { transform: translateY(-20px) rotate(-10deg) scale(1.2); }
@@ -212,7 +212,7 @@ Requirements: Maintain overall layout, animation effects, and color scheme uncha
    .demo-char:nth-child(1) { animation-delay: 0s; color: #3b82f6; }
    .demo-char:nth-child(2) { animation-delay: 0.1s; color: #ec4899; }
    .demo-char:nth-child(3) { animation-delay: 0.2s; color: #fbbf24; }
-   \'\'\'
+   '''
 
 【Interactions & Effects】
 - Card hover: translateY(-10px) + border glow (border-color: rgba(59, 130, 246, 0.5) + box-shadow)

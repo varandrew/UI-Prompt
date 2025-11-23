@@ -2555,5 +2555,517 @@ export const dataDisplayComponents = [
         `
       }
     ]
+  },
+
+  // Animated Counter - 动画计数器
+  {
+    id: 'animated-counter',
+    title: 'data.components.dataDisplay.animated-counter.title',
+    description: 'data.components.dataDisplay.animated-counter.description',
+    variants: [
+      {
+        id: 'minimalism',
+        name: 'data.components.dataDisplay.animated-counter.variants.minimalism.name',
+        description: 'data.components.dataDisplay.animated-counter.variants.minimalism.description',
+        demoHTML: `
+          <div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.animatedCounter.minimalism.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.animatedCounter.minimalism.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Users Counter -->
+                <div class="text-center">
+                  <div class="text-6xl font-light mb-2 counter-min" data-target="12458">0</div>
+                  <p class="text-gray-500 text-sm font-light uppercase tracking-wider">{{t:demo.animatedCounter.minimalism.users}}</p>
+                </div>
+
+                <!-- Projects Counter -->
+                <div class="text-center">
+                  <div class="text-6xl font-light mb-2 counter-min" data-target="3240">0</div>
+                  <p class="text-gray-500 text-sm font-light uppercase tracking-wider">{{t:demo.animatedCounter.minimalism.projects}}</p>
+                </div>
+
+                <!-- Revenue Counter -->
+                <div class="text-center">
+                  <div class="text-6xl font-light mb-2">
+                    <span class="text-2xl align-top">$</span><span class="counter-min" data-target="98750">0</span>
+                  </div>
+                  <p class="text-gray-500 text-sm font-light uppercase tracking-wider">{{t:demo.animatedCounter.minimalism.revenue}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateCounter(element, target, duration = 2000) {
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = target.toLocaleString();
+                  clearInterval(timer);
+                } else {
+                  element.textContent = Math.floor(current).toLocaleString();
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-min').forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-target'));
+              animateCounter(counter, target);
+            });
+          </script>
+        `,
+        customStyles: `
+          .counter-min {
+            color: #000;
+            transition: color 0.3s ease;
+          }
+        `
+      },
+      {
+        id: 'skeuomorphism',
+        name: 'data.components.dataDisplay.animated-counter.variants.skeuomorphism.name',
+        description: 'data.components.dataDisplay.animated-counter.variants.skeuomorphism.description',
+        demoHTML: `
+          <div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl shadow-2xl p-8">
+              <h3 class="font-bold text-2xl mb-2 text-gray-800" style="text-shadow: 1px 1px 2px rgba(255,255,255,0.8)">
+                {{t:demo.animatedCounter.skeuomorphism.title}}
+              </h3>
+              <p class="text-gray-700 mb-8 text-sm">{{t:demo.animatedCounter.skeuomorphism.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Flip Counter Style -->
+                <div class="counter-skeuo-card">
+                  <div class="flip-counter-container">
+                    <div class="flip-digit counter-skeuo" data-target="42389">0</div>
+                  </div>
+                  <p class="counter-label">{{t:demo.animatedCounter.skeuomorphism.downloads}}</p>
+                </div>
+
+                <div class="counter-skeuo-card">
+                  <div class="flip-counter-container">
+                    <div class="flip-digit counter-skeuo" data-target="5678">0</div>
+                  </div>
+                  <p class="counter-label">{{t:demo.animatedCounter.skeuomorphism.sales}}</p>
+                </div>
+
+                <div class="counter-skeuo-card">
+                  <div class="flip-counter-container">
+                    <div class="flip-digit counter-skeuo" data-target="99">0</div>
+                    <span class="percentage-sign">%</span>
+                  </div>
+                  <p class="counter-label">{{t:demo.animatedCounter.skeuomorphism.satisfaction}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateCounterSkeuo(element, target) {
+              const duration = 2000;
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = target.toLocaleString();
+                  clearInterval(timer);
+                } else {
+                  element.textContent = Math.floor(current).toLocaleString();
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-skeuo').forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-target'));
+              setTimeout(() => animateCounterSkeuo(counter, target), 300);
+            });
+          </script>
+        `,
+        customStyles: `
+          .counter-skeuo-card {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.1),
+                        -8px -8px 16px rgba(255,255,255,0.9),
+                        inset 2px 2px 4px rgba(0,0,0,0.05);
+          }
+
+          .flip-counter-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .flip-digit {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(180deg, #667eea 0%, #4c63d2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-width: 120px;
+          }
+
+          .percentage-sign {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-left: 0.25rem;
+          }
+
+          .counter-label {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4b5563;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+        `
+      },
+      {
+        id: 'material-design',
+        name: 'data.components.dataDisplay.animated-counter.variants.material-design.name',
+        description: 'data.components.dataDisplay.animated-counter.variants.material-design.description',
+        demoHTML: `
+          <div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+              <h3 class="font-medium text-2xl mb-2 text-gray-900">
+                {{t:demo.animatedCounter.material.title}}
+              </h3>
+              <p class="text-gray-600 mb-8 text-sm">{{t:demo.animatedCounter.material.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="material-counter-card bg-blue-500">
+                  <svg class="counter-icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="counter-value counter-material" data-target="24567">0</div>
+                  <p class="counter-label-material">{{t:demo.animatedCounter.material.members}}</p>
+                </div>
+
+                <div class="material-counter-card bg-green-500">
+                  <svg class="counter-icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="counter-value counter-material" data-target="8942">0</div>
+                  <p class="counter-label-material">{{t:demo.animatedCounter.material.completed}}</p>
+                </div>
+
+                <div class="material-counter-card bg-purple-500">
+                  <svg class="counter-icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="counter-value counter-material" data-target="1567">0</div>
+                  <p class="counter-label-material">{{t:demo.animatedCounter.material.active}}</p>
+                </div>
+
+                <div class="material-counter-card bg-orange-500">
+                  <svg class="counter-icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="counter-value counter-material" data-target="4.8" data-decimals="1">0</div>
+                  <p class="counter-label-material">{{t:demo.animatedCounter.material.rating}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateMaterialCounter(element, target, hasDecimals = false) {
+              const duration = 2000;
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = hasDecimals ? target.toFixed(1) : target.toLocaleString();
+                  clearInterval(timer);
+                } else {
+                  element.textContent = hasDecimals ? current.toFixed(1) : Math.floor(current).toLocaleString();
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-material').forEach(counter => {
+              const target = parseFloat(counter.getAttribute('data-target'));
+              const hasDecimals = counter.hasAttribute('data-decimals');
+              setTimeout(() => animateMaterialCounter(counter, target, hasDecimals), 500);
+            });
+          </script>
+        `,
+        customStyles: `
+          .material-counter-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: white;
+          }
+
+          .material-counter-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+          }
+
+          .counter-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 1rem;
+            opacity: 0.9;
+          }
+
+          .counter-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+          }
+
+          .counter-label-material {
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+          }
+        `
+      },
+      {
+        id: 'terminal-cli',
+        name: 'data.components.dataDisplay.animated-counter.variants.terminal-cli.name',
+        description: 'data.components.dataDisplay.animated-counter.variants.terminal-cli.description',
+        demoHTML: `
+          <div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-black rounded-lg border border-green-500 p-8 font-mono" style="box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);">
+              <div class="flex items-center mb-6">
+                <span class="text-green-400 mr-2">$</span>
+                <span class="text-green-400">system-stats --live</span>
+                <span class="ml-2 animate-pulse text-green-400">_</span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="terminal-stat">
+                  <span class="text-green-500">[CPU_USAGE]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="87" data-suffix="%">0%</span>
+                </div>
+
+                <div class="terminal-stat">
+                  <span class="text-green-500">[MEMORY_USED]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="14.2" data-decimals="1" data-suffix="GB">0.0GB</span>
+                </div>
+
+                <div class="terminal-stat">
+                  <span class="text-green-500">[ACTIVE_PROCESSES]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="342">0</span>
+                </div>
+
+                <div class="terminal-stat">
+                  <span class="text-green-500">[NETWORK_THROUGHPUT]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="1024" data-suffix="MB/s">0MB/s</span>
+                </div>
+              </div>
+
+              <div class="mt-6 text-green-500 text-sm opacity-60">
+                > {{t:demo.animatedCounter.terminal.refreshing}}
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateTerminalCounter(element, target, hasDecimals, suffix) {
+              const duration = 1500;
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = (hasDecimals ? target.toFixed(1) : Math.floor(target)) + suffix;
+                  clearInterval(timer);
+                } else {
+                  element.textContent = (hasDecimals ? current.toFixed(1) : Math.floor(current)) + suffix;
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-terminal').forEach(counter => {
+              const target = parseFloat(counter.getAttribute('data-target'));
+              const hasDecimals = counter.hasAttribute('data-decimals');
+              const suffix = counter.getAttribute('data-suffix') || '';
+              setTimeout(() => animateTerminalCounter(counter, target, hasDecimals, suffix), 400);
+            });
+          </script>
+        `,
+        customStyles: `
+          .terminal-stat {
+            display: flex;
+            align-items: center;
+            font-size: 1.125rem;
+            padding: 0.5rem 0;
+            border-left: 2px solid rgba(0, 255, 0, 0.3);
+            padding-left: 1rem;
+          }
+
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+          }
+
+          .animate-pulse {
+            animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }
+        `
+      },
+      {
+        id: 'cyberpunk',
+        name: 'data.components.dataDisplay.animated-counter.variants.cyberpunk.name',
+        description: 'data.components.dataDisplay.animated-counter.variants.cyberpunk.description',
+        demoHTML: `
+          <div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-black rounded-lg border-2 border-cyan-500 p-8" style="box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);">
+              <h3 class="font-black text-2xl mb-2 text-cyan-400 uppercase" style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);">
+                {{t:demo.animatedCounter.cyberpunk.title}}
+              </h3>
+              <p class="text-purple-300 mb-8 text-sm font-bold">{{t:demo.animatedCounter.cyberpunk.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="cyber-counter-card border-cyan-400">
+                  <div class="cyber-glow-cyan"></div>
+                  <div class="counter-cyber text-cyan-300" data-target="999999" style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);">0</div>
+                  <p class="cyber-label text-cyan-400">{{t:demo.animatedCounter.cyberpunk.neural}}</p>
+                </div>
+
+                <div class="cyber-counter-card border-purple-400">
+                  <div class="cyber-glow-purple"></div>
+                  <div class="counter-cyber text-purple-300" data-target="88888" style="text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);">0</div>
+                  <p class="cyber-label text-purple-400">{{t:demo.animatedCounter.cyberpunk.quantum}}</p>
+                </div>
+
+                <div class="cyber-counter-card border-pink-400">
+                  <div class="cyber-glow-pink"></div>
+                  <div class="counter-cyber text-pink-300" data-target="42069" style="text-shadow: 0 0 10px rgba(236, 72, 153, 0.8);">0</div>
+                  <p class="cyber-label text-pink-400">{{t:demo.animatedCounter.cyberpunk.cyber}}</p>
+                </div>
+
+                <div class="cyber-counter-card border-green-400">
+                  <div class="cyber-glow-green"></div>
+                  <div class="counter-cyber text-green-300" data-target="31337" style="text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);">0</div>
+                  <p class="cyber-label text-green-400">{{t:demo.animatedCounter.cyberpunk.matrix}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateCyberCounter(element, target) {
+              const duration = 2500;
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = target.toLocaleString();
+                  clearInterval(timer);
+                } else {
+                  // Add glitch effect
+                  const value = Math.floor(current);
+                  element.textContent = Math.random() > 0.9 ? '█'.repeat(value.toString().length) : value.toLocaleString();
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-cyber').forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-target'));
+              setTimeout(() => animateCyberCounter(counter, target), 600);
+            });
+          </script>
+        `,
+        customStyles: `
+          .cyber-counter-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+            border: 2px solid;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            overflow: hidden;
+          }
+
+          .cyber-glow-cyan,
+          .cyber-glow-purple,
+          .cyber-glow-pink,
+          .cyber-glow-green {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.1), transparent 70%);
+            opacity: 0.5;
+            animation: pulse-glow 3s ease-in-out infinite;
+          }
+
+          .cyber-glow-purple {
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%);
+          }
+
+          .cyber-glow-pink {
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1), transparent 70%);
+          }
+
+          .cyber-glow-green {
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1), transparent 70%);
+          }
+
+          @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+          }
+
+          .counter-cyber {
+            position: relative;
+            z-index: 10;
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 0.5rem;
+          }
+
+          .cyber-label {
+            position: relative;
+            z-index: 10;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
+        `
+      }
+    ]
   }
 ];

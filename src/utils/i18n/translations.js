@@ -66,11 +66,9 @@ function getTranslationSafe(key, language) {
   // 支持點分隔路徑
   const keys = key.split('.');
   let result = langData;
-  let path = '';
 
   for (let i = 0; i < keys.length; i++) {
     const k = keys[i];
-    path += (i > 0 ? '.' : '') + k;
 
     if (result && typeof result === 'object' && k in result) {
       result = result[k];

@@ -23,7 +23,6 @@ export function Header() {
     { path: '/home', label: t('nav.home') },
     { path: '/styles', label: t('nav.allStyles') },
     { path: '/components', label: t('nav.allComponents') },
-    { path: '/layout', label: t('nav.layout'), openInNewTab: true },
   ];
 
   // 處理 Escape 鍵关閉菜單

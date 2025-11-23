@@ -94,7 +94,7 @@ export const fullPageCustomPrompt = {
 
 【关键动画实现】
 1. 滚动进度条:
-   \'\'\'javascript
+   '''javascript
    function updateScrollProgress() {
      const scrollTop = window.pageYOffset;
      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -102,10 +102,10 @@ export const fullPageCustomPrompt = {
      document.getElementById('scrollProgress').style.width = scrollPercent + '%';
    }
    window.addEventListener('scroll', updateScrollProgress);
-   \'\'\'
+   '''
 
 2. Intersection Observer 滚动显示:
-   \'\'\'javascript
+   '''javascript
    const observer = new IntersectionObserver((entries) => {
      entries.forEach(entry => {
        if (entry.isIntersecting) {
@@ -115,10 +115,10 @@ export const fullPageCustomPrompt = {
    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-   \'\'\'
+   '''
 
 3. 章节导航高亮:
-   \'\'\'javascript
+   '''javascript
    function highlightNavigation() {
      const scrollPos = window.pageYOffset + 200;
      sections.forEach((section) => {
@@ -128,15 +128,15 @@ export const fullPageCustomPrompt = {
 
        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
          navDots.forEach(dot => dot.classList.remove('active'));
-         const activeDot = document.querySelector(\'.nav-dot[data-target="\${sectionId}"]\');
+         const activeDot = document.querySelector('.nav-dot[data-target="\${sectionId}"]');
          if (activeDot) activeDot.classList.add('active');
        }
      });
    }
-   \'\'\'
+   '''
 
 4. 数字计数器动画:
-   \'\'\'javascript
+   '''javascript
    function animateCounter(element) {
      const target = parseInt(element.getAttribute('data-target'));
      const duration = 2000;
@@ -154,10 +154,10 @@ export const fullPageCustomPrompt = {
      };
      updateCounter();
    }
-   \'\'\'
+   '''
 
 5. Scroll Reveal 淡入动画:
-   \'\'\'css
+   '''css
    .scroll-reveal {
      opacity: 0;
      transform: translateY(50px);
@@ -167,7 +167,7 @@ export const fullPageCustomPrompt = {
      opacity: 1;
      transform: translateY(0);
    }
-   \'\'\'
+   '''
 
 【交互与动效】
 - 卡片 hover:translateY(-4px) + 边框发光 + box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15)
@@ -275,7 +275,7 @@ Requirements: Maintain overall layout, scroll animation effects, and color schem
 
 【Key Animation Implementations】
 1. Scroll progress bar:
-   \'\'\'javascript
+   '''javascript
    function updateScrollProgress() {
      const scrollTop = window.pageYOffset;
      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -283,10 +283,10 @@ Requirements: Maintain overall layout, scroll animation effects, and color schem
      document.getElementById('scrollProgress').style.width = scrollPercent + '%';
    }
    window.addEventListener('scroll', updateScrollProgress);
-   \'\'\'
+   '''
 
 2. Intersection Observer scroll reveal:
-   \'\'\'javascript
+   '''javascript
    const observer = new IntersectionObserver((entries) => {
      entries.forEach(entry => {
        if (entry.isIntersecting) {
@@ -296,10 +296,10 @@ Requirements: Maintain overall layout, scroll animation effects, and color schem
    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-   \'\'\'
+   '''
 
 3. Chapter navigation highlight:
-   \'\'\'javascript
+   '''javascript
    function highlightNavigation() {
      const scrollPos = window.pageYOffset + 200;
      sections.forEach((section) => {
@@ -309,15 +309,15 @@ Requirements: Maintain overall layout, scroll animation effects, and color schem
 
        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
          navDots.forEach(dot => dot.classList.remove('active'));
-         const activeDot = document.querySelector(\'.nav-dot[data-target="\${sectionId}"]\');
+         const activeDot = document.querySelector('.nav-dot[data-target="\${sectionId}"]');
          if (activeDot) activeDot.classList.add('active');
        }
      });
    }
-   \'\'\'
+   '''
 
 4. Number counter animation:
-   \'\'\'javascript
+   '''javascript
    function animateCounter(element) {
      const target = parseInt(element.getAttribute('data-target'));
      const duration = 2000;
@@ -335,10 +335,10 @@ Requirements: Maintain overall layout, scroll animation effects, and color schem
      };
      updateCounter();
    }
-   \'\'\'
+   '''
 
 5. Scroll Reveal fade-in animation:
-   \'\'\'css
+   '''css
    .scroll-reveal {
      opacity: 0;
      transform: translateY(50px);
@@ -348,7 +348,7 @@ Requirements: Maintain overall layout, scroll animation effects, and color schem
      opacity: 1;
      transform: translateY(0);
    }
-   \'\'\'
+   '''
 
 【Interactions & Effects】
 - Card hover: translateY(-4px) + border glow + box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15)

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { useTutorial } from './TutorialProvider';
 import { TutorialIcons } from './icons';
 import { tutorialSteps, getTotalSteps } from './tutorialSteps';
@@ -7,13 +7,7 @@ import { tutorialSteps, getTotalSteps } from './tutorialSteps';
 export function TutorialUI() {
   const {
     isActive,
-    currentStep,
-    currentStepIndex,
-    completedSteps,
-    nextStep,
-    skipStep,
-    skipToComplete,
-    exitTutorial
+    currentStep
   } = useTutorial();
 
   if (!isActive) return null;
@@ -182,7 +176,7 @@ function TutorialCard() {
 
 // Modal 弹窗
 function TutorialModal() {
-  const { currentStep, nextStep, skipStep, skipToComplete, exitTutorial, restartTutorial } = useTutorial();
+  const { currentStep, nextStep, skipToComplete, exitTutorial, restartTutorial } = useTutorial();
   const [dontShowAgain, setDontShowAgain] = useState(false);
 
   const handlePrimaryClick = () => {

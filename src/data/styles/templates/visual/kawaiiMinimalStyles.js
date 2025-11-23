@@ -4,7 +4,7 @@
 
 export const kawaiiMinimalStyles = [
   {
-    id: 'kawaii-minimal',
+    id: 'visual-kawaiiMinimal',
     title: 'styles.visual.kawaii-minimal.title',
     description: 'styles.visual.kawaii-minimal.description',
     demoHTML: `

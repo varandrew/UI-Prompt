@@ -22,7 +22,8 @@ export default {
     "advanced": "高级",
     "interactive": "互动特效",
     "inputEnhanced": "输入增强",
-    "specialViews": "特殊视图"
+    "specialViews": "特殊视图",
+    "visualEffects": "视觉特效"
   },
   "header": {
     "appName": "UI Design Prompt",
@@ -61,7 +62,10 @@ export default {
     "cancel": "取消",
     "backToGallery": "返回画廊",
     "loadFailed": "载入失败，请稍后重试。",
-    "variantsCount": "共 {count} 个变体示例"
+    "variantsCount": "共 {count} 个变体示例",
+    "new": "新增",
+    "updated": "已更新",
+    "lastUpdated": "最近更新"
   },
   "toast": {
     "copied": "已复制到剪贴板",
@@ -162,7 +166,17 @@ export default {
     "copy": "复制",
     "close": "关闭",
     "confirm": "确定",
-    "cancel": "取消"
+    "cancel": "取消",
+    "editCode": "编辑代码"
+  },
+  "codeEditor": {
+    "fullCode": "完整代码",
+    "toggleLayout": "切换布局",
+    "toggleTheme": "切换主题",
+    "reset": "重置",
+    "download": "下载",
+    "html": "HTML",
+    "css": "CSS"
   },
   "filter": {
     "title": "筛选",
@@ -308,10 +322,6 @@ export default {
           "description": "自动完成搜索组件，支持智能建议和键盘导航",
           "title": "自动完成搜索"
         },
-        "multi-select": {
-          "description": "多选下拉组件，用于从列表中选择多个选项",
-          "title": "多选"
-        },
         "tags-input": {
           "description": "标签输入组件，用于添加和管理多个标签或标签",
           "title": "标签输入"
@@ -423,6 +433,28 @@ export default {
           },
           "description": "模态对话框组件，用于在覆盖窗口中显示内容，具有多种样式变体",
           "title": "模态对话框"
+        },
+        "reaction-picker": {
+          "title": "表情反应选择器",
+          "description": "社交互动表情选择器，支持多种设计风格",
+          "variants": {
+            "material-design": {
+              "name": "Material Design",
+              "description": "Google 设计规范，圆润卡片"
+            },
+            "glassmorphism": {
+              "name": "玻璃态",
+              "description": "半透明毛玻璃效果"
+            },
+            "neumorphism": {
+              "name": "新拟态",
+              "description": "柔和浮雕效果"
+            },
+            "minimalism": {
+              "name": "极简主义",
+              "description": "简洁黑白设计"
+            }
+          }
         }
       },
       "dataDisplay": {
@@ -537,6 +569,32 @@ export default {
           },
           "description": "统计卡片组件，用于显示关键指标和数值数据",
           "title": "统计卡片"
+        },
+        "animated-counter": {
+          "title": "动画计数器",
+          "description": "数字滚动计数器，支持多种动画效果",
+          "variants": {
+            "minimalism": {
+              "name": "极简主义",
+              "description": "简洁数字滚动，注重排版和留白"
+            },
+            "skeuomorphism": {
+              "name": "拟物化",
+              "description": "翻页效果计数器，真实质感"
+            },
+            "material-design": {
+              "name": "Material Design",
+              "description": "Google 设计规范，彩色卡片"
+            },
+            "terminal-cli": {
+              "name": "Terminal CLI",
+              "description": "终端命令行风格，系统状态显示"
+            },
+            "cyberpunk": {
+              "name": "赛博朋克",
+              "description": "霓虹发光数字，未来科技感"
+            }
+          }
         },
         "data-visualization": {
           "variants": {
@@ -807,6 +865,34 @@ export default {
           },
           "description": "导览组件，用于通过分步演练引导用户",
           "title": "导览"
+        },
+        "comparison-slider": {
+          "title": "Before/After 对比滑塊",
+          "description": "圖片對比滑塊，支持拖拽和觸摸操作",
+          "variants": {
+            "minimalism": {
+              "name": "极简主义",
+              "description": "细线分割器，黑白对比，简洁交互"
+            },
+            "skeuomorphism": {
+              "name": "拟物化",
+              "description": "3D 滑块把手，真实质感，立体阴影"
+            },
+            "cyberpunk": {
+              "name": "赛博朋克",
+              "description": "霓虹发光分割线，未来感手柄"
+            }
+          }
+        },
+        "image-magnifier": {
+          "title": "图片放大镜",
+          "description": "鼠标悬停图片放大效果",
+          "variants": {
+            "universal": {
+              "name": "通用版本",
+              "description": "适用于所有场景的图片放大镜"
+            }
+          }
         }
       },
       "navigation": {
@@ -1197,6 +1283,34 @@ export default {
           "description": "维护模式组件，用于在系统维护期间显示维护页面",
           "title": "维护模式"
         }
+      },
+      "visualEffects": {
+        "confetti-effects": {
+          "title": "五彩纸屑效果",
+          "description": "庆祝和成功反馈的动画特效，支持多种设计风格",
+          "variants": {
+            "minimalism": {
+              "name": "极简主义",
+              "description": "黑白简约纸屑，几何形状，注重留白"
+            },
+            "material-design": {
+              "name": "Material Design",
+              "description": "Google Material 色板，流畅动画，强调层级"
+            },
+            "neo-brutalism": {
+              "name": "新粗野主义",
+              "description": "大胆色块，高对比度，强烈视觉冲击"
+            },
+            "glassmorphism": {
+              "name": "玻璃态",
+              "description": "半透明柔和纸屑，模糊效果，飘逸感"
+            },
+            "cyberpunk": {
+              "name": "赛博朋克",
+              "description": "霓虹发光纸屑，未来感，强烈对比"
+            }
+          }
+        }
       }
     }
   },
@@ -1213,9 +1327,6 @@ export default {
       "searchFrameworks": "搜索技术框架...",
       "javaScriptLibrary": "JavaScript UI 库",
       "progressiveFramework": "渐进式框架"
-    },
-    "multiselect": {
-      "addOrSearchSkills": "添加或搜索技能..."
     },
     "tags": {
       "inputLabel": "输入标签名称，按回车创建..."
@@ -1241,7 +1352,6 @@ export default {
         "title": "擬物化",
         "description": "模拟真实世界物体的纹理、阴影和质感，创造出逼真的数位介面元素。",
         "colorScheme": "霓虹粉紫 (#FF71CE)、霓虹蓝 (#01CDFE)、霓虹紫 (#B967FF)、暗紫背景 (#2E1F47)",
-
         "techCorpHomepage": {
           "title": "科技公司主页",
           "description": "模拟专业科技设备的金属与玻璃质感，展示现代科技公司的企业形象"
@@ -1264,7 +1374,6 @@ export default {
             "memories": "旅行回忆"
           }
         },
-
         "preview": {
           "techCompany": "科技公司官网",
           "homeOffice": "数字工作室",
@@ -1548,14 +1657,20 @@ export default {
       },
       "terminal-cli": {
         "title": "终端 CLI",
+        "description": "受终端和命令行界面启发的设计，采用等宽字体和复古美学。",
         "colorScheme": "主色深灰黑背景 (#1e1e1e, #252526 / VS Code Dark+)、青色 (#4EC9B0 / 命令提示符)、藍色 (#569cd6 / 路徑关鍵字)、黃色 (#dcdcaa / 警告)、紫色 (#c586c0 / 變量)、紅色 (#f48771 / 错誤)、次色灰白文字 (#cccccc)、边框灰 (#424242)"
       },
       "duotone": {
         "title": "双色调",
-        "colorScheme": "主色黑色 (#000000)、青色 (#00d9ff / Cyan-400, #22d3ee / Cyan-400)、次色深紫 (#581c87 / Purple-900)、深粉 (#831843 / Pink-900)、淺色調 (#a78bfa / Purple-400, #f472b6 / Pink-400)"
+        "description": "使用两种对比色创造戏剧性视觉冲击的双色调配色方案。",
+        "colorScheme": "主色黑色 (#000000)、青色 (#00d9ff / Cyan-400, #22d3ee / Cyan-400)、次色深紫 (#581c87 / Purple-900)、深粉 (#831843 / Pink-900)、淺色調 (#a78bfa / Purple-400, #f472b6 / Pink-400)",
+        "preview": {
+          "description": "全页双色调设计展示，具有双色渐变效果。"
+        }
       },
       "liquid-blob": {
         "title": "液态流体",
+        "description": "液态斑点形状，具有流动动画和有机变形效果。",
         "colorScheme": "主色藍紫粉漸變 (#3b82f6 / Blue-500, #8b5cf6 / Purple-500, #ec4899 / Pink-500)、次色靛藍 (#6366f1 / Indigo-500)、青色 (#22d3ee / Cyan-500)、背景淺色漸變 (#f9fafb / Gray-50, #e0e7ff / Indigo-100, #f3e8ff / Purple-50)、半透明白 (rgba(255,255,255,0.8))"
       },
       "bento-grids": {
@@ -1571,21 +1686,6 @@ export default {
           "creativeCodingShowcase": "创意编程展示台",
           "creativeCodingShowcaseDesc": "专业创意编程展示平台，展示生成艺术在商业设计、数据可视化、品牌创新等领域的实际应用，体现算法美学与实用性的完美结合"
         }
-      },
-      "terminal-cli": {
-        "title": "终端 CLI",
-        "description": "受终端和命令行界面启发的设计，采用等宽字体和复古美学。"
-      },
-      "duotone": {
-        "title": "双色调",
-        "preview": {
-          "description": "全页双色调设计展示，具有双色渐变效果。"
-        },
-        "description": "使用两种对比色创造戏剧性视觉冲击的双色调配色方案。"
-      },
-      "liquid-blob": {
-        "title": "液态流体",
-        "description": "液态斑点形状，具有流动动画和有机变形效果。"
       },
       "sci-fi-hud": {
         "title": "科幻 HUD",
@@ -1664,10 +1764,6 @@ export default {
         "title": "全息渐变",
         "description": "彩虹色谱，动态色相旋转，未来感光效"
       },
-      "duotone": {
-        "title": "双色调",
-        "description": "两色渐变叠加，高对比配色，复古海报感"
-      },
       "colorTransition": {
         "title": "色彩过渡",
         "description": "平滑色彩流动，多停靠点渐变，和谐过渡"
@@ -1724,7 +1820,7 @@ export default {
         "title": "纹理质感",
         "description": "使用 CSS 渐变、滤镜和图案创造各种材质纹理效果"
       },
-      "clay": {
+      "clayTexture": {
         "title": "黏土质感",
         "description": "柔和 3D，双重阴影，黏土材质"
       },
@@ -1807,6 +1903,8 @@ export default {
         "colorScheme": "主色深黑 (#0a0a0a, #1a1a1a)、次色藍色 (#3b82f6 / Blue-500)、綠色 (#10b981 / Green-500)、强调色紫色 (#8b5cf6 / Purple-500)、紅色 (#ef4444 / Red-500)、灰色調 (#2a2a2a, #9ca3af, #6b7280)"
       },
       "brutalism": {
+        "title": "新粗野主义",
+        "description": "新粗野主义设计，具有大胆色彩、粗边框和原始几何形状。",
         "colorScheme": "主色黑色 (#000000)、白色 (#ffffff)、強調色紅色 (#ff0000)、次色淺灰 (#cccccc)、深灰 (#f5f5f5)",
         "preview": {
           "projectManagement": "项目管理看板",
@@ -1829,16 +1927,6 @@ export default {
         "description": "实用优先的设计理念，最小化自定义 CSS，专注于功能性 Tailwind 类。",
         "colorScheme": "主色白色 (#ffffff)、黑色 (#000000)、次色淺灰 (#f9fafb / Gray-50)、边框灰 (#d1d5db / Gray-300)、文本灰 (#6b7280 / Gray-500)、藍紫漸變強調色 (#3b82f6 to #9333ea)"
       },
-      "brutalism": {
-        "title": "新粗野主义",
-        "colorScheme": "主色黑色 (#000000)、白色 (#ffffff)、強調色紅色 (#ff0000)、次色淺灰 (#cccccc)、深灰 (#f5f5f5)",
-        "preview": {
-          "projectManagement": "项目管理看板",
-          "projectManagementDesc": "展示項目卡片、進度條、狀態标籤、截止日期、团隊活動時間軸、提交記录、用戶頭像、表單組件、数据表格等",
-          "developerWorkspace": "开发者工作空间",
-          "developerWorkspaceDesc": "代碼編輯器界面、終端命令窗口、Git 提交時間軸、API 調試工具、文件樹导航、系統監控面板、快捷鍵卡片、狀態指示灯"
-        }
-      },
       "outlineStyle": {
         "title": "线条风格",
         "description": "通过线条勾勒形状，简洁专业，强调极简主义和清晰的视觉层次",
@@ -1860,8 +1948,6 @@ export default {
     "typography": {
       "title": "排版驱动设计",
       "description": "通过文字本身的视觉表现力传达信息的设计风格，强调字体选择、层级系统和排版节奏。",
-
-      // ========== Kinetic 子家族 ==========
       "kinetic": {
         "kineticTypography": {
           "title": "动态文字排版",
@@ -1869,8 +1955,6 @@ export default {
           "colorScheme": "霓虹渐变：蓝紫 (#667eea) → 深紫 (#764ba2)，背景：纯黑 (#000000)"
         }
       },
-
-      // ========== Editorial 子家族 ==========
       "editorial": {
         "newspaperEditorial": {
           "title": "报纸编辑风格",
@@ -1882,15 +1966,11 @@ export default {
     "retro": {
       "title": "复古艺术风格",
       "description": "复古与艺术启发风格，跨越不同时代的设计美学",
-
-      // ========== Art Deco Family (装饰艺术) ==========
       "artDeco": {
         "title": "装饰艺术",
         "description": "1920-1930年代奢华风格，几何图案与金色装饰",
         "colorScheme": "装饰金 (#D4AF37)、深蓝宝石 (#357ABD)、黑色 (#1A1A1A)、琥珀黄 (#FFA500)"
       },
-
-      // ========== Vintage Newspaper Retro Family (复古报纸) ==========
       "vintageNewspaperRetro": {
         "title": "复古报纸",
         "description": "印刷时代美学，报纸排版 + 纸张质感 + 咖啡渍装饰",
@@ -1899,8 +1979,6 @@ export default {
           "description": "传统报纸设计，包含多栏布局、复古字体、旧化纸张纹理和经典印刷美学"
         }
       },
-
-      // ========== Retro OS Family (复古操作系统) ==========
       "retroOS": {
         "title": "复古操作系统",
         "description": "Windows 95/98 操作系统，CRT 显示器 + 桌面 UI + 像素图标",
@@ -1909,8 +1987,6 @@ export default {
           "description": "Windows 95/98 风格界面，经典桌面操作系统"
         }
       },
-
-      // ========== Retro Futurism Family (复古未来主义) ==========
       "retroFuturism": {
         "title": "复古未来主义",
         "description": "1980年代 DOS 终端，磷光文字 + ASCII 艺术 + 扫描线效果",
@@ -1919,8 +1995,6 @@ export default {
           "description": "1980年代 DOS 终端风格，黑客美学"
         }
       },
-
-      // ========== Digital Retro Family (数位复古) ==========
       "digitalRetro": {
         "title": "数位复古",
         "description": "数位时代复古美学，融合80-90年代电脑图形与现代设计",
@@ -1933,8 +2007,6 @@ export default {
           }
         }
       },
-
-      // ========== Dark Academia Family (暗黑学院) ==========
       "darkAcademia": {
         "title": "暗黑学院",
         "description": "古典图书馆美学，深色调 + 羊皮纸质感 + 烛光氛围",
@@ -1944,8 +2016,6 @@ export default {
           "demoText": "知识的殿堂"
         }
       },
-
-      // ========== Frutiger Aero Family (Frutiger Aero) ==========
       "frutigerAero": {
         "title": "Frutiger Aero",
         "description": "Y2K 未来主义，玻璃质感 + 水晶气泡 + 天空蓝渐变",
@@ -1954,8 +2024,6 @@ export default {
           "description": "Windows Vista/7 风格玻璃质感界面"
         }
       },
-
-      // ========== Swiss Design Family (瑞士设计) ==========
       "swissDesign": {
         "title": "瑞士设计",
         "description": "现代主义网格系统，Helvetica + 极简配色 + 数学精确",
@@ -1964,8 +2032,6 @@ export default {
           "description": "1950s 瑞士设计美学，理性与秩序"
         }
       },
-
-      // ========== 现有风格 (已在代码中使用) ==========
       "classic": {
         "title": "复古经典",
         "description": "经典复古报纸风格，褐色调与复古排版",
@@ -2131,7 +2197,7 @@ export default {
         "colorScheme": "蓝色主色 (#2563EB)、灰色背景 (#F9FAFB)、白色 (#FFFFFF)、中性灰 (#6B7280)"
       }
     },
-    "additional": {
+    "additionalColorSchemes": {
       "liminal-space": {
         "colorScheme": "深灰基調 (#1a1d24, #2c3038)、霓虹粉紅 (#ff006a)、霓虹青藍 (#00ffcc)、灰色文字 (#5f6472, #8a8f9e)",
         "preview": {
@@ -2146,7 +2212,7 @@ export default {
         }
       }
     },
-    "mouseTracking": {
+    "mouseTrackingColorScheme": {
       "colorScheme": "深灰黑背景 (#0A0A0A)、霓虹藍 (#60A5FA)、霓虹紫 (#A78BFA)、半透明發光效果"
     }
   },
@@ -2446,33 +2512,6 @@ export default {
         "featureList2": "智能遮罩高亮",
         "featureList3": "支持 ref 定位"
       }
-    },
-    "special": {
-      "noData": "暂无数据",
-      "noDataDesc": "您的项目列表还是空的，开始创建您的第一个项目吧！",
-      "createProject": "创建新项目",
-      "importTemplate": "导入模板",
-      "noResults": "未找到相关结果",
-      "noResultsDesc": "尝试使用其他关键词搜索，或浏览我们的分类",
-      "searchSuggestions": "搜索建议：",
-      "clearSearch": "清除搜索并重试",
-      "pageNotFound": "页面未找到",
-      "pageNotFoundDesc": "抱歉，您访问的页面不存在或已被移除。",
-      "tryOptions": "您可以尝试：",
-      "checkUrl": "检查网址是否正确",
-      "returnPrev": "返回上一页",
-      "contactAdmin": "联系网站管理员",
-      "returnHome": "返回首页",
-      "returnPrevPage": "返回上页",
-      "serverError": "服务器错误",
-      "serverErrorDesc": "抱歉，服务器遇到了问题，请稍后再试。",
-      "errorCode": "错误代码：",
-      "errorMessage": "错误信息：",
-      "monitoringFix": "我们正在监控并修复此问题。您可以：",
-      "refreshPage": "稍后重新刷新页面",
-      "checkStatus": "查看系统状态",
-      "contactSupport": "联系技术支持团队",
-      "reload": "重新载入"
     },
     "hover": {
       "minimalism": {
@@ -2775,14 +2814,12 @@ export default {
     },
     "input": {
       "name": "姓名",
-      "addOrSearchSkills": "Add or search skills...",
       "confirmPassword": "Confirm Password",
       "confirmPasswordPlaceholder": "Please confirm password",
       "email": "Email",
       "emailPlaceholder": "Please enter email address",
       "inputLabel": "Enter tag name, press Enter to create...",
       "javaScriptLibrary": "JavaScript UI Library",
-      "multiSelectSkills": "Multi-select Skills",
       "password": "Password",
       "passwordPlaceholder": "Please enter password",
       "phone": "Phone",
@@ -2792,20 +2829,10 @@ export default {
       "projectDescription": "Project Description",
       "richTextEditor": "Rich Text Editor",
       "searchFrameworks": "Search tech frameworks...",
-      "selectAll": "Select All",
       "smartSearch": "Smart Search",
       "startEditing": "Start editing content...",
       "tagManagement": "Tag Management",
       "viewAll": "View All",
-      "optionalSkills": "Optional Skills:",
-      "html": "HTML",
-      "css": "CSS",
-      "nodejs": "Node.js",
-      "python": "Python",
-      "docker": "Docker",
-      "git": "Git",
-      "selectedSkills": "Selected 3 skills",
-      "clearAll": "ClearAll",
       "suggestedTags": "Suggested Tags",
       "react": "React",
       "vuejs": "Vue.js",
@@ -3075,6 +3102,128 @@ export default {
       "neonPlaceholder": "Enter command...",
       "waveLabel": "Wave Animation Input",
       "wavePlaceholder": "Focus to see wave effect..."
+    },
+    "confetti": {
+      "minimalism": {
+        "title": "极简纸屑",
+        "subtitle": "简约黑白设计",
+        "simple": "纯粹",
+        "geometric": "几何",
+        "monochrome": "单色"
+      },
+      "material": {
+        "title": "Material 纸屑",
+        "subtitle": "Google 设计规范",
+        "primary": "主色调",
+        "success": "成功",
+        "colorful": "多彩"
+      },
+      "brutal": {
+        "title": "粗野纸屑",
+        "subtitle": "大胆视觉冲击",
+        "explosion": "爆炸",
+        "chaos": "混沌",
+        "mega": "超级"
+      },
+      "glass": {
+        "title": "玻璃纸屑",
+        "subtitle": "柔和半透明",
+        "soft": "柔和",
+        "pastel": "粉彩",
+        "ethereal": "飘逸"
+      },
+      "cyberpunk": {
+        "title": "赛博纸屑",
+        "subtitle": "霓虹未来",
+        "neon": "霓虹",
+        "glitch": "故障",
+        "matrix": "矩阵"
+      }
+    },
+    "comparisonSlider": {
+      "minimalism": {
+        "title": "极简对比",
+        "subtitle": "拖拽滑块查看前后对比",
+        "before": "之前",
+        "after": "之后"
+      },
+      "skeuomorphism": {
+        "title": "拟物对比",
+        "subtitle": "真实3D滑块效果",
+        "before": "原始",
+        "after": "优化"
+      },
+      "cyberpunk": {
+        "title": "赛博对比",
+        "subtitle": "霓虹发光分割线",
+        "before": "未改造",
+        "after": "已改造"
+      }
+    },
+    "animatedCounter": {
+      "minimalism": {
+        "title": "极简计数器",
+        "subtitle": "简洁数字动画",
+        "users": "用户",
+        "projects": "项目",
+        "revenue": "收入"
+      },
+      "skeuomorphism": {
+        "title": "拟物计数器",
+        "subtitle": "翻页数字效果",
+        "downloads": "下载量",
+        "sales": "销售额",
+        "satisfaction": "满意度"
+      },
+      "material": {
+        "title": "Material 计数器",
+        "subtitle": "彩色统计卡片",
+        "members": "成员",
+        "completed": "已完成",
+        "active": "活跃",
+        "rating": "评分"
+      },
+      "terminal": {
+        "title": "终端计数器",
+        "subtitle": "系统状态监控",
+        "refreshing": "实时刷新中..."
+      },
+      "cyberpunk": {
+        "title": "赛博计数器",
+        "subtitle": "未来数据面板",
+        "neural": "神经网络",
+        "quantum": "量子处理",
+        "cyber": "赛博连接",
+        "matrix": "矩阵节点"
+      }
+    },
+    "reactionPicker": {
+      "material": {
+        "title": "Material 反应",
+        "subtitle": "悬停查看更多反应",
+        "postText": "这是一条精彩的内容！点击下方图标查看更多反应选项。"
+      },
+      "glass": {
+        "title": "玻璃态反应",
+        "subtitle": "半透明交互效果",
+        "postText": "体验毛玻璃风格的表情反应选择器。"
+      },
+      "neomorph": {
+        "title": "新拟态反应",
+        "subtitle": "柔和浮雕交互",
+        "postText": "享受柔和的新拟态设计表情选择器。"
+      },
+      "minimalism": {
+        "title": "极简反应",
+        "subtitle": "简洁交互设计",
+        "postText": "最简单直接的表情反应选择方式。"
+      }
+    },
+    "imageMagnifier": {
+      "title": "图片放大镜",
+      "subtitle": "鼠标移动查看放大效果",
+      "circle": "圆形放大镜",
+      "square": "方形放大镜"
     }
   },
   "aiDemo": {
@@ -3399,7 +3548,4 @@ export default {
     }
   },
   "artGalleryNFT": {}
-}
-
-// Newspaper Typography 报纸排版家族翻译补充
-// 添加到 styles.core 对象中
+};

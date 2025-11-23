@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import DOMPurify from 'dompurify';
 
 import { useLanguage } from '../../hooks/useLanguage';
@@ -72,7 +72,7 @@ export function PreviewModal({
   const [isLoadingPreview, setIsLoadingPreview] = useState(false);
 
   // Normalize previews to a stable array reference to avoid effect loops
-  const previewsList = Array.isArray(previews) ? previews : [];
+  const previewsList = useMemo(() => Array.isArray(previews) ? previews : [], [previews]);
   const previewsKey = `${previewsList.length}:${previewsList.map(p => p?.id ?? '').join('|')}`;
 
   // 將資料中的 Markdown 章節标記 (如 "## 配色方案") 做最小轉換，並清理純文字色彩說明，避免在預覽中显示
@@ -110,13 +110,13 @@ export function PreviewModal({
   };
 
   // 找到第一個 full 类型預覽的索引作為默認值
-  const getDefaultIndex = () => {
+  const getDefaultIndex = useCallback(() => {
     if (previewsList && previewsList.length > 0) {
       const firstFullIndex = previewsList.findIndex(p => p.type === 'full');
       return firstFullIndex >= 0 ? firstFullIndex : 0;
     }
     return 0;
-  };
+  }, [previewsList]);
 
   const [activeIndex, setActiveIndex] = useState(getDefaultIndex());
 
@@ -149,7 +149,7 @@ export function PreviewModal({
       setPreviewContent(null);
       setIsLoadingPreview(false);
     }
-  }, [isOpen, activeIndex, fullPagePreviewId, previewsKey]);
+  }, [isOpen, activeIndex, fullPagePreviewId, previewsKey, previewsList]);
 
   // 當打開或預覽內容集合變化時重置索引与載入狀態
   useEffect(() => {
@@ -157,7 +157,7 @@ export function PreviewModal({
       setActiveIndex(getDefaultIndex());
       setIsLoading(true);
     }
-  }, [isOpen, previewsKey]);
+  }, [isOpen, previewsKey, getDefaultIndex]);
 
   // 切換預覽索引時，先显示 Loading 覆蓋，待 iframe onLoad 再关閉
   useEffect(() => {

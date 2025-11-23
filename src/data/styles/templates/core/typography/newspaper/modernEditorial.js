@@ -1,10 +1,8 @@
 // Modern Newspaper Editorial Typography - Classic Editorial Layout Style
 // 现代报纸编辑排版 - 经典编辑布局风格
 
-import {
-  modernEditorialFullPageHTML,
-  modernEditorialFullPageStyles
-} from './modernEditorialFullPage';
+// Note: Full page exports are used in preview system but not directly imported
+// They are loaded dynamically by the preview loader system
 
 export const modernEditorialTemplates = [
   {

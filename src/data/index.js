@@ -9,11 +9,7 @@ const EMPTY_ARRAY = Object.freeze([]);
 
 // 导入風格数据 (只使用 7 個核心分类)
 import {
-  visualTemplateStyles,
-  name as visualName,
-  demoUI as visualDemoUI,
-  customStyles as visualCustomStyles,
-  description as visualDescription
+  visualTemplateStyles
 } from './styles/templates/visual';
 import {
   layoutTemplateStyles
@@ -37,6 +33,7 @@ import { advancedComponents } from './components/advancedComponents';
 import { inputComponents } from './components/inputComponents';
 import { interactiveComponents } from './components/interactiveComponents';
 import { specialComponents } from './components/specialComponents';
+import { visualEffectsComponents } from './components/visualEffectsComponents';
 
 // 导入标籤增強系統 (新路徑: metadata/)
 import { enhanceStyles } from './metadata/styleTagsMapping';
@@ -97,17 +94,17 @@ const createFamilyCard = (familyId, name, demoUI, customStyles, description, cus
 };
 
 // 創建分类首卡（用於展示該分类的 demo UI）
-const createCategoryCard = (categoryId, name, demoUI, customStyles, description) => {
-  return {
-    id: `${categoryId}-demo`,
-    title: name,
-    description: description,
-    demoHTML: demoUI,
-    customStyles: customStyles,
-    // 标記為分类首卡
-    isCategoryCard: true,
-  };
-};
+// const createCategoryCard = (categoryId, name, demoUI, customStyles, description) => {
+//   return {
+//     id: `${categoryId}-demo`,
+//     title: name,
+//     description: description,
+//     demoHTML: demoUI,
+//     customStyles: customStyles,
+//     // 标記為分类首卡
+//     isCategoryCard: true,
+//   };
+// };
 
 // 將 core templates 依「设計流派」聚合為核心卡片
 // 使用資料結構來简化創建過程
@@ -239,6 +236,13 @@ export const componentCategories = [
     path: '/components/special',
     data: specialComponents,
     icon: ''
+  },
+  {
+    id: 'visualEffects',
+    key: 'visualEffects',
+    path: '/components/visual-effects',
+    data: visualEffectsComponents,
+    icon: '✨'
   }
 ];
 

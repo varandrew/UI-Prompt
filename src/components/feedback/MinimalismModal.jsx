@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 /**
@@ -47,7 +47,7 @@ export function MinimalismModal({
 
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
-  }, [open]);
+  }, [open, handleCancel]);
 
   // 焦點陷阱
   useEffect(() => {
@@ -101,15 +101,15 @@ export function MinimalismModal({
     };
   }, [open]);
 
-  const handleCancel = () => {
+  const handleCancel = useCallback(() => {
     onCancel?.();
     onOpenChange?.(false);
-  };
+  }, [onCancel, onOpenChange]);
 
-  const handleConfirm = () => {
+  const handleConfirm = useCallback(() => {
     onConfirm?.();
     onOpenChange?.(false);
-  };
+  }, [onConfirm, onOpenChange]);
 
   const handleOverlayClick = (e) => {
     // 點擊遮罩层关閉（不包括 Modal 內容区域）

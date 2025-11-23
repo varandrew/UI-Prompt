@@ -1,9 +1,7 @@
 // Single template: Skeuomorphism — Vintage Library Landing (compact)
 // Attach full-page preview via existing module.
-import {
-  vintageLibraryFullPageHTML,
-  vintageLibraryFullPageStyles,
-} from './skeuomorphismVintageLibraryFullPage'
+// Note: Full page exports are used in preview system but not directly imported
+// They are loaded dynamically by the preview loader system
 export const vintageLibraryLanding = {
   id: 'core-skeuomorphism-vintage-library-landing',
   title: 'styles.core.skeuomorphism.vintageLibraryLanding.title',

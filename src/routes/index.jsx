@@ -41,6 +41,36 @@ export const router = createBrowserRouter([
     }
   },
 
+  // 代碼編輯器页面路由 (不使用主 Layout)
+  {
+    path: '/styles/code/:styleId',
+    lazy: async () => {
+      const [{ CodeEditorPage }, { RouteError }] = await Promise.all([
+        import('../pages/styles/CodeEditorPage'),
+        import('../components/RouteError')
+      ]);
+
+      return {
+        Component: CodeEditorPage,
+        ErrorBoundary: RouteError,
+        loader: async ({ params }) => {
+          const { decodeStyleId, findStyleById } = await import('../utils/styleHelper');
+          const styleId = decodeStyleId(params.styleId);
+          const style = findStyleById(styleId);
+
+          if (!style) {
+            throw new Response('风格不存在', {
+              status: 404,
+              statusText: 'Not Found'
+            });
+          }
+
+          return { style };
+        }
+      };
+    }
+  },
+
   // 主應用路由
   {
     path: '/',

@@ -61,11 +61,11 @@ export const musicPlayerCustomPrompt = {
 
 2. 背景漸變
    - 推薦配色：
-     ```css
+     \`\`\`css
      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-     ```
+     \`\`\`
 
 3. 浮動圓球配色
    - 圓球 1：rgba(255, 110, 196, 0.4) - 粉色
@@ -89,10 +89,10 @@ export const musicPlayerCustomPrompt = {
 2. 邊框系統
    - 主卡片：border: 1px solid rgba(255, 255, 255, 0.2)
    - 邊框可使用漸變效果：
-     ```css
+     \`\`\`css
      border-top: 1px solid rgba(255, 255, 255, 0.25);
      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-     ```
+     \`\`\`
 
 3. 陰影層次
    - 浮動卡片：box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
@@ -109,42 +109,42 @@ export const musicPlayerCustomPrompt = {
 【交互與動效】
 1. Hover 狀態
    - 卡片：
-     ```css
+     \`\`\`css
      .glass-card:hover {
        background: rgba(255, 255, 255, 0.15);
        transform: translateY(-4px);
        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
        transition: all 0.3s ease;
      }
-     ```
+     \`\`\`
    - 按鈕：
-     ```css
+     \`\`\`css
      .glass-button:hover {
        background: rgba(255, 255, 255, 0.25);
        transform: scale(1.05);
        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
      }
-     ```
+     \`\`\`
 
 2. Active / Focus 狀態
    - 按鈕按下：
-     ```css
+     \`\`\`css
      .glass-button:active {
        transform: scale(0.98);
        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
      }
-     ```
+     \`\`\`
    - 輸入框聚焦：
-     ```css
+     \`\`\`css
      .glass-input:focus {
        border-color: rgba(255, 255, 255, 0.4);
        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
      }
-     ```
+     \`\`\`
 
 3. 載入與動畫
    - 浮動圓球動畫：
-     ```css
+     \`\`\`css
      @keyframes float {
        0%, 100% { transform: translate(0, 0) scale(1); }
        25% { transform: translate(20px, -30px) scale(1.05); }
@@ -154,15 +154,15 @@ export const musicPlayerCustomPrompt = {
      .orb {
        animation: float 20s ease-in-out infinite;
      }
-     ```
+     \`\`\`
    - 進度條動畫：
-     ```css
+     \`\`\`css
      .progress-bar {
        transition: width 0.3s ease;
      }
-     ```
+     \`\`\`
    - 等化器條狀圖：
-     ```css
+     \`\`\`css
      @keyframes pulse {
        0%, 100% { height: 20%; }
        50% { height: 80%; }
@@ -170,7 +170,7 @@ export const musicPlayerCustomPrompt = {
      .equalizer-bar {
        animation: pulse 0.8s ease-in-out infinite;
      }
-     ```
+     \`\`\`
 
 【完整組件範例】
 
@@ -413,11 +413,11 @@ Keep the semi-transparent glass cards, background blur, floating colored orbs, s
 
 2. Background Gradient
    - Recommended colors:
-     ```css
+     \`\`\`css
      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-     ```
+     \`\`\`
 
 3. Floating Orb Colors
    - Orb 1: rgba(255, 110, 196, 0.4) - pink
@@ -441,10 +441,10 @@ Keep the semi-transparent glass cards, background blur, floating colored orbs, s
 2. Border System
    - Main card: border: 1px solid rgba(255, 255, 255, 0.2)
    - Gradient borders:
-     ```css
+     \`\`\`css
      border-top: 1px solid rgba(255, 255, 255, 0.25);
      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-     ```
+     \`\`\`
 
 3. Shadow Hierarchy
    - Floating cards: box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
@@ -461,42 +461,42 @@ Keep the semi-transparent glass cards, background blur, floating colored orbs, s
 [Interaction and Motion]
 1. Hover State
    - Cards:
-     ```css
+     \`\`\`css
      .glass-card:hover {
        background: rgba(255, 255, 255, 0.15);
        transform: translateY(-4px);
        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
        transition: all 0.3s ease;
      }
-     ```
+     \`\`\`
    - Buttons:
-     ```css
+     \`\`\`css
      .glass-button:hover {
        background: rgba(255, 255, 255, 0.25);
        transform: scale(1.05);
        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
      }
-     ```
+     \`\`\`
 
 2. Active / Focus State
    - Button press:
-     ```css
+     \`\`\`css
      .glass-button:active {
        transform: scale(0.98);
        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
      }
-     ```
+     \`\`\`
    - Input focus:
-     ```css
+     \`\`\`css
      .glass-input:focus {
        border-color: rgba(255, 255, 255, 0.4);
        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
      }
-     ```
+     \`\`\`
 
 3. Loading and Animations
    - Floating orb animation:
-     ```css
+     \`\`\`css
      @keyframes float {
        0%, 100% { transform: translate(0, 0) scale(1); }
        25% { transform: translate(20px, -30px) scale(1.05); }
@@ -506,7 +506,7 @@ Keep the semi-transparent glass cards, background blur, floating colored orbs, s
      .orb {
        animation: float 20s ease-in-out infinite;
      }
-     ```
+     \`\`\`
 
 [Complete Component Examples]
 

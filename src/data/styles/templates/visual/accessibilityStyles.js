@@ -602,7 +602,7 @@ body.user-is-tabbing *:focus {
 
 export const accessibilityStyles = [
   {
-    id: 'accessibilityHighContrast',
+    id: 'modern-accessibility-high-contrast',
     title: 'styles.accessibilityHighContrast.title',
     description: 'styles.accessibilityHighContrast.description',
     demoHTML: `

@@ -3,7 +3,7 @@ import { TerminalDemo } from './TerminalDemo';
 import { LivePreview } from './LivePreview';
 // useLanguage 未使用
 
-export function AIPromptDemo(props) {
+export function AIPromptDemo() {
   // 語言上下文目前未在此組件中使用
   const [totalProgress, setTotalProgress] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);

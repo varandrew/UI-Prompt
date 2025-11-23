@@ -539,6 +539,47 @@ export const styleEnhancements = {
       'core-skeuomorphism',
       'visual-texture-clay'
     ]
+  },
+
+  // --- Layout 系列補充：打破常規網格 / 分屏 / 瀑布流 ---
+  brokenGrid: {
+    primaryCategory: 'layout',
+    categories: ['layout', 'visual'],
+    // 打破常規網格：強對比、幾何與實驗性
+    tags: ['contemporary', 'bold', 'geometric', 'experimental', 'creative'],
+    relatedStyles: ['visual-tech-bento-grids', 'maximalism', 'visual-neo-brutalism']
+  },
+  splitScreen: {
+    primaryCategory: 'layout',
+    categories: ['layout'],
+    // 分屏佈局：強對比 A/B 結構，常用於方案對比與雙入口
+    tags: ['contemporary', 'minimal', 'geometric', 'enterprise', 'saas'],
+    relatedStyles: ['visual-tech-bento-grids', 'accessibility-high-contrast', 'core-minimalism']
+  },
+  masonry: {
+    primaryCategory: 'layout',
+    categories: ['layout', 'visual'],
+    // 瀑布流佈局：作品集 / 卡片集合用，偏創意內容展示
+    tags: ['contemporary', 'colorful', 'creative', 'content'],
+    relatedStyles: ['visual-scrollNarrative', 'visual-gradient-mesh-gradient', 'maximalism']
+  },
+
+  // --- Retro 系列補充：街機 CRT 家族卡片 ---
+  'retro-arcadeCRT': {
+    primaryCategory: 'retro',
+    categories: ['retro', 'digital'],
+    // 家族總覽卡片：與 arcadeCRT 模板保持一致標籤
+    tags: ['retro', 'neon', 'effectDriven', 'gaming', 'creative'],
+    relatedStyles: ['retro-digital-arcadeCRT', 'retro-arcadeCRT-arcade-hall', 'retro-arcadeCRT-cyberpunk-control']
+  },
+
+  // --- Interaction 系列補充：鼠標追蹤互動 ---
+  'interaction-mouse-tracking': {
+    primaryCategory: 'interaction',
+    categories: ['interaction', 'visual'],
+    // 鼠標追蹤 + 粒子 + 3D 視差
+    tags: ['contemporary', 'motionBased', 'effectDriven', 'gaming', 'creative'],
+    relatedStyles: ['visual-scrollNarrative', 'visual-tech-generative-art', 'visual-tech-sci-fi-hud']
   }
 };
 

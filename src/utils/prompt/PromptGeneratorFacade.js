@@ -3,7 +3,6 @@
  * 提供簡化的 API，隱藏內部複雜性
  */
 
-import { PromptContext, createVariantContext, createStyleContext } from './PromptContext';
 import { buildResolverChain } from './PromptResolver';
 
 /**
@@ -23,15 +22,12 @@ export class PromptGeneratorFacade {
    */
   generate(options) {
     try {
-      // 創建上下文對象（類型安全）
-      const context = new PromptContext(options);
-
       // 使用解析器鏈查找 Prompt
-      const prompt = this.resolverChain.resolve(context);
+      const prompt = this.resolverChain.resolve(options);
 
       if (!prompt) {
         console.warn('[PromptGeneratorFacade] ⚠️ No prompt found, this should not happen (fallback should always return)');
-        return this.getEmergencyFallback(context);
+        return this.getEmergencyFallback(options);
       }
 
       return prompt;

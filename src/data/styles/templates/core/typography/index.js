@@ -829,6 +829,8 @@ export const customStyles = `
 
 // 导入子模板
 import { kineticTypographyTemplates } from './kinetic/kineticTypography.js';
+// Note: newspaperEditorialTemplates is commented out but kept for future use
+// eslint-disable-next-line no-unused-vars
 import { newspaperEditorialTemplates } from './editorial/newspaperEditorial.js';
 
 // 聚合所有子模板

@@ -6,7 +6,9 @@ import { FilterBar } from '../../components/filter/FilterBar';
 import { useLanguage } from '../../hooks/useLanguage';
 import { applyFilters, applyTranslationsToCategories } from '../../utils/categoryHelper';
 import { loadStyleCategories } from '../../data/components/loaders';
- 
+// 🆕 模板元數據（用於篩選新增/更新的模板）
+import templateMetadata from '../../data/metadata/templateMetadata.json';
+
 
 /**
  * AllStylesPage - 统一风格页面 (增強版)
@@ -25,7 +27,10 @@ export function AllStylesPage() {
     matchMode: 'any'
   });
 
-  
+  // 🆕 元數據篩選模式：'all' | 'new' | 'updated'
+  const [filterMode, setFilterMode] = useState('all');
+
+
 
   // 載入分类資料（動態 import），仅在本页需要時載入風格資料
   useEffect(() => {
@@ -73,10 +78,26 @@ export function AllStylesPage() {
     });
   }, [language, categories]);
 
-  // 應用篩選邏輯
+  // 應用篩選邏輯（包含元數據篩選）
   const filteredStyles = useMemo(() => {
-    return applyFilters(allStyles, filters);
-  }, [allStyles, filters]);
+    let styles = allStyles;
+
+    // 🆕 根據 filterMode 進行元數據篩選
+    if (filterMode === 'new') {
+      styles = styles.filter(style => {
+        const metadata = templateMetadata?.templates?.[style.id];
+        return metadata && metadata.isNew === true;
+      });
+    } else if (filterMode === 'updated') {
+      styles = styles.filter(style => {
+        const metadata = templateMetadata?.templates?.[style.id];
+        return metadata && metadata.changeType === 'updated';
+      });
+    }
+
+    // 再應用其他篩選條件（keyword, categories, tags）
+    return applyFilters(styles, filters);
+  }, [allStyles, filters, filterMode]);
 
   // 分页 + 虛擬化參数与切片
   // eslint-disable-next-line no-unused-vars

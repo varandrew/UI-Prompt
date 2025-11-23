@@ -52,10 +52,10 @@ export class PromptResolver {
   /**
    * 子類實現的查找邏輯
    * @abstract
-   * @param {PromptContext} context - Prompt 上下文
+   * @param {Object} context - Prompt 上下文
    * @returns {string|null} - 找到的 Prompt 或 null
    */
-  tryResolve(context) {
+  tryResolve(context) { // eslint-disable-line no-unused-vars
     throw new Error(`${this.constructor.name} must implement tryResolve()`);
   }
 }

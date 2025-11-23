@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import DOMPurify from 'dompurify';
 import { useLoaderData, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -44,7 +44,6 @@ export function StylePreviewPage() {
     // 新增：支援以 ID 動態載入完整页面預覽
     fullPagePreviewId = '',
     previews = [],
-    colorScheme = null,
     variant = null
   } = style;
 
@@ -85,13 +84,13 @@ export function StylePreviewPage() {
   };
 
   // 找到第一個 full 类型預覽的索引作為默認值
-  const getDefaultIndex = () => {
+  const getDefaultIndex = useCallback(() => {
     if (previewsList && previewsList.length > 0) {
       const firstFullIndex = previewsList.findIndex(p => p.type === 'full');
       return firstFullIndex >= 0 ? firstFullIndex : 0;
     }
     return 0;
-  };
+  }, [previewsList]);
 
   // 重置預覽索引，並從 URL 參數讀取初始索引
   useEffect(() => {
@@ -107,7 +106,7 @@ export function StylePreviewPage() {
       setActiveIndex(getDefaultIndex());
     }
     setIsLoading(true);
-  }, [style.id, previewsList, searchParams]);
+  }, [style.id, previewsList, searchParams, getDefaultIndex]);
 
   // 預覽切換時，显示 Loading 視覺（避免先渲染到回退內容）
   useEffect(() => {
@@ -391,7 +390,7 @@ export function StylePreviewPage() {
       console.error('[StylePreviewPage] Error stack:', error.stack);
       return '';
     }
-  }, [style, language, activeIndex]);
+  }, [style, language, activeIndex, t]);
 
   // 獲取當前預覽對象（供其他代碼使用）
   const currentPreview = previewsList && previewsList.length > 0 ? previewsList[activeIndex] : null;
@@ -425,29 +424,59 @@ export function StylePreviewPage() {
       <div className="fixed inset-0 z-50 bg-white flex flex-col">
         {!isFullPageMode && (
           <header className="border-b p-4 flex flex-col md:flex-row justify-between items-start md:items-center bg-white gap-3 md:gap-2">
-            <h3 className="text-lg font-semibold flex items-center gap-2">
-              {t('preview.header', { title: displayTitle })}
-              {/* 右側僅顯示圖示的「新頁面預覽」入口 */}
-              {!isReactPreview && (
-                <button
-                  type="button"
-                  onClick={handleOpenFullPageWindow}
-                  className="inline-flex items-center justify-center text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                  title={t('ui.openInNewPage')}
-                  aria-label={t('ui.openInNewPage')}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+            {/* 移動版：標題和關閉按鈕在同一行 */}
+            <div className="flex items-center justify-between w-full md:w-auto">
+              <h3 className="text-lg font-semibold flex items-center gap-2">
+                {t('preview.header', { title: displayTitle })}
+                {/* 右側僅顯示圖示的「新頁面預覽」入口 */}
+                {!isReactPreview && (
+                  <button
+                    type="button"
+                    onClick={handleOpenFullPageWindow}
+                    className="inline-flex items-center justify-center text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                    title={t('ui.openInNewPage')}
+                    aria-label={t('ui.openInNewPage')}
                   >
-                    <path d="M11 3a1 1 0 100 2h2.586L8.293 10.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </button>
-              )}
-            </h3>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M11 3a1 1 0 100 2h2.586L8.293 10.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                    </svg>
+                  </button>
+                )}
+              </h3>
+              {/* 移動版關閉按鈕（顯示在標題右側） */}
+              <div
+                onClick={() => window.close()}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.close();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                className="md:hidden cursor-pointer flex items-center justify-center"
+                aria-label={t('buttons.close')}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
             <div className="flex flex-col md:flex-row gap-3 md:gap-2 items-stretch md:items-center w-full md:w-auto">
               {/* 預覽選擇器 */}
               {hasMultiplePreviews(previewsList) && (
@@ -461,6 +490,18 @@ export function StylePreviewPage() {
                 </div>
               )}
               <div className="flex gap-2">
+                {/* Edit Code 按鈕 */}
+                {!isReactPreview && (
+                  <button
+                    onClick={() => {
+                      const codeUrl = `/styles/code/${encodeURIComponent(style.id)}${activeIndex > 0 ? `?previewIndex=${activeIndex}` : ''}`;
+                      window.open(codeUrl, '_blank');
+                    }}
+                    className="flex-1 md:flex-none px-4 py-2 text-sm rounded border hover:bg-gray-100 transition-colors"
+                  >
+                    {t('buttons.editCode') || 'Edit Code'}
+                  </button>
+                )}
                 <button
                   onClick={() => {
                     console.log('[StylePreviewPage] AI Prompt button clicked:', {
@@ -476,6 +517,7 @@ export function StylePreviewPage() {
                 >
                   {t('buttons.prompt')}
                 </button>
+                {/* 桌面版關閉按鈕（在移動版隱藏） */}
                 <div
                   onClick={() => window.close()}
                   onKeyDown={(e) => {
@@ -486,7 +528,7 @@ export function StylePreviewPage() {
                   }}
                   role="button"
                   tabIndex={0}
-                  className="cursor-pointer flex items-center justify-center"
+                  className="hidden md:flex cursor-pointer items-center justify-center"
                   aria-label={t('buttons.close')}
                 >
                   <svg

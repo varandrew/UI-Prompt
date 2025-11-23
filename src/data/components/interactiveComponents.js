@@ -2594,6 +2594,442 @@ demoHTML: `
         reactComponent: TourGuideDemo
       }
     ]
+  },
+
+  // Comparison Slider - Before/After 圖片對比滑塊
+  {
+    id: 'comparison-slider',
+    title: 'data.components.interactive.comparison-slider.title',
+    description: 'data.components.interactive.comparison-slider.description',
+    variants: [
+      {
+        id: 'minimalism',
+        name: 'data.components.interactive.comparison-slider.variants.minimalism.name',
+        description: 'data.components.interactive.comparison-slider.variants.minimalism.description',
+        demoHTML: `
+          <div class="w-full max-w-3xl mx-auto p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.comparisonSlider.minimalism.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.comparisonSlider.minimalism.subtitle}}</p>
+
+              <div class="comparison-container-min relative w-full aspect-video bg-gray-100 rounded-lg overflow-hidden cursor-col-resize" id="comparisonMin">
+                <!-- Before Image (底層) -->
+                <div class="absolute inset-0 flex items-center justify-center bg-gray-900 text-white">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 mx-auto mb-4 stroke-current opacity-40" fill="none" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <p class="font-light text-sm uppercase tracking-wider">{{t:demo.comparisonSlider.minimalism.before}}</p>
+                  </div>
+                </div>
+
+                <!-- After Image (上層，通過 clip-path 裁剪) -->
+                <div class="absolute inset-0 flex items-center justify-center bg-white text-gray-900 after-layer" id="afterLayerMin" style="clip-path: inset(0 50% 0 0);">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 mx-auto mb-4 stroke-current opacity-40" fill="none" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-light text-sm uppercase tracking-wider">{{t:demo.comparisonSlider.minimalism.after}}</p>
+                  </div>
+                </div>
+
+                <!-- 分隔線 -->
+                <div class="absolute top-0 bottom-0 w-px bg-black divider" id="dividerMin" style="left: 50%;">
+                  <!-- 拖拽手柄 -->
+                  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                    <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                      <path d="M8.59 16.59L4 12l4.59-4.59L10 6l-6 6 6 6-1.41 1.41z" transform="translate(10,0)"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            (function() {
+              const container = document.getElementById('comparisonMin');
+              const afterLayer = document.getElementById('afterLayerMin');
+              const divider = document.getElementById('dividerMin');
+              let isDragging = false;
+
+              function updatePosition(x) {
+                const rect = container.getBoundingClientRect();
+                let position = ((x - rect.left) / rect.width) * 100;
+                position = Math.max(0, Math.min(100, position));
+
+                afterLayer.style.clipPath = \`inset(0 \${100 - position}% 0 0)\`;
+                divider.style.left = position + '%';
+              }
+
+              container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updatePosition(e.clientX);
+              });
+
+              document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                  updatePosition(e.clientX);
+                }
+              });
+
+              document.addEventListener('mouseup', () => {
+                isDragging = false;
+              });
+
+              // 觸摸支持
+              container.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updatePosition(e.touches[0].clientX);
+              });
+
+              document.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                  e.preventDefault();
+                  updatePosition(e.touches[0].clientX);
+                }
+              }, { passive: false });
+
+              document.addEventListener('touchend', () => {
+                isDragging = false;
+              });
+            })();
+          </script>
+        `,
+        customStyles: `
+          .comparison-container-min {
+            user-select: none;
+          }
+        `
+      },
+      {
+        id: 'skeuomorphism',
+        name: 'data.components.interactive.comparison-slider.variants.skeuomorphism.name',
+        description: 'data.components.interactive.comparison-slider.variants.skeuomorphism.description',
+        demoHTML: `
+          <div class="w-full max-w-3xl mx-auto p-6">
+            <div class="bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl shadow-2xl p-8">
+              <h3 class="font-bold text-2xl mb-2 text-gray-800" style="text-shadow: 1px 1px 2px rgba(255,255,255,0.8)">
+                {{t:demo.comparisonSlider.skeuomorphism.title}}
+              </h3>
+              <p class="text-gray-700 mb-8 text-sm">{{t:demo.comparisonSlider.skeuomorphism.subtitle}}</p>
+
+              <div class="comparison-container-skeuo relative w-full aspect-video rounded-lg overflow-hidden cursor-col-resize" id="comparisonSkeuo" style="box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.2);">
+                <!-- Before Image -->
+                <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-amber-800 to-amber-900 text-amber-100">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 mx-auto mb-4 fill-current opacity-60" viewBox="0 0 24 24">
+                      <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <p class="font-semibold text-sm uppercase tracking-wider" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">{{t:demo.comparisonSlider.skeuomorphism.before}}</p>
+                  </div>
+                </div>
+
+                <!-- After Image -->
+                <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-blue-100 after-layer" id="afterLayerSkeuo" style="clip-path: inset(0 50% 0 0);">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 mx-auto mb-4 fill-current opacity-60" viewBox="0 0 24 24">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-semibold text-sm uppercase tracking-wider" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">{{t:demo.comparisonSlider.skeuomorphism.after}}</p>
+                  </div>
+                </div>
+
+                <!-- 3D 分隔線 -->
+                <div class="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-gray-300 via-white to-gray-300 divider-skeuo" id="dividerSkeuo" style="left: 50%; box-shadow: -2px 0 4px rgba(0,0,0,0.3), 2px 0 4px rgba(0,0,0,0.3);">
+                  <!-- 3D 拖拽手柄 -->
+                  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #4c63d2 100%); box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.2);">
+                    <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24" style="filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));">
+                      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                      <path d="M8.59 16.59L4 12l4.59-4.59L10 6l-6 6 6 6-1.41 1.41z" transform="translate(10,0)"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            (function() {
+              const container = document.getElementById('comparisonSkeuo');
+              const afterLayer = document.getElementById('afterLayerSkeuo');
+              const divider = document.getElementById('dividerSkeuo');
+              let isDragging = false;
+
+              function updatePosition(x) {
+                const rect = container.getBoundingClientRect();
+                let position = ((x - rect.left) / rect.width) * 100;
+                position = Math.max(0, Math.min(100, position));
+
+                afterLayer.style.clipPath = \`inset(0 \${100 - position}% 0 0)\`;
+                divider.style.left = position + '%';
+              }
+
+              container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updatePosition(e.clientX);
+              });
+
+              document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                  updatePosition(e.clientX);
+                }
+              });
+
+              document.addEventListener('mouseup', () => {
+                isDragging = false;
+              });
+
+              container.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updatePosition(e.touches[0].clientX);
+              });
+
+              document.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                  e.preventDefault();
+                  updatePosition(e.touches[0].clientX);
+                }
+              }, { passive: false });
+
+              document.addEventListener('touchend', () => {
+                isDragging = false;
+              });
+            })();
+          </script>
+        `,
+        customStyles: `
+          .comparison-container-skeuo {
+            user-select: none;
+          }
+        `
+      },
+      {
+        id: 'cyberpunk',
+        name: 'data.components.interactive.comparison-slider.variants.cyberpunk.name',
+        description: 'data.components.interactive.comparison-slider.variants.cyberpunk.description',
+        demoHTML: `
+          <div class="w-full max-w-3xl mx-auto p-6">
+            <div class="bg-black rounded-lg border-2 border-cyan-500 p-8" style="box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);">
+              <h3 class="font-black text-2xl mb-2 text-cyan-400 uppercase" style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);">
+                {{t:demo.comparisonSlider.cyberpunk.title}}
+              </h3>
+              <p class="text-purple-300 mb-8 text-sm font-bold">{{t:demo.comparisonSlider.cyberpunk.subtitle}}</p>
+
+              <div class="comparison-container-cyber relative w-full aspect-video rounded-lg overflow-hidden cursor-col-resize border-2 border-purple-500" id="comparisonCyber" style="box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);">
+                <!-- Before Image -->
+                <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-900 to-black text-purple-300">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 mx-auto mb-4 stroke-current stroke-2" fill="none" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.6));">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <p class="font-black text-sm uppercase tracking-widest" style="text-shadow: 0 0 8px rgba(255, 0, 255, 0.8);">{{t:demo.comparisonSlider.cyberpunk.before}}</p>
+                  </div>
+                </div>
+
+                <!-- After Image -->
+                <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-cyan-900 to-black text-cyan-300 after-layer" id="afterLayerCyber" style="clip-path: inset(0 50% 0 0);">
+                  <div class="text-center">
+                    <svg class="w-24 h-24 mx-auto mb-4 stroke-current stroke-2" fill="none" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="font-black text-sm uppercase tracking-widest" style="text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);">{{t:demo.comparisonSlider.cyberpunk.after}}</p>
+                  </div>
+                </div>
+
+                <!-- 發光分隔線 -->
+                <div class="absolute top-0 bottom-0 w-1 divider-cyber" id="dividerCyber" style="left: 50%; background: linear-gradient(to bottom, rgba(0, 255, 255, 0), rgba(0, 255, 255, 1), rgba(0, 255, 255, 0)); box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.4);">
+                  <!-- 發光手柄 -->
+                  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-2 border-cyan-400 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3)); box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 10px rgba(255, 0, 255, 0.4);">
+                    <svg class="w-8 h-8 fill-cyan-300" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 4px rgba(0, 255, 255, 1));">
+                      <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                      <path d="M8.59 16.59L4 12l4.59-4.59L10 6l-6 6 6 6-1.41 1.41z" transform="translate(10,0)"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            (function() {
+              const container = document.getElementById('comparisonCyber');
+              const afterLayer = document.getElementById('afterLayerCyber');
+              const divider = document.getElementById('dividerCyber');
+              let isDragging = false;
+
+              function updatePosition(x) {
+                const rect = container.getBoundingClientRect();
+                let position = ((x - rect.left) / rect.width) * 100;
+                position = Math.max(0, Math.min(100, position));
+
+                afterLayer.style.clipPath = \`inset(0 \${100 - position}% 0 0)\`;
+                divider.style.left = position + '%';
+              }
+
+              container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updatePosition(e.clientX);
+              });
+
+              document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                  updatePosition(e.clientX);
+                }
+              });
+
+              document.addEventListener('mouseup', () => {
+                isDragging = false;
+              });
+
+              container.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updatePosition(e.touches[0].clientX);
+              });
+
+              document.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                  e.preventDefault();
+                  updatePosition(e.touches[0].clientX);
+                }
+              }, { passive: false });
+
+              document.addEventListener('touchend', () => {
+                isDragging = false;
+              });
+            })();
+          </script>
+        `,
+        customStyles: `
+          .comparison-container-cyber {
+            user-select: none;
+          }
+        `
+      }
+    ]
+  },
+
+  // Image Magnifier - 图片放大镜
+  {
+    id: 'image-magnifier',
+    title: 'data.components.interactive.image-magnifier.title',
+    description: 'data.components.interactive.image-magnifier.description',
+    variants: [
+      {
+        id: 'universal',
+        name: 'data.components.interactive.image-magnifier.variants.universal.name',
+        description: 'data.components.interactive.image-magnifier.variants.universal.description',
+        demoHTML: `
+          <div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.imageMagnifier.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.imageMagnifier.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Circle Magnifier -->
+                <div>
+                  <p class="text-sm text-gray-600 mb-2 font-light">{{t:demo.imageMagnifier.circle}}</p>
+                  <div class="magnifier-container" id="magnifier1">
+                    <div class="aspect-square bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center text-6xl relative overflow-hidden">
+                      <div class="absolute inset-0 bg-grid opacity-20"></div>
+                      🎨
+                    </div>
+                    <div class="magnifier-lens" id="lens1"></div>
+                  </div>
+                </div>
+
+                <!-- Square Magnifier -->
+                <div>
+                  <p class="text-sm text-gray-600 mb-2 font-light">{{t:demo.imageMagnifier.square}}</p>
+                  <div class="magnifier-container" id="magnifier2">
+                    <div class="aspect-square bg-gradient-to-br from-green-100 to-teal-100 rounded-lg flex items-center justify-center text-6xl relative overflow-hidden">
+                      <div class="absolute inset-0 bg-grid opacity-20"></div>
+                      🖼️
+                    </div>
+                    <div class="magnifier-lens square" id="lens2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function setupMagnifier(containerId, lensId) {
+              const container = document.getElementById(containerId);
+              const lens = document.getElementById(lensId);
+              const target = container.querySelector('div');
+
+              container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Position lens
+                lens.style.left = x - lens.offsetWidth / 2 + 'px';
+                lens.style.top = y - lens.offsetHeight / 2 + 'px';
+                lens.style.opacity = '1';
+
+                // Calculate background position for zoom effect
+                const bgX = (x / rect.width) * 100;
+                const bgY = (y / rect.height) * 100;
+                lens.style.backgroundPosition = \`\${bgX}% \${bgY}%\`;
+              });
+
+              container.addEventListener('mouseleave', () => {
+                lens.style.opacity = '0';
+              });
+
+              container.addEventListener('mouseenter', () => {
+                lens.style.backgroundImage = window.getComputedStyle(target).backgroundImage;
+              });
+            }
+
+            setupMagnifier('magnifier1', 'lens1');
+            setupMagnifier('magnifier2', 'lens2');
+          </script>
+        `,
+        customStyles: `
+          .magnifier-container {
+            position: relative;
+            cursor: crosshair;
+            overflow: visible;
+          }
+
+          .magnifier-lens {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            background: white;
+            background-size: 200%;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
+                        inset 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+          }
+
+          .magnifier-lens.square {
+            border-radius: 8px;
+          }
+
+          .bg-grid {
+            background-image:
+              linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+          }
+        `
+      }
+    ]
   }
 
 ];
