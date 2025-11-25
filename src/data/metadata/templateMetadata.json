@@ -227,17 +227,12 @@
     },
     "core-typography-newspaper": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-21T21:22:46+08:00",
       "createdAt": "2025-11-19T15:15:17+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "a9a5de8",
+      "lastCommitMessage": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明",
       "changeHistory": [
-        {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
         {
           "date": "2025-11-21T21:22:46+08:00",
           "commitHash": "a9a5de8",
@@ -732,27 +727,12 @@
     },
     "layout": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-19T15:15:17+08:00",
       "createdAt": "2025-11-19T15:15:17+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "01979cf",
+      "lastCommitMessage": "init project",
       "changeHistory": [
-        {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
-        {
-          "date": "2025-11-23T03:54:34+08:00",
-          "commitHash": "3a08825",
-          "message": "💫 ui: enhance visual style templates with improved demos and prompts"
-        },
-        {
-          "date": "2025-11-21T21:22:46+08:00",
-          "commitHash": "a9a5de8",
-          "message": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明"
-        },
         {
           "date": "2025-11-19T15:15:17+08:00",
           "commitHash": "01979cf",
@@ -1192,22 +1172,12 @@
     },
     "retro-swissDesign": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-19T15:15:17+08:00",
       "createdAt": "2025-11-19T15:15:17+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "01979cf",
+      "lastCommitMessage": "init project",
       "changeHistory": [
-        {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
-        {
-          "date": "2025-11-20T01:07:03+08:00",
-          "commitHash": "ee34d47",
-          "message": "🔧 chore: update style configurations and metadata"
-        },
         {
           "date": "2025-11-19T15:15:17+08:00",
           "commitHash": "01979cf",
@@ -1317,17 +1287,12 @@
     },
     "visual": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-21T21:22:46+08:00",
       "createdAt": "2025-11-19T15:15:17+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "a9a5de8",
+      "lastCommitMessage": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明",
       "changeHistory": [
-        {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
         {
           "date": "2025-11-21T21:22:46+08:00",
           "commitHash": "a9a5de8",
@@ -1942,12 +1907,17 @@
     },
     "visual-handDrawnSketch": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-26T01:16:31+08:00",
       "createdAt": "2025-11-20T01:06:40+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "8c3f1ab",
+      "lastCommitMessage": "feat: add dark mode theme switcher and UI improvements",
       "changeHistory": [
+        {
+          "date": "2025-11-26T01:16:31+08:00",
+          "commitHash": "8c3f1ab",
+          "message": "feat: add dark mode theme switcher and UI improvements"
+        },
         {
           "date": "2025-11-24T03:42:56+08:00",
           "commitHash": "a0c5d22",
@@ -1972,12 +1942,17 @@
     },
     "landing-page": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-26T01:16:31+08:00",
       "createdAt": "2025-11-20T01:06:40+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "8c3f1ab",
+      "lastCommitMessage": "feat: add dark mode theme switcher and UI improvements",
       "changeHistory": [
+        {
+          "date": "2025-11-26T01:16:31+08:00",
+          "commitHash": "8c3f1ab",
+          "message": "feat: add dark mode theme switcher and UI improvements"
+        },
         {
           "date": "2025-11-24T03:42:56+08:00",
           "commitHash": "a0c5d22",
@@ -2002,12 +1977,17 @@
     },
     "components": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-26T01:16:31+08:00",
       "createdAt": "2025-11-20T01:06:40+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "8c3f1ab",
+      "lastCommitMessage": "feat: add dark mode theme switcher and UI improvements",
       "changeHistory": [
+        {
+          "date": "2025-11-26T01:16:31+08:00",
+          "commitHash": "8c3f1ab",
+          "message": "feat: add dark mode theme switcher and UI improvements"
+        },
         {
           "date": "2025-11-24T03:42:56+08:00",
           "commitHash": "a0c5d22",
@@ -2102,17 +2082,12 @@
     },
     "visual-kinetic": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-21T21:22:46+08:00",
       "createdAt": "2025-11-19T15:15:17+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "a9a5de8",
+      "lastCommitMessage": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明",
       "changeHistory": [
-        {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
         {
           "date": "2025-11-21T21:22:46+08:00",
           "commitHash": "a9a5de8",
@@ -2528,7 +2503,7 @@
     "neo-brutalism": {
       "isNew": true,
       "updatedAt": "2025-11-24T03:42:56+08:00",
-      "createdAt": "2025-11-19T15:15:17+08:00",
+      "createdAt": "2025-11-24T03:42:56+08:00",
       "changeType": "new",
       "lastCommitHash": "a0c5d22",
       "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
@@ -2537,16 +2512,6 @@
           "date": "2025-11-24T03:42:56+08:00",
           "commitHash": "a0c5d22",
           "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
-        {
-          "date": "2025-11-21T21:22:46+08:00",
-          "commitHash": "a9a5de8",
-          "message": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明"
-        },
-        {
-          "date": "2025-11-19T15:15:17+08:00",
-          "commitHash": "01979cf",
-          "message": "init project"
         }
       ]
     },
@@ -2992,16 +2957,16 @@
     },
     "visual-scrollNarrative": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-21T21:22:46+08:00",
       "createdAt": "2025-11-19T15:15:17+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "a9a5de8",
+      "lastCommitMessage": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明",
       "changeHistory": [
         {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
+          "date": "2025-11-21T21:22:46+08:00",
+          "commitHash": "a9a5de8",
+          "message": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明"
         },
         {
           "date": "2025-11-19T15:15:17+08:00",
@@ -3337,17 +3302,12 @@
     },
     "visual-translucent-glassmorphism": {
       "isNew": true,
-      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "updatedAt": "2025-11-23T03:54:24+08:00",
       "createdAt": "2025-11-23T03:54:24+08:00",
       "changeType": "new",
-      "lastCommitHash": "a0c5d22",
-      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
+      "lastCommitHash": "14337e8",
+      "lastCommitMessage": "✨ feat: add Claymation style and expand Glassmorphism templates",
       "changeHistory": [
-        {
-          "date": "2025-11-24T03:42:56+08:00",
-          "commitHash": "a0c5d22",
-          "message": "✨ feat: add metadata system, code editor, and UI improvements"
-        },
         {
           "date": "2025-11-23T03:54:24+08:00",
           "commitHash": "14337e8",
@@ -3777,31 +3737,31 @@
     },
     "material-design": {
       "isNew": true,
-      "updatedAt": "2025-11-23T15:27:12.710Z",
-      "createdAt": "2025-11-23T15:27:12.710Z",
+      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "createdAt": "2025-11-24T03:42:56+08:00",
       "changeType": "new",
-      "lastCommitHash": "new-fil",
-      "lastCommitMessage": "New file (no commit yet)",
+      "lastCommitHash": "a0c5d22",
+      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
       "changeHistory": [
         {
-          "date": "2025-11-23T15:27:12.710Z",
-          "commitHash": "new-fil",
-          "message": "New file (no commit yet)"
+          "date": "2025-11-24T03:42:56+08:00",
+          "commitHash": "a0c5d22",
+          "message": "✨ feat: add metadata system, code editor, and UI improvements"
         }
       ]
     },
     "glassmorphism": {
       "isNew": true,
-      "updatedAt": "2025-11-23T15:27:12.730Z",
-      "createdAt": "2025-11-23T15:27:12.730Z",
+      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "createdAt": "2025-11-24T03:42:56+08:00",
       "changeType": "new",
-      "lastCommitHash": "new-fil",
-      "lastCommitMessage": "New file (no commit yet)",
+      "lastCommitHash": "a0c5d22",
+      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
       "changeHistory": [
         {
-          "date": "2025-11-23T15:27:12.730Z",
-          "commitHash": "new-fil",
-          "message": "New file (no commit yet)"
+          "date": "2025-11-24T03:42:56+08:00",
+          "commitHash": "a0c5d22",
+          "message": "✨ feat: add metadata system, code editor, and UI improvements"
         }
       ]
     },
@@ -4067,16 +4027,16 @@
     },
     "minimalism": {
       "isNew": true,
-      "updatedAt": "2025-11-23T15:27:13.149Z",
-      "createdAt": "2025-11-23T15:27:13.149Z",
+      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "createdAt": "2025-11-24T03:42:56+08:00",
       "changeType": "new",
-      "lastCommitHash": "new-fil",
-      "lastCommitMessage": "New file (no commit yet)",
+      "lastCommitHash": "a0c5d22",
+      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
       "changeHistory": [
         {
-          "date": "2025-11-23T15:27:13.149Z",
-          "commitHash": "new-fil",
-          "message": "New file (no commit yet)"
+          "date": "2025-11-24T03:42:56+08:00",
+          "commitHash": "a0c5d22",
+          "message": "✨ feat: add metadata system, code editor, and UI improvements"
         }
       ]
     },
@@ -4277,16 +4237,16 @@
     },
     "cyberpunk": {
       "isNew": true,
-      "updatedAt": "2025-11-23T15:27:13.402Z",
-      "createdAt": "2025-11-23T15:27:13.402Z",
+      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "createdAt": "2025-11-24T03:42:56+08:00",
       "changeType": "new",
-      "lastCommitHash": "new-fil",
-      "lastCommitMessage": "New file (no commit yet)",
+      "lastCommitHash": "a0c5d22",
+      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
       "changeHistory": [
         {
-          "date": "2025-11-23T15:27:13.402Z",
-          "commitHash": "new-fil",
-          "message": "New file (no commit yet)"
+          "date": "2025-11-24T03:42:56+08:00",
+          "commitHash": "a0c5d22",
+          "message": "✨ feat: add metadata system, code editor, and UI improvements"
         }
       ]
     },
@@ -4562,6 +4522,46 @@
           "date": "2025-11-21T21:22:46+08:00",
           "commitHash": "a9a5de8",
           "message": "♻️ refactor: 統一內容格式並擴充 customPrompt 說明"
+        },
+        {
+          "date": "2025-11-19T15:15:17+08:00",
+          "commitHash": "01979cf",
+          "message": "init project"
+        }
+      ]
+    },
+    "coming-soon": {
+      "isNew": true,
+      "updatedAt": "2025-11-26T01:16:31+08:00",
+      "createdAt": "2025-11-19T15:15:17+08:00",
+      "changeType": "new",
+      "lastCommitHash": "8c3f1ab",
+      "lastCommitMessage": "feat: add dark mode theme switcher and UI improvements",
+      "changeHistory": [
+        {
+          "date": "2025-11-26T01:16:31+08:00",
+          "commitHash": "8c3f1ab",
+          "message": "feat: add dark mode theme switcher and UI improvements"
+        },
+        {
+          "date": "2025-11-19T15:15:17+08:00",
+          "commitHash": "01979cf",
+          "message": "init project"
+        }
+      ]
+    },
+    "placeholder": {
+      "isNew": true,
+      "updatedAt": "2025-11-26T01:16:31+08:00",
+      "createdAt": "2025-11-19T15:15:17+08:00",
+      "changeType": "new",
+      "lastCommitHash": "8c3f1ab",
+      "lastCommitMessage": "feat: add dark mode theme switcher and UI improvements",
+      "changeHistory": [
+        {
+          "date": "2025-11-26T01:16:31+08:00",
+          "commitHash": "8c3f1ab",
+          "message": "feat: add dark mode theme switcher and UI improvements"
         },
         {
           "date": "2025-11-19T15:15:17+08:00",
@@ -5627,22 +5627,22 @@
     },
     "confetti-effects": {
       "isNew": true,
-      "updatedAt": "2025-11-23T15:27:14.827Z",
-      "createdAt": "2025-11-23T15:27:14.827Z",
+      "updatedAt": "2025-11-24T03:42:56+08:00",
+      "createdAt": "2025-11-24T03:42:56+08:00",
       "changeType": "new",
-      "lastCommitHash": "new-fil",
-      "lastCommitMessage": "New file (no commit yet)",
+      "lastCommitHash": "a0c5d22",
+      "lastCommitMessage": "✨ feat: add metadata system, code editor, and UI improvements",
       "changeHistory": [
         {
-          "date": "2025-11-23T15:27:14.827Z",
-          "commitHash": "new-fil",
-          "message": "New file (no commit yet)"
+          "date": "2025-11-24T03:42:56+08:00",
+          "commitHash": "a0c5d22",
+          "message": "✨ feat: add metadata system, code editor, and UI improvements"
         }
       ]
     }
   },
-  "lastUpdate": "2025-11-24T13:25:01.792Z",
-  "totalTemplates": 271,
-  "newTemplates": 271,
+  "lastUpdate": "2025-11-25T17:16:47.902Z",
+  "totalTemplates": 273,
+  "newTemplates": 273,
   "updatedTemplates": 0
 }
