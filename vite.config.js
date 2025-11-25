@@ -8,5 +8,16 @@ export default defineConfig(() => ({
   server: {
     host: '0.0.0.0',
     port: 1000,
+  },
+  // 構建配置：確保每次內容變化都生成新的 hash
+  build: {
+    rollupOptions: {
+      output: {
+        // 基於內容生成 hash，確保快取失效
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]'
+      }
+    }
   }
 }))
