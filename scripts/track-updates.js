@@ -19,6 +19,15 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// 導入共用函數
+import {
+  extractStyleId as extractStyleIdBase,
+  extractStyleIdFromPath,
+  getFileHistory,
+  isNewFile,
+  log
+} from './lib/metadata-utils.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -28,21 +37,6 @@ const TEMPLATES_DIRS = [
   'src/data/components'
 ];
 const METADATA_FILE = path.join(process.cwd(), 'src/data/metadata/templateMetadata.json');
-const NEW_THRESHOLD_DAYS = 7; // 7 天內的更新算「新增」
-
-// === 顏色輸出 ===
-const colors = {
-  reset: '\x1b[0m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  red: '\x1b[31m',
-  gray: '\x1b[90m'
-};
-
-function log(message, color = 'reset') {
-  console.log(`${colors[color]}${message}${colors.reset}`);
-}
 
 // === Git 操作函數 ===
 
@@ -81,140 +75,11 @@ function isTemplateFile(filePath) {
 }
 
 /**
- * 從模板文件中提取真實的 styleId
- *
- * 策略：
- * 1. 優先讀取文件內容，匹配 export const X = { id: 'xxx' }
- * 2. Fallback：基於路徑推測（舊邏輯）
- *
- * 範例：
- *   文件內容包含：export const glassmorphism = { id: 'visual-translucent-glassmorphism', ... }
- *   → 返回 'visual-translucent-glassmorphism'
+ * 從模板文件中提取 styleId（使用共用模組，返回單個值）
  */
 function extractStyleId(filePath) {
-  const absolutePath = path.join(process.cwd(), filePath);
-
-  // 檢查文件是否存在
-  if (!fs.existsSync(absolutePath)) {
-    log(`  ⚠️  File not found: ${filePath}`, 'yellow');
-    return extractStyleIdFromPath(filePath);
-  }
-
-  try {
-    // 讀取並預處理文件內容
-    const content = fs.readFileSync(absolutePath, 'utf-8')
-      .replace(/^\uFEFF/, '')                    // 移除 BOM
-      .replace(/\r\n/g, '\n')                    // 統一換行符
-      .replace(/\/\*[\s\S]*?\*\//g, '')          // 移除多行註釋
-      .replace(/\/\/.*/g, '');                   // 移除單行註釋
-
-    // 模式 1: Named export - export const X = { id: 'xxx', ... }
-    const namedMatch = content.match(
-      /export\s+const\s+\w+\s*=\s*\{[^}]*id:\s*['"]([^'"]+)['"]/s
-    );
-    if (namedMatch) {
-      return namedMatch[1];
-    }
-
-    // 模式 2: Default export - export default { id: 'xxx', ... }
-    const defaultMatch = content.match(
-      /export\s+default\s*\{[^}]*id:\s*['"]([^'"]+)['"]/s
-    );
-    if (defaultMatch) {
-      return defaultMatch[1];
-    }
-
-    // 模式 3: Aggregator 文件（家族級 index.js，無 id）
-    // 檢查是否有 export const name 和 export const demoUI（家族級特徵）
-    const isAggregator = /export\s+const\s+name\s*=/.test(content) &&
-                        /export\s+const\s+demoUI\s*=/.test(content);
-
-    if (isAggregator) {
-      // 家族級文件無 id，返回路徑 fallback
-      return extractStyleIdFromPath(filePath);
-    }
-
-    // Fallback：無法提取 id，使用路徑推測
-    log(`  ⚠️  No id found in ${filePath}, using path-based id`, 'yellow');
-    return extractStyleIdFromPath(filePath);
-
-  } catch (err) {
-    log(`  ❌ Error reading ${filePath}: ${err.message}`, 'red');
-    return extractStyleIdFromPath(filePath);
-  }
-}
-
-/**
- * 基於文件路徑推測 styleId（僅作 Fallback）
- *
- * 範例：
- *   src/data/styles/templates/visual/translucent/glassmorphism/index.js
- *   → visual-translucent-glassmorphism
- */
-function extractStyleIdFromPath(filePath) {
-  // 移除 src/data/styles/templates/ 前綴
-  let relativePath = filePath.replace(/^src\/data\/styles\/templates\//, '');
-
-  // 移除 src/data/components/ 前綴（組件文件）
-  relativePath = relativePath.replace(/^src\/data\/components\//, 'component-');
-
-  // 移除文件名（index.js, Demo.js 等）
-  const parts = relativePath.split('/');
-
-  // 如果是 index.js 或其他文件，取父級目錄路徑
-  if (parts[parts.length - 1].endsWith('.js') || parts[parts.length - 1].endsWith('.jsx')) {
-    parts.pop();
-  }
-
-  // 將路徑轉換為 styleId（用 - 連接）
-  const styleId = parts.join('-');
-
-  return styleId || null;
-}
-
-/**
- * 獲取文件的 Git 歷史
- * 返回格式：[{ hash, date, message }, ...]
- */
-function getFileHistory(filePath, maxCount = 10) {
-  try {
-    const logCommand = `git log --format="%H|%aI|%s" --follow -n ${maxCount} -- "${filePath}"`;
-    const output = execSync(logCommand, { encoding: 'utf-8' });
-
-    if (!output.trim()) {
-      // 如果沒有歷史記錄，可能是新文件
-      log(`  ℹ️  No Git history for: ${filePath}`, 'gray');
-      return [{
-        hash: 'new-file',
-        date: new Date().toISOString(),
-        message: 'New file (no commit yet)'
-      }];
-    }
-
-    const commits = output.split('\n').filter(Boolean).map(line => {
-      const [hash, date, message] = line.split('|');
-      return { hash, date, message };
-    });
-
-    return commits;
-  } catch (err) {
-    log(`  ⚠️  Error getting history for ${filePath}: ${err.message}`, 'yellow');
-    return [{
-      hash: 'error',
-      date: new Date().toISOString(),
-      message: 'Error getting history'
-    }];
-  }
-}
-
-/**
- * 判斷文件是否為「新增」（基於首次 commit 時間）
- */
-function isNewFile(createdAt) {
-  const created = new Date(createdAt);
-  const now = new Date();
-  const diffDays = (now - created) / (1000 * 60 * 60 * 24);
-  return diffDays <= NEW_THRESHOLD_DAYS;
+  const ids = extractStyleIdBase(filePath);
+  return ids && ids.length > 0 ? ids[0] : null;
 }
 
 /**

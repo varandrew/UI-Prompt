@@ -150,7 +150,7 @@ jobs:
               echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
               echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
               echo "| Total Templates | $TOTAL |" >> $GITHUB_STEP_SUMMARY
-              echo "| New Templates (≤7 days) | $NEW |" >> $GITHUB_STEP_SUMMARY
+              echo "| New Templates (≤3 days) | $NEW |" >> $GITHUB_STEP_SUMMARY
               echo "| Updated Templates | $UPDATED |" >> $GITHUB_STEP_SUMMARY
               echo "| Last Update | $LAST_UPDATE |" >> $GITHUB_STEP_SUMMARY
               echo "" >> $GITHUB_STEP_SUMMARY

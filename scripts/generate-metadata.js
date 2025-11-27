@@ -20,10 +20,19 @@
  *   node scripts/generate-metadata.js --full  # 強制完整掃描
  */
 
-import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+// 導入共用函數
+import {
+  extractStyleId,
+  extractStyleIdFromPath,
+  getFileHistory,
+  isNewFile,
+  log,
+  NEW_THRESHOLD_DAYS
+} from './lib/metadata-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,126 +43,11 @@ const TEMPLATES_DIRS = [
   'src/data/components'
 ];
 const METADATA_FILE = path.join(process.cwd(), 'src/data/metadata/templateMetadata.json');
-const NEW_THRESHOLD_DAYS = 7;
 
 // 從命令行參數判斷是否強制完整掃描
 const FORCE_FULL_SCAN = process.argv.includes('--full');
 
-// === 顏色輸出 ===
-const colors = {
-  reset: '\x1b[0m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  red: '\x1b[31m',
-  gray: '\x1b[90m',
-  cyan: '\x1b[36m'
-};
-
-function log(message, color = 'reset') {
-  console.log(`${colors[color]}${message}${colors.reset}`);
-}
-
 // === 文件掃描 ===
-
-/**
- * 從模板文件中提取真實的 styleId（支持數組格式）
- *
- * 策略：
- * 1. 優先讀取文件內容，匹配 export const X = { id: 'xxx' }
- * 2. 檢查數組格式：export const X = [ { id: 'a' }, { id: 'b' } ]
- * 3. Fallback：基於路徑推測（舊邏輯）
- *
- * 範例：
- *   文件內容包含：export const glassmorphism = { id: 'visual-translucent-glassmorphism', ... }
- *   → 返回 ['visual-translucent-glassmorphism']
- *
- *   文件內容包含：export const newTrendStyles = [ { id: 'maximalism' }, { id: 'corporate' } ]
- *   → 返回 ['maximalism', 'corporate']
- */
-function extractStyleId(filePath) {
-  const absolutePath = path.join(process.cwd(), filePath);
-
-  // 檢查文件是否存在
-  if (!fs.existsSync(absolutePath)) {
-    log(`  ⚠️  File not found: ${filePath}`, 'yellow');
-    return [extractStyleIdFromPath(filePath)];
-  }
-
-  try {
-    // 讀取並預處理文件內容
-    const content = fs.readFileSync(absolutePath, 'utf-8')
-      .replace(/^\uFEFF/, '')                    // 移除 BOM
-      .replace(/\r\n/g, '\n')                    // 統一換行符
-      .replace(/\/\*[\s\S]*?\*\//g, '')          // 移除多行註釋
-      .replace(/\/\/.*/g, '');                   // 移除單行註釋
-
-    // 模式 1: Named export - export const X = { id: 'xxx', ... }
-    const namedMatch = content.match(
-      /export\s+const\s+\w+\s*=\s*\{[^}]*id:\s*['"]([^'"]+)['"]/s
-    );
-    if (namedMatch) {
-      return [namedMatch[1]];
-    }
-
-    // 模式 2: Default export - export default { id: 'xxx', ... }
-    const defaultMatch = content.match(
-      /export\s+default\s*\{[^}]*id:\s*['"]([^'"]+)['"]/s
-    );
-    if (defaultMatch) {
-      return [defaultMatch[1]];
-    }
-
-    // 模式 3: Array export - export const X = [ { id: 'a' }, { id: 'b' } ]
-    const arrayMatch = content.match(/export\s+const\s+\w+\s*=\s*\[/);
-    if (arrayMatch) {
-      // 提取數組中所有的 id
-      const idMatches = content.matchAll(/id:\s*['"]([^'"]+)['"]/g);
-      const ids = Array.from(idMatches, match => match[1]);
-      if (ids.length > 0) {
-        return ids;
-      }
-    }
-
-    // 模式 4: Aggregator 文件（家族級 index.js，無 id）
-    // 檢查是否有 export const name 和 export const demoUI（家族級特徵）
-    const isAggregator = /export\s+const\s+name\s*=/.test(content) &&
-                        /export\s+const\s+demoUI\s*=/.test(content);
-
-    if (isAggregator) {
-      // 家族級文件無 id，返回路徑 fallback
-      return [extractStyleIdFromPath(filePath)];
-    }
-
-    // Fallback：無法提取 id，使用路徑推測
-    return [extractStyleIdFromPath(filePath)];
-
-  } catch {
-    return [extractStyleIdFromPath(filePath)];
-  }
-}
-
-/**
- * 基於文件路徑推測 styleId（僅作 Fallback）
- *
- * 範例：
- *   src/data/styles/templates/visual/translucent/glassmorphism/index.js
- *   → visual-translucent-glassmorphism
- */
-function extractStyleIdFromPath(filePath) {
-  let relativePath = filePath.replace(/^src\/data\/styles\/templates\//, '');
-  relativePath = relativePath.replace(/^src\/data\/components\//, 'component-');
-
-  const parts = relativePath.split('/');
-
-  // 移除文件名
-  if (parts[parts.length - 1].endsWith('.js') || parts[parts.length - 1].endsWith('.jsx')) {
-    parts.pop();
-  }
-
-  const styleId = parts.join('-');
-  return styleId || null;
-}
 
 /**
  * 遞歸掃描目錄，獲取所有 index.js 文件
@@ -197,47 +91,6 @@ function scanTemplateFiles() {
   });
 
   return templateFiles;
-}
-
-/**
- * 獲取文件的 Git 歷史
- */
-function getFileHistory(filePath) {
-  try {
-    const logCommand = `git log --format="%H|%aI|%s" --follow -n 10 -- "${filePath}"`;
-    const output = execSync(logCommand, { encoding: 'utf-8' });
-
-    if (!output.trim()) {
-      return [{
-        hash: 'new-file',
-        date: new Date().toISOString(),
-        message: 'New file (no commit yet)'
-      }];
-    }
-
-    const commits = output.split('\n').filter(Boolean).map(line => {
-      const [hash, date, message] = line.split('|');
-      return { hash, date, message };
-    });
-
-    return commits;
-  } catch {
-    return [{
-      hash: 'error',
-      date: new Date().toISOString(),
-      message: 'Error getting history'
-    }];
-  }
-}
-
-/**
- * 判斷文件是否為「新增」
- */
-function isNewFile(createdAt) {
-  const created = new Date(createdAt);
-  const now = new Date();
-  const diffDays = (now - created) / (1000 * 60 * 60 * 24);
-  return diffDays <= NEW_THRESHOLD_DAYS;
 }
 
 // === 主函數 ===
