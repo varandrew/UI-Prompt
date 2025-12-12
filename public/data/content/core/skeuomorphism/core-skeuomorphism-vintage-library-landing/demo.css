@@ -1,0 +1,6 @@
+.sk-vlib { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:#2b2b2b; }
+    .sk-vlib__hero { background: linear-gradient(180deg,#f6f1ea,#e9e1d7); border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:14px; box-shadow: inset 0 1px 0 #fff, 0 10px 20px rgba(0,0,0,.1); }
+    .sk-vlib__grid { display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin-top:10px; }
+    .sk-card { background: linear-gradient(180deg,#fff,#faf4ec); border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:10px; box-shadow: inset 0 1px 0 #fff, 0 6px 14px rgba(0,0,0,.12); display:flex; align-items:center; justify-content:space-between; }
+    .sk-card b { font-weight:700; }
+    .sk-card span { background:#a16207; color:#fff; border-radius:10px; padding:2px 8px; font-weight:700; font-size:11px; }

@@ -1,0 +1,33 @@
+{
+  "id": "file-upload",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.file-upload.title",
+      "en-US": "data.components.advanced.file-upload.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.file-upload.description",
+      "en-US": "data.components.advanced.file-upload.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.advanced.file-upload.title",
+        "en-US": "data.components.advanced.file-upload.title"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.file-upload.description",
+        "en-US": "data.components.advanced.file-upload.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

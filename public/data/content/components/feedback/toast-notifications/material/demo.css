@@ -1,0 +1,68 @@
+@keyframes slideUpScale {
+            from {
+              transform: translateY(100%) scale(0.9);
+              opacity: 0;
+            }
+            to {
+              transform: translateY(0) scale(1);
+              opacity: 1;
+            }
+          }
+
+          .toast-material {
+            border-radius: 0.25rem;
+            padding: 0.875rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            animation: slideUpScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.2s, box-shadow 0.2s;
+          }
+
+          .toast-material:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+          }
+
+          .toast-material-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          }
+
+          .toast-material-error {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+          }
+
+          .toast-material-info {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+          }
+
+          .toast-material-action {
+            color: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            transition: background 0.2s;
+            white-space: nowrap;
+          }
+
+          .toast-material-action:hover {
+            background: rgba(255, 255, 255, 0.15);
+          }
+
+          .toast-material-progress {
+            width: 100%;
+            height: 0.25rem;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 0.125rem;
+            overflow: hidden;
+          }
+
+          .toast-material-progress-bar {
+            height: 100%;
+            background: white;
+            border-radius: 0.125rem;
+            transition: width 0.3s;
+          }

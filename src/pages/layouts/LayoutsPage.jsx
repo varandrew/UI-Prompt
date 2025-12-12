@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleCard } from '../../components/ui/StyleCard';
 import { useLanguage } from '../../hooks/useLanguage';
-import { layoutTemplateStyles } from '../../data/styles/templates/layout';
+import { loadStyleCategories } from '../../data/components/loaders';
 
 /**
  * 布局样式展示页面
- * 包含 3 个布局样式：打破网格、分屏布局、瀑布流
+ * ⚡ 使用 JSON 異步加載，不再直接 import templates
  */
 export function LayoutsPage() {
   const { t } = useLanguage();
+  const [layoutStyles, setLayoutStyles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadLayouts() {
+      try {
+        const categories = await loadStyleCategories();
+        const layoutCategory = categories.find(c => c.id === 'layout');
+        setLayoutStyles(layoutCategory?.data || []);
+      } catch (error) {
+        console.error('載入布局樣式失敗:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadLayouts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -24,7 +49,7 @@ export function LayoutsPage() {
 
       {/* 布局样式网格 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {layoutTemplateStyles.map((style) => (
+        {layoutStyles.map((style) => (
           <StyleCard
             key={style.id}
             title={t(`styles.${style.id}.title`) || style.title}

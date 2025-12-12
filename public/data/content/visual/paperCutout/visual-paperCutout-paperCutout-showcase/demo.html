@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>visual-paperCutout-paperCutout-showcase - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+  /* ========== Global Styles ========== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Patrick Hand', 'Indie Flower', cursive;
+    background: #FFF8DC;
+    color: #2C3E50;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Container */
+  .paper-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ========== Navigation ========== */
+  .paper-nav {
+    background: linear-gradient(135deg, #FFFAF0 0%, #FFF8DC 100%);
+    padding: 16px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid rgba(44, 62, 80, 0.1);
+  }
+
+  .paper-nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .paper-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .paper-logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2C3E50;
+    font-family: 'Caveat', cursive;
+  }
+
+  .paper-nav-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .paper-nav-link {
+    color: #2C3E50;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .paper-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2C3E50;
+    transition: width 0.3s ease;
+  }
+
+  .paper-nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* ========== Buttons ========== */
+  .paper-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .paper-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+  }
+
+  .paper-btn-primary {
+    background: linear-gradient(135deg, #FFF59D 0%, #FFF176 100%);
+    color: #2C3E50;
+  }
+
+  .paper-btn-yellow {
+    background: linear-gradient(135deg, #FFF59D 0%, #FFF176 100%);
+    color: #2C3E50;
+  }
+
+  .paper-btn-white {
+    background: #FFFFFF;
+    color: #2C3E50;
+    border: 2px solid #2C3E50;
+  }
+
+  .paper-btn-large {
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+
+  .paper-btn-cta {
+    padding: 18px 40px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #F48FB1 0%, #F06292 100%);
+    color: white;
+  }
+
+  /* ========== Hero Section ========== */
+  .paper-hero {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #D7CCC8 0%, #BCAAA4 100%);
+    overflow: hidden;
+  }
+
+  /* Cork board texture */
+  .cork-board-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(139, 69, 19, 0.05) 3px, rgba(139, 69, 19, 0.05) 6px),
+      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(139, 69, 19, 0.05) 3px, rgba(139, 69, 19, 0.05) 6px);
+    opacity: 0.6;
+  }
+
+  .paper-hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .hero-sticky-large {
+    position: relative;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, #FFF59D 0%, #FFF176 100%);
+    border-radius: 4px;
+    box-shadow:
+      4px 4px 8px rgba(0,0,0,0.12),
+      8px 8px 16px rgba(0,0,0,0.06);
+    transform: rotate(-2deg);
+  }
+
+  .sticky-pin-red,
+  .sticky-pin-blue,
+  .sticky-pin-yellow,
+  .sticky-pin-green {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.2),
+      inset 0 1px 2px rgba(255,255,255,0.4);
+  }
+
+  .sticky-pin-red {
+    background: radial-gradient(circle, #EF5350 0%, #E53935 100%);
+    top: -10px;
+    right: 40px;
+  }
+
+  .sticky-pin-blue {
+    background: radial-gradient(circle, #42A5F5 0%, #1E88E5 100%);
+    top: -10px;
+    right: 40px;
+  }
+
+  .sticky-pin-yellow {
+    background: radial-gradient(circle, #FFEE58 0%, #FDD835 100%);
+    top: -10px;
+    right: 40px;
+  }
+
+  .sticky-pin-green {
+    background: radial-gradient(circle, #66BB6A 0%, #43A047 100%);
+    top: -10px;
+    right: 40px;
+  }
+
+  .paper-hero-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: #2C3E50;
+    line-height: 1.2;
+    margin-bottom: 0;
+    font-family: 'Caveat', cursive;
+  }
+
+  .title-highlight {
+    color: #E91E63;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #E91E63;
+  }
+
+  .hero-paper-card {
+    position: relative;
+    padding: 24px;
+    background: #FFFAF0;
+    border-radius: 4px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+    margin-top: 24px;
+  }
+
+  .paper-clip-top {
+    position: absolute;
+    top: -8px;
+    right: 24px;
+    width: 8px;
+    height: 32px;
+    background: linear-gradient(135deg, #90A4AE 0%, #78909C 100%);
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    transform: rotate(15deg);
+  }
+
+  .paper-clip-top::before,
+  .paper-clip-top::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 15px;
+    background: linear-gradient(135deg, #90A4AE 0%, #78909C 100%);
+    border-radius: 3px;
+  }
+
+  .paper-clip-top::before {
+    top: -3px;
+    left: -4px;
+    transform: rotate(-25deg);
+  }
+
+  .paper-clip-top::after {
+    bottom: -3px;
+    left: -4px;
+    transform: rotate(-25deg);
+  }
+
+  .paper-hero-subtitle {
+    font-size: 18px;
+    color: #546E7A;
+    line-height: 1.7;
+  }
+
+  .paper-hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  /* Hero Collage */
+  .hero-collage {
+    position: relative;
+    height: 500px;
+  }
+
+  .polaroid {
+    position: absolute;
+    background: white;
+    padding: 16px 16px 48px 16px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+  }
+
+  .polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 6px 6px 16px rgba(0,0,0,0.2);
+    z-index: 10;
+  }
+
+  .polaroid-1 {
+    top: 20px;
+    left: 20px;
+    transform: rotate(-8deg);
+  }
+
+  .polaroid-2 {
+    top: 120px;
+    right: 80px;
+    transform: rotate(5deg);
+  }
+
+  .polaroid-3 {
+    bottom: 40px;
+    left: 100px;
+    transform: rotate(-3deg);
+  }
+
+  .polaroid-photo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 12px;
+  }
+
+  .polaroid-caption {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2C3E50;
+    font-family: 'Caveat', cursive;
+  }
+
+  /* ========== Sections ========== */
+  .paper-section {
+    padding: 80px 0;
+    position: relative;
+  }
+
+  .paper-features-section {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FAF0E6 100%);
+  }
+
+  .paper-stats-section {
+    background: linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%);
+  }
+
+  .paper-testimonials-section {
+    background: linear-gradient(135deg, #D7CCC8 0%, #BCAAA4 100%);
+  }
+
+  .paper-cta-section {
+    background: linear-gradient(135deg, #FFE0B2 0%, #FFCC80 100%);
+    padding: 100px 0;
+  }
+
+  /* Section Headers */
+  .paper-section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .header-tag {
+    display: inline-block;
+    position: relative;
+    padding: 20px 40px;
+    background: #FFFAF0;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+  }
+
+  .paper-section-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #2C3E50;
+    font-family: 'Caveat', cursive;
+  }
+
+  .torn-edge-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg,
+      transparent 0%, transparent 10%,
+      #FFFAF0 10%, #FFFAF0 20%,
+      transparent 20%, transparent 30%,
+      #FFFAF0 30%, #FFFAF0 40%,
+      transparent 40%, transparent 50%,
+      #FFFAF0 50%, #FFFAF0 60%,
+      transparent 60%, transparent 70%,
+      #FFFAF0 70%, #FFFAF0 80%,
+      transparent 80%, transparent 90%,
+      #FFFAF0 90%, #FFFAF0 100%
+    );
+  }
+
+  .paper-section-subtitle {
+    font-size: 18px;
+    color: #546E7A;
+  }
+
+  /* ========== Sticky Notes Grid ========== */
+  .sticky-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .sticky-card {
+    position: relative;
+    padding: 32px 24px;
+    border-radius: 4px;
+    box-shadow:
+      3px 3px 6px rgba(0,0,0,0.1),
+      6px 6px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    min-height: 280px;
+  }
+
+  .sticky-card:nth-child(odd) {
+    transform: rotate(-1deg);
+  }
+
+  .sticky-card:nth-child(even) {
+    transform: rotate(1deg);
+  }
+
+  .sticky-card:hover {
+    transform: rotate(0deg) translateY(-8px);
+    box-shadow:
+      4px 4px 8px rgba(0,0,0,0.15),
+      8px 8px 16px rgba(0,0,0,0.08);
+  }
+
+  .sticky-yellow { background: linear-gradient(135deg, #FFF59D 0%, #FFF176 100%); }
+  .sticky-pink { background: linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%); }
+  .sticky-blue { background: linear-gradient(135deg, #BBDEFB 0%, #90CAF9 100%); }
+  .sticky-green { background: linear-gradient(135deg, #C5E1A5 0%, #AED581 100%); }
+  .sticky-orange { background: linear-gradient(135deg, #FFCC80 0%, #FFB74D 100%); }
+  .sticky-purple { background: linear-gradient(135deg, #CE93D8 0%, #BA68C8 100%); }
+
+  .sticky-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .sticky-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin-bottom: 12px;
+    font-family: 'Caveat', cursive;
+  }
+
+  .sticky-card-desc {
+    font-size: 15px;
+    color: #37474F;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .sticky-card-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2C3E50;
+  }
+
+  /* ========== Stats Section ========== */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+  }
+
+  .stat-tag {
+    position: relative;
+    text-align: center;
+    padding: 40px 32px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
+    overflow: visible;
+  }
+
+  .stat-number {
+    font-size: 56px;
+    font-weight: 700;
+    color: #2C3E50;
+    font-family: 'Caveat', cursive;
+  }
+
+  .stat-label {
+    font-size: 18px;
+    color: #546E7A;
+    margin-top: 8px;
+  }
+
+  /* Washi Tape */
+  .washi-tape {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 16px;
+    opacity: 0.8;
+  }
+
+  .washi-yellow { background: repeating-linear-gradient(45deg, #FFF59D, #FFF59D 10px, #FFF176 10px, #FFF176 20px); }
+  .washi-pink { background: repeating-linear-gradient(45deg, #F8BBD0, #F8BBD0 10px, #F48FB1 10px, #F48FB1 20px); }
+  .washi-blue { background: repeating-linear-gradient(45deg, #BBDEFB, #BBDEFB 10px, #90CAF9 10px, #90CAF9 20px); }
+  .washi-green { background: repeating-linear-gradient(45deg, #C5E1A5, #C5E1A5 10px, #AED581 10px, #AED581 20px); }
+
+  /* ========== Testimonials ========== */
+  .testimonials-board {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .testimonial-polaroid {
+    background: white;
+    padding: 20px 20px 80px 20px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+    width: 320px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 6px 6px 16px rgba(0,0,0,0.2);
+  }
+
+  .polaroid-rotate-left { transform: rotate(-3deg); }
+  .polaroid-rotate-right { transform: rotate(3deg); }
+
+  .testimonial-photo {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+    color: #37474F;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-size: 14px;
+    color: #546E7A;
+    font-weight: 600;
+  }
+
+  /* ========== CTA Section ========== */
+  .cta-sticky-large {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 48px;
+    background: linear-gradient(135deg, #FFF59D 0%, #FFF176 100%);
+    border-radius: 8px;
+    box-shadow:
+      6px 6px 16px rgba(0,0,0,0.12),
+      12px 12px 32px rgba(0,0,0,0.06);
+    text-align: center;
+    transform: rotate(-1deg);
+  }
+
+  .cta-pin-1 {
+    top: -12px;
+    left: 60px;
+  }
+
+  .cta-pin-2 {
+    top: -12px;
+    right: 60px;
+  }
+
+  .cta-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2C3E50;
+    margin-bottom: 16px;
+    font-family: 'Caveat', cursive;
+  }
+
+  .cta-subtitle {
+    font-size: 20px;
+    color: #37474F;
+    margin-bottom: 32px;
+  }
+
+  .cta-doodle {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ========== Footer ========== */
+  .paper-footer {
+    background: linear-gradient(135deg, #37474F 0%, #2C3E50 100%);
+    color: white;
+    padding: 60px 0 32px 0;
+    position: relative;
+  }
+
+  .footer-torn-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: linear-gradient(90deg,
+      transparent 0%, transparent 8%,
+      #37474F 8%, #37474F 16%,
+      transparent 16%, transparent 24%,
+      #37474F 24%, #37474F 32%,
+      transparent 32%, transparent 40%,
+      #37474F 40%, #37474F 48%,
+      transparent 48%, transparent 56%,
+      #37474F 56%, #37474F 64%,
+      transparent 64%, transparent 72%,
+      #37474F 72%, #37474F 80%,
+      transparent 80%, transparent 88%,
+      #37474F 88%, #37474F 96%,
+      transparent 96%, transparent 100%
+    );
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-heading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-family: 'Caveat', cursive;
+  }
+
+  .footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #B0BEC5;
+  }
+
+  .footer-link {
+    display: block;
+    color: #B0BEC5;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: #FFF59D;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+    color: #B0BEC5;
+  }
+
+  /* ========== Responsive Design ========== */
+  @media (max-width: 768px) {
+    .paper-nav-links {
+      display: none;
+    }
+
+    .paper-hero-content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-collage {
+      height: 400px;
+    }
+
+    .paper-hero-title {
+      font-size: 40px;
+    }
+
+    .sticky-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonials-board {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-title {
+      font-size: 36px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- Google Fonts: Handwritten Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&family=Indie+Flower&display=swap" rel="stylesheet">
+
+  <!-- Navigation -->
+  <nav class="paper-nav">
+    <div class="paper-container">
+      <div class="paper-nav-content">
+        <!-- Logo with paper tag -->
+        <div class="paper-logo">
+          <svg width="36" height="36" viewBox="0 0 36 36" class="paper-logo-icon">
+            <defs>
+              <filter id="paper-roughen">
+                <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="turbulence"/>
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
+            </defs>
+            <!-- Paper sheet -->
+            <rect x="6" y="4" width="24" height="28" fill="#FFF8DC" stroke="#2C3E50" stroke-width="2" filter="url(#paper-roughen)" rx="2"/>
+            <path d="M 10 12 L 26 12 M 10 18 L 26 18 M 10 24 L 20 24" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="paper-logo-text">PaperCraft</span>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="paper-nav-links">
+          <a href="javascript:void(0)" class="paper-nav-link">Home</a>
+          <a href="javascript:void(0)" class="paper-nav-link">Workshops</a>
+          <a href="javascript:void(0)" class="paper-nav-link">Gallery</a>
+          <a href="javascript:void(0)" class="paper-nav-link">About</a>
+        </div>
+
+        <!-- CTA Button -->
+        <button class="paper-btn paper-btn-primary">Join Now</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section: Bulletin Board Style -->
+  <section class="paper-hero">
+    <div class="cork-board-bg"></div>
+    <div class="paper-container">
+      <div class="paper-hero-content">
+        <!-- Main Title on sticky note -->
+        <div class="hero-sticky-large">
+          <div class="sticky-pin-red"></div>
+          <h1 class="paper-hero-title">
+            Unleash Your
+            <span class="title-highlight">Creative Spirit</span>
+          </h1>
+        </div>
+
+        <!-- Subtitle card -->
+        <div class="hero-paper-card">
+          <div class="paper-clip-top"></div>
+          <p class="paper-hero-subtitle">
+            Join our hands-on workshops to learn traditional crafts with a modern twist.
+            From paper cutting to collage art, discover the joy of creating with your hands.
+          </p>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="paper-hero-buttons">
+          <button class="paper-btn paper-btn-large paper-btn-yellow">Explore Workshops</button>
+          <button class="paper-btn paper-btn-large paper-btn-white">View Gallery</button>
+        </div>
+
+        <!-- Hero Collage Illustration -->
+        <div class="hero-collage">
+          <!-- Polaroid-style photos -->
+          <div class="polaroid polaroid-1">
+            <div class="polaroid-photo" style="background: linear-gradient(135deg, #FFE0B2 0%, #FFCC80 100%);"></div>
+            <p class="polaroid-caption">Paper Art</p>
+            <div class="sticky-pin-blue"></div>
+          </div>
+          <div class="polaroid polaroid-2">
+            <div class="polaroid-photo" style="background: linear-gradient(135deg, #C5E1A5 0%, #AED581 100%);"></div>
+            <p class="polaroid-caption">Crafting</p>
+            <div class="sticky-pin-green"></div>
+          </div>
+          <div class="polaroid polaroid-3">
+            <div class="polaroid-photo" style="background: linear-gradient(135deg, #F8BBD0 0%, #F48FB1 100%);"></div>
+            <p class="polaroid-caption">Workshop</p>
+            <div class="sticky-pin-yellow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section: Sticky Note Grid -->
+  <section class="paper-section paper-features-section">
+    <div class="paper-container">
+      <!-- Section Header -->
+      <div class="paper-section-header">
+        <div class="header-tag">
+          <h2 class="paper-section-title">What We Offer</h2>
+          <div class="torn-edge-bottom"></div>
+        </div>
+        <p class="paper-section-subtitle">Discover our range of creative workshops and craft sessions</p>
+      </div>
+
+      <!-- Sticky Notes Grid -->
+      <div class="sticky-grid">
+        <!-- Feature 1 -->
+        <div class="sticky-card sticky-yellow">
+          <div class="sticky-pin-red"></div>
+          <div class="sticky-icon">✂️</div>
+          <h3 class="sticky-card-title">Paper Cutting</h3>
+          <p class="sticky-card-desc">
+            Master the art of intricate paper cutting designs. Learn traditional techniques and modern patterns.
+          </p>
+          <div class="sticky-card-tag">Beginner Friendly</div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="sticky-card sticky-pink">
+          <div class="sticky-pin-blue"></div>
+          <div class="sticky-icon">📐</div>
+          <h3 class="sticky-card-title">Collage Art</h3>
+          <p class="sticky-card-desc">
+            Create stunning visual stories by combining different paper textures, colors, and materials.
+          </p>
+          <div class="sticky-card-tag">All Levels</div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="sticky-card sticky-blue">
+          <div class="sticky-pin-yellow"></div>
+          <div class="sticky-icon">🎨</div>
+          <h3 class="sticky-card-title">Mixed Media</h3>
+          <p class="sticky-card-desc">
+            Experiment with combining paper, paint, and digital elements for unique artistic expressions.
+          </p>
+          <div class="sticky-card-tag">Intermediate</div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="sticky-card sticky-green">
+          <div class="sticky-pin-red"></div>
+          <div class="sticky-icon">📚</div>
+          <h3 class="sticky-card-title">Book Binding</h3>
+          <p class="sticky-card-desc">
+            Craft your own journals and notebooks using traditional bookbinding methods and materials.
+          </p>
+          <div class="sticky-card-tag">Advanced</div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="sticky-card sticky-orange">
+          <div class="sticky-pin-blue"></div>
+          <div class="sticky-icon">🖼️</div>
+          <h3 class="sticky-card-title">3D Paper Sculpt</h3>
+          <p class="sticky-card-desc">
+            Transform flat paper into dimensional sculptures and installations with layering techniques.
+          </p>
+          <div class="sticky-card-tag">Creative</div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="sticky-card sticky-purple">
+          <div class="sticky-pin-green"></div>
+          <div class="sticky-icon">✨</div>
+          <h3 class="sticky-card-title">Origami Design</h3>
+          <p class="sticky-card-desc">
+            Fold paper into beautiful geometric forms and decorative objects for home and gifts.
+          </p>
+          <div class="sticky-card-tag">Popular</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section: Paper Tags -->
+  <section class="paper-section paper-stats-section">
+    <div class="paper-container">
+      <div class="stats-grid">
+        <!-- Stat 1 -->
+        <div class="stat-tag">
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Happy Students</div>
+          <div class="washi-tape washi-yellow"></div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="stat-tag">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Workshops</div>
+          <div class="washi-tape washi-pink"></div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="stat-tag">
+          <div class="stat-number">15</div>
+          <div class="stat-label">Expert Tutors</div>
+          <div class="washi-tape washi-blue"></div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="stat-tag">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Satisfaction</div>
+          <div class="washi-tape washi-green"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section: Polaroid Cards -->
+  <section class="paper-section paper-testimonials-section">
+    <div class="paper-container">
+      <div class="paper-section-header">
+        <div class="header-tag">
+          <h2 class="paper-section-title">Student Stories</h2>
+          <div class="torn-edge-bottom"></div>
+        </div>
+      </div>
+
+      <div class="testimonials-board">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-polaroid polaroid-rotate-left">
+          <div class="testimonial-photo" style="background: linear-gradient(135deg, #BBDEFB 50%, #90CAF9 100%);"></div>
+          <div class="testimonial-content">
+            <p class="testimonial-quote">"The paper cutting workshop changed my perspective on art. Highly recommend!"</p>
+            <p class="testimonial-author">- Sarah K.</p>
+          </div>
+          <div class="sticky-pin-red"></div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-polaroid polaroid-rotate-right">
+          <div class="testimonial-photo" style="background: linear-gradient(135deg, #F8BBD0 50%, #F48FB1 100%);"></div>
+          <div class="testimonial-content">
+            <p class="testimonial-quote">"Amazing tutors and a welcoming community. I've learned so much in just 3 sessions."</p>
+            <p class="testimonial-author">- Mike T.</p>
+          </div>
+          <div class="sticky-pin-blue"></div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-polaroid polaroid-rotate-left">
+          <div class="testimonial-photo" style="background: linear-gradient(135deg, #C5E1A5 50%, #AED581 100%);"></div>
+          <div class="testimonial-content">
+            <p class="testimonial-quote">"Perfect for beginners! The materials are provided and the pace is just right."</p>
+            <p class="testimonial-author">- Emma L.</p>
+          </div>
+          <div class="sticky-pin-yellow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section: Large Sticky Note -->
+  <section class="paper-section paper-cta-section">
+    <div class="paper-container">
+      <div class="cta-sticky-large">
+        <div class="sticky-pin-red cta-pin-1"></div>
+        <div class="sticky-pin-blue cta-pin-2"></div>
+        <h2 class="cta-title">Ready to Start Creating?</h2>
+        <p class="cta-subtitle">Join our next workshop and unlock your creative potential</p>
+        <button class="paper-btn paper-btn-cta">Browse Upcoming Workshops</button>
+        <div class="cta-doodle">
+          <svg width="200" height="60" viewBox="0 0 200 60">
+            <path d="M 10 30 Q 50 10, 100 30 T 190 30" fill="none" stroke="#2C3E50" stroke-width="2" stroke-dasharray="3 3" opacity="0.3"/>
+            <path d="M 160 20 L 180 30 L 160 40" fill="none" stroke="#2C3E50" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer: Torn Paper Edge -->
+  <footer class="paper-footer">
+    <div class="footer-torn-edge"></div>
+    <div class="paper-container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4 class="footer-heading">PaperCraft</h4>
+          <p class="footer-text">Bringing creativity to life through hands-on workshops and artistic exploration.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <a href="javascript:void(0)" class="footer-link">Workshops</a>
+          <a href="javascript:void(0)" class="footer-link">Gallery</a>
+          <a href="javascript:void(0)" class="footer-link">About Us</a>
+          <a href="javascript:void(0)" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect</h4>
+          <a href="javascript:void(0)" class="footer-link">Instagram</a>
+          <a href="javascript:void(0)" class="footer-link">Pinterest</a>
+          <a href="javascript:void(0)" class="footer-link">Newsletter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 PaperCraft. Handcrafted with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

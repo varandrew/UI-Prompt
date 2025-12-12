@@ -1,0 +1,261 @@
+
+/* 自定义CSS变量和赛博朋克样式 */
+:root {
+    --neon-green: #00FF41;
+    --neon-cyan: #00FFFF;
+    --dark-bg: #0A0A0A;
+    --glass-bg: rgba(0, 255, 65, 0.1);
+    --glass-border: rgba(0, 255, 255, 0.3);
+}
+
+body {
+    background: var(--dark-bg);
+    color: var(--neon-green);
+    font-family: 'Courier New', monospace;
+    overflow-x: hidden;
+}
+
+/* Matrix数据流背景 */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(180deg, #000000 0%, #0a0f0a 100%);
+}
+
+.matrix-rain {
+    position: absolute;
+    top: -100%;
+    color: var(--neon-green);
+    font-size: 10px;
+    line-height: 10px;
+    animation: matrix-fall linear infinite;
+    opacity: 0.7;
+    text-shadow: 0 0 3px var(--neon-green);
+}
+
+@keyframes matrix-fall {
+    to {
+        transform: translateY(200vh);
+    }
+}
+
+/* 霓虹发光效果 */
+.neon-glow {
+    text-shadow:
+        0 0 5px var(--neon-green),
+        0 0 10px var(--neon-green),
+        0 0 20px var(--neon-green),
+        0 0 40px var(--neon-green);
+}
+
+.neon-cyan-glow {
+    text-shadow:
+        0 0 5px var(--neon-cyan),
+        0 0 10px var(--neon-cyan),
+        0 0 20px var(--neon-cyan);
+}
+
+/* 玻璃态效果 */
+.glass-morphism {
+    background: rgba(0, 255, 65, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 8px 32px rgba(0, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* 扫描线效果 */
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--neon-cyan),
+        transparent);
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: 0%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* 故障文字效果 */
+.glitch {
+    position: relative;
+    animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.3s infinite;
+    color: var(--neon-cyan);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.3s infinite;
+    color: #ff00ff;
+    z-index: -2;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-1px, 1px); }
+    40% { transform: translate(-1px, -1px); }
+    60% { transform: translate(1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-1 {
+    0%, 100% { clip-path: inset(0 0 0 0); }
+    25% { clip-path: inset(0 0 100% 0); }
+    50% { clip-path: inset(100% 0 0 0); }
+    75% { clip-path: inset(0 0 0 100%); }
+}
+
+@keyframes glitch-2 {
+    0%, 100% { clip-path: inset(0 0 0 0); }
+    25% { clip-path: inset(0 100% 0 0); }
+    50% { clip-path: inset(0 0 0 100%); }
+    75% { clip-path: inset(100% 0 0 0); }
+}
+
+/* 脉冲动画 */
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* LED状态指示器 */
+.led-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: led-blink 1s infinite;
+}
+
+.led-green {
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.led-cyan {
+    background: var(--neon-cyan);
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.led-red {
+    background: #ff0040;
+    box-shadow: 0 0 10px #ff0040;
+}
+
+@keyframes led-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* 进度条扫描效果 */
+.progress-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(0, 255, 255, 0.3),
+        transparent);
+    animation: progress-scan 2s linear infinite;
+}
+
+@keyframes progress-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* 数据加载动画 */
+.data-loader {
+    border: 2px solid var(--glass-border);
+    border-top: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 全息卡片效果 */
+.holographic-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+}
+
+.holographic-card:hover {
+    transform: rotateY(5deg) rotateX(-5deg);
+}
+
+/* 终端光标闪烁 */
+.terminal-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: var(--neon-green);
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* 表格悬停效果 */
+.cyber-table tr:hover {
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateX(5px);
+    transition: all 0.3s ease;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .glass-morphism {
+        backdrop-filter: blur(5px);
+    }
+
+    .neon-glow {
+        text-shadow:
+            0 0 3px var(--neon-green),
+            0 0 6px var(--neon-green);
+    }
+}

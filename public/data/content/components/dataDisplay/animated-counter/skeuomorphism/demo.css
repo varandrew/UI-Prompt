@@ -1,0 +1,43 @@
+.counter-skeuo-card {
+            background: linear-gradient(145deg, #e6e6e6, #ffffff);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.1),
+                        -8px -8px 16px rgba(255,255,255,0.9),
+                        inset 2px 2px 4px rgba(0,0,0,0.05);
+          }
+
+          .flip-counter-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .flip-digit {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(180deg, #667eea 0%, #4c63d2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-width: 120px;
+          }
+
+          .percentage-sign {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-left: 0.25rem;
+          }
+
+          .counter-label {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4b5563;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }

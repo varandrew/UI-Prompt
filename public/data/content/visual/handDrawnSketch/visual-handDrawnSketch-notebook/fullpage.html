@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchpad Dashboard</title>
+
+    <!-- Tailwind CSS for layout utilities -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Handwritten Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --paper-bg: #fdfbf7;
+            --ink-color: #2c2c2c;
+            --pencil-gray: #555555;
+            --highlight-yellow: #fff740;
+            --highlight-pink: #ff99cc;
+            --highlight-blue: #aaddff;
+            --highlight-green: #ccff90;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            background-color: var(--paper-bg);
+            /* Grid Paper Pattern */
+            background-image:
+                linear-gradient(var(--shadow-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--shadow-color) 1px, transparent 1px);
+            background-size: 24px 24px;
+            font-family: 'Patrick Hand', cursive;
+            color: var(--ink-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        /* --- The "Wobbly" Class Generator ---
+           Instead of perfect boxes, we use irregular border-radius
+           to simulate a hand-drawn rectangle.
+        */
+        .sketch-box {
+            background: white;
+            border: 2px solid var(--ink-color);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            box-shadow: 4px 4px 0 var(--ink-color);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .sketch-box:hover {
+            transform: translate(-2px, -2px) rotate(-0.5deg);
+            box-shadow: 6px 6px 0 var(--ink-color);
+        }
+
+        .sketch-box:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 var(--ink-color);
+        }
+
+        /* Specific Component Styles */
+
+        /* Sticky Note - looks like Post-it */
+        .sticky-note {
+            position: relative;
+            padding: 1.5rem;
+            color: var(--ink-color);
+            border: none; /* No border for stickies, just shadow */
+            box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.1rem;
+            /* Default to yellow, will be overridden by inline styles */
+            background-color: var(--highlight-yellow);
+            /* Irregular edges */
+            clip-path: polygon(
+                0% 0%, 100% 0%, 100% 98%, 98% 100%, 0% 100%
+            );
+        }
+
+        .sticky-note:hover {
+            z-index: 10;
+            transform: scale(1.05) rotate(0deg) !important; /* Reset rotation on hover */
+            box-shadow: 5px 8px 12px rgba(0,0,0,0.15);
+        }
+
+        /* "Tape" effect for sticky notes */
+        .tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 80px;
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        /* "Paper Clip" effect */
+        .paper-clip {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            width: 20px;
+            height: 45px;
+            border: 3px solid #888;
+            border-radius: 20px;
+            transform: rotate(15deg);
+            z-index: 5;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .paper-clip::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -3px;
+            width: 20px;
+            height: 30px;
+            border: 3px solid #888;
+            border-radius: 20px;
+            border-top: none;
+            clip-path: inset(10px 0 0 0);
+        }
+
+        /* Buttons */
+        .sketch-btn {
+            background: var(--ink-color);
+            color: white;
+            border: 2px solid var(--ink-color);
+            padding: 0.5rem 1.5rem;
+            font-size: 1.2rem;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .sketch-btn.secondary {
+            background: white;
+            color: var(--ink-color);
+        }
+
+        .sketch-btn:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .sketch-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Inputs */
+        .sketch-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--ink-color);
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            outline: none;
+            background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(0,0,0,0.05) 32px);
+            line-height: 32px;
+        }
+
+        .sketch-input:focus {
+            border-bottom: 3px solid var(--ink-color);
+        }
+
+        /* Custom Checkbox */
+        .sketch-checkbox {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--ink-color);
+            border-radius: 4px; /* Slightly rounded */
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .sketch-checkbox::before {
+            content: "";
+            width: 14px;
+            height: 14px;
+            background-color: var(--ink-color);
+            transform: scale(0);
+            transition: 0.1s transform ease-in-out;
+            /* Rough shape for the checkmark fill */
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+
+        .sketch-checkbox:checked::before {
+            transform: scale(1);
+        }
+
+        .task-done {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            text-decoration-color: var(--ink-color);
+            opacity: 0.6;
+        }
+
+        /* Bar Chart Bars */
+        .sketch-bar {
+            width: 100%;
+            background-color: var(--highlight-blue);
+            border: 2px solid var(--ink-color);
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+        }
+        .sketch-bar::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 5px,
+                rgba(0,0,0,0.1) 5px,
+                rgba(0,0,0,0.1) 7px
+            );
+            border-radius: 6px 6px 0 0;
+        }
+
+        /* Doodle Decorations */
+        .doodle-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .doodle-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 6px;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='10' viewBox='0 0 100 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 10 10 20 5 T 40 5 T 60 5 T 80 5 T 100 5' stroke='%232c2c2c' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        /* Polaroid Frame */
+        .polaroid {
+            background: white;
+            padding: 1rem 1rem 3rem 1rem;
+            box-shadow: 3px 4px 8px rgba(0,0,0,0.2);
+            transform: rotate(3deg);
+            transition: transform 0.3s;
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.02);
+            z-index: 20;
+        }
+        .polaroid-img {
+            background-color: #333;
+            width: 100%;
+            height: 180px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60');
+            background-size: cover;
+            background-position: center;
+            filter: sepia(0.3) contrast(1.1);
+        }
+
+        /* Coffee Stain */
+        .coffee-stain {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 8px solid rgba(139, 69, 19, 0.15);
+            border-radius: 50% 45% 55% 40% / 40% 55% 45% 60%;
+            top: -20px;
+            right: -20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .grid-cols-masonry {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 relative">
+
+    <!-- Decorative Coffee Stain Background -->
+    <div class="fixed top-20 right-10 w-48 h-48 border-8 border-yellow-700/10 rounded-full opacity-60 pointer-events-none" style="border-radius: 40% 60% 55% 45% / 55% 45% 50% 60%;"></div>
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center mb-12 max-w-6xl mx-auto relative z-10">
+        <div class="flex items-center gap-2">
+            <div class="w-12 h-12 border-2 border-black rounded-full flex items-center justify-center bg-white shadow-sm" style="border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;">
+                <i data-lucide="pen-tool" class="w-6 h-6"></i>
+            </div>
+            <span class="text-3xl font-bold tracking-wider transform -rotate-2">Sketch<span class="text-red-500">Board</span></span>
+        </div>
+        <div class="hidden md:flex gap-8 text-xl">
+            <a href="#" class="hover:text-blue-600 transition-colors doodle-underline">Brainstorm</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Projects</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Team</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Resources</a>
+        </div>
+        <div class="flex gap-2">
+            <button class="sketch-btn secondary text-sm md:text-base hidden sm:block">Log In</button>
+            <button class="sketch-btn text-sm md:text-base bg-black text-white">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto relative z-10">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16 relative">
+            <div class="absolute -top-10 left-10 text-gray-300 transform -rotate-12 hidden lg:block">
+                <i data-lucide="arrow-down-right" class="w-24 h-24 stroke-1"></i>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl mb-4 transform -rotate-1">
+                Rough Ideas,<br>
+                <span class="relative inline-block mt-2">
+                    <span class="absolute inset-0 bg-yellow-200 opacity-50 transform skew-y-1 -z-10" style="border-radius: 3px;"></span>
+                    Big Impact.
+                </span>
+            </h1>
+            <p class="text-2xl text-gray-600 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+                A digital space that feels like your favorite notebook. Drop ideas, move them around, and don't worry about being messy.
+            </p>
+
+            <div class="flex justify-center gap-4 flex-wrap">
+                <button onclick="createNewNote()" class="sketch-btn flex items-center gap-2 bg-black text-white hover:bg-gray-800">
+                    <i data-lucide="plus-circle" class="w-5 h-5"></i>
+                    Add Sticky Note
+                </button>
+                <button class="sketch-btn secondary flex items-center gap-2">
+                    <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                    Templates
+                </button>
+            </div>
+        </header>
+
+        <!-- The Board (Grid of Notes & Lists) -->
+        <div id="board-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pb-20">
+
+            <!-- 1. Text Note -->
+            <div class="sticky-note bg-yellow-100" style="transform: rotate(-2deg);">
+                <div class="tape"></div>
+                <h3 class="text-2xl mb-2 font-bold">Project Goals 🚀</h3>
+                <p class="mb-4">We need to make the interface feel warm and inviting. No sharp edges allowed!</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Research paper textures</li>
+                    <li>Draft wobbly icons</li>
+                    <li>Test on mobile</li>
+                </ul>
+                <div class="mt-4 flex justify-between items-center text-sm text-gray-500">
+                    <span>Just now</span>
+                    <i data-lucide="smile" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <!-- 2. Todo List -->
+            <div class="sketch-box p-6 relative" style="border-radius: 2px 2px 2px 2px; transform: rotate(1deg);">
+                <!-- Ring binding simulation -->
+                <div class="absolute -top-4 left-6 w-4 h-8 border-2 border-gray-400 rounded-full bg-white z-10"></div>
+                <div class="absolute -top-4 left-16 w-4 h-8 border-2 border-gray-400 rounded-full bg-white z-10"></div>
+                <div class="absolute -top-4 left-28 w-4 h-8 border-2 border-gray-400 rounded-full bg-white z-10"></div>
+
+                <h3 class="text-2xl mb-4 border-b-2 border-gray-200 pb-2 mt-2">To-Do List</h3>
+                <div class="space-y-4">
+                    <label class="flex items-center cursor-pointer group">
+                        <input type="checkbox" class="sketch-checkbox hidden" checked>
+                        <div class="sketch-checkbox"></div>
+                        <span class="task-done transition-all text-lg">Buy markers</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer group">
+                        <input type="checkbox" class="sketch-checkbox hidden" onchange="toggleTask(this)">
+                        <div class="sketch-checkbox"></div>
+                        <span class="transition-all text-lg">Sketch wireframes</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer group">
+                        <input type="checkbox" class="sketch-checkbox hidden" onchange="toggleTask(this)">
+                        <div class="sketch-checkbox"></div>
+                        <span class="transition-all text-lg">Coffee break ☕️</span>
+                    </label>
+                </div>
+
+                <!-- Add task input -->
+                <div class="mt-6 flex gap-2 pt-2 border-t-2 border-dashed border-gray-200">
+                    <input type="text" placeholder="Add task..." class="sketch-input text-base">
+                    <button class="text-xl font-bold w-8 h-8 flex items-center justify-center border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors">+</button>
+                </div>
+            </div>
+
+            <!-- 3. Chart/Analytics (New) -->
+            <div class="sketch-box p-6 flex flex-col justify-between" style="transform: rotate(-1deg);">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl">Weekly Focus</h3>
+                    <i data-lucide="bar-chart-2" class="w-5 h-5 opacity-50"></i>
+                </div>
+
+                <div class="h-40 flex items-end justify-between gap-2 px-2 border-b-2 border-l-2 border-gray-300 pb-2">
+                    <div class="w-full flex flex-col items-center gap-1 group">
+                        <div class="sketch-bar h-[40%] group-hover:h-[45%] transition-all bg-red-200"></div>
+                        <span class="text-xs">Mon</span>
+                    </div>
+                    <div class="w-full flex flex-col items-center gap-1 group">
+                        <div class="sketch-bar h-[70%] group-hover:h-[75%] transition-all bg-blue-200"></div>
+                        <span class="text-xs">Tue</span>
+                    </div>
+                    <div class="w-full flex flex-col items-center gap-1 group">
+                        <div class="sketch-bar h-[50%] group-hover:h-[55%] transition-all bg-green-200"></div>
+                        <span class="text-xs">Wed</span>
+                    </div>
+                    <div class="w-full flex flex-col items-center gap-1 group">
+                        <div class="sketch-bar h-[90%] group-hover:h-[95%] transition-all bg-yellow-200"></div>
+                        <span class="text-xs">Thu</span>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-2">Productivity is up! 🔥</p>
+            </div>
+
+            <!-- 4. Design Note -->
+            <div class="sticky-note bg-blue-100" style="transform: rotate(1.5deg);">
+                <div class="tape"></div>
+                <h3 class="text-2xl mb-2">Design Philosophy</h3>
+                <p class="text-lg leading-relaxed">
+                    "Imperfection is the key. Machines make straight lines; humans make stories."
+                </p>
+                <div class="mt-4 text-right">
+                    <span class="inline-block px-3 py-1 border-2 border-black rounded-full text-xs font-bold transform -rotate-3 hover:rotate-2 transition-transform cursor-default">
+                        #INSPIRATION
+                    </span>
+                </div>
+            </div>
+
+            <!-- 5. Team Polaroid (New) -->
+            <div class="relative group" style="transform: rotate(2deg);">
+                <div class="paper-clip"></div>
+                <div class="polaroid">
+                    <div class="polaroid-img"></div>
+                    <div class="font-hand text-center">
+                        <p class="text-xl font-bold text-gray-700">Design Sprint 2024</p>
+                        <p class="text-gray-500 text-sm">San Francisco HQ</p>
+                        <div class="flex justify-center gap-1 mt-2">
+                            <i data-lucide="heart" class="w-4 h-4 text-red-400 fill-current"></i>
+                            <span class="text-xs text-gray-400">Liked by Anna & 3 others</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Calendar Widget (New) -->
+            <div class="sketch-box p-4" style="transform: rotate(-0.5deg);">
+                <div class="flex justify-between items-center mb-4 pb-2 border-b-2 border-gray-200">
+                    <h3 class="text-xl">October</h3>
+                    <div class="flex gap-1">
+                        <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center text-sm font-bold mb-2">
+                    <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center text-lg font-hand">
+                    <span class="text-gray-300">29</span><span class="text-gray-300">30</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">1</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">2</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">3</span>
+                    <span class="bg-yellow-200 rounded-full border border-black transform -rotate-6 cursor-pointer">4</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">5</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">6</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">7</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">8</span>
+                    <span class="border-2 border-red-400 rounded-lg transform rotate-3 cursor-pointer">9</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">10</span>
+                    <!-- ... simplified calendar -->
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">11</span>
+                    <span class="hover:bg-gray-100 rounded cursor-pointer">12</span>
+                </div>
+                <div class="mt-4 text-xs text-gray-500 flex items-center gap-2">
+                    <div class="w-2 h-2 bg-yellow-200 border border-black rounded-full"></div> Deadline
+                    <div class="w-2 h-2 border-2 border-red-400 rounded-full ml-2"></div> Holiday
+                </div>
+            </div>
+
+             <!-- 7. Upload Box -->
+             <div class="sticky-note bg-pink-100" style="transform: rotate(-1deg);">
+                <div class="tape"></div>
+                <div class="flex justify-center items-center h-40 border-2 border-dashed border-gray-400 rounded-lg hover:bg-white/30 transition-colors cursor-pointer group">
+                    <div class="text-center text-gray-500 group-hover:text-gray-700">
+                        <i data-lucide="upload-cloud" class="w-10 h-10 mx-auto mb-2 opacity-50 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-sm">Drop wireframes here</span>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-center font-bold text-gray-600">Drag & Drop or Click</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Floating Action Button (Mobile) -->
+    <button onclick="createNewNote()" class="fixed bottom-6 right-6 w-16 h-16 bg-black text-white rounded-full shadow-lg flex items-center justify-center md:hidden z-50 sketch-box hover:scale-110 active:scale-95 transition-transform" style="border-radius: 50%;">
+        <i data-lucide="plus" class="w-8 h-8"></i>
+    </button>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Colors for random sticky notes
+        const colors = [
+            'bg-yellow-100',
+            'bg-pink-100',
+            'bg-blue-100',
+            'bg-green-100',
+            'bg-purple-100'
+        ];
+
+        const quotes = [
+            "Remember to water plants 🌱",
+            "Call mom at 5pm",
+            "Idea: App for dog walkers",
+            "Meeting rescheduled to Tuesday",
+            "Don't forget the milk!",
+            "Sketching is thinking.",
+            "Buy more coffee ☕️",
+            "Review pull requests"
+        ];
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Toggle task strikethrough logic
+        function toggleTask(checkbox) {
+            const span = checkbox.parentElement.querySelector('span');
+            if(checkbox.checked) {
+                span.classList.add('task-done');
+            } else {
+                span.classList.remove('task-done');
+            }
+        }
+
+        // Create New Note Logic
+        function createNewNote() {
+            const board = document.getElementById('board-container');
+
+            // Create elements
+            const note = document.createElement('div');
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomRotation = (Math.random() * 6) - 3; // Random rotation between -3deg and 3deg
+
+            // Add basic classes
+            note.className = `sticky-note ${randomColor} animate-fade-in`;
+
+            // Apply Sketch Styles
+            note.style.transform = `rotate(${randomRotation}deg)`;
+
+            // Content
+            const randomContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+            note.innerHTML = `
+                <div class="tape"></div>
+                <div class="absolute top-2 right-2 cursor-pointer opacity-50 hover:opacity-100" onclick="this.parentElement.remove()">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </div>
+                <h3 class="text-xl mb-2 font-bold">New Note</h3>
+                <p>${randomContent}</p>
+                <div class="mt-4 h-2 w-16 bg-black opacity-10 rounded-full"></div>
+            `;
+
+            // Insert into DOM
+            board.appendChild(note);
+
+            // Re-initialize icons for new element
+            lucide.createIcons();
+
+            // Scroll to view if needed (optional)
+            note.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Add some interactivity to buttons on click
+        document.querySelectorAll('.sketch-btn').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+        });
+
+    </script>
+</body>
+</html>

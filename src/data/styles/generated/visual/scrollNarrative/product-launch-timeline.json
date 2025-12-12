@@ -1,0 +1,11 @@
+{
+  "id": "product-launch-timeline",
+  "title": {
+    "zh-CN": "产品发布时间轴",
+    "en-US": "Product Launch Timeline"
+  },
+  "description": {
+    "zh-CN": "产品发布时间轴页面，展示垂直时间轴、里程碑节点、设备模型、动画统计、预购表单和发布活动信息",
+    "en-US": "Product launch timeline page featuring vertical timeline, milestone nodes, device mockups, animated statistics, pre-order form, and launch event information"
+  }
+}

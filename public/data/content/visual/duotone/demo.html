@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duotone Visuals Style Demo</title>
+    <style>
+        /* * RESET & BASE STYLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* System Font Stack - No external requests */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* * DUOTONE STYLE SYSTEM */
+        :root {
+            /* Default Pair: "Cyber Lime" */
+            --primary-dark: #1a0b2e;
+            --primary-light: #ccff00;
+        }
+
+        [data-theme="thermal"] {
+            --primary-dark: #2d0a0a;
+            --primary-light: #ff4d4d;
+        }
+
+        [data-theme="azure"] {
+            --primary-dark: #001f3f;
+            --primary-light: #7FDBFF;
+        }
+
+        /* * LAYOUT CONTAINERS */
+        .demo-wrapper {
+            position: relative; 
+            width: 100%; 
+            max-width: 400px; /* Limits size on desktop */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo-container {
+            width: 100%;
+            /* COMPATIBILITY FIX: Padding hack guarantees a square shape even in old browsers */
+            padding-bottom: 100%; 
+            position: relative;
+            background-color: #1a0b2e; /* Fallback color */
+            background-color: var(--primary-dark);
+            color: var(--primary-light);
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* * TEXTURE: NOISE */
+        .grain-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 1; /* Lower z-index to stay behind content */
+            /* Background image set by JS */
+        }
+
+        /* * BACKGROUND ELEMENTS */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+            filter: blur(40px);
+            opacity: 0.2;
+            transition: all 0.5s ease;
+            top: -20%; 
+            left: -20%; 
+            width: 80%; 
+            height: 80%;
+            z-index: 2;
+        }
+
+        .split-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, var(--primary-light) 150%);
+            clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+            opacity: 0.1;
+            z-index: 2;
+        }
+
+        /* * CONTENT LAYOUT */
+        .content-layer {
+            position: absolute; /* Absolute needed because of padding-bottom square hack */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10; /* High z-index to ensure clickability */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 8%; /* Percentage padding is robust */
+        }
+
+        /* * TYPOGRAPHY - UPDATED FOR COMPATIBILITY */
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        h1 {
+            /* Fallback and responsive scaling without 'cqw' units */
+            font-size: 3rem; 
+            font-size: clamp(2rem, 13vw, 3.5rem); 
+            line-height: 0.85;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            margin: 0;
+        }
+        
+        .sub-text {
+            font-size: 1rem;
+            font-size: clamp(0.8rem, 4vw, 1.1rem);
+            font-weight: 400;
+            line-height: 1.4;
+            opacity: 0.9;
+            max-width: 90%;
+            border-left: 2px solid var(--primary-light);
+            padding-left: 12px;
+        }
+
+        /* * INTERACTIVE CARD */
+        .duotone-card {
+            margin-top: auto;
+            border: 2px solid var(--primary-light);
+            padding: 4%;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px); /* Safari fix */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 20;
+        }
+
+        .duotone-card:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .duotone-card:active {
+            transform: scale(0.98);
+        }
+
+        .duotone-card .icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .cta-label {
+            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 3.5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-sub {
+            font-size: 0.75rem; 
+            opacity: 0.8; 
+            margin-top: 4px;
+        }
+
+        /* * DECORATIVE VISUAL */
+        .visual-element {
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            border: 2px solid var(--primary-light);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .visual-element::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: -20%;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--primary-light);
+            border-radius: 0;
+            transform: rotate(45deg);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        /* * CONTROLS */
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .theme-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.2s;
+            padding: 0;
+            appearance: none;
+            outline: none;
+        }
+        
+        .theme-btn:hover { transform: scale(1.2); }
+        
+        .style-label {
+            margin-bottom: 10px;
+            font-size: 0.75rem;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="demo-wrapper">
+        <div class="style-label">Style: Duotone Visuals</div>
+
+        <div class="demo-container" id="demoBox">
+            <!-- Noise texture will be injected here via JS -->
+            <div class="grain-overlay" id="grainLayer"></div>
+            
+            <div class="bg-shape"></div>
+            <div class="split-bg"></div>
+            
+            <div class="visual-element"></div>
+
+            <div class="content-layer">
+                <header>
+                    <h1>Vision<br>Shift.</h1>
+                    <div class="sub-text">
+                        Two colors. Zero noise.<br>
+                        Unified brand identity.
+                    </div>
+                </header>
+
+                <div class="duotone-card" role="button" tabindex="0">
+                    <div>
+                        <div class="cta-label">Explore Case Study</div>
+                        <div class="cta-sub">01 — Portfolio Cover</div>
+                    </div>
+                    <div class="icon">→</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="theme-btn" style="background: #ccff00;" onclick="setTheme('default')" aria-label="Lime Theme"></button>
+            <button class="theme-btn" style="background: #ff4d4d;" onclick="setTheme('thermal')" aria-label="Red Theme"></button>
+            <button class="theme-btn" style="background: #7FDBFF;" onclick="setTheme('azure')" aria-label="Azure Theme"></button>
+        </div>
+    </div>
+
+    <script>
+        const demoBox = document.getElementById('demoBox');
+
+        // * Theme Switcher Logic
+        function setTheme(themeName) {
+            if (themeName === 'default') {
+                demoBox.removeAttribute('data-theme');
+            } else {
+                demoBox.setAttribute('data-theme', themeName);
+            }
+        }
+
+        // * Noise Generator
+        // Generates a simple noise texture on a canvas and applies it as a background.
+        // This ensures no external image requests are made.
+        (function generateNoise() {
+            try {
+                const canvas = document.createElement('canvas');
+                canvas.width = 100;
+                canvas.height = 100;
+                const ctx = canvas.getContext('2d');
+                
+                // Draw random white dots
+                for (let i = 0; i < 400; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5})`;
+                    ctx.fillRect(x, y, 1, 1);
+                }
+                
+                // Apply to the overlay layer
+                const grainLayer = document.getElementById('grainLayer');
+                if (grainLayer) {
+                    grainLayer.style.backgroundImage = `url(${canvas.toDataURL()})`;
+                }
+            } catch (e) {
+                console.log("Noise generation blocked or failed, continuing without texture.");
+            }
+        })();
+    </script>
+</body>
+</html>

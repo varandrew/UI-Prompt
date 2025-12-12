@@ -1,0 +1,25 @@
+{
+  "id": "visual-vaporwave",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "蒸汽波",
+      "en-US": "Vaporwave"
+    },
+    "description": {
+      "zh-CN": "80年代电脑美学与网络艺术的融合，霓虹渐变与全角字符。",
+      "en-US": "Fusion of 80s computer aesthetics and net art with neon gradients and fullwidth characters."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-vaporwave-vaporwave-aesthetic",
+      "title": {
+        "zh-CN": "蒸汽波美学",
+        "en-US": "Vaporwave Aesthetic"
+      }
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+
+      /* Anti-design Complete Page Styles - Chaotic Animations */
+
+      /* Chaotic Background Stripes Animation */
+      .chaos-bg-stripes {
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 20px,
+          #ff0000 20px,
+          #ff0000 40px
+        );
+        animation: chaos-bg-move 20s linear infinite;
+      }
+      @keyframes chaos-bg-move {
+        0% { transform: translateX(0) translateY(0); }
+        100% { transform: translateX(100px) translateY(100px); }
+      }
+
+      /* Chaotic Floating Animation */
+      @keyframes chaos-float {
+        0%, 100% {
+          transform: rotate(45deg) translateY(0px);
+        }
+        25% {
+          transform: rotate(50deg) translateY(-20px);
+        }
+        50% {
+          transform: rotate(40deg) translateY(-10px);
+        }
+        75% {
+          transform: rotate(55deg) translateY(-30px);
+        }
+      }
+
+      /* Chaotic Bounce Animation */
+      @keyframes chaos-bounce {
+        0%, 100% {
+          transform: translateY(0) scale(1);
+        }
+        25% {
+          transform: translateY(-30px) scale(1.1);
+        }
+        50% {
+          transform: translateY(-15px) scale(0.95);
+        }
+        75% {
+          transform: translateY(-40px) scale(1.05);
+        }
+      }
+
+      /* Title Shake Animation */
+      @keyframes chaos-shake {
+        0%, 100% { transform: rotate(-5deg) translateX(0); }
+        25% { transform: rotate(-4deg) translateX(-2px); }
+        50% { transform: rotate(-6deg) translateX(2px); }
+        75% { transform: rotate(-4.5deg) translateX(-1px); }
+      }
+
+      /* Button Wiggle Animation */
+      @keyframes chaos-wiggle {
+        0%, 100% { transform: rotate(-8deg); }
+        25% { transform: rotate(-10deg) scale(1.02); }
+        50% { transform: rotate(-6deg) scale(0.98); }
+        75% { transform: rotate(-9deg) scale(1.01); }
+      }
+
+      /* Chaotic Spinner 1 - Multiple Rotating Shapes */
+      .chaos-spinner-1 {
+        width: 80px;
+        height: 80px;
+        position: relative;
+      }
+      .chaos-spinner-1::before {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border: 8px solid #000;
+        background: linear-gradient(135deg, #ffeb3b, #ff9800);
+        transform: rotate(0deg);
+        animation: chaos-spin-1 2s linear infinite;
+        box-shadow: 6px 6px 0 #000;
+      }
+      .chaos-spinner-1::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 40px;
+        height: 40px;
+        margin: -20px 0 0 -20px;
+        border: 6px solid #000;
+        background: linear-gradient(135deg, #e91e63, #ff0000);
+        transform: rotate(0deg);
+        animation: chaos-spin-1-reverse 1.5s linear infinite reverse;
+        box-shadow: 4px 4px 0 #000;
+      }
+      @keyframes chaos-spin-1 {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(90deg) scale(1.1); }
+        50% { transform: rotate(180deg) scale(1); }
+        75% { transform: rotate(270deg) scale(1.1); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes chaos-spin-1-reverse {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-90deg) scale(0.9); }
+        50% { transform: rotate(-180deg) scale(1); }
+        75% { transform: rotate(-270deg) scale(0.9); }
+        100% { transform: rotate(-360deg); }
+      }
+
+      /* Chaotic Spinner 2 - Tilted Triangles */
+      .chaos-spinner-2 {
+        width: 80px;
+        height: 80px;
+        position: relative;
+      }
+      .chaos-spinner-2::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 70px solid #ffeb3b;
+        filter: drop-shadow(6px 6px 0 #000);
+        animation: chaos-spin-triangle 2.5s ease-in-out infinite;
+      }
+      .chaos-spinner-2::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 50px solid #ff0000;
+        filter: drop-shadow(4px 4px 0 #000);
+        animation: chaos-spin-triangle-reverse 2s ease-in-out infinite reverse;
+      }
+      @keyframes chaos-spin-triangle {
+        0%, 100% { transform: rotate(0deg) scale(1); }
+        25% { transform: rotate(120deg) scale(1.15); }
+        50% { transform: rotate(240deg) scale(0.9); }
+        75% { transform: rotate(300deg) scale(1.1); }
+      }
+      @keyframes chaos-spin-triangle-reverse {
+        0%, 100% { transform: rotate(0deg) scale(1); }
+        33% { transform: rotate(-90deg) scale(1.1); }
+        66% { transform: rotate(-180deg) scale(0.95); }
+      }
+
+      /* Chaotic Spinner 3 - Pure Anarchy */
+      .chaos-spinner-3 {
+        width: 80px;
+        height: 80px;
+        position: relative;
+      }
+      .chaos-spinner-3::before {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: #ffeb3b;
+        border: 6px solid #000;
+        border-radius: 50% 0 50% 0;
+        animation: chaos-morph 2s ease-in-out infinite;
+        box-shadow: 6px 6px 0 #000;
+      }
+      .chaos-spinner-3::after {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        background: #e91e63;
+        border: 6px solid #000;
+        border-radius: 0 50% 0 50%;
+        animation: chaos-morph-reverse 1.8s ease-in-out infinite reverse;
+        box-shadow: 4px 4px 0 #000;
+      }
+      @keyframes chaos-morph {
+        0%, 100% {
+          border-radius: 50% 0 50% 0;
+          transform: rotate(0deg) scale(1);
+        }
+        25% {
+          border-radius: 0 50% 0 50%;
+          transform: rotate(90deg) scale(1.2);
+        }
+        50% {
+          border-radius: 50% 50% 0 0;
+          transform: rotate(180deg) scale(0.9);
+        }
+        75% {
+          border-radius: 0 0 50% 50%;
+          transform: rotate(270deg) scale(1.1);
+        }
+      }
+      @keyframes chaos-morph-reverse {
+        0%, 100% {
+          border-radius: 0 50% 0 50%;
+          transform: rotate(0deg) scale(1);
+        }
+        33% {
+          border-radius: 50% 0 50% 0;
+          transform: rotate(-120deg) scale(1.15);
+        }
+        66% {
+          border-radius: 50% 50% 0 0;
+          transform: rotate(-240deg) scale(0.95);
+        }
+      }
+
+      /* Nav Link Hover Effects */
+      nav a:hover {
+        transform: rotate(0deg) scale(1.15) !important;
+        box-shadow: 8px 8px 0 #fff, 12px 12px 0 #000 !important;
+        background: #00bcd4 !important;
+        color: #fff !important;
+      }
+
+      /* Button Hover Effects */
+      button:hover {
+        transform: rotate(0deg) scale(1.1) !important;
+        box-shadow: 16px 16px 0 rgba(0,0,0,0.5) !important;
+        animation: chaos-wiggle 0.3s ease-in-out infinite;
+      }
+
+      /* Stats Card Hover - Random Jump */
+      section > div > div:hover {
+        transform: rotate(0deg) translateY(-10px) scale(1.08) !important;
+        box-shadow: 16px 16px 0 #000, 20px 20px 30px rgba(0,0,0,0.4) !important;
+        animation: chaos-jump 0.5s ease-in-out;
+      }
+      @keyframes chaos-jump {
+        0%, 100% { transform: rotate(0deg) translateY(-10px) scale(1.08); }
+        50% { transform: rotate(0deg) translateY(-15px) scale(1.12); }
+      }
+
+      /* Form Input Focus - Extreme Tilt */
+      input:focus, select:focus {
+        outline: none !important;
+        transform: rotate(0deg) scale(1.05) !important;
+        box-shadow: 8px 8px 0 #ffeb3b, 12px 12px 0 #000 !important;
+        border-color: #e91e63 !important;
+        border-width: 8px !important;
+      }
+
+      /* Table Row Hover - Chaotic Movement */
+      tbody tr:hover {
+        transform: rotate(0deg) scale(1.03) !important;
+        box-shadow: 8px 8px 0 rgba(255,235,59,0.5), 12px 12px 0 rgba(0,0,0,0.3) !important;
+        animation: chaos-row-shake 0.3s ease-in-out;
+      }
+      @keyframes chaos-row-shake {
+        0%, 100% { transform: rotate(0deg) scale(1.03); }
+        25% { transform: rotate(0.5deg) scale(1.03) translateX(2px); }
+        50% { transform: rotate(-0.5deg) scale(1.03) translateX(-2px); }
+        75% { transform: rotate(0.3deg) scale(1.03) translateX(1px); }
+      }
+
+      /* Footer Link Hover - Wild Rotation */
+      footer a:hover {
+        transform: rotate(0deg) scale(1.2) !important;
+        box-shadow: 8px 8px 0 #ffeb3b !important;
+        animation: chaos-spin-fast 0.5s ease-in-out;
+      }
+      @keyframes chaos-spin-fast {
+        0% { transform: rotate(0deg) scale(1.2); }
+        50% { transform: rotate(180deg) scale(1.3); }
+        100% { transform: rotate(360deg) scale(1.2); }
+      }
+
+      /* Smooth (but chaotic) Transitions */
+      * {
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      /* Responsive Design - Maintaining Chaos */
+      @media (max-width: 1024px) {
+        nav > div {
+          flex-direction: column;
+          gap: 1.5rem !important;
+        }
+
+        section > div[style*="grid-template-columns"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        h1 {
+          font-size: 56px !important;
+        }
+
+        .chaos-spinner-1,
+        .chaos-spinner-2,
+        .chaos-spinner-3 {
+          width: 60px !important;
+          height: 60px !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav input {
+          width: 100% !important;
+        }
+
+        h1 {
+          font-size: 42px !important;
+        }
+
+        h2 {
+          font-size: 36px !important;
+        }
+
+        /* Reduce rotation angles on mobile for readability */
+        section > div > div {
+          transform: rotate(0deg) !important;
+        }
+
+        tbody tr {
+          transform: rotate(0deg) !important;
+        }
+
+        table {
+          font-size: 12px;
+        }
+
+        th, td {
+          padding: 1rem !important;
+        }
+
+        button {
+          padding: 1rem 2rem !important;
+          font-size: 16px !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        h1 {
+          font-size: 32px !important;
+        }
+
+        h2 {
+          font-size: 28px !important;
+        }
+
+        /* Simplify animations on very small screens */
+        .chaos-bg-stripes {
+          animation: none;
+          opacity: 0.1;
+        }
+
+        @keyframes chaos-shake {
+          0%, 100% { transform: rotate(-5deg); }
+        }
+      }
+
+      /* Disable animations for users who prefer reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .chaos-bg-stripes {
+          animation: none !important;
+        }
+      }
+    

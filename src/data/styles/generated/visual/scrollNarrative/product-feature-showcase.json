@@ -1,0 +1,11 @@
+{
+  "id": "product-feature-showcase",
+  "title": {
+    "zh-CN": "SaaS 产品功能展示",
+    "en-US": "Product Feature Showcase"
+  },
+  "description": {
+    "zh-CN": "SaaS 产品功能介绍页，随滚动逐一展示核心功能，包含设备模型、统计数据、客户评价和定价方案",
+    "en-US": "SaaS product feature introduction page with scroll-triggered reveals, device mockups, statistics, testimonials, and pricing plans"
+  }
+}

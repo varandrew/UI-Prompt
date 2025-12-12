@@ -1,0 +1,29 @@
+.color-slider {
+            background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+          }
+          .color-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid #667eea;
+          }
+          .color-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid #667eea;
+          }
+          .ripple-text {
+            animation: ripple 2s ease-in-out infinite;
+          }
+          @keyframes ripple {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+          }

@@ -1,0 +1,85 @@
+{
+  "id": "statistics-card",
+  "category": "dataDisplay",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.dataDisplay.statistics-card.title",
+      "en-US": "data.components.dataDisplay.statistics-card.title"
+    },
+    "description": {
+      "zh-CN": "data.components.dataDisplay.statistics-card.description",
+      "en-US": "data.components.dataDisplay.statistics-card.description"
+    },
+    "tags": [
+      "dataDisplay"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalist",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.minimalist.name",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.minimalist.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.minimalist.description",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.minimalist.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "bootstrap5",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.bootstrap5.name",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.bootstrap5.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.bootstrap5.description",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.bootstrap5.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.glassmorphism.name",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.glassmorphism.description",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "ant-design",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.ant-design.name",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.ant-design.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.ant-design.description",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.ant-design.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.neumorphism.name",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.neumorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.statistics-card.variants.neumorphism.description",
+        "en-US": "data.components.dataDisplay.statistics-card.variants.neumorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

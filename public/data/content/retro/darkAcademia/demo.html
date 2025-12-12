@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Academia Style Demo</title>
+    <!-- Importing Google Fonts for the Classical Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* RESET & CENTER LAYOUT */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0f0c08; /* Very dark background for contrast */
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* MAIN CONTAINER 
+           This is the "Square Demo" requested.
+           It uses container-type: size to allow child elements to size themselves relative to the container's width.
+        */
+        .da-demo-card {
+            /* Variable size: user can resize this div, and everything inside scales automatically */
+            width: min(80vw, 400px); 
+            aspect-ratio: 1 / 1; /* Strictly Square */
+            
+            position: relative;
+            container-type: size; /* Enables cqw units */
+            border-radius: 2cqw;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            cursor: default;
+            
+            /* The Base Texture (Leather/Dark Paper) */
+            background-color: #1a1612;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 20%, rgba(0,0,0,0.8) 100%), /* Vignette */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E"); /* Subtle Grain */
+            
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        /* LIGHTING EFFECT LAYER */
+        .candle-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            /* The light follows the mouse via CSS variables set in JS */
+            background: radial-gradient(
+                circle at var(--x, 50%) var(--y, 50%), 
+                rgba(255, 160, 60, 0.15) 0%, 
+                rgba(0, 0, 0, 0) 60%
+            );
+            mix-blend-mode: color-dodge;
+        }
+
+        /* INNER BORDER (The "Book Cover" frame) */
+        .content-frame {
+            position: absolute;
+            inset: 4cqw; /* 4% padding from edge */
+            border: 0.5cqw solid #8a6a4b; /* Dull Gold Border */
+            outline: 0.2cqw solid #3e2f22; /* Darker outline */
+            outline-offset: -1.5cqw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 5cqw;
+            z-index: 20;
+        }
+
+        /* TYPOGRAPHY SCALING 
+           Using 'cqw' (Container Query Width) ensures text fits perfectly 
+           regardless of how small the square is.
+        */
+        
+        .style-label {
+            font-family: 'Cinzel', serif;
+            font-size: 3cqw;
+            letter-spacing: 0.5cqw;
+            color: #8a6a4b; /* Dull Gold */
+            text-transform: uppercase;
+            margin-bottom: 2cqw;
+            opacity: 0.8;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 10cqw;
+            line-height: 1;
+            color: #e3d4b8; /* Parchment White */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin-bottom: 3cqw;
+            font-weight: 700;
+        }
+
+        .separator {
+            width: 15cqw;
+            height: 0.5cqw;
+            background: #8a6a4b;
+            margin-bottom: 3cqw;
+            position: relative;
+        }
+        
+        /* Decorative diamond in separator */
+        .separator::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 1.5cqw;
+            height: 1.5cqw;
+            background: #8a6a4b;
+            border: 0.2cqw solid #1a1612;
+        }
+
+        .description {
+            font-family: 'Playfair Display', serif;
+            font-size: 4cqw;
+            color: #a89f91; /* Faded Text */
+            font-style: italic;
+            margin-bottom: 6cqw;
+            line-height: 1.4;
+            max-width: 90%;
+        }
+
+        /* BUTTON STYLE */
+        .action-btn {
+            background: transparent;
+            border: 0.3cqw solid #5c4836;
+            color: #d1c2a9;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5cqw;
+            padding: 1.5cqw 4cqw;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.2cqw;
+        }
+
+        .action-btn:hover {
+            border-color: #8a6a4b;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 200, 100, 0.5);
+            background: rgba(138, 106, 75, 0.1);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+        }
+
+        /* Corner Ornaments */
+        .corner {
+            position: absolute;
+            width: 3cqw;
+            height: 3cqw;
+            border-color: #8a6a4b;
+            border-style: solid;
+            transition: all 0.3s ease;
+        }
+        .tl { top: 2cqw; left: 2cqw; border-width: 0.4cqw 0 0 0.4cqw; }
+        .tr { top: 2cqw; right: 2cqw; border-width: 0.4cqw 0.4cqw 0 0; }
+        .bl { bottom: 2cqw; left: 2cqw; border-width: 0 0 0.4cqw 0.4cqw; }
+        .br { bottom: 2cqw; right: 2cqw; border-width: 0 0.4cqw 0.4cqw 0; }
+
+        .da-demo-card:hover .corner {
+            width: 5cqw;
+            height: 5cqw;
+            border-color: #c7a065; /* Brighter gold on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+      DEMO CONTAINER 
+      This single div represents the UI component. 
+      It is responsive and self-contained.
+    -->
+    <div class="da-demo-card" id="card">
+        
+        <!-- Ambient Light Layer -->
+        <div class="candle-glow"></div>
+
+        <!-- Content Frame -->
+        <div class="content-frame">
+            <!-- Decorative Corners -->
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+
+            <!-- Labels -->
+            <div class="style-label">UI Style Demo</div>
+            
+            <h1 class="main-title">Dark<br>Academia</h1>
+            
+            <div class="separator"></div>
+            
+            <p class="description">
+                "The smell of old books, flickering candlelight, and the pursuit of hidden knowledge."
+            </p>
+
+            <button class="action-btn">Enter Library</button>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+
+        // Simple mouse tracking for the "Candlelight" effect
+        // This calculates where the mouse is relative to the square card
+        // and moves the radial gradient to match.
+        document.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            
+            // Calculate X and Y as percentages (0% to 100%) relative to the card
+            // We clamp values to ensure the light doesn't disappear if mouse leaves window
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+            card.style.setProperty('--x', `${x}%`);
+            card.style.setProperty('--y', `${y}%`);
+        });
+
+        // Add a slight tilt effect for 3D feel on hover (Optional polish)
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -2; // Max 2deg rotation
+            const rotateY = ((x - centerX) / centerX) * 2;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        // Reset transform when mouse leaves
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Story Experience</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Parallax Container */
+    .parallax-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parallax-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 120%;
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+    }
+
+    /* Background Layers */
+    .bg-stars {
+      background: radial-gradient(2px 2px at 20px 30px, #fbbf24, transparent),
+                  radial-gradient(2px 2px at 40px 70px, #7c3aed, transparent),
+                  radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+                  radial-gradient(1px 2px at 130px 80px, #fbbf24, transparent),
+                  radial-gradient(2px 1px at 160px 30px, #7c3aed, transparent);
+      background-size: 200px 100px;
+      z-index: 1;
+      animation: sparkle 10s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    .bg-nebula {
+      background: radial-gradient(ellipse at 30% 40%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(251, 191, 36, 0.2) 0%, transparent 50%);
+      z-index: 2;
+    }
+
+    .bg-planet {
+      background: radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.4) 0%, transparent 30%);
+      z-index: 3;
+    }
+
+    /* Content Layers */
+    .content-layer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    /* Chapter Indicator */
+    .chapter-indicator {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .chapter-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .chapter-dot.active {
+      background: #fbbf24;
+      transform: scale(1.5);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+    }
+
+    .chapter-dot::after {
+      content: attr(data-title);
+      position: absolute;
+      right: calc(100% + 1rem);
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .chapter-dot:hover::after {
+      opacity: 1;
+    }
+
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #7c3aed, #fbbf24);
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Chapter Sections */
+    .chapter {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chapter-content {
+      max-width: 900px;
+      padding: 2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .chapter-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .chapter-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fbbf24, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .chapter-subtitle {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .chapter-text {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #e2e8f0;
+      margin-bottom: 2rem;
+    }
+
+    /* Special Effects */
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .floating-element {
+      position: absolute;
+      opacity: 0.6;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .element-1 { top: 20%; left: 10%; animation-delay: 0s; }
+    .element-2 { top: 60%; right: 15%; animation-delay: 2s; }
+    .element-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
+
+    /* Interactive Elements */
+    .story-cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #7c3aed, #fbbf24);
+      border: none;
+      border-radius: 0.5rem;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+    }
+
+    .story-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
+    }
+
+    /* Data Visualization */
+    .data-viz {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .data-point {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .data-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #fbbf24, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .data-label {
+      color: #cbd5e1;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #7c3aed, #fbbf24);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding: 1.5rem;
+      background: rgba(30, 41, 59, 0.5);
+      border-radius: 1rem;
+      margin: 0 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .timeline-marker {
+      width: 20px;
+      height: 20px;
+      background: #fbbf24;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+      z-index: 1;
+    }
+
+    .timeline-date {
+      color: #fbbf24;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chapter-indicator {
+        right: 1rem;
+        transform: translateY(-50%) scale(0.8);
+      }
+
+      .chapter-content {
+        padding: 1rem;
+      }
+
+      .data-viz {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .timeline-item {
+        flex-direction: column !important;
+      }
+
+      .timeline-content {
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Chapter Navigation -->
+  <nav class="chapter-indicator">
+    <div class="chapter-dot active" data-title="Beginning" data-target="chapter1"></div>
+    <div class="chapter-dot" data-title="Journey" data-target="chapter2"></div>
+    <div class="chapter-dot" data-title="Discovery" data-target="chapter3"></div>
+    <div class="chapter-dot" data-title="Innovation" data-target="chapter4"></div>
+    <div class="chapter-dot" data-title="Future" data-target="chapter5"></div>
+  </nav>
+
+  <!-- Chapter 1: The Beginning -->
+  <section id="chapter1" class="chapter">
+    <div class="parallax-bg bg-stars" data-speed="0.2"></div>
+    <div class="parallax-bg bg-nebula" data-speed="0.5"></div>
+    <div class="content-layer">
+      <div class="chapter-content visible">
+        <h1 class="chapter-title">In the Beginning</h1>
+        <p class="chapter-subtitle">Every great story starts with a single spark of imagination</p>
+        <p class="chapter-text">
+          From the depths of cosmic void, ideas are born. Like stars forming in the vast darkness of space,
+          our journey began with a simple yet powerful vision: to transform the way humans interact with digital experiences.
+        </p>
+        <a href="javascript:void(0)" class="story-cta">Begin the Journey</a>
+      </div>
+      <div class="floating-elements">
+        <div class="floating-element element-1">✨</div>
+        <div class="floating-element element-2">🌟</div>
+        <div class="floating-element element-3">💫</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 2: The Journey -->
+  <section id="chapter2" class="chapter">
+    <div class="parallax-bg bg-stars" data-speed="0.3"></div>
+    <div class="parallax-bg bg-planet" data-speed="0.7"></div>
+    <div class="content-layer">
+      <div class="chapter-content">
+        <h2 class="chapter-title">The Journey Unfolds</h2>
+        <p class="chapter-subtitle">Through challenges and discoveries, we evolved</p>
+
+        <div class="data-viz">
+          <div class="data-point">
+            <div class="data-number">2019</div>
+            <div class="data-label">Foundation Year</div>
+          </div>
+          <div class="data-point">
+            <div class="data-number">50+</div>
+            <div class="data-label">Team Members</div>
+          </div>
+          <div class="data-point">
+            <div class="data-number">1M+</div>
+            <div class="data-label">Users Reached</div>
+          </div>
+        </div>
+
+        <p class="chapter-text">
+          Our path was not always clear, but with each step, we learned, adapted, and grew stronger.
+          The universe of possibilities expanded before us as we navigated through uncharted territories.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 3: Discovery -->
+  <section id="chapter3" class="chapter">
+    <div class="parallax-bg bg-nebula" data-speed="0.4"></div>
+    <div class="parallax-bg bg-stars" data-speed="0.8"></div>
+    <div class="content-layer">
+      <div class="chapter-content">
+        <h2 class="chapter-title">Moment of Discovery</h2>
+        <p class="chapter-subtitle">When breakthrough meets preparation</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Q1 2021</div>
+              <h3>The Breakthrough</h3>
+              <p>Revolutionary algorithm discovery that changed everything we thought possible.</p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Q3 2021</div>
+              <h3>First Success</h3>
+              <p>Beta testing revealed unprecedented user satisfaction and engagement rates.</p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Q1 2022</div>
+              <h3>Market Validation</h3>
+              <p>Industry recognition and adoption confirmed our vision was becoming reality.</p>
+            </div>
+            <div class="timeline-marker"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 4: Innovation -->
+  <section id="chapter4" class="chapter">
+    <div class="parallax-bg bg-planet" data-speed="0.6"></div>
+    <div class="parallax-bg bg-nebula" data-speed="0.9"></div>
+    <div class="content-layer">
+      <div class="chapter-content">
+        <h2 class="chapter-title">Era of Innovation</h2>
+        <p class="chapter-subtitle">Pushing boundaries beyond what was thought possible</p>
+        <p class="chapter-text">
+          Innovation became our north star. Every challenge was an opportunity to reimagine,
+          rebuild, and revolutionize. We didn't just adapt to the future—we created it.
+        </p>
+
+        <div class="data-viz">
+          <div class="data-point">
+            <div class="data-number">15</div>
+            <div class="data-label">Patents Filed</div>
+          </div>
+          <div class="data-point">
+            <div class="data-number">99.9%</div>
+            <div class="data-label">Uptime Achievement</div>
+          </div>
+          <div class="data-point">
+            <div class="data-number">24/7</div>
+            <div class="data-label">Global Support</div>
+          </div>
+          <div class="data-point">
+            <div class="data-number">∞</div>
+            <div class="data-label">Possibilities</div>
+          </div>
+        </div>
+
+        <a href="javascript:void(0)" class="story-cta">Experience Innovation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 5: The Future -->
+  <section id="chapter5" class="chapter">
+    <div class="parallax-bg bg-stars" data-speed="0.5"></div>
+    <div class="parallax-bg bg-nebula" data-speed="0.8"></div>
+    <div class="parallax-bg bg-planet" data-speed="1.2"></div>
+    <div class="content-layer">
+      <div class="chapter-content">
+        <h2 class="chapter-title">Infinite Horizons</h2>
+        <p class="chapter-subtitle">The story continues, and the best is yet to come</p>
+        <p class="chapter-text">
+          As we look toward tomorrow, we see not an end, but a beginning. Every star in our digital universe
+          represents a new possibility, a new dream waiting to be realized. Join us as we write the next chapter together.
+        </p>
+        <a href="javascript:void(0)" class="story-cta">Join Our Universe</a>
+      </div>
+      <div class="floating-elements">
+        <div class="floating-element element-1">🚀</div>
+        <div class="floating-element element-2">🌌</div>
+        <div class="floating-element element-3">⭐</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Parallax scrolling effect
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.parallax-bg');
+      const scrollProgress = document.getElementById('scrollProgress');
+
+      // Update scroll progress
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrolled / totalHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+
+      // Apply parallax effect
+      parallaxElements.forEach(element => {
+        const speed = element.dataset.speed || 0.5;
+        const yPos = -(scrolled * speed);
+        element.style.transform = \`translateY(\${yPos}px)\`;
+      });
+    });
+
+    // Intersection Observer for content animation
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Update chapter navigation
+          const chapterDots = document.querySelectorAll('.chapter-dot');
+          const chapterId = entry.target.id;
+
+          chapterDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.dataset.target === chapterId) {
+              dot.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe all chapter content
+    document.querySelectorAll('.chapter-content').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Chapter navigation click handlers
+    document.querySelectorAll('.chapter-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.target);
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Smooth reveal animation for data points
+    const dataObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const numbers = entry.target.querySelectorAll('.data-number');
+          numbers.forEach((number, index) => {
+            setTimeout(() => {
+              number.style.animation = 'none';
+              number.style.transform = 'scale(1.1)';
+              setTimeout(() => {
+                number.style.transform = 'scale(1)';
+              }, 200);
+            }, index * 100);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.data-viz').forEach(el => {
+      dataObserver.observe(el);
+    });
+  </script>
+</body>
+</html>`;
+

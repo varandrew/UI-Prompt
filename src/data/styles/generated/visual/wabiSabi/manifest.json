@@ -1,0 +1,32 @@
+{
+  "id": "visual-wabiSabi",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "侘寂风格",
+      "en-US": "Wabi-Sabi"
+    },
+    "description": {
+      "zh-CN": "侘寂设计风格，拥抱不完美与自然之美，结合极简美学。",
+      "en-US": "Wabi-sabi design embracing imperfection and natural beauty with minimalist aesthetics."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-wabiSabi-wabiSabi-zen",
+      "title": {
+        "zh-CN": "侘寂禅意",
+        "en-US": "Wabi-Sabi Zen"
+      }
+    },
+    {
+      "id": "visual-wabiSabi-wabiSabi-zen-website",
+      "title": {
+        "zh-CN": "侘寂禅意网站",
+        "en-US": "Wabi-Sabi Zen Website"
+      }
+    }
+  ]
+}

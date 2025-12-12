@@ -1,0 +1,25 @@
+{
+  "id": "visual-accessibility",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "无障碍设计",
+      "en-US": "Accessibility"
+    },
+    "description": {
+      "zh-CN": "高对比、清晰层级与键盘友好的基础无障碍界面风格。",
+      "en-US": "Accessible UI with strong contrast, clear hierarchy, and keyboard-friendly patterns."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-accessibility-basic",
+      "title": {
+        "zh-CN": "无障碍仪表盘",
+        "en-US": "Accessibility Dashboard"
+      }
+    }
+  ]
+}

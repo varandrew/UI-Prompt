@@ -5,12 +5,6 @@ import { HydrateFallback } from '../components/HydrateFallback';
 const __BASENAME__ = (import.meta.env.DEV ? '' : (import.meta.env.BASE_URL || '/')).replace(/\/$/, '');
 
 export const router = createBrowserRouter([
-  // 獨立的布局編輯器路由 (不使用主 Layout)
-  {
-    path: '/layout',
-    lazy: async () => ({ Component: (await import('../pages/layouts/LayoutEditorPage.jsx')).LayoutEditorPage, ErrorBoundary: (await import('../components/RouteError.jsx')).RouteError }),
-  },
-
   // 風格預覽页面路由 (不使用主 Layout)
   {
     path: '/styles/preview/:styleId',
@@ -24,9 +18,12 @@ export const router = createBrowserRouter([
         Component: StylePreviewPage,
         ErrorBoundary: RouteError,
         loader: async ({ params }) => {
-          const { decodeStyleId, findStyleById } = await import('../utils/styleHelper.js');
+          const { decodeStyleId } = await import('../utils/styleHelper.js');
+          const { loadStyleFromJSON } = await import('../data/index.js');
           const styleId = decodeStyleId(params.styleId);
-          const style = findStyleById(styleId);
+
+          // 只使用 JSON 架構加載
+          const style = await loadStyleFromJSON(styleId);
 
           if (!style) {
             throw new Response('风格不存在', {
@@ -54,9 +51,12 @@ export const router = createBrowserRouter([
         Component: CodeEditorPage,
         ErrorBoundary: RouteError,
         loader: async ({ params }) => {
-          const { decodeStyleId, findStyleById } = await import('../utils/styleHelper.js');
+          const { decodeStyleId } = await import('../utils/styleHelper.js');
+          const { loadStyleFromJSON } = await import('../data/index.js');
           const styleId = decodeStyleId(params.styleId);
-          const style = findStyleById(styleId);
+
+          // 只使用 JSON 架構加載
+          const style = await loadStyleFromJSON(styleId);
 
           if (!style) {
             throw new Response('风格不存在', {
@@ -108,8 +108,39 @@ export const router = createBrowserRouter([
         path: 'layouts',
         lazy: async () => ({ Component: (await import('../pages/layouts/LayoutsPage.jsx')).LayoutsPage, ErrorBoundary: (await import('../components/RouteError.jsx')).RouteError }),
       },
-      // 新增: 組件詳情页 (動態路由)
-      { path: 'components/:category/:componentId', lazy: async () => ({ Component: (await import('../pages/components/ComponentDetailPage.jsx')).ComponentDetailPage, ErrorBoundary: (await import('../components/RouteError.jsx')).RouteError }) },
+      // 新增: 組件詳情页 (動態路由) - 使用 Route Loader 預加載
+      {
+        path: 'components/:category/:componentId',
+        lazy: async () => {
+          const [{ ComponentDetailPage }, { RouteError }] = await Promise.all([
+            import('../pages/components/ComponentDetailPage.jsx'),
+            import('../components/RouteError.jsx')
+          ]);
+
+          return {
+            Component: ComponentDetailPage,
+            ErrorBoundary: RouteError,
+            loader: async ({ params }) => {
+              const { loadComponentFromJSON } = await import('../data/loaders/jsonComponentLoader.js');
+              const { category, componentId } = params;
+
+              // 從 JSON 加載組件
+              const component = await loadComponentFromJSON(`${category}/${componentId}`);
+
+              if (!component) {
+                throw new Response('組件不存在', {
+                  status: 404,
+                  statusText: 'Not Found'
+                });
+              }
+
+              return { component };
+            }
+          };
+        }
+      },
+      // About 页面
+      { path: 'about', lazy: async () => ({ Component: (await import('../pages/about/AboutPage.jsx')).AboutPage, ErrorBoundary: (await import('../components/RouteError.jsx')).RouteError }) },
       // 404 通配符路由 - 必須放在最後
       { path: '*', lazy: async () => ({ Component: (await import('../pages/special/NotFoundPage.jsx')).NotFoundPage, ErrorBoundary: (await import('../components/RouteError.jsx')).RouteError }) },
     ],

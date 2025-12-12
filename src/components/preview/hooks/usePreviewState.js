@@ -102,7 +102,7 @@ function previewReducer(state, action) {
       return {
         ...state,
         activeIndex: action.payload?.defaultIndex ?? 0,
-        isLoading: true,
+        isLoading: action.payload?.initialLoading ?? true,
         previewContent: null
       };
 
@@ -190,12 +190,13 @@ export function usePreviewState({
   // Effect 2: 當打開或預覽集合變化時重置索引
   useEffect(() => {
     if (isOpen) {
+      const initialLoading = previewsList.length > 0 || !!fullPagePreviewId;
       dispatch({
         type: ActionTypes.RESET_FOR_NEW_PREVIEWS,
-        payload: { defaultIndex: getDefaultIndex() }
+        payload: { defaultIndex: getDefaultIndex(), initialLoading }
       });
     }
-  }, [isOpen, previewsKey, getDefaultIndex]);
+  }, [isOpen, previewsKey, getDefaultIndex, previewsList.length, fullPagePreviewId]);
 
   // Effect 3: 載入超時後備（2 秒自動隱藏 Loading）
   useEffect(() => {

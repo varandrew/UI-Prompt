@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>darkAcademiaLibrary - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+.da-full-page{font-family:Georgia,'Times New Roman',serif;color:#2f2419;background-color:#f5ebe0;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}.da-full-page *{margin:0;padding:0;box-sizing:border-box}.da-container{max-width:1200px;margin:0 auto;padding:0 24px}@media(min-width:768px){.da-container{padding:0 40px}}.da-header{background:linear-gradient(to bottom,#3b2f2f,#2f2419);border-bottom:3px solid #b8860b;padding:20px 0;position:sticky;top:0;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,.3)}.da-nav-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.da-logo{display:flex;align-items:center;gap:12px}.da-logo-icon{font-size:28px}.da-logo-text{font-size:24px;font-weight:700;color:#f5deb3;letter-spacing:2px;text-shadow:2px 2px 4px rgba(0,0,0,.5)}.da-nav{display:flex;gap:32px;flex-wrap:wrap}@media(max-width:768px){.da-nav{gap:16px}}.da-nav-link{color:#f5deb3;text-decoration:none;font-size:16px;letter-spacing:1px;transition:all .3s ease;position:relative;padding:4px 0}.da-nav-link:hover{color:#b8860b}.da-nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background-color:#b8860b;transition:width .3s ease}.da-nav-link:hover::after{width:100%}.da-hero{position:relative;background:linear-gradient(135deg,#3b2f2f 0%,#4a3c2e 50%,#3b2f2f 100%);min-height:500px;display:flex;align-items:center;justify-content:center;padding:80px 0;overflow:hidden}.da-hero-overlay{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.05) 2px,rgba(0,0,0,.05) 4px);opacity:.3}.da-hero-content{position:relative;z-index:1}.da-hero-inner{text-align:center;max-width:800px;margin:0 auto}.da-quill-icon{font-size:64px;margin-bottom:24px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}.da-hero-title{font-size:56px;color:#f5deb3;margin-bottom:24px;font-weight:700;text-shadow:3px 3px 6px rgba(0,0,0,.7);letter-spacing:1px}@media(max-width:768px){.da-hero-title{font-size:36px}}.da-hero-subtitle{font-size:20px;color:#e8dcc4;margin-bottom:40px;font-style:italic;opacity:.95}@media(max-width:768px){.da-hero-subtitle{font-size:16px}}.da-hero-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}.da-btn-primary{background-color:#b8860b;color:#2f2419;padding:14px 32px;text-decoration:none;font-weight:600;border-radius:4px;transition:all .3s ease;box-shadow:0 4px 12px rgba(184,134,11,.4);border:2px solid #b8860b}.da-btn-primary:hover{background-color:#9a7209;transform:translateY(-2px);box-shadow:0 6px 16px rgba(184,134,11,.6)}.da-btn-secondary{background-color:transparent;color:#f5deb3;padding:14px 32px;text-decoration:none;font-weight:600;border-radius:4px;border:2px solid #f5deb3;transition:all .3s ease}.da-btn-secondary:hover{background-color:rgba(245,222,179,.1);transform:translateY(-2px)}.da-books-section{padding:80px 0;background-color:#f5ebe0}.da-section-header{text-align:center;margin-bottom:60px}.da-section-title{font-size:42px;color:#2f2419;margin-bottom:16px;font-weight:700}@media(max-width:768px){.da-section-title{font-size:32px}}.da-section-subtitle{font-size:18px;color:#5c4a3a;font-style:italic}.da-books-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}.da-book-card{background:linear-gradient(to right,#8b6f47,#a0826d);border-left:8px solid #3b2f2f;border-right:2px solid #2f2419;box-shadow:8px 8px 16px rgba(0,0,0,.3);transition:all .3s ease;position:relative;overflow:hidden}.da-book-card:hover{transform:translateY(-8px) rotate(1deg);box-shadow:12px 12px 24px rgba(0,0,0,.4)}.da-book-spine{writing-mode:vertical-rl;text-orientation:mixed;background-color:#3b2f2f;color:#f5deb3;padding:16px 8px;font-weight:700;letter-spacing:2px;position:absolute;left:0;top:0;bottom:0;width:32px;display:flex;align-items:center;justify-content:center}.da-book-content{padding:24px 24px 24px 48px}.da-book-title{font-size:22px;color:#2f2419;margin-bottom:8px;font-weight:700}.da-book-author{font-size:14px;color:#5c4a3a;margin-bottom:12px;font-style:italic}.da-book-desc{font-size:15px;color:#3b2f2f;margin-bottom:16px;line-height:1.6}.da-book-link{color:#b8860b;text-decoration:none;font-weight:600;font-size:15px;transition:color .3s ease}.da-book-link:hover{color:#9a7209}.da-study-section{padding:80px 0;background:linear-gradient(to bottom,#e8dcc4,#f5ebe0)}.da-parchment-card{background-color:#f5f0e8;background-image:repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(139,111,71,.03) 20px,rgba(139,111,71,.03) 40px);border:3px solid #b8860b;border-radius:8px;padding:48px;max-width:600px;margin:0 auto;box-shadow:0 8px 24px rgba(0,0,0,.15),inset 0 1px 3px rgba(184,134,11,.1);position:relative}@media(max-width:768px){.da-parchment-card{padding:32px 24px}}.da-wax-seal{position:absolute;top:-20px;right:40px;font-size:48px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))}.da-parchment-title{font-size:32px;color:#2f2419;margin-bottom:12px;text-align:center;font-weight:700}@media(max-width:768px){.da-parchment-title{font-size:24px}}.da-parchment-subtitle{font-size:16px;color:#5c4a3a;margin-bottom:32px;text-align:center;font-style:italic}.da-study-form{display:flex;flex-direction:column;gap:24px}.da-form-group{display:flex;flex-direction:column;gap:8px}.da-form-label{font-size:15px;color:#3b2f2f;font-weight:600;letter-spacing:.5px}.da-form-input,.da-form-select,.da-form-textarea{background-color:#fff;border:2px solid #d4c4a8;border-radius:4px;padding:12px 16px;font-size:15px;font-family:Georgia,serif;color:#2f2419;transition:all .3s ease}.da-form-input:focus,.da-form-select:focus,.da-form-textarea:focus{outline:0;border-color:#b8860b;box-shadow:0 0 0 3px rgba(184,134,11,.1)}.da-form-textarea{resize:vertical;min-height:100px}.da-form-submit{background-color:#b8860b;color:#f5f0e8;padding:14px 32px;border:none;border-radius:4px;font-size:16px;font-weight:700;cursor:pointer;transition:all .3s ease;font-family:Georgia,serif;letter-spacing:1px;box-shadow:0 4px 12px rgba(184,134,11,.3)}.da-form-submit:hover{background-color:#9a7209;transform:translateY(-2px);box-shadow:0 6px 16px rgba(184,134,11,.5)}.da-timeline-section{padding:80px 0;background-color:#f5ebe0}.da-timeline{position:relative;max-width:900px;margin:0 auto;padding:40px 0}.da-timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#b8860b,#3b2f2f,#b8860b);transform:translateX(-50%)}@media(max-width:768px){.da-timeline::before{left:20px}}.da-timeline-item{position:relative;margin-bottom:60px;display:grid;grid-template-columns:1fr 1fr;gap:40px}@media(max-width:768px){.da-timeline-item{grid-template-columns:1fr;padding-left:60px}}.da-timeline-left .da-timeline-card{grid-column:1;text-align:right}@media(max-width:768px){.da-timeline-left .da-timeline-card{text-align:left;grid-column:1}}.da-timeline-right .da-timeline-card{grid-column:2;text-align:left}@media(max-width:768px){.da-timeline-right .da-timeline-card{grid-column:1}}.da-timeline-dot{position:absolute;left:50%;top:0;width:20px;height:20px;background-color:#b8860b;border:4px solid #f5ebe0;border-radius:50%;transform:translateX(-50%);z-index:1;box-shadow:0 0 0 4px #3b2f2f}@media(max-width:768px){.da-timeline-dot{left:20px}}.da-timeline-card{background-color:#f5f0e8;border:2px solid #d4c4a8;border-radius:8px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:all .3s ease}.da-timeline-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.15)}.da-timeline-year{display:inline-block;background-color:#3b2f2f;color:#f5deb3;padding:6px 16px;border-radius:20px;font-size:14px;font-weight:700;margin-bottom:12px;letter-spacing:1px}.da-timeline-title{font-size:20px;color:#2f2419;margin-bottom:8px;font-weight:700}.da-timeline-desc{font-size:15px;color:#5c4a3a;line-height:1.6}.da-quote-section{padding:80px 0;background:linear-gradient(135deg,#3b2f2f,#4a3c2e);position:relative;overflow:hidden}.da-quote-section::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(245,222,179,.02) 10px,rgba(245,222,179,.02) 20px);pointer-events:none}.da-quote-card{max-width:800px;margin:0 auto;text-align:center;position:relative;padding:40px}.da-quote-mark{font-size:120px;color:#b8860b;line-height:1;opacity:.5;font-family:Georgia,serif}.da-quote-text{font-size:32px;color:#f5deb3;font-style:italic;margin:20px 0;line-height:1.5;text-shadow:2px 2px 4px rgba(0,0,0,.3)}@media(max-width:768px){.da-quote-text{font-size:24px}}.da-quote-author{font-size:18px;color:#e8dcc4;font-style:normal;letter-spacing:1px}.da-ink-stain{position:absolute;bottom:20px;right:60px;width:80px;height:80px;background:radial-gradient(circle,rgba(47,36,25,.3),transparent);border-radius:50%;filter:blur(4px);opacity:.4}.da-reading-section{padding:80px 0;background-color:#f5ebe0}.da-reading-grid{display:grid;gap:20px;max-width:700px;margin:0 auto}.da-reading-item{display:flex;align-items:center;gap:24px;background-color:#f5f0e8;border-left:4px solid #b8860b;padding:20px 24px;border-radius:4px;transition:all .3s ease;box-shadow:0 2px 8px rgba(0,0,0,.08)}.da-reading-item:hover{transform:translateX(8px);box-shadow:0 4px 12px rgba(0,0,0,.12)}.da-reading-number{font-size:32px;color:#b8860b;font-weight:700;font-style:italic;min-width:50px;text-align:center}.da-reading-title{font-size:20px;color:#2f2419;font-weight:700;margin-bottom:4px}.da-reading-meta{font-size:14px;color:#5c4a3a;font-style:italic}.da-footer{background:linear-gradient(to top,#2f2419,#3b2f2f);color:#e8dcc4;padding:60px 0 30px;border-top:3px solid #b8860b}.da-footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}.da-footer-title{font-size:18px;color:#f5deb3;margin-bottom:16px;font-weight:700;letter-spacing:1px}.da-footer-text{font-size:15px;line-height:1.6;opacity:.9}.da-footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}.da-footer-links a{color:#e8dcc4;text-decoration:none;font-size:15px;transition:color .3s ease}.da-footer-links a:hover{color:#b8860b}.da-footer-links li{opacity:.9}.da-footer-bottom{border-top:1px solid rgba(245,222,179,.2);padding-top:24px;text-align:center}.da-copyright{font-size:14px;opacity:.8;font-style:italic}
+  </style>
+</head>
+<body>
+
+<!-- Dark Academia Library Portal -->
+<div class="da-full-page">
+  <!-- Header -->
+  <header class="da-header">
+    <div class="da-container">
+      <div class="da-nav-grid">
+        <div class="da-logo">
+          <span class="da-logo-icon">📚</span>
+          <span class="da-logo-text">BIBLIOTHECA</span>
+        </div>
+        <nav class="da-nav">
+          <a href="javascript:void(0)" class="da-nav-link">Library</a>
+          <a href="javascript:void(0)" class="da-nav-link">Collections</a>
+          <a href="javascript:void(0)" class="da-nav-link">Research</a>
+          <a href="javascript:void(0)" class="da-nav-link">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="da-hero">
+    <div class="da-hero-overlay"></div>
+    <div class="da-hero-content">
+      <div class="da-container">
+        <div class="da-hero-inner">
+          <div class="da-quill-icon">🖋️</div>
+          <h1 class="da-hero-title">The Archives of Wisdom</h1>
+          <p class="da-hero-subtitle">Where timeless knowledge meets scholarly pursuit</p>
+          <div class="da-hero-buttons">
+            <a href="javascript:void(0)" class="da-btn-primary">Explore Collections</a>
+            <a href="javascript:void(0)" class="da-btn-secondary">Research Portal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Books Section -->
+  <section class="da-books-section">
+    <div class="da-container">
+      <div class="da-section-header">
+        <h2 class="da-section-title">Featured Collections</h2>
+        <p class="da-section-subtitle">Curated selections from our rare book collection</p>
+      </div>
+      <div class="da-books-grid">
+        <div class="da-book-card">
+          <div class="da-book-spine">PHILOSOPHY</div>
+          <div class="da-book-content">
+            <h3 class="da-book-title">Classical Philosophy</h3>
+            <p class="da-book-author">Socrates, Plato, Aristotle</p>
+            <p class="da-book-desc">An exploration of ancient wisdom and the foundations of Western thought.</p>
+            <a href="javascript:void(0)" class="da-book-link">Read More →</a>
+          </div>
+        </div>
+        <div class="da-book-card">
+          <div class="da-book-spine">LITERATURE</div>
+          <div class="da-book-content">
+            <h3 class="da-book-title">Gothic Literature</h3>
+            <p class="da-book-author">Mary Shelley, Bram Stoker</p>
+            <p class="da-book-desc">Dark tales of mystery, horror, and the supernatural from the Victorian era.</p>
+            <a href="javascript:void(0)" class="da-book-link">Read More →</a>
+          </div>
+        </div>
+        <div class="da-book-card">
+          <div class="da-book-spine">HISTORY</div>
+          <div class="da-book-content">
+            <h3 class="da-book-title">Medieval Chronicles</h3>
+            <p class="da-book-author">Various Historians</p>
+            <p class="da-book-desc">First-hand accounts of life, culture, and events in the Middle Ages.</p>
+            <a href="javascript:void(0)" class="da-book-link">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Study Application Section -->
+  <section class="da-study-section">
+    <div class="da-container">
+      <div class="da-parchment-card">
+        <div class="da-wax-seal">🔱</div>
+        <h3 class="da-parchment-title">Scholar Application</h3>
+        <p class="da-parchment-subtitle">Join our community of researchers and academics</p>
+        <form class="da-study-form">
+          <div class="da-form-group">
+            <label class="da-form-label">Full Name</label>
+            <input type="text" class="da-form-input" placeholder="Your name">
+          </div>
+          <div class="da-form-group">
+            <label class="da-form-label">Research Interest</label>
+            <select class="da-form-select">
+              <option>Philosophy</option>
+              <option>Literature</option>
+              <option>History</option>
+              <option>Art & Architecture</option>
+            </select>
+          </div>
+          <div class="da-form-group">
+            <label class="da-form-label">Research Proposal</label>
+            <textarea class="da-form-textarea" placeholder="Describe your research interests..."></textarea>
+          </div>
+          <button type="submit" class="da-form-submit">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="da-timeline-section">
+    <div class="da-container">
+      <div class="da-section-header">
+        <h2 class="da-section-title">Historical Milestones</h2>
+      </div>
+      <div class="da-timeline">
+        <div class="da-timeline-item da-timeline-left">
+          <div class="da-timeline-dot"></div>
+          <div class="da-timeline-card">
+            <span class="da-timeline-year">1848</span>
+            <h4 class="da-timeline-title">Library Founded</h4>
+            <p class="da-timeline-desc">Established as a center for scholarly research and academic excellence.</p>
+          </div>
+        </div>
+        <div class="da-timeline-item da-timeline-right">
+          <div class="da-timeline-dot"></div>
+          <div class="da-timeline-card">
+            <span class="da-timeline-year">1892</span>
+            <h4 class="da-timeline-title">Rare Books Collection</h4>
+            <p class="da-timeline-desc">Acquisition of first editions and manuscripts from renowned scholars.</p>
+          </div>
+        </div>
+        <div class="da-timeline-item da-timeline-left">
+          <div class="da-timeline-dot"></div>
+          <div class="da-timeline-card">
+            <span class="da-timeline-year">1923</span>
+            <h4 class="da-timeline-title">Digital Archive Project</h4>
+            <p class="da-timeline-desc">Preservation of historical documents through modern digitization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Section -->
+  <section class="da-quote-section">
+    <div class="da-quote-card">
+      <div class="da-quote-mark">"</div>
+      <blockquote class="da-quote-text">In the library, time is dammed up—not just stopped but saved.</blockquote>
+      <cite class="da-quote-author">— SUSAN ORLEAN</cite>
+      <div class="da-ink-stain"></div>
+    </div>
+  </section>
+
+  <!-- Reading List -->
+  <section class="da-reading-section">
+    <div class="da-container">
+      <div class="da-section-header">
+        <h2 class="da-section-title">Essential Reading</h2>
+      </div>
+      <div class="da-reading-grid">
+        <div class="da-reading-item">
+          <div class="da-reading-number">I</div>
+          <div>
+            <h4 class="da-reading-title">The Republic</h4>
+            <p class="da-reading-meta">Plato • Philosophy</p>
+          </div>
+        </div>
+        <div class="da-reading-item">
+          <div class="da-reading-number">II</div>
+          <div>
+            <h4 class="da-reading-title">Frankenstein</h4>
+            <p class="da-reading-meta">Mary Shelley • Gothic Literature</p>
+          </div>
+        </div>
+        <div class="da-reading-item">
+          <div class="da-reading-number">III</div>
+          <div>
+            <h4 class="da-reading-title">The Canterbury Tales</h4>
+            <p class="da-reading-meta">Geoffrey Chaucer • Medieval Literature</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="da-footer">
+    <div class="da-container">
+      <div class="da-footer-grid">
+        <div>
+          <h4 class="da-footer-title">About</h4>
+          <p class="da-footer-text">A sanctuary for knowledge seekers, preserving the wisdom of ages past for future generations.</p>
+        </div>
+        <div>
+          <h4 class="da-footer-title">Quick Links</h4>
+          <ul class="da-footer-links">
+            <li><a href="javascript:void(0)">Catalog</a></li>
+            <li><a href="javascript:void(0)">Research</a></li>
+            <li><a href="javascript:void(0)">Events</a></li>
+            <li><a href="javascript:void(0)">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="da-footer-title">Hours</h4>
+          <ul class="da-footer-links">
+            <li>Monday - Friday: 9 AM - 9 PM</li>
+            <li>Saturday: 10 AM - 6 PM</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="da-footer-bottom">
+        <p class="da-copyright">© 2025 Bibliotheca. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

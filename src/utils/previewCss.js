@@ -54,19 +54,23 @@ export function injectAppStylesIntoIframe(iframe) {
 }
 
 /**
- * 仅移除 Tailwind CDN 的 <script>/<link> 片段，不影響其他腳本。
- * 適用於將內嵌 HTML 作為 srcDoc 或字串組裝時的清理。
+ * @deprecated This function is deprecated. Use stripExternalAssets() from buildPreviewHTML.js instead.
+ * Tailwind CDN is now allowlisted and preserved for demo fidelity.
+ *
+ * For backward compatibility, this function now returns HTML unchanged.
+ * If you need to strip external assets, use stripExternalAssets() which has proper allowlist support.
+ *
+ * Migration guide:
+ * - Replace: stripTailwindCdn(html)
+ * - With: html (no stripping needed, handled by stripExternalAssets in preview pipeline)
+ * - Or use: stripExternalAssets(html) if explicit filtering needed
  *
  * @param {string} html
- * @returns {string}
+ * @returns {string} - Returns input unchanged
  */
 export function stripTailwindCdn(html) {
-  if (!html) return html;
-  let out = html;
-  // 移除 <script src="https://cdn.tailwindcss.com"></script>
-  out = out.replace(/<script[^>]*src=["']https:\/\/cdn\.tailwindcss\.com[^>]*><\/script>/gi, '');
-  // 移除 <link ... href="https://cdn.tailwindcss.com" .../>
-  out = out.replace(/<link[^>]*href=["']https:\/\/cdn\.tailwindcss\.com[^"']*["'][^>]*>/gi, '');
-  return out;
+  // No-op for backward compatibility
+  // Tailwind CDN is now preserved (allowlisted in stripExternalAssets)
+  return html;
 }
 

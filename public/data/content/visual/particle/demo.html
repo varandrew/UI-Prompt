@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Particle UI Demo</title>
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* * FIX IMPLEMENTATION: 
+         * No 'cqw' units are used here. Using standard responsive units.
+         */
+
+        body {
+            background-color: #0f1115; /* Dark outer background for context */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden; /* Prevent scroll on demo */
+        }
+
+        /* The Main Square Container */
+        .demo-container {
+            position: relative;
+            width: 100%;
+            max-width: 420px; /* Small demo size */
+            aspect-ratio: 1 / 1; /* Forces Square Shape */
+            background: linear-gradient(135deg, #050b14 0%, #0a1525 100%);
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            /* Ensure stacking context for children */
+            isolation: isolate;
+        }
+
+        /* Canvas Background Layer */
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; 
+            pointer-events: none;
+            display: block; /* Removes default inline spacing */
+        }
+
+        /* Foreground Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 20; /* Ensure content is above particles */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 8%; /* Responsive padding using % */
+            /* Very subtle gradient, ensuring transparency for particles */
+            background: radial-gradient(circle at center, transparent 20%, rgba(5, 11, 20, 0.3) 100%);
+            pointer-events: none; /* Let mouse pass through empty areas to container */
+        }
+
+        /* Re-enable pointer events for interactive elements */
+        .content-layer > * {
+            pointer-events: auto;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Typography - Using clamp for auto-sizing without cqw */
+        h1 {
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: #e2e8f0;
+        }
+
+        .subtitle {
+            font-size: clamp(0.75rem, 3vw, 0.9rem);
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00f0ff;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00f0ff;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        /* Custom Toggle Switch */
+        .toggle-switch {
+            appearance: none;
+            width: 40px;
+            height: 22px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.3s;
+        }
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        .toggle-switch:checked {
+            background: rgba(0, 240, 255, 0.3);
+        }
+        .toggle-switch:checked::after {
+            transform: translateX(18px);
+            background: #00f0ff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Square Component -->
+    <div class="demo-container" id="demoContainer">
+        
+        <!-- Background Canvas -->
+        <canvas id="particleCanvas"></canvas>
+
+        <!-- Foreground Content -->
+        <div class="content-layer">
+            
+            <!-- Top Header -->
+            <div class="flex justify-between items-start">
+                <div>
+                    <div class="flex items-center mb-2">
+                        <span class="status-dot"></span>
+                        <span class="text-xs tracking-widest text-blue-300 font-mono uppercase">System Active</span>
+                    </div>
+                    <h1>Cosmic Data</h1>
+                </div>
+                <div class="text-white/30">
+                    <!-- SVG Aperture Icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Middle Empty Space (showing off particles) -->
+            <div class="flex-grow"></div>
+
+            <!-- Bottom Dashboard Card -->
+            <div class="glass-card">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-xs font-mono text-blue-200">STYLE: TECH_ATMOSPHERE_01</span>
+                    <!-- SVG Waveform Icon -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400 w-5 h-5">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <p class="subtitle mb-4">
+                    Particles drift in a vacuum. Connections form based on proximity, creating a gentle, breathing network.
+                </p>
+                
+                <div class="flex justify-between items-center border-t border-white/10 pt-3">
+                    <label class="flex items-center gap-2 text-sm text-gray-400 cursor-pointer">
+                        <span>Motion</span>
+                        <input type="checkbox" class="toggle-switch" id="motionToggle" checked>
+                    </label>
+                    <button class="text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded transition text-white">
+                        Analyze
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Particle System Logic
+         * Implements: Dots, Lines, Slow Drift, Mouse Interaction
+         */
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.getElementById('demoContainer');
+        const motionToggle = document.getElementById('motionToggle');
+
+        let width, height;
+        let particles = [];
+        let animationFrameId;
+        let isMotionEnabled = true;
+
+        // Configuration
+        const config = {
+            particleCount: 60,       // Number of dots
+            connectionDist: 100,     // Max distance to draw line
+            baseSpeed: 0.35,         // Speed
+            mouseRadius: 150,        // Range of mouse interaction
+            color: '100, 210, 255'   // RGB for Cyan/Blue (Brighter)
+        };
+
+        // Mouse State (Relative to container)
+        const mouse = { x: null, y: null };
+
+        // Handle Resizing (Keeps canvas crisp)
+        function resize() {
+            const rect = container.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            
+            // Critical safety check: If width/height is 0, wait for ResizeObserver to trigger again
+            if (width <= 0 || height <= 0) return;
+
+            // Handle HiDPI displays
+            const dpr = window.devicePixelRatio || 1;
+            
+            // Set actual canvas size (physical pixels)
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            
+            // Normalize coordinate system (logical pixels) 並避免重複縮放累積
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.scale(dpr, dpr);
+            
+            initParticles();
+        }
+
+        // Particle Class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                // Random slow velocity
+                this.vx = (Math.random() - 0.5) * config.baseSpeed;
+                this.vy = (Math.random() - 0.5) * config.baseSpeed;
+                // Size: Increased range for better visibility
+                this.size = Math.random() * 2.5 + 1.5; 
+                // Opacity: Higher base opacity
+                this.baseAlpha = Math.random() * 0.5 + 0.3; 
+                this.alpha = this.baseAlpha;
+            }
+
+            update() {
+                if (isMotionEnabled) {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                }
+
+                // Wrap around edges (Space wrap effect)
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+
+                // Mouse Interaction: Gentle repulsion/jitter
+                if (mouse.x != null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < config.mouseRadius) {
+                        const forceDirectionX = dx / distance;
+                        const forceDirectionY = dy / distance;
+                        const force = (config.mouseRadius - distance) / config.mouseRadius;
+                        const directionX = forceDirectionX * force * 0.5;
+                        const directionY = forceDirectionY * force * 0.5;
+
+                        this.x -= directionX; 
+                        this.y -= directionY;
+                        
+                        // Increase opacity near mouse to max
+                        this.alpha = Math.min(this.baseAlpha + 0.5, 1);
+                    } else {
+                        // Return to base alpha
+                        if (this.alpha > this.baseAlpha) {
+                            this.alpha -= 0.02;
+                        }
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${config.color}, ${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            // Adjust count based on size, keeping density consistent
+            const area = width * height;
+            // Prevent division by zero or negative area
+            if (area <= 0) return;
+            
+            let count = Math.floor(area / 2500); // 1 particle per 2500px² (Higher density)
+            if (count < 20) count = 20; // Minimum particles
+            if (count > 150) count = 150; // Cap for performance
+            
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            // Must clear based on logical width/height since we scaled the context
+            ctx.clearRect(0, 0, width, height);
+
+            // 1. Update and Draw Particles
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // 2. Draw Connections (The "Web")
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < config.connectionDist) {
+                        ctx.beginPath();
+                        // Opacity depends on distance (fade out)
+                        const opacity = 1 - (distance / config.connectionDist);
+                        // Increased line opacity for visibility
+                        ctx.strokeStyle = `rgba(${config.color}, ${opacity * 0.35})`; 
+                        ctx.lineWidth = 1; // Thicker lines
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        // --- Event Listeners ---
+
+        // 1. Mouse Move over Container
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        // 2. Mouse Leave
+        container.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        // 3. Toggle Motion
+        motionToggle.addEventListener('change', (e) => {
+            isMotionEnabled = e.target.checked;
+        });
+
+        // 4. ROBUST RESIZING: ResizeObserver
+        // This watches the container and triggers resize() as soon as dimensions exist.
+        // This fixes issues where the canvas inits before the layout is done.
+        const resizeObserver = new ResizeObserver((entries) => {
+            for (let entry of entries) {
+                // We only care that it changed size
+                resize();
+            }
+        });
+        resizeObserver.observe(container);
+
+        // 首次進入時立即初始化尺寸與粒子，避免初始畫面無內容
+        resize();
+
+        // Start Animation Loop
+        animate();
+
+    </script>
+</body>
+</html>

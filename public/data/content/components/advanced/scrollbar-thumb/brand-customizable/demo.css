@@ -1,0 +1,36 @@
+:root {
+            --scrollbar-brand-primary: #3b82f6;
+            --scrollbar-brand-light: #dbeafe;
+          }
+
+          .scrollbar-brand-icon {
+            background: var(--scrollbar-brand-primary);
+          }
+          .scrollbar-brand-accent {
+            border-left-color: var(--scrollbar-brand-primary);
+          }
+
+          .scrollbar-brand-customizable::-webkit-scrollbar {
+            width: 8px;
+          }
+          .scrollbar-brand-customizable::-webkit-scrollbar-track {
+            background: var(--scrollbar-brand-light);
+            border-radius: 6px;
+          }
+          .scrollbar-brand-customizable::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-brand-primary);
+            border-radius: 6px;
+            border: 2px solid var(--scrollbar-brand-light);
+            transition: all 0.3s ease;
+          }
+          .scrollbar-brand-customizable::-webkit-scrollbar-thumb:hover {
+            background: color-mix(in srgb, var(--scrollbar-brand-primary) 80%, black 20%);
+            border: 1px solid var(--scrollbar-brand-light);
+            box-shadow: 0 0 8px color-mix(in srgb, var(--scrollbar-brand-primary) 50%, transparent 50%);
+          }
+
+          /* Firefox compatibility */
+          .scrollbar-brand-customizable {
+            scrollbar-width: thin;
+            scrollbar-color: var(--scrollbar-brand-primary) var(--scrollbar-brand-light);
+          }

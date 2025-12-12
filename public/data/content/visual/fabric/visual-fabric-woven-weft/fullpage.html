@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woven & Weft | Handcrafted Lifestyle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Marker for CSS inlining -->
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <button class="icon-btn" aria-label="Menu">
+                <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+            </button>
+
+            <div class="logo">Woven & Weft</div>
+
+            <nav>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Materials</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Journal</a></li>
+                </ul>
+            </nav>
+
+            <button class="icon-btn" aria-label="Cart" id="cartBtn">
+                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </button>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Tactile living for the modern home.</h1>
+                <p>Curated textiles, hand-stitched linens, and warmth in every thread. Crafted slowly to last a lifetime.</p>
+
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; md:justify-content: start;">
+                    <button class="btn">
+                        <span class="btn-bg"></span>
+                        Shop Collection
+                    </button>
+                    <button class="btn btn-secondary">
+                        <span class="btn-bg"></span>
+                        Read Our Story
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <div class="hero-image-bg"></div>
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=800&auto=format&fit=crop"
+                     alt="Linen bedding and soft light"
+                     class="hero-image"
+                     onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#dcd0c2';">
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section>
+            <div class="section-subtitle">Spring Collection</div>
+            <h2 class="section-title">Hand-Woven Essentials</h2>
+
+            <div class="grid">
+                <!-- Product 1 -->
+                <div class="stitched-container product-card">
+                    <div class="product-img-box">
+                        <img src="https://images.unsplash.com/photo-1595168051676-4f7dc534062f?q=80&w=600&auto=format&fit=crop"
+                             alt="Linen Napkins"
+                             class="product-img"
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#e6e2d8';">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Table Linen</span>
+                        <h3 class="product-title">Raw Edge Napkins</h3>
+                        <p class="product-price">$45.00</p>
+                        <div class="swatches">
+                            <div class="swatch active" style="background: #e6e2d8;"></div>
+                            <div class="swatch" style="background: #b87e6b;"></div>
+                            <div class="swatch" style="background: #5f7186;"></div>
+                        </div>
+                        <button class="btn btn-secondary" style="margin-top: 20px; width: 100%; font-size: 0.75rem; padding: 10px;">
+                            <span class="btn-bg"></span>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="stitched-container product-card">
+                    <div class="product-img-box">
+                        <img src="https://images.unsplash.com/photo-1578749556920-d3d27729ea8a?q=80&w=600&auto=format&fit=crop"
+                             alt="Ceramic Vase"
+                             class="product-img"
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#d4c5b0';">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Ceramics</span>
+                        <h3 class="product-title">Stoneware Pitcher</h3>
+                        <p class="product-price">$82.00</p>
+                        <div class="swatches">
+                            <div class="swatch active" style="background: #fff;"></div>
+                            <div class="swatch" style="background: #d4c5b0;"></div>
+                        </div>
+                        <button class="btn btn-secondary" style="margin-top: 20px; width: 100%; font-size: 0.75rem; padding: 10px;">
+                            <span class="btn-bg"></span>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="stitched-container product-card">
+                    <div class="product-img-box">
+                        <img src="https://images.unsplash.com/photo-1512918580421-32c29925bd8f?q=80&w=600&auto=format&fit=crop"
+                             alt="Wool Throw"
+                             class="product-img"
+                             onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#9c9c9c';">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">Textiles</span>
+                        <h3 class="product-title">Merino Waffle Throw</h3>
+                        <p class="product-price">$120.00</p>
+                        <div class="swatches">
+                            <div class="swatch active" style="background: #9c9c9c;"></div>
+                            <div class="swatch" style="background: #3d3a36;"></div>
+                        </div>
+                        <button class="btn btn-secondary" style="margin-top: 20px; width: 100%; font-size: 0.75rem; padding: 10px;">
+                            <span class="btn-bg"></span>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div> <!-- End Container -->
+
+    <!-- Newsletter Full Width -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the fabric.</h2>
+            <p>Sign up for our slow-living journal and receive 10% off your first order of linens.</p>
+            <div class="input-group">
+                <input type="email" placeholder="Email address" class="input-field">
+                <button class="btn">
+                    <span class="btn-bg" style="background-color: var(--c-text-primary);"></span>
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <footer>
+            <p>&copy; 2023 Woven & Weft. Crafted with care.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+            <span style="display:block; font-weight:600; font-family:'Cormorant Garamond'; font-size: 1.1rem;">Added to basket</span>
+            <span style="font-size: 0.85rem; color: var(--c-text-secondary);">The fabric feels good, doesn't it?</span>
+        </div>
+    </div>
+
+    <script>
+        // Simple Interaction Logic
+        const addToCartBtns = document.querySelectorAll('.product-card .btn');
+        const toast = document.getElementById('toast');
+
+        function showToast() {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                showToast();
+            });
+        });
+
+        // Swatch Interaction
+        const swatches = document.querySelectorAll('.swatch');
+        swatches.forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                // Remove active from siblings
+                const parent = this.parentElement;
+                parent.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+                // Add to self
+                this.classList.add('active');
+            });
+        });
+
+        // Input Focus Effect
+        const inputs = document.querySelectorAll('.input-field');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.style.backgroundColor = '#fff';
+            });
+            input.addEventListener('blur', () => {
+                input.style.backgroundColor = 'rgba(255,255,255,0.9)';
+            });
+        });
+    </script>
+</body>
+</html>

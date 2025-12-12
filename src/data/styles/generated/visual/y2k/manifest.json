@@ -1,0 +1,32 @@
+{
+  "id": "visual-y2k",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Y2K",
+      "en-US": "Y2K"
+    },
+    "description": {
+      "zh-CN": "千禧年设计美学，融合玻璃态效果、气泡装饰、青蓝色渐变和金属质感。",
+      "en-US": "Millennium design aesthetics with glassmorphism, bubble decorations, cyan-blue gradients, and metallic textures."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-y2k",
+      "title": {
+        "zh-CN": "Y2K",
+        "en-US": "Y2K"
+      }
+    },
+    {
+      "id": "visual-y2k-creative-store",
+      "title": {
+        "zh-CN": "Y2K 创意商城",
+        "en-US": "Y2K Creative Store"
+      }
+    }
+  ]
+}

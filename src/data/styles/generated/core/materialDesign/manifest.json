@@ -1,0 +1,32 @@
+{
+  "id": "core-materialDesign",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "Material Design",
+      "en-US": "Material Design"
+    },
+    "description": {
+      "zh-CN": "Google 的设计语言，使用纸张隐喻、卡片式布局和有意义的动画过渡。",
+      "en-US": "Google's design language using paper metaphors, card-based layouts, and meaningful motion."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "core-material-design",
+      "title": {
+        "zh-CN": "Material Design 經典",
+        "en-US": "Material Design Classic"
+      }
+    },
+    {
+      "id": "core-materialYouAndroidSettings",
+      "title": {
+        "zh-CN": "Material You Android 設定",
+        "en-US": "Material You Android Settings"
+      }
+    }
+  ]
+}

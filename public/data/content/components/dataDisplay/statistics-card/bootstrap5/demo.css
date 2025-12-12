@@ -1,0 +1,152 @@
+@keyframes slideInLeft {
+            from {
+              opacity: 0;
+              transform: translateX(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
+          @keyframes progressFill {
+            to {
+              transform: scaleX(1);
+            }
+          }
+
+          .bs-stat-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+          }
+
+          .bs-stat-card:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+          }
+
+          .bs-stat-card.bs-primary {
+            border-left-color: #0d6efd;
+          }
+
+          .bs-stat-card.bs-success {
+            border-left-color: #198754;
+          }
+
+          .bs-stat-card.bs-warning {
+            border-left-color: #ffc107;
+          }
+
+          .bs-stat-card.bs-info {
+            border-left-color: #0dcaf0;
+          }
+
+          .bs-stat-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+          }
+
+          .bs-primary .bs-stat-icon {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+          }
+
+          .bs-success .bs-stat-icon {
+            background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+          }
+
+          .bs-warning .bs-stat-icon {
+            background: linear-gradient(135deg, #ffc107 0%, #cc9a06 100%);
+          }
+
+          .bs-info .bs-stat-icon {
+            background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%);
+          }
+
+          .bs-stat-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+
+          .bs-stat-label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin: 0;
+          }
+
+          .bs-stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #212529;
+            margin: 0;
+            line-height: 1;
+          }
+
+          .bs-progress {
+            height: 0.5rem;
+            background: #e9ecef;
+            border-radius: 0.25rem;
+            overflow: hidden;
+          }
+
+          .bs-progress-bar {
+            height: 100%;
+            transition: width 0.6s ease;
+          }
+
+          .bs-bg-primary {
+            background: linear-gradient(90deg, #0d6efd 0%, #0a58ca 100%);
+          }
+
+          .bs-bg-success {
+            background: linear-gradient(90deg, #198754 0%, #146c43 100%);
+          }
+
+          .bs-bg-warning {
+            background: linear-gradient(90deg, #ffc107 0%, #cc9a06 100%);
+          }
+
+          .bs-bg-info {
+            background: linear-gradient(90deg, #0dcaf0 0%, #0aa2c0 100%);
+          }
+
+          .bs-stat-meta {
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin: 0;
+          }
+
+          .bs-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1;
+            border-radius: 0.25rem;
+            color: white;
+          }
+
+          .bs-badge.bs-success {
+            background-color: #198754;
+          }
+
+          .bs-badge.bs-warning {
+            background-color: #ffc107;
+            color: #000;
+          }
+
+          .bs-badge.bs-info {
+            background-color: #0dcaf0;
+            color: #000;
+          }

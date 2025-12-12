@@ -1,0 +1,32 @@
+{
+  "id": "visual-monochrome",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "单色",
+      "en-US": "Monochrome"
+    },
+    "description": {
+      "zh-CN": "黑白灰单色系设计，营造优雅与极简的视觉效果。",
+      "en-US": "Monochromatic design using only black, white, and gray tones to create elegant and minimalist visual effects."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-monochrome",
+      "title": {
+        "zh-CN": "单色",
+        "en-US": "Monochrome"
+      }
+    },
+    {
+      "id": "portfolio-showcase",
+      "title": {
+        "zh-CN": "设计机构作品集",
+        "en-US": "Portfolio & Case Studies Showcase"
+      }
+    }
+  ]
+}

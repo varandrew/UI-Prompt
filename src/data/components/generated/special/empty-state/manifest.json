@@ -1,0 +1,35 @@
+{
+  "id": "empty-state",
+  "category": "special",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.special.empty-state.title",
+      "en-US": "data.components.special.empty-state.title"
+    },
+    "description": {
+      "zh-CN": "data.components.special.empty-state.description",
+      "en-US": "data.components.special.empty-state.description"
+    },
+    "tags": [
+      "special",
+      "state",
+      "placeholder"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.special.empty-state.title",
+        "en-US": "data.components.special.empty-state.title"
+      },
+      "description": {
+        "zh-CN": "data.components.special.empty-state.description",
+        "en-US": "data.components.special.empty-state.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

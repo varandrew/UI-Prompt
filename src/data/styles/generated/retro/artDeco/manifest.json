@@ -1,0 +1,25 @@
+{
+  "id": "retro-artDeco",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "装饰艺术",
+      "en-US": "Art Deco"
+    },
+    "description": {
+      "zh-CN": "1920-1930年代奢华风格，几何图案与金色装饰",
+      "en-US": "1920-1930s luxury style with geometric patterns and gold decorations"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "retro-art-deco-luxury",
+      "title": {
+        "zh-CN": "装饰艺术",
+        "en-US": "Art Deco"
+      }
+    }
+  ]
+}

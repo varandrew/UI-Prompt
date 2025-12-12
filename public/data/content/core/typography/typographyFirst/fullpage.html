@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography First | Visual Manifesto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800;900&family=Playfair+Display:ital,wght@0,700;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        'void': '#080808',
+                        'paper': '#f4f4f0',
+                        'charcoal': '#1a1a1a',
+                    },
+                    fontSize: {
+                        'huge': 'clamp(4rem, 15vw, 18rem)',
+                        'display': 'clamp(3rem, 8vw, 10rem)',
+                        'editorial': 'clamp(1.5rem, 3vw, 4rem)',
+                    },
+                    letterSpacing: {
+                        'tightest': '-0.08em',
+                        'tighter': '-0.05em',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'breathe': 'breathe 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        breathe: {
+                            '0%, 100%': { fontVariationSettings: '"wght" 800', letterSpacing: '-0.05em' },
+                            '50%': { fontVariationSettings: '"wght" 850', letterSpacing: '-0.02em' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans relative bg-void text-paper overflow-x-hidden">
+
+    <style>
+        /* Custom Typographic Styles */
+        body {
+            background-color: #080808;
+            color: #f4f4f0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* The Outline Text Effect */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #f4f4f0;
+            position: relative;
+            transition: all 0.4s ease-out;
+        }
+
+        .text-outline:hover {
+            color: #f4f4f0;
+            -webkit-text-stroke: 0px transparent;
+        }
+
+        /* Heavy Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #666666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal-type {
+            opacity: 0;
+            transform: translateY(50px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-type.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Selection */
+        ::selection {
+            background: #f4f4f0;
+            color: #080808;
+        }
+
+        /* Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Kinetic Hover Underline */
+        .kinetic-link {
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .kinetic-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 4px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .kinetic-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+
+    <!-- Noise Texture for "Paper" feel -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation (Minimalist, Absolute) -->
+    <nav class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-40 mix-blend-difference text-white pointer-events-none">
+        <div class="font-mono text-sm tracking-widest uppercase pointer-events-auto cursor-pointer">[ Typography_Core ]</div>
+        <div class="font-mono text-sm pointer-events-auto">
+            <span class="hidden md:inline mr-6 opacity-60">Vol. 01</span>
+            <a href="#" class="hover:line-through">Menu</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="min-h-screen flex flex-col justify-center px-4 md:px-12 pt-20 relative overflow-hidden">
+
+        <!-- Background "Glow" purely via CSS gradients -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-neutral-800 rounded-full blur-[120px] opacity-20 -z-10"></div>
+
+        <div class="max-w-[90rem] mx-auto w-full">
+            <div class="flex flex-col leading-[0.85] font-black uppercase tracking-tightest">
+
+                <!-- Line 1: Ultra Heavy Solid -->
+                <h1 class="text-huge text-paper reveal-type">
+                    Visual
+                </h1>
+
+                <!-- Line 2: Mixed Weight & Serif/Sans Hybrid -->
+                <div class="flex items-baseline flex-wrap gap-4 reveal-type delay-100">
+                    <span class="text-huge text-outline font-serif italic tracking-tighter">Hero</span>
+                    <!-- Decorative technical block -->
+                    <div class="hidden lg:flex flex-col justify-end pb-8 ml-auto max-w-xs font-mono text-xs tracking-normal normal-case text-gray-400 leading-relaxed border-l border-gray-700 pl-4 opacity-0 animate-[fadeIn_1s_ease-out_1s_forwards]">
+                        <p>The page relies on type hierarchy and kinetic wording as the visual hero rather than heavy imagery.</p>
+                        <p class="mt-2 text-white">→ Scroll to Read</p>
+                    </div>
+                </div>
+
+                <!-- Line 3: Gradient Heavy -->
+                <h1 class="text-huge text-gradient reveal-type delay-200">
+                    Hierarchy
+                </h1>
+            </div>
+        </div>
+
+        <!-- Scrolling Marquee at bottom of hero -->
+        <div class="absolute bottom-12 left-0 w-full overflow-hidden border-y border-white/10 py-4">
+            <div class="whitespace-nowrap animate-marquee flex gap-8 font-mono text-sm md:text-base uppercase tracking-widest text-gray-500">
+                <span>Ultra-Bold Weights</span> • <span>Gradient Fills</span> • <span>Glow Shadows</span> • <span>Outlines</span> • <span>Noise Masks</span> • <span>Depth</span> •
+                <span>Ultra-Bold Weights</span> • <span>Gradient Fills</span> • <span>Glow Shadows</span> • <span>Outlines</span> • <span>Noise Masks</span> • <span>Depth</span> •
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: VISUAL PHILOSOPHY (Editorial Layout) -->
+    <section class="py-32 px-4 md:px-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+
+            <!-- Sticky Label -->
+            <div class="md:col-span-3">
+                <span class="sticky top-32 font-mono text-xs uppercase tracking-widest text-gray-500 block border-t border-gray-700 pt-4">01 — Philosophy</span>
+            </div>
+
+            <!-- Content -->
+            <div class="md:col-span-9">
+                <h2 class="text-display font-black leading-[0.9] tracking-tighter mb-12 reveal-type">
+                    Hierarchy is<br>
+                    <span class="text-gray-600 font-serif italic font-thin">defined by</span><br>
+                    Contrast.
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg md:text-xl text-gray-300 leading-relaxed font-sans reveal-type delay-100">
+                    <p>
+                        <span class="text-white font-bold">Hero lines dominate.</span> Use ultra-bold weights, gradients, or stroked outlines to create immediate impact. The background stays calm—navy, charcoal, or off-white—so the rhythm of the type stands out.
+                    </p>
+                    <p>
+                        Secondary copy maintains strong contrast and clear grouping. Body text prioritizes readability with a controlled measure and generous line-height (1.6+).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: MATERIAL & TEXTURE (Grid System) -->
+    <section class="py-32 bg-white text-black px-4 md:px-12 relative">
+        <div class="max-w-[90rem] mx-auto">
+
+            <div class="flex justify-between items-end mb-20 border-b-4 border-black pb-8 reveal-type">
+                <h2 class="text-editorial font-bold tracking-tight uppercase">Materiality</h2>
+                <div class="font-mono text-sm hidden md:block">TYPE AS MATERIAL</div>
+            </div>
+
+            <!-- Heavy Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-20 gap-x-8">
+
+                <!-- Card 1 -->
+                <div class="group cursor-pointer reveal-type">
+                    <div class="h-[300px] flex items-center justify-center bg-black text-white relative overflow-hidden mb-6">
+                        <span class="font-serif italic text-6xl md:text-8xl group-hover:scale-110 transition-transform duration-500">Aa</span>
+                        <div class="absolute inset-0 border border-white/20 m-4"></div>
+                    </div>
+                    <h3 class="text-4xl font-black mb-2 group-hover:underline decoration-4">Serif</h3>
+                    <p class="font-mono text-sm text-gray-600">Editorial flavor. Use sparingly to balance technical edges.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group cursor-pointer reveal-type delay-100">
+                    <div class="h-[300px] flex items-center justify-center bg-gray-100 text-black relative overflow-hidden mb-6 border-2 border-black">
+                        <span class="font-sans font-black text-6xl md:text-8xl group-hover:tracking-widest transition-all duration-500">Bb</span>
+                    </div>
+                    <h3 class="text-4xl font-black mb-2 group-hover:underline decoration-4">Sans</h3>
+                    <p class="font-mono text-sm text-gray-600">Technical precision. High readability. The workhorse.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group cursor-pointer reveal-type delay-200">
+                    <div class="h-[300px] flex items-center justify-center bg-zinc-900 text-white relative overflow-hidden mb-6">
+                        <span class="font-mono text-6xl md:text-8xl group-hover:rotate-12 transition-transform duration-300">&lt;/&gt;</span>
+                    </div>
+                    <h3 class="text-4xl font-black mb-2 group-hover:underline decoration-4">Mono</h3>
+                    <p class="font-mono text-sm text-gray-600">Data, code, and structure. Adds a functional aesthetic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTION (Kinetic Type) -->
+    <section class="min-h-screen flex items-center justify-center px-4 md:px-12 relative border-t border-white/10">
+
+        <div class="text-center w-full max-w-6xl">
+            <div class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-8 reveal-type">Interaction Experience</div>
+
+            <div class="space-y-4">
+                <!-- Hover Interaction Demo -->
+                <div class="overflow-hidden reveal-type">
+                    <a href="#" class="kinetic-link text-display font-black uppercase tracking-tightest leading-none block hover:italic hover:font-serif transition-all duration-300">
+                        Motion Lives
+                    </a>
+                </div>
+
+                <div class="overflow-hidden reveal-type delay-100">
+                    <a href="#" class="kinetic-link text-display font-black text-outline uppercase tracking-tightest leading-none block hover:text-white transition-colors duration-300">
+                        On The
+                    </a>
+                </div>
+
+                <div class="overflow-hidden reveal-type delay-200">
+                    <a href="#" class="kinetic-link text-display font-black uppercase tracking-tightest leading-none block bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-gray-800 animate-pulse">
+                        Letters
+                    </a>
+                </div>
+            </div>
+
+            <p class="mt-16 max-w-xl mx-auto text-gray-400 font-mono text-sm leading-loose reveal-type delay-300">
+                Hover tweaks weight, stroke, or underline rather than large shifts to keep reading stable. Timed 200–500ms with ease-out curves.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 px-4 md:px-12 border-t border-white/20 bg-neutral-900">
+        <div class="max-w-[90rem] mx-auto flex flex-col md:flex-row justify-between items-start md:items-end">
+            <div>
+                <h2 class="text-editorial font-serif italic mb-4">Make it readable.</h2>
+                <h2 class="text-editorial font-black uppercase tracking-tight">Make it Heavy.</h2>
+            </div>
+            <div class="mt-12 md:mt-0 font-mono text-xs text-gray-500 text-right">
+                <p>Designed as a Prompt Response</p>
+                <p class="mt-2">© 2024 Typography Core</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-type');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

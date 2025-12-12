@@ -1,0 +1,25 @@
+{
+  "id": "visual-fabric",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "织物纹理",
+      "en-US": "Fabric Texture"
+    },
+    "description": {
+      "zh-CN": "编织图案，布料质感，交织效果",
+      "en-US": "Woven patterns with cloth texture and interlaced effects"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-fabric-woven-weft",
+      "title": {
+        "zh-CN": "编织与经纬 | 手工生活电商",
+        "en-US": "Woven & Weft | Handcrafted Lifestyle"
+      }
+    }
+  ]
+}

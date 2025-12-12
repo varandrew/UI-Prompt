@@ -1,0 +1,40 @@
+.pixel-heart {
+        width: 24px;
+        height: 24px;
+        background: #ff0066;
+        position: relative;
+        transform: rotate(45deg);
+        animation: pixel-beat 1s infinite;
+      }
+
+      .pixel-heart::before,
+      .pixel-heart::after {
+        content: '';
+        width: 24px;
+        height: 24px;
+        background: #ff0066;
+        position: absolute;
+      }
+
+      .pixel-heart::before {
+        left: -12px;
+      }
+
+      .pixel-heart::after {
+        top: -12px;
+      }
+
+      @keyframes pixel-beat {
+        0%, 100% { transform: rotate(45deg) scale(1); }
+        50% { transform: rotate(45deg) scale(1.1); }
+      }
+
+      .pixel-button {
+        box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+        image-rendering: pixelated;
+      }
+
+      .pixel-button:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+      }

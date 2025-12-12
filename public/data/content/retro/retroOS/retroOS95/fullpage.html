@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>retroOS95 - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+/* Windows 95 Desktop Base */
+.win95-desktop {
+  width: 100%;
+  min-height: 100vh;
+  background: #008080;
+  font-family: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  position: relative;
+  overflow: hidden;
+  color: #000000;
+}
+
+/* Desktop Icons */
+.desktop-icons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.desktop-icon:hover {
+  background: rgba(0, 0, 128, 0.3);
+  outline: 1px dotted #ffffff;
+}
+
+.icon-image {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.my-computer {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="6" y="8" width="20" height="14" fill="%23c0c0c0" stroke="%23000"/><rect x="4" y="22" width="24" height="4" fill="%23808080"/><rect x="10" y="10" width="12" height="10" fill="%23008080"/></svg>');
+}
+
+.recycle-bin {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M10 8h12v16H10z" fill="%23c0c0c0" stroke="%23000"/><rect x="8" y="24" width="16" height="2" fill="%23808080"/><text x="16" y="18" text-anchor="middle" font-size="8">🗑️</text></svg>');
+}
+
+.internet-explorer {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="%230000ff"/><path d="M16 4 L16 28 M4 16 L28 16" stroke="%23ffffff" stroke-width="2"/></svg>');
+}
+
+.network {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="8" cy="8" r="4" fill="%23c0c0c0" stroke="%23000"/><circle cx="24" cy="8" r="4" fill="%23c0c0c0" stroke="%23000"/><circle cx="16" cy="24" r="4" fill="%23c0c0c0" stroke="%23000"/><line x1="8" y1="8" x2="16" y2="24" stroke="%23000"/><line x1="24" y1="8" x2="16" y2="24" stroke="%23000"/></svg>');
+}
+
+.icon-label {
+  color: #ffffff;
+  text-align: center;
+  font-size: 11px;
+  text-shadow: 1px 1px 2px #000000;
+  word-wrap: break-word;
+  max-width: 70px;
+}
+
+/* Windows */
+.win95-window {
+  position: absolute;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  min-width: 300px;
+  animation: windowFadeIn 0.2s ease-out;
+}
+
+@keyframes windowFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Title Bar */
+.title-bar {
+  background: linear-gradient(to right, #000080, #1084d7);
+  color: #ffffff;
+  padding: 3px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  user-select: none;
+}
+
+.title-bar-text {
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.title-bar-button {
+  width: 16px;
+  height: 14px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  font-size: 9px;
+}
+
+.title-bar-button:active {
+  border-color: #000000 #ffffff #ffffff #000000;
+  padding-top: 2px;
+}
+
+.title-bar-button.close-button:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+/* Menu Bar */
+.menu-bar {
+  background: #c0c0c0;
+  display: flex;
+  padding: 2px;
+  border-bottom: 1px solid #808080;
+}
+
+.menu-item {
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.menu-item:hover {
+  background: #000080;
+  color: #ffffff;
+}
+
+.menu-item:active {
+  border: 1px solid;
+  border-color: #000000 #ffffff #ffffff #000000;
+}
+
+/* Toolbar */
+.toolbar {
+  background: #c0c0c0;
+  display: flex;
+  padding: 4px;
+  gap: 2px;
+  border-bottom: 1px solid #808080;
+}
+
+.toolbar-button {
+  width: 24px;
+  height: 22px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toolbar-button:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding-top: 2px;
+}
+
+.toolbar-separator {
+  width: 2px;
+  height: 22px;
+  background: #808080;
+  margin: 0 2px;
+}
+
+.toolbar-icon {
+  font-size: 14px;
+}
+
+/* Window Content */
+.window-content {
+  background: #ffffff;
+  padding: 8px;
+  min-height: 200px;
+  border: 2px solid;
+  border-color: #808080 #dfdfdf #dfdfdf #808080;
+}
+
+/* Status Bar */
+.status-bar {
+  background: #c0c0c0;
+  padding: 2px 4px;
+  border-top: 1px solid #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  padding: 2px 4px;
+  border: 1px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  font-size: 11px;
+  flex: 1;
+}
+
+/* Drive Icons (My Computer) */
+.drive-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.drive-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.drive-icon:hover {
+  background: #c0c0c0;
+  outline: 1px dotted #000000;
+}
+
+.drive-image {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.floppy {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="6" y="4" width="20" height="24" fill="%23000" stroke="%23000"/><rect x="8" y="6" width="16" height="20" fill="%23c0c0c0"/><rect x="10" y="8" width="12" height="6" fill="%23000080"/></svg>');
+}
+
+.hard-disk {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="8" y="10" width="16" height="12" fill="%23808080" stroke="%23000"/><circle cx="12" cy="16" r="2" fill="%23ff0000"/><rect x="16" y="14" width="6" height="4" fill="%23c0c0c0"/></svg>');
+}
+
+.cd-rom {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="%23c0c0c0" stroke="%23000"/><circle cx="16" cy="16" r="3" fill="%23ffffff"/><path d="M16 6 Q20 16, 16 26" fill="none" stroke="%23000080"/></svg>');
+}
+
+.control-panel {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="6" y="8" width="20" height="16" fill="%23c0c0c0" stroke="%23000"/><circle cx="12" cy="16" r="3" fill="%23ffff00"/><rect x="18" y="13" width="6" height="6" fill="%2300ff00"/></svg>');
+}
+
+.printers {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="8" y="10" width="16" height="4" fill="%23808080"/><rect x="6" y="14" width="20" height="10" fill="%23c0c0c0" stroke="%23000"/><rect x="10" y="20" width="12" height="4" fill="%23ffffff"/></svg>');
+}
+
+.dial-up {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="8" y="8" width="16" height="16" fill="%23c0c0c0" stroke="%23000"/><circle cx="16" cy="16" r="4" fill="%23000080"/><path d="M12 12 L20 20 M20 12 L12 20" stroke="%23ff0000"/></svg>');
+}
+
+.drive-label {
+  font-size: 11px;
+  text-align: center;
+  max-width: 80px;
+  word-wrap: break-word;
+}
+
+/* Notepad */
+.notepad-content {
+  padding: 0;
+}
+
+.notepad-textarea {
+  width: 100%;
+  height: 280px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  padding: 8px;
+  background: #ffffff;
+  color: #000000;
+  line-height: 1.5;
+}
+
+/* Paint */
+.paint-container {
+  display: flex;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.paint-toolbox {
+  width: 60px;
+  background: #c0c0c0;
+  border-right: 2px solid #808080;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.tool-button {
+  width: 24px;
+  height: 24px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tool-button:active,
+.tool-button.active {
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #dfdfdf;
+}
+
+.paint-canvas-area {
+  flex: 1;
+  padding: 4px;
+}
+
+.paint-canvas {
+  background: #ffffff;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  height: 200px;
+}
+
+.paint-colors {
+  width: 120px;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  border-left: 2px solid #808080;
+}
+
+.color-box {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+.color-box:hover {
+  outline: 2px solid #ffffff;
+  outline-offset: 1px;
+}
+
+/* Start Menu */
+.start-menu {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 200px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  display: none;
+  flex-direction: row;
+  z-index: 9999;
+}
+
+.start-menu-sidebar {
+  width: 28px;
+  background: linear-gradient(to bottom, #000080, #1084d7);
+  color: #ffffff;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  padding: 8px 4px;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.start-menu-logo {
+  transform: rotate(180deg);
+}
+
+.start-menu-items {
+  flex: 1;
+  padding: 2px;
+}
+
+.start-menu-item {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.start-menu-item:hover {
+  background: #000080;
+  color: #ffffff;
+}
+
+.menu-icon {
+  font-size: 16px;
+  width: 20px;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 11px;
+}
+
+.menu-arrow {
+  font-size: 8px;
+  color: #808080;
+}
+
+.start-menu-item:hover .menu-arrow {
+  color: #ffffff;
+}
+
+.start-menu-divider {
+  height: 1px;
+  background: #808080;
+  margin: 2px 8px;
+}
+
+/* Taskbar */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  z-index: 10000;
+}
+
+.start-button {
+  height: 22px;
+  padding: 2px 6px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.start-button:hover {
+  background: #dfdfdf;
+}
+
+.start-button:active,
+.start-button.pressed {
+  border-color: #000000 #ffffff #ffffff #000000;
+  padding-top: 4px;
+  padding-bottom: 0;
+}
+
+.start-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.taskbar-divider {
+  width: 2px;
+  height: 22px;
+  background: #808080;
+  margin: 0 2px;
+}
+
+.taskbar-apps {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  padding: 0 4px;
+}
+
+.taskbar-app {
+  height: 22px;
+  padding: 2px 6px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  min-width: 120px;
+  max-width: 160px;
+}
+
+.taskbar-app:hover {
+  background: #dfdfdf;
+}
+
+.taskbar-app.active {
+  border-color: #000000 #ffffff #ffffff #000000;
+  background: #dfdfdf;
+}
+
+.app-icon {
+  font-size: 14px;
+}
+
+.app-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.system-tray {
+  height: 22px;
+  border: 1px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #c0c0c0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+}
+
+.tray-icon {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tray-time {
+  font-size: 11px;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  min-width: 55px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .win95-window {
+    width: 90% !important;
+    left: 5% !important;
+    max-width: 500px;
+  }
+
+  .desktop-icons {
+    display: none;
+  }
+
+  .start-menu {
+    width: 180px;
+  }
+
+  .taskbar-app {
+    min-width: 80px;
+  }
+
+  .app-label {
+    display: none;
+  }
+}
+
+/* Prevent text selection during drag */
+.title-bar,
+.menu-bar,
+.toolbar,
+.start-menu,
+.taskbar {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="win95-desktop">
+  <!-- Desktop Icons -->
+  <div class="desktop-icons">
+    <div class="desktop-icon">
+      <div class="icon-image my-computer"></div>
+      <div class="icon-label">My Computer</div>
+    </div>
+    <div class="desktop-icon">
+      <div class="icon-image recycle-bin"></div>
+      <div class="icon-label">Recycle Bin</div>
+    </div>
+    <div class="desktop-icon">
+      <div class="icon-image internet-explorer"></div>
+      <div class="icon-label">Internet Explorer</div>
+    </div>
+    <div class="desktop-icon">
+      <div class="icon-image network"></div>
+      <div class="icon-label">Network Neighborhood</div>
+    </div>
+  </div>
+
+  <!-- Window 1: My Computer -->
+  <div class="win95-window" style="left: 80px; top: 60px; width: 500px; z-index: 3;" id="window-1">
+    <div class="title-bar">
+      <div class="title-bar-text">My Computer</div>
+      <div class="title-bar-controls">
+        <button class="title-bar-button" aria-label="Minimize">
+          <span style="display: inline-block; width: 6px; height: 2px; background: black; position: relative; top: -2px;"></span>
+        </button>
+        <button class="title-bar-button" aria-label="Maximize">
+          <span style="display: inline-block; width: 8px; height: 8px; border: 2px solid black; border-bottom-width: 3px; box-sizing: border-box;"></span>
+        </button>
+        <button class="title-bar-button close-button" aria-label="Close">
+          <span style="font-size: 11px; font-weight: bold; line-height: 1;">×</span>
+        </button>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <button class="menu-item">File</button>
+      <button class="menu-item">Edit</button>
+      <button class="menu-item">View</button>
+      <button class="menu-item">Help</button>
+    </div>
+    <div class="toolbar">
+      <button class="toolbar-button">
+        <span class="toolbar-icon">↶</span>
+      </button>
+      <button class="toolbar-button">
+        <span class="toolbar-icon">↑</span>
+      </button>
+      <div class="toolbar-separator"></div>
+      <button class="toolbar-button">
+        <span class="toolbar-icon">✂</span>
+      </button>
+      <button class="toolbar-button">
+        <span class="toolbar-icon">📋</span>
+      </button>
+      <button class="toolbar-button">
+        <span class="toolbar-icon">📁</span>
+      </button>
+    </div>
+    <div class="window-content">
+      <div class="drive-icons">
+        <div class="drive-icon">
+          <div class="drive-image floppy"></div>
+          <div class="drive-label">3½ Floppy (A:)</div>
+        </div>
+        <div class="drive-icon">
+          <div class="drive-image hard-disk"></div>
+          <div class="drive-label">(C:)</div>
+        </div>
+        <div class="drive-icon">
+          <div class="drive-image cd-rom"></div>
+          <div class="drive-label">(D:)</div>
+        </div>
+        <div class="drive-icon">
+          <div class="drive-image control-panel"></div>
+          <div class="drive-label">Control Panel</div>
+        </div>
+        <div class="drive-icon">
+          <div class="drive-image printers"></div>
+          <div class="drive-label">Printers</div>
+        </div>
+        <div class="drive-icon">
+          <div class="drive-image dial-up"></div>
+          <div class="drive-label">Dial-Up Networking</div>
+        </div>
+      </div>
+    </div>
+    <div class="status-bar">
+      <div class="status-text">6 object(s)</div>
+    </div>
+  </div>
+
+  <!-- Window 2: Notepad -->
+  <div class="win95-window" style="left: 620px; top: 100px; width: 420px; z-index: 2;" id="window-2">
+    <div class="title-bar">
+      <div class="title-bar-text">Untitled - Notepad</div>
+      <div class="title-bar-controls">
+        <button class="title-bar-button">
+          <span style="display: inline-block; width: 6px; height: 2px; background: black; position: relative; top: -2px;"></span>
+        </button>
+        <button class="title-bar-button">
+          <span style="display: inline-block; width: 8px; height: 8px; border: 2px solid black; border-bottom-width: 3px; box-sizing: border-box;"></span>
+        </button>
+        <button class="title-bar-button close-button">
+          <span style="font-size: 11px; font-weight: bold; line-height: 1;">×</span>
+        </button>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <button class="menu-item">File</button>
+      <button class="menu-item">Edit</button>
+      <button class="menu-item">Search</button>
+      <button class="menu-item">Help</button>
+    </div>
+    <div class="window-content notepad-content">
+      <textarea class="notepad-textarea" spellcheck="false">Welcome to Windows 95!
+
+This is a classic Notepad application interface.
+
+Features:
+• Simple text editing
+• Classic menu bar
+• Retro aesthetics
+• Nostalgic experience
+
+Windows 95 brought many innovations:
+- Start Menu
+- Taskbar
+- Plug and Play
+- Long filenames
+- 32-bit applications
+
+Enjoy this retro UI experience!</textarea>
+    </div>
+  </div>
+
+  <!-- Window 3: Paint -->
+  <div class="win95-window" style="left: 150px; top: 380px; width: 540px; z-index: 1;" id="window-3">
+    <div class="title-bar">
+      <div class="title-bar-text">untitled - Paint</div>
+      <div class="title-bar-controls">
+        <button class="title-bar-button">
+          <span style="display: inline-block; width: 6px; height: 2px; background: black; position: relative; top: -2px;"></span>
+        </button>
+        <button class="title-bar-button">
+          <span style="display: inline-block; width: 8px; height: 8px; border: 2px solid black; border-bottom-width: 3px; box-sizing: border-box;"></span>
+        </button>
+        <button class="title-bar-button close-button">
+          <span style="font-size: 11px; font-weight: bold; line-height: 1;">×</span>
+        </button>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <button class="menu-item">File</button>
+      <button class="menu-item">Edit</button>
+      <button class="menu-item">View</button>
+      <button class="menu-item">Image</button>
+      <button class="menu-item">Colors</button>
+      <button class="menu-item">Help</button>
+    </div>
+    <div class="paint-container">
+      <div class="paint-toolbox">
+        <div class="tool-button active">✏️</div>
+        <div class="tool-button">🖌️</div>
+        <div class="tool-button">🎨</div>
+        <div class="tool-button">📏</div>
+        <div class="tool-button">⬜</div>
+        <div class="tool-button">⭕</div>
+        <div class="tool-button">A</div>
+        <div class="tool-button">✂️</div>
+      </div>
+      <div class="paint-canvas-area">
+        <div class="paint-canvas">
+          <svg width="100%" height="100%" style="background: white;">
+            <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+                  font-family="MS Sans Serif, Arial" font-size="24" fill="#000080">
+              Windows 95 Paint
+            </text>
+            <rect x="10" y="10" width="80" height="60" fill="none" stroke="#ff0000" stroke-width="2"/>
+            <circle cx="120" cy="40" r="30" fill="none" stroke="#0000ff" stroke-width="2"/>
+            <line x1="160" y1="20" x2="220" y2="60" stroke="#00ff00" stroke-width="3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="paint-colors">
+        <div class="color-box" style="background: #000000;"></div>
+        <div class="color-box" style="background: #808080;"></div>
+        <div class="color-box" style="background: #800000;"></div>
+        <div class="color-box" style="background: #808000;"></div>
+        <div class="color-box" style="background: #008000;"></div>
+        <div class="color-box" style="background: #008080;"></div>
+        <div class="color-box" style="background: #000080;"></div>
+        <div class="color-box" style="background: #800080;"></div>
+        <div class="color-box" style="background: #ffffff;"></div>
+        <div class="color-box" style="background: #c0c0c0;"></div>
+        <div class="color-box" style="background: #ff0000;"></div>
+        <div class="color-box" style="background: #ffff00;"></div>
+        <div class="color-box" style="background: #00ff00;"></div>
+        <div class="color-box" style="background: #00ffff;"></div>
+        <div class="color-box" style="background: #0000ff;"></div>
+        <div class="color-box" style="background: #ff00ff;"></div>
+      </div>
+    </div>
+    <div class="status-bar">
+      <div class="status-text">For Help, click Help Topics on the Help Menu.</div>
+    </div>
+  </div>
+
+  <!-- Start Menu (hidden by default) -->
+  <div class="start-menu" id="start-menu">
+    <div class="start-menu-sidebar">
+      <div class="start-menu-logo">Windows<span style="font-weight: bold;">95</span></div>
+    </div>
+    <div class="start-menu-items">
+      <div class="start-menu-item">
+        <span class="menu-icon">📁</span>
+        <span class="menu-text">Programs</span>
+        <span class="menu-arrow">▶</span>
+      </div>
+      <div class="start-menu-item">
+        <span class="menu-icon">📄</span>
+        <span class="menu-text">Documents</span>
+        <span class="menu-arrow">▶</span>
+      </div>
+      <div class="start-menu-item">
+        <span class="menu-icon">⚙️</span>
+        <span class="menu-text">Settings</span>
+        <span class="menu-arrow">▶</span>
+      </div>
+      <div class="start-menu-item">
+        <span class="menu-icon">🔍</span>
+        <span class="menu-text">Find</span>
+        <span class="menu-arrow">▶</span>
+      </div>
+      <div class="start-menu-item">
+        <span class="menu-icon">❓</span>
+        <span class="menu-text">Help</span>
+      </div>
+      <div class="start-menu-item">
+        <span class="menu-icon">🏃</span>
+        <span class="menu-text">Run...</span>
+      </div>
+      <div class="start-menu-divider"></div>
+      <div class="start-menu-item">
+        <span class="menu-icon">🔌</span>
+        <span class="menu-text">Shut Down...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Taskbar -->
+  <div class="taskbar">
+    <button class="start-button" id="start-button">
+      <span class="start-icon">🪟</span>
+      <span class="start-text">Start</span>
+    </button>
+    <div class="taskbar-divider"></div>
+    <div class="taskbar-apps">
+      <button class="taskbar-app active">
+        <span class="app-icon">💻</span>
+        <span class="app-label">My Computer</span>
+      </button>
+      <button class="taskbar-app">
+        <span class="app-icon">📝</span>
+        <span class="app-label">Notepad</span>
+      </button>
+      <button class="taskbar-app">
+        <span class="app-icon">🎨</span>
+        <span class="app-label">Paint</span>
+      </button>
+    </div>
+    <div class="system-tray">
+      <div class="tray-icon">🔊</div>
+      <div class="tray-time">
+        <div id="tray-time">12:00 PM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Simple Start Menu toggle
+(function() {
+  const startButton = document.getElementById('start-button');
+  const startMenu = document.getElementById('start-menu');
+  let isMenuOpen = false;
+
+  if (startButton && startMenu) {
+    startButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      isMenuOpen = !isMenuOpen;
+      startMenu.style.display = isMenuOpen ? 'flex' : 'none';
+      startButton.classList.toggle('pressed', isMenuOpen);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (isMenuOpen && !startMenu.contains(e.target) && e.target !== startButton) {
+        isMenuOpen = false;
+        startMenu.style.display = 'none';
+        startButton.classList.remove('pressed');
+      }
+    });
+  }
+
+  // Update clock
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours % 12 || 12;
+    const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+    const timeElement = document.getElementById('tray-time');
+    if (timeElement) {
+      timeElement.textContent = displayHours + ':' + displayMinutes + ' ' + ampm;
+    }
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Window interaction simulation
+  const windows = document.querySelectorAll('.win95-window');
+  let highestZ = windows.length;
+
+  windows.forEach(function(win) {
+    const titleBar = win.querySelector('.title-bar');
+
+    // Click to bring to front
+    win.addEventListener('mousedown', function() {
+      highestZ++;
+      win.style.zIndex = highestZ;
+
+      // Update taskbar active state
+      const taskbarApps = document.querySelectorAll('.taskbar-app');
+      taskbarApps.forEach(function(app) {
+        app.classList.remove('active');
+      });
+
+      const winId = win.id;
+      if (winId === 'window-1') {
+        taskbarApps[0].classList.add('active');
+      } else if (winId === 'window-2') {
+        taskbarApps[1].classList.add('active');
+      } else if (winId === 'window-3') {
+        taskbarApps[2].classList.add('active');
+      }
+    });
+
+    // Simple drag simulation (visual feedback only)
+    if (titleBar) {
+      let isDragging = false;
+      let currentX, currentY, initialX, initialY;
+      let xOffset = 0, yOffset = 0;
+
+      titleBar.addEventListener('mousedown', function(e) {
+        if (e.target.closest('.title-bar-button')) return;
+
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+        isDragging = true;
+        titleBar.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+          e.preventDefault();
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+          xOffset = currentX;
+          yOffset = currentY;
+
+          const rect = win.getBoundingClientRect();
+          const newLeft = rect.left + currentX;
+          const newTop = rect.top + currentY;
+
+          win.style.left = newLeft + 'px';
+          win.style.top = newTop + 'px';
+
+          xOffset = 0;
+          yOffset = 0;
+          initialX = e.clientX;
+          initialY = e.clientY;
+        }
+      });
+
+      document.addEventListener('mouseup', function() {
+        isDragging = false;
+        titleBar.style.cursor = 'default';
+      });
+    }
+  });
+
+  // Taskbar app buttons
+  const taskbarApps = document.querySelectorAll('.taskbar-app');
+  taskbarApps.forEach(function(app, index) {
+    app.addEventListener('click', function(e) {
+      e.preventDefault();
+      taskbarApps.forEach(function(a) { a.classList.remove('active'); });
+      app.classList.add('active');
+
+      const targetWindow = document.getElementById('window-' + (index + 1));
+      if (targetWindow) {
+        highestZ++;
+        targetWindow.style.zIndex = highestZ;
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

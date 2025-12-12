@@ -1,0 +1,31 @@
+<div class="flex items-center justify-center min-h-[500px] bg-light p-6">
+            <div class="bg-white rounded-lg border border-gray-300 p-6 w-full max-w-md shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="h5 mb-0">Filter by Price</h4>
+                <button class="btn btn-sm btn-outline-secondary" onclick="javascript:void(0)">Reset</button>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label text-muted small">Price Range</label>
+                <input type="range" class="form-range" min="0" max="1000" value="450" id="priceRange">
+                <div class="d-flex justify-content-between mt-2">
+                  <span class="badge bg-primary">$0</span>
+                  <span class="badge bg-primary">$450</span>
+                </div>
+              </div>
+
+              <div class="row g-2 mb-3">
+                <div class="col">
+                  <input type="number" class="form-control form-control-sm" placeholder="Min" value="0">
+                </div>
+                <div class="col-auto d-flex align-items-center">
+                  <span class="text-muted">-</span>
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control form-control-sm" placeholder="Max" value="450">
+                </div>
+              </div>
+
+              <button class="btn btn-primary w-100">Apply Filter</button>
+            </div>
+          </div>

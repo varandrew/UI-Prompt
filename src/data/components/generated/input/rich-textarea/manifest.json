@@ -1,0 +1,33 @@
+{
+  "id": "rich-textarea",
+  "category": "input",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.input.rich-textarea.title",
+      "en-US": "data.components.input.rich-textarea.title"
+    },
+    "description": {
+      "zh-CN": "data.components.input.rich-textarea.description",
+      "en-US": "data.components.input.rich-textarea.description"
+    },
+    "tags": [
+      "input"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.input.rich-textarea.title",
+        "en-US": "data.components.input.rich-textarea.title"
+      },
+      "description": {
+        "zh-CN": "data.components.input.rich-textarea.description",
+        "en-US": "data.components.input.rich-textarea.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

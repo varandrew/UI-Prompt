@@ -1,0 +1,141 @@
+
+/* Accessibility High Contrast Styles */
+
+/* Base Styles */
+.a11y-body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Focus Visible Ring */
+*:focus-visible {
+  outline: 4px solid #3B82F6 !important;
+  outline-offset: 2px;
+}
+
+/* Cards */
+.a11y-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.a11y-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Buttons */
+.a11y-btn-primary,
+.a11y-btn-secondary {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 900;
+}
+
+.a11y-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.a11y-btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.a11y-btn-primary:active:not(:disabled),
+.a11y-btn-secondary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Inputs */
+.a11y-input {
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.a11y-input:hover {
+  border-color: #374151;
+}
+
+/* Checkbox */
+.a11y-checkbox {
+  cursor: pointer;
+  accent-color: #000000;
+  transition: all 0.2s ease;
+}
+
+.a11y-checkbox:checked {
+  background-color: #000000;
+}
+
+/* Navigation */
+.a11y-nav-link {
+  transition: all 0.2s ease;
+}
+
+.a11y-nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Theme Buttons */
+.a11y-theme-btn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.a11y-theme-btn:hover {
+  transform: scale(1.1);
+}
+
+.a11y-theme-btn:active {
+  transform: scale(0.95);
+}
+
+/* Toggle Switch */
+.a11y-toggle input:checked + div {
+  background-color: #000000;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* High Contrast Theme Adjustments */
+.theme-yellow * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-cyan * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Keyboard Navigation Indicator */
+body.user-is-tabbing *:focus {
+  outline: 4px solid #3B82F6 !important;
+  outline-offset: 2px;
+}

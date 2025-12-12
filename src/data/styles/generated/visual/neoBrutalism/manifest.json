@@ -1,0 +1,32 @@
+{
+  "id": "visual-neoBrutalism",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "新粗野主义",
+      "en-US": "Neo-Brutalism"
+    },
+    "description": {
+      "zh-CN": "高对比、粗边框与鲜艳配色的大胆原始风格。",
+      "en-US": "Bold, raw design style with high contrast, thick borders, and vibrant colors."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-neoBrutalism-neo-brutalism",
+      "title": {
+        "zh-CN": "新粗野主义界面",
+        "en-US": "Neo-Brutalism"
+      }
+    },
+    {
+      "id": "visual-neoBrutalism-brutalism",
+      "title": {
+        "zh-CN": "粗野主义界面",
+        "en-US": "Brutalism"
+      }
+    }
+  ]
+}

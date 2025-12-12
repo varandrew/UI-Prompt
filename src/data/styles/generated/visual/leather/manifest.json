@@ -1,0 +1,25 @@
+{
+  "id": "visual-texture-leather",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "皮革质感",
+      "en-US": "Leather Texture"
+    },
+    "description": {
+      "zh-CN": "深色皮革面板风格，通过径向渐变、噪点纹理、缝线和金属细节营造厚重而奢华的视觉体验",
+      "en-US": "Dark leather panel style with radial gradients, noise textures, stitching and metal accents"
+    },
+    "tags": ["classic", "depth", "creative", "enterprise"],
+    "relatedStyles": ["core-skeuomorphism", "visual-texture-fabric"]
+  },
+  "templates": [
+    {
+      "id": "visual-texture-leather-vintage-journal",
+      "title": {
+        "zh-CN": "复古旅行日志",
+        "en-US": "Vintage Travel Journal"
+      }
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+
+/* Core Animations */
+@keyframes cyber-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+@keyframes cyber-flow {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(200vh); opacity: 0; }
+}
+
+@keyframes cyber-logo-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes cyber-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cyber-glitch-text {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-3px, 2px); }
+  94% { transform: translate(3px, -2px); }
+  96% { transform: translate(-2px, -3px); }
+  98% { transform: translate(2px, 3px); }
+}
+
+@keyframes cart-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes neon-flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-20px) translateX(10px); }
+  50% { transform: translateY(-40px) translateX(-10px); }
+  75% { transform: translateY(-20px) translateX(5px); }
+}
+
+@keyframes text-glitch {
+  0%, 100% { transform: translate(0); opacity: 1; }
+  20% { transform: translate(-4px, 2px); opacity: 0.8; }
+  40% { transform: translate(-4px, -2px); opacity: 0.9; }
+  60% { transform: translate(4px, 2px); opacity: 0.8; }
+  80% { transform: translate(4px, -2px); opacity: 0.9; }
+}
+
+@keyframes counter-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes hologram-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes hologram-scan {
+  0% { transform: translateY(-100%); opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(100%); opacity: 0.3; }
+}
+
+@keyframes badge-rotate {
+  0%, 100% { transform: rotate(5deg) scale(1); }
+  50% { transform: rotate(-5deg) scale(1.05); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes category-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes fab-pulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(0, 255, 65, 0.6); }
+  50% { box-shadow: 0 0 60px rgba(0, 255, 65, 0.9); }
+}
+
+@keyframes slide-in-right {
+  0% { transform: translateX(100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* RGB Split Effect (for hover) */
+.rgb-split-btn:hover {
+  animation: rgb-split-effect 0.3s ease-in-out;
+}
+
+@keyframes rgb-split-effect {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 0); text-shadow: 2px 0 #ff0080, -2px 0 #00ffff; }
+  50% { transform: translate(2px, 0); text-shadow: -2px 0 #00ff41, 2px 0 #9d4edd; }
+  75% { transform: translate(0, -2px); text-shadow: 0 2px #00ffff, 0 -2px #ff0080; }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cyber-gaming-store {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cyber-gaming-store nav > div > div:first-child {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cyber-gaming-store h1 {
+    font-size: 36px !important;
+  }
+
+  .cyber-gaming-store h2 {
+    font-size: 24px !important;
+  }
+
+  .flip-counter {
+    font-size: 32px !important;
+    padding: 0.75rem 1rem !important;
+    min-width: 60px !important;
+  }
+
+  .category-card {
+    padding: 1.5rem !important;
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-gaming-store nav {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .cyber-gaming-store section {
+    padding: 2rem 1rem !important;
+  }
+
+  .flip-counter {
+    font-size: 24px !important;
+    padding: 0.5rem 0.75rem !important;
+    min-width: 50px !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .cyber-gaming-store nav,
+  .cyber-gaming-store footer,
+  .cyber-gaming-store button {
+    display: none;
+  }
+}

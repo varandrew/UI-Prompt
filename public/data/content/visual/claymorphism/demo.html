@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claymation UI Style Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <!-- Main Container: Strictly Square -->
+    <div id="demo-container" class="relative w-[90vw] max-w-[600px] aspect-square bg-[#e0e5ec] rounded-[40px] p-6 md:p-10 shadow-2xl flex flex-col justify-between overflow-hidden border-8 border-white/50">
+        
+        <!-- Background Decor (Abstract Clay Blobs) -->
+        <div class="absolute top-[-50px] right-[-50px] w-40 h-40 bg-yellow-300 rounded-full opacity-20 blur-xl"></div>
+        <div class="absolute bottom-[-20px] left-[-20px] w-60 h-60 bg-pink-300 rounded-full opacity-20 blur-xl"></div>
+
+        <!-- Header Area -->
+        <div class="relative z-10 flex justify-between items-center mb-4">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-800 tracking-wide drop-shadow-sm" style="text-shadow: 2px 2px 0px rgba(255,255,255,0.5);">Claymation</h1>
+                <p class="text-gray-500 font-bold text-sm md:text-base ml-1 mt-1">TOY UI STYLE</p>
+            </div>
+            <!-- The Mascot Character -->
+            <div class="w-16 h-16 md:w-20 md:h-20 bg-[#4ecdc4] clay-object clay-blob flex justify-center items-center gap-2 border-4 border-white/20">
+                <div class="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full relative flex items-center justify-center">
+                    <div class="eye-pupil w-2 h-2 bg-black rounded-full"></div>
+                </div>
+                <div class="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full relative flex items-center justify-center">
+                    <div class="eye-pupil w-2 h-2 bg-black rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="relative z-10 flex-grow flex flex-col justify-center gap-6">
+            
+            <!-- Example Card: Shop Item -->
+            <div class="bg-white rounded-[30px] p-4 flex items-center gap-4 clay-object w-full transform rotate-[-2deg] hover:rotate-0 transition-transform duration-300 cursor-pointer group">
+                <div class="w-16 h-16 rounded-[20px] bg-[#ff9ff3] clay-object flex items-center justify-center text-2xl">
+                    🧸
+                </div>
+                <div class="flex-grow">
+                    <h3 class="font-bold text-lg text-gray-700">Soft Teddy</h3>
+                    <div class="w-full bg-gray-200 h-3 rounded-full mt-2 shadow-inner overflow-hidden">
+                        <div class="h-full bg-[#ff6b6b] w-2/3 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="h-10 w-10 bg-[#ffe66d] rounded-full clay-object flex items-center justify-center text-gray-700 font-bold group-hover:scale-110 transition-transform">
+                    +
+                </div>
+            </div>
+
+            <!-- Inputs & Controls Row -->
+            <div class="flex gap-4 items-center w-full">
+                <!-- Clay Input -->
+                <input type="text" placeholder="Enter Name..." class="w-full bg-[#f0f2f5] rounded-[20px] px-6 py-4 outline-none font-bold text-gray-600 placeholder-gray-400 focus:bg-white transition-colors" style="box-shadow: inset 3px 3px 6px rgba(0,0,0,0.1), inset -3px -3px 6px rgba(255,255,255,0.7);">
+                
+                <!-- Toggle -->
+                <input type="checkbox" class="clay-toggle flex-shrink-0" checked>
+            </div>
+
+            <!-- Primary Actions -->
+            <div class="grid grid-cols-2 gap-4 mt-2">
+                <button class="clay-object clay-pink py-4 rounded-[25px] font-bold text-lg md:text-xl tracking-wide hover:-translate-y-1 transition-transform" onclick="playSound()">
+                    Play Now
+                </button>
+                <button class="clay-object clay-white border-4 border-[#eee] py-4 rounded-[25px] font-bold text-lg md:text-xl text-gray-600 hover:-translate-y-1 transition-transform">
+                    Settings
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Footer / Style Explainer -->
+        <div class="relative z-10 mt-6 pt-4 border-t-2 border-gray-200/50 flex justify-between items-end">
+            <div class="bg-white/60 backdrop-blur-sm p-3 rounded-2xl text-xs text-gray-600 max-w-[70%] shadow-sm">
+                <strong>Style Notes:</strong> Rounded "pill" shapes, soft gradients, inset highlights for "molded" look, tactile shadows.
+            </div>
+            <div class="text-[10px] text-gray-400 font-mono text-right">
+                W: 100%<br>H: 100%<br>RATIO: 1:1
+            </div>
+        </div>
+
+        <!-- Decorative Tape -->
+        <div class="absolute -top-3 left-[40%] w-24 h-8 bg-[#ff7675] opacity-80 transform -rotate-3 z-20 shadow-md" style="clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);"></div>
+
+    </div>
+
+    <!-- Side Label for the User -->
+    <div class="fixed right-4 md:right-10 bottom-10 flex flex-col items-center gap-2 opacity-70">
+        <div class="bg-white p-2 rounded-lg shadow-lg">
+            <div class="w-8 h-8 rounded-full bg-[#ff6b6b] clay-object"></div>
+        </div>
+        <span class="text-white font-bold text-xs tracking-widest text-center mt-2">CLAY<br>THEME</span>
+    </div>
+
+    <script>
+        // Simple Interaction Feedback
+        const buttons = document.querySelectorAll('button, .clay-object');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            
+            btn.addEventListener('mouseup', () => {
+                // If it has a specific hover transform in CSS, we clear the inline style to let CSS take over
+                setTimeout(() => {
+                    btn.style.transform = '';
+                }, 100);
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+
+        // Simulate a "squish" sound visually (since we can't play audio easily in all browsers without interaction)
+        function playSound() {
+            const container = document.getElementById('demo-container');
+            container.style.transform = 'scale(0.98)';
+            setTimeout(() => container.style.transform = 'scale(1)', 150);
+        }
+    </script>
+</body>
+</html>

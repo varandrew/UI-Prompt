@@ -1,0 +1,327 @@
+:root {
+  --holo-bg-dark: #050511;
+  --holo-surface: rgba(255, 255, 255, 0.05);
+  --holo-surface-hover: rgba(255, 255, 255, 0.1);
+  --holo-border: rgba(255, 255, 255, 0.15);
+  --holo-text-main: #ffffff;
+  --holo-text-muted: #a0a0b0;
+  
+  /* The core holographic gradient */
+  --holo-grad-rainbow: linear-gradient(
+    115deg, 
+    #ff00cc, 
+    #3333ff, 
+    #00ffff, 
+    #33ff33, 
+    #ffff00, 
+    #ff00cc
+  );
+  
+  --holo-font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --holo-radius: 16px;
+  --holo-anim-speed: 4s;
+}
+
+.holo-demo-container {
+  background-color: var(--holo-bg-dark);
+  font-family: var(--holo-font-family);
+  padding: 2rem;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  color: var(--holo-text-main);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(51, 51, 255, 0.15), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(255, 0, 204, 0.15), transparent 40%);
+}
+
+/* 1. Typography & Heading */
+.holo-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1px;
+  background: var(--holo-grad-rainbow);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holo-gradient-move var(--holo-anim-speed) linear infinite;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.holo-badge {
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  -webkit-text-fill-color: initial;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+
+/* 2. Card */
+.holo-card {
+  position: relative;
+  background: var(--holo-surface);
+  border-radius: var(--holo-radius);
+  padding: 2px; /* For border */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+
+.holo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--holo-grad-rainbow);
+  background-size: 300% 300%;
+  animation: holo-gradient-rotate 6s linear infinite;
+  border-radius: var(--holo-radius);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.holo-card-content {
+  position: relative;
+  background: rgba(10, 10, 20, 0.9);
+  border-radius: calc(var(--holo-radius) - 2px);
+  padding: 1.5rem;
+  z-index: 1;
+}
+
+.holo-card:hover {
+  transform: translateY(-5px);
+}
+
+.holo-card:hover::before {
+  opacity: 0.8;
+}
+
+.holo-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.holo-text-body {
+  margin: 0;
+  color: var(--holo-text-muted);
+  line-height: 1.5;
+}
+
+/* 3 & 4. Buttons */
+.holo-btn {
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.holo-btn-primary {
+  color: #000;
+  background: transparent;
+}
+
+.holo-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--holo-grad-rainbow);
+  background-size: 200% auto;
+  animation: holo-gradient-move 3s linear infinite;
+  z-index: 0;
+}
+
+.holo-btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.holo-btn-ghost {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border: 1px solid var(--holo-border);
+}
+
+.holo-btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+/* 5. Input */
+.holo-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.holo-label {
+  font-size: 0.85rem;
+  color: var(--holo-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.holo-input {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--holo-border);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.holo-input:focus {
+  border-color: transparent;
+  background-image: linear-gradient(#050511, #050511), var(--holo-grad-rainbow);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* 6. Toggle */
+.holo-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.holo-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.holo-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 34px;
+  transition: .4s;
+  border: 1px solid var(--holo-border);
+}
+
+.holo-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.holo-toggle input:checked + .holo-slider {
+  background: var(--holo-grad-rainbow);
+  background-size: 200%;
+  border-color: transparent;
+}
+
+.holo-toggle input:checked + .holo-slider:before {
+  transform: translateX(22px);
+  background-color: #000;
+}
+
+/* 7. Loader */
+.holo-loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #00ffff;
+  border-right-color: #ff00cc;
+  animation: holo-spin 1s linear infinite;
+  filter: drop-shadow(0 0 4px #00ffff);
+}
+
+/* 8. Avatar */
+.holo-avatar-group {
+  display: flex;
+}
+
+.holo-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #eee, #999);
+  position: relative;
+  border: 2px solid #000;
+  margin-right: -12px;
+  overflow: hidden;
+}
+
+.holo-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--holo-grad-rainbow);
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+  animation: holo-hue 4s infinite linear;
+}
+
+/* 9. Progress */
+.holo-progress-container {
+  width: 100%;
+  max-width: 300px;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.holo-progress-bar {
+  height: 100%;
+  background: var(--holo-grad-rainbow);
+  background-size: 200% auto;
+  animation: holo-gradient-move 2s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+}
+
+/* Animations */
+@keyframes holo-gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes holo-gradient-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes holo-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes holo-hue {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}

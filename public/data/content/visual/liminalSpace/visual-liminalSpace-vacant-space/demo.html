@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liminal Space - 曖昧空間感</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>INJECT_STYLES_HERE</style>
+</head>
+<body class="liminal-body">
+  <!-- 背景效果层 -->
+  <div class="liminal-background">
+    <div class="liminal-fog-overlay"></div>
+    <div class="liminal-noise-texture"></div>
+    <div class="liminal-scanlines"></div>
+  </div>
+
+  <!-- 漂浮粒子 -->
+  <div class="liminal-particles">
+    <div class="liminal-particle" style="left: 15%; top: 20%; --delay: 0s; --duration: 12s;"></div>
+    <div class="liminal-particle" style="left: 45%; top: 60%; --delay: 2s; --duration: 14s;"></div>
+    <div class="liminal-particle" style="left: 75%; top: 35%; --delay: 4s; --duration: 13s;"></div>
+    <div class="liminal-particle liminal-particle-cyan" style="left: 25%; top: 75%; --delay: 6s; --duration: 15s;"></div>
+    <div class="liminal-particle liminal-particle-cyan" style="left: 85%; top: 15%; --delay: 8s; --duration: 11s;"></div>
+  </div>
+
+  <!-- Hero 区 -->
+  <section class="liminal-hero">
+    <div class="liminal-hero-content">
+      <h1 class="liminal-neon-title">
+        [ VACANT_SPACE.EXE ]
+      </h1>
+      <p class="liminal-subtitle">
+        // Between existence and nothingness - digital space
+      </p>
+      <button class="liminal-neon-button">
+        ENTER_THE_VOID
+      </button>
+    </div>
+  </section>
+
+  <!-- 霧化玻璃导航 -->
+  <nav class="liminal-nav">
+    <div class="liminal-glass-bar">
+      <a href="javascript:void(0)" class="liminal-nav-item active">SECTOR_01</a>
+      <a href="javascript:void(0)" class="liminal-nav-item">SECTOR_02</a>
+      <a href="javascript:void(0)" class="liminal-nav-item">SECTOR_03</a>
+      <span class="liminal-nav-indicator"></span>
+    </div>
+  </nav>
+
+  <!-- 內容卡片网格 -->
+  <section class="liminal-content">
+    <div class="liminal-card-grid">
+      <!-- 卡片 1 -->
+      <div class="liminal-card">
+        <div class="liminal-card-glow-ring"></div>
+        <div class="liminal-card-image">
+          <div class="liminal-placeholder-image"></div>
+        </div>
+        <div class="liminal-card-body">
+          <h3 class="liminal-card-title">TERMINAL_A</h3>
+          <p class="liminal-card-desc">Vacant Terminal Site / Waiting Area / Unattended</p>
+          <div class="liminal-status-bar">
+            <span class="liminal-led pink pulse"></span>
+            <span class="liminal-status-text">INACTIVE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 卡片 2 -->
+      <div class="liminal-card">
+        <div class="liminal-card-glow-ring"></div>
+        <div class="liminal-card-image">
+          <div class="liminal-placeholder-image"></div>
+        </div>
+        <div class="liminal-card-body">
+          <h3 class="liminal-card-title">CORRIDOR_B</h3>
+          <p class="liminal-card-desc">Corridor B Section / Late Night 03:47 / No Echo</p>
+          <div class="liminal-status-bar">
+            <span class="liminal-led cyan pulse"></span>
+            <span class="liminal-status-text">MONITORING</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 卡片 3 -->
+      <div class="liminal-card">
+        <div class="liminal-card-glow-ring"></div>
+        <div class="liminal-card-image">
+          <div class="liminal-placeholder-image"></div>
+        </div>
+        <div class="liminal-card-body">
+          <h3 class="liminal-card-title">VOID_C</h3>
+          <p class="liminal-card-desc">Undefined Space / Digital Void / Boundless</p>
+          <div class="liminal-status-bar">
+            <span class="liminal-led pink pulse"></span>
+            <span class="liminal-status-text">STANDBY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 卡片 4 -->
+      <div class="liminal-card">
+        <div class="liminal-card-glow-ring"></div>
+        <div class="liminal-card-image">
+          <div class="liminal-placeholder-image"></div>
+        </div>
+        <div class="liminal-card-body">
+          <h3 class="liminal-card-title">GATEWAY_D</h3>
+          <p class="liminal-card-desc">Gateway D / Transitional Zone / Eternal Waiting</p>
+          <div class="liminal-status-bar">
+            <span class="liminal-led cyan pulse"></span>
+            <span class="liminal-status-text">ACTIVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交互元素区 -->
+  <section class="liminal-interaction">
+    <div class="liminal-form-container">
+      <h3 class="liminal-section-title">SYSTEM_ACCESS</h3>
+
+      <div class="liminal-input-group">
+        <label class="liminal-label">ENTER_CODE</label>
+        <input
+          type="text"
+          class="liminal-input"
+          placeholder="_ _ _ _ _ _"
+          maxlength="6"
+        />
+      </div>
+
+      <div class="liminal-slider-group">
+        <label class="liminal-label">SIGNAL_STRENGTH</label>
+        <div class="liminal-slider">
+          <div class="liminal-slider-track"></div>
+          <div class="liminal-slider-thumb"></div>
+        </div>
+        <div class="liminal-slider-value">47%</div>
+      </div>
+
+      <div class="liminal-button-group">
+        <button class="liminal-button primary">INITIALIZE</button>
+        <button class="liminal-button secondary">ABORT</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页腳 -->
+  <footer class="liminal-footer">
+    <p class="liminal-timestamp">SYSTEM_TIME: 03:47:21 AM</p>
+    <p class="liminal-system-info">[ LIMINAL_OS v1.0.0 ] // NO_SIGNAL_DETECTED</p>
+  </footer>
+
+  <script>
+    // 导航高亮切換
+    document.querySelectorAll('.liminal-nav-item').forEach((item, index) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.liminal-nav-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+
+    // 滑桿交互
+    const slider = document.querySelector('.liminal-slider');
+    const thumb = document.querySelector('.liminal-slider-thumb');
+    const valueDisplay = document.querySelector('.liminal-slider-value');
+
+    if (slider && thumb) {
+      let isDragging = false;
+
+      thumb.addEventListener('mousedown', () => isDragging = true);
+      document.addEventListener('mouseup', () => isDragging = false);
+
+      slider.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          const rect = slider.getBoundingClientRect();
+          const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+          const percentage = Math.round((x / rect.width) * 100);
+          thumb.style.left = percentage + '%';
+          valueDisplay.textContent = percentage + '%';
+        }
+      });
+    }
+
+    // 輸入框霓虹效果增強
+    document.querySelectorAll('.liminal-input').forEach(input => {
+      input.addEventListener('focus', () => {
+        input.style.boxShadow = '0 0 20px rgba(0, 255, 204, 0.6), inset 0 0 15px rgba(0, 255, 204, 0.2)';
+      });
+      input.addEventListener('blur', () => {
+        input.style.boxShadow = '';
+      });
+    });
+  </script>
+</body>
+</html>

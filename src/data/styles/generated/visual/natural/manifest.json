@@ -1,0 +1,25 @@
+{
+  "id": "visual-natural",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Natural 自然风格",
+      "en-US": "Natural"
+    },
+    "description": {
+      "zh-CN": "受自然启发的有机设计，采用大地色调和纹理质感。",
+      "en-US": "Natural and organic design inspired by nature with earthy tones and textures."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "naturalDefault",
+      "title": {
+        "zh-CN": "自然預設佈局",
+        "en-US": "Natural Default"
+      }
+    }
+  ]
+}

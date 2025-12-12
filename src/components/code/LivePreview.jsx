@@ -158,6 +158,24 @@ export function LivePreview({
 
   // 構建 HTML 預覽文檔
   const htmlPreviewDoc = useMemo(() => {
+    // 檢測是否為完整 HTML 文檔
+    const isCompleteDoc = debouncedHtml.trim().startsWith('<!DOCTYPE') ||
+                          /^<html[\s>]/i.test(debouncedHtml.trim());
+
+    if (isCompleteDoc) {
+      // 完整文檔：直接使用，保留所有原始內容（Google Fonts、Tailwind 配置等）
+      // 只需確保有 appCss 連結（如果需要的話）
+      let doc = debouncedHtml;
+
+      // 如果文檔中沒有 appCssUrl，在 </head> 前注入
+      if (appCssUrl && !doc.includes(appCssUrl)) {
+        doc = doc.replace(/<\/head>/i, `  <link rel="stylesheet" href="${appCssUrl}">\n</head>`);
+      }
+
+      return doc;
+    }
+
+    // HTML 片段：構建完整文檔
     // ✅ CSS 基本安全處理：移除潛在的 </style> 標籤注入
     const safeCss = debouncedCss.replace(/<\/style>/gi, '');
 

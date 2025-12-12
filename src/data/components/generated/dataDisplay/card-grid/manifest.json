@@ -1,0 +1,33 @@
+{
+  "id": "card-grid",
+  "category": "dataDisplay",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.dataDisplay.card-grid.title",
+      "en-US": "data.components.dataDisplay.card-grid.title"
+    },
+    "description": {
+      "zh-CN": "data.components.dataDisplay.card-grid.description",
+      "en-US": "data.components.dataDisplay.card-grid.description"
+    },
+    "tags": [
+      "dataDisplay"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "bootstrap5",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.card-grid.variants.bootstrap5.name",
+        "en-US": "data.components.dataDisplay.card-grid.variants.bootstrap5.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.card-grid.variants.bootstrap5.description",
+        "en-US": "data.components.dataDisplay.card-grid.variants.bootstrap5.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

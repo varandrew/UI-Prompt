@@ -1,0 +1,11 @@
+{
+  "id": "visual-glassmorphism-glassmorphism-music",
+  "title": {
+    "zh-CN": "音乐播放器",
+    "en-US": "Music Player"
+  },
+  "description": {
+    "zh-CN": "玻璃态音乐播放器，展示丰富交互组件和动画效果",
+    "en-US": "Glassmorphism music player showcasing rich interactive components and animations"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "modern-utility-first",
+  "title": {
+    "zh-CN": "实用优先",
+    "en-US": "Utility First"
+  },
+  "description": {
+    "zh-CN": "实用优先的设计理念，最小化自定义 CSS，专注于功能性 Tailwind 类。",
+    "en-US": "Utility-first design philosophy with minimal custom CSS, focusing on functional Tailwind classes."
+  }
+}

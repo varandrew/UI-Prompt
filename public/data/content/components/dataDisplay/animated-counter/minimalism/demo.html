@@ -1,0 +1,53 @@
+<div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.animatedCounter.minimalism.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.animatedCounter.minimalism.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Users Counter -->
+                <div class="text-center">
+                  <div class="text-6xl font-light mb-2 counter-min" data-target="12458">0</div>
+                  <p class="text-gray-500 text-sm font-light uppercase tracking-wider">{{t:demo.animatedCounter.minimalism.users}}</p>
+                </div>
+
+                <!-- Projects Counter -->
+                <div class="text-center">
+                  <div class="text-6xl font-light mb-2 counter-min" data-target="3240">0</div>
+                  <p class="text-gray-500 text-sm font-light uppercase tracking-wider">{{t:demo.animatedCounter.minimalism.projects}}</p>
+                </div>
+
+                <!-- Revenue Counter -->
+                <div class="text-center">
+                  <div class="text-6xl font-light mb-2">
+                    <span class="text-2xl align-top">$</span><span class="counter-min" data-target="98750">0</span>
+                  </div>
+                  <p class="text-gray-500 text-sm font-light uppercase tracking-wider">{{t:demo.animatedCounter.minimalism.revenue}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateCounter(element, target, duration = 2000) {
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = target.toLocaleString();
+                  clearInterval(timer);
+                } else {
+                  element.textContent = Math.floor(current).toLocaleString();
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-min').forEach(counter => {
+              const target = parseInt(counter.getAttribute('data-target'));
+              animateCounter(counter, target);
+            });
+          </script>

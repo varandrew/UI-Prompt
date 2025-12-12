@@ -1,0 +1,35 @@
+{
+  "id": "404-error-page",
+  "category": "special",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.special.404-error-page.title",
+      "en-US": "data.components.special.404-error-page.title"
+    },
+    "description": {
+      "zh-CN": "data.components.special.404-error-page.description",
+      "en-US": "data.components.special.404-error-page.description"
+    },
+    "tags": [
+      "special",
+      "state",
+      "placeholder"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.special.404-error-page.title",
+        "en-US": "data.components.special.404-error-page.title"
+      },
+      "description": {
+        "zh-CN": "data.components.special.404-error-page.description",
+        "en-US": "data.components.special.404-error-page.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

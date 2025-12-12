@@ -1,0 +1,17 @@
+{
+  "id": "visual-auroraGlass",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "极光玻璃",
+      "en-US": "Aurora Glass"
+    },
+    "description": {
+      "zh-CN": "渐变极光色彩，动态光影，流动透明",
+      "en-US": "Gradient aurora colors with dynamic lighting and flowing transparency"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

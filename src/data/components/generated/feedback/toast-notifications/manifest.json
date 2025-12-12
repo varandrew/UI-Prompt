@@ -1,0 +1,86 @@
+{
+  "id": "toast-notifications",
+  "category": "feedback",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.feedback.toast-notifications.title",
+      "en-US": "data.components.feedback.toast-notifications.title"
+    },
+    "description": {
+      "zh-CN": "data.components.feedback.toast-notifications.description",
+      "en-US": "data.components.feedback.toast-notifications.description"
+    },
+    "tags": [
+      "feedback",
+      "notification"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.minimalism.name",
+        "en-US": "data.components.feedback.toast-notifications.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.minimalism.description",
+        "en-US": "data.components.feedback.toast-notifications.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "material",
+      "name": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.material.name",
+        "en-US": "data.components.feedback.toast-notifications.variants.material.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.material.description",
+        "en-US": "data.components.feedback.toast-notifications.variants.material.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.glassmorphism.name",
+        "en-US": "data.components.feedback.toast-notifications.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.glassmorphism.description",
+        "en-US": "data.components.feedback.toast-notifications.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism",
+      "name": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.neumorphism.name",
+        "en-US": "data.components.feedback.toast-notifications.variants.neumorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.neumorphism.description",
+        "en-US": "data.components.feedback.toast-notifications.variants.neumorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "bootstrap",
+      "name": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.bootstrap.name",
+        "en-US": "data.components.feedback.toast-notifications.variants.bootstrap.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.toast-notifications.variants.bootstrap.description",
+        "en-US": "data.components.feedback.toast-notifications.variants.bootstrap.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

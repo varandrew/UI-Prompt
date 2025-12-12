@@ -4,10 +4,8 @@ import { MasonryContainer } from '../../components/ui/MasonryContainer';
 import { VirtualMasonryVariable } from '../../components/ui/VirtualMasonryVariable';
 import { FilterBar } from '../../components/filter/FilterBar';
 import { useLanguage } from '../../hooks/useLanguage';
-import { applyFilters, applyTranslationsToCategories } from '../../utils/categoryHelper';
+import { applyFilters, applyTranslationsToCategories, getTagStatistics } from '../../utils/categoryHelper';
 import { loadStyleCategories } from '../../data/components/loaders';
-// 🆕 模板元數據（用於篩選新增/更新的模板）
-import templateMetadata from '../../data/metadata/templateMetadata.json';
 
 
 /**
@@ -26,10 +24,6 @@ export function AllStylesPage() {
     tags: [],
     matchMode: 'any'
   });
-
-  // 🆕 元數據篩選模式：'all' | 'new' | 'updated'
-  // eslint-disable-next-line no-unused-vars
-  const [filterMode, setFilterMode] = useState('all');
 
 
 
@@ -79,35 +73,13 @@ export function AllStylesPage() {
     });
   }, [language, categories]);
 
-  // 應用篩選邏輯（包含元數據篩選）
+  // 應用篩選邏輯
   const filteredStyles = useMemo(() => {
-    let styles = allStyles;
+    return applyFilters(allStyles, filters);
+  }, [allStyles, filters]);
 
-    // 🆕 根據 filterMode 進行元數據篩選
-    if (filterMode === 'new') {
-      styles = styles.filter(style => {
-        const metadata = templateMetadata?.templates?.[style.id];
-        return metadata && metadata.isNew === true;
-      });
-    } else if (filterMode === 'updated') {
-      styles = styles.filter(style => {
-        const metadata = templateMetadata?.templates?.[style.id];
-        return metadata && metadata.changeType === 'updated';
-      });
-    }
-
-    // 再應用其他篩選條件（keyword, categories, tags）
-    return applyFilters(styles, filters);
-  }, [allStyles, filters, filterMode]);
-
-  // 分页 + 虛擬化參数与切片
-  // eslint-disable-next-line no-unused-vars
-  const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 18;
-  const VIRTUAL_THRESHOLD = 40;
-  const VLIST_HEIGHT = 900;
-  const DEFAULT_ITEM_HEIGHT = 360;
-  useEffect(() => { setCurrentPage(1); }, [filters]);
+  // 標籤使用次數，供 FilterBar 隱藏未覆蓋的標籤
+  const tagStats = useMemo(() => getTagStatistics(allStyles), [allStyles]);
 
 
   // 處理篩選條件變化
@@ -142,6 +114,7 @@ export function AllStylesPage() {
           showSearch={true}
           showCategories={true}
           showTags={true}
+          tagStats={tagStats}
         />
       )}
 

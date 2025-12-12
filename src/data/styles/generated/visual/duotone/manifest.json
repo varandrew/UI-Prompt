@@ -1,0 +1,25 @@
+{
+  "id": "visual-duotone",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "双色调",
+      "en-US": "Duotone"
+    },
+    "description": {
+      "zh-CN": "使用两种对比色创造戏剧性视觉冲击的双色调配色方案。",
+      "en-US": "Duotone color scheme using two contrasting colors for dramatic visual impact."
+    },
+    "tags": ["duotone", "high-contrast", "bold", "brand", "visual-impact"],
+    "relatedStyles": ["gradient", "neon-cyberpunk", "monochrome"]
+  },
+  "templates": [
+    {
+      "id": "visual-duotone-brand-identity",
+      "title": {
+        "zh-CN": "品牌形象",
+        "en-US": "Brand Identity"
+      }
+    }
+  ]
+}

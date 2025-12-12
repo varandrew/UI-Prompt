@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brutalism - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+  /* Brutalism Complete Page Styles */
+
+  /* Navigation Link Hover */
+  nav a:hover {
+    border: 2px solid #ffffff !important;
+    background: #ff0000 !important;
+    color: #000000 !important;
+  }
+
+  /* Button Hover Effects */
+  button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  /* Input Focus Effects */
+  input:focus, select:focus {
+    outline: none;
+    border-color: #ff0000 !important;
+  }
+
+  /* Table Row Hover */
+  tbody tr:hover {
+    background: #e5e5e5 !important;
+  }
+
+  /* Footer Link Hover */
+  footer a:hover {
+    color: #ff0000 !important;
+    background: #ffffff !important;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    nav > div {
+      flex-direction: column;
+      gap: 1rem !important;
+    }
+
+    section > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    table {
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 64px !important;
+    }
+
+    h2 {
+      font-size: 32px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav input {
+      width: 100% !important;
+    }
+
+    h1 {
+      font-size: 48px !important;
+    }
+
+    h2 {
+      font-size: 24px !important;
+    }
+
+    table {
+      font-size: 12px;
+    }
+
+    th, td {
+      padding: 0.75rem !important;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem !important;
+      font-size: 14px !important;
+    }
+  }
+
+  /* Page Container */
+  .min-full-page {
+    min-height: 100vh;
+  }
+
+  </style>
+</head>
+<body>
+
+  <div class="min-full-page" style="background: #ffffff; min-height: 100vh; font-family: Arial, sans-serif;">
+
+    <!-- Navigation Bar -->
+    <nav style="background: #000000; color: #ffffff; padding: 2rem; border-bottom: 4px solid #ff0000;">
+      <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+        <!-- Logo -->
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+          <div style="width: 60px; height: 60px; background: #ff0000; display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 32px; font-weight: 900; color: #000000;">B</span>
+          </div>
+          <span style="font-size: 28px; font-weight: 900; letter-spacing: 2px;">BRUTAL</span>
+        </div>
+
+        <!-- Main Nav -->
+        <div style="display: flex; gap: 2rem; align-items: center;">
+          <a href="javascript:void(0)" style="font-weight: 700; color: #ffffff; text-decoration: none; font-size: 18px; padding: 0.5rem 1rem; border: 2px solid transparent; transition: all 0.2s;">HOME</a>
+          <a href="javascript:void(0)" style="font-weight: 700; color: #cccccc; text-decoration: none; font-size: 18px; padding: 0.5rem 1rem; border: 2px solid transparent; transition: all 0.2s;">WORK</a>
+          <a href="javascript:void(0)" style="font-weight: 700; color: #cccccc; text-decoration: none; font-size: 18px; padding: 0.5rem 1rem; border: 2px solid transparent; transition: all 0.2s;">ABOUT</a>
+          <a href="javascript:void(0)" style="font-weight: 700; color: #cccccc; text-decoration: none; font-size: 18px; padding: 0.5rem 1rem; border: 2px solid transparent; transition: all 0.2s;">CONTACT</a>
+        </div>
+
+        <!-- Right Actions -->
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <input type="text" placeholder="SEARCH" style="padding: 0.75rem 1rem; border: 2px solid #ffffff; background: #000000; color: #ffffff; font-weight: 700; width: 180px; font-size: 16px;">
+          <div style="width: 50px; height: 50px; background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">U</div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section style="background: #000000; color: #ffffff; padding: 6rem 2rem; border-bottom: 8px solid #ff0000;">
+      <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
+        <h1 style="font-size: 96px; font-weight: 900; color: #ffffff; margin: 0; line-height: 1; letter-spacing: -2px;">
+          RAW
+        </h1>
+        <h2 style="font-size: 48px; font-weight: 900; color: #ff0000; margin: 1rem 0 0 0; letter-spacing: 4px;">
+          UNFILTERED
+        </h2>
+        <p style="font-size: 20px; font-weight: 400; color: #cccccc; margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          NO DECORATION. NO COMPROMISE. JUST PURE FUNCTIONALITY.
+        </p>
+        <div style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center;">
+          <button style="padding: 1.5rem 3rem; background: #ff0000; color: #000000; border: none; font-weight: 900; font-size: 20px; cursor: pointer; transition: all 0.2s;">
+            ENTER
+          </button>
+          <button style="padding: 1.5rem 3rem; background: #000000; color: #ffffff; border: 4px solid #ffffff; font-weight: 900; font-size: 20px; cursor: pointer; transition: all 0.2s;">
+            LEARN MORE
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 4rem 2rem; background: #ffffff;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0;">
+
+        <!-- Stat Card 1 -->
+        <div style="background: #000000; color: #ffffff; padding: 3rem 2rem; border: 4px solid #000000; text-align: center;">
+          <div style="font-size: 64px; font-weight: 900; color: #ff0000; margin: 0;">2543</div>
+          <div style="font-size: 16px; font-weight: 700; color: #ffffff; margin-top: 1rem; letter-spacing: 2px;">PROJECTS</div>
+        </div>
+
+        <!-- Stat Card 2 -->
+        <div style="background: #ffffff; color: #000000; padding: 3rem 2rem; border: 4px solid #000000; text-align: center;">
+          <div style="font-size: 64px; font-weight: 900; color: #000000; margin: 0;">1234</div>
+          <div style="font-size: 16px; font-weight: 700; color: #000000; margin-top: 1rem; letter-spacing: 2px;">MEMBERS</div>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div style="background: #ff0000; color: #000000; padding: 3rem 2rem; border: 4px solid #000000; text-align: center;">
+          <div style="font-size: 64px; font-weight: 900; color: #000000; margin: 0;">98.5%</div>
+          <div style="font-size: 16px; font-weight: 700; color: #000000; margin-top: 1rem; letter-spacing: 2px;">SUCCESS</div>
+        </div>
+
+        <!-- Stat Card 4 -->
+        <div style="background: #000000; color: #ffffff; padding: 3rem 2rem; border: 4px solid #000000; text-align: center;">
+          <div style="font-size: 64px; font-weight: 900; color: #ffffff; margin: 0;">$125K</div>
+          <div style="font-size: 16px; font-weight: 700; color: #ffffff; margin-top: 1rem; letter-spacing: 2px;">REVENUE</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Area - Projects & Activity -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 0 2rem 4rem; background: #f5f5f5;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+
+        <!-- Recent Projects -->
+        <div style="background: #ffffff; border: 4px solid #000000; padding: 3rem;">
+          <h2 style="font-size: 32px; font-weight: 900; margin: 0 0 2rem 0; color: #000000; border-bottom: 4px solid #000000; padding-bottom: 1rem; letter-spacing: 2px;">
+            PROJECTS
+          </h2>
+
+          <!-- Project Item 1 -->
+          <div style="padding: 2rem; border: 4px solid #000000; margin-bottom: 1.5rem; background: #000000; color: #ffffff;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 20px; font-weight: 900; margin: 0; color: #ffffff; letter-spacing: 1px;">WEBSITE REDESIGN</h3>
+              <div style="padding: 0.5rem 1rem; background: #ff0000; color: #000000; font-weight: 900; font-size: 14px; letter-spacing: 1px;">
+                ACTIVE
+              </div>
+            </div>
+            <p style="font-size: 14px; color: #cccccc; margin: 0.5rem 0; font-weight: 400;">Client: Acme Corp</p>
+            <div style="background: #333333; height: 8px; margin-top: 1rem;">
+              <div style="background: #ff0000; height: 100%; width: 75%;"></div>
+            </div>
+            <div style="margin-top: 0.5rem; display: flex; justify-content: space-between; font-weight: 700; font-size: 14px; color: #ffffff;">
+              <span>75%</span>
+              <span>DUE: DEC 30</span>
+            </div>
+          </div>
+
+          <!-- Project Item 2 -->
+          <div style="padding: 2rem; border: 4px solid #000000; margin-bottom: 1.5rem; background: #ffffff; color: #000000;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 20px; font-weight: 900; margin: 0; color: #000000; letter-spacing: 1px;">MOBILE APP</h3>
+              <div style="padding: 0.5rem 1rem; background: #000000; color: #ffffff; font-weight: 900; font-size: 14px; letter-spacing: 1px;">
+                DONE
+              </div>
+            </div>
+            <p style="font-size: 14px; color: #666666; margin: 0.5rem 0; font-weight: 400;">Client: TechStart</p>
+            <div style="background: #e5e5e5; height: 8px; margin-top: 1rem;">
+              <div style="background: #000000; height: 100%; width: 100%;"></div>
+            </div>
+            <div style="margin-top: 0.5rem; display: flex; justify-content: space-between; font-weight: 700; font-size: 14px;">
+              <span>100%</span>
+              <span>FINISHED: DEC 15</span>
+            </div>
+          </div>
+
+          <!-- Project Item 3 -->
+          <div style="padding: 2rem; border: 4px solid #000000; background: #f5f5f5; color: #000000;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <h3 style="font-size: 20px; font-weight: 900; margin: 0; color: #000000; letter-spacing: 1px;">BRAND IDENTITY</h3>
+              <div style="padding: 0.5rem 1rem; background: #ffffff; color: #000000; border: 2px solid #000000; font-weight: 900; font-size: 14px; letter-spacing: 1px;">
+                PLANNING
+              </div>
+            </div>
+            <p style="font-size: 14px; color: #666666; margin: 0.5rem 0; font-weight: 400;">Client: Creative Studio</p>
+            <div style="background: #e5e5e5; height: 8px; margin-top: 1rem;">
+              <div style="background: #666666; height: 100%; width: 25%;"></div>
+            </div>
+            <div style="margin-top: 0.5rem; display: flex; justify-content: space-between; font-weight: 700; font-size: 14px;">
+              <span>25%</span>
+              <span>DUE: JAN 15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Activity Timeline -->
+        <div style="background: #000000; border: 4px solid #000000; padding: 3rem; color: #ffffff;">
+          <h2 style="font-size: 32px; font-weight: 900; margin: 0 0 2rem 0; color: #ffffff; border-bottom: 4px solid #ffffff; padding-bottom: 1rem; letter-spacing: 2px;">
+            ACTIVITY
+          </h2>
+
+          <!-- Timeline Item 1 -->
+          <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid #333333;">
+            <div style="width: 60px; height: 60px; background: #ff0000; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #000000; font-size: 24px;">
+              JD
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 900; font-size: 18px; color: #ffffff; margin-bottom: 0.5rem; letter-spacing: 1px;">JOHN DOE</div>
+              <div style="font-weight: 400; color: #cccccc; font-size: 14px; margin-bottom: 0.5rem;">Completed "Website Redesign" mockups</div>
+              <div style="font-weight: 700; color: #999999; font-size: 12px; letter-spacing: 1px;">2 HOURS AGO</div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid #333333;">
+            <div style="width: 60px; height: 60px; background: #ffffff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #000000; font-size: 24px;">
+              SM
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 900; font-size: 18px; color: #ffffff; margin-bottom: 0.5rem; letter-spacing: 1px;">SARAH MILLER</div>
+              <div style="font-weight: 400; color: #cccccc; font-size: 14px; margin-bottom: 0.5rem;">Started new project "E-commerce Platform"</div>
+              <div style="font-weight: 700; color: #999999; font-size: 12px; letter-spacing: 1px;">5 HOURS AGO</div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 2px solid #333333;">
+            <div style="width: 60px; height: 60px; background: #ffffff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #000000; font-size: 24px;">
+              MJ
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 900; font-size: 18px; color: #ffffff; margin-bottom: 0.5rem; letter-spacing: 1px;">MIKE JOHNSON</div>
+              <div style="font-weight: 400; color: #cccccc; font-size: 14px; margin-bottom: 0.5rem;">Updated "Mobile App" documentation</div>
+              <div style="font-weight: 700; color: #999999; font-size: 12px; letter-spacing: 1px;">1 DAY AGO</div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div style="display: flex; gap: 1.5rem;">
+            <div style="width: 60px; height: 60px; background: #ff0000; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #000000; font-size: 24px;">
+              AW
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 900; font-size: 18px; color: #ffffff; margin-bottom: 0.5rem; letter-spacing: 1px;">ANNA WHITE</div>
+              <div style="font-weight: 400; color: #cccccc; font-size: 14px; margin-bottom: 0.5rem;">Submitted design review for "Brand Identity"</div>
+              <div style="font-weight: 700; color: #999999; font-size: 12px; letter-spacing: 1px;">2 DAYS AGO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Components Section -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 0 2rem 4rem; background: #ffffff;">
+      <div style="background: #000000; border: 4px solid #000000; padding: 3rem; color: #ffffff;">
+        <h2 style="font-size: 32px; font-weight: 900; margin: 0 0 2rem 0; color: #ffffff; border-bottom: 4px solid #ffffff; padding-bottom: 1rem; letter-spacing: 2px;">
+          QUICK ACTIONS
+        </h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+          <!-- Left Column -->
+          <div>
+            <!-- Text Input -->
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-weight: 900; font-size: 14px; margin-bottom: 0.75rem; letter-spacing: 2px;">PROJECT NAME</label>
+              <input type="text" placeholder="ENTER PROJECT NAME" style="width: 100%; padding: 1rem; border: 2px solid #ffffff; background: #000000; color: #ffffff; font-weight: 700; font-size: 16px;">
+            </div>
+
+            <!-- Select Dropdown -->
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-weight: 900; font-size: 14px; margin-bottom: 0.75rem; letter-spacing: 2px;">CATEGORY</label>
+              <select style="width: 100%; padding: 1rem; border: 2px solid #ffffff; background: #000000; color: #ffffff; font-weight: 700; font-size: 16px;">
+                <option>DESIGN</option>
+                <option>DEVELOPMENT</option>
+                <option>MARKETING</option>
+                <option>OTHER</option>
+              </select>
+            </div>
+
+            <!-- Checkboxes -->
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-weight: 900; font-size: 14px; margin-bottom: 0.75rem; letter-spacing: 2px;">FEATURES</label>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                  <input type="checkbox" style="width: 24px; height: 24px; border: 2px solid #ffffff; cursor: pointer;">
+                  <span style="font-weight: 700; font-size: 16px;">ENABLE NOTIFICATIONS</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                  <input type="checkbox" checked style="width: 24px; height: 24px; border: 2px solid #ffffff; cursor: pointer;">
+                  <span style="font-weight: 700; font-size: 16px;">PUBLIC VISIBILITY</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                  <input type="checkbox" style="width: 24px; height: 24px; border: 2px solid #ffffff; cursor: pointer;">
+                  <span style="font-weight: 700; font-size: 16px;">ALLOW COLLABORATION</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div>
+            <!-- Date Picker -->
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-weight: 900; font-size: 14px; margin-bottom: 0.75rem; letter-spacing: 2px;">DUE DATE</label>
+              <input type="date" style="width: 100%; padding: 1rem; border: 2px solid #ffffff; background: #000000; color: #ffffff; font-weight: 700; font-size: 16px;">
+            </div>
+
+            <!-- Radio Buttons -->
+            <div style="margin-bottom: 2rem;">
+              <label style="display: block; font-weight: 900; font-size: 14px; margin-bottom: 0.75rem; letter-spacing: 2px;">PRIORITY</label>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                  <input type="radio" name="priority" style="width: 24px; height: 24px; border: 2px solid #ffffff; cursor: pointer;">
+                  <span style="font-weight: 700; font-size: 16px;">LOW</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                  <input type="radio" name="priority" checked style="width: 24px; height: 24px; border: 2px solid #ffffff; cursor: pointer;">
+                  <span style="font-weight: 700; font-size: 16px;">MEDIUM</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                  <input type="radio" name="priority" style="width: 24px; height: 24px; border: 2px solid #ffffff; cursor: pointer;">
+                  <span style="font-weight: 700; font-size: 16px; color: #ff0000;">HIGH</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Toggle Switch -->
+            <div style="margin-bottom: 2rem;">
+              <label style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+                <span style="font-weight: 900; font-size: 14px; letter-spacing: 2px;">URGENT PROJECT</span>
+                <div style="width: 60px; height: 32px; background: #ff0000; border: 2px solid #ffffff; position: relative; cursor: pointer;">
+                  <div style="width: 24px; height: 24px; background: #ffffff; position: absolute; right: 2px; top: 2px;"></div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div style="margin-top: 3rem; text-align: right;">
+          <button style="padding: 1.5rem 4rem; background: #ff0000; color: #000000; border: none; font-weight: 900; font-size: 20px; cursor: pointer; letter-spacing: 2px; transition: all 0.2s;">
+            CREATE →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Table Section -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 0 2rem 4rem; background: #f5f5f5;">
+      <div style="background: #ffffff; border: 4px solid #000000; padding: 3rem;">
+        <h2 style="font-size: 32px; font-weight: 900; margin: 0 0 2rem 0; color: #000000; border-bottom: 4px solid #000000; padding-bottom: 1rem; letter-spacing: 2px;">
+          TEAM MEMBERS
+        </h2>
+
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: #000000; color: #ffffff;">
+              <th style="padding: 1.5rem 1rem; text-align: left; font-weight: 900; font-size: 14px; border: 2px solid #000000; letter-spacing: 1px;">USER</th>
+              <th style="padding: 1.5rem 1rem; text-align: left; font-weight: 900; font-size: 14px; border: 2px solid #000000; letter-spacing: 1px;">EMAIL</th>
+              <th style="padding: 1.5rem 1rem; text-align: left; font-weight: 900; font-size: 14px; border: 2px solid #000000; letter-spacing: 1px;">ROLE</th>
+              <th style="padding: 1.5rem 1rem; text-align: left; font-weight: 900; font-size: 14px; border: 2px solid #000000; letter-spacing: 1px;">STATUS</th>
+              <th style="padding: 1.5rem 1rem; text-align: center; font-weight: 900; font-size: 14px; border: 2px solid #000000; letter-spacing: 1px;">ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr style="background: #ffffff;">
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="width: 50px; height: 50px; background: #000000; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">JD</div>
+                  <span style="font-weight: 700; font-size: 16px;">JOHN DOE</span>
+                </div>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 400;">john.doe@example.com</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 700; font-size: 14px;">DESIGNER</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <span style="padding: 0.5rem 1rem; background: #000000; color: #ffffff; font-weight: 900; font-size: 12px; letter-spacing: 1px; display: inline-block;">ACTIVE</span>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; text-align: center;">
+                <button style="padding: 0.5rem 1rem; background: #ffffff; border: 2px solid #000000; font-weight: 700; cursor: pointer; margin-right: 0.5rem;">EDIT</button>
+                <button style="padding: 0.5rem 1rem; background: #ff0000; color: #000000; border: none; font-weight: 700; cursor: pointer;">DELETE</button>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr style="background: #f5f5f5;">
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="width: 50px; height: 50px; background: #000000; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">SM</div>
+                  <span style="font-weight: 700; font-size: 16px;">SARAH MILLER</span>
+                </div>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 400;">sarah.m@example.com</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 700; font-size: 14px;">DEVELOPER</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <span style="padding: 0.5rem 1rem; background: #000000; color: #ffffff; font-weight: 900; font-size: 12px; letter-spacing: 1px; display: inline-block;">ACTIVE</span>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; text-align: center;">
+                <button style="padding: 0.5rem 1rem; background: #ffffff; border: 2px solid #000000; font-weight: 700; cursor: pointer; margin-right: 0.5rem;">EDIT</button>
+                <button style="padding: 0.5rem 1rem; background: #ff0000; color: #000000; border: none; font-weight: 700; cursor: pointer;">DELETE</button>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr style="background: #ffffff;">
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="width: 50px; height: 50px; background: #000000; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">MJ</div>
+                  <span style="font-weight: 700; font-size: 16px;">MIKE JOHNSON</span>
+                </div>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 400;">mike.j@example.com</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 700; font-size: 14px;">MANAGER</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <span style="padding: 0.5rem 1rem; background: #ffffff; color: #000000; border: 2px solid #000000; font-weight: 900; font-size: 12px; letter-spacing: 1px; display: inline-block;">AWAY</span>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; text-align: center;">
+                <button style="padding: 0.5rem 1rem; background: #ffffff; border: 2px solid #000000; font-weight: 700; cursor: pointer; margin-right: 0.5rem;">EDIT</button>
+                <button style="padding: 0.5rem 1rem; background: #ff0000; color: #000000; border: none; font-weight: 700; cursor: pointer;">DELETE</button>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr style="background: #f5f5f5;">
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="width: 50px; height: 50px; background: #ff0000; color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px;">AW</div>
+                  <span style="font-weight: 700; font-size: 16px;">ANNA WHITE</span>
+                </div>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 400;">anna.w@example.com</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; font-weight: 700; font-size: 14px;">DESIGNER</td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000;">
+                <span style="padding: 0.5rem 1rem; background: #ff0000; color: #000000; font-weight: 900; font-size: 12px; letter-spacing: 1px; display: inline-block;">INACTIVE</span>
+              </td>
+              <td style="padding: 1.5rem 1rem; border: 2px solid #000000; text-align: center;">
+                <button style="padding: 0.5rem 1rem; background: #ffffff; border: 2px solid #000000; font-weight: 700; cursor: pointer; margin-right: 0.5rem;">EDIT</button>
+                <button style="padding: 0.5rem 1rem; background: #ff0000; color: #000000; border: none; font-weight: 700; cursor: pointer;">DELETE</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #000000; color: #ffffff; padding: 4rem 2rem; border-top: 8px solid #ff0000;">
+      <div style="max-width: 1400px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+          <!-- Brand -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="width: 50px; height: 50px; background: #ff0000; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 28px; font-weight: 900; color: #000000;">B</span>
+              </div>
+              <span style="font-size: 24px; font-weight: 900; color: #ffffff; letter-spacing: 2px;">BRUTAL</span>
+            </div>
+            <p style="font-weight: 400; color: #cccccc; line-height: 1.6;">NO DECORATION. NO COMPROMISE.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 style="font-weight: 900; font-size: 18px; margin-bottom: 1.5rem; letter-spacing: 2px;">QUICK LINKS</h3>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <a href="javascript:void(0)" style="color: #cccccc; text-decoration: none; font-weight: 700; transition: all 0.2s;">ABOUT</a>
+              <a href="javascript:void(0)" style="color: #cccccc; text-decoration: none; font-weight: 700; transition: all 0.2s;">CONTACT</a>
+              <a href="javascript:void(0)" style="color: #cccccc; text-decoration: none; font-weight: 700; transition: all 0.2s;">PRIVACY</a>
+              <a href="javascript:void(0)" style="color: #cccccc; text-decoration: none; font-weight: 700; transition: all 0.2s;">TERMS</a>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div>
+            <h3 style="font-weight: 900; font-size: 18px; margin-bottom: 1.5rem; letter-spacing: 2px;">FOLLOW</h3>
+            <div style="display: flex; gap: 1rem;">
+              <a href="javascript:void(0)" style="width: 50px; height: 50px; background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; transition: all 0.2s;">F</a>
+              <a href="javascript:void(0)" style="width: 50px; height: 50px; background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; transition: all 0.2s;">T</a>
+              <a href="javascript:void(0)" style="width: 50px; height: 50px; background: #ff0000; color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; transition: all 0.2s;">I</a>
+              <a href="javascript:void(0)" style="width: 50px; height: 50px; background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; transition: all 0.2s;">Y</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div style="border-top: 2px solid #ffffff; padding-top: 2rem; text-align: center;">
+          <p style="font-weight: 700; font-size: 16px; color: #cccccc; margin: 0; letter-spacing: 1px;">
+            © 2025 BRUTAL. ALL RIGHTS RESERVED.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

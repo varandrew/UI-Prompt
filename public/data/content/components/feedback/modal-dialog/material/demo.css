@@ -1,0 +1,75 @@
+.modal-material-overlay {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            padding: 2rem 1rem;
+            animation: modalMaterialFadeIn 0.3s ease-out;
+          }
+          .preview-fullscreen .modal-material-overlay {
+            position: fixed;
+            inset: 0;
+            padding: 0;
+            min-height: 100vh;
+          }
+          .modal-material-content {
+            background: white;
+            border-radius: 0.75rem;
+            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            animation: modalMaterialSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .preview-fullscreen .modal-material-content {
+            max-width: 32rem;
+            width: 90%;
+          }
+          .modal-material-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .modal-material-body {
+            padding: 1.5rem;
+          }
+          .modal-material-footer {
+            padding: 1rem 1.5rem;
+            background: #f9fafb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+          }
+          .modal-material-btn-primary {
+            padding: 0.625rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+          }
+          .modal-material-btn-primary:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transform: translateY(-1px);
+          }
+          .modal-material-btn-secondary {
+            padding: 0.625rem 1.5rem;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+          }
+          .modal-material-btn-secondary:hover {
+            color: #111827;
+          }
+          @keyframes modalMaterialFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes modalMaterialSlideUp {
+            from { opacity: 0; transform: translateY(2rem); }
+            to { opacity: 1; transform: translateY(0); }
+          }

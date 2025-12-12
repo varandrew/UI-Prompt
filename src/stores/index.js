@@ -18,16 +18,13 @@ import { useCanvasStore } from './useCanvasStore';
 import { useHistoryStore } from './useHistoryStore';
 import { useProjectStore } from './useProjectStore';
 
-// 對外仍保留原有导出
+// 對外导出模塊化 Store
 export { useViewportStore } from './useViewportStore';
 export { useSelectionStore } from './useSelectionStore';
 export { useClipboardStore } from './useClipboardStore';
 export { useCanvasStore } from './useCanvasStore';
 export { useHistoryStore } from './useHistoryStore';
 export { useProjectStore } from './useProjectStore';
-
-// 向後兼容:保留舊的 editorStore 导出
-export { useEditorStore } from './editorStore';
 
 // ========== Utils ==========
 export {

@@ -1,0 +1,152 @@
+
+/* Cyberpunk 核心動画 */
+@keyframes cyber-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes cyber-pulse-bar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes cyber-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cyber-flow {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(150vh); opacity: 0; }
+}
+
+@keyframes cyber-scan-icon {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+}
+
+@keyframes cyber-glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* Hover 效果 */
+.cyber-nav-link:hover {
+  border: 1px solid #00ff41 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5) !important;
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px #00ff41 !important;
+}
+
+.cyber-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.4) !important;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5) !important;
+}
+
+@keyframes cyber-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cyber-hologram {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.02); opacity: 0.3; }
+}
+
+@keyframes cyber-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cyber-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes cyber-data-stream {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+@keyframes cyber-progress-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes cyber-scan-progress {
+  0% { left: -20%; }
+  100% { left: 120%; }
+}
+
+@keyframes cyber-fab-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 255, 65, 0.5); }
+  50% { transform: scale(1.1); box-shadow: 0 0 50px rgba(0, 255, 65, 0.8); }
+}
+
+/* Hover 效果 */
+.cyber-nav-link:hover {
+  border: 1px solid #00ff41 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5) !important;
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px #00ff41 !important;
+}
+
+.cyber-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.4) !important;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5) !important;
+}
+
+table tr:hover {
+  background: rgba(0, 255, 65, 0.05) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+footer a:hover {
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+/* 故障效果 */
+.cyber-glitch {
+  animation: cyber-glitch 5s infinite;
+}
+
+/* 響應式设計 */
+@media (max-width: 768px) {
+  .cyber-navbar > div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h1.cyber-glitch {
+    font-size: 32px !important;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  table th, table td {
+    padding: 0.5rem !important;
+  }
+}

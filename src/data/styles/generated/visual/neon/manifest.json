@@ -1,0 +1,17 @@
+{
+  "id": "visual-neon",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "霓虹发光",
+      "en-US": "Neon Glow"
+    },
+    "description": {
+      "zh-CN": "多层 text-shadow，电光效果，闪烁动画",
+      "en-US": "Multi-layer text-shadow with electric effects and flicker animation"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

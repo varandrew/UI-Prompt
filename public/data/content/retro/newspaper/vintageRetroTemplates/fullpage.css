@@ -1,0 +1,104 @@
+
+/* Retro/Vintage 復古報紙/打字機風格樣式 */
+
+/* Hover 效果 */
+.retro-nav-link:hover {
+  border: 2px solid #8b4513 !important;
+  background: rgba(139, 69, 19, 0.1);
+  color: #8b4513 !important;
+}
+
+.retro-typewriter-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #2c1810, 0 4px 6px rgba(0,0,0,0.3) !important;
+}
+
+.retro-typewriter-btn-outline:hover {
+  background: #3e2723;
+  color: #f5e6d3;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(62, 39, 35, 0.3) !important;
+}
+
+.retro-postcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0px rgba(62, 39, 35, 0.4) !important;
+}
+
+.retro-paper-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px rgba(62, 39, 35, 0.4) !important;
+}
+
+table tr:hover {
+  background: rgba(232, 213, 183, 0.3) !important;
+}
+
+button:hover {
+  transform: translateY(2px);
+}
+
+footer a:hover {
+  color: #8b4513 !important;
+  text-decoration: underline;
+}
+
+/* 響應式设計 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  .retro-masthead nav {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+
+  .retro-stamp-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .retro-postcard {
+    padding: 1rem !important;
+  }
+
+  .retro-stamp-small {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 16px !important;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  table th, table td {
+    padding: 0.5rem !important;
+  }
+}
+
+/* 動画效果 */
+@keyframes retro-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.retro-loading-dots {
+  animation: retro-pulse 1.5s ease-in-out infinite;
+}
+
+/* 打字效果 (可選) */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #3e2723; }
+}

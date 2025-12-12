@@ -53,3 +53,13 @@ Thumbs.db
 
 # macOS system files (recursive)
 **/.DS_Store
+
+# 數據遷移產物（中間產物，不應提交）
+src/data/content/          # 已刪除，防止再次生成
+src/data/prompts/          # 已刪除，與 public/data/prompts/ 重複
+
+# 遷移報告（臨時文件）
+MIGRATION_*.md
+MIGRATION_*.txt
+MIGRATION_SUMMARY.*
+MISSING_TEMPLATES.csv

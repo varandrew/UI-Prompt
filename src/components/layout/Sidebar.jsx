@@ -15,10 +15,11 @@ export function Sidebar() {
     { path: '/home', label: t('nav.home'), num: '01' },
     { path: '/styles', label: t('nav.allStyles'), num: '02' },
     { path: '/components', label: t('nav.allComponents'), num: '03' },
+    { path: '/about', label: t('nav.about'), num: '04' },
     {
       path: '/style/minimalism/html-demo-template/',
       label: t('styles.minimalism.fullPageTemplate'),
-      num: '04',
+      num: '05',
       external: true,
       rel: 'noopener noreferrer'
     },

@@ -1,0 +1,32 @@
+{
+  "id": "visual-outlineStyle",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "线条风格",
+      "en-US": "Outline Style"
+    },
+    "description": {
+      "zh-CN": "通过线条定义形状，简洁专业，强调极简主义和清晰的视觉层次。",
+      "en-US": "Defining shapes through lines, clean and professional, emphasizing minimalism and clear visual hierarchy."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-outlineStyle-outline-business",
+      "title": {
+        "zh-CN": "商务网站模板",
+        "en-US": "Business Website Template"
+      }
+    },
+    {
+      "id": "visual-outlineStyle-outline-elearning",
+      "title": {
+        "zh-CN": "在线学习平台模板",
+        "en-US": "E-learning Platform Template"
+      }
+    }
+  ]
+}

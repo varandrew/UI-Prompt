@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liminal Space UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* External font import removed. Using system fonts for a raw, disconnected feel. */
+        
+        :root {
+            --liminal-beige: #d4cfb8;
+            --liminal-dark: #2a2925;
+            --liminal-light: #f0f0e6;
+            --noise-color: rgba(0,0,0,0.08);
+        }
+
+        body {
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            /* Switched to system sans-serif for cold neutrality */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--liminal-dark);
+        }
+
+        /* The Main Square Container */
+        #ui-container {
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            background-color: var(--liminal-beige);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            /* Ensure it stays square */
+            aspect-ratio: 1 / 1; 
+        }
+
+        /* Ambient Lighting / Vignette */
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.4) 150%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Film Grain / Static Noise */
+        .noise {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            animation: noise-shift 0.5s infinite steps(5);
+            pointer-events: none;
+            z-index: 11;
+            opacity: 0.4;
+        }
+
+        /* CRT Scanlines */
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.1)
+            );
+            background-size: 100% 4px;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        /* 3D Perspective Hallway Effect */
+        .hallway-perspective {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 48%, rgba(0,0,0,0.05) 50%, transparent 52%),
+                linear-gradient(0deg, transparent 48%, rgba(0,0,0,0.05) 50%, transparent 52%);
+            background-size: 100px 100px;
+            transform: perspective(300px) rotateX(20deg) scale(1.5);
+            opacity: 0.3;
+            animation: drift 20s linear infinite;
+        }
+
+        /* UI Elements */
+        .ui-header {
+            /* Switched to system monospace for 'terminal' look */
+            font-family: 'Courier New', Courier, monospace;
+            z-index: 20;
+            padding: 5%;
+            display: flex;
+            justify-content: space-between;
+            font-size: clamp(0.7rem, 2vmin, 1rem);
+            opacity: 0.7;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            flex: 1;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10%;
+        }
+
+        .liminal-title {
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            font-size: clamp(1.2rem, 5vmin, 2.5rem);
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .input-group {
+            width: 100%;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .liminal-input {
+            width: 100%;
+            background: rgba(255,255,255,0.3);
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 0.8em;
+            /* Switched to system monospace */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(0.6rem, 2vmin, 0.9rem);
+            color: #333;
+            outline: none;
+            transition: all 0.5s ease;
+        }
+
+        .liminal-input:focus {
+            background: rgba(255,255,255,0.6);
+            border-color: rgba(0,0,0,0.3);
+            box-shadow: 0 0 15px rgba(255,255,200, 0.2);
+        }
+
+        .btn-liminal {
+            margin-top: 1rem;
+            background: transparent;
+            border: 1px solid #333;
+            color: #333;
+            padding: 0.8em 2em;
+            /* Switched to system sans-serif */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: clamp(0.6rem, 2vmin, 0.8rem);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-liminal:hover {
+            background: #333;
+            color: #d4cfb8;
+        }
+
+        .status-bar {
+            z-index: 20;
+            padding: 5%;
+            /* Switched to system monospace */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: clamp(0.5rem, 1.5vmin, 0.7rem);
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Animations */
+        @keyframes noise-shift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-10px, -10px); }
+        }
+
+        @keyframes drift {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(-5px); opacity: 1; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .blinking {
+            animation: blink 2s infinite;
+        }
+
+        /* Glitch text effect on hover */
+        .glitch-hover:hover {
+            animation: jitter 0.2s infinite;
+        }
+
+        @keyframes jitter {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, -1px); }
+            75% { transform: translate(1px, -1px); }
+            100% { transform: translate(0,0); }
+        }
+
+        .flicker-light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            z-index: 15;
+            pointer-events: none;
+            opacity: 0;
+            mix-blend-mode: overlay;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="ui-container">
+        <!-- Environmental Effects -->
+        <div class="noise"></div>
+        <div class="scanlines"></div>
+        <div class="vignette"></div>
+        <div class="hallway-perspective"></div>
+        <div class="flicker-light" id="flicker"></div>
+
+        <!-- UI Header -->
+        <div class="ui-header">
+            <span>LEVEL <span id="level-num">0</span></span>
+            <span class="blinking">NO WIFI</span>
+        </div>
+
+        <!-- Main Center Content -->
+        <div class="main-content">
+            <h1 class="liminal-title" title="LIMINAL">LIMINAL<br>SYSTEM</h1>
+            
+            <div class="input-group">
+                <input type="text" class="liminal-input" placeholder="ENTER ENTITY ID" spellcheck="false">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" class="liminal-input" placeholder="COORDINATES" disabled style="cursor: not-allowed; opacity: 0.6;">
+            </div>
+
+            <button class="btn-liminal glitch-hover" onclick="triggerDistortion()">
+                TRANSITION
+            </button>
+        </div>
+
+        <!-- Footer Status -->
+        <div class="status-bar">
+            <span>REALITY: UNSTABLE</span>
+            <span id="time-display">00:00:00</span>
+        </div>
+    </div>
+
+    <script>
+        // Javascript to handle ambient randomness and flicker
+        
+        const flickerEl = document.getElementById('flicker');
+        const levelNum = document.getElementById('level-num');
+        const timeDisplay = document.getElementById('time-display');
+
+        // Random fluorescent light flickering logic
+        function randomFlicker() {
+            const flickerDuration = Math.random() * 200 + 50;
+            const flickerDelay = Math.random() * 3000 + 500;
+            
+            setTimeout(() => {
+                flickerEl.style.opacity = Math.random() * 0.4;
+                setTimeout(() => {
+                    flickerEl.style.opacity = 0;
+                    randomFlicker();
+                }, flickerDuration);
+            }, flickerDelay);
+        }
+
+        // Strange Clock Logic (Time doesn't move linearly in liminal spaces)
+        function updateTime() {
+            const date = new Date();
+            // Occasionally glitch the time
+            if (Math.random() > 0.9) {
+                timeDisplay.innerText = "??:??:??";
+            } else {
+                timeDisplay.innerText = date.toLocaleTimeString('en-US', { hour12: false });
+            }
+        }
+
+        // Button Interaction
+        function triggerDistortion() {
+            const container = document.getElementById('ui-container');
+            const btn = document.querySelector('.btn-liminal');
+            
+            btn.innerText = "WAITING...";
+            container.style.filter = "invert(1) hue-rotate(180deg)";
+            
+            setTimeout(() => {
+                container.style.filter = "none";
+                btn.innerText = "TRANSITION";
+                levelNum.innerText = Math.floor(Math.random() * 999);
+            }, 300);
+        }
+
+        // Initialize
+        randomFlicker();
+        setInterval(updateTime, 1000);
+
+    </script>
+</body>
+</html>

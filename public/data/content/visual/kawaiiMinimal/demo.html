@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawaii Minimal UI Demo</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* --- Design System & Variables --- */
+        :root {
+            --kawaii-pink: #FFB7B2;
+            --kawaii-mint: #B5EAD7;
+            --kawaii-purple: #E0BBE4;
+            --kawaii-yellow: #FFFFD1;
+            --bg-cream: #FFFDF5;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            font-family: 'Nunito', sans-serif;
+            overflow: hidden; /* Keep it contained for the demo */
+        }
+
+        /* Typography */
+        .font-heading { font-family: 'Fredoka', sans-serif; }
+        .font-body { font-family: 'Nunito', sans-serif; }
+
+        /* --- Animations & Interactions --- */
+        
+        /* Bouncy Hover Effect */
+        .bounce-hover {
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .bounce-hover:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+        
+        /* Click Squish Effect */
+        .bounce-click:active {
+            transform: scale(0.95);
+        }
+
+        /* Task Item Transition */
+        .task-item {
+            transition: all 0.3s ease-out;
+        }
+
+        /* --- Components --- */
+
+        /* The main "Card" or "Sticker" look */
+        .sticker-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 8px 8px 0px rgba(224, 187, 228, 0.2), 0px 4px 12px rgba(0,0,0,0.03);
+            border: 2px solid #FFF;
+        }
+
+        /* Checkbox Animation */
+        .check-circle {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* Background Pattern (Dotted) */
+        .bg-pattern {
+            background-image: radial-gradient(#E0BBE4 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Custom Scrollbar for the list */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Utility helper for preventing text selection */
+        .no-select {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- MAIN DEMO CONTAINER (Square Aspect Ratio) -->
+    <div class="relative w-full max-w-[500px] aspect-square bg-[#FFF9FA] rounded-[40px] shadow-xl overflow-hidden border-8 border-white flex flex-col p-6 bg-pattern">
+        
+        <!-- Watermark / Label -->
+        <div class="absolute top-4 right-6 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-heading text-gray-400 border border-gray-100 shadow-sm z-10 select-none">
+            ✨ Kawaii Minimal
+        </div>
+
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-6 mt-2">
+            <div>
+                <h1 class="text-3xl font-heading text-gray-700 mb-1 flex items-center gap-2">
+                    Hello, Yumi <i data-lucide="sparkles" class="text-yellow-400 w-5 h-5 fill-yellow-200"></i>
+                </h1>
+                <p class="font-body text-gray-400 text-sm">Let's make today magical!</p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-pink-100 border-2 border-white shadow-sm overflow-hidden bounce-hover cursor-pointer">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=ffdfbf" alt="avatar" class="w-full h-full object-cover">
+            </div>
+        </header>
+
+        <!-- Mood Tracker Section -->
+        <section class="mb-6">
+            <p class="font-heading text-gray-500 text-sm mb-3 ml-1">Mood Today</p>
+            <div class="flex gap-3" id="mood-container">
+                <!-- Mood Buttons injected by JS -->
+            </div>
+        </section>
+
+        <!-- Task List Section -->
+        <section class="flex-1 overflow-y-auto pr-1 custom-scrollbar flex flex-col">
+            <div class="flex justify-between items-end mb-3 px-1">
+                <p class="font-heading text-gray-500 text-sm">Your Missions</p>
+                <span id="tasks-left-badge" class="text-xs font-body text-pink-400 bg-pink-50 px-2 py-1 rounded-lg">Loading...</span>
+            </div>
+
+            <div id="task-list" class="space-y-3 pb-2">
+                <!-- Tasks injected by JS -->
+            </div>
+            
+            <!-- Add New Button -->
+            <button onclick="addNewTask()" class="w-full py-3 border-2 border-dashed border-gray-200 rounded-2xl text-gray-400 font-heading text-sm hover:border-pink-300 hover:text-pink-400 transition-colors flex items-center justify-center gap-2 mt-2 bounce-click">
+                <i data-lucide="plus" class="w-4 h-4"></i> Add new sticker
+            </button>
+        </section>
+
+        <!-- Bottom Navigation Bar -->
+        <div class="mt-4 bg-white rounded-[20px] p-2 shadow-lg border border-gray-50 flex justify-around items-center h-16 shrink-0 z-20">
+            <button class="p-3 rounded-xl bg-pink-50 text-pink-400 bounce-click">
+                <div class="w-5 h-5 grid grid-cols-2 gap-[2px]">
+                    <div class="bg-current rounded-sm"></div><div class="bg-current rounded-sm"></div>
+                    <div class="bg-current rounded-sm"></div><div class="bg-current rounded-sm"></div>
+                </div>
+            </button>
+            <button class="p-3 rounded-xl hover:bg-gray-50 text-gray-300 transition-colors bounce-click">
+                <i data-lucide="heart" class="w-6 h-6 hover:fill-pink-200 hover:text-pink-200 hover:animate-pulse transition-colors"></i>
+            </button>
+            <button class="p-3 rounded-xl hover:bg-gray-50 text-gray-300 transition-colors bounce-click">
+                <div class="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center">
+                    <div class="w-1 h-1 bg-current rounded-full"></div>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Javascript Logic -->
+    <script>
+        // --- State ---
+        let activeMood = 'happy';
+        
+        let tasks = [
+            { id: 1, text: "Sketch new doodles", done: true, color: "bg-[#FFB7B2]" }, // pink
+            { id: 2, text: "Water the plants", done: false, color: "bg-[#B5EAD7]" }, // mint
+            { id: 3, text: "Listen to lo-fi", done: false, color: "bg-[#E0BBE4]" }, // purple
+        ];
+
+        const moods = [
+            { id: 'happy', icon: 'sun', colorClass: 'bg-yellow-100 text-yellow-600 border-yellow-200' },
+            { id: 'chill', icon: 'coffee', colorClass: 'bg-blue-100 text-blue-500 border-blue-200' },
+            { id: 'creative', icon: 'music', colorClass: 'bg-purple-100 text-purple-500 border-purple-200' }
+        ];
+
+        // --- Render Functions ---
+
+        function renderMoods() {
+            const container = document.getElementById('mood-container');
+            container.innerHTML = moods.map(mood => {
+                const isActive = activeMood === mood.id;
+                // Determine classes based on active state
+                const baseClasses = "flex-1 py-3 rounded-2xl flex justify-center items-center gap-2 font-heading text-sm transition-all duration-300 border-2 bounce-click cursor-pointer no-select";
+                const activeClasses = `${mood.colorClass} shadow-md translate-y-[-2px]`;
+                const inactiveClasses = "bg-white border-transparent text-gray-400 hover:bg-gray-50";
+                
+                return `
+                    <button 
+                        onclick="setMood('${mood.id}')"
+                        class="${baseClasses} ${isActive ? activeClasses : inactiveClasses}"
+                    >
+                        <i data-lucide="${mood.icon}" class="w-[18px] h-[18px]"></i>
+                        <span class="capitalize">${mood.id}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderTasks() {
+            const list = document.getElementById('task-list');
+            const remainingCount = tasks.filter(t => !t.done).length;
+            
+            // Update badge
+            document.getElementById('tasks-left-badge').textContent = `${remainingCount} left`;
+
+            list.innerHTML = tasks.map(task => {
+                const opacityClass = task.done ? 'opacity-60 bg-gray-50' : 'opacity-100';
+                const textDecoration = task.done ? 'line-through text-gray-400' : 'text-gray-600';
+                const checkBg = task.done ? 'bg-green-300 border-green-300' : 'bg-white border-gray-200';
+                
+                // Only show decorative dot if not done
+                const dotHtml = !task.done 
+                    ? `<div class="w-3 h-3 rounded-full shadow-sm" style="background-color: ${task.color.replace('bg-[', '').replace(']', '')}"></div>` 
+                    : '';
+
+                // Conditionally render checkmark icon
+                const checkIcon = task.done 
+                    ? `<i data-lucide="check" class="text-white w-3.5 h-3.5 stroke-[4]"></i>` 
+                    : '';
+
+                return `
+                    <div 
+                        onclick="toggleTask(${task.id})"
+                        class="sticker-card p-4 flex items-center justify-between cursor-pointer bounce-hover transform transition-all duration-300 ${opacityClass} no-select"
+                    >
+                        <div class="flex items-center gap-4">
+                            <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center check-circle ${checkBg}">
+                                ${checkIcon}
+                            </div>
+                            <span class="font-body text-base transition-all ${textDecoration}">
+                                ${task.text}
+                            </span>
+                        </div>
+                        ${dotHtml}
+                    </div>
+                `;
+            }).join('');
+
+            // Re-initialize icons for new elements
+            lucide.createIcons();
+        }
+
+        // --- Actions ---
+
+        function setMood(id) {
+            activeMood = id;
+            renderMoods();
+            lucide.createIcons();
+        }
+
+        function toggleTask(id) {
+            const task = tasks.find(t => t.id === id);
+            if (task) {
+                task.done = !task.done;
+                renderTasks();
+            }
+        }
+
+        function addNewTask() {
+            const text = prompt("What's a new cute mission?");
+            if (text) {
+                const colors = ["bg-[#FFB7B2]", "bg-[#B5EAD7]", "bg-[#E0BBE4]", "bg-[#FFFFD1]"];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                const newTask = {
+                    id: Date.now(),
+                    text: text,
+                    done: false,
+                    color: randomColor
+                };
+                tasks.push(newTask);
+                renderTasks();
+                
+                // Scroll to bottom
+                const listContainer = document.querySelector('section.overflow-y-auto');
+                setTimeout(() => {
+                    listContainer.scrollTop = listContainer.scrollHeight;
+                }, 100);
+            }
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMoods();
+            renderTasks();
+            lucide.createIcons();
+        });
+
+    </script>
+</body>
+</html>

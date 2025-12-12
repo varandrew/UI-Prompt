@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Elements UI Style Demo</title>
+    <!-- Tailwind CSS for layout utilities -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for UI, Rajdhani for Tech feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <div class="stage-3d">
+        <!-- Main Artifact Container -->
+        <div class="artifact-container" id="artifact">
+            
+            <!-- Base Slab -->
+            <div class="artifact-slab flex flex-col relative overflow-hidden">
+                
+                <!-- Internal Texture -->
+                <div class="holo-grid"></div>
+                
+                <!-- Corner Accents (Decor) -->
+                <div class="absolute top-6 left-6 w-3 h-3 border-t border-l border-cyan-400 opacity-50 z-2"></div>
+                <div class="absolute top-6 right-6 w-3 h-3 border-t border-r border-cyan-400 opacity-50 z-2"></div>
+                <div class="absolute bottom-6 left-6 w-3 h-3 border-b border-l border-cyan-400 opacity-50 z-2"></div>
+                <div class="absolute bottom-6 right-6 w-3 h-3 border-b border-r border-cyan-400 opacity-50 z-2"></div>
+
+                <!-- Top Bar (Layer 3) -->
+                <div class="flex justify-between items-center p-8 z-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center backdrop-blur-sm">
+                            <i class="fa-solid fa-layer-group text-cyan-400 text-xs"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-tech font-bold text-white tracking-widest text-lg leading-none">NEXUS</span>
+                            <span class="text-[10px] text-cyan-200/60 uppercase tracking-wider">Interface Unit 01</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-pill px-3 py-1 rounded-full text-[10px] font-tech text-white uppercase tracking-wider flex items-center gap-2 cursor-pointer">
+                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                        Online
+                    </div>
+                </div>
+
+                <!-- Middle Content (Layer 2 & 4) -->
+                <div class="flex-1 flex flex-col items-center justify-center relative z-2">
+                    
+                    <!-- Floating Centerpiece (Layer 4) -->
+                    <div class="core-model z-4 mb-6">
+                        <div class="relative z-10 text-cyan-50">
+                            <i class="fa-solid fa-cube text-4xl drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]"></i>
+                        </div>
+                    </div>
+
+                    <!-- Text Block (Layer 3) -->
+                    <div class="text-center z-3 px-8">
+                        <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-slate-300 mb-2">
+                            Spatial Computing
+                        </h1>
+                        <p class="text-xs text-slate-400 max-w-[240px] mx-auto leading-relaxed">
+                            A perfectly balanced square viewport designed for modular AR interfaces.
+                        </p>
+                    </div>
+
+                    <!-- Floating Particles (Decor) -->
+                    <div class="particle w-1 h-1 top-10 left-20 z-1 animate-pulse"></div>
+                    <div class="particle w-2 h-2 bottom-20 right-20 bg-purple-400 blur-[1px] z-2 opacity-30"></div>
+                </div>
+
+                <!-- Bottom Controls (Layer 4) -->
+                <div class="p-8 z-4 w-full">
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="action-btn h-12 rounded-xl flex items-center justify-center gap-2 text-white font-medium text-sm group">
+                            <i class="fa-solid fa-expand text-cyan-400 group-hover:rotate-90 transition-transform"></i>
+                            <span>Expand</span>
+                        </button>
+                        <button class="action-btn h-12 rounded-xl flex items-center justify-center gap-2 text-white font-medium text-sm">
+                            <i class="fa-solid fa-fingerprint text-purple-400"></i>
+                            <span>Access</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Hint -->
+    <div class="fixed bottom-6 text-slate-600 text-[10px] font-tech tracking-widest w-full text-center pointer-events-none uppercase">
+        Drag to Rotate Viewport
+    </div>
+
+    <script>
+        const artifact = document.getElementById('artifact');
+        
+        // Settings
+        const sensitivity = 20; // Lower is less sensitive
+
+        document.addEventListener('mousemove', (e) => {
+            // Get screen center
+            const cx = window.innerWidth / 2;
+            const cy = window.innerHeight / 2;
+
+            // Calculate distance from center (normalized -1 to 1)
+            const dx = (e.clientX - cx) / cx;
+            const dy = (e.clientY - cy) / cy;
+
+            // Calculate rotation
+            const rotateY = dx * sensitivity; // Mouse X affects Rotation Y
+            const rotateX = -dy * sensitivity; // Mouse Y affects Rotation X (inverted)
+
+            // Apply transform
+            requestAnimationFrame(() => {
+                artifact.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        });
+
+        // Reset when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            artifact.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        });
+        
+        // Simple touch support for mobile (drag to look)
+        let touchStartX = 0;
+        let touchStartY = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            const touchX = e.touches[0].clientX;
+            const touchY = e.touches[0].clientY;
+            
+            const dx = (touchX - touchStartX) / window.innerWidth * 2;
+            const dy = (touchY - touchStartY) / window.innerHeight * 2;
+
+            const rotateY = dx * sensitivity * 2;
+            const rotateX = -dy * sensitivity * 2;
+
+            requestAnimationFrame(() => {
+                artifact.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>

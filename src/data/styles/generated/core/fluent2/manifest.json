@@ -1,0 +1,39 @@
+{
+  "id": "core-fluent2",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "Fluent Design 2.0",
+      "en-US": "Fluent Design 2.0"
+    },
+    "description": {
+      "zh-CN": "Microsoft 最新设计系统，采用 Acrylic 和 Mica 材质效果，展现现代企业级应用的优雅与实用性。",
+      "en-US": "Microsoft's latest design system featuring Acrylic and Mica materials, showcasing elegance and practicality for modern enterprise applications."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "fluent2-productivity",
+      "title": {
+        "zh-CN": "Fluent 2 生產力應用",
+        "en-US": "Fluent 2 Productivity App"
+      }
+    },
+    {
+      "id": "fluent2-settings",
+      "title": {
+        "zh-CN": "Fluent 2 設定頁面",
+        "en-US": "Fluent 2 Settings Page"
+      }
+    },
+    {
+      "id": "fluent2-Notification",
+      "title": {
+        "zh-CN": "Fluent 2 通知中心",
+        "en-US": "Fluent 2 Notification Center"
+      }
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUOTO.NE | Brand Identity</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Space Grotesk for that bold, geometric feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-dark': '#10002b', // Deep Void Violet
+                        'brand-light': '#ccff00', // Acid Lime
+                        'brand-light-dim': '#aacc00',
+                        'brand-neutral': '#f8fafc',
+                    },
+                    backgroundImage: {
+                        'duotone-gradient': 'linear-gradient(135deg, #10002b 0%, #240046 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --c-dark: #10002b;
+            --c-light: #ccff00;
+        }
+
+        body {
+            background-color: var(--c-dark);
+            color: var(--c-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1. GRAIN TEXTURE OVERLAY */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* 2. DUOTONE SVG FILTER IMPLEMENTATION
+           This maps the luminance of images to our two specific colors.
+        */
+        .duotone-img {
+            filter: url('#duotone-filter');
+            transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .duotone-img:hover {
+            filter: url('#duotone-filter-bright');
+            transform: scale(1.02);
+        }
+
+        /* 3. CUSTOM SELECTION */
+        ::selection {
+            background: var(--c-light);
+            color: var(--c-dark);
+        }
+
+        /* 4. UTILITIES */
+        .clip-text-image {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, var(--c-light), #ffffff);
+        }
+
+        .border-theme {
+            border: 1px solid var(--c-light);
+        }
+
+        /* Smooth Anchor Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--c-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--c-light);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- NOISE GRAIN -->
+    <div class="noise-overlay"></div>
+
+    <!-- SVG FILTERS DEFINITION -->
+    <!-- These are invisible but used by the CSS 'filter' property -->
+    <svg style="width:0; height:0; position: absolute;" aria-hidden="true" focusable="false">
+        <filter id="duotone-filter">
+            <feColorMatrix type="matrix" values=".33 .33 .33 0 0
+                                                 .33 .33 .33 0 0
+                                                 .33 .33 .33 0 0
+                                                 0 0 0 1 0" result="grayscale" />
+
+            <!-- This maps the grayscale: Black -> Deep Violet (#10002b), White -> Acid Lime (#ccff00) -->
+            <!-- R: 16 -> 204 | G: 0 -> 255 | B: 43 -> 0 -->
+            <!-- Normalized: R: 0.06->0.8, G: 0->1, B: 0.16->0 -->
+            <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+                <feFuncR type="table" tableValues="0.062 0.8"></feFuncR>
+                <feFuncG type="table" tableValues="0 1"></feFuncG>
+                <feFuncB type="table" tableValues="0.168 0"></feFuncB>
+                <feFuncA type="table" tableValues="1 1"></feFuncA>
+            </feComponentTransfer>
+        </filter>
+
+        <!-- Slightly brighter version for hover -->
+        <filter id="duotone-filter-bright">
+            <feColorMatrix type="matrix" values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0" result="grayscale" />
+            <feComponentTransfer color-interpolation-filters="sRGB">
+                <feFuncR type="table" tableValues="0.062 0.9"></feFuncR>
+                <feFuncG type="table" tableValues="0 1"></feFuncG>
+                <feFuncB type="table" tableValues="0.168 0.2"></feFuncB>
+                <feFuncA type="table" tableValues="1 1"></feFuncA>
+            </feComponentTransfer>
+        </filter>
+    </svg>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-6 mix-blend-difference text-brand-light">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter hover:tracking-widest transition-all duration-300">DUOTO.NE</a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest">
+                <a href="#philosophy" class="hover:text-white transition-colors">Philosophy</a>
+                <a href="#work" class="hover:text-white transition-colors">Work</a>
+                <a href="#system" class="hover:text-white transition-colors">System</a>
+            </div>
+            <button class="md:hidden text-2xl">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+        <!-- Background Split -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute left-0 top-0 w-1/2 h-full bg-brand-dark"></div>
+            <div class="absolute right-0 top-0 w-1/2 h-full bg-brand-light opacity-5"></div>
+            <!-- Gradient Orb -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-light rounded-full blur-[120px] opacity-10"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="order-2 lg:order-1 space-y-8">
+                <h1 class="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tighter">
+                    TWO<br>
+                    <span class="text-brand-light-dim">COLORS.</span><br>
+                    INFINITE<br>
+                    IMPACT.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-md leading-relaxed border-l-2 border-brand-light pl-6">
+                    We confine visuals to a strict primaries pairing. No noise. No dilution. Just pure, striking contrast.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#work" class="group relative px-8 py-4 bg-brand-light text-brand-dark font-bold uppercase tracking-wider overflow-hidden">
+                        <span class="relative z-10 group-hover:text-brand-light transition-colors">Explore Work</span>
+                        <div class="absolute inset-0 bg-brand-dark transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+                    </a>
+                    <a href="#system" class="group px-8 py-4 border border-brand-light text-brand-light font-bold uppercase tracking-wider hover:bg-brand-light hover:bg-opacity-10 transition-all">
+                        Style System
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image with Duotone Filter -->
+            <div class="order-1 lg:order-2 relative group">
+                <div class="absolute -inset-4 border border-brand-light opacity-30 z-0 group-hover:inset-0 transition-all duration-500"></div>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop"
+                     alt="Portrait"
+                     class="duotone-img w-full h-[500px] object-cover relative z-10 grayscale-0">
+
+                <!-- Floating geometric element -->
+                <div class="absolute -bottom-8 -right-8 w-24 h-24 bg-brand-light text-brand-dark flex items-center justify-center font-bold text-xl z-20 animate-bounce">
+                    <i class="ph-bold ph-arrow-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PHILOSOPHY / MARQUEE -->
+    <section id="philosophy" class="py-12 border-y border-brand-light border-opacity-20 bg-brand-dark overflow-hidden">
+        <div class="whitespace-nowrap overflow-hidden flex gap-8">
+            <div class="animate-marquee flex gap-8 items-center text-4xl md:text-6xl font-bold text-brand-light opacity-30 select-none">
+                <span>STRIKING CONTRAST</span>
+                <i class="ph-fill ph-star-four"></i>
+                <span>UNIFIED LANGUAGE</span>
+                <i class="ph-fill ph-star-four"></i>
+                <span>PURE GEOMETRY</span>
+                <i class="ph-fill ph-star-four"></i>
+                <span>BOLD TYPOGRAPHY</span>
+                <i class="ph-fill ph-star-four"></i>
+                <span>STRIKING CONTRAST</span>
+                <i class="ph-fill ph-star-four"></i>
+                <span>UNIFIED LANGUAGE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED WORK (GRID) -->
+    <section id="work" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">SELECTED WORKS</h2>
+                    <div class="h-1 w-24 bg-brand-light"></div>
+                </div>
+                <span class="hidden md:block text-brand-light opacity-50">01 / 04</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <article class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6 aspect-[4/5] border border-brand-light border-opacity-20">
+                        <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=800&auto=format&fit=crop"
+                             alt="Fashion"
+                             class="duotone-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-light opacity-0 group-hover:opacity-20 transition-opacity duration-300 mix-blend-multiply"></div>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-brand-light border-opacity-20 pb-4 group-hover:border-opacity-100 transition-colors">
+                        <h3 class="text-xl font-bold group-hover:text-brand-light transition-colors">NEON ARCHIVE</h3>
+                        <i class="ph-bold ph-arrow-up-right transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-400">Brand Identity</p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="group cursor-pointer md:mt-12">
+                    <div class="relative overflow-hidden mb-6 aspect-[4/5] border border-brand-light border-opacity-20">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop"
+                             alt="Abstract"
+                             class="duotone-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-light opacity-0 group-hover:opacity-20 transition-opacity duration-300 mix-blend-multiply"></div>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-brand-light border-opacity-20 pb-4 group-hover:border-opacity-100 transition-colors">
+                        <h3 class="text-xl font-bold group-hover:text-brand-light transition-colors">VOID WALKER</h3>
+                        <i class="ph-bold ph-arrow-up-right transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-400">Art Direction</p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6 aspect-[4/5] border border-brand-light border-opacity-20">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop"
+                             alt="Tech"
+                             class="duotone-img w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-light opacity-0 group-hover:opacity-20 transition-opacity duration-300 mix-blend-multiply"></div>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-brand-light border-opacity-20 pb-4 group-hover:border-opacity-100 transition-colors">
+                        <h3 class="text-xl font-bold group-hover:text-brand-light transition-colors">CYBER FLORA</h3>
+                        <i class="ph-bold ph-arrow-up-right transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-400">Web Design</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM / COMPONENTS -->
+    <section id="system" class="py-24 bg-opacity-50 bg-black">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold">THE SYSTEM</h2>
+                <p class="text-gray-400">
+                    Our visual language is strict. We use two primaries and neutrals. No gradients that introduce a third hue. Interaction tweaks saturation, not color value.
+                </p>
+
+                <!-- Color Swatches -->
+                <div class="flex gap-4 pt-4">
+                    <div class="space-y-2">
+                        <div class="w-20 h-20 bg-brand-dark border border-white/20"></div>
+                        <span class="text-xs uppercase tracking-widest">Dark</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="w-20 h-20 bg-brand-light"></div>
+                        <span class="text-xs uppercase tracking-widest">Light</span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="w-20 h-20 bg-white"></div>
+                        <span class="text-xs uppercase tracking-widest">Neutral</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UI Components Demo -->
+            <div class="border border-brand-light border-opacity-20 p-8 relative">
+                <div class="absolute -top-3 left-4 bg-brand-dark px-2 text-sm text-brand-light uppercase tracking-widest">UI Elements</div>
+
+                <div class="space-y-6">
+                    <!-- Buttons -->
+                    <div class="flex gap-4 items-center">
+                        <button class="bg-brand-light text-brand-dark px-6 py-2 font-bold hover:brightness-110 transition-all">PRIMARY</button>
+                        <button class="border border-brand-light text-brand-light px-6 py-2 font-bold hover:bg-brand-light hover:text-brand-dark transition-all">SECONDARY</button>
+                    </div>
+
+                    <!-- Input -->
+                    <div class="relative">
+                        <input type="text" placeholder="Enter email..." class="w-full bg-transparent border-b border-brand-light border-opacity-40 py-2 focus:outline-none focus:border-opacity-100 text-brand-light placeholder-gray-600 transition-colors">
+                        <i class="ph ph-arrow-right absolute right-0 top-2 text-brand-light"></i>
+                    </div>
+
+                    <!-- Toggle/Badge -->
+                    <div class="flex justify-between items-center p-4 border border-brand-light border-opacity-20 bg-brand-light bg-opacity-5">
+                        <span class="font-bold">Active State</span>
+                        <div class="w-3 h-3 bg-brand-light rounded-full shadow-[0_0_10px_#ccff00]"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 px-6 text-center border-t border-brand-light border-opacity-20">
+        <h2 class="text-[12vw] leading-none font-bold text-transparent" style="-webkit-text-stroke: 1px var(--c-light); opacity: 0.3;">
+            DUOTO.NE
+        </h2>
+        <div class="max-w-xl mx-auto mt-8 flex justify-center gap-8 text-sm uppercase tracking-widest">
+            <a href="#" class="hover:text-white hover:underline">Instagram</a>
+            <a href="#" class="hover:text-white hover:underline">Behance</a>
+            <a href="#" class="hover:text-white hover:underline">Twitter</a>
+        </div>
+        <p class="mt-8 text-xs text-gray-500">
+            &copy; 2024 Duotone Identity Concept. Pure Visuals.
+        </p>
+    </footer>
+
+    <script>
+        // Optional: Simple scroll reveal logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('article').forEach(el => {
+                el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700', 'ease-out');
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

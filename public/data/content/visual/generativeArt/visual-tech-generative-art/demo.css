@@ -1,0 +1,36 @@
+.gen-pulse {
+        animation: gen-pulse-anim 3s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      @keyframes gen-pulse-anim {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      .gen-path {
+        animation: gen-path-anim 4s ease-in-out infinite;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+      }
+
+      @keyframes gen-path-anim {
+        0%, 100% {
+          stroke-dashoffset: 200;
+          opacity: 0.2;
+        }
+        50% {
+          stroke-dashoffset: 0;
+          opacity: 0.6;
+        }
+      }
+
+      .generative-art {
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+      }

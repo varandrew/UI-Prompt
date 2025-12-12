@@ -1,0 +1,32 @@
+{
+  "id": "retro-newspaper",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "报纸排版",
+      "en-US": "Newspaper Typography"
+    },
+    "description": {
+      "zh-CN": "传统报纸排版技术：首字下沉、多栏布局、衬线字体",
+      "en-US": "Traditional newspaper layout: drop caps, multi-column layout, serif fonts"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "modernEditorialTemplates",
+      "title": {
+        "zh-CN": "現代編輯風格",
+        "en-US": "Modern Editorial Style"
+      }
+    },
+    {
+      "id": "vintageRetroTemplates",
+      "title": {
+        "zh-CN": "復古懷舊風格",
+        "en-US": "Vintage Retro Style"
+      }
+    }
+  ]
+}

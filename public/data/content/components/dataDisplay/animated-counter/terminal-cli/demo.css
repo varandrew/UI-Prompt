@@ -1,0 +1,17 @@
+.terminal-stat {
+            display: flex;
+            align-items: center;
+            font-size: 1.125rem;
+            padding: 0.5rem 0;
+            border-left: 2px solid rgba(0, 255, 0, 0.3);
+            padding-left: 1rem;
+          }
+
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+          }
+
+          .animate-pulse {
+            animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }

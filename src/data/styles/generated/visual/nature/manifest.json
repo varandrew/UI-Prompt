@@ -1,0 +1,17 @@
+{
+  "id": "visual-nature",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "自然元素",
+      "en-US": "Nature Elements"
+    },
+    "description": {
+      "zh-CN": "自然元素视觉效果家族，包含极光、波浪、粒子、液体和烟雾五种自然现象的动态模拟。通过 CSS 动画、SVG 路径和滤镜效果实现流动、飘渺、有机的视觉体验。",
+      "en-US": "Nature-inspired visual effects family featuring aurora, waves, particles, liquid, and smoke simulations. Uses CSS animations, SVG paths, and filter effects to deliver flowing, ethereal, organic visuals."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

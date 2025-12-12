@@ -1,0 +1,25 @@
+.neomorph-container {
+            background: #e0e5ec;
+            box-shadow:
+              9px 9px 16px rgba(163, 177, 198, 0.6),
+              -9px -9px 16px rgba(255, 255, 255, 0.5);
+          }
+          .neomorph-track {
+            background: #e0e5ec;
+            box-shadow:
+              inset 4px 4px 8px rgba(163, 177, 198, 0.5),
+              inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+          }
+          .neomorph-thumb {
+            background: linear-gradient(145deg, #f0f4f8, #d1d9e6);
+            box-shadow:
+              4px 4px 8px rgba(163, 177, 198, 0.6),
+              -4px -4px 8px rgba(255, 255, 255, 0.5);
+          }
+          .volume-icon-wrapper {
+            animation: pulse-icon 3s ease-in-out infinite;
+          }
+          @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+          }

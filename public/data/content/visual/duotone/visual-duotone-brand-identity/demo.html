@@ -1,0 +1,81 @@
+<!-- Duotone Brand Identity Demo -->
+<div class="duotone-demo">
+    <!-- SVG Filter Definition -->
+    <svg style="width:0; height:0; position: absolute;" aria-hidden="true">
+        <filter id="duotone-filter-demo">
+            <feColorMatrix type="matrix" values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0" result="grayscale" />
+            <feComponentTransfer color-interpolation-filters="sRGB">
+                <feFuncR type="table" tableValues="0.062 0.8"></feFuncR>
+                <feFuncG type="table" tableValues="0 1"></feFuncG>
+                <feFuncB type="table" tableValues="0.168 0"></feFuncB>
+                <feFuncA type="table" tableValues="1 1"></feFuncA>
+            </feComponentTransfer>
+        </filter>
+    </svg>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Header -->
+    <header class="demo-header">
+        <span class="logo">DUOTO.NE</span>
+        <nav class="nav-links">
+            <a href="#">Philosophy</a>
+            <a href="#">Work</a>
+            <a href="#">System</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TWO<br><span class="highlight">COLORS.</span><br>INFINITE<br>IMPACT.</h1>
+            <p class="tagline">We confine visuals to a strict primaries pairing. No noise. No dilution. Just pure, striking contrast.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary">Explore Work</button>
+                <button class="btn-secondary">Style System</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" alt="Portrait" class="duotone-img">
+            <div class="floating-element">↓</div>
+        </div>
+    </section>
+
+    <!-- Color System -->
+    <section class="color-system">
+        <h2>THE SYSTEM</h2>
+        <div class="swatches">
+            <div class="swatch dark-swatch">
+                <div class="swatch-color"></div>
+                <span>Dark</span>
+            </div>
+            <div class="swatch light-swatch">
+                <div class="swatch-color"></div>
+                <span>Light</span>
+            </div>
+            <div class="swatch neutral-swatch">
+                <div class="swatch-color"></div>
+                <span>Neutral</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Grid -->
+    <section class="work-grid">
+        <article class="work-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?q=80&w=300&auto=format&fit=crop" alt="Work 1" class="duotone-img">
+            </div>
+            <h3>NEON ARCHIVE</h3>
+            <span>Brand Identity</span>
+        </article>
+        <article class="work-card">
+            <div class="card-image">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=300&auto=format&fit=crop" alt="Work 2" class="duotone-img">
+            </div>
+            <h3>VOID WALKER</h3>
+            <span>Art Direction</span>
+        </article>
+    </section>
+</div>

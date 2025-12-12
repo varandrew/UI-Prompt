@@ -1,4 +1,4 @@
-import { useEditorStore, useViewportStore } from '../../stores';
+import { useCanvasStore, useViewportStore } from '../../stores';
 import { CanvasComponent } from './CanvasComponent';
 import { useEffect, useMemo, useRef, useCallback } from 'react';
 
@@ -14,10 +14,9 @@ import { useEffect, useMemo, useRef, useCallback } from 'react';
  * - 傳遞 getProps 函数而非整張 props 映射，配合 React.memo 降低重渲染
  */
 export function Canvas({ onComponentClick, previewSwap = null }) {
-  // 与层級面板一致，統一使用 editorStore 的画布狀態
-  const canvasState = useEditorStore((s) => s.canvasState);
-  const componentTree = canvasState.componentTree;
-  const componentProps = canvasState.componentProps;
+  // 使用模塊化 Store 獲取画布狀態
+  const componentTree = useCanvasStore((s) => s.componentTree);
+  const componentProps = useCanvasStore((s) => s.componentProps);
 
   // 稳定化 getProps 函式，避免因映射物件引用變更导致子樹重渲染
   const mapRef = useRef(componentProps);

@@ -1,0 +1,11 @@
+{
+  "id": "visual-holographic-aurora-panel",
+  "title": {
+    "zh-CN": "全息光谱面板",
+    "en-US": "Holographic Aurora Panel"
+  },
+  "description": {
+    "zh-CN": "虹彩渐变、玻璃拟态与全息描边结合的控制面板模板，适用于数据控制台与媒体仪表盘。",
+    "en-US": "A holographic control panel blending aurora gradients, glassmorphism, and iridescent strokes for dashboards."
+  }
+}

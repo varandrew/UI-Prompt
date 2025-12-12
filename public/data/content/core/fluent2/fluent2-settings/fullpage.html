@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fluent2-settings - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+/* Fluent 2.0 设置中心样式 */
+
+/* 页面基础 */
+.fluent2-settings-page {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: #242424;
+  line-height: 1.5;
+}
+
+/* ========== Acrylic 导航栏 ========== */
+.fluent2-settings-nav {
+  background: rgba(243, 243, 243, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.fluent2-settings-nav-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fluent2-settings-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fluent2-settings-logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.fluent2-settings-logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #242424;
+}
+
+.fluent2-settings-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fluent2-settings-search-box {
+  position: relative;
+  width: 300px;
+}
+
+.fluent2-settings-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.fluent2-settings-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: white;
+  font-size: 14px;
+  color: #242424;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-settings-search-input:hover {
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.fluent2-settings-search-input:focus {
+  border-color: #0078D4;
+  box-shadow: 0 0 0 1px #0078D4;
+  outline: none;
+}
+
+.fluent2-settings-help-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-settings-help-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ========== 主内容区 ========== */
+.fluent2-settings-main-container {
+  display: flex;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: calc(100vh - 60px);
+}
+
+/* ========== 左侧设置菜单 ========== */
+.fluent2-settings-sidebar {
+  width: 280px;
+  background: rgba(249, 249, 249, 0.85);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 24px 0;
+}
+
+.fluent2-settings-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 12px;
+}
+
+.fluent2-settings-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #605E5C;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.fluent2-settings-menu-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 120, 212, 0.15),
+    transparent 50%
+  );
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-settings-menu-item:hover::before {
+  opacity: 1;
+}
+
+.fluent2-settings-menu-item:hover {
+  background: rgba(0, 120, 212, 0.05);
+}
+
+.fluent2-settings-menu-item.active {
+  background: rgba(0, 120, 212, 0.1);
+  color: #0078D4;
+  font-weight: 600;
+}
+
+.fluent2-settings-menu-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.fluent2-settings-menu-text {
+  flex: 1;
+}
+
+/* ========== 右侧设置面板 ========== */
+.fluent2-settings-content {
+  flex: 1;
+  padding: 40px 48px;
+  overflow-y: auto;
+}
+
+.fluent2-settings-header {
+  margin-bottom: 32px;
+}
+
+.fluent2-settings-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #242424;
+  margin: 0 0 8px 0;
+}
+
+.fluent2-settings-subtitle {
+  font-size: 14px;
+  color: #605E5C;
+  margin: 0;
+}
+
+/* ========== 设置区域 ========== */
+.fluent2-settings-section {
+  margin-bottom: 48px;
+}
+
+.fluent2-settings-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #242424;
+  margin: 0 0 8px 0;
+}
+
+.fluent2-settings-section-desc {
+  font-size: 14px;
+  color: #605E5C;
+  margin: 0 0 24px 0;
+}
+
+/* ========== 主题选择器 ========== */
+.fluent2-settings-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fluent2-theme-card {
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.fluent2-theme-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 8px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(0, 120, 212, 0.6),
+    transparent
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.fluent2-theme-card:hover::before {
+  opacity: 1;
+}
+
+.fluent2-theme-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.14);
+}
+
+.fluent2-theme-card.active {
+  border-color: #0078D4;
+  background: rgba(0, 120, 212, 0.03);
+}
+
+.fluent2-theme-card:focus {
+  outline: 2px solid #0078D4;
+  outline-offset: 2px;
+}
+
+.fluent2-theme-preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fluent2-theme-preview.light {
+  background: #F3F3F3;
+}
+
+.fluent2-theme-preview.dark {
+  background: #1E1E1E;
+}
+
+.fluent2-theme-preview-header {
+  height: 20%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.fluent2-theme-preview.dark .fluent2-theme-preview-header {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.fluent2-theme-preview-content {
+  display: flex;
+  height: 80%;
+}
+
+.fluent2-theme-preview-sidebar {
+  width: 30%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.fluent2-theme-preview.dark .fluent2-theme-preview-sidebar {
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.fluent2-theme-preview-main {
+  flex: 1;
+  background: white;
+}
+
+.fluent2-theme-preview.dark .fluent2-theme-preview-main {
+  background: #252526;
+}
+
+.fluent2-theme-preview-split {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.fluent2-theme-preview-half {
+  flex: 1;
+}
+
+.fluent2-theme-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fluent2-theme-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #8A8886;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-theme-card.active .fluent2-theme-radio {
+  border-color: #0078D4;
+}
+
+.fluent2-radio-dot {
+  width: 10px;
+  height: 10px;
+  background: #0078D4;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-theme-card.active .fluent2-radio-dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fluent2-theme-text {
+  flex: 1;
+}
+
+.fluent2-theme-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #242424;
+  margin-bottom: 2px;
+}
+
+.fluent2-theme-desc {
+  font-size: 12px;
+  color: #8A8886;
+}
+
+/* ========== 密度切换器 ========== */
+.fluent2-settings-density-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.fluent2-density-option {
+  cursor: pointer;
+}
+
+.fluent2-density-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fluent2-density-card {
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-density-card:hover {
+  border-color: rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fluent2-density-card.active {
+  border-color: #0078D4;
+  background: rgba(0, 120, 212, 0.03);
+}
+
+.fluent2-density-preview {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.fluent2-density-preview.compact {
+  gap: 4px;
+}
+
+.fluent2-density-preview.spacious {
+  gap: 12px;
+}
+
+.fluent2-density-line {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 120, 212, 0.2);
+  border-radius: 4px;
+}
+
+.fluent2-density-preview.compact .fluent2-density-line {
+  height: 6px;
+}
+
+.fluent2-density-preview.spacious .fluent2-density-line {
+  height: 10px;
+}
+
+.fluent2-density-info {
+  text-align: center;
+}
+
+.fluent2-density-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #242424;
+  margin-bottom: 4px;
+}
+
+.fluent2-density-desc {
+  font-size: 12px;
+  color: #8A8886;
+}
+
+/* ========== 视觉效果开关 ========== */
+.fluent2-settings-effects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fluent2-settings-effect-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-settings-effect-item:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.fluent2-effect-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.fluent2-effect-icon.acrylic {
+  background: linear-gradient(135deg, rgba(0, 120, 212, 0.1), rgba(80, 230, 255, 0.1));
+}
+
+.fluent2-effect-icon.reveal {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 105, 180, 0.1));
+}
+
+.fluent2-effect-icon.animations {
+  background: linear-gradient(135deg, rgba(16, 124, 16, 0.1), rgba(146, 195, 83, 0.1));
+}
+
+.fluent2-effect-icon.shadows {
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.1), rgba(156, 163, 175, 0.1));
+}
+
+.fluent2-effect-icon.transparency {
+  background: linear-gradient(135deg, rgba(253, 176, 34, 0.1), rgba(255, 170, 68, 0.1));
+}
+
+.fluent2-effect-content {
+  flex: 1;
+}
+
+.fluent2-effect-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.fluent2-effect-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #242424;
+}
+
+.fluent2-effect-desc {
+  font-size: 13px;
+  color: #605E5C;
+  line-height: 1.5;
+}
+
+/* ========== 切换开关 ========== */
+.fluent2-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.fluent2-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.fluent2-toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: #C8C6C4;
+  border-radius: 12px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 4px;
+  top: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-toggle-switch input:checked + .fluent2-toggle-slider {
+  background: #0078D4;
+}
+
+.fluent2-toggle-switch input:checked + .fluent2-toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.fluent2-toggle-switch:hover .fluent2-toggle-slider {
+  box-shadow: 0 0 0 4px rgba(0, 120, 212, 0.1);
+}
+
+/* ========== 其他选项 ========== */
+.fluent2-settings-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fluent2-settings-option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.fluent2-option-label {
+  flex: 1;
+  padding-right: 24px;
+}
+
+.fluent2-option-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #242424;
+  margin-bottom: 4px;
+}
+
+.fluent2-option-desc {
+  font-size: 13px;
+  color: #605E5C;
+}
+
+.fluent2-select-input {
+  min-width: 200px;
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: white;
+  font-size: 14px;
+  color: #242424;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-select-input:hover {
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.fluent2-select-input:focus {
+  border-color: #0078D4;
+  box-shadow: 0 0 0 1px #0078D4;
+  outline: none;
+}
+
+/* ========== 操作按钮 ========== */
+.fluent2-settings-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fluent2-settings-btn-primary,
+.fluent2-settings-btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-settings-btn-primary {
+  background: #0078D4;
+  color: white;
+}
+
+.fluent2-settings-btn-primary:hover {
+  background: #106EBE;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.fluent2-settings-btn-primary:active {
+  background: #005A9E;
+  transform: scale(0.98);
+}
+
+.fluent2-settings-btn-secondary {
+  background: rgba(0, 0, 0, 0.05);
+  color: #242424;
+}
+
+.fluent2-settings-btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 1200px) {
+  .fluent2-settings-theme-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fluent2-settings-main-container {
+    flex-direction: column;
+  }
+
+  .fluent2-settings-sidebar {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .fluent2-settings-content {
+    padding: 24px 20px;
+  }
+
+  .fluent2-settings-theme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fluent2-settings-density-options {
+    grid-template-columns: 1fr;
+  }
+
+  .fluent2-settings-option-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .fluent2-option-label {
+    padding-right: 0;
+  }
+
+  .fluent2-select-input {
+    width: 100%;
+  }
+
+  .fluent2-settings-actions {
+    flex-direction: column;
+  }
+
+  .fluent2-settings-btn-primary,
+  .fluent2-settings-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ========== 无障碍和动画优化 ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Fluent 2.0 设置中心 - Windows 11 风格设置面板 -->
+  <div class="fluent2-settings-page min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
+
+    <!-- Acrylic 导航栏 -->
+    <nav class="fluent2-settings-nav sticky top-0 z-50" role="navigation" aria-label="Main Navigation">
+      <div class="fluent2-settings-nav-container">
+        <div class="fluent2-settings-logo">
+          <div class="fluent2-settings-logo-icon">⚙️</div>
+          <span class="fluent2-settings-logo-text">Settings</span>
+        </div>
+        <div class="fluent2-settings-nav-actions">
+          <div class="fluent2-settings-search-box">
+            <span class="fluent2-settings-search-icon">🔍</span>
+            <input type="search" placeholder="Search settings..." class="fluent2-settings-search-input" aria-label="Search settings">
+          </div>
+          <button class="fluent2-settings-help-btn" aria-label="Help">
+            <span>❓</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <div class="fluent2-settings-main-container">
+      <!-- 左侧设置菜单 -->
+      <aside class="fluent2-settings-sidebar" role="navigation" aria-label="Settings Categories">
+        <nav class="fluent2-settings-menu">
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item active" aria-current="page">
+            <span class="fluent2-settings-menu-icon">🎨</span>
+            <span class="fluent2-settings-menu-text">Appearance</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">🔔</span>
+            <span class="fluent2-settings-menu-text">Notifications</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">🔐</span>
+            <span class="fluent2-settings-menu-text">Privacy & Security</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">⌨️</span>
+            <span class="fluent2-settings-menu-text">Keyboard</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">🌐</span>
+            <span class="fluent2-settings-menu-text">Language & Region</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">♿</span>
+            <span class="fluent2-settings-menu-text">Accessibility</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">💾</span>
+            <span class="fluent2-settings-menu-text">Storage</span>
+          </a>
+          <a href="javascript:void(0)" class="fluent2-settings-menu-item">
+            <span class="fluent2-settings-menu-icon">ℹ️</span>
+            <span class="fluent2-settings-menu-text">About</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- 右侧设置面板 -->
+      <main class="fluent2-settings-content" role="main">
+        <!-- 设置标题 -->
+        <div class="fluent2-settings-header">
+          <h1 class="fluent2-settings-title">Appearance</h1>
+          <p class="fluent2-settings-subtitle">Customize how your app looks and feels</p>
+        </div>
+
+        <!-- 主题选择器 -->
+        <section class="fluent2-settings-section" aria-labelledby="theme-heading">
+          <h2 id="theme-heading" class="fluent2-settings-section-title">Theme</h2>
+          <p class="fluent2-settings-section-desc">Choose your preferred color theme</p>
+
+          <div class="fluent2-settings-theme-grid">
+            <!-- Light Theme -->
+            <div class="fluent2-theme-card active" tabindex="0" role="radio" aria-checked="true">
+              <div class="fluent2-theme-preview light">
+                <div class="fluent2-theme-preview-header"></div>
+                <div class="fluent2-theme-preview-content">
+                  <div class="fluent2-theme-preview-sidebar"></div>
+                  <div class="fluent2-theme-preview-main"></div>
+                </div>
+              </div>
+              <div class="fluent2-theme-info">
+                <div class="fluent2-theme-radio">
+                  <span class="fluent2-radio-dot"></span>
+                </div>
+                <div class="fluent2-theme-text">
+                  <div class="fluent2-theme-name">Light</div>
+                  <div class="fluent2-theme-desc">Bright and clear</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dark Theme -->
+            <div class="fluent2-theme-card" tabindex="0" role="radio" aria-checked="false">
+              <div class="fluent2-theme-preview dark">
+                <div class="fluent2-theme-preview-header"></div>
+                <div class="fluent2-theme-preview-content">
+                  <div class="fluent2-theme-preview-sidebar"></div>
+                  <div class="fluent2-theme-preview-main"></div>
+                </div>
+              </div>
+              <div class="fluent2-theme-info">
+                <div class="fluent2-theme-radio">
+                  <span class="fluent2-radio-dot"></span>
+                </div>
+                <div class="fluent2-theme-text">
+                  <div class="fluent2-theme-name">Dark</div>
+                  <div class="fluent2-theme-desc">Easy on the eyes</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Auto Theme -->
+            <div class="fluent2-theme-card" tabindex="0" role="radio" aria-checked="false">
+              <div class="fluent2-theme-preview auto">
+                <div class="fluent2-theme-preview-split">
+                  <div class="fluent2-theme-preview-half light">
+                    <div class="fluent2-theme-preview-header"></div>
+                    <div class="fluent2-theme-preview-content">
+                      <div class="fluent2-theme-preview-sidebar"></div>
+                      <div class="fluent2-theme-preview-main"></div>
+                    </div>
+                  </div>
+                  <div class="fluent2-theme-preview-half dark">
+                    <div class="fluent2-theme-preview-header"></div>
+                    <div class="fluent2-theme-preview-content">
+                      <div class="fluent2-theme-preview-sidebar"></div>
+                      <div class="fluent2-theme-preview-main"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fluent2-theme-info">
+                <div class="fluent2-theme-radio">
+                  <span class="fluent2-radio-dot"></span>
+                </div>
+                <div class="fluent2-theme-text">
+                  <div class="fluent2-theme-name">Auto</div>
+                  <div class="fluent2-theme-desc">Follows system</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 密度切换器 -->
+        <section class="fluent2-settings-section" aria-labelledby="density-heading">
+          <h2 id="density-heading" class="fluent2-settings-section-title">Density</h2>
+          <p class="fluent2-settings-section-desc">Adjust spacing and sizing for your comfort</p>
+
+          <div class="fluent2-settings-density-options">
+            <!-- Compact -->
+            <label class="fluent2-density-option">
+              <input type="radio" name="density" value="compact" class="fluent2-density-radio">
+              <div class="fluent2-density-card">
+                <div class="fluent2-density-preview compact">
+                  <div class="fluent2-density-line"></div>
+                  <div class="fluent2-density-line"></div>
+                  <div class="fluent2-density-line"></div>
+                  <div class="fluent2-density-line"></div>
+                </div>
+                <div class="fluent2-density-info">
+                  <div class="fluent2-density-name">Compact</div>
+                  <div class="fluent2-density-desc">More content on screen</div>
+                </div>
+              </div>
+            </label>
+
+            <!-- Standard -->
+            <label class="fluent2-density-option">
+              <input type="radio" name="density" value="standard" class="fluent2-density-radio" checked>
+              <div class="fluent2-density-card active">
+                <div class="fluent2-density-preview standard">
+                  <div class="fluent2-density-line"></div>
+                  <div class="fluent2-density-line"></div>
+                  <div class="fluent2-density-line"></div>
+                </div>
+                <div class="fluent2-density-info">
+                  <div class="fluent2-density-name">Standard</div>
+                  <div class="fluent2-density-desc">Balanced spacing</div>
+                </div>
+              </div>
+            </label>
+
+            <!-- Spacious -->
+            <label class="fluent2-density-option">
+              <input type="radio" name="density" value="spacious" class="fluent2-density-radio">
+              <div class="fluent2-density-card">
+                <div class="fluent2-density-preview spacious">
+                  <div class="fluent2-density-line"></div>
+                  <div class="fluent2-density-line"></div>
+                </div>
+                <div class="fluent2-density-info">
+                  <div class="fluent2-density-name">Spacious</div>
+                  <div class="fluent2-density-desc">Extra breathing room</div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <!-- 视觉效果开关 -->
+        <section class="fluent2-settings-section" aria-labelledby="effects-heading">
+          <h2 id="effects-heading" class="fluent2-settings-section-title">Visual Effects</h2>
+          <p class="fluent2-settings-section-desc">Enable or disable visual enhancements</p>
+
+          <div class="fluent2-settings-effects-list">
+            <!-- Acrylic 材质 -->
+            <div class="fluent2-settings-effect-item">
+              <div class="fluent2-effect-icon acrylic">
+                <span>✨</span>
+              </div>
+              <div class="fluent2-effect-content">
+                <div class="fluent2-effect-header">
+                  <div class="fluent2-effect-title">Acrylic Material</div>
+                  <label class="fluent2-toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="fluent2-toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="fluent2-effect-desc">
+                  Translucent background with blur effect for windows and surfaces
+                </div>
+              </div>
+            </div>
+
+            <!-- Reveal 光效 -->
+            <div class="fluent2-settings-effect-item">
+              <div class="fluent2-effect-icon reveal">
+                <span>💫</span>
+              </div>
+              <div class="fluent2-effect-content">
+                <div class="fluent2-effect-header">
+                  <div class="fluent2-effect-title">Reveal Highlight</div>
+                  <label class="fluent2-toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="fluent2-toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="fluent2-effect-desc">
+                  Interactive light effect that follows your cursor
+                </div>
+              </div>
+            </div>
+
+            <!-- 动画 -->
+            <div class="fluent2-settings-effect-item">
+              <div class="fluent2-effect-icon animations">
+                <span>🎬</span>
+              </div>
+              <div class="fluent2-effect-content">
+                <div class="fluent2-effect-header">
+                  <div class="fluent2-effect-title">Animations</div>
+                  <label class="fluent2-toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="fluent2-toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="fluent2-effect-desc">
+                  Smooth transitions and motion effects throughout the app
+                </div>
+              </div>
+            </div>
+
+            <!-- 阴影 -->
+            <div class="fluent2-settings-effect-item">
+              <div class="fluent2-effect-icon shadows">
+                <span>🌑</span>
+              </div>
+              <div class="fluent2-effect-content">
+                <div class="fluent2-effect-header">
+                  <div class="fluent2-effect-title">Drop Shadows</div>
+                  <label class="fluent2-toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="fluent2-toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="fluent2-effect-desc">
+                  Depth and elevation effects for cards and panels
+                </div>
+              </div>
+            </div>
+
+            <!-- 透明度 -->
+            <div class="fluent2-settings-effect-item">
+              <div class="fluent2-effect-icon transparency">
+                <span>🔳</span>
+              </div>
+              <div class="fluent2-effect-content">
+                <div class="fluent2-effect-header">
+                  <div class="fluent2-effect-title">Window Transparency</div>
+                  <label class="fluent2-toggle-switch">
+                    <input type="checkbox">
+                    <span class="fluent2-toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="fluent2-effect-desc">
+                  Allow transparency in taskbar and window borders
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 其他选项 -->
+        <section class="fluent2-settings-section" aria-labelledby="other-heading">
+          <h2 id="other-heading" class="fluent2-settings-section-title">Other Options</h2>
+
+          <div class="fluent2-settings-options-list">
+            <!-- 字体大小 -->
+            <div class="fluent2-settings-option-row">
+              <div class="fluent2-option-label">
+                <div class="fluent2-option-title">Font Size</div>
+                <div class="fluent2-option-desc">Adjust text size throughout the app</div>
+              </div>
+              <select class="fluent2-select-input">
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+                <option value="xlarge">Extra Large</option>
+              </select>
+            </div>
+
+            <!-- 语言 -->
+            <div class="fluent2-settings-option-row">
+              <div class="fluent2-option-label">
+                <div class="fluent2-option-title">Display Language</div>
+                <div class="fluent2-option-desc">Choose your preferred language</div>
+              </div>
+              <select class="fluent2-select-input">
+                <option value="en">English (United States)</option>
+                <option value="zh-cn">简体中文</option>
+                <option value="zh-tw">繁体中文</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+              </select>
+            </div>
+
+            <!-- 自动保存 -->
+            <div class="fluent2-settings-option-row">
+              <div class="fluent2-option-label">
+                <div class="fluent2-option-title">Auto-save</div>
+                <div class="fluent2-option-desc">Automatically save changes</div>
+              </div>
+              <label class="fluent2-toggle-switch">
+                <input type="checkbox" checked>
+                <span class="fluent2-toggle-slider"></span>
+              </label>
+            </div>
+
+            <!-- 通知声音 -->
+            <div class="fluent2-settings-option-row">
+              <div class="fluent2-option-label">
+                <div class="fluent2-option-title">Notification Sound</div>
+                <div class="fluent2-option-desc">Play sound for notifications</div>
+              </div>
+              <label class="fluent2-toggle-switch">
+                <input type="checkbox" checked>
+                <span class="fluent2-toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 操作按钮 -->
+        <div class="fluent2-settings-actions">
+          <button class="fluent2-settings-btn-primary">
+            <span>💾</span>
+            <span>Save Changes</span>
+          </button>
+          <button class="fluent2-settings-btn-secondary">
+            <span>↩️</span>
+            <span>Reset to Defaults</span>
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>

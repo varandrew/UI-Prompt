@@ -1,0 +1,69 @@
+<div class="w-full max-w-lg space-y-6">
+        <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-6">
+          <h3 class="font-semibold text-lg mb-4">{{t:demo.input.richTextEditor}}</h3>
+
+          <div class="space-y-4">
+            <div class="border border-gray-200 rounded-t-lg p-2">
+              <div class="flex items-center gap-1 flex-wrap">
+                <button class="p-2 hover:bg-gray-100 rounded transition-colors" title="粗体">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h8a4 4 0 014 4 4 4 0 01-4 4H6z"></path>
+                  </svg>
+                </button>
+                <button class="p-2 hover:bg-gray-100 rounded transition-colors" title="斜体">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 4h4M14 4l-4 16M4 20h4M20 4h-4"></path>
+                  </svg>
+                </button>
+                <div class="w-px h-6 bg-gray-300"></div>
+                <button class="p-2 hover:bg-gray-100 rounded transition-colors" title="标题">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </button>
+                <button class="p-2 hover:bg-gray-100 rounded transition-colors" title="列表">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+                </button>
+                <button class="p-2 hover:bg-gray-100 rounded transition-colors" title="链接">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                  </svg>
+                </button>
+                <button class="p-2 hover:bg-gray-100 rounded transition-colors" title="代码">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m-4-4l-4 4"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="border border-l border-r border-b border-gray-200 rounded-b-lg p-4 min-h-[200px] focus:outline-none focus:ring-2 focus:ring-blue-500" contenteditable="true">
+              <h2 class="text-xl font-bold mb-3">{{t:demo.input.projectDescription}}</h2>
+              <p class="mb-3">这是一个<strong>功能丰富</strong>的文本编辑器，支持多种格式化选项。</p>
+              <ul class="list-disc pl-6 mb-3">
+                <li>支持 <em>斜体</em>、<u>下划线</u>、<code>代码</code></li>
+                <li>可以插入链接和图片</li>
+                <li>实时字数统计</li>
+              </ul>
+              <p class="text-gray-500">{{t:demo.input.startEditing}}</p>
+            </div>
+
+            <div class="flex items-center justify-between text-sm">
+              <div class="flex items-center gap-4">
+                <span class="text-gray-600">字数: 127</span>
+                <span class="text-gray-600">字符: 254</span>
+              </div>
+              <div class="flex gap-2">
+                <button class="px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors text-sm">
+                  清空
+                </button>
+                <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors text-sm">
+                  保存
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

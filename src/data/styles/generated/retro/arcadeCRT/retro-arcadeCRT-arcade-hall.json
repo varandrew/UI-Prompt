@@ -1,0 +1,11 @@
+{
+  "id": "retro-arcadeCRT-arcade-hall",
+  "title": {
+    "zh-CN": "街机游戏大厅",
+    "en-US": "Arcade Game Hall"
+  },
+  "description": {
+    "zh-CN": "经典 80-90 年代街机游戏厅体验，包含游戏卡片、街机柜、排行榜和投币系统",
+    "en-US": "Classic 80s-90s arcade game hall experience with game cards, arcade cabinets, leaderboards, and coin system"
+  }
+}

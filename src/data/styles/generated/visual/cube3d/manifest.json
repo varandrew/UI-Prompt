@@ -1,0 +1,17 @@
+{
+  "id": "visual-cube3d",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "3D 立方体",
+      "en-US": "3D Cube"
+    },
+    "description": {
+      "zh-CN": "六面立方体，透视旋转，完整 3D 结构",
+      "en-US": "Six-sided cube with perspective rotation and complete 3D structure"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

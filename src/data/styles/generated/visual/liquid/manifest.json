@@ -1,0 +1,25 @@
+{
+  "id": "visual-liquid",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "液体流动",
+      "en-US": "Liquid Motion"
+    },
+    "description": {
+      "zh-CN": "变形动画，径向渐变，模糊融合",
+      "en-US": "Morphing animation with radial gradients and blur blending"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-liquid-visual-nature-liquid-flow-home-office",
+      "title": {
+        "zh-CN": "液态流动居家办公",
+        "en-US": "Liquid Flow Home Office"
+      }
+    }
+  ]
+}

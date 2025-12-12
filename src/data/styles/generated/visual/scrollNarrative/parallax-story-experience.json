@@ -1,0 +1,11 @@
+{
+  "id": "parallax-story-experience",
+  "title": {
+    "zh-CN": "视差动画叙事体验",
+    "en-US": "Parallax Story Experience"
+  },
+  "description": {
+    "zh-CN": "深度视差滚动叙事页面，展示品牌故事通过多层背景动画、交互式章节导航、沉浸式视觉特效逐步展开",
+    "en-US": "Immersive parallax scrolling narrative showcasing brand story through multi-layer background animations, interactive chapter navigation, and stunning visual effects"
+  }
+}

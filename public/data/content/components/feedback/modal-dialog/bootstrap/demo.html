@@ -1,0 +1,47 @@
+<div class="modal-bootstrap-overlay">
+            <div class="modal-bootstrap-dialog">
+              <div class="modal-bootstrap-content">
+                <div class="modal-bootstrap-header">
+                  <h5 class="modal-bootstrap-title">Create New Project</h5>
+                  <button type="button" class="modal-bootstrap-close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-bootstrap-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="projectName" class="form-label">Project Name</label>
+                      <input type="text" class="modal-bootstrap-input" id="projectName" placeholder="Enter project name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="projectType" class="form-label">Project Type</label>
+                      <select class="modal-bootstrap-input" id="projectType">
+                        <option selected>Choose...</option>
+                        <option value="1">Web Application</option>
+                        <option value="2">Mobile App</option>
+                        <option value="3">Desktop Software</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="projectDesc" class="form-label">Description</label>
+                      <textarea class="modal-bootstrap-input" id="projectDesc" rows="3" placeholder="Brief description of your project"></textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" value="" id="makePublic">
+                      <label class="form-check-label" for="makePublic">
+                        Make this project public
+                      </label>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-bootstrap-footer">
+                  <button type="button" class="modal-bootstrap-btn-secondary">
+                    Close
+                  </button>
+                  <button type="button" class="modal-bootstrap-btn-primary">
+                    Create Project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient Light UI Demo</title>
+    <style>
+        /* --- RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #050505; /* Outer demo background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* --- THE DEMO CONTAINER (Square) --- */
+        .demo-frame {
+            position: relative;
+            /* Force Square Aspect Ratio */
+            width: 90vw;
+            max-width: 400px; /* Small demo size */
+            aspect-ratio: 1 / 1;
+            
+            background: #08080b; /* Deep dark base */
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            
+            /* Responsive Font Sizing for the container */
+            container-type: size;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 6%;
+            
+            /* Isolation for blend modes */
+            isolation: isolate;
+        }
+
+        /* --- AMBIENT LIGHT LAYER --- */
+        .ambient-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* The blurred orbs */
+        .light-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px); /* 40-80px blur as requested */
+            opacity: 0.6;
+            mix-blend-mode: screen; /* Soft light mixing */
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            will-change: transform;
+        }
+
+        /* Orb 1: Purple/Cool - Top Left */
+        .orb-1 {
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(circle, #5b42f3 0%, rgba(91, 66, 243, 0) 70%);
+            top: -20%;
+            left: -20%;
+            animation: drift1 14s infinite alternate;
+        }
+
+        /* Orb 2: Teal/Cyan - Bottom Right */
+        .orb-2 {
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, #00d2ff 0%, rgba(0, 210, 255, 0) 70%);
+            bottom: -10%;
+            right: -10%;
+            animation: drift2 16s infinite alternate-reverse;
+        }
+
+        /* Orb 3: Accent/Warm - Center Floating */
+        .orb-3 {
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, #ff0099 0%, rgba(255, 0, 153, 0) 70%);
+            top: 40%;
+            left: 40%;
+            opacity: 0.4;
+            animation: drift3 12s infinite alternate;
+        }
+
+        /* --- NOISE TEXTURE --- */
+        .noise-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.07;
+            pointer-events: none;
+            /* SVG Noise Filter generation in CSS */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* --- CONTENT LAYER --- */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header Area */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .title {
+            font-size: 5cqw; /* Relative to container width */
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .icon-btn {
+            width: 8cqw;
+            height: 8cqw;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Main Center Card (Glassmorphism) */
+        .glass-card {
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.03); /* Extremely subtle fill */
+            backdrop-filter: blur(12px); /* Matte glass effect */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08); /* Anti-bleed border */
+            border-radius: 20px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Effect: Brighten border/bg slightly, don't touch ambient bg */
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        /* Inner Content */
+        .card-visual {
+            width: 12cqw;
+            height: 12cqw;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffffff 0%, #999 100%);
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+            position: relative;
+        }
+        /* Play icon simulation */
+        .card-visual::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            width: 0; 
+            height: 0; 
+            border-top: 3cqw solid transparent;
+            border-bottom: 3cqw solid transparent;
+            border-left: 5cqw solid #08080b;
+        }
+
+        .card-title {
+            font-size: 4.5cqw;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .card-subtitle {
+            font-size: 3cqw;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+        }
+
+        /* Bottom Controls */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .control-item {
+            background: rgba(20, 20, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .control-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .control-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .control-text {
+            font-size: 3cqw;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes drift1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 10%) scale(1.1); }
+        }
+        @keyframes drift2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-10%, -5%) scale(1.2); }
+        }
+        @keyframes drift3 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, -10%) scale(0.9); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- The Square Component -->
+    <div class="demo-frame" id="demoFrame">
+        
+        <!-- Background Layer (The "Atmosphere") -->
+        <div class="ambient-layer" id="ambientLayer">
+            <div class="light-orb orb-1"></div>
+            <div class="light-orb orb-2"></div>
+            <div class="light-orb orb-3"></div>
+        </div>
+
+        <!-- Texture Layer (Noise) -->
+        <div class="noise-overlay"></div>
+
+        <!-- Foreground Information (Clear, Readable) -->
+        <div class="content-layer">
+            
+            <header class="header">
+                <div class="title">FLOW STATE</div>
+                <div class="icon-btn">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
+            </header>
+
+            <!-- Primary Focus Card -->
+            <div class="glass-card">
+                <div class="card-visual"></div>
+                <h2 class="card-title">Deep Focus</h2>
+                <p class="card-subtitle">Ambient • 45m • Sleep</p>
+            </div>
+
+            <!-- Secondary Controls -->
+            <div class="controls">
+                <div class="control-item">
+                    <div class="control-icon" style="background: #5b42f3;"></div>
+                    <span class="control-text">Mixer</span>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon" style="background: #00d2ff;"></div>
+                    <span class="control-text">Timer</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Simple Parallax Effect to enhance immersion without overwhelming
+        // This adds a subtle "reaction" to the user's presence
+        const frame = document.getElementById('demoFrame');
+        const layer = document.getElementById('ambientLayer');
+        const orbs = document.querySelectorAll('.light-orb');
+
+        frame.addEventListener('mousemove', (e) => {
+            const rect = frame.getBoundingClientRect();
+            // Calculate mouse position relative to center of the square
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Very subtle movement for the light layer (opposite direction for depth)
+            const xPercent = (x / rect.width) * 5; // Max 5% movement
+            const yPercent = (y / rect.height) * 5;
+
+            // Apply different speeds to orbs for depth perception
+            orbs[0].style.transform = `translate(${xPercent * -1}%, ${yPercent * -1}%) scale(1.05)`;
+            orbs[1].style.transform = `translate(${xPercent * 0.5}%, ${yPercent * 0.5}%) scale(1.2)`;
+            orbs[2].style.transform = `translate(${xPercent * -2}%, ${yPercent * -2}%) scale(0.9)`;
+        });
+
+        // Reset on mouse leave
+        frame.addEventListener('mouseleave', () => {
+            orbs.forEach(orb => {
+                orb.style.transform = 'translate(0, 0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

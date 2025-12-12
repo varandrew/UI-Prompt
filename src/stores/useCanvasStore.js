@@ -43,7 +43,107 @@ const initialComponentProps = {
 };
 
 export const useCanvasStore = create(
-  immer((set, get) => ({
+  immer((set, get) => {
+    // ========== RAF 批次器（節流/合併同幀多次更新） ==========
+    let rafScheduled = false;
+    const batched = {
+      base: new Map(), // id -> partialBaseProps
+      layout: new Map(), // id -> partialLayout
+      styleResp: new Map(), // id -> { bp -> partial }
+      layoutResp: new Map() // id -> { bp -> partial }
+    };
+
+    const flushBatched = () => {
+      const haveUpdates = batched.base.size || batched.layout.size || batched.styleResp.size || batched.layoutResp.size;
+      if (!haveUpdates) return;
+
+      // 建立快照（在 flush 前記一次）
+      try {
+        const history = useHistoryStore.getState();
+        const canvasSnap = {
+          componentTree: JSON.parse(JSON.stringify(get().componentTree)),
+          componentProps: JSON.parse(JSON.stringify(get().componentProps))
+        };
+        const viewportSnap = useViewportStore.getState().exportSettings();
+        history.autoSnapshot({ canvasState: canvasSnap, viewportState: viewportSnap }, 'canvas:batchedUpdates');
+      } catch {
+        // Ignore snapshot errors
+      }
+
+      set((state) => {
+        // Base props
+        batched.base.forEach((partial, id) => {
+          const p = state.componentProps[id];
+          if (!p) return;
+          p.baseProps = { ...(p.baseProps || {}), ...partial };
+        });
+        // Layout
+        batched.layout.forEach((partial, id) => {
+          const p = state.componentProps[id];
+          if (!p) return;
+          p.layoutProps = { ...(p.layoutProps || {}), ...partial };
+        });
+        // Responsive style overrides
+        batched.styleResp.forEach((bpMap, id) => {
+          const p = state.componentProps[id];
+          if (!p) return;
+          p.responsiveOverrides = p.responsiveOverrides || {};
+          Object.entries(bpMap).forEach(([bp, partial]) => {
+            p.responsiveOverrides[bp] = { ...(p.responsiveOverrides[bp] || {}), ...partial };
+          });
+        });
+        // Responsive layout overrides
+        batched.layoutResp.forEach((bpMap, id) => {
+          const p = state.componentProps[id];
+          if (!p) return;
+          p.responsiveLayoutOverrides = p.responsiveLayoutOverrides || {};
+          Object.entries(bpMap).forEach(([bp, partial]) => {
+            p.responsiveLayoutOverrides[bp] = { ...(p.responsiveLayoutOverrides[bp] || {}), ...partial };
+          });
+        });
+      });
+
+      // 清空批次
+      batched.base.clear();
+      batched.layout.clear();
+      batched.styleResp.clear();
+      batched.layoutResp.clear();
+    };
+
+    const scheduleFlush = () => {
+      if (rafScheduled) return;
+      rafScheduled = true;
+      requestAnimationFrame(() => {
+        rafScheduled = false;
+        flushBatched();
+      });
+    };
+
+    // 封裝加入批次的 API
+    const enqueueBaseProps = (id, partialBaseProps) => {
+      const prev = batched.base.get(id) || {};
+      batched.base.set(id, { ...prev, ...partialBaseProps });
+      scheduleFlush();
+    };
+    const enqueueLayout = (id, partialLayout) => {
+      const prev = batched.layout.get(id) || {};
+      batched.layout.set(id, { ...prev, ...partialLayout });
+      scheduleFlush();
+    };
+    const enqueueRespStyle = (id, bp, partial) => {
+      const m = batched.styleResp.get(id) || {};
+      m[bp] = { ...(m[bp] || {}), ...partial };
+      batched.styleResp.set(id, m);
+      scheduleFlush();
+    };
+    const enqueueRespLayout = (id, bp, partial) => {
+      const m = batched.layoutResp.get(id) || {};
+      m[bp] = { ...(m[bp] || {}), ...partial };
+      batched.layoutResp.set(id, m);
+      scheduleFlush();
+    };
+
+    return {
     // ========== State ==========
 
     componentTree: initialComponentTree,
@@ -501,6 +601,55 @@ export const useCanvasStore = create(
         componentTree: JSON.parse(JSON.stringify(state.componentTree)),
         componentProps: JSON.parse(JSON.stringify(state.componentProps))
       };
-    }
-  }))
+    },
+
+    // ========== Throttled 更新 API（RAF 批次合併） ==========
+
+    /**
+     * 節流更新基礎屬性（同幀合併）
+     * @param {string} componentId - 組件 ID
+     * @param {Object} newProps - 新屬性
+     */
+    updateBasePropsThrottled: (componentId, newProps) => {
+      enqueueBaseProps(componentId, newProps);
+    },
+
+    /**
+     * 節流更新佈局屬性（同幀合併）
+     * @param {string} componentId - 組件 ID
+     * @param {Object} newLayoutProps - 新佈局屬性
+     */
+    updateLayoutPropsThrottled: (componentId, newLayoutProps) => {
+      enqueueLayout(componentId, newLayoutProps);
+    },
+
+    /**
+     * 節流更新響應式覆蓋（同幀合併）
+     * @param {string} componentId - 組件 ID
+     * @param {string} breakpoint - 斷點
+     * @param {Object} overrideProps - 覆蓋屬性
+     */
+    updateResponsiveOverrideThrottled: (componentId, breakpoint, overrideProps) => {
+      enqueueRespStyle(componentId, breakpoint, overrideProps);
+    },
+
+    /**
+     * 節流更新響應式佈局覆蓋（同幀合併）
+     * @param {string} componentId - 組件 ID
+     * @param {string} breakpoint - 斷點
+     * @param {Object} overrideLayoutProps - 覆蓋佈局屬性
+     */
+    updateResponsiveLayoutOverrideThrottled: (componentId, breakpoint, overrideLayoutProps) => {
+      enqueueRespLayout(componentId, breakpoint, overrideLayoutProps);
+    },
+
+    /**
+     * 以整體替換画布（供基準測試/profiler 使用）
+     * @param {Object} canvas - { componentTree, componentProps }
+     */
+    replaceCanvas: (canvas) => set((state) => {
+      state.componentTree = canvas.componentTree;
+      state.componentProps = canvas.componentProps;
+    })
+  }})
 );

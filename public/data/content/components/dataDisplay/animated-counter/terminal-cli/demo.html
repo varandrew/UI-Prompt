@@ -1,0 +1,65 @@
+<div class="w-full max-w-4xl mx-auto p-6">
+            <div class="bg-black rounded-lg border border-green-500 p-8 font-mono" style="box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);">
+              <div class="flex items-center mb-6">
+                <span class="text-green-400 mr-2">$</span>
+                <span class="text-green-400">system-stats --live</span>
+                <span class="ml-2 animate-pulse text-green-400">_</span>
+              </div>
+
+              <div class="space-y-4">
+                <div class="terminal-stat">
+                  <span class="text-green-500">[CPU_USAGE]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="87" data-suffix="%">0%</span>
+                </div>
+
+                <div class="terminal-stat">
+                  <span class="text-green-500">[MEMORY_USED]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="14.2" data-decimals="1" data-suffix="GB">0.0GB</span>
+                </div>
+
+                <div class="terminal-stat">
+                  <span class="text-green-500">[ACTIVE_PROCESSES]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="342">0</span>
+                </div>
+
+                <div class="terminal-stat">
+                  <span class="text-green-500">[NETWORK_THROUGHPUT]</span>
+                  <span class="text-white mx-4">=></span>
+                  <span class="counter-terminal text-green-400" data-target="1024" data-suffix="MB/s">0MB/s</span>
+                </div>
+              </div>
+
+              <div class="mt-6 text-green-500 text-sm opacity-60">
+                > {{t:demo.animatedCounter.terminal.refreshing}}
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function animateTerminalCounter(element, target, hasDecimals, suffix) {
+              const duration = 1500;
+              const start = 0;
+              const increment = target / (duration / 16);
+              let current = start;
+
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  element.textContent = (hasDecimals ? target.toFixed(1) : Math.floor(target)) + suffix;
+                  clearInterval(timer);
+                } else {
+                  element.textContent = (hasDecimals ? current.toFixed(1) : Math.floor(current)) + suffix;
+                }
+              }, 16);
+            }
+
+            document.querySelectorAll('.counter-terminal').forEach(counter => {
+              const target = parseFloat(counter.getAttribute('data-target'));
+              const hasDecimals = counter.hasAttribute('data-decimals');
+              const suffix = counter.getAttribute('data-suffix') || '';
+              setTimeout(() => animateTerminalCounter(counter, target, hasDecimals, suffix), 400);
+            });
+          </script>

@@ -1,0 +1,417 @@
+
+/* ===== NEON NOIR ANIMATIONS ===== */
+
+/* Fog drift animations */
+@keyframes fog-drift-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  33% {
+    transform: translate(-30px, 20px) scale(1.1);
+    opacity: 0.2;
+  }
+  66% {
+    transform: translate(20px, -15px) scale(0.95);
+    opacity: 0.18;
+  }
+}
+
+@keyframes fog-drift-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.12;
+  }
+  33% {
+    transform: translate(25px, -25px) scale(1.15);
+    opacity: 0.18;
+  }
+  66% {
+    transform: translate(-35px, 10px) scale(0.9);
+    opacity: 0.15;
+  }
+}
+
+@keyframes fog-drift-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.1;
+  }
+  33% {
+    transform: translate(-20px, -30px) scale(1.2);
+    opacity: 0.15;
+  }
+  66% {
+    transform: translate(30px, 20px) scale(0.85);
+    opacity: 0.12;
+  }
+}
+
+/* Scanline animation */
+@keyframes scan-line {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+/* Neon flicker effect */
+@keyframes neon-flicker {
+  0%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 40px currentColor;
+  }
+  2%, 8%, 10%, 25%, 27% {
+    opacity: 0.8;
+    text-shadow:
+      0 0 8px currentColor,
+      0 0 16px currentColor;
+  }
+  5%, 24% {
+    opacity: 0.3;
+    text-shadow:
+      0 0 5px currentColor;
+  }
+}
+
+/* Neon pulse - Red */
+@keyframes neon-pulse-red {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #ff0055,
+      0 0 20px #ff0055,
+      0 0 40px #ff0055;
+    box-shadow: 0 0 30px rgba(255, 0, 85, 0.6);
+  }
+  50% {
+    text-shadow:
+      0 0 20px #ff0055,
+      0 0 40px #ff0055,
+      0 0 60px #ff0055,
+      0 0 80px #ff0055;
+    box-shadow: 0 0 50px rgba(255, 0, 85, 0.9);
+  }
+}
+
+/* Neon pulse - Purple */
+@keyframes neon-pulse-purple {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #ff00ff,
+      0 0 20px #ff00ff,
+      0 0 40px #ff00ff;
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+  }
+  50% {
+    text-shadow:
+      0 0 20px #ff00ff,
+      0 0 40px #ff00ff,
+      0 0 60px #ff00ff,
+      0 0 80px #ff00ff;
+    box-shadow: 0 0 50px rgba(255, 0, 255, 0.9);
+  }
+}
+
+/* Audio wave animation */
+@keyframes audio-wave {
+  0%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Pulse ring animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Pulse scale animation for dots */
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+/* Stream flow animation */
+@keyframes stream-flow {
+  0% {
+    height: 10%;
+    opacity: 0.5;
+  }
+  50% {
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    height: 10%;
+    opacity: 0.5;
+  }
+}
+
+/* Spin animation for loaders */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Progress bar grow animation */
+@keyframes progress-grow {
+  from {
+    width: 0;
+  }
+}
+
+/* Rotate slow for background effects */
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== NEON NOIR HOVER EFFECTS ===== */
+
+/* Navigation links hover */
+.noir-nav-link:hover {
+  color: #ff0055;
+  text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055;
+}
+
+.noir-nav-link:hover > div {
+  opacity: 1;
+}
+
+/* Input focus effects */
+.noir-input:focus {
+  border-color: #ff00ff;
+  box-shadow:
+    0 0 20px rgba(255, 0, 255, 0.5),
+    inset 0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+/* Button hover effects */
+.noir-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 40px rgba(255, 0, 85, 0.8),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.noir-button-secondary:hover {
+  background: rgba(255, 0, 255, 0.1);
+  border-color: #ff00ff;
+  box-shadow:
+    0 0 30px rgba(255, 0, 255, 0.6),
+    inset 0 0 20px rgba(255, 0, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Play button hover */
+.noir-play-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(255, 0, 85, 0.9);
+}
+
+/* Player card hover */
+.noir-player-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 0, 85, 0.6);
+  box-shadow:
+    0 12px 40px rgba(255, 0, 85, 0.4),
+    inset 0 0 40px rgba(255, 0, 85, 0.1);
+}
+
+/* Artist card hover */
+.noir-artist-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 0, 255, 0.6);
+  box-shadow:
+    0 16px 48px rgba(255, 0, 255, 0.4),
+    inset 0 0 40px rgba(255, 0, 255, 0.1);
+}
+
+.noir-artist-card:hover .card-glow {
+  opacity: 0.15;
+}
+
+/* Timeline card hover */
+.noir-timeline-card:hover {
+  transform: translateX(8px);
+  border-color: rgba(255, 0, 255, 0.6);
+  box-shadow:
+    0 12px 40px rgba(255, 0, 255, 0.4),
+    inset 0 0 40px rgba(255, 0, 255, 0.1);
+}
+
+/* Stat card hover */
+.noir-stat-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(255, 0, 85, 0.6);
+  box-shadow:
+    0 12px 40px rgba(255, 0, 85, 0.4),
+    inset 0 0 40px rgba(255, 0, 85, 0.1);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  /* Reduce neon glow intensity on mobile for better performance */
+  .neon-glow-red-title {
+    font-size: 3rem !important;
+    text-shadow:
+      0 0 5px #ff0055,
+      0 0 10px #ff0055,
+      0 0 20px #ff0055 !important;
+  }
+
+  .neon-glow-red,
+  .neon-glow-purple {
+    font-size: 2rem !important;
+    text-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor !important;
+  }
+
+  /* Simplify fog animations on mobile */
+  .noir-fog-particle {
+    animation-duration: 30s !important;
+    opacity: 0.1 !important;
+  }
+
+  /* Navigation stacking */
+  .noir-nav > div {
+    flex-wrap: wrap;
+  }
+
+  /* Hero section padding */
+  section {
+    padding: 3rem 1rem !important;
+  }
+
+  /* Timeline layout */
+  .noir-timeline-card {
+    border-left-width: 2px !important;
+  }
+
+  /* Footer grid */
+  footer > div > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Subscribe section */
+  section > div > div > div:last-child {
+    flex-direction: column;
+  }
+
+  section > div > div > div:last-child > input {
+    width: 100%;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+button:focus,
+input:focus,
+a:focus {
+  outline: 2px solid #ff00ff;
+  outline-offset: 2px;
+}
+
+/* ===== ADDITIONAL EFFECTS ===== */
+
+/* Glass morphism enhancement */
+.noir-player-card,
+.noir-artist-card,
+.noir-timeline-card,
+.noir-stat-card {
+  position: relative;
+}
+
+.noir-player-card::before,
+.noir-artist-card::before,
+.noir-timeline-card::before,
+.noir-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent);
+}
+
+/* Neon text glow classes */
+.neon-glow-red {
+  animation: neon-flicker 5s ease-in-out infinite;
+}
+
+.neon-glow-purple {
+  animation: neon-flicker 6s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff0055, #ff00ff);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff00ff, #b967ff);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}

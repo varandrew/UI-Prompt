@@ -1,0 +1,182 @@
+// Holographic Foil Demo - Simplified preview for StyleCard
+// 全息箔纸风格 - StyleCard 简化预览
+
+export const demoHTML = `
+<div class="holo-demo-container">
+  <!-- Holographic Title -->
+  <div class="holo-title-wrapper">
+    <h1 class="holo-title">HOLOGRAPHIC</h1>
+    <p class="holo-subtitle">Premium foil effects</p>
+  </div>
+
+  <!-- Card 1: Futuristic -->
+  <div class="holo-card">
+    <div class="card-icon">💎</div>
+    <h3 class="card-title">FUTURISTIC</h3>
+    <p class="card-desc">Rainbow gradient borders with dynamic animation</p>
+  </div>
+
+  <!-- Card 2: Premium -->
+  <div class="holo-card">
+    <div class="card-icon">✨</div>
+    <h3 class="card-title">PREMIUM</h3>
+    <p class="card-desc">Metallic foil shine effects</p>
+  </div>
+</div>
+`;
+
+export const customStyles = `
+/* Holographic Foil Demo Styles */
+
+/* Holographic Gradient Animation */
+@keyframes holographic {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shine Effect Animation */
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Main Container */
+.holo-demo-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  min-height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Holographic Title Section */
+.holo-title-wrapper {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.holo-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: linear-gradient(
+    45deg,
+    #ff00ff 0%,
+    #00ffff 25%,
+    #ffff00 50%,
+    #00ffff 75%,
+    #ff00ff 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holographic 3s ease infinite;
+  margin-bottom: 0.5rem;
+}
+
+.holo-subtitle {
+  font-size: 1rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}
+
+/* Holographic Card Base */
+.holo-card {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Rainbow Border Effect (Pseudo-element) */
+.holo-card::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    45deg,
+    #ff00ff 0%,
+    #00ffff 25%,
+    #ffff00 50%,
+    #00ffff 75%,
+    #ff00ff 100%
+  );
+  background-size: 300% 300%;
+  animation: holographic 4s ease infinite;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* Moving Shine Effect (Second Pseudo-element) */
+.holo-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255,255,255,0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) rotate(45deg);
+  animation: shine 3s ease-in-out infinite;
+}
+
+/* Card Hover Effect */
+.holo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(255, 0, 255, 0.3);
+}
+
+/* Card Content */
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.card-desc {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .holo-demo-container {
+    grid-template-columns: 1fr;
+  }
+
+  .holo-title {
+    font-size: 2rem;
+  }
+}
+`;

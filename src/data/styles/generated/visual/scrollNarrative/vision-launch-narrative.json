@@ -1,0 +1,11 @@
+{
+  "id": "vision-launch-narrative",
+  "title": {
+    "zh-CN": "视觉启航叙事",
+    "en-US": "Vision Launch Narrative"
+  },
+  "description": {
+    "zh-CN": "通过滚动驱动的四阶段视觉叙事，展示从混沌到秩序的演化过程。包含实时进度追踪、3D视差效果、粒子动画系统和色彩分离特效。",
+    "en-US": "A four-stage scroll-driven visual narrative showcasing evolution from chaos to order. Features real-time progress tracking, 3D parallax effects, particle animation system, and chromatic aberration effects."
+  }
+}

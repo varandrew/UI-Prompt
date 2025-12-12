@@ -1,0 +1,120 @@
+
+  /* Gradient Border Classes */
+  .border-gradient-purple {
+    border-image: linear-gradient(to bottom, #9333ea, #ec4899) 1;
+  }
+  .border-gradient-pink {
+    border-image: linear-gradient(to bottom, #ec4899, #f43f5e) 1;
+  }
+  .border-gradient-orange {
+    border-image: linear-gradient(to bottom, #f97316, #fbbf24) 1;
+  }
+  .border-gradient-blue {
+    border-image: linear-gradient(to bottom, #2563eb, #9333ea) 1;
+  }
+
+  /* Progress Bars */
+  .gradient-progress-container {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  .gradient-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #9333ea, #ec4899);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+    animation: gradient-flow 2s ease infinite;
+    background-size: 200% 100%;
+  }
+  .gradient-progress-fill.gradient-pink {
+    background: linear-gradient(90deg, #ec4899, #f43f5e);
+    background-size: 200% 100%;
+  }
+  .gradient-progress-fill.gradient-orange {
+    background: linear-gradient(90deg, #f97316, #fbbf24);
+    background-size: 200% 100%;
+  }
+  .gradient-progress-fill.gradient-blue {
+    background: linear-gradient(90deg, #2563eb, #9333ea);
+    background-size: 200% 100%;
+  }
+  @keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Gradient Spinner */
+  .gradient-spinner {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: #9333ea;
+    border-right-color: #ec4899;
+    border-bottom-color: #f97316;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Pulse Dots */
+  .gradient-pulse-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+  }
+
+  /* Wave Progress */
+  .gradient-wave-container {
+    width: 200px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+  }
+  .gradient-wave {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+      transparent,
+      #9333ea 25%,
+      #ec4899 50%,
+      #f97316 75%,
+      transparent
+    );
+    animation: wave 1.5s linear infinite;
+  }
+  @keyframes wave {
+    to { left: 100%; }
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Body Background */
+  body {
+    background-color: #f9fafb;
+  }

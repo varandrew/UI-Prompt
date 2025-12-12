@@ -1,0 +1,88 @@
+{
+  "id": "table-basic",
+  "category": "dataDisplay",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.dataDisplay.table-basic.title",
+      "en-US": "data.components.dataDisplay.table-basic.title"
+    },
+    "description": {
+      "zh-CN": "data.components.dataDisplay.table-basic.description",
+      "en-US": "data.components.dataDisplay.table-basic.description"
+    },
+    "tags": [
+      "dataDisplay",
+      "table",
+      "data",
+      "navigation"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.minimalism.name",
+        "en-US": "data.components.dataDisplay.table-basic.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.minimalism.description",
+        "en-US": "data.components.dataDisplay.table-basic.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "bootstrap5",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.bootstrap5.name",
+        "en-US": "data.components.dataDisplay.table-basic.variants.bootstrap5.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.bootstrap5.description",
+        "en-US": "data.components.dataDisplay.table-basic.variants.bootstrap5.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neo-brutalism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.neo-brutalism.name",
+        "en-US": "data.components.dataDisplay.table-basic.variants.neo-brutalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.neo-brutalism.description",
+        "en-US": "data.components.dataDisplay.table-basic.variants.neo-brutalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.glassmorphism.name",
+        "en-US": "data.components.dataDisplay.table-basic.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.glassmorphism.description",
+        "en-US": "data.components.dataDisplay.table-basic.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.neumorphism.name",
+        "en-US": "data.components.dataDisplay.table-basic.variants.neumorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.table-basic.variants.neumorphism.description",
+        "en-US": "data.components.dataDisplay.table-basic.variants.neumorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

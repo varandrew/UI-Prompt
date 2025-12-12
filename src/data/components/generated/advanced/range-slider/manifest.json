@@ -1,0 +1,85 @@
+{
+  "id": "range-slider",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.range-slider.title",
+      "en-US": "data.components.advanced.range-slider.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.range-slider.description",
+      "en-US": "data.components.advanced.range-slider.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimal-vertical",
+      "name": {
+        "zh-CN": "data.components.advanced.range-slider.variants.0.name",
+        "en-US": "data.components.advanced.range-slider.variants.0.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.range-slider.variants.0.description",
+        "en-US": "data.components.advanced.range-slider.variants.0.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    },
+    {
+      "id": "glassmorphism-dual",
+      "name": {
+        "zh-CN": "data.components.advanced.range-slider.variants.1.name",
+        "en-US": "data.components.advanced.range-slider.variants.1.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.range-slider.variants.1.description",
+        "en-US": "data.components.advanced.range-slider.variants.1.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "bootstrap-price-filter",
+      "name": {
+        "zh-CN": "data.components.advanced.range-slider.variants.2.name",
+        "en-US": "data.components.advanced.range-slider.variants.2.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.range-slider.variants.2.description",
+        "en-US": "data.components.advanced.range-slider.variants.2.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "material-brightness",
+      "name": {
+        "zh-CN": "data.components.advanced.range-slider.variants.3.name",
+        "en-US": "data.components.advanced.range-slider.variants.3.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.range-slider.variants.3.description",
+        "en-US": "data.components.advanced.range-slider.variants.3.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism-volume",
+      "name": {
+        "zh-CN": "data.components.advanced.range-slider.variants.4.name",
+        "en-US": "data.components.advanced.range-slider.variants.4.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.range-slider.variants.4.description",
+        "en-US": "data.components.advanced.range-slider.variants.4.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

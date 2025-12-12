@@ -1,0 +1,29 @@
+<div class="flex items-center justify-center min-h-[400px] bg-gray-100">
+            <div class="bg-white rounded-2xl p-8 w-96 shadow-md">
+              <h3 class="text-lg font-medium mb-2 text-gray-900">Brightness</h3>
+              <p class="text-sm text-gray-500 mb-6">Adjust screen brightness</p>
+
+              <div class="space-y-6">
+                <!-- Color Gradient Slider -->
+                <div class="relative">
+                  <input type="range" min="0" max="100" value="70" class="w-full h-3 rounded-full appearance-none cursor-pointer color-slider">
+                </div>
+
+                <!-- Color Preview -->
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl shadow-inner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); opacity: 0.7;"></div>
+                    <div class="ripple-text">
+                      <span class="text-2xl font-semibold text-gray-800">70%</span>
+                    </div>
+                  </div>
+
+                  <button class="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center shadow-lg hover:bg-purple-600 transition-all hover:shadow-xl active:scale-95">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>

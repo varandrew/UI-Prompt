@@ -1,0 +1,41 @@
+<div class="w-full max-w-2xl mx-auto p-6">
+            <div class="glass-card-reaction rounded-3xl p-8" style="background: linear-gradient(135deg, rgba(100, 100, 255, 0.3), rgba(200, 100, 255, 0.3)); backdrop-filter: blur(20px);">
+              <h3 class="font-light text-2xl mb-2 text-white">
+                {{t:demo.reactionPicker.glass.title}}
+              </h3>
+              <p class="text-white/80 mb-8 text-sm">{{t:demo.reactionPicker.glass.subtitle}}</p>
+
+              <div class="p-6 rounded-2xl" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                <p class="text-white mb-4">{{t:demo.reactionPicker.glass.postText}}</p>
+
+                <div class="flex items-center gap-2">
+                  <button class="reaction-trigger-glass" onclick="toggleReactionsGlass(event)">
+                    <span class="reaction-icon">✨</span>
+                    <span class="reaction-count">128</span>
+                  </button>
+
+                  <div class="reaction-picker-glass hidden">
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('👍')">👍</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('❤️')">❤️</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('😂')">😂</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('🔥')">🔥</button>
+                    <button class="reaction-btn-glass" onclick="selectReactionGlass('✨')">✨</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleReactionsGlass(event) {
+              event.stopPropagation();
+              const picker = event.currentTarget.parentElement.querySelector('.reaction-picker-glass');
+              picker.classList.toggle('hidden');
+            }
+
+            function selectReactionGlass(emoji) {
+              const trigger = event.currentTarget.closest('.flex').querySelector('.reaction-icon');
+              trigger.textContent = emoji;
+              event.currentTarget.closest('.flex').querySelector('.reaction-picker-glass').classList.add('hidden');
+            }
+          </script>

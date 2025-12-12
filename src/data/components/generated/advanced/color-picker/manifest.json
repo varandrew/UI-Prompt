@@ -1,0 +1,33 @@
+{
+  "id": "color-picker",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.color-picker.title",
+      "en-US": "data.components.advanced.color-picker.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.color-picker.description",
+      "en-US": "data.components.advanced.color-picker.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.advanced.color-picker.title",
+        "en-US": "data.components.advanced.color-picker.title"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.color-picker.description",
+        "en-US": "data.components.advanced.color-picker.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

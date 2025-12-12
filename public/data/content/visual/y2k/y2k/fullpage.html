@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>y2k - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+/* Y2K / Frutiger Aero 風格樣式 */
+
+/* 全局樣式 */
+.y2k-full-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* 导航欄樣式 */
+.y2k-navbar {
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+}
+
+.y2k-nav-link {
+  position: relative;
+  color: #0891b2;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.y2k-nav-link:hover {
+  color: #0e7490;
+  transform: translateY(-2px);
+}
+
+/* 搜索框 */
+.y2k-search-box {
+  position: relative;
+}
+
+.y2k-input {
+  width: 200px;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.y2k-input:focus {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+/* 圖标按鈕 */
+.y2k-icon-button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.y2k-icon-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.1);
+}
+
+/* 頭像 */
+.y2k-avatar {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.y2k-avatar:hover {
+  transform: scale(1.1);
+}
+
+/* Hero 区塊 */
+.y2k-hero {
+  background: linear-gradient(135deg,
+    rgba(165, 243, 252, 0.3) 0%,
+    rgba(224, 242, 254, 0.3) 50%,
+    rgba(204, 251, 241, 0.3) 100%);
+}
+
+/* 裝飾性氣泡 */
+.y2k-bubble {
+  position: absolute;
+  background: linear-gradient(135deg,
+    rgba(6, 182, 212, 0.2) 0%,
+    rgba(59, 130, 246, 0.15) 50%,
+    rgba(16, 185, 129, 0.2) 100%);
+  border-radius: 50%;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 8px 32px rgba(6, 182, 212, 0.15),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.05),
+    inset 4px 4px 12px rgba(255, 255, 255, 0.5);
+  animation: y2k-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes y2k-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+/* 按鈕樣式 */
+.y2k-btn-primary {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow:
+    0 4px 16px rgba(6, 182, 212, 0.3),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.y2k-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(6, 182, 212, 0.4),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+.y2k-btn-secondary {
+  padding: 0.75rem 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  color: #0891b2;
+  font-weight: 600;
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.y2k-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-2px);
+}
+
+.y2k-btn-text {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: #0891b2;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.y2k-btn-text:hover {
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: 24px;
+}
+
+/* 統計卡片 */
+.y2k-stat-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 2px 8px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.y2k-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.1),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 2px 8px rgba(255, 255, 255, 0.4);
+}
+
+.y2k-icon-container {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.1),
+    inset 0 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+.y2k-trend-up {
+  display: inline-block;
+  color: #10b981;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 12px;
+}
+
+.y2k-trend-down {
+  display: inline-block;
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 12px;
+}
+
+/* 玻璃態卡片 */
+.y2k-glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.05),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.02),
+    inset 0 2px 8px rgba(255, 255, 255, 0.4);
+}
+
+/* 列表項目 */
+.y2k-list-item {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.y2k-list-item:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateX(4px);
+}
+
+.y2k-project-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 4px rgba(255, 255, 255, 0.3);
+}
+
+/* 進度條 */
+.y2k-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(226, 232, 240, 0.6);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.y2k-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #06b6d4 0%, #0891b2 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+  transition: width 0.3s ease;
+}
+
+/* 時間线頭像 */
+.y2k-timeline-avatar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.1),
+    inset 0 2px 6px rgba(255, 255, 255, 0.3);
+}
+
+.y2k-activity-card {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+/* 表單元素 */
+.y2k-text-input,
+.y2k-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.y2k-text-input:focus,
+.y2k-select:focus {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+/* 芯片 */
+.y2k-chip-success {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.y2k-chip-warning {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.y2k-chip-error {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.y2k-chip-info {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* 切換開关 */
+.y2k-toggle {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.y2k-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.y2k-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(203, 213, 225, 0.6);
+  transition: 0.3s;
+  border-radius: 34px;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+}
+
+.y2k-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.y2k-toggle input:checked + .y2k-toggle-slider {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  border-color: #06b6d4;
+}
+
+.y2k-toggle input:checked + .y2k-toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* 表格 */
+.y2k-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.y2k-table thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.y2k-table tbody tr {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.y2k-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.01);
+}
+
+.y2k-table tbody td {
+  padding: 1rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.3);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+}
+
+.y2k-table tbody td:first-child {
+  border-left: 1px solid rgba(226, 232, 240, 0.3);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.y2k-table tbody td:last-child {
+  border-right: 1px solid rgba(226, 232, 240, 0.3);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.y2k-table-avatar {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+  border-radius: 50%;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 4px rgba(255, 255, 255, 0.3);
+}
+
+/* 浮動操作按鈕 */
+.y2k-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow:
+    0 8px 24px rgba(6, 182, 212, 0.4),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 40;
+}
+
+.y2k-fab:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow:
+    0 12px 32px rgba(6, 182, 212, 0.5),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* 页腳 */
+.y2k-footer {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.y2k-social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+}
+
+.y2k-social-icon:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+  </style>
+</head>
+<body>
+
+<div class="y2k-full-page min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-teal-50">
+  <!-- 頂部导航欄 -->
+  <nav class="y2k-navbar sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-white/30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="y2k-logo-bubble w-10 h-10 bg-gradient-to-br from-cyan-400 via-blue-400 to-teal-400 rounded-full relative shadow-xl">
+          <div class="absolute top-1 left-2 w-4 h-4 bg-white rounded-full opacity-60 blur-sm"></div>
+          <div class="absolute top-2 left-3 w-2 h-2 bg-white rounded-full opacity-90"></div>
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">Y2K Dashboard</span>
+      </div>
+
+      <!-- 导航鏈接 -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="javascript:void(0)" class="y2k-nav-link">Home</a>
+        <a href="javascript:void(0)" class="y2k-nav-link">Projects</a>
+        <a href="javascript:void(0)" class="y2k-nav-link">Team</a>
+        <a href="javascript:void(0)" class="y2k-nav-link">Settings</a>
+      </div>
+
+      <!-- 右側工具 -->
+      <div class="flex items-center gap-4">
+        <!-- 搜索框 -->
+        <div class="hidden md:block y2k-search-box">
+          <input type="text" placeholder="Search..." class="y2k-input" />
+        </div>
+
+        <!-- 通知 -->
+        <button class="y2k-icon-button relative">
+          🔔
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full text-white text-xs flex items-center justify-center">3</span>
+        </button>
+
+        <!-- 用戶頭像 -->
+        <div class="y2k-avatar">
+          <div class="w-9 h-9 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-sm">U</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero 区塊 -->
+  <section class="y2k-hero relative overflow-hidden py-16 px-6">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center space-y-6">
+        <h1 class="text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-500 via-blue-500 to-teal-500 bg-clip-text text-transparent drop-shadow-lg">
+          Welcome to Y2K Dashboard
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Experience the nostalgia of Web 2.0 with modern design principles
+        </p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <button class="y2k-btn-primary">Get Started</button>
+          <button class="y2k-btn-secondary">Learn More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 裝飾性氣泡 -->
+    <div class="y2k-bubble" style="top: 10%; left: 10%; width: 120px; height: 120px; animation-delay: 0s;"></div>
+    <div class="y2k-bubble" style="top: 60%; right: 15%; width: 80px; height: 80px; animation-delay: 1s;"></div>
+    <div class="y2k-bubble" style="top: 30%; right: 30%; width: 60px; height: 60px; animation-delay: 2s;"></div>
+    <div class="y2k-bubble" style="bottom: 20%; left: 25%; width: 100px; height: 100px; animation-delay: 1.5s;"></div>
+  </section>
+
+  <!-- 統計卡片网格 -->
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 統計卡片 1 -->
+      <div class="y2k-stat-card">
+        <div class="y2k-icon-container bg-gradient-to-br from-cyan-400 to-blue-500">
+          <span class="text-2xl">👥</span>
+        </div>
+        <div class="mt-4">
+          <div class="text-3xl font-bold text-gray-800">2,543</div>
+          <div class="text-sm text-gray-600 mt-1">Total Users</div>
+          <div class="y2k-trend-up mt-2">↑ 12.5%</div>
+        </div>
+      </div>
+
+      <!-- 統計卡片 2 -->
+      <div class="y2k-stat-card">
+        <div class="y2k-icon-container bg-gradient-to-br from-teal-400 to-emerald-500">
+          <span class="text-2xl">📊</span>
+        </div>
+        <div class="mt-4">
+          <div class="text-3xl font-bold text-gray-800">$48.2K</div>
+          <div class="text-sm text-gray-600 mt-1">Revenue</div>
+          <div class="y2k-trend-up mt-2">↑ 8.3%</div>
+        </div>
+      </div>
+
+      <!-- 統計卡片 3 -->
+      <div class="y2k-stat-card">
+        <div class="y2k-icon-container bg-gradient-to-br from-purple-400 to-pink-500">
+          <span class="text-2xl">⭐</span>
+        </div>
+        <div class="mt-4">
+          <div class="text-3xl font-bold text-gray-800">4.8/5</div>
+          <div class="text-sm text-gray-600 mt-1">Rating</div>
+          <div class="y2k-trend-up mt-2">↑ 0.3</div>
+        </div>
+      </div>
+
+      <!-- 統計卡片 4 -->
+      <div class="y2k-stat-card">
+        <div class="y2k-icon-container bg-gradient-to-br from-orange-400 to-amber-500">
+          <span class="text-2xl">🚀</span>
+        </div>
+        <div class="mt-4">
+          <div class="text-3xl font-bold text-gray-800">156</div>
+          <div class="text-sm text-gray-600 mt-1">Active Projects</div>
+          <div class="y2k-trend-down mt-2">↓ 2.1%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 內容区塊 (双欄布局) -->
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- 最近項目列表 -->
+      <div class="y2k-glass-card">
+        <h3 class="text-xl font-bold text-gray-800 mb-6">Recent Projects</h3>
+        <div class="space-y-4">
+          <!-- 項目 1 -->
+          <div class="y2k-list-item">
+            <div class="flex items-center gap-3">
+              <div class="y2k-project-icon bg-gradient-to-br from-blue-400 to-cyan-400">
+                📱
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-gray-800">Mobile App Redesign</div>
+                <div class="text-sm text-gray-600">UI/UX Design</div>
+              </div>
+              <span class="y2k-chip-success">Active</span>
+            </div>
+            <div class="mt-3">
+              <div class="y2k-progress-bar">
+                <div class="y2k-progress-fill" style="width: 75%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1 text-right">75% Complete</div>
+            </div>
+          </div>
+
+          <!-- 項目 2 -->
+          <div class="y2k-list-item">
+            <div class="flex items-center gap-3">
+              <div class="y2k-project-icon bg-gradient-to-br from-purple-400 to-pink-400">
+                🌐
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-gray-800">Website Relaunch</div>
+                <div class="text-sm text-gray-600">Development</div>
+              </div>
+              <span class="y2k-chip-warning">In Review</span>
+            </div>
+            <div class="mt-3">
+              <div class="y2k-progress-bar">
+                <div class="y2k-progress-fill" style="width: 92%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1 text-right">92% Complete</div>
+            </div>
+          </div>
+
+          <!-- 項目 3 -->
+          <div class="y2k-list-item">
+            <div class="flex items-center gap-3">
+              <div class="y2k-project-icon bg-gradient-to-br from-teal-400 to-emerald-400">
+                ⚙️
+              </div>
+              <div class="flex-1">
+                <div class="font-semibold text-gray-800">API Integration</div>
+                <div class="text-sm text-gray-600">Backend</div>
+              </div>
+              <span class="y2k-chip-info">Planned</span>
+            </div>
+            <div class="mt-3">
+              <div class="y2k-progress-bar">
+                <div class="y2k-progress-fill" style="width: 30%"></div>
+              </div>
+              <div class="text-xs text-gray-600 mt-1 text-right">30% Complete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 团隊活動時間线 -->
+      <div class="y2k-glass-card">
+        <h3 class="text-xl font-bold text-gray-800 mb-6">Team Activity</h3>
+        <div class="space-y-6">
+          <!-- 活動 1 -->
+          <div class="flex gap-4">
+            <div class="y2k-timeline-avatar bg-gradient-to-br from-blue-400 to-cyan-400">
+              J
+            </div>
+            <div class="flex-1">
+              <div class="y2k-activity-card">
+                <div class="font-semibold text-gray-800">John updated design files</div>
+                <div class="text-sm text-gray-600 mt-1">Mobile App Redesign</div>
+                <div class="text-xs text-gray-500 mt-2">2 hours ago</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 活動 2 -->
+          <div class="flex gap-4">
+            <div class="y2k-timeline-avatar bg-gradient-to-br from-purple-400 to-pink-400">
+              S
+            </div>
+            <div class="flex-1">
+              <div class="y2k-activity-card">
+                <div class="font-semibold text-gray-800">Sarah completed review</div>
+                <div class="text-sm text-gray-600 mt-1">Website Relaunch</div>
+                <div class="text-xs text-gray-500 mt-2">5 hours ago</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 活動 3 -->
+          <div class="flex gap-4">
+            <div class="y2k-timeline-avatar bg-gradient-to-br from-teal-400 to-emerald-400">
+              M
+            </div>
+            <div class="flex-1">
+              <div class="y2k-activity-card">
+                <div class="font-semibold text-gray-800">Mike added new feature</div>
+                <div class="text-sm text-gray-600 mt-1">API Integration</div>
+                <div class="text-xs text-gray-500 mt-2">1 day ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 組件展示区 -->
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <div class="y2k-glass-card">
+      <h3 class="text-xl font-bold text-gray-800 mb-6">UI Components Showcase</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 表單組件 -->
+        <div>
+          <h4 class="text-lg font-semibold text-gray-700 mb-4">Form Elements</h4>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Text Input</label>
+              <input type="text" placeholder="Enter your name" class="y2k-text-input" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email Input</label>
+              <input type="email" placeholder="your@email.com" class="y2k-text-input" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Select Dropdown</label>
+              <select class="y2k-select">
+                <option>Choose an option</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 按鈕和芯片 -->
+        <div>
+          <h4 class="text-lg font-semibold text-gray-700 mb-4">Buttons & Chips</h4>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Button Variants</label>
+              <div class="flex gap-3 flex-wrap">
+                <button class="y2k-btn-primary">Primary</button>
+                <button class="y2k-btn-secondary">Secondary</button>
+                <button class="y2k-btn-text">Text</button>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Chips</label>
+              <div class="flex gap-2 flex-wrap">
+                <span class="y2k-chip-success">✓ Success</span>
+                <span class="y2k-chip-warning">⚠ Warning</span>
+                <span class="y2k-chip-error">✕ Error</span>
+                <span class="y2k-chip-info">ℹ Info</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Toggle Switch</label>
+              <label class="y2k-toggle">
+                <input type="checkbox" checked />
+                <span class="y2k-toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据表格 -->
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <div class="y2k-glass-card">
+      <h3 class="text-xl font-bold text-gray-800 mb-6">Recent Transactions</h3>
+      <div class="overflow-x-auto">
+        <table class="y2k-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Project</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="flex items-center gap-3">
+                  <div class="y2k-table-avatar bg-gradient-to-br from-blue-400 to-cyan-400">A</div>
+                  <span class="font-medium">Alice Chen</span>
+                </div>
+              </td>
+              <td>Mobile App</td>
+              <td class="font-semibold">$2,400</td>
+              <td><span class="y2k-chip-success">Completed</span></td>
+              <td class="text-gray-600">2024-01-15</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex items-center gap-3">
+                  <div class="y2k-table-avatar bg-gradient-to-br from-purple-400 to-pink-400">B</div>
+                  <span class="font-medium">Bob Smith</span>
+                </div>
+              </td>
+              <td>Website</td>
+              <td class="font-semibold">$3,200</td>
+              <td><span class="y2k-chip-warning">Pending</span></td>
+              <td class="text-gray-600">2024-01-14</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex items-center gap-3">
+                  <div class="y2k-table-avatar bg-gradient-to-br from-teal-400 to-emerald-400">C</div>
+                  <span class="font-medium">Carol Wang</span>
+                </div>
+              </td>
+              <td>API Integration</td>
+              <td class="font-semibold">$1,800</td>
+              <td><span class="y2k-chip-success">Completed</span></td>
+              <td class="text-gray-600">2024-01-13</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex items-center gap-3">
+                  <div class="y2k-table-avatar bg-gradient-to-br from-orange-400 to-amber-400">D</div>
+                  <span class="font-medium">David Lee</span>
+                </div>
+              </td>
+              <td>Brand Design</td>
+              <td class="font-semibold">$2,950</td>
+              <td><span class="y2k-chip-error">Cancelled</span></td>
+              <td class="text-gray-600">2024-01-12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 浮動操作按鈕 -->
+  <button class="y2k-fab">
+    <span class="text-2xl">+</span>
+  </button>
+
+  <!-- 页腳 -->
+  <footer class="y2k-footer mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-gray-600 text-sm">
+          © 2025 Y2K Dashboard. All rights reserved.
+        </div>
+        <div class="flex gap-4">
+          <a href="javascript:void(0)" class="y2k-social-icon">🌐</a>
+          <a href="javascript:void(0)" class="y2k-social-icon">💬</a>
+          <a href="javascript:void(0)" class="y2k-social-icon">📧</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+## 配色方案
+
+配色方案：霓虹粉紫 (#FF71CE)、霓虹蓝 (#01CDFE)、霓虹紫 (#B967FF)、暗紫背景 (#2E1F47)
+
+
+主色金属蓝色 (#4682B4, #B0E0E6)、粉红色 (#FFB6C1, #FFC0CB)、金属银色 (#C0C0C0)、半透明渐变 (rgba(135,206,235,0.7))、未来感绿色 (#7FFF00)
+
+</body>
+</html>

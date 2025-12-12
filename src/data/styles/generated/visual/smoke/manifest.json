@@ -1,0 +1,25 @@
+{
+  "id": "visual-smoke",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "烟雾效果",
+      "en-US": "Smoke Effect"
+    },
+    "description": {
+      "zh-CN": "径向渐变，极致模糊，缓慢上升",
+      "en-US": "Radial gradients with extreme blur and slow ascent"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "Smoke",
+      "title": {
+        "zh-CN": "烟雾全屏模板",
+        "en-US": "Smoke Full Page"
+      }
+    }
+  ]
+}

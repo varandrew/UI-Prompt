@@ -4,6 +4,7 @@ export default {
     "home": "Home",
     "allStyles": "Styles",
     "allComponents": "Components",
+    "about": "About",
     "core": "Core Styles",
     "visualDesign": "Visual Design",
     "typography": "Typography",
@@ -16,14 +17,29 @@ export default {
     "additional": "Additional",
     "new-trend": "New Trends",
     "navigation": "Navigation",
-    "forms": "Forms",
     "dataDisplay": "data display",
     "feedback": "Feedback",
     "advanced": "Advanced",
     "interactive": "Interactive",
     "inputEnhanced": "Input Enhanced",
     "specialViews": "Special Views",
-    "visualEffects": "Visual Effects"
+    "visualEffects": "Visual Effects",
+
+    // Secondary Categories
+    "nature": "Nature",
+    "translucent": "Translucent",
+    "gradient": "Gradient",
+    "light": "Light",
+    "tech": "Tech",
+    "texture": "Texture",
+    "digital": "Digital",
+    "print": "Print",
+    "luxury": "Luxury",
+    "academic": "Academic",
+    "editorial": "Editorial",
+    "effectDriven": "Effect-driven",
+    "playful": "Playful",
+    "creative": "Creative"
   },
   "header": {
     "appName": "UI Design Prompt",
@@ -48,6 +64,7 @@ export default {
     "clearFilters": "Clear Filters",
     "clear": "Clear",
     "close": "Close",
+    "gotIt": "Got it, thanks!",
     "totalCount": "Total {total} items ({styles} styles + {components} components)",
     "foundResults": "Found {count} matching styles",
     "showingAll": "Showing all {count} styles",
@@ -63,9 +80,7 @@ export default {
     "backToGallery": "Back to Gallery",
     "loadFailed": "Load failed, please try again later.",
     "variantsCount": "{count} variant{plural} available",
-    "new": "NEW",
-    "updated": "Updated",
-    "lastUpdated": "Last Updated"
+    "templatesCount": "{count} template{plural}"
   },
   "toast": {
     "copied": "Copied to clipboard",
@@ -76,8 +91,19 @@ export default {
     "testText": "Test text"
   },
   "pages": {
-    "forms": {
-      "subtitle": "Form input and control components"
+    "about": {
+      "title": "About UI Design Prompt",
+      "subtitle": "Making AI-generated UI unique again",
+      "problemTitle": "The Problem We Found",
+      "problemDesc": "When everyone uses the same prompts to generate UI with AI, the result is homogeneous designs everywhere. No design language, rough details, messy code...",
+      "solutionTitle": "Our Solution",
+      "solutionDesc": "We've curated 70+ battle-tested design styles, each with complete Prompt templates and CSS specifications. Copy, paste, generate — it's that simple.",
+      "philosophyTitle": "Design Philosophy",
+      "philosophyDesc": "Minimal shell, raw demos. We believe great tools let creators focus on creating.",
+      "contactTitle": "Contact Us",
+      "githubRepo": "GitHub Repo",
+      "author": "Author",
+      "website": "Website"
     },
     "layout": {
       "subtitle": "Content organization and arrangement patterns"
@@ -129,15 +155,9 @@ export default {
     "additional": {
       "subtitle": "Extra design styles and interaction patterns"
     },
-    "newTrend": {
-      "subtitle": "2025 design trends and emerging aesthetics"
-    },
     "components": {
       "navigation": {
         "subtitle": "Navigation bars, tabs, pagination and other navigation components"
-      },
-      "forms": {
-        "subtitle": "Basic form input and control components"
       },
       "dataDisplay": {
         "subtitle": "Tables, cards, lists and other data display components"
@@ -244,6 +264,10 @@ export default {
   "preview": {
     "modeLabel": "Preview Mode:",
     "noContent": "No Preview Content",
+    "noTemplateTitle": "No Website Template Available",
+    "noTemplateDescription": "This design style doesn't have a full website template example yet. We're working hard to prepare more high-quality templates for you. Stay tuned!",
+    "noTemplateHint": "You can click the 'AI Prompt' button to view the design guide and generation prompts for this style",
+    "incompleteContent": "This template shows simplified content only. Full version is under development.",
     "main": "Main Display",
     "title": "{title} - Preview",
     "fullTitle": "{title} - Full Preview",
@@ -325,18 +349,6 @@ export default {
   },
   "data": {
     "components": {
-      "forms": {
-        "coming-soon": {
-          "title": "Form Components",
-          "description": "Form components are under development, stay tuned",
-          "variants": {
-            "placeholder": {
-              "name": "Coming Soon",
-              "description": "Form components will be available soon"
-            }
-          }
-        }
-      },
       "input": {
         "autocomplete-search": {
           "description": "Autocomplete search component with intelligent suggestions and keyboard navigation support",
@@ -1378,16 +1390,13 @@ export default {
           "vintageLibrary": "Vintage Library",
           "vintageAudioPanel": "Vintage Audio Panel",
           "techCorpHomepage": "Tech Corp Homepage",
-          "homeOfficeDashboard": "Home Office Dashboard",
           "vintageLibraryLanding": "Vintage Library Landing",
           "leatherTexture": "Leather Texture - Travel Journal",
           "vintageAudioPanelDesc": "Simulates 70-80s high-end audio equipment, showcasing classic skeuomorphic design features. Includes dark leather background texture, brushed metal frame, wood accent strips, glass display screen (VU volume meter), metal knob controllers (volume/bass), glowing LED indicators (red/green/blue), raised physical buttons, toggle switches, and other authentic interaction elements.",
           "leatherTextureDesc": "Simulates traveler's handcrafted leather notebook, combining vintage elements like postage stamp cards, Polaroid photo walls, and handwritten diary pages. Features deep brown leather background texture, stamp serrated edges, travel postmark decorations, brass badges, handwritten font titles, transparent tape effects, binding line details, and other authentic texture elements.",
           "techCompanyDesc": "Simulates metal and glass textures of professional tech equipment, showcasing modern tech company corporate image. Includes glowing LED indicators, metal knob controllers, glass panel effects, spotlight product displays, and other skeuomorphic elements.",
-          "homeOfficeDesc": "Simulates real office environment digital workspace. Combines wood textures, leather materials, sticky notes, flip calendars, filing cabinet drawers, and other office supplies' physical textures to create a warm and friendly home office atmosphere.",
           "vintageAudioPanelColorScheme": "Primary dark brown leather (#2C2420), black brushed metal (#1A1A1A, #4A4A4A), wood accent (#5D4E37, #3D2E17), dark green display (#0A1A0A), terminal green text (#4ADE80), LED red (#FF0000), LED green (#00FF00), LED blue (#00AAFF), metal knobs (#7A7A7A, #6A6A6A), button red (#C41E3A)",
           "techCompanyColorScheme": "Primary dark gray metal (#2A2A2A), metal gradient (#404040, #1A1A1A), accent gold (#D4AF37), LED green (#00FF41), LED blue (#00D9FF), LED orange (#FFA500), glass effect semi-transparent white (rgba(255,255,255,0.1-0.3))",
-          "homeOfficeColorScheme": "Primary wood brown (#8B4513, #A0522D), leather brown (#654321), sticky note yellow (#FFE066), sticky note pink (#FFB3BA), sticky note green (#BAFFC9), sticky note blue (#BAE1FF), LCD green (#00FF41), metal silver (#C0C0C0)",
           "vintageLibraryColorScheme": "Primary parchment (#F5E6D3), dark leather (#5C4033), brass metal (#B87333), deep brown text (#3E2723), burgundy (#8B4513), oak wood (#8B7355), antique white (#FAEBD7), wax seal colors (red/green/blue/gold)",
           "leatherTextureColorScheme": "Primary light brown leather (#8B6F47), dark brown leather (#5D4E37), deep brown edges (#4A3C2F), parchment (#F4E8C1), stamp red (#DC143C), brass gold (#B8860B, #8B6914), deep ink (#2C2416), soft white (#E8D4B0)"
         }
@@ -1584,10 +1593,6 @@ export default {
         "title": "Claymorphism",
         "description": "Claymorphism is a 3D clay texture design style, suitable for creative design, illustration style, and children's products. Through multi-layer inner and outer shadows, soft color gradients, and rounded shapes, it creates realistic clay-like tactile feel and soft texture, delivering warm, friendly, and tangible atmosphere."
       },
-      "claymation": {
-        "title": "Claymation Toy",
-        "description": "Claymation is a stop-motion animation toy style, inspired by classic stop-motion animations (like \"Wallace & Gromit\", \"Chicken Run\"). Using extremely rounded shapes, bright candy color gradients, and character designs (expressions, eyes), it mimics the texture and playfulness of handcrafted clay toys, delivering warm, adorable, and imaginative visual experiences. Perfect for children's education, toy e-commerce, casual games, and products that need to lower barriers to entry."
-      },
       "neumorphismDark": {
         "title": "Neumorphism Dark",
         "description": "Neumorphism Dark is the dark version of neomorphism design, suitable for modern dark theme applications and night mode interfaces. Using soft shadows and highlights on dark backgrounds to create subtle depth, combined with purple accent color, it delivers elegant, modern, and understated atmosphere."
@@ -1637,6 +1642,18 @@ export default {
       "kineticTypography": {
         "title": "Kinetic Typography",
         "description": "Create dynamic text effects using CSS animations, making text itself the visual focus through pulsing, bouncing, and gradient effects to create strong visual impact."
+      },
+      "typographyFirst": {
+        "title": "Typography First",
+        "description": "Typography-first design philosophy that positions text itself as the absolute visual hero. Through ultra-bold weights, text strokes, gradient fills, and interactive effects, showcasing modern typographic aesthetics.",
+        "colorScheme": "Deep black background (#080808) paired with off-white text (#f4f4f0), gradient text (white → mid-gray #666666), low-opacity white borders (border-white/10)",
+        "features": [
+          "Ultra-responsive headings (clamp fluid scaling)",
+          "Text stroke effects",
+          "Gradient text fills",
+          "Scroll animation reveals",
+          "Hover interactions"
+        ]
       },
       "anti-design": {
         "title": "Anti-Design",
@@ -1711,10 +1728,6 @@ export default {
           "componentsDesc": "18+ hand-drawn style UI components showcase including buttons, cards, form elements, timeline, drag-and-drop list, loading animations, badges, alerts, tooltips, accordion, table, and complete interactive components"
         }
       },
-      "translucent": {
-        "title": "Translucent",
-        "description": "Create rich layered visual effects through transparency, background blur, and light penetration"
-      },
       "glassmorphism": {
         "title": "Glassmorphism",
         "description": "Create modern, translucent interfaces with frosted glass effects and background blur, delivering a lightweight floating visual experience",
@@ -1745,17 +1758,9 @@ export default {
         "title": "Aurora Glass",
         "description": "Gradient aurora colors with dynamic lighting and flowing transparency"
       },
-      "translucentLayers": {
-        "title": "Translucent Layers",
-        "description": "Multi-layer transparency stacking with depth-of-field and spatial hierarchy"
-      },
       "gradient": {
         "title": "Gradient Effects",
         "description": "Multiple gradient techniques (linear, radial, conic, mesh) creating rich color transitions"
-      },
-      "meshGradient": {
-        "title": "Mesh Gradient",
-        "description": "Multiple radial gradients overlaid to create complex mesh colors"
       },
       "holographic": {
         "title": "Holographic Gradient",
@@ -1764,14 +1769,6 @@ export default {
       "colorTransition": {
         "title": "Color Transition",
         "description": "Smooth color flow with multi-stop gradients and harmonious transitions"
-      },
-      "animatedGradient": {
-        "title": "Animated Gradient",
-        "description": "Gradient position animation with color cycle changes and dynamic backgrounds"
-      },
-      "threed": {
-        "title": "3D Effects",
-        "description": "Create three-dimensional spatial effects using CSS 3D transforms, perspective, and shadows"
       },
       "isometric": {
         "title": "Isometric",
@@ -1793,10 +1790,6 @@ export default {
         "title": "3D Cube",
         "description": "Six-sided cube with perspective rotation and complete 3D structure"
       },
-      "shape": {
-        "title": "Shape Design",
-        "description": "Create organic shapes, geometric figures, and dynamic morphing effects using CSS and SVG"
-      },
       "geometric": {
         "title": "Geometric Shapes",
         "description": "Regular polygons with symmetrical layouts and mathematical beauty"
@@ -1812,10 +1805,6 @@ export default {
       "polygon": {
         "title": "Polygon",
         "description": "Clip-path clipping for triangles, hexagons, and geometric tiling"
-      },
-      "texture": {
-        "title": "Texture Effects",
-        "description": "Create various material textures using CSS gradients, filters, and patterns"
       },
       "clayTexture": {
         "title": "Clay Texture",
@@ -1835,7 +1824,11 @@ export default {
       },
       "leather": {
         "title": "Leather Texture",
-        "description": "Leather texture with embossed effects and premium material"
+        "description": "Leather texture with embossed effects and premium material",
+        "vintageJournal": {
+          "title": "Vintage Travel Journal",
+          "description": "Simulates traveler's handmade leather notebook with vintage elements like stamp-style cards, Polaroid photo walls, and handwritten diary pages"
+        }
       },
       "light": {
         "title": "Light Effects",
@@ -1852,10 +1845,6 @@ export default {
       "glow": {
         "title": "Glow Effect",
         "description": "Box-shadow glow with pulse animation and breathing light"
-      },
-      "backlight": {
-        "title": "Backlight Effect",
-        "description": "Rotating gradient border with ::before pseudo-element backlight decoration"
       },
       "spotlight": {
         "title": "Spotlight",
@@ -1978,7 +1967,7 @@ export default {
       },
       "retroOS": {
         "title": "Retro OS",
-        "description": "Windows 95/98 OS, CRT monitors + desktop UI + pixel icons",
+        "description": "Classic Windows 95/98-era graphical user interface design that perfectly recreates the visual language of personal computing's golden age. Featuring iconic 16-color pixel icons, 3D embossed button effects, gray system windows, and the legendary Start menu design. This style centers on skeuomorphic desktop metaphors, creating an intuitive and tactile interactive experience through draggable windows, taskbars, system trays, and folder hierarchies. Visual elements include CRT monitor's thick bezel aesthetics, MS Sans Serif typography, colorful scrollbars, and Windows classic theme color schemes, fully preserving the retro texture of 1990s computer interfaces. Ideal for nostalgic themed applications, retro game emulators, desktop utilities, and educational historical presentations, evoking warm memories of the pre-millennium personal computer revolution era.",
         "retroOS95": {
           "title": "Windows 95",
           "description": "Windows 95/98 style interface, classic desktop OS"
@@ -1986,7 +1975,7 @@ export default {
       },
       "retroFuturism": {
         "title": "Retro Futurism",
-        "description": "1980s DOS terminal, phosphor text + ASCII art + scan line effects",
+        "description": "1980s retro-futuristic digital aesthetic inspired by early computer terminals and sci-fi cinema's vision of the future. Featuring iconic phosphor green or amber monochrome text, vintage CRT scanline effects, ASCII art graphics, and monospace typography that creates an atmospheric hacker culture ambiance. This style recreates the visual characteristics of the DOS era, early Unix systems, and mainframe terminals through pixelated icons, command-line interface elements, and digital grid backgrounds, expressing humanity's awe and exploration spirit toward early computing technology. Perfectly suited for technology themes, programming tools, cybersecurity platforms, and nostalgic gaming interfaces, beautifully interpreting the origins of cyberpunk culture and the raw texture of the early digital revolution.",
         "retroFuture": {
           "title": "DOS Terminal",
           "description": "1980s DOS terminal style, hacker aesthetics"
@@ -2015,7 +2004,7 @@ export default {
       },
       "frutigerAero": {
         "title": "Frutiger Aero",
-        "description": "Y2K futurism with glass texture + crystal bubbles + sky blue gradients",
+        "description": "Iconic mid-2000s design aesthetic exemplified by Windows Vista and Mac OS X, featuring multi-layered translucent glass textures, floating crystal bubbles, and sky-blue gradient color palettes. This style merges Y2K-era technological optimism with organic natural beauty through semi-transparent materials, soft shadows, glossy highlights, and flowing natural elements such as water droplets, clouds, and grass fields. Creating a modern yet approachable visual experience, it perfectly suits technology products, operating system interfaces, and contemporary applications emphasizing transparency and depth perception, beautifully expressing the 2000s vision of a promising digital future.",
         "frutigerAeroOS": {
           "title": "Aero OS",
           "description": "Windows Vista/7 style glassmorphism interface"
@@ -2125,8 +2114,8 @@ export default {
         "description": "Interactive particle tracking and 3D parallax effects showcase"
       },
       "mouseTracking": {
-        "title": "Mouse Tracking Interaction",
-        "description": "Futuristic interactive design combining Canvas particle system with 3D parallax cards"
+        "title": "Mouse Tracking",
+        "description": "Focused mouse-tracking effect that highlights responsive cursor-follow behavior"
       }
     },
     "accessibilityHighContrast": {
@@ -2164,33 +2153,6 @@ export default {
       "preview": {
         "outlineBusiness": "Business Website",
         "outlineElearning": "E-learning Platform"
-      }
-    },
-    "newTrend": {
-      "maximalism": {
-        "title": "Maximalism",
-        "description": "Contemporary popular, bold and daring, colorful and vibrant, experimental design style",
-        "colorScheme": "Gold (#FFD700), neon pink (#FF69B4), purple (#9370DB), black background (#000000)"
-      },
-      "scandi": {
-        "title": "Scandinavian Style",
-        "description": "Contemporary popular, minimalist, clean, organic flow design inspired by Nordic aesthetics",
-        "colorScheme": "Off-white (#F5F5F0), light gray (#E5E5E0), dark gray text (#2C2C2C), plant green (#A8B5A0)"
-      },
-      "memphis": {
-        "title": "Memphis Design",
-        "description": "Retro nostalgic, bold and daring, geometric and structured, colorful and vibrant 1980s design movement",
-        "colorScheme": "Bright yellow (#FFD700), cyan (#00CED1), pink (#FF69B4), black (#000000)"
-      },
-      "claymation": {
-        "title": "Claymation Style",
-        "description": "Contemporary popular, organic flow, colorful and vibrant, creative showcase with playful clay animation aesthetics",
-        "colorScheme": "Pink gradient (#FF69B4), blue gradient (#5B9EF5), yellow button (#FFC107), white (#FFFFFF)"
-      },
-      "corporate": {
-        "title": "Corporate Style",
-        "description": "Professional corporate design, clean and structured, suitable for enterprise applications and business platforms",
-        "colorScheme": "Primary blue (#2563EB), gray background (#F9FAFB), white (#FFFFFF), neutral gray (#6B7280)"
       }
     },
     "additionalColorSchemes": {
@@ -2367,12 +2329,6 @@ export default {
       "uk": "UK",
       "message": "Message",
       "messagePlaceholder": "Please enter your message..."
-    },
-    "forms": {
-      "comingSoon": {
-        "title": "Form Components Coming Soon",
-        "description": "We are working hard to develop more beautiful form components, stay tuned!"
-      }
     },
     "interactive": {
       "hoverEffectsTitle": "Hover Effects Showcase",
@@ -3272,9 +3228,6 @@ export default {
       "minimal": {
         "label": "Minimal"
       },
-      "translucent": {
-        "label": "Translucent"
-      },
       "colorful": {
         "label": "Colorful"
       },
@@ -3520,7 +3473,10 @@ export default {
       "accessibilityDesc": "All components follow WCAG standards, supports keyboard navigation and screen readers",
       "responsive": "Responsive Design",
       "responsiveDesc": "Mobile-first design, perfectly adapted to mobile, tablet, and desktop devices",
-      "note": "Click cards to explore more feature details"
+      "note": "Click cards to explore more feature details",
+      "clickToExplore": "Click to explore more feature details",
+      "techSpecs": "Technical Specs",
+      "techSpecsDesc": "This component is fully responsive and adheres to the latest WCAG standards. Designed to be drop-in ready."
     },
     "howItWorks": {
       "title": "How It Works",
@@ -3539,15 +3495,23 @@ export default {
       "title": "Core Benefits",
       "subtitle": "Compared to traditional AI generation, we provide a more professional solution",
       "beforeTitle": "AI Generation Problems",
-      "problem1": "Visual homogenization - Generated UI looks the same, lacks uniqueness",
-      "problem2": "Lack of design language - No unified design system and specifications",
-      "problem3": "Not refined enough - Rough details, lacks professionalism",
-      "problem4": "Poor maintainability - Messy code structure, difficult to modify and extend",
+      "problem1Title": "Visual homogenization",
+      "problem1": "Generated UI looks the same, lacks uniqueness",
+      "problem2Title": "Lack of design language",
+      "problem2": "No unified design system and specifications",
+      "problem3Title": "Not refined enough",
+      "problem3": "Rough details, lacks professionalism",
+      "problem4Title": "Poor maintainability",
+      "problem4": "Messy code structure, difficult to modify and extend",
       "afterTitle": "Our Solutions",
-      "solution1": "40+ unique styles - From classic to modern, each style has a clear design language",
-      "solution2": "Complete design system - Provides structured Prompt templates and design specifications",
-      "solution3": "Battle-tested templates - Each template has been verified in real projects",
-      "solution4": "Structured Prompt - Generated code follows best practices, easy to maintain",
+      "solution1Title": "40+ unique styles",
+      "solution1": "From classic to modern, each style has a clear design language",
+      "solution2Title": "Complete design system",
+      "solution2": "Provides structured Prompt templates and design specifications",
+      "solution3Title": "Battle-tested templates",
+      "solution3": "Each template has been verified in real projects",
+      "solution4Title": "Structured Prompt",
+      "solution4": "Generated code follows best practices, easy to maintain",
       "cta": "Start Exploring Styles",
       "note": "Experience professional UI design tools now"
     }

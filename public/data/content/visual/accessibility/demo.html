@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility High Contrast Theme Demo</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <!-- Main Square Container -->
+    <div id="demo-container">
+        
+        <!-- Header -->
+        <header role="banner">
+            <div>
+                <div class="hc-text-xl">SYSTEM STATUS</div>
+                <div class="hc-text-large" style="margin-top:0.5rem;">Enterprise Dashboard</div>
+            </div>
+            <div style="text-align: right;">
+                <button id="theme-toggle" class="action-btn" aria-label="Toggle High Contrast Theme" style="padding: 0.5rem 1rem;">
+                    Toggle Theme
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="dashboard-grid">
+            
+            <!-- Sidebar Navigation -->
+            <aside role="navigation" aria-label="Main Navigation">
+                <nav>
+                    <ul>
+                        <li><button class="nav-btn active" aria-current="page">Overview</button></li>
+                        <li><button class="nav-btn">Reports</button></li>
+                        <li><button class="nav-btn">Settings</button></li>
+                        <li><button class="nav-btn">Access Logs</button></li>
+                    </ul>
+                </nav>
+
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="hc-text-large" style="margin-bottom: 1rem;">USER:</div>
+                    <div>Admin_01</div>
+                    <div style="margin-top:0.5rem;">Role: Editor</div>
+                </div>
+            </aside>
+
+            <!-- Content Area -->
+            <main role="main">
+                
+                <!-- Metric Cards Row -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Uptime</h3>
+                            <span class="status-badge status-ok">NORMAL</span>
+                        </div>
+                        <div class="hc-text-xl">99.9%</div>
+                        <div style="margin-top:0.5rem; text-decoration: underline;">View Logs</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Alerts</h3>
+                            <span class="status-badge" style="background:var(--hc-text); color:var(--hc-bg)">URGENT</span>
+                        </div>
+                        <div class="hc-text-xl">03</div>
+                        <div style="margin-top:0.5rem; text-decoration: underline;">Resolve Now</div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Weekly Traffic (Visits)</h3>
+                    </div>
+                    <div class="chart-container" role="img" aria-label="Bar chart showing weekly traffic">
+                        <div class="bar" style="height: 40%;" aria-label="Monday: 40%"></div>
+                        <div class="bar pattern-1" style="height: 70%;" aria-label="Tuesday: 70%"></div>
+                        <div class="bar" style="height: 55%;" aria-label="Wednesday: 55%"></div>
+                        <div class="bar pattern-1" style="height: 90%;" aria-label="Thursday: 90%"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-weight: bold;">
+                        <span>MON</span>
+                        <span>TUE</span>
+                        <span>WED</span>
+                        <span>THU</span>
+                    </div>
+                </div>
+
+                <!-- Input Section -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Quick Command</h3>
+                    </div>
+                    <form onsubmit="event.preventDefault(); alert('Command Executed');">
+                        <div class="form-group">
+                            <label for="cmd-input">Enter System Code:</label>
+                            <input type="text" id="cmd-input" placeholder="Ex: SYS-REBOOT-01">
+                        </div>
+                        <button type="submit" class="action-btn">EXECUTE COMMAND</button>
+                    </form>
+                </div>
+
+            </main>
+        </div>
+
+        <!-- The Style Label as requested -->
+        <div class="style-label">
+            STYLE: ACCESSIBILITY HIGH CONTRAST
+        </div>
+
+    </div>
+
+    <script>
+        // Simple Theme Toggler to demonstrate the High Contrast capabilities
+        const toggleBtn = document.getElementById('theme-toggle');
+        const container = document.getElementById('demo-container');
+        let isDark = false;
+
+        toggleBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            if (isDark) {
+                container.setAttribute('data-theme', 'dark-hc');
+                toggleBtn.innerText = "Switch to Light";
+            } else {
+                container.removeAttribute('data-theme');
+                toggleBtn.innerText = "Switch to Dark";
+            }
+        });
+
+        // Add visual indicator when clicking navigation to simulate "active" state change
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                navBtns.forEach(b => b.classList.remove('active'));
+                navBtns.forEach(b => b.removeAttribute('aria-current'));
+                e.target.classList.add('active');
+                e.target.setAttribute('aria-current', 'page');
+            });
+        });
+    </script>
+
+</body>
+</html>

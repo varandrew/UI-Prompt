@@ -1,0 +1,32 @@
+{
+  "id": "visual-glassmorphism",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Glassmorphism（玻璃态）",
+      "en-US": "Glassmorphism"
+    },
+    "description": {
+      "zh-CN": "使用毛玻璃效果和背景模糊创造现代、通透的界面设计，带来轻盈悬浮的视觉体验",
+      "en-US": "Create modern, translucent interfaces with frosted glass effects and background blur, delivering a lightweight floating visual experience"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-glassmorphism-glassmorphism-landing",
+      "title": {
+        "zh-CN": "企业网站",
+        "en-US": "Landing Page"
+      }
+    },
+    {
+      "id": "visual-glassmorphism-glassmorphism-music",
+      "title": {
+        "zh-CN": "音乐播放器",
+        "en-US": "Music Player"
+      }
+    }
+  ]
+}

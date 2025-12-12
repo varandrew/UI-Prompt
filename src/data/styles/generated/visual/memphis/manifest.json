@@ -1,0 +1,25 @@
+{
+  "id": "visual-memphis",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "孟菲斯风格",
+      "en-US": "Memphis"
+    },
+    "description": {
+      "zh-CN": "孟菲斯设计风格，具有大胆图案、几何形状和鲜艳色彩。",
+      "en-US": "Memphis design style with bold patterns, geometric shapes, and vibrant colors."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-memphis-memphis-creative",
+      "title": {
+        "zh-CN": "孟菲斯创意页面",
+        "en-US": "Memphis Creative Page"
+      }
+    }
+  ]
+}

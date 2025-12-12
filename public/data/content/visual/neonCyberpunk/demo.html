@@ -1,0 +1,58 @@
+<div class="w-full h-full flex items-center justify-center p-4" style="background: #0a0a0a; position: relative; overflow: hidden;">
+      <!-- 背景数据流 -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.15; pointer-events: none; font-family: 'Courier New', monospace; font-size: 10px; color: #00ff41; line-height: 1.2; overflow: hidden;">
+        <div style="position: absolute; top: -20%; left: 5%; animation: cyber-mini-flow 8s linear infinite;">01010101<br>11001100<br>00110011</div>
+        <div style="position: absolute; top: -20%; left: 25%; animation: cyber-mini-flow 10s linear infinite; animation-delay: 1s;">10101010<br>01100110<br>11001100</div>
+        <div style="position: absolute; top: -20%; left: 45%; animation: cyber-mini-flow 9s linear infinite; animation-delay: 2s;">11110000<br>00001111<br>10011001</div>
+        <div style="position: absolute; top: -20%; left: 65%; animation: cyber-mini-flow 11s linear infinite; animation-delay: 0.5s;">01011010<br>10100101<br>01010101</div>
+        <div style="position: absolute; top: -20%; left: 85%; animation: cyber-mini-flow 7s linear infinite; animation-delay: 1.5s;">11001010<br>00110101<br>11100011</div>
+      </div>
+
+      <!-- 主控制面板 -->
+      <div style="position: relative; z-index: 2; width: 95%; max-width: 280px;">
+        <!-- 終端窗口 -->
+        <div style="background: rgba(0, 0, 0, 0.9); border: 1px solid #00ff41; box-shadow: 0 0 20px rgba(0, 255, 65, 0.3), inset 0 0 20px rgba(0, 255, 65, 0.05);">
+          <!-- 終端頭部 -->
+          <div style="background: rgba(0, 255, 65, 0.1); border-bottom: 1px solid #00ff41; padding: 0.5rem; display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; gap: 0.3rem;">
+              <span style="width: 8px; height: 8px; background: #00ff41; border-radius: 50%; box-shadow: 0 0 5px #00ff41;"></span>
+              <span style="width: 8px; height: 8px; background: #00ffff; border-radius: 50%; box-shadow: 0 0 5px #00ffff;"></span>
+              <span style="width: 8px; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 50%;"></span>
+            </div>
+            <span style="font-family: 'Courier New', monospace; font-size: 9px; color: #00ff41; font-weight: 700;">MATRIX_TERMINAL</span>
+          </div>
+
+          <!-- 終端內容 -->
+          <div style="padding: 0.75rem; font-family: 'Courier New', monospace; font-size: 11px; color: #00ff41; min-height: 120px;">
+            <div style="margin-bottom: 0.3rem;">[SYSTEM] <span style="color: #00ffff;">Initializing...</span></div>
+            <div style="margin-bottom: 0.3rem;">[ACCESS] <span style="color: #00ff41;">GRANTED</span></div>
+            <div style="margin-bottom: 0.3rem;">[CPU] <span style="color: #00ffff;">78% Active</span></div>
+            <div style="margin-bottom: 0.3rem;">[NET] <span style="color: #00ff41;">Connected</span></div>
+            <div style="margin-bottom: 0.3rem;">[SEC] <span style="color: #00ffff;">No Threats</span></div>
+            <div style="margin-top: 0.5rem; display: flex; align-items: center;">
+              <span style="color: #00ff41;">root@cyber:~# </span>
+              <span class="cyber-mini-cursor" style="display: inline-block; width: 6px; height: 12px; background: #00ff41; margin-left: 3px; box-shadow: 0 0 8px #00ff41;"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 狀態指示器 -->
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; justify-content: center;">
+          <div style="flex: 1; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41; padding: 0.4rem; text-align: center;">
+            <div style="font-family: 'Courier New', monospace; font-size: 16px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41;">78</div>
+            <div style="font-family: 'Courier New', monospace; font-size: 8px; color: #00ffff; margin-top: 0.2rem;">CPU%</div>
+          </div>
+          <div style="flex: 1; background: rgba(0, 255, 255, 0.1); border: 1px solid #00ffff; padding: 0.4rem; text-align: center;">
+            <div style="font-family: 'Courier New', monospace; font-size: 16px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff;">92</div>
+            <div style="font-family: 'Courier New', monospace; font-size: 8px; color: #00ff41; margin-top: 0.2rem;">GPU%</div>
+          </div>
+          <div style="flex: 1; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41; padding: 0.4rem; text-align: center;">
+            <div style="font-family: 'Courier New', monospace; font-size: 16px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41;">OK</div>
+            <div style="font-family: 'Courier New', monospace; font-size: 8px; color: #00ffff; margin-top: 0.2rem;">SEC</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 掃描线效果 -->
+      <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(transparent 50%, rgba(0, 255, 65, 0.03) 50%); background-size: 100% 4px; animation: cyber-mini-scan 6s linear infinite;"></div>
+    </div>

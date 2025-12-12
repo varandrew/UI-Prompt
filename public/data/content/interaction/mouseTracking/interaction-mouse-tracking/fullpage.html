@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>interaction-mouse-tracking - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+  .int-tracking-card-container {
+    perspective: 1000px;
+    --int-rotate-x: 0deg;
+    --int-rotate-y: 0deg;
+  }
+
+  .int-tracking-card {
+    position: relative;
+    width: 450px;
+    max-width: 90vw;
+    padding: 3rem;
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 1.5rem;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--int-rotate-x)) rotateY(var(--int-rotate-y));
+    transition: transform 0.1s ease-out;
+    backdrop-filter: blur(10px);
+  }
+
+  .int-card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(147, 51, 234, 0.5));
+    border-radius: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    filter: blur(15px);
+  }
+
+  .int-tracking-card:hover .int-card-glow {
+    opacity: 1;
+  }
+
+  .int-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .int-tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: #60a5fa;
+  }
+
+  .int-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #60a5fa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+    animation: int-pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes int-pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .int-card-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+  }
+
+  .int-card-description {
+    color: #9ca3af;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .int-tech-stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 0.75rem;
+  }
+
+  .int-stat-item {
+    text-align: center;
+  }
+
+  .int-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #60a5fa;
+    font-family: 'Courier New', monospace;
+  }
+
+  .int-stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+  }
+
+  .int-stat-divider {
+    width: 1px;
+    height: 2.5rem;
+    background: rgba(59, 130, 246, 0.2);
+  }
+
+  .int-cyber-button {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid #60a5fa;
+    border-radius: 0.5rem;
+    color: #60a5fa;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .int-button-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .int-button-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .int-cyber-button:hover {
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+
+  .int-cyber-button:hover .int-button-glow {
+    opacity: 1;
+  }
+
+  #particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .int-tracking-card {
+      transform: none !important;
+      padding: 2rem;
+    }
+
+    .int-card-title {
+      font-size: 2rem;
+    }
+
+    .int-stat-value {
+      font-size: 1.5rem;
+    }
+
+    #particleCanvas {
+      display: none;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+  <div class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-8 md-full-page" id="mouseTrackingContainer">
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none" style="z-index: 1;"></canvas>
+
+    <div class="relative z-10">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6" style="background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Mouse Tracking Effects
+        </h1>
+        <p class="text-gray-400 text-base md:text-lg">Move your mouse to experience 3D parallax and glowing particle trails</p>
+      </div>
+
+      <div class="int-tracking-card-container" id="trackingCard">
+        <div class="int-tracking-card">
+          <div class="int-card-glow"></div>
+          <div class="int-card-inner">
+            <div class="int-tech-badge">
+              <span class="int-badge-dot"></span>
+              <span>Interactive</span>
+            </div>
+
+            <h2 class="int-card-title">Future Tech</h2>
+            <p class="int-card-description">Experience immersive 3D parallax interaction</p>
+
+            <div class="int-tech-stats">
+              <div class="int-stat-item">
+                <div class="int-stat-value" id="mouseX">0</div>
+                <div class="int-stat-label">X Axis</div>
+              </div>
+              <div class="int-stat-divider"></div>
+              <div class="int-stat-item">
+                <div class="int-stat-value" id="mouseY">0</div>
+                <div class="int-stat-label">Y Axis</div>
+              </div>
+            </div>
+
+            <a href="javascript:void(0)" class="int-cyber-button">
+              <span class="int-button-glow"></span>
+              <span class="int-button-text">Explore More</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 3D Parallax Tracking Effect
+      const card = document.getElementById('trackingCard');
+      const mouseXDisplay = document.getElementById('mouseX');
+      const mouseYDisplay = document.getElementById('mouseY');
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -15;
+        const rotateY = ((x - centerX) / centerX) * 15;
+
+        card.style.setProperty('--int-rotate-x', rotateX + 'deg');
+        card.style.setProperty('--int-rotate-y', rotateY + 'deg');
+
+        mouseXDisplay.textContent = Math.round(x);
+        mouseYDisplay.textContent = Math.round(y);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--int-rotate-x', '0deg');
+        card.style.setProperty('--int-rotate-y', '0deg');
+      });
+
+      // Cursor Particle Tracking Effect
+      const canvas = document.getElementById('particleCanvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const maxParticles = 60;
+
+      class Particle {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.size = Math.random() * 5 + 2;
+          this.speedX = (Math.random() - 0.5) * 1;
+          this.speedY = (Math.random() - 0.5) * 1;
+          this.opacity = 1;
+          this.hue = Math.random() * 60 + 180; // Blue to Purple range
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          this.opacity -= 0.015;
+          this.size *= 0.97;
+        }
+
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.opacity;
+
+          // Outer glow
+          const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3);
+          gradient.addColorStop(0, `hsla(${this.hue}, 100%, 70%, ${this.opacity})`);
+          gradient.addColorStop(0.5, `hsla(${this.hue}, 100%, 60%, ${this.opacity * 0.3})`);
+          gradient.addColorStop(1, 'transparent');
+
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Inner core
+          ctx.fillStyle = `hsla(${this.hue}, 100%, 80%, ${this.opacity})`;
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = `hsla(${this.hue}, 100%, 70%, 0.8)`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        }
+      }
+
+      document.addEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // Generate 2-3 particles per mousemove
+        for (let i = 0; i < 3; i++) {
+          particles.push(new Particle(
+            x + (Math.random() - 0.5) * 10,
+            y + (Math.random() - 0.5) * 10
+          ));
+        }
+
+        while (particles.length > maxParticles) {
+          particles.shift();
+        }
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+          particles[i].update();
+          particles[i].draw();
+
+          if (particles[i].opacity <= 0 || particles[i].size <= 0.3) {
+            particles.splice(i, 1);
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "id": "visual-neonCyberpunk",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Neon Cyberpunk 霓虹赛博朋克",
+      "en-US": "Neon Cyberpunk"
+    },
+    "description": {
+      "zh-CN": "霓虹赛博朋克美学，鲜明霓虹色与深色背景、未来科技质感。",
+      "en-US": "Neon cyberpunk design with vibrant neon colors, dark backgrounds, and futuristic tech aesthetics."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-neon-cyberpunk",
+      "title": {
+        "zh-CN": "Neon Cyberpunk 霓虹赛博朋克",
+        "en-US": "Neon Cyberpunk"
+      }
+    }
+  ]
+}

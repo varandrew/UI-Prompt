@@ -1,0 +1,33 @@
+{
+  "id": "code-editor",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.code-editor.title",
+      "en-US": "data.components.advanced.code-editor.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.code-editor.description",
+      "en-US": "data.components.advanced.code-editor.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.advanced.code-editor.title",
+        "en-US": "data.components.advanced.code-editor.title"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.code-editor.description",
+        "en-US": "data.components.advanced.code-editor.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+<!-- HUD Dashboard -->
+<div class="hud-dashboard">
+  <!-- Particle Canvas Background -->
+  <canvas id="particleCanvas" class="hud-particle-canvas"></canvas>
+
+  <!-- Top Status Bar -->
+  <div class="hud-status-bar">
+    <div class="hud-status-left">
+      <div class="hud-logo">
+        <div class="hud-logo-icon">HUD</div>
+        <span class="hud-logo-text">NEXUS SYSTEM</span>
+      </div>
+      <div class="hud-status-time" id="hudTime">00:00:00</div>
+    </div>
+    <div class="hud-status-right">
+      <div class="hud-status-indicator hud-status-online"></div>
+      <span class="hud-status-label">ONLINE</span>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="hud-main-grid">
+    <!-- Left Panel: System Status -->
+    <div class="hud-panel hud-panel-left">
+      <div class="hud-panel-header">
+        <h3 class="hud-panel-title">SYSTEM STATUS</h3>
+        <div class="hud-panel-indicator"></div>
+      </div>
+      <div class="hud-panel-content">
+        <div class="hud-metric">
+          <div class="hud-metric-header">
+            <span class="hud-metric-label">POWER CORE</span>
+            <span class="hud-metric-value">92%</span>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-fill hud-bar-blue" style="width: 92%"></div>
+          </div>
+        </div>
+
+        <div class="hud-metric">
+          <div class="hud-metric-header">
+            <span class="hud-metric-label">SHIELD</span>
+            <span class="hud-metric-value">78%</span>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-fill hud-bar-cyan" style="width: 78%"></div>
+          </div>
+        </div>
+
+        <div class="hud-metric">
+          <div class="hud-metric-header">
+            <span class="hud-metric-label">SYSTEMS</span>
+            <span class="hud-metric-value">100%</span>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-fill hud-bar-green" style="width: 100%"></div>
+          </div>
+        </div>
+
+        <div class="hud-metric">
+          <div class="hud-metric-header">
+            <span class="hud-metric-label">THERMAL</span>
+            <span class="hud-metric-value">45%</span>
+          </div>
+          <div class="hud-bar">
+            <div class="hud-bar-fill hud-bar-yellow" style="width: 45%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Radar Scanner -->
+    <div class="hud-panel hud-panel-center">
+      <div class="hud-radar-container">
+        <svg class="hud-radar-svg" viewBox="0 0 400 400">
+          <!-- Grid Lines -->
+          <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(14, 165, 233, 0.2)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(14, 165, 233, 0.2)" stroke-width="1"/>
+          <circle cx="200" cy="200" r="60" fill="none" stroke="rgba(14, 165, 233, 0.2)" stroke-width="1"/>
+          <line x1="200" y1="20" x2="200" y2="380" stroke="rgba(14, 165, 233, 0.2)" stroke-width="1"/>
+          <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(14, 165, 233, 0.2)" stroke-width="1"/>
+
+          <!-- Sweep -->
+          <defs>
+            <linearGradient id="radarGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:rgba(14, 165, 233, 0);stop-opacity:0" />
+              <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:0.6" />
+            </linearGradient>
+          </defs>
+          <path d="M 200 200 L 200 20 A 180 180 0 0 1 380 200 Z" fill="url(#radarGradient)" class="hud-radar-sweep"/>
+
+          <!-- Target Blips -->
+          <circle cx="250" cy="150" r="4" fill="#0EA5E9" class="hud-blip"/>
+          <circle cx="180" cy="280" r="4" fill="#0EA5E9" class="hud-blip"/>
+          <circle cx="320" cy="240" r="4" fill="#0EA5E9" class="hud-blip"/>
+        </svg>
+        <div class="hud-radar-center">
+          <div class="hud-radar-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Data Stream -->
+    <div class="hud-panel hud-panel-right">
+      <div class="hud-panel-header">
+        <h3 class="hud-panel-title">DATA STREAM</h3>
+        <div class="hud-panel-indicator"></div>
+      </div>
+      <div class="hud-panel-content hud-data-stream">
+        <div class="hud-data-line">
+          <span class="hud-data-timestamp">12:34:56</span>
+          <span class="hud-data-text">System initialized</span>
+        </div>
+        <div class="hud-data-line">
+          <span class="hud-data-timestamp">12:34:57</span>
+          <span class="hud-data-text">Connecting to network...</span>
+        </div>
+        <div class="hud-data-line hud-data-success">
+          <span class="hud-data-timestamp">12:34:58</span>
+          <span class="hud-data-text">Connection established</span>
+        </div>
+        <div class="hud-data-line">
+          <span class="hud-data-timestamp">12:34:59</span>
+          <span class="hud-data-text">Scanning for targets...</span>
+        </div>
+        <div class="hud-data-line hud-data-warning">
+          <span class="hud-data-timestamp">12:35:00</span>
+          <span class="hud-data-text">3 objects detected</span>
+        </div>
+        <div class="hud-data-line">
+          <span class="hud-data-timestamp">12:35:01</span>
+          <span class="hud-data-text">Analyzing signatures...</span>
+        </div>
+        <div class="hud-data-line hud-data-success">
+          <span class="hud-data-timestamp">12:35:02</span>
+          <span class="hud-data-text">All systems nominal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Control Bar -->
+  <div class="hud-control-bar">
+    <button class="hud-control-btn hud-btn-active">
+      <span class="hud-btn-icon">◆</span>
+      <span class="hud-btn-label">SCAN</span>
+    </button>
+    <button class="hud-control-btn">
+      <span class="hud-btn-icon">▲</span>
+      <span class="hud-btn-label">NAV</span>
+    </button>
+    <button class="hud-control-btn">
+      <span class="hud-btn-icon">●</span>
+      <span class="hud-btn-label">TARGET</span>
+    </button>
+    <button class="hud-control-btn">
+      <span class="hud-btn-icon">■</span>
+      <span class="hud-btn-label">COMM</span>
+    </button>
+  </div>
+</div>

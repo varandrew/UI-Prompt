@@ -16,10 +16,14 @@ const ensureString = (v) => {
  * @returns {string} 預覽页面 URL
  */
 export const getStylePreviewUrl = (styleId) => {
+  // ⭐ DEBUG: 驗證輸入的 styleId
+  console.log(`[getStylePreviewUrl] Input: "${styleId}" (${styleId?.length} chars)`);
+
   if (!styleId) return '/styles';
 
   // 確保 styleId 是 URL-safe 的
   const safeStyleId = encodeURIComponent(styleId);
+  console.log(`[getStylePreviewUrl] Encoded: "${safeStyleId}"`);
   return `/styles/preview/${safeStyleId}`;
 };
 

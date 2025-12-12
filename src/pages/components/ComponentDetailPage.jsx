@@ -1,71 +1,99 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useMemo, useState, useEffect } from 'react';
+import { useParams, useNavigate, useLoaderData } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
-import { applyTranslationsToCategories } from '../../utils/categoryHelper';
 import { VariantGrid } from '../../components/ui/VariantGrid';
 import { CodeModal } from '../../components/ui/CodeModal';
 import { PromptDrawer } from '../../components/prompt/PromptDrawer';
 import { PreviewModal } from '../../components/preview/PreviewModal';
-import { loadComponentCategories } from '../../data/components/loaders';
 import DOMPurify from 'dompurify';
-import { stripTailwindCdn } from '../../utils/previewCss';
 import { promptGenerator } from '../../utils/prompt/PromptGeneratorFacade';
 
 /**
  * ComponentDetailPage - 組件詳情页 (支持多變体瀑布流佈局)
  * 路由: /components/:category/:componentId
- * 支持: 點擊預覽 + Prompt 功能
+ * 支持: Route Loader 預加載 + 點擊預覽 + Prompt 功能
+ *
+ * @architecture
+ * - 使用 Route Loader 在路由層預加載數據，避免加載閃爍
+ * - 從 JSON 加載組件數據，與 Style 頁面架構對齊
  */
 export function ComponentDetailPage() {
   const { category, componentId } = useParams();
   const navigate = useNavigate();
   const { t, language } = useLanguage();
-  const [categories, setCategories] = useState([])
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+
+  // 從 Route Loader 獲取預加載的組件數據
+  const loaderData = useLoaderData();
+  const componentFromLoader = loaderData?.component;
+
+  // UI 狀態
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [showCodeModal, setShowCodeModal] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
 
+  // 路由參數變更時重置 UI 狀態（避免舊數據殘留）
   useEffect(() => {
-    let active = true;
-    setIsLoading(true);
-    setIsError(false);
-    loadComponentCategories()
-      .then((cats) => {
-        if (!active) return;
-        setCategories(cats);
-      })
-      .catch(() => {
-        if (!active) return;
-        setIsError(true);
-      })
-      .finally(() => {
-        if (!active) return;
-        setIsLoading(false);
-      });
-    return () => { active = false };
-  }, [])
+    setSelectedVariant(null);
+    setShowCodeModal(false);
+    setShowPrompt(false);
+    setShowPreview(false);
+  }, [category, componentId]);
 
-  // 查找當前組件数据
+  // 解析組件數據，處理 i18n 鍵
   const componentData = useMemo(() => {
-    const translatedCategories = applyTranslationsToCategories(categories, language);
-    const categoryData = translatedCategories.find(cat => cat.id === category);
+    if (!componentFromLoader) return null;
 
-    if (!categoryData) return null;
+    // 解析 i18n 標題 - 處理對象和字符串兩種情況
+    const resolveI18n = (value) => {
+      if (!value) return '';
+      // 如果是對象，優先使用當前語言
+      if (typeof value === 'object' && value !== null) {
+        const resolved = value[language] || value['en-US'] || value['zh-CN'] || '';
+        // 如果解析出的值仍是 i18n 鍵，繼續翻譯
+        if (typeof resolved === 'string' && resolved.startsWith('data.')) {
+          return t(resolved);
+        }
+        return resolved;
+      }
+      // 如果是 i18n 鍵，翻譯它
+      if (typeof value === 'string' && value.startsWith('data.')) {
+        return t(value);
+      }
+      return value;
+    };
 
-    const component = categoryData.data.find(item => item.id === componentId);
-    if (!component) return null;
+    // 獲取分類配置 - 使用 registry key 映射
+    const categoryId = componentFromLoader.category || category;
+    // 分類 ID 到 nav key 的映射（與 _registry.json 中的 key 對應）
+    const categoryKeyMap = {
+      navigation: 'navigation',
+      dataDisplay: 'dataDisplay',
+      feedback: 'feedback',
+      advanced: 'advanced',
+      input: 'inputEnhanced',
+      interactive: 'interactive',
+      special: 'specialViews',
+      visualEffects: 'visualEffects'
+    };
+    const navKey = categoryKeyMap[categoryId] || categoryId;
 
     return {
-      ...component,
-      categoryId: categoryData.id,
-      categoryKey: categoryData.key,
-      categoryIcon: categoryData.icon,
-      categoryLabel: t(`nav.${categoryData.key}`)
+      ...componentFromLoader,
+      title: resolveI18n(componentFromLoader.title),
+      description: resolveI18n(componentFromLoader.description),
+      categoryId: categoryId,
+      categoryKey: navKey,
+      categoryIcon: '',
+      categoryLabel: t(`nav.${navKey}`),
+      // 處理變體的 i18n - 添加安全檢查
+      variants: (componentFromLoader.variants || []).map(variant => ({
+        ...variant,
+        name: resolveI18n(variant.name),
+        description: resolveI18n(variant.description)
+      }))
     };
-  }, [category, componentId, language, t, categories]);
+  }, [componentFromLoader, language, t, category]);
 
   // 處理查看代碼
   const handleViewCode = (variant) => {
@@ -104,52 +132,7 @@ export function ComponentDetailPage() {
     navigate('/components');
   };
 
-  // 載入中：显示骨架屏（避免短暫显示「不存在」）
-  if (isLoading) {
-    return (
-      <section className="mb-24" aria-busy={true}>
-        {/* 标題骨架 */}
-        <div className="mb-8 space-y-4 animate-pulse motion-reduce:animate-none" role="status" aria-live="polite">
-          <div className="h-6 w-28 rounded bg-slate-200 dark:bg-slate-700" />
-          <div className="h-9 w-1/2 rounded bg-slate-200 dark:bg-slate-700" />
-          <div className="space-y-2">
-            <div className="h-4 w-3/4 rounded bg-slate-200 dark:bg-slate-700" />
-            <div className="h-4 w-2/3 rounded bg-slate-200 dark:bg-slate-700" />
-          </div>
-        </div>
-
-        {/* 內容骨架（模擬變体卡片） */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="animate-pulse motion-reduce:animate-none rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-              <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40">
-                <div className="h-4 w-40 rounded bg-slate-200 dark:bg-slate-700" />
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="h-48 w-full rounded bg-slate-200 dark:bg-slate-700" />
-                <div className="h-4 w-3/5 rounded bg-slate-200 dark:bg-slate-700" />
-                <div className="h-3 w-2/5 rounded bg-slate-200 dark:bg-slate-700" />
-              </div>
-            </div>
-          ))}
-        </div>
-        <p className="sr-only">{t('common.loading') || 'Loading…'}</p>
-      </section>
-    );
-  }
-
-  // 載入失敗
-  if (isError) {
-    return (
-      <section className="mb-24">
-        <div className="rounded-lg border border-red-200 dark:border-red-800 p-6 bg-red-50/60 dark:bg-red-900/20">
-          <p className="text-red-700 dark:text-red-300 text-sm">{t('common.loadFailed')}</p>
-        </div>
-      </section>
-    );
-  }
-
-  // 找不到組件（仅在非載入狀態時显示）
+  // 找不到組件（Route loader 應該已處理 404，這是備用）
   if (!componentData) {
     return (
       <section className="mb-24">
@@ -203,16 +186,12 @@ export function ComponentDetailPage() {
 
               {/* 組件标題 */}
               <h1 className="text-3xl md:text-4xl font-light mb-3 text-black dark:text-white">
-                {typeof componentData.title === 'string' && componentData.title.startsWith('data.') 
-                  ? t(componentData.title) 
-                  : componentData.title}
+                {componentData.title}
               </h1>
 
               {/* 完整描述 */}
               <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed max-w-3xl mb-2">
-                {typeof componentData.description === 'string' && componentData.description.startsWith('data.') 
-                  ? t(componentData.description) 
-                  : componentData.description}
+                {componentData.description}
               </p>
 
               {/* 變体数量提示 */}
@@ -247,8 +226,8 @@ export function ComponentDetailPage() {
             <div className="p-8 bg-gray-50 dark:bg-gray-900 min-h-[400px] flex items-center justify-center">
               <div
                 className="w-full max-w-4xl bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
-                // 安全處理：移除 Tailwind CDN 並做 XSS 清理
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(stripTailwindCdn(componentData.demoHTML || '')) }}
+                // 安全處理：DOMPurify XSS 清理
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(componentData.demoHTML || '') }}
               />
             </div>
           </div>
@@ -268,7 +247,7 @@ export function ComponentDetailPage() {
       <PromptDrawer
         isOpen={showPrompt}
         onClose={() => setShowPrompt(false)}
-        title={selectedVariant ? t(selectedVariant.name) : ''}
+        title={selectedVariant ? selectedVariant.name : ''}
         content={promptContent}
       />
 
@@ -276,8 +255,8 @@ export function ComponentDetailPage() {
       <PreviewModal
         isOpen={showPreview}
         onClose={() => setShowPreview(false)}
-        title={selectedVariant ? t(selectedVariant.name) : ''}
-        description={selectedVariant ? t(selectedVariant.description || '') : ''}
+        title={selectedVariant ? selectedVariant.name : ''}
+        description={selectedVariant?.description || ''}
         htmlContent={selectedVariant?.demoHTML || ''}
         customStyles={selectedVariant?.customStyles || ''}
         variant={selectedVariant}

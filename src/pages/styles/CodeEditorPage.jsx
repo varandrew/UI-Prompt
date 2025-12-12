@@ -48,9 +48,19 @@ export function CodeEditorPage() {
     renderMode = ''    // ✨ 新增：渲染模式
   } = style;
 
-  const displayTitle = typeof title === 'string' && title.includes('.')
-    ? t(title)
-    : title;
+  // 標題多語處理：支援物件或翻譯鍵
+  const resolveTitle = useCallback((rawTitle) => {
+    if (!rawTitle) return '';
+    if (typeof rawTitle === 'string') {
+      return rawTitle.includes('.') ? t(rawTitle) : rawTitle;
+    }
+    if (typeof rawTitle === 'object') {
+      return rawTitle[language] || rawTitle['en-US'] || rawTitle['zh-CN'] || Object.values(rawTitle)[0] || '';
+    }
+    return String(rawTitle);
+  }, [t, language]);
+
+  const displayTitle = resolveTitle(title);
 
   const previewsList = useMemo(() => {
     return Array.isArray(previews) ? previews : [];
@@ -99,18 +109,28 @@ export function CodeEditorPage() {
           const { html: asyncHtml, styles: asyncStyles } = await loadPreview(previewId);
           html = asyncHtml || '';
 
-          // 如果 styles 為空，嘗試從 HTML 中提取 <style> 內容
-          if (!asyncStyles && asyncHtml) {
-            const styleMatch = asyncHtml.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
-            if (styleMatch) {
-              css = styleMatch[1].trim();
-              // 從 HTML 中移除 <style> 標籤，避免重複
-              html = asyncHtml.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').trim();
+          // 檢測是否為完整 HTML 文檔
+          const isCompleteDoc = html.trim().startsWith('<!DOCTYPE') ||
+                                /^<html[\s>]/i.test(html.trim());
+
+          if (isCompleteDoc) {
+            // 完整文檔：保持 HTML 原樣，CSS 使用外部加載的 styles
+            // 不要從 HTML 中提取/移除 <style> 標籤，因為文檔可能包含 Tailwind 配置等重要腳本
+            css = asyncStyles || '';
+          } else {
+            // HTML 片段：如果 styles 為空，嘗試從 HTML 中提取 <style> 內容
+            if (!asyncStyles && asyncHtml) {
+              const styleMatch = asyncHtml.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+              if (styleMatch) {
+                css = styleMatch[1].trim();
+                // 從 HTML 中移除 <style> 標籤，避免重複
+                html = asyncHtml.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').trim();
+              } else {
+                css = asyncStyles || '';
+              }
             } else {
               css = asyncStyles || '';
             }
-          } else {
-            css = asyncStyles || '';
           }
         } catch (err) {
           console.error('Failed to load preview:', err);
@@ -127,17 +147,9 @@ export function CodeEditorPage() {
                                 /^<html[\s>]/i.test(rawHTML.trim());
 
           if (isCompleteDoc) {
-            // 完整文檔：提取 <style> 中的 CSS，並移除 <style> 標籤
-            const styleMatch = rawHTML.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
-            if (styleMatch) {
-              css = styleMatch[1].trim();
-              // 移除 <style> 標籤（因為會在編輯器中單獨編輯）
-              html = rawHTML.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').trim();
-            } else {
-              // 完整文檔但沒有內嵌 <style>，使用獨立的 CSS
-              html = rawHTML;
-              css = current.styles || customStyles || '';
-            }
+            // 完整文檔：保持 HTML 原樣，使用獨立的 CSS
+            html = rawHTML;
+            css = current.styles || customStyles || '';
           } else {
             // HTML 片段：正常處理
             html = rawHTML;
@@ -172,16 +184,6 @@ export function CodeEditorPage() {
         jsx = demoJSX;
       }
 
-      // 調試日誌
-      console.warn('[CodeEditor loadCode]', {
-        activeIndex,
-        currentId: current?.id,
-        currentRenderMode: current?.renderMode,
-        jsxLength: jsx?.length || 0,
-        hasCurrentDemoJSX: !!current?.demoJSX,
-        hasStyleDemoJSX: !!demoJSX
-      });
-
       setHtmlCode(html);
       setCssCode(css);
       setJsxCode(jsx);  // ✨ 新增
@@ -199,26 +201,45 @@ export function CodeEditorPage() {
                           /^<html[\s>]/i.test(htmlCode.trim());
 
     if (isCompleteDoc) {
-      // 如果 HTML 已是完整文檔，注入 CSS 到 <head> 中
-      if (cssCode) {
-        // 查找 </head> 標籤，在其前面插入 <style>
+      // 檢測文檔中是否已有 Tailwind CDN
+      const hasTailwind = htmlCode.includes('cdn.tailwindcss.com');
+      // 檢測文檔中是否已有 appCss
+      const hasAppCss = htmlCode.includes(appCssUrl);
+      // 檢測文檔中是否已有 <style> 標籤
+      const hasInlineStyle = /<style[^>]*>[\s\S]*?<\/style>/i.test(htmlCode);
+
+      // 構建需要注入的內容
+      let injection = '';
+      if (!hasTailwind) {
+        injection += `  <script src="https://cdn.tailwindcss.com"></script>\n`;
+      }
+      if (!hasAppCss) {
+        injection += `  <link rel="stylesheet" href="${appCssUrl}">\n`;
+      }
+
+      // 如果文檔中已有內嵌樣式，且有額外 CSS 編輯器內容需要注入
+      if (cssCode && !hasInlineStyle) {
+        // 沒有內嵌樣式，需要注入 CSS
         return htmlCode.replace(
           /<\/head>/i,
-          `  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="${appCssUrl}">
-  <style>
+          `${injection}  <style>
 ${cssCode}
   </style>
 </head>`
         );
+      } else if (cssCode && hasInlineStyle) {
+        // 有內嵌樣式，在現有樣式之後追加額外 CSS（如果有的話）
+        // 注意：cssCode 來自外部 CSS 文件，可能為空
+        if (injection) {
+          return htmlCode.replace(/<\/head>/i, `${injection}</head>`);
+        }
+        return htmlCode;
       } else {
-        // 沒有 CSS，直接返回完整文檔（可能需要添加 Tailwind CDN）
-        return htmlCode.replace(
-          /<\/head>/i,
-          `  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="${appCssUrl}">
-</head>`
-        );
+        // 沒有額外 CSS，只添加缺失的資源
+        if (injection) {
+          return htmlCode.replace(/<\/head>/i, `${injection}</head>`);
+        }
+        return htmlCode;
       }
     }
 
@@ -342,19 +363,6 @@ ${htmlCode}
     const current = previewsList && previewsList.length > 0
       ? previewsList[Math.min(activeIndex, previewsList.length - 1)]
       : null;
-
-    // 調試日誌
-    console.warn('[CodeEditor Tabs Debug]', {
-      activeIndex,
-      previewsLength: previewsList?.length,
-      currentId: current?.id,
-      currentName: current?.name,
-      currentRenderMode: current?.renderMode,
-      currentDemoJSXLength: current?.demoJSX?.length || 0,
-      styleRenderMode: renderMode,
-      styleDemoJSX: !!demoJSX,
-      allPreviewIds: previewsList?.map(p => p.id)
-    });
 
     const isJSXMode = (current && current.renderMode === 'jsx') || (current && current.demoJSX) || renderMode === 'jsx';
 

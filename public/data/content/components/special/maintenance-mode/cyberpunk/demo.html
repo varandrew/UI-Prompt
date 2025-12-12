@@ -1,0 +1,90 @@
+<div class="w-full max-w-2xl maintenance-cyber-wrapper">
+            <!-- Background Matrix Effect -->
+            <div class="maintenance-cyber-matrix">
+              <div class="maintenance-cyber-matrix-col" style="left: 10%; animation-delay: 0s;">01010<br>11001<br>00110</div>
+              <div class="maintenance-cyber-matrix-col" style="left: 30%; animation-delay: 1s;">10101<br>01100<br>11001</div>
+              <div class="maintenance-cyber-matrix-col" style="left: 50%; animation-delay: 0.5s;">11110<br>00001<br>10011</div>
+              <div class="maintenance-cyber-matrix-col" style="left: 70%; animation-delay: 1.5s;">01011<br>10100<br>01010</div>
+              <div class="maintenance-cyber-matrix-col" style="left: 90%; animation-delay: 0.8s;">11001<br>00110<br>11100</div>
+            </div>
+
+            <!-- Main Terminal -->
+            <div class="maintenance-cyber-terminal">
+              <!-- Terminal Header -->
+              <div class="maintenance-cyber-header">
+                <div class="flex items-center gap-2">
+                  <span class="maintenance-cyber-dot" style="background: #00ff41;"></span>
+                  <span class="maintenance-cyber-dot" style="background: #00ffff;"></span>
+                  <span class="maintenance-cyber-dot" style="background: #555;"></span>
+                </div>
+                <span class="maintenance-cyber-title">SYSTEM_MAINTENANCE.exe</span>
+              </div>
+
+              <!-- Terminal Body -->
+              <div class="maintenance-cyber-body">
+                <!-- Status Lines -->
+                <div class="mb-4">
+                  <div class="maintenance-cyber-line">[<span class="text-cyan-400">SYSTEM</span>] Initializing maintenance protocol...</div>
+                  <div class="maintenance-cyber-line">[<span class="text-green-400">STATUS</span>] <span class="maintenance-cyber-blink">█</span> {{t:demo.special.maintenance.active}}</div>
+                  <div class="maintenance-cyber-line">[<span class="text-cyan-400">NOTICE</span>] {{t:demo.special.maintenance.systemMaintenance}} / {{t:demo.special.maintenance.underMaintenance}}</div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="maintenance-cyber-panel">
+                    <div class="text-xs text-cyan-400 mb-1">[CPU USAGE]</div>
+                    <div class="text-2xl font-mono font-bold text-green-400 maintenance-cyber-glitch">78<span class="text-sm">%</span></div>
+                  </div>
+                  <div class="maintenance-cyber-panel">
+                    <div class="text-xs text-cyan-400 mb-1">[TIME LEFT / {{t:demo.special.maintenance.remaining}}]</div>
+                    <div class="text-2xl font-mono font-bold text-green-400 maintenance-cyber-glitch">01:45:30</div>
+                  </div>
+                  <div class="maintenance-cyber-panel">
+                    <div class="text-xs text-cyan-400 mb-1">[PROGRESS / {{t:demo.special.maintenance.progress}}]</div>
+                    <div class="text-2xl font-mono font-bold text-green-400">72<span class="text-sm">%</span></div>
+                  </div>
+                  <div class="maintenance-cyber-panel">
+                    <div class="text-xs text-cyan-400 mb-1">[SECURITY]</div>
+                    <div class="text-2xl font-mono font-bold text-green-400">OK</div>
+                  </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mb-4">
+                  <div class="flex justify-between text-xs text-cyan-400 mb-1">
+                    <span>[MAINTENANCE_PROGRESS]</span>
+                    <span>72%</span>
+                  </div>
+                  <div class="maintenance-cyber-progress-track">
+                    <div class="maintenance-cyber-progress-fill" style="width: 72%;"></div>
+                  </div>
+                </div>
+
+                <!-- Status Log -->
+                <div class="maintenance-cyber-log mb-4">
+                  <div class="text-xs">[2024-01-15 14:30:25] Database optimization... <span class="text-green-400">DONE</span></div>
+                  <div class="text-xs">[2024-01-15 14:35:12] Cache clearing... <span class="text-green-400">DONE</span></div>
+                  <div class="text-xs">[2024-01-15 14:40:58] Server reboot... <span class="text-cyan-400">IN_PROGRESS</span></div>
+                  <div class="text-xs">[2024-01-15 14:45:00] System verification... <span class="text-gray-500">PENDING</span></div>
+                </div>
+
+                <!-- Command Prompt -->
+                <div class="maintenance-cyber-line mb-4">
+                  <span class="text-green-400">root@system:~#</span> <span class="maintenance-cyber-cursor">█</span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-3">
+                  <a href="javascript:void(0)" class="maintenance-cyber-btn">
+                    [STATUS_CHECK / {{t:demo.special.maintenance.checkStatusBtn}}]
+                  </a>
+                  <a href="javascript:void(0)" class="maintenance-cyber-btn-alt">
+                    [SUBSCRIBE / {{t:demo.special.maintenance.subscribe}}]
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scanline Effect -->
+            <div class="maintenance-cyber-scanline"></div>
+          </div>

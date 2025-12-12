@@ -1,0 +1,19 @@
+{
+  "id": "paperCutout",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "剪纸风格",
+      "en-US": "Paper Cutout"
+    },
+    "description": {
+      "zh-CN": "剪纸设计风格，具有分层元素和阴影效果。",
+      "en-US": "Paper cutout design style with layered elements and shadow effects."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    "paperCutout"
+  ]
+}

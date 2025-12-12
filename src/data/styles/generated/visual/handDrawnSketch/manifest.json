@@ -1,0 +1,32 @@
+{
+  "id": "visual-handDrawnSketch",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "手绘涂鸦",
+      "en-US": "Hand-Drawn Sketch"
+    },
+    "description": {
+      "zh-CN": "通过手写字体、SVG 滤镜和随性线条创造温暖亲切的视觉体验。结合粘贴便签、网格纸背景和手绘边框元素，营造友好轻松的设计氛围。",
+      "en-US": "Create warm and approachable visual experiences through handwritten fonts, SVG filters, and casual lines. Combining sticky notes, grid paper backgrounds, and hand-drawn borders to create a friendly and relaxed design atmosphere."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-handDrawnSketch",
+      "title": {
+        "zh-CN": "手绘涂鸦",
+        "en-US": "Hand-Drawn Sketch"
+      }
+    },
+    {
+      "id": "visual-handDrawnSketch-notebook",
+      "title": {
+        "zh-CN": "手繪筆記本",
+        "en-US": "Hand-Drawn Notebook"
+      }
+    }
+  ]
+}

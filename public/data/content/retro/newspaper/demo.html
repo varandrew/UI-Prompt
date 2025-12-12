@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Typography Style</title>
+    <!-- Importing Google Fonts for authentic newspaper look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <!-- The UI Demo Component -->
+    <div class="newspaper-card" id="demoCard">
+        <div class="style-label">UI Style: Newspaper Typography</div>
+        
+        <div class="content-layer">
+            <!-- Masthead -->
+            <!-- Use flex-none to prevent header from squishing -->
+            <header class="flex justify-between items-end mb-4 gap-4 flex-none">
+                <div class="ear-box w-16 md:w-24 hidden sm:flex">
+                    <span>VOL. CXXI</span>
+                    <span>No. 42,105</span>
+                </div>
+                
+                <div class="text-center flex-grow">
+                    <!-- Responsive text sizing using clamp/vw for perfect scaling -->
+                    <h1 class="font-masthead text-[8cqw] md:text-6xl lg:text-7xl leading-tight text-center">The Daily Chronicle</h1>
+                    <div class="flex justify-between border-t-2 border-b-2 border-black py-1 mt-1 font-headline text-[10px] md:text-sm uppercase tracking-widest font-bold">
+                        <span id="currentDate">loading date...</span>
+                        <span>London, Late Edition</span>
+                        <span>Price: Two Pence</span>
+                    </div>
+                </div>
+
+                <div class="ear-box w-16 md:w-24 hidden sm:flex">
+                    <span>WEATHER</span>
+                    <span class="font-normal italic">Foggy, High 52°</span>
+                </div>
+            </header>
+
+            <!-- Main Lead -->
+            <main class="flex-grow flex flex-col overflow-hidden">
+                <div class="text-center mb-3 flex-none">
+                    <h2 class="font-headline text-2xl md:text-4xl lg:text-5xl font-black italic leading-none mb-1">Typography Defines Era</h2>
+                    <h3 class="font-headline text-md md:text-xl font-light italic text-gray-700">Why the return to serif fonts signals a shift in digital design philosophy.</h3>
+                </div>
+
+                <!-- Split layout: Image & Columns -->
+                <!-- Use h-full to fill remaining square space -->
+                <div class="flex flex-col h-full overflow-hidden">
+                    <!-- Image: Use Percentage height relative to container to maintain proportions in the square -->
+                    <div class="w-full h-[35%] mb-4 relative bg-gray-300 overflow-hidden border border-black shrink-0">
+                        <img src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?q=80&w=2670&auto=format&fit=crop" 
+                             class="w-full h-full object-cover news-image" 
+                             alt="Vintage typewriter">
+                        <div class="absolute bottom-0 left-0 bg-white px-2 py-0.5 text-[0.6rem] uppercase border-t border-r border-black font-sans tracking-wider">
+                            Fig 1. The Printing Press
+                        </div>
+                    </div>
+
+                    <!-- Text Columns: Fills remaining space -->
+                    <article class="news-columns text-xs sm:text-sm md:text-base leading-relaxed drop-cap relative flex-grow">
+                        <p>
+                            Historically, the layout of a newspaper was dictated by the mechanical limitations of the printing press. Columns were narrow to accommodate the movement of the eye and to prevent the degradation of the paper typeset. Today, in the realm of User Interface design, we return to these roots not out of necessity, but out of a desire for authority.
+                        </p>
+                        <p>
+                            The "Newspaper" aesthetic is characterized by high contrast, rigid grid structures, and the liberal use of serif typefaces. It evokes a sense of trust and established knowledge. Unlike the fluid, rounded corners of modern "Material Design," the Newspaper style relies on sharp borders and horizontal separators.
+                        </p>
+                        <p>
+                            <strong>The Drop Cap</strong>, a hallmark of this style, serves as a visual anchor. It draws the reader into the dense text blocks, signaling the beginning of a narrative journey. Combined with justified text alignment, it creates a clean, rectangular block of content.
+                        </p>
+                        <p>
+                            Furthermore, the hierarchy is established strictly through size and weight. There are no colorful buttons or soft shadows here; importance is conveyed through the grandeur of the typeface. A headline set in <em>Playfair Display</em> commands attention simply by its contrast between thick and thin strokes.
+                        </p>
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // JS to dynamically set the date to today
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateElement = document.getElementById('currentDate');
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date();
+            dateElement.textContent = today.toLocaleDateString('en-US', options).toUpperCase();
+        });
+    </script>
+</body>
+</html>

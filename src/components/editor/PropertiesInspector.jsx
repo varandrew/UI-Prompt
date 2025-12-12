@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { canHaveChildren } from '../../data/components/componentLibrary';
-import { useEditorStore } from '../../stores';
+import { useCanvasStore, useSelectionStore } from '../../stores';
 import { findComponentById } from '../../stores/utils/componentHelpers';
 import { SpecialToolbox } from './SpecialToolbox';
 
@@ -8,13 +8,14 @@ import { SpecialToolbox } from './SpecialToolbox';
  * 屬性检查器 - 优化：数值輸入採用節流（RAF 批次）
  */
 export function PropertiesInspector() {
-  const canvasState = useEditorStore((s) => s.canvasState);
-  const selectedComponentId = useEditorStore((s) => s.selectedComponentId);
-  const updateBaseProps = useEditorStore((s) => s.updateBaseProps);
-  const updateBasePropsThrottled = useEditorStore((s) => s.updateBasePropsThrottled);
-  const updateResponsiveOverrideThrottled = useEditorStore((s) => s.updateResponsiveOverrideThrottled);
-  const updateResponsiveLayoutOverrideThrottled = useEditorStore((s) => s.updateResponsiveLayoutOverrideThrottled);
-  const { componentTree, componentProps } = canvasState || {};
+  // 使用模塊化 Store
+  const componentTree = useCanvasStore((s) => s.componentTree);
+  const componentProps = useCanvasStore((s) => s.componentProps);
+  const selectedComponentId = useSelectionStore((s) => s.selectedComponentId);
+  const updateBaseProps = useCanvasStore((s) => s.updateBaseProps);
+  const updateBasePropsThrottled = useCanvasStore((s) => s.updateBasePropsThrottled);
+  const updateResponsiveOverrideThrottled = useCanvasStore((s) => s.updateResponsiveOverrideThrottled);
+  const updateResponsiveLayoutOverrideThrottled = useCanvasStore((s) => s.updateResponsiveLayoutOverrideThrottled);
 
   // 本地 UI 狀態
   const [childWeights, setChildWeights] = useState({});

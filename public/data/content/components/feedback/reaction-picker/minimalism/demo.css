@@ -1,0 +1,45 @@
+.reaction-trigger-min {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid black;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-trigger-min:hover {
+            background: black;
+            color: white;
+          }
+
+          .reaction-picker-min {
+            display: inline-flex;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            background: white;
+            border: 1px solid black;
+            animation: slideUpMin 0.2s ease-out;
+          }
+
+          .reaction-btn-min {
+            width: 40px;
+            height: 40px;
+            font-size: 1.25rem;
+            background: white;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-btn-min:hover {
+            border-color: black;
+            transform: scale(1.15);
+          }
+
+          @keyframes slideUpMin {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }

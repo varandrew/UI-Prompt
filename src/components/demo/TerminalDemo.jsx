@@ -2,7 +2,34 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { PromptGenerator } from '../../utils/promptGenerator';
 import { LANGUAGES } from '../../utils/i18n/languageConstants';
-import { visualNeonNoir } from '../../data/styles/templates/visual/neonNoir/defaultTemplate';
+
+// ⚡ 不再從 templates 導入，使用內聯的 demo 風格數據
+const DEMO_NEON_NOIR_STYLE = {
+  id: 'neon-noir',
+  title: 'Neon Noir',
+  description: {
+    'zh-CN': '霓虹灯与黑暗城市的融合，营造出神秘而迷人的赛博朋克氛围',
+    'en-US': 'A fusion of neon lights and dark urban aesthetics, creating a mysterious and captivating cyberpunk atmosphere'
+  },
+  stylePrompt: {
+    'zh-CN': `请以「霓虹黑色电影」风格创建一个网页界面，融合赛博朋克和黑色电影美学。
+
+设计特点：
+• 深邃的黑色背景配合鲜艳的霓虹色彩（青色、品红、电光蓝）
+• 高对比度的光影效果，模拟城市霓虹灯光
+• 锐利的几何线条与发光边框
+• 神秘而富有未来感的视觉氛围
+• 模拟雨夜城市的视觉质感`,
+    'en-US': `Create a webpage interface in "Neon Noir" style, blending cyberpunk and film noir aesthetics.
+
+Design features:
+• Deep black backgrounds with vivid neon colors (cyan, magenta, electric blue)
+• High-contrast lighting effects simulating urban neon lights
+• Sharp geometric lines with glowing borders
+• Mysterious and futuristic visual atmosphere
+• Simulated rainy night cityscape texture`
+  }
+};
 
 export function TerminalDemo({ onProgressChange, totalProgress = 0, typingSpeed }) {
   const { t, language } = useLanguage();
@@ -14,10 +41,10 @@ export function TerminalDemo({ onProgressChange, totalProgress = 0, typingSpeed 
   // 判斷是否完成 (totalProgress >= 100)
   const isComplete = totalProgress >= 100;
 
-  // 生成 Neon Noir 風格的 prompt (使用新的 styleObject 模式)
+  // 生成 Neon Noir 風格的 prompt (使用內聯的 demo 數據)
   const neonNoirPrompt = PromptGenerator.generate(
-    visualNeonNoir,  // 傳入完整的風格對象
-    { mode: 'card' }, // 使用 card 模式獲取 stylePrompt
+    DEMO_NEON_NOIR_STYLE,  // 使用內聯的 demo 風格對象
+    { mode: 'card' },
     language
   );
 

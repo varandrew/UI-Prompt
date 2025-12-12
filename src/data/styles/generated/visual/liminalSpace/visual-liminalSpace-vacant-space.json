@@ -1,0 +1,8 @@
+{
+  "id": "visual-liminalSpace-vacant-space",
+  "title": "styles.visual.liminalSpace.preview.vacantSpace",
+  "description": {
+    "zh-CN": "VACANT_SPACE.EXE - 展示数字虚空空间，包含雾化导航、卡片网格、系统访问表单和霓虹效果",
+    "en-US": "VACANT_SPACE.EXE - Digital void space with glassmorphism navigation, card grid, system access form and neon effects"
+  }
+}

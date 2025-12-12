@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>visual-wabiSabi-wabiSabi-zen - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+  /* Import Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+
+  /* CSS Reset & Base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #F5F3EF;
+    color: #3A3731;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    overflow-x: hidden;
+  }
+
+  /* Color Variables */
+  :root {
+    --bg-primary: #F5F3EF;
+    --bg-secondary: #E8E5DF;
+    --text-primary: #3A3731;
+    --text-secondary: #7A7772;
+    --accent: #A89C94;
+    --clay: #C9BDB1;
+  }
+
+  /* Navigation */
+  .wabi-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(245, 243, 239, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(58, 55, 49, 0.08);
+    z-index: 1000;
+    padding: 1.5rem 0;
+  }
+
+  .wabi-nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .wabi-logo {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .wabi-nav-links {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .wabi-link {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.4s ease;
+    position: relative;
+  }
+
+  .wabi-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-primary);
+    transition: width 0.4s ease;
+  }
+
+  .wabi-link:hover {
+    color: var(--text-primary);
+  }
+
+  .wabi-link:hover::after {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .wabi-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #F5F3EF 0%, #E8E5DF 100%);
+    overflow: hidden;
+    margin-top: 70px;
+  }
+
+  .wabi-texture-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(58, 55, 49, 0.02) 2px, rgba(58, 55, 49, 0.02) 4px),
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(58, 55, 49, 0.02) 2px, rgba(58, 55, 49, 0.02) 4px);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .wabi-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 2rem;
+    animation: fadeInUp 1.5s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wabi-hero-title {
+    font-family: 'Noto Serif', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+
+  .wabi-hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.05em;
+  }
+
+  .wabi-scroll-hint {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.6;
+  }
+
+  .wabi-scroll-hint span {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .wabi-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--text-secondary);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(10px); }
+  }
+
+  /* Container Utilities */
+  .wabi-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .wabi-container-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .wabi-container-small {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  /* Statement Section */
+  .wabi-statement {
+    padding: 8rem 0;
+    background: var(--bg-primary);
+  }
+
+  .wabi-statement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .wabi-statement-title {
+    font-family: 'Noto Serif', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .wabi-statement-body {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 2;
+    letter-spacing: 0.03em;
+  }
+
+  .wabi-statement-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .wabi-texture-box {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(58, 55, 49, 0.08);
+  }
+
+  /* Gallery Section */
+  .wabi-gallery {
+    padding: 8rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .wabi-section-title {
+    font-family: 'Noto Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .wabi-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .wabi-gallery-item {
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .wabi-gallery-item[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+  }
+
+  .wabi-item-wide {
+    grid-column: span 2;
+  }
+
+  .wabi-item-tall {
+    grid-row: span 2;
+  }
+
+  .wabi-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--bg-primary);
+    box-shadow: 0 10px 40px rgba(58, 55, 49, 0.06);
+    transition: all 0.5s ease;
+  }
+
+  .wabi-gallery-item:hover .wabi-image-wrapper {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(58, 55, 49, 0.12);
+  }
+
+  .wabi-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #E8E5DF 0%, #D5D0C8 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wabi-item-wide .wabi-placeholder {
+    aspect-ratio: 16/9;
+  }
+
+  .wabi-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(58, 55, 49, 0.02) 10px, rgba(58, 55, 49, 0.02) 20px);
+  }
+
+  .wabi-placeholder-text {
+    position: relative;
+    z-index: 1;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    opacity: 0.4;
+  }
+
+  /* Specific placeholder colors */
+  .wabi-placeholder-1 { background: linear-gradient(135deg, #C9BDB1 0%, #B8ACA0 100%); }
+  .wabi-placeholder-2 { background: linear-gradient(135deg, #E8E5DF 0%, #D5D0C8 100%); }
+  .wabi-placeholder-3 { background: linear-gradient(135deg, #D5CFC5 0%, #C4BEB4 100%); }
+  .wabi-placeholder-4 { background: linear-gradient(135deg, #BFB5A9 0%, #AEA498 100%); }
+  .wabi-placeholder-5 { background: linear-gradient(135deg, #E0DCD6 0%, #CFC9C1 100%); }
+  .wabi-placeholder-6 { background: linear-gradient(135deg, #B8ACA0 0%, #A79B8F 100%); }
+
+  .wabi-caption {
+    padding: 1.5rem 0;
+  }
+
+  .wabi-caption h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .wabi-caption p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+
+  /* Materials Section */
+  .wabi-materials {
+    padding: 8rem 0;
+    background: var(--bg-primary);
+  }
+
+  .wabi-materials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+
+  .wabi-material-card {
+    text-align: center;
+    opacity: 0;
+  }
+
+  .wabi-material-card[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+  }
+
+  .wabi-material-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(58, 55, 49, 0.08);
+    transition: transform 0.4s ease;
+  }
+
+  .wabi-material-card:hover .wabi-material-swatch {
+    transform: translateY(-5px);
+  }
+
+  /* Texture Swatches */
+  .wabi-texture-linen {
+    background:
+      linear-gradient(90deg, transparent 1px, rgba(245, 243, 239, 0.5) 1px),
+      linear-gradient(rgba(232, 229, 223, 1) 0%, rgba(213, 207, 197, 1) 100%);
+    background-size: 3px 3px, 100% 100%;
+  }
+
+  .wabi-texture-clay {
+    background: radial-gradient(circle at 30% 40%, #C9BDB1 0%, #B8ACA0 100%);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .wabi-texture-stone {
+    background:
+      radial-gradient(circle at 20% 30%, transparent 5%, rgba(58, 55, 49, 0.05) 5%),
+      radial-gradient(circle at 70% 60%, transparent 3%, rgba(58, 55, 49, 0.03) 3%),
+      linear-gradient(#BFB5A9 0%, #AEA498 100%);
+  }
+
+  .wabi-texture-paper {
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(58, 55, 49, 0.02) 2px, rgba(58, 55, 49, 0.02) 4px),
+      linear-gradient(#F5F3EF 0%, #E8E5DF 100%);
+  }
+
+  .wabi-material-name {
+    font-family: 'Noto Serif', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .wabi-material-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+
+  /* Contact Section */
+  .wabi-contact {
+    padding: 10rem 0;
+    background: var(--bg-secondary);
+    text-align: center;
+  }
+
+  .wabi-contact-title {
+    font-family: 'Noto Serif', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .wabi-contact-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .wabi-contact-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: all 0.4s ease;
+  }
+
+  .wabi-contact-btn:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+  }
+
+  /* Footer */
+  .wabi-footer {
+    padding: 3rem 0;
+    background: var(--bg-primary);
+    border-top: 1px solid rgba(58, 55, 49, 0.1);
+  }
+
+  .wabi-footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .wabi-footer-left p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+  }
+
+  .wabi-footer-right {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .wabi-footer-link {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+
+  .wabi-footer-link:hover {
+    color: var(--text-primary);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .wabi-statement-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .wabi-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .wabi-materials-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wabi-nav-container {
+      padding: 0 1.5rem;
+    }
+
+    .wabi-nav-links {
+      gap: 1.5rem;
+    }
+
+    .wabi-link {
+      font-size: 0.8rem;
+    }
+
+    .wabi-hero {
+      min-height: 70vh;
+    }
+
+    .wabi-container,
+    .wabi-container-wide,
+    .wabi-container-small {
+      padding: 0 1.5rem;
+    }
+
+    .wabi-statement,
+    .wabi-gallery,
+    .wabi-materials,
+    .wabi-contact {
+      padding: 4rem 0;
+    }
+
+    .wabi-gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .wabi-item-wide,
+    .wabi-item-tall {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    .wabi-materials-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .wabi-footer-content {
+      flex-direction: column;
+      gap: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="wabi-nav">
+    <div class="wabi-nav-container">
+      <div class="wabi-logo">侘寂 Studio</div>
+      <div class="wabi-nav-links">
+        <a href="javascript:void(0)" class="wabi-link">Works</a>
+        <a href="javascript:void(0)" class="wabi-link">About</a>
+        <a href="javascript:void(0)" class="wabi-link">Journal</a>
+        <a href="javascript:void(0)" class="wabi-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section - Brand Philosophy -->
+  <section class="wabi-hero">
+    <div class="wabi-hero-content">
+      <h1 class="wabi-hero-title">Finding Beauty in Imperfection</h1>
+      <p class="wabi-hero-subtitle">A visual journey through simplicity, transience, and natural elegance</p>
+      <div class="wabi-scroll-hint">
+        <span>Scroll to explore</span>
+        <div class="wabi-scroll-line"></div>
+      </div>
+    </div>
+    <div class="wabi-texture-overlay"></div>
+  </section>
+
+  <!-- Philosophy Statement -->
+  <section class="wabi-statement">
+    <div class="wabi-container">
+      <div class="wabi-statement-grid">
+        <div class="wabi-statement-text">
+          <h2 class="wabi-statement-title">Wabi-Sabi</h2>
+          <p class="wabi-statement-body">
+            Embracing the imperfect, appreciating the incomplete, and honoring the impermanent.
+            Our approach to visual storytelling reflects the Japanese aesthetic of finding profound
+            beauty in simplicity and naturalness.
+          </p>
+        </div>
+        <div class="wabi-statement-image">
+          <div class="wabi-texture-box wabi-texture-clay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photography Gallery -->
+  <section class="wabi-gallery">
+    <div class="wabi-container-wide">
+      <h2 class="wabi-section-title">Selected Works</h2>
+
+      <div class="wabi-gallery-grid">
+        <!-- Image 1 - Tall -->
+        <div class="wabi-gallery-item wabi-item-tall" data-aos="fade-up">
+          <div class="wabi-image-wrapper">
+            <div class="wabi-placeholder wabi-placeholder-1">
+              <span class="wabi-placeholder-text">Ceramic Still Life</span>
+            </div>
+          </div>
+          <div class="wabi-caption">
+            <h3>Earth & Form</h3>
+            <p>Handcrafted pottery series</p>
+          </div>
+        </div>
+
+        <!-- Image 2 - Wide -->
+        <div class="wabi-gallery-item wabi-item-wide" data-aos="fade-up" data-aos-delay="100">
+          <div class="wabi-image-wrapper">
+            <div class="wabi-placeholder wabi-placeholder-2">
+              <span class="wabi-placeholder-text">Architectural Study</span>
+            </div>
+          </div>
+          <div class="wabi-caption">
+            <h3>Light & Shadow</h3>
+            <p>Minimalist architecture</p>
+          </div>
+        </div>
+
+        <!-- Image 3 - Square -->
+        <div class="wabi-gallery-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="wabi-image-wrapper">
+            <div class="wabi-placeholder wabi-placeholder-3">
+              <span class="wabi-placeholder-text">Textile Detail</span>
+            </div>
+          </div>
+          <div class="wabi-caption">
+            <h3>Woven Textures</h3>
+            <p>Natural linen collection</p>
+          </div>
+        </div>
+
+        <!-- Image 4 - Square -->
+        <div class="wabi-gallery-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="wabi-image-wrapper">
+            <div class="wabi-placeholder wabi-placeholder-4">
+              <span class="wabi-placeholder-text">Stone Surface</span>
+            </div>
+          </div>
+          <div class="wabi-caption">
+            <h3>Aged Beauty</h3>
+            <p>Weathered materials</p>
+          </div>
+        </div>
+
+        <!-- Image 5 - Wide -->
+        <div class="wabi-gallery-item wabi-item-wide" data-aos="fade-up" data-aos-delay="100">
+          <div class="wabi-image-wrapper">
+            <div class="wabi-placeholder wabi-placeholder-5">
+              <span class="wabi-placeholder-text">Interior Space</span>
+            </div>
+          </div>
+          <div class="wabi-caption">
+            <h3>Quiet Spaces</h3>
+            <p>Contemporary living</p>
+          </div>
+        </div>
+
+        <!-- Image 6 - Tall -->
+        <div class="wabi-gallery-item wabi-item-tall" data-aos="fade-up" data-aos-delay="200">
+          <div class="wabi-image-wrapper">
+            <div class="wabi-placeholder wabi-placeholder-6">
+              <span class="wabi-placeholder-text">Botanical Study</span>
+            </div>
+          </div>
+          <div class="wabi-caption">
+            <h3>Natural Forms</h3>
+            <p>Organic compositions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Material Textures -->
+  <section class="wabi-materials">
+    <div class="wabi-container">
+      <h2 class="wabi-section-title">Material Palette</h2>
+      <div class="wabi-materials-grid">
+        <div class="wabi-material-card" data-aos="fade-up">
+          <div class="wabi-material-swatch wabi-texture-linen"></div>
+          <h3 class="wabi-material-name">Linen</h3>
+          <p class="wabi-material-desc">Natural woven texture</p>
+        </div>
+
+        <div class="wabi-material-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="wabi-material-swatch wabi-texture-clay"></div>
+          <h3 class="wabi-material-name">Clay</h3>
+          <p class="wabi-material-desc">Earthy ceramic finish</p>
+        </div>
+
+        <div class="wabi-material-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="wabi-material-swatch wabi-texture-stone"></div>
+          <h3 class="wabi-material-name">Stone</h3>
+          <p class="wabi-material-desc">Weathered surface</p>
+        </div>
+
+        <div class="wabi-material-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="wabi-material-swatch wabi-texture-paper"></div>
+          <h3 class="wabi-material-name">Paper</h3>
+          <p class="wabi-material-desc">Handmade washi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="wabi-contact">
+    <div class="wabi-container-small">
+      <h2 class="wabi-contact-title">Let's Create Together</h2>
+      <p class="wabi-contact-text">
+        For collaboration inquiries and project discussions
+      </p>
+      <a href="javascript:void(0)" class="wabi-contact-btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="wabi-footer">
+    <div class="wabi-container">
+      <div class="wabi-footer-content">
+        <div class="wabi-footer-left">
+          <p>&copy; 2025 Wabi-Sabi Studio. Embracing imperfection.</p>
+        </div>
+        <div class="wabi-footer-right">
+          <a href="javascript:void(0)" class="wabi-footer-link">Instagram</a>
+          <a href="javascript:void(0)" class="wabi-footer-link">Behance</a>
+          <a href="javascript:void(0)" class="wabi-footer-link">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS Library for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      easing: 'ease-out',
+      once: true,
+      offset: 50
+    });
+  </script>
+
+</body>
+</html>

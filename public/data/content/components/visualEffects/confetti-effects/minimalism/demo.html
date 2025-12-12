@@ -1,0 +1,78 @@
+<div class="w-full max-w-2xl mx-auto space-y-6 p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.confetti.minimalism.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.confetti.minimalism.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Black & White Confetti -->
+                <button onclick="minimalistConfetti()" class="confetti-btn-min group block p-8 bg-white border-2 border-gray-900 rounded-lg text-center transition-all duration-300 hover:bg-gray-900 hover:text-white">
+                  <svg class="w-8 h-8 mx-auto mb-2 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                  </svg>
+                  <p class="font-light text-sm">
+                    {{t:demo.confetti.minimalism.simple}}
+                  </p>
+                </button>
+
+                <!-- Geometric Shapes -->
+                <button onclick="geometricConfetti()" class="confetti-btn-min group block p-8 bg-gray-50 border border-gray-200 rounded-lg text-center transition-all duration-300 hover:border-gray-900">
+                  <svg class="w-8 h-8 mx-auto mb-2 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z M12 22L2 17L12 12L22 17L12 22Z"/>
+                  </svg>
+                  <p class="font-light text-sm text-gray-800">
+                    {{t:demo.confetti.minimalism.geometric}}
+                  </p>
+                </button>
+
+                <!-- Monochrome -->
+                <button onclick="monochromeConfetti()" class="confetti-btn-min group block p-8 bg-gray-900 text-white rounded-lg text-center transition-all duration-300 hover:opacity-80">
+                  <svg class="w-8 h-8 mx-auto mb-2 fill-current" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  <p class="font-light text-sm">
+                    {{t:demo.confetti.minimalism.monochrome}}
+                  </p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+          <script>
+            function minimalistConfetti() {
+              confetti({
+                particleCount: 50,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#000000', '#FFFFFF', '#E5E5E5'],
+                shapes: ['circle'],
+                scalar: 0.8,
+                gravity: 1.2
+              });
+            }
+
+            function geometricConfetti() {
+              confetti({
+                particleCount: 40,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ['#000000', '#808080', '#C0C0C0'],
+                shapes: ['square'],
+                scalar: 1.0,
+                gravity: 1.0
+              });
+            }
+
+            function monochromeConfetti() {
+              confetti({
+                particleCount: 60,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#000000', '#333333', '#666666', '#999999'],
+                shapes: ['circle', 'square'],
+                scalar: 0.9
+              });
+            }
+          </script>

@@ -1,0 +1,73 @@
+<div class="w-full max-w-lg bg-white rounded-xl shadow-xl p-6 border border-gray-200">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                I
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg text-gray-900">交互增強滾動條</h3>
+                <p class="text-sm text-gray-500">智能反饋与進度显示</p>
+              </div>
+            </div>
+
+            <div class="mb-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-3">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-sm font-medium text-indigo-700">滾動進度</span>
+                <span class="scrollbar-progress-indicator text-sm font-bold text-purple-700">0%</span>
+              </div>
+              <div class="scrollbar-progress-bar h-2 bg-white rounded-full overflow-hidden">
+                <div class="scrollbar-progress-fill h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full transition-all duration-300" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="scrollbar-interactive-enhanced h-64 overflow-y-auto rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-indigo-50 p-4" onscroll="updateScrollProgress(this)">
+              <div class="space-y-4">
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
+                  <h4 class="font-semibold text-indigo-700 mb-2">🎯 智能交互</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">這個滾動條具备智能交互功能，包括實時的滾動進度显示、動態寬度調整，以及多层次的視覺反饋系統。</p>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-purple-100 shadow-sm">
+                  <h4 class="font-semibold text-purple-700 mb-2">📊 進度指示</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">頂部的進度條會根据滾動位置實時更新，让用戶清楚知道當前瀏覽進度，提升長內容的閱讀体驗。</p>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
+                  <h4 class="font-semibold text-indigo-700 mb-2">🔄 動態適應</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">滾動條會根据用戶的交互狀態動態調整外觀：正常時較細、懸停時變寬、拖動時增強視覺效果。</p>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-purple-100 shadow-sm">
+                  <h4 class="font-semibold text-purple-700 mb-2">✨ 微動画</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">集成了微妙的動画效果，包括懸停時的脈衝效果、拖動時的阴影增強，以及平滑的尺寸變化動画。</p>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
+                  <h4 class="font-semibold text-indigo-700 mb-2">🎨 視覺层次</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">通過漸變背景、多重阴影、边框高光等技術創造豐富的視覺层次，让滾動條成為界面的亮點。</p>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-purple-100 shadow-sm">
+                  <h4 class="font-semibold text-purple-700 mb-2">🔧 技術細節</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">使用現代CSS特性如 backdrop-filter、CSS變量、動画关鍵幀，結合JavaScript實現完整的交互体驗。</p>
+                </div>
+                <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4 border border-indigo-100 shadow-sm">
+                  <h4 class="font-semibold text-indigo-700 mb-2">📱 觸摸优化</h4>
+                  <p class="text-sm text-gray-700 leading-relaxed">針對觸摸设备优化了交互区域大小和響應靈敏度，確保在移動设备上也能提供优秀的用戶体驗。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+              <span>智能交互 • 進度显示 • 動態反饋</span>
+              <span>增強体驗</span>
+            </div>
+          </div>
+
+          <script>
+            function updateScrollProgress(element) {
+              const scrollTop = element.scrollTop;
+              const scrollHeight = element.scrollHeight - element.clientHeight;
+              const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+
+              const progressFill = document.querySelector('.scrollbar-progress-fill');
+              const progressIndicator = document.querySelector('.scrollbar-progress-indicator');
+
+              if (progressFill) progressFill.style.width = progress + '%';
+              if (progressIndicator) progressIndicator.textContent = Math.round(progress) + '%';
+            }
+          </script>

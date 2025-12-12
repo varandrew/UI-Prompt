@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat Design Portfolio Demo</title>
+</head>
+<body>
+
+    <!-- Main Square Container -->
+    <div class="demo-container">
+        <div class="style-label">Flat UI v1.0</div>
+        
+        <header>
+            <div class="logo">
+                <div class="logo-mark"></div>
+                ALEX.DESIGN
+            </div>
+            <nav>
+                <a href="#">Work</a>
+                <a href="#">Profile</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Simplifying<br>Digital Chaos.</h1>
+                <p class="tagline">Visual Designer specializing in clarity.</p>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn" onclick="handleClick(this)">View Portfolio</button>
+                    <button class="btn btn-outline" onclick="handleClick(this)">Contact</button>
+                </div>
+            </section>
+
+            <section class="grid">
+                <!-- Project 1 -->
+                <article class="card">
+                    <div class="card-image c-1">Aa</div>
+                    <div class="card-info">
+                        <div class="card-title">Brand Identity</div>
+                        <div class="card-category">Typography</div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="card">
+                    <div class="card-image c-2">UI</div>
+                    <div class="card-info">
+                        <div class="card-title">Finance App</div>
+                        <div class="card-category">Interface</div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="card">
+                    <div class="card-image c-3">[]</div>
+                    <div class="card-info">
+                        <div class="card-title">Packaging</div>
+                        <div class="card-category">Print</div>
+                    </div>
+                </article>
+
+                 <!-- Project 4 -->
+                 <article class="card">
+                    <div class="card-image c-4">Web</div>
+                    <div class="card-info">
+                        <div class="card-title">Dashboard</div>
+                        <div class="card-category">Web App</div>
+                    </div>
+                </article>
+            </section>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-num">42</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">5y</span>
+                    <span class="stat-label">Exp</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">Pixel Perfect</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simple Interaction Logic to demonstrate snappy feedback
+        function handleClick(element) {
+            const originalText = element.innerText;
+            const originalBg = element.style.backgroundColor;
+            
+            // Instant feedback logic
+            if(element.classList.contains('btn-outline')) {
+                element.style.backgroundColor = 'var(--c-dark)';
+                element.style.color = 'white';
+                element.innerText = "OPENING...";
+            } else {
+                element.style.backgroundColor = 'var(--c-accent)';
+                element.innerText = "LOADING...";
+            }
+
+            // Reset after a short delay to simulate page load
+            setTimeout(() => {
+                element.style.backgroundColor = originalBg;
+                element.style.color = '';
+                element.innerText = originalText;
+                alert("Action triggered! (Flat Design uses instant states, no ripple effects)");
+            }, 300);
+        }
+    </script>
+</body>
+</html>

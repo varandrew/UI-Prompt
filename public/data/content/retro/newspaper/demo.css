@@ -1,0 +1,124 @@
+
+/* Custom Newspaper Styles */
+:root {
+    --paper-bg: #F4F0E6;
+    --ink-color: #2a2a2a;
+    --border-color: #2a2a2a;
+}
+
+body {
+    background-color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Merriweather', serif;
+    color: var(--ink-color);
+}
+
+/* The Main Square Container */
+.newspaper-card {
+    background-color: var(--paper-bg);
+    /* Responsive sizing logic to guarantee 1:1 aspect ratio fits on screen */
+    width: min(90vw, 800px);
+    aspect-ratio: 1 / 1;
+    
+    padding: clamp(1rem, 4vw, 2.5rem); /* Responsive padding */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d1d5db;
+}
+
+/* Texture Overlay to make it look like paper */
+.newspaper-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Content Wrapper to sit above texture */
+.content-layer {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography Classes */
+.font-masthead {
+    font-family: 'UnifrakturMaguntia', cursive;
+}
+
+.font-headline {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Column Layout */
+.news-columns {
+    column-count: 2;
+    column-gap: 2rem;
+    text-align: justify;
+    height: 100%;
+    /* Fix for column balancing */
+    orphans: 3; 
+    widows: 3;
+}
+
+/* Drop Cap Styling */
+.drop-cap::first-letter {
+    float: left;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 6vw, 4.5rem); /* Responsive drop cap */
+    line-height: 0.85;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+    color: var(--ink-color);
+}
+
+/* The floating label to identify the style */
+.style-label {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    z-index: 10;
+}
+
+/* Utility for the 'ear' lugs in header */
+.ear-box {
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Image styling */
+.news-image {
+    filter: grayscale(100%) contrast(1.2);
+    mix-blend-mode: multiply;
+}

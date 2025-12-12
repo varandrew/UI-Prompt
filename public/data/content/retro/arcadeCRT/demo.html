@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade CRT Scanline Demo</title>
+    <!-- Importing a Retro Font -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --crt-bg: #111;
+            --crt-screen: #0f0f0f;
+            --neon-primary: #ff0055; /* Hot Pink */
+            --neon-secondary: #00ffff; /* Cyan */
+            --neon-text: #e0e0e0;
+            --scanline-color: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #222;
+            font-family: 'VT323', monospace;
+            overflow: hidden;
+        }
+
+        /* MAIN CONTAINER 
+           - Forces Square Aspect Ratio 
+           - Acts as a container query source for responsive font sizing
+        */
+        .demo-wrapper {
+            width: 90vmin; 
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+            container-type: inline-size;
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            /* Outer casing bezel */
+            padding: 2cqi; 
+            box-sizing: border-box;
+        }
+
+        /* THE SCREEN ITSELF */
+        .crt-monitor {
+            width: 100%;
+            height: 100%;
+            background-color: var(--crt-screen);
+            border-radius: 100px / 40px; /* Curvature */
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #333;
+            box-shadow: inset 0 0 8cqi rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Screen flicker animation */
+            animation: flicker 0.15s infinite;
+        }
+
+        /* CONTENT STYLING */
+        .content {
+            z-index: 2;
+            color: var(--neon-text);
+            text-transform: uppercase;
+            /* RGB Shift effect applied to all text content */
+            text-shadow: 
+                2px 0 var(--neon-primary), 
+                -2px 0 var(--neon-secondary);
+            pointer-events: none; /* Let clicks pass through to screen */
+        }
+
+        h1 {
+            font-size: 18cqi; /* Responsive size based on container */
+            margin: 0;
+            line-height: 0.9;
+            animation: glitch-skew 3s infinite steps(5);
+        }
+
+        h2 {
+            font-size: 8cqi;
+            margin: 0;
+            color: var(--neon-secondary);
+            text-shadow: 0 0 5px var(--neon-secondary);
+            margin-bottom: 4cqi;
+        }
+
+        .status-box {
+            border: 0.5cqi solid var(--neon-primary);
+            padding: 2cqi 4cqi;
+            margin-top: 5cqi;
+            font-size: 5cqi;
+            background: rgba(255, 0, 85, 0.1);
+            box-shadow: 0 0 10px var(--neon-primary);
+            animation: pulse 2s infinite;
+        }
+
+        .system-text {
+            position: absolute;
+            bottom: 5cqi;
+            left: 5cqi;
+            font-size: 4cqi;
+            color: #0f0;
+            text-shadow: 0 0 2px #0f0;
+            text-align: left;
+            opacity: 0.8;
+        }
+
+        /* CRT EFFECTS LAYER 
+           This sits on top of everything
+        */
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.4) 50%,
+                rgba(0,0,0,0.4)
+            );
+            background-size: 100% 4px; /* Size of scanlines */
+            border-radius: 100px / 40px; /* Match monitor curvature */
+        }
+
+        /* The rolling bar effect (vertical sync issue simulation) */
+        .scanlines::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 2;
+            background-size: 100% 100%;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        /* VIGNETTE */
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 15cqi rgba(0,0,0,0.9);
+            border-radius: 100px / 40px;
+            z-index: 11;
+            pointer-events: none;
+        }
+
+        /* INTERACTIVE BUTTON */
+        .power-btn {
+            margin-top: 5cqi;
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-family: 'VT323', monospace;
+            font-size: 5cqi;
+            padding: 1cqi 3cqi;
+            cursor: pointer;
+            text-shadow: 0 0 5px #fff;
+            box-shadow: 0 0 5px #fff;
+            transition: all 0.2s;
+            pointer-events: auto; /* Enable clicking */
+        }
+
+        .power-btn:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 15px #fff;
+        }
+
+        /* ANIMATIONS */
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.95; }
+            10% { opacity: 0.9; }
+            15% { opacity: 0.95; }
+            20% { opacity: 0.99; }
+            50% { opacity: 0.95; }
+            55% { opacity: 0.9; }
+            60% { opacity: 0.95; }
+            80% { opacity: 0.9; }
+            100% { opacity: 0.97; }
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); opacity: 0.1;}
+            100% { transform: translateY(100%); opacity: 0.1;}
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(0deg); }
+            22% { transform: skew(10deg); }
+            24% { transform: skew(-10deg); }
+            26% { transform: skew(0deg); }
+            100% { transform: skew(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Glitch class triggered by JS */
+        .glitch-active {
+            animation: glitch-skew 0.2s infinite !important;
+            filter: hue-rotate(90deg);
+        }
+
+        /* Off state */
+        .monitor-off .crt-monitor {
+            background: #000;
+            box-shadow: none;
+            animation: none;
+        }
+        .monitor-off .content, 
+        .monitor-off .scanlines {
+            display: none;
+        }
+        .monitor-off::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            box-shadow: 0 0 10px #fff;
+            transform: translate(-50%, -50%);
+            animation: turn-off 0.4s forwards;
+        }
+
+        @keyframes turn-off {
+            0% { width: 100%; height: 2px; opacity: 1; }
+            50% { width: 2px; height: 2px; opacity: 1; }
+            100% { width: 0; height: 0; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="demo-wrapper" id="demoWrapper">
+        <div class="crt-monitor">
+            <!-- Scanline Overlay -->
+            <div class="scanlines"></div>
+            <!-- Dark Corners -->
+            <div class="vignette"></div>
+
+            <!-- Screen Content -->
+            <div class="content">
+                <h2>UI STYLE NAME:</h2>
+                <h1>ARCADE<br>CRT</h1>
+                <div class="status-box">SCANLINE FX: ON</div>
+                
+                <button class="power-btn" onclick="toggleGlitch()">TEST GLITCH</button>
+            </div>
+
+            <div class="content system-text">
+                SYS.INIT... OK<br>
+                RGB_ALIGN... 98%<br>
+                V_SYNC... LOCKED
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const monitor = document.querySelector('.crt-monitor');
+        const statusBox = document.querySelector('.status-box');
+
+        function toggleGlitch() {
+            // Trigger a temporary glitch effect
+            monitor.classList.add('glitch-active');
+            statusBox.innerText = "ERROR: SIGNAL LOSS";
+            statusBox.style.borderColor = "#ff0000";
+            statusBox.style.color = "#ff0000";
+            
+            setTimeout(() => {
+                monitor.classList.remove('glitch-active');
+                statusBox.innerText = "SCANLINE FX: ON";
+                statusBox.style.borderColor = "var(--neon-primary)";
+                statusBox.style.color = "var(--neon-text)";
+            }, 800);
+        }
+
+        // Add a subtle mouse move parallax effect to the scanlines
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Subtle shift of background
+            document.querySelector('.scanlines').style.backgroundPosition = 
+                `${x * 2}px ${y * 2}px`;
+        });
+    </script>
+</body>
+</html>

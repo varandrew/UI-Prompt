@@ -1,0 +1,85 @@
+{
+  "id": "maintenance-mode",
+  "category": "special",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.special.maintenance-mode.title",
+      "en-US": "data.components.special.maintenance-mode.title"
+    },
+    "description": {
+      "zh-CN": "data.components.special.maintenance-mode.description",
+      "en-US": "data.components.special.maintenance-mode.description"
+    },
+    "tags": [
+      "special"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.minimalism.name",
+        "en-US": "data.components.special.maintenance-mode.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.minimalism.description",
+        "en-US": "data.components.special.maintenance-mode.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.glassmorphism.name",
+        "en-US": "data.components.special.maintenance-mode.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.glassmorphism.description",
+        "en-US": "data.components.special.maintenance-mode.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "cyberpunk",
+      "name": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.cyberpunk.name",
+        "en-US": "data.components.special.maintenance-mode.variants.cyberpunk.name"
+      },
+      "description": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.cyberpunk.description",
+        "en-US": "data.components.special.maintenance-mode.variants.cyberpunk.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism",
+      "name": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.neumorphism.name",
+        "en-US": "data.components.special.maintenance-mode.variants.neumorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.neumorphism.description",
+        "en-US": "data.components.special.maintenance-mode.variants.neumorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neobrutalism",
+      "name": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.neobrutalism.name",
+        "en-US": "data.components.special.maintenance-mode.variants.neobrutalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.special.maintenance-mode.variants.neobrutalism.description",
+        "en-US": "data.components.special.maintenance-mode.variants.neobrutalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

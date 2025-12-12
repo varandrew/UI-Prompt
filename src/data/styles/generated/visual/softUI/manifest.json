@@ -1,0 +1,32 @@
+{
+  "id": "visual-softUI",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Soft UI 柔和界面",
+      "en-US": "Soft UI"
+    },
+    "description": {
+      "zh-CN": "柔和圆角与阴影过渡的界面风格，强调顺滑过渡与亲和力。",
+      "en-US": "Soft, rounded interface design with gentle shadows and smooth transitions."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-softUI-softUI-light",
+      "title": {
+        "zh-CN": "柔和界面·浅色",
+        "en-US": "Soft UI Light"
+      }
+    },
+    {
+      "id": "visual-softUI-softUI-dark",
+      "title": {
+        "zh-CN": "柔和界面·深色",
+        "en-US": "Soft UI Dark"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+.scrollbar-minimal::-webkit-scrollbar {
+            width: 4px;
+          }
+          .scrollbar-minimal::-webkit-scrollbar-track {
+            background: #f9fafb;
+          }
+          .scrollbar-minimal::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            transition: background 0.2s ease;
+          }
+          .scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+          }

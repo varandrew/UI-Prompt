@@ -1,0 +1,45 @@
+<div class="w-full max-w-lg">
+            <div class="bg-white border border-black p-12 text-center">
+              <!-- Icon -->
+              <div class="w-16 h-16 border-2 border-black mx-auto mb-6 flex items-center justify-center rounded-full">
+                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-3xl font-light tracking-tight mb-6">{{t:demo.special.maintenance.systemMaintenance}}</h3>
+              
+              <!-- Description -->
+              <p class="text-gray-600 text-sm mb-8 leading-relaxed max-w-md mx-auto">
+                {{t:demo.special.maintenance.weArePerforming}} / {{t:demo.special.maintenance.weArePerformingDesc}}
+              </p>
+
+              <!-- Countdown -->
+              <div class="mb-8">
+                <div class="inline-block border border-gray-300 px-8 py-4">
+                  <div class="text-4xl font-light tracking-wider mb-1 maintenance-minimal-fade">02:45:30</div>
+                  <div class="text-xs text-gray-500 uppercase tracking-widest">{{t:demo.special.maintenance.estimatedTime}} / {{t:demo.special.maintenance.estimatedTime}}</div>
+                </div>
+              </div>
+
+              <!-- Progress -->
+              <div class="mb-8 max-w-sm mx-auto">
+                <div class="w-full h-px bg-gray-300 relative overflow-hidden">
+                  <div class="absolute inset-y-0 left-0 bg-black maintenance-minimal-progress" style="width: 65%;"></div>
+                </div>
+                <div class="text-xs text-gray-500 mt-2">65% {{t:demo.special.maintenance.complete}} / {{t:demo.special.maintenance.complete}}</div>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="javascript:void(0)" class="px-6 py-2 border border-black text-black hover:bg-black hover:text-white transition-colors duration-300 text-sm">
+                  {{t:demo.special.maintenance.checkStatus}} / {{t:demo.special.maintenance.checkStatus}}
+                </a>
+                <a href="javascript:void(0)" class="px-6 py-2 border border-gray-300 text-gray-600 hover:border-black hover:text-black transition-colors duration-300 text-sm">
+                  {{t:demo.special.maintenance.subscribe}} / {{t:demo.special.maintenance.subscribe}}
+                </a>
+              </div>
+            </div>
+          </div>

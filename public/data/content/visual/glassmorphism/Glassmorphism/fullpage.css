@@ -1,0 +1,546 @@
+
+/* Glassmorphism Music Player - Full Page Styles */
+
+/* 页面容器 */
+.glass-music-page {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+/* ========== 動態粒子背景 ========== */
+.particles-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  animation: float-particle 20s ease-in-out infinite;
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -40px) scale(1.1); }
+  50% { transform: translate(-20px, -80px) scale(0.9); }
+  75% { transform: translate(-40px, -40px) scale(1.05); }
+}
+
+.particle-1 { width: 150px; height: 150px; top: 10%; left: 5%; animation-duration: 25s; background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0.1)); }
+.particle-2 { width: 100px; height: 100px; top: 20%; right: 10%; animation-duration: 30s; animation-delay: -5s; background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.1)); }
+.particle-3 { width: 200px; height: 200px; top: 50%; left: 15%; animation-duration: 35s; animation-delay: -10s; background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(99, 102, 241, 0.08)); }
+.particle-4 { width: 80px; height: 80px; top: 60%; right: 20%; animation-duration: 28s; animation-delay: -7s; background: linear-gradient(135deg, rgba(217, 70, 239, 0.3), rgba(217, 70, 239, 0.1)); }
+.particle-5 { width: 120px; height: 120px; bottom: 15%; left: 25%; animation-duration: 32s; animation-delay: -12s; background: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(167, 139, 250, 0.1)); }
+.particle-6 { width: 90px; height: 90px; bottom: 25%; right: 15%; animation-duration: 27s; animation-delay: -3s; background: linear-gradient(135deg, rgba(244, 114, 182, 0.3), rgba(244, 114, 182, 0.1)); }
+.particle-7 { width: 110px; height: 110px; top: 35%; left: 40%; animation-duration: 29s; animation-delay: -8s; background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(124, 58, 237, 0.08)); }
+.particle-8 { width: 140px; height: 140px; top: 70%; right: 35%; animation-duration: 33s; animation-delay: -15s; background: linear-gradient(135deg, rgba(192, 132, 252, 0.3), rgba(192, 132, 252, 0.1)); }
+.particle-9 { width: 95px; height: 95px; top: 15%; left: 60%; animation-duration: 26s; animation-delay: -6s; background: linear-gradient(135deg, rgba(251, 207, 232, 0.3), rgba(251, 207, 232, 0.1)); }
+.particle-10 { width: 130px; height: 130px; bottom: 40%; left: 50%; animation-duration: 31s; animation-delay: -11s; background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(139, 92, 246, 0.08)); }
+.particle-11 { width: 75px; height: 75px; top: 45%; right: 5%; animation-duration: 24s; animation-delay: -4s; background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.1)); }
+.particle-12 { width: 160px; height: 160px; bottom: 10%; right: 40%; animation-duration: 34s; animation-delay: -14s; background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(99, 102, 241, 0.1)); }
+.particle-13 { width: 105px; height: 105px; top: 80%; left: 35%; animation-duration: 28s; animation-delay: -9s; background: linear-gradient(135deg, rgba(217, 70, 239, 0.25), rgba(217, 70, 239, 0.08)); }
+.particle-14 { width: 85px; height: 85px; top: 25%; right: 45%; animation-duration: 30s; animation-delay: -13s; background: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(167, 139, 250, 0.1)); }
+.particle-15 { width: 115px; height: 115px; bottom: 30%; left: 10%; animation-duration: 27s; animation-delay: -7s; background: linear-gradient(135deg, rgba(244, 114, 182, 0.3), rgba(244, 114, 182, 0.1)); }
+
+/* ========== 玻璃效果核心樣式 ========== */
+.glass-nav,
+.glass-hero,
+.glass-stat-card,
+.glass-playlist-card,
+.glass-artist-card,
+.glass-queue-card,
+.glass-lyrics-card,
+.glass-equalizer-card,
+.glass-loading-card,
+.glass-search-bar,
+.glass-footer,
+.glass-toast {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* ========== 頂部导航欄 ========== */
+.glass-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 0;
+}
+
+.glass-logo {
+  transition: transform 0.3s ease;
+}
+
+.glass-logo:hover {
+  transform: rotate(180deg);
+}
+
+.glass-nav-link {
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.glass-nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.glass-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.glass-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ========== Hero 区塊 ========== */
+.glass-hero {
+  padding: 2rem;
+  border-radius: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-album-cover {
+  transition: transform 0.3s ease;
+}
+
+.glass-album-cover:hover {
+  transform: translateY(-8px);
+}
+
+/* 進度條 */
+.glass-progress-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  border-radius: 12px;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+.glass-progress-bar::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 控制按鈕 */
+.glass-control-btn-sm,
+.glass-control-btn-lg {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.glass-control-btn-sm {
+  width: 48px;
+  height: 48px;
+}
+
+.glass-control-btn-lg {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(236, 72, 153, 0.4));
+}
+
+.glass-control-btn-sm:hover,
+.glass-control-btn-lg:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.glass-control-btn-lg:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(236, 72, 153, 0.6));
+}
+
+/* 音量控制 */
+.glass-volume-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-volume-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+/* ========== 統計卡片 ========== */
+.glass-stat-card {
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+/* ========== 播放列表卡片 ========== */
+.glass-playlist-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-playlist-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========== 藝人卡片 ========== */
+.glass-artist-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-artist-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.glass-follow-btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.glass-follow-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* ========== 隊列卡片 ========== */
+.glass-queue-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-queue-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.glass-queue-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-queue-item.active {
+  background: rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+}
+
+/* ========== 歌詞卡片 ========== */
+.glass-lyrics-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== 等化器 ========== */
+.glass-equalizer-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.eq-bar {
+  flex: 1;
+  background: linear-gradient(to top, #8B5CF6, #EC4899);
+  border-radius: 4px 4px 0 0;
+  animation: eq-bounce 1s ease-in-out infinite;
+}
+
+@keyframes eq-bounce {
+  0%, 100% { height: var(--h, 50%); }
+  50% { height: calc(var(--h, 50%) * 1.3); }
+}
+
+/* ========== 播放模式切換 ========== */
+.glass-mode-chip {
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.glass-mode-chip:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.glass-mode-chip.active {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(236, 72, 153, 0.4));
+  border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* ========== 收藏按鈕 ========== */
+.glass-action-btn {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.glass-action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* ========== 搜索欄 ========== */
+.glass-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.glass-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========== Loading 動画 ========== */
+.glass-loading-card {
+  padding: 2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Spinner */
+.glass-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pulse Dots */
+.glass-pulse-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.glass-pulse-dots div {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.glass-pulse-dots div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.glass-pulse-dots div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Wave Progress */
+.glass-wave-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.glass-wave-bar {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, #8B5CF6, #EC4899);
+  border-radius: 8px;
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+/* ========== Toast 通知 ========== */
+.glass-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  z-index: 200;
+  animation: toast-slide 0.3s ease-out;
+}
+
+@keyframes toast-slide {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ========== Footer ========== */
+.glass-footer {
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.glass-social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+/* ========== 響應式设計 ========== */
+@media (max-width: 768px) {
+  .glass-nav .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .glass-hero {
+    padding: 1.5rem;
+  }
+
+  .particles-background .particle {
+    display: none;
+  }
+
+  .particles-background .particle-1,
+  .particles-background .particle-2,
+  .particles-background .particle-3 {
+    display: block;
+  }
+}
+
+/* 容器层級 */
+.container {
+  position: relative;
+  z-index: 1;
+}

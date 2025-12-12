@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claymorphism - E-Commerce Showcase</title>
+</head>
+<body>
+  <!-- Navigation with Shopping Cart -->
+  <nav class="clay-ecom-nav">
+    <div class="clay-ecom-nav-content">
+      <div class="clay-ecom-logo">Clay Shop</div>
+      <ul class="clay-ecom-nav-menu">
+        <li><a href="javascript:void(0)" class="clay-ecom-nav-link active">Home</a></li>
+        <li><a href="javascript:void(0)" class="clay-ecom-nav-link">Products</a></li>
+        <li><a href="javascript:void(0)" class="clay-ecom-nav-link">About</a></li>
+      </ul>
+      <button class="clay-ecom-cart-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 2L7 6M17 6L15 2M7 6H17M7 6L5 10M17 6L19 10M5 10H19L17 22H7L5 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="clay-cart-badge">3</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Filter Tags Section -->
+  <section class="clay-ecom-filters">
+    <div class="clay-ecom-container">
+      <h2 class="clay-ecom-section-title">Browse Products</h2>
+      <div class="clay-ecom-filter-tags">
+        <button class="clay-filter-tag">All</button>
+        <button class="clay-filter-tag active">Electronics</button>
+        <button class="clay-filter-tag">Fashion</button>
+        <button class="clay-filter-tag">Home & Garden</button>
+        <button class="clay-filter-tag">Sports</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="clay-ecom-products">
+    <div class="clay-ecom-container">
+      <div class="clay-ecom-products-grid">
+
+        <!-- Product Card 1 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-1">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="30" fill="white" opacity="0.3"/>
+              <path d="M40 20v40M25 35h30M25 45h30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Smart Watch Pro</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$299.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-2">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="20" y="25" width="40" height="30" rx="4" fill="white" opacity="0.3"/>
+              <circle cx="40" cy="40" r="8" stroke="white" stroke-width="3"/>
+              <path d="M32 25h16M35 20h10" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Vintage Camera</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$449.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-3">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <path d="M25 50l15-30l15 30M30 42h20" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="40" cy="40" r="28" stroke="white" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Designer T-Shirt</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$39.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-4">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <path d="M30 35h20M30 42h20M30 49h12" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <rect x="25" y="28" width="30" height="28" rx="3" stroke="white" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Leather Notebook</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$24.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-5">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="35" r="12" stroke="white" stroke-width="3"/>
+              <path d="M40 47v8M32 55h16" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              <rect x="28" y="55" width="24" height="3" rx="1.5" fill="white" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Table Lamp</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$79.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 6 -->
+        <div class="clay-product-card">
+          <div class="clay-product-image clay-product-color-6">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="18" stroke="white" stroke-width="3"/>
+              <path d="M40 28v24M28 40h24M34 34l12 12M46 34l-12 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="clay-product-content">
+            <h3 class="clay-product-name">Sports Ball Set</h3>
+            <div class="clay-product-rating">
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star filled"></span>
+              <span class="clay-star"></span>
+              <span class="clay-star"></span>
+            </div>
+            <div class="clay-product-footer">
+              <span class="clay-product-price">$59.99</span>
+              <button class="clay-add-to-cart">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Shopping Cart Panel -->
+  <aside class="clay-cart-panel">
+    <div class="clay-cart-header">
+      <h3>Shopping Cart</h3>
+      <button class="clay-cart-close">×</button>
+    </div>
+    <div class="clay-cart-items">
+      <div class="clay-cart-item">
+        <div class="clay-cart-item-image clay-product-color-1"></div>
+        <div class="clay-cart-item-info">
+          <h4>Smart Watch Pro</h4>
+          <span>$299.99</span>
+        </div>
+        <button class="clay-cart-item-remove">×</button>
+      </div>
+      <div class="clay-cart-item">
+        <div class="clay-cart-item-image clay-product-color-2"></div>
+        <div class="clay-cart-item-info">
+          <h4>Vintage Camera</h4>
+          <span>$449.99</span>
+        </div>
+        <button class="clay-cart-item-remove">×</button>
+      </div>
+      <div class="clay-cart-item">
+        <div class="clay-cart-item-image clay-product-color-4"></div>
+        <div class="clay-cart-item-info">
+          <h4>Leather Notebook</h4>
+          <span>$24.99</span>
+        </div>
+        <button class="clay-cart-item-remove">×</button>
+      </div>
+    </div>
+    <div class="clay-cart-footer">
+      <div class="clay-cart-total">
+        <span>Total:</span>
+        <span class="clay-cart-total-price">$774.97</span>
+      </div>
+      <button class="clay-checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="clay-ecom-footer">
+    <div class="clay-ecom-container">
+      <p>© 2025 Clay Shop - Handcrafted E-Commerce Experience</p>
+    </div>
+  </footer>
+</body>
+</html>

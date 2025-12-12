@@ -1,0 +1,35 @@
+{
+  "id": "calendar-date-picker",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.calendar-date-picker.title",
+      "en-US": "data.components.advanced.calendar-date-picker.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.calendar-date-picker.description",
+      "en-US": "data.components.advanced.calendar-date-picker.description"
+    },
+    "tags": [
+      "advanced",
+      "date",
+      "time"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.advanced.calendar-date-picker.title",
+        "en-US": "data.components.advanced.calendar-date-picker.title"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.calendar-date-picker.description",
+        "en-US": "data.components.advanced.calendar-date-picker.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

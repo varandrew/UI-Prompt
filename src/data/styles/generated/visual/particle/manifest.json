@@ -1,0 +1,17 @@
+{
+  "id": "visual-particle",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "粒子系统",
+      "en-US": "Particle System"
+    },
+    "description": {
+      "zh-CN": "小圆点，发光效果，随机浮动",
+      "en-US": "Small dots with glow effects and random floating"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

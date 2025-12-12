@@ -1,0 +1,658 @@
+/* ═══════════════════════════════════════════════════════════════
+   PIXEL ART / 8-BIT GAME BOY STYLE - FULL PAGE STYLES
+   Classic Game Boy Color Palette:
+   - #0f380f (Darkest Green)
+   - #306230 (Dark Green)
+   - #8bac0f (Light Green)
+   - #9bbc0f (Lightest Green)
+   ═══════════════════════════════════════════════════════════════ */
+
+.pixel-game-container {
+  font-family: 'Courier New', 'Press Start 2P', monospace;
+  background-color: #0f380f;
+  color: #9bbc0f;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  line-height: 1.6;
+}
+
+/* ═══ HERO SECTION ═══ */
+.pixel-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #0f380f;
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-screen-border {
+  background-color: #306230;
+  border: 8px solid #9bbc0f;
+  box-shadow:
+    0 0 0 4px #0f380f,
+    0 0 40px rgba(155, 188, 15, 0.3),
+    inset 0 0 30px rgba(15, 56, 15, 0.5);
+  padding: 60px 40px;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+}
+
+.pixel-logo-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pixel-logo {
+  font-size: 48px;
+  font-weight: bold;
+  color: #9bbc0f;
+  text-shadow:
+    4px 4px 0 #0f380f,
+    -2px -2px 0 #8bac0f;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  animation: logo-flicker 3s infinite;
+}
+
+@keyframes logo-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+.pixel-subtitle {
+  font-size: 16px;
+  color: #8bac0f;
+  letter-spacing: 2px;
+}
+
+/* ═══ ANIMATED PIXEL CHARACTER ═══ */
+.pixel-character-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.pixel-character {
+  width: 64px;
+  height: 64px;
+  background-color: #9bbc0f;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+.pixel-character::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: #8bac0f;
+}
+
+.pixel-character::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  width: 16px;
+  height: 16px;
+  background-color: #0f380f;
+}
+
+.pixel-character.walking {
+  animation: walk-animation 0.6s steps(2) infinite;
+}
+
+@keyframes walk-animation {
+  0% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  100% { transform: translateX(-4px); }
+}
+
+/* ═══ MENU BUTTONS ═══ */
+.pixel-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.pixel-menu-btn {
+  background-color: #0f380f;
+  color: #9bbc0f;
+  border: 4px solid #306230;
+  padding: 20px 30px;
+  font-size: 18px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.1s;
+  position: relative;
+}
+
+.pixel-menu-btn:hover,
+.pixel-menu-btn.active {
+  background-color: #306230;
+  border-color: #9bbc0f;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-menu-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pixel-arrow {
+  display: inline-block;
+  margin-right: 10px;
+  animation: arrow-blink 1s infinite;
+}
+
+.pixel-arrow.invisible {
+  opacity: 0;
+}
+
+@keyframes arrow-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ═══ PRESS START TEXT ═══ */
+.pixel-press-start {
+  text-align: center;
+  font-size: 20px;
+  color: #9bbc0f;
+  animation: blink 1.5s infinite;
+  margin-top: 40px;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ═══ STATS BAR ═══ */
+.pixel-stats-bar {
+  background-color: #306230;
+  border-top: 4px solid #9bbc0f;
+  border-bottom: 4px solid #9bbc0f;
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.pixel-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pixel-stat-label {
+  font-size: 12px;
+  color: #8bac0f;
+  letter-spacing: 2px;
+}
+
+.pixel-stat-value {
+  font-size: 24px;
+  color: #9bbc0f;
+  font-weight: bold;
+}
+
+.pixel-health-bar {
+  height: 24px;
+  background-color: #0f380f;
+  border: 3px solid #9bbc0f;
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-health-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #9bbc0f 0%, #8bac0f 100%);
+  transition: width 0.3s ease;
+}
+
+.pixel-coin-animation {
+  animation: coin-pulse 1s infinite;
+}
+
+@keyframes coin-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* ═══ SECTION STYLES ═══ */
+.pixel-section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pixel-section-title {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #9bbc0f;
+  text-shadow: 3px 3px 0 #0f380f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pixel-title-decoration {
+  color: #8bac0f;
+  font-size: 24px;
+}
+
+/* ═══ LEVEL SELECT GRID ═══ */
+.pixel-level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.pixel-level-card {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pixel-level-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 0 #0f380f;
+}
+
+.pixel-level-card.locked {
+  background-color: #0f380f;
+  border-color: #306230;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pixel-level-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.pixel-level-name {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #9bbc0f;
+}
+
+.pixel-level-stars {
+  font-size: 24px;
+  color: #8bac0f;
+}
+
+/* ═══ DIALOGUE BOX ═══ */
+.pixel-dialogue-box {
+  background-color: #0f380f;
+  border: 6px solid #9bbc0f;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 30px;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.pixel-dialogue-avatar {
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: avatar-bounce 2s infinite;
+}
+
+@keyframes avatar-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.pixel-dialogue-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pixel-dialogue-name {
+  font-size: 16px;
+  color: #8bac0f;
+  font-weight: bold;
+}
+
+.pixel-dialogue-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #9bbc0f;
+}
+
+.pixel-dialogue-footer {
+  text-align: right;
+}
+
+.pixel-dialogue-arrow {
+  display: inline-block;
+  animation: dialogue-arrow 1s infinite;
+}
+
+@keyframes dialogue-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* ═══ LEADERBOARD ═══ */
+.pixel-leaderboard {
+  background-color: #0f380f;
+  border: 4px solid #9bbc0f;
+}
+
+.pixel-leaderboard-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px 30px;
+  background-color: #306230;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9bbc0f;
+  border-bottom: 4px solid #9bbc0f;
+}
+
+.pixel-leaderboard-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px 30px;
+  border-bottom: 2px solid #306230;
+  transition: background-color 0.2s;
+}
+
+.pixel-leaderboard-row:hover {
+  background-color: #306230;
+}
+
+.pixel-leaderboard-row.gold { background-color: rgba(255, 215, 0, 0.1); }
+.pixel-leaderboard-row.silver { background-color: rgba(192, 192, 192, 0.1); }
+.pixel-leaderboard-row.bronze { background-color: rgba(205, 127, 50, 0.1); }
+
+.pixel-rank,
+.pixel-player,
+.pixel-score {
+  color: #9bbc0f;
+  font-size: 16px;
+}
+
+/* ═══ ACHIEVEMENTS ═══ */
+.pixel-achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+}
+
+.pixel-badge {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.pixel-badge.unlocked-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(155, 188, 15, 0.5);
+}
+
+.pixel-badge.locked-badge {
+  background-color: #0f380f;
+  border-color: #306230;
+  opacity: 0.5;
+}
+
+.pixel-badge-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.pixel-badge-name {
+  font-size: 12px;
+  color: #9bbc0f;
+}
+
+/* ═══ SOUND TEST ═══ */
+.pixel-sound-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.pixel-sound-btn {
+  background-color: #306230;
+  border: 4px solid #9bbc0f;
+  padding: 30px 20px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #9bbc0f;
+  cursor: pointer;
+  transition: all 0.1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pixel-sound-btn:hover {
+  background-color: #8bac0f;
+  color: #0f380f;
+}
+
+.pixel-sound-btn:active {
+  transform: scale(0.95);
+}
+
+.pixel-sound-wave {
+  font-size: 24px;
+  animation: sound-wave 1s infinite;
+}
+
+@keyframes sound-wave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* ═══ INVENTORY ═══ */
+.pixel-inventory {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.pixel-item-slot {
+  aspect-ratio: 1;
+  background-color: #0f380f;
+  border: 4px solid #306230;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.pixel-item-slot.has-item {
+  border-color: #9bbc0f;
+  cursor: pointer;
+}
+
+.pixel-item-slot.has-item:hover {
+  background-color: #306230;
+  transform: translateY(-4px);
+}
+
+.pixel-item-slot.empty {
+  opacity: 0.3;
+}
+
+.pixel-item-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.pixel-item-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: #9bbc0f;
+}
+
+/* ═══ TYPOGRAPHY SHOWCASE ═══ */
+.pixel-typography {
+  background-color: #0f380f;
+  border: 4px solid #9bbc0f;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.pixel-font-sample {
+  color: #9bbc0f;
+}
+
+.pixel-font-sample.large {
+  font-size: 48px;
+  text-shadow: 4px 4px 0 #306230;
+}
+
+.pixel-font-sample.medium {
+  font-size: 32px;
+}
+
+.pixel-font-sample.small {
+  font-size: 16px;
+  color: #8bac0f;
+}
+
+/* ═══ FOOTER ═══ */
+.pixel-footer {
+  background-color: #0f380f;
+  border-top: 4px solid #9bbc0f;
+  padding: 60px 40px 40px;
+  margin-top: 80px;
+}
+
+.pixel-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.pixel-footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+  color: #9bbc0f;
+}
+
+.pixel-gameboy-icon {
+  font-size: 48px;
+  animation: gameboy-shake 2s infinite;
+}
+
+@keyframes gameboy-shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.pixel-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pixel-link {
+  color: #8bac0f;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pixel-link:hover {
+  color: #9bbc0f;
+  text-decoration: underline;
+}
+
+.pixel-separator {
+  color: #306230;
+}
+
+.pixel-footer-note {
+  font-size: 12px;
+  color: #306230;
+}
+
+/* ═══ RESPONSIVE DESIGN ═══ */
+@media (max-width: 768px) {
+  .pixel-logo {
+    font-size: 32px;
+  }
+
+  .pixel-section-title {
+    font-size: 24px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pixel-dialogue-box {
+    grid-template-columns: 1fr;
+  }
+
+  .pixel-leaderboard-header,
+  .pixel-leaderboard-row {
+    grid-template-columns: 80px 1fr 100px;
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  .pixel-stats-bar {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-screen-border {
+    padding: 40px 20px;
+  }
+
+  .pixel-menu-btn {
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+
+  .pixel-section {
+    padding: 60px 20px;
+  }
+}

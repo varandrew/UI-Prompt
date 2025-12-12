@@ -1,0 +1,25 @@
+{
+  "id": "interaction-mouseTracking",
+  "category": "interaction",
+  "family": {
+    "name": {
+      "zh-CN": "鼠标追踪",
+      "en-US": "Mouse Tracking"
+    },
+    "description": {
+      "zh-CN": "专注光标位置反馈的鼠标追踪效果，突出指针随动与光晕响应。",
+      "en-US": "Focused mouse-tracking effects that highlight cursor-follow response and glow feedback."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "interaction-mouse-tracking",
+      "title": {
+        "zh-CN": "鼠标追踪",
+        "en-US": "Mouse Tracking"
+      }
+    }
+  ]
+}

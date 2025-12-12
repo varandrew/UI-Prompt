@@ -1,0 +1,301 @@
+
+/* CORE VARIABLES - The DNA of the Style */
+:root {
+    --hc-bg: #FFFFFF;
+    --hc-surface: #FFFFFF;
+    --hc-text: #000000;
+    --hc-border-color: #000000;
+    --hc-border-width: 4px;
+    --hc-focus-color: #0044CC; /* WCAG Compliant Blue for Focus */
+    --hc-focus-width: 4px;
+    --hc-accent: #FFFF00; /* High Vis Yellow */
+    
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --space-unit: 1rem;
+}
+
+/* THEME: Dark High Contrast (Toggleable) */
+[data-theme="dark-hc"] {
+    --hc-bg: #000000;
+    --hc-surface: #000000;
+    --hc-text: #FFFF00; /* Yellow text on black is AAA standard */
+    --hc-border-color: #FFFF00;
+    --hc-focus-color: #00FFFF; /* Cyan for focus on dark */
+}
+
+/* RESET & BASE */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0; /* Neutral background to let the demo pop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font-main);
+    padding: 2rem;
+}
+
+/* THE SQUARE SPECIMEN CONTAINER */
+#demo-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1 / 1; /* FORCES SQUARE SHAPE */
+    background-color: var(--hc-bg);
+    color: var(--hc-text);
+    border: var(--hc-border-width) solid var(--hc-border-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.2); /* Hard shadow to lift it off the page */
+    transition: all 0.3s ease;
+    overflow: hidden; /* Keep content inside the square */
+}
+
+/* UTILITY: The "Hard" Look */
+.hc-border {
+    border: var(--hc-border-width) solid var(--hc-border-color);
+}
+
+.hc-text-large {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hc-text-xl {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+/* INTERACTION: Focus States are Critical */
+*:focus-visible {
+    outline: var(--hc-focus-width) solid var(--hc-focus-color);
+    outline-offset: 4px;
+    z-index: 10;
+}
+
+/* LAYOUT GRID inside the Square */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+    height: 100%;
+    margin-top: 1.5rem;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--hc-border-width) solid var(--hc-border-color);
+    padding-bottom: 1.5rem;
+}
+
+.brand-tag {
+    background: var(--hc-text);
+    color: var(--hc-bg);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* SIDEBAR */
+aside nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside nav ul li {
+    margin-bottom: 1rem;
+}
+
+.nav-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: var(--hc-border-width) solid transparent; /* Invisible border for layout stability */
+    color: var(--hc-text);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: none; /* No subtle motion */
+}
+
+.nav-btn:hover {
+    border-color: var(--hc-border-color);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.nav-btn.active {
+    background: var(--hc-text);
+    color: var(--hc-bg);
+    border-color: var(--hc-text);
+}
+
+/* MAIN CONTENT AREA */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    padding-right: 1rem; /* Space for scrollbar */
+}
+
+/* CARDS / WIDGETS */
+.card {
+    border: var(--hc-border-width) solid var(--hc-border-color);
+    padding: 1.5rem;
+    background: var(--hc-surface);
+    position: relative;
+}
+
+.card-header {
+    border-bottom: var(--hc-border-width) solid var(--hc-border-color);
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--hc-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* DATA VISUALIZATION (High Contrast Patterns) */
+.chart-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    height: 150px;
+    padding-top: 1rem;
+    border-left: var(--hc-border-width) solid var(--hc-border-color);
+    border-bottom: var(--hc-border-width) solid var(--hc-border-color);
+}
+
+.bar {
+    flex: 1;
+    background: var(--hc-text);
+    position: relative;
+}
+
+/* Pattern for data distinction without color */
+.bar.pattern-1 {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--hc-text),
+        var(--hc-text) 10px,
+        var(--hc-bg) 10px,
+        var(--hc-bg) 20px
+    );
+    border: var(--hc-border-width) solid var(--hc-text);
+}
+
+.bar-label {
+    position: absolute;
+    bottom: -2rem;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* FORM ELEMENTS */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: var(--hc-border-width) solid var(--hc-border-color);
+    background: var(--hc-bg);
+    color: var(--hc-text);
+    font-size: 1.1rem;
+    font-family: inherit;
+    border-radius: 0; /* Hard edges */
+    appearance: none;
+}
+
+/* BUTTONS */
+.action-btn {
+    background: var(--hc-bg);
+    color: var(--hc-text);
+    border: var(--hc-border-width) solid var(--hc-border-color);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.action-btn:hover {
+    background: var(--hc-text);
+    color: var(--hc-bg);
+}
+
+.action-btn:active {
+    transform: translate(2px, 2px);
+}
+
+/* STATUS BADGES */
+.status-badge {
+    display: inline-block;
+    border: var(--hc-border-width) solid var(--hc-border-color);
+    padding: 0.2rem 0.6rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.status-ok {
+    /* Dashed border for visual texture difference */
+    border-style: dashed; 
+}
+
+/* LABEL OVERLAY (As requested: "This UI Style Name") */
+.style-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--hc-text);
+    color: var(--hc-bg);
+    padding: 1rem 2rem;
+    font-weight: 900;
+    font-size: 1rem;
+    z-index: 100;
+    border-top: var(--hc-border-width) solid var(--hc-bg);
+    border-left: var(--hc-border-width) solid var(--hc-bg);
+}
+
+/* RESPONSIVE ADJUSTMENTS for the Demo Container */
+@media (max-width: 700px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    aside {
+        display: none; /* Hide sidebar on very small screens for this specific demo */
+    }
+}

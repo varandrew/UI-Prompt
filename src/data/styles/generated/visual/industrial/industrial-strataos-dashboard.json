@@ -1,0 +1,25 @@
+{
+  "id": "industrial-strataos-dashboard",
+  "title": {
+    "zh-CN": "StrataOS 工业仪表板",
+    "en-US": "StrataOS Industrial Dashboard"
+  },
+  "description": {
+    "zh-CN": "专业工业控制系统界面，包含圆形仪表盘、实时数据流、紧急控制面板和资源分配监控。深黑色背景搭配琥珀色强调，营造高科技工业氛围。",
+    "en-US": "Professional industrial control system interface featuring circular gauges, real-time data streams, emergency control panels, and resource allocation monitoring. Deep black background with amber accents creates a high-tech industrial atmosphere."
+  },
+  "renderMode": "jsx",
+  "previewId": "industrial-strataos-dashboard",
+  "previews": [
+    {
+      "id": "industrial-strataos-dashboard",
+      "name": {
+        "zh-CN": "StrataOS 工业仪表板",
+        "en-US": "StrataOS Industrial Dashboard"
+      },
+      "type": "fullpage",
+      "renderMode": "jsx"
+    }
+  ],
+  "config": {}
+}

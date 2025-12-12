@@ -1,0 +1,80 @@
+/* Duotone Brand Identity - Fullpage Styles */
+
+:root {
+    --c-dark: #10002b;
+    --c-light: #ccff00;
+}
+
+body {
+    background-color: var(--c-dark);
+    color: var(--c-light);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 1. GRAIN TEXTURE OVERLAY */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* 2. DUOTONE SVG FILTER IMPLEMENTATION */
+.duotone-img {
+    filter: url('#duotone-filter');
+    transition: filter 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.duotone-img:hover {
+    filter: url('#duotone-filter-bright');
+    transform: scale(1.02);
+}
+
+/* 3. CUSTOM SELECTION */
+::selection {
+    background: var(--c-light);
+    color: var(--c-dark);
+}
+
+/* 4. UTILITIES */
+.clip-text-image {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, var(--c-light), #ffffff);
+}
+
+.border-theme {
+    border: 1px solid var(--c-light);
+}
+
+/* Smooth Anchor Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--c-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--c-light);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    animation: marquee 20s linear infinite;
+}

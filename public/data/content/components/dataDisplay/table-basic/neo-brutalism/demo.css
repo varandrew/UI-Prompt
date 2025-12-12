@@ -1,0 +1,80 @@
+@keyframes bounceIn {
+            0% {
+              opacity: 0;
+              transform: scale(0.3) translateY(30px);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.05);
+            }
+            70% {
+              transform: scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+
+          .brutal-container {
+            background: white;
+            border: 5px solid black;
+            box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+          }
+
+          .brutal-table {
+            border-collapse: separate;
+            border-spacing: 0;
+          }
+
+          .brutal-header {
+            background: black;
+            color: #FFFF00;
+          }
+
+          .brutal-header th {
+            border-bottom: 4px solid black;
+          }
+
+          .brutal-row {
+            border-bottom: 3px solid black;
+            transition: all 0.3s;
+          }
+
+          .brutal-row:hover {
+            background: #FFFF00;
+            transform: translateX(5px);
+          }
+
+          .brutal-row:last-child {
+            border-bottom: none;
+          }
+
+          .brutal-badge {
+            padding: 0.35rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 900;
+            border: 3px solid black;
+            display: inline-block;
+            text-transform: uppercase;
+            box-shadow: 4px 4px 0px 0px black;
+          }
+
+          .brutal-badge-green {
+            background: #00FF00;
+            color: black;
+          }
+
+          .brutal-badge-yellow {
+            background: #FFFF00;
+            color: black;
+          }
+
+          .brutal-badge-red {
+            background: #FF00FF;
+            color: white;
+          }
+
+          .brutal-icon {
+            font-size: 1.5rem;
+          }

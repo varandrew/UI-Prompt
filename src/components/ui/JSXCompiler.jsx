@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { compileForIframe } from '../../utils/jsxCompiler';
 import { generatePreactIframeHTML } from '../../utils/preactRuntime';
+import { useLanguage } from '../../hooks/useLanguage';
 
 /**
  * JSXCompiler - JSX 編譯和 Preact 渲染組件
@@ -38,6 +39,7 @@ export function JSXCompiler({
   demoBoxClass = 'bg-gray-50 dark:bg-gray-900',
   demoBoxStyle = {}
 }) {
+  const { t, language } = useLanguage();
   const iframeRef = useRef(null);
   const [compileError, setCompileError] = useState(null);
   const [isCompiling, setIsCompiling] = useState(false);
@@ -204,10 +206,10 @@ export function JSXCompiler({
   if (!isVisible) {
     return (
       <div className={`demo-box ${demoBoxClass}`} style={demoBoxStyle}>
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
           <div className="flex flex-col items-center gap-2">
-            <div className="w-8 h-8 border-4 border-gray-300 dark:border-gray-600 border-t-gray-600 dark:border-t-gray-400 rounded-full animate-spin"></div>
-            <span className="text-sm text-gray-400 dark:text-gray-500">Loading...</span>
+            <div className="w-6 h-6 border-2 border-zinc-200 dark:border-zinc-700 border-t-zinc-400 dark:border-t-zinc-500 rounded-full animate-spin"></div>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500">{t('common.loading') || 'Loading...'}</span>
           </div>
         </div>
       </div>
@@ -218,10 +220,10 @@ export function JSXCompiler({
   if (isCompiling) {
     return (
       <div className={`demo-box ${demoBoxClass}`} style={demoBoxStyle}>
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
           <div className="flex flex-col items-center gap-2">
-            <div className="w-8 h-8 border-4 border-blue-300 dark:border-blue-700 border-t-blue-600 dark:border-t-blue-400 rounded-full animate-spin"></div>
-            <span className="text-sm text-blue-500 dark:text-blue-400 font-medium">Compiling JSX...</span>
+            <div className="w-6 h-6 border-2 border-zinc-300 dark:border-zinc-600 border-t-zinc-500 dark:border-t-zinc-400 rounded-full animate-spin"></div>
+            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{language === 'zh-CN' ? '编译中...' : 'Compiling JSX...'}</span>
           </div>
         </div>
       </div>
@@ -230,7 +232,7 @@ export function JSXCompiler({
 
   // 渲染 iframe
   return (
-    <div className={`demo-box ${demoBoxClass}`} style={demoBoxStyle}>
+    <div className={`demo-box relative ${demoBoxClass}`} style={demoBoxStyle}>
       <iframe
         ref={iframeRef}
         title={`jsx-demo-${id}`}
@@ -240,7 +242,7 @@ export function JSXCompiler({
       {/* 編譯錯誤提示（iframe 外部顯示） */}
       {compileError && (
         <div className="absolute inset-0 bg-red-50 dark:bg-red-950/80 bg-opacity-90 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-800 border-2 border-red-500 dark:border-red-600 rounded-lg p-4 max-w-md shadow-lg">
+          <div className="bg-white dark:bg-zinc-800 border-2 border-red-500 dark:border-red-600 rounded-lg p-4 max-w-md shadow-lg">
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 w-6 h-6 bg-red-500 dark:bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
                 !

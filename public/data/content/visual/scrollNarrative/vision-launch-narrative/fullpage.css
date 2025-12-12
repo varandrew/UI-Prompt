@@ -1,0 +1,10 @@
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.will-change-transform {
+  will-change: transform, opacity;
+}
+`;
+
+// ✨ 簡化的 HTML 骨架（僅用於回退）

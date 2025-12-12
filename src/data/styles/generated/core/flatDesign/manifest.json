@@ -1,0 +1,32 @@
+{
+  "id": "core-flatDesign",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "扁平化设计",
+      "en-US": "Flat Design"
+    },
+    "description": {
+      "zh-CN": "去除阴影、渐变和纹理，使用纯色和简洁图标创造二维视觉效果。",
+      "en-US": "Removes shadows, gradients, and textures, using solid colors and simple icons for a two-dimensional visual effect."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "core-flat-design",
+      "title": {
+        "zh-CN": "扁平化創意作品集",
+        "en-US": "Flat Design Creative Portfolio"
+      }
+    },
+    {
+      "id": "core-flat-design-ecommerce-landing",
+      "title": {
+        "zh-CN": "扁平化電商落地頁",
+        "en-US": "Flat Design E-commerce Landing"
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<div class="w-full max-w-lg maintenance-glass-wrapper" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 1.5rem;">
+            <div class="maintenance-glass-card">
+              <!-- Icon with glow -->
+              <div class="maintenance-glass-icon-container">
+                <div class="maintenance-glass-icon-glow"></div>
+                <svg class="w-10 h-10 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-3xl font-bold text-white mb-2 maintenance-glass-float">{{t:demo.special.maintenance.underMaintenance}}</h3>
+              <h3 class="text-2xl font-semibold text-white/90 mb-4">{{t:demo.special.maintenance.systemMaintenance}}</h3>
+              
+              <!-- Description -->
+              <p class="text-white/80 text-sm mb-8 leading-relaxed">
+                {{t:demo.special.maintenance.weAreUpgrading}}<br>
+                {{t:demo.special.maintenance.weAreUpgradingDesc}}
+              </p>
+
+              <!-- Countdown Glass Card -->
+              <div class="maintenance-glass-countdown">
+                <div class="text-4xl font-bold text-white mb-2 maintenance-glass-pulse">01:30:00</div>
+                <div class="text-xs text-white/70 uppercase tracking-wider">{{t:demo.special.maintenance.estimatedCompletion}} / {{t:demo.special.maintenance.estimatedCompletion}}</div>
+                
+                <!-- Progress Bar -->
+                <div class="w-full h-2 bg-white/20 rounded-full mt-4 overflow-hidden">
+                  <div class="h-full maintenance-glass-progress-bar"></div>
+                </div>
+              </div>
+
+              <!-- Status Items -->
+              <div class="grid grid-cols-3 gap-3 mb-6">
+                <div class="maintenance-glass-stat">
+                  <div class="text-xl font-bold text-white">85%</div>
+                  <div class="text-xs text-white/70">{{t:demo.special.maintenance.complete}}<br>{{t:demo.special.maintenance.complete}}</div>
+                </div>
+                <div class="maintenance-glass-stat">
+                  <div class="text-xl font-bold text-white">1.5h</div>
+                  <div class="text-xs text-white/70">{{t:demo.special.maintenance.remaining}}<br>{{t:demo.special.maintenance.remaining}}</div>
+                </div>
+                <div class="maintenance-glass-stat">
+                  <div class="text-xl font-bold text-emerald-300">●</div>
+                  <div class="text-xs text-white/70">{{t:demo.special.maintenance.active}}<br>{{t:demo.special.maintenance.active}}</div>
+                </div>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href="javascript:void(0)" class="maintenance-glass-btn-primary">
+                  {{t:demo.special.maintenance.checkStatus}} / {{t:demo.special.maintenance.checkStatus}}
+                </a>
+                <a href="javascript:void(0)" class="maintenance-glass-btn-secondary">
+                  {{t:demo.special.maintenance.getUpdates}} / {{t:demo.special.maintenance.getUpdates}}
+                </a>
+              </div>
+            </div>
+          </div>

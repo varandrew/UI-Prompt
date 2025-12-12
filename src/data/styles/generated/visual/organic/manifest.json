@@ -1,0 +1,25 @@
+{
+  "id": "visual-organic",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "现代有机设计",
+      "en-US": "Modern Organic"
+    },
+    "description": {
+      "zh-CN": "自然有机设计风格，具有流动动画和温暖的大地色调。",
+      "en-US": "Natural organic design style with flowing animations and warm earth tones."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-organic-flow-workspace",
+      "title": {
+        "zh-CN": "有機流動工作室",
+        "en-US": "Organic Flow Workspace"
+      }
+    }
+  ]
+}

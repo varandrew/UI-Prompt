@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Glass UI Demo</title>
+    <style>
+        /* Base Reset & Fonts */
+        :root {
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --primary-accent: #00d2ff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #050505; /* Fallback */
+            font-family: var(--font-main);
+            overflow: hidden;
+        }
+
+        /* The Main Demo Container 
+           Enforces Square Shape & Responsive sizing
+        */
+        .demo-container {
+            position: relative;
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 400px;
+            max-height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            /* Aurora Background Animation Layer */
+            background: #000;
+        }
+
+        /* The Moving Aurora Gradients */
+        .aurora-bg {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.4), transparent 50%),
+                radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.4), transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.4), transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(45, 212, 191, 0.4), transparent 50%);
+            filter: blur(40px);
+            animation: aurora-flow 15s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes aurora-flow {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Glass Card Component 
+           The actual UI element 
+        */
+        .glass-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: auto;
+            padding: 8%;
+            border-radius: 20px;
+            
+            /* Glassmorphism Core */
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255,255,255,0.4);
+            border-left: 1px solid rgba(255,255,255,0.4);
+            box-shadow: var(--glass-shadow);
+            
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: white;
+            z-index: 10;
+            
+            /* Dynamic Lighting Variables (set by JS) */
+            --x: 50%;
+            --y: 50%;
+        }
+
+        /* The "Dynamic Lighting" Overlay on Hover */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px;
+            background: radial-gradient(
+                800px circle at var(--x) var(--y), 
+                rgba(255, 255, 255, 0.15), 
+                transparent 40%
+            );
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Typography - Auto scaling based on container relative units */
+        h1 {
+            font-size: clamp(1.2rem, 5cqw, 1.8rem);
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: clamp(0.8rem, 3cqw, 1rem);
+            font-weight: 300;
+            opacity: 0.8;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* UI Elements */
+        .input-group {
+            position: relative;
+            width: 100%;
+        }
+
+        .glass-input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .glass-input:focus {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .glass-btn:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Style Tag Label */
+        .style-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: none;
+        }
+
+        /* Decoration Circles inside card */
+        .decoration {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            border-radius: 50%;
+            margin-bottom: 10px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="demo-container">
+        <!-- Background Animation -->
+        <div class="aurora-bg"></div>
+
+        <!-- Glass Interface -->
+        <div class="glass-card" id="glassCard">
+            <div class="decoration"></div>
+            
+            <div class="text-content">
+                <h1>Aurora Glass</h1>
+                <p>Experience the flow of light and transparency.</p>
+            </div>
+
+            <div class="input-group">
+                <input type="text" class="glass-input" placeholder="Enter email address...">
+            </div>
+
+            <button class="glass-btn">Get Started</button>
+        </div>
+
+        <!-- Identifier Label -->
+        <div class="style-tag">UI Style: Aurora Glass</div>
+    </div>
+
+    <script>
+        // Dynamic Lighting Script
+        const card = document.getElementById('glassCard');
+        const container = document.querySelector('.demo-container');
+
+        // Function to handle mouse movement for the spotlight effect
+        function handleMove(e) {
+            // Get position relative to the card
+            const rect = card.getBoundingClientRect();
+            
+            // Calculate X and Y coordinates of cursor inside the card
+            // e.clientX is global, we subtract rect.left to get local
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Set CSS variables for radial gradient position
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+        }
+
+        // Attach listeners to container so effect starts as you enter
+        container.addEventListener('mousemove', handleMove);
+        container.addEventListener('touchmove', (e) => {
+            // Simple touch support
+            const touch = e.touches[0];
+            handleMove(touch);
+        });
+
+        // Simple console log to confirm load
+        console.log("Aurora Glass Demo Loaded - Interaction Ready");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Visuals Demo</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #050505;
+            --panel-bg: rgba(20, 20, 20, 0.8);
+            --neon-primary: #ff00ff; /* Magenta */
+            --neon-secondary: #00ffff; /* Cyan */
+            --neon-accent: #39ff14; /* Neon Green */
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --font-main: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: var(--font-main);
+            color: #fff;
+            overflow: hidden; /* Prevent scrollbars from glow spill */
+        }
+
+        /* --- MAIN DEMO CONTAINER (SQUARE) --- */
+        .demo-container {
+            position: relative;
+            width: 90vw;
+            max-width: 400px; /* Small demo size */
+            aspect-ratio: 1 / 1; /* Forces Square */
+            background-color: var(--bg-color);
+            border: 1px solid #333;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Fallback for browsers without aspect-ratio support if needed, 
+           but kept simple here. The max-width ensures it stays "small demo" size. */
+
+        /* --- BACKGROUND TEXTURE & SCANLINES (Non-interactive) --- */
+        .noise-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* CRITICAL: Allows clicks to pass through */
+            z-index: 1;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.2) 50%,
+                rgba(0,0,0,0.2)
+            );
+            background-size: 100% 4px;
+            animation: scanlineScroll 10s linear infinite;
+        }
+
+        @keyframes scanlineScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+
+        /* --- CONTENT LAYER --- */
+        .ui-content {
+            position: relative;
+            z-index: 10; /* Above noise/scanlines */
+            width: 100%;
+            height: 100%;
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--neon-secondary);
+            padding-bottom: 2%;
+            margin-bottom: 2%;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-accent);
+            animation: pulse 2s infinite;
+        }
+
+        .header-text {
+            font-size: clamp(10px, 3vw, 14px); /* Responsive without cqw */
+            color: var(--neon-secondary);
+            text-shadow: 0 0 5px var(--neon-secondary);
+            letter-spacing: 1px;
+        }
+
+        /* --- MAIN DISPLAY --- */
+        .main-display {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            background: rgba(255, 0, 255, 0.02);
+            margin: 5% 0;
+            padding: 5%;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Decorative corners */
+        .main-display::before, .main-display::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 2px solid var(--neon-primary);
+            transition: all 0.3s ease;
+        }
+        .main-display::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .main-display::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        .style-label {
+            font-size: clamp(10px, 2.5vw, 12px);
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5%;
+        }
+
+        .hero-title {
+            font-size: clamp(24px, 8vw, 40px); /* Big, responsive title */
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 0.9;
+            /* Neon Glow Effect */
+            text-shadow: 
+                0 0 5px var(--neon-primary),
+                0 0 10px var(--neon-primary),
+                0 0 20px var(--neon-primary),
+                0 0 40px var(--neon-primary);
+            animation: flicker 4s infinite;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(10px, 3vw, 14px);
+            color: #fff;
+            margin-top: 5%;
+            text-align: center;
+            opacity: 0.8;
+            text-shadow: 0 0 2px var(--neon-secondary);
+        }
+
+        /* --- CONTROLS --- */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid var(--neon-secondary);
+            color: var(--neon-secondary);
+            padding: 12px 0;
+            font-family: var(--font-main);
+            font-size: clamp(12px, 3.5vw, 16px);
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            text-shadow: 0 0 3px var(--neon-secondary);
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.2), inset 0 0 5px rgba(0, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            border-color: var(--neon-primary);
+            color: var(--neon-primary);
+            text-shadow: 0 0 3px var(--neon-primary);
+            box-shadow: 0 0 5px rgba(255, 0, 255, 0.2), inset 0 0 5px rgba(255, 0, 255, 0.1);
+        }
+
+        /* HOVER STATES */
+        .btn:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px var(--neon-secondary), inset 0 0 10px var(--neon-secondary);
+            text-shadow: 0 0 8px var(--neon-secondary);
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 0, 255, 0.1);
+            box-shadow: 0 0 15px var(--neon-primary), inset 0 0 10px var(--neon-primary);
+            text-shadow: 0 0 8px var(--neon-primary);
+        }
+
+        /* ACTIVE STATES */
+        .btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 0 5px var(--neon-secondary);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--neon-accent); }
+            50% { opacity: 0.5; box-shadow: 0 0 2px var(--neon-accent); }
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+                text-shadow: 
+                    0 0 5px var(--neon-primary),
+                    0 0 10px var(--neon-primary),
+                    0 0 20px var(--neon-primary),
+                    0 0 40px var(--neon-primary);
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+                text-shadow: none;
+            }
+        }
+
+        /* Mobile Optimization specifically for the demo wrapper */
+        @media (max-width: 350px) {
+            .hero-title { font-size: 24px; }
+            .btn { padding: 8px 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="demo-container">
+        <!-- Visual Noise Layers -->
+        <div class="noise-overlay"></div>
+        <div class="scanlines"></div>
+
+        <div class="ui-content">
+            <!-- Top Bar -->
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <div class="status-dot"></div>
+                    <span class="header-text">SYSTEM_READY</span>
+                </div>
+                <div class="header-text">V.0.9</div>
+            </div>
+
+            <!-- Center Visual -->
+            <div class="main-display" id="mainDisplay">
+                <div class="style-label">Style Identifier</div>
+                <div class="hero-title">NEON<br>VISUALS</div>
+                <div class="hero-subtitle">GLOW_OPACITY: 100%</div>
+            </div>
+
+            <!-- Bottom Controls -->
+            <div class="controls">
+                <button class="btn" onclick="triggerScan()">SCAN</button>
+                <button class="btn btn-primary" onclick="activateCore()">ENTER</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple Interaction Logic
+        function activateCore() {
+            const display = document.getElementById('mainDisplay');
+            const title = document.querySelector('.hero-title');
+            
+            // Visual feedback - Flash white
+            display.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+            setTimeout(() => {
+                display.style.backgroundColor = 'rgba(255, 0, 255, 0.05)';
+            }, 50);
+
+            // Change Text temporarily
+            const originalText = title.innerHTML;
+            title.innerHTML = "ACCESS<br>GRANTED";
+            title.style.color = "#fff";
+            title.style.textShadow = "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff00ff";
+
+            setTimeout(() => {
+                title.innerHTML = originalText;
+                title.style.color = ""; // reset
+                title.style.textShadow = ""; // reset
+            }, 1500);
+        }
+
+        function triggerScan() {
+            const scanlines = document.querySelector('.scanlines');
+            const originalAnimation = scanlines.style.animation;
+            
+            // Speed up scanlines
+            scanlines.style.animation = "scanlineScroll 0.5s linear infinite";
+            scanlines.style.opacity = "0.5";
+
+            setTimeout(() => {
+                scanlines.style.animation = ""; // Reset to CSS default
+                scanlines.style.opacity = "";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

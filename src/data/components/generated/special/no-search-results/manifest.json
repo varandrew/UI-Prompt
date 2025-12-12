@@ -1,0 +1,33 @@
+{
+  "id": "no-search-results",
+  "category": "special",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.special.no-search-results.title",
+      "en-US": "data.components.special.no-search-results.title"
+    },
+    "description": {
+      "zh-CN": "data.components.special.no-search-results.description",
+      "en-US": "data.components.special.no-search-results.description"
+    },
+    "tags": [
+      "special"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.special.no-search-results.title",
+        "en-US": "data.components.special.no-search-results.title"
+      },
+      "description": {
+        "zh-CN": "data.components.special.no-search-results.description",
+        "en-US": "data.components.special.no-search-results.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

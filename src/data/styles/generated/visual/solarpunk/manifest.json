@@ -1,0 +1,36 @@
+{
+  "id": "visual-solarpunk",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Solarpunk 太阳庞克",
+      "en-US": "Solarpunk"
+    },
+    "description": {
+      "zh-CN": "融合环保科技与未来愿景的生态设计，强调可持续能源与社区共享",
+      "en-US": "Eco-futuristic design blending sustainable technology with community-driven vision"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-nature-solarpunk",
+      "title": {
+        "zh-CN": "生态科技仪表板",
+        "en-US": "Eco-Tech Dashboard"
+      },
+      "description": {
+        "zh-CN": "以太阳能与社区共创为主题的绿色生态科技着陆页/仪表板",
+        "en-US": "A green eco-tech landing page and dashboard themed around solar energy and community co-creation"
+      }
+    },
+    {
+      "id": "solarpunk-eco-marketplace",
+      "title": {
+        "zh-CN": "生态市集中心",
+        "en-US": "Eco Marketplace Hub"
+      }
+    }
+  ]
+}

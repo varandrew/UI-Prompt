@@ -1,0 +1,17 @@
+{
+  "id": "visual-spotlight",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "聚光灯",
+      "en-US": "Spotlight"
+    },
+    "description": {
+      "zh-CN": "移动径向光，焦点照明，舞台效果",
+      "en-US": "Moving radial light for focal lighting and stage effects"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

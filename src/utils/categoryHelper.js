@@ -9,6 +9,12 @@ import {
 import { applyTranslations } from './i18n/translations';
 import { DEFAULT_LANGUAGE } from './i18n/languageConstants';
 
+// 分类 ID 映射（雙向），避免別名造成篩選失效
+const CATEGORY_ALIAS = {
+  visual: 'visualDesign',
+  visualDesign: 'visual'
+};
+
 /**
  * 根据标籤篩選風格
  * Filter styles by tags
@@ -49,9 +55,20 @@ export const filterStylesByCategories = (styles, selectedCategories = []) => {
     return styles;
   }
 
+  // 展開选中分类的別名（例：visualDesign ↔ visual）
+  const expandedSelected = new Set();
+  selectedCategories.forEach((cat) => {
+    expandedSelected.add(cat);
+    if (CATEGORY_ALIAS[cat]) expandedSelected.add(CATEGORY_ALIAS[cat]);
+  });
+
   return styles.filter(style => {
     const styleCategories = style.categories || [style.primaryCategory];
-    return selectedCategories.some(cat => styleCategories.includes(cat));
+    const expandedStyleCats = new Set(styleCategories);
+    styleCategories.forEach((cat) => {
+      if (CATEGORY_ALIAS[cat]) expandedStyleCats.add(CATEGORY_ALIAS[cat]);
+    });
+    return [...expandedSelected].some(cat => expandedStyleCats.has(cat));
   });
 };
 

@@ -1,0 +1,168 @@
+@keyframes complexEntry {
+            0% {
+              transform: translateX(100%) rotateZ(5deg);
+              opacity: 0;
+            }
+            50% {
+              transform: translateX(-5%) rotateZ(-2deg);
+              opacity: 1;
+            }
+            100% {
+              transform: translateX(0) rotateZ(0deg);
+              opacity: 1;
+            }
+          }
+
+          @keyframes progressBar {
+            from {
+              width: 100%;
+            }
+            to {
+              width: 0%;
+            }
+          }
+
+          .toast-bootstrap {
+            position: relative;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: complexEntry 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: transform 0.2s, box-shadow 0.2s;
+          }
+
+          .toast-bootstrap:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.18);
+          }
+
+          .toast-bootstrap-header {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #dee2e6;
+          }
+
+          .toast-bootstrap-success .toast-bootstrap-header {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-bottom-color: #86efac;
+          }
+
+          .toast-bootstrap-warning .toast-bootstrap-header {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-bottom-color: #fcd34d;
+          }
+
+          .toast-bootstrap-error .toast-bootstrap-header {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-bottom-color: #fca5a5;
+          }
+
+          .toast-bootstrap-info .toast-bootstrap-header {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-bottom-color: #93c5fd;
+          }
+
+          .toast-bootstrap-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .toast-bootstrap-success .toast-bootstrap-icon {
+            background: #10b981;
+          }
+
+          .toast-bootstrap-warning .toast-bootstrap-icon {
+            background: #fbbf24;
+          }
+
+          .toast-bootstrap-error .toast-bootstrap-icon {
+            background: #ef4444;
+          }
+
+          .toast-bootstrap-info .toast-bootstrap-icon {
+            background: #3b82f6;
+          }
+
+          .toast-bootstrap-close {
+            color: #6b7280;
+            transition: color 0.2s;
+            padding: 0.125rem;
+          }
+
+          .toast-bootstrap-close:hover {
+            color: #1f2937;
+          }
+
+          .toast-bootstrap-body {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+            line-height: 1.5;
+          }
+
+          .toast-bootstrap-actions {
+            padding: 0.5rem 1rem 0.75rem;
+            display: flex;
+            gap: 0.5rem;
+          }
+
+          .toast-bootstrap-btn-primary {
+            background: #3b82f6;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            transition: background 0.2s;
+          }
+
+          .toast-bootstrap-btn-primary:hover {
+            background: #2563eb;
+          }
+
+          .toast-bootstrap-btn-secondary {
+            background: transparent;
+            color: #6b7280;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            transition: color 0.2s;
+          }
+
+          .toast-bootstrap-btn-secondary:hover {
+            color: #1f2937;
+          }
+
+          .toast-bootstrap-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 0.25rem;
+            width: 100%;
+            animation: progressBar 5s linear;
+          }
+
+          .toast-bootstrap-progress-success {
+            background: #10b981;
+          }
+
+          .toast-bootstrap-progress-warning {
+            background: #f59e0b;
+          }
+
+          .toast-bootstrap-progress-error {
+            background: #ef4444;
+          }
+
+          .toast-bootstrap-progress-info {
+            background: #3b82f6;
+          }

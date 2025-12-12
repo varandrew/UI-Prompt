@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biophilic Design Demo</title>
+    <!-- Importing a rounded, organic font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Biophilic Color Palette */
+        :root {
+            --bio-bg: #F3F6F1;
+            --bio-leaf-light: #C3D9C6;
+            --bio-leaf-mid: #8FB393;
+            --bio-leaf-dark: #2F4F2F;
+            --bio-stone: #5C5552;
+            --bio-sand: #EFEBE7;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The Main Demo Container 
+           - Forces a 1:1 Aspect Ratio (Square)
+           - Uses vmin to scale perfectly within small iframes or full screens
+        */
+        .demo-wrapper {
+            width: 95vmin;
+            height: 95vmin;
+            max-width: 500px;
+            max-height: 500px;
+            position: relative;
+            background: linear-gradient(135deg, var(--bio-bg) 0%, #ffffff 100%);
+            border-radius: 10%; /* Soft rounded corners for the container itself */
+            box-shadow: 0 20px 50px rgba(47, 79, 47, 0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            container-type: size; /* Allows container queries if needed */
+        }
+
+        /* Organic Background Shapes (Blobs) */
+        .blob {
+            position: absolute;
+            filter: blur(40px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: breathe 8s ease-in-out infinite alternate;
+        }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: var(--bio-leaf-light);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 70%;
+            height: 70%;
+            background: var(--bio-leaf-mid);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation-delay: -2s;
+        }
+
+        /* Content Layer */
+        .content {
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8%;
+            text-align: center;
+        }
+
+        /* Typography Scaling */
+        h1 {
+            color: var(--bio-leaf-dark);
+            font-size: 8cqw; /* Relative to container width */
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 2cqw;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        p {
+            color: var(--bio-stone);
+            font-size: 4cqw;
+            font-weight: 600;
+            margin-bottom: 6cqw;
+        }
+
+        /* Organic Card Component */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 6cqw;
+            border-radius: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 4cqw;
+            margin-bottom: 4cqw;
+            transition: transform 0.3s ease;
+            cursor: default;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .icon-box {
+            background: var(--bio-leaf-dark);
+            color: white;
+            width: 12cqw;
+            height: 12cqw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 6cqw;
+        }
+
+        .card-text {
+            text-align: left;
+        }
+        .card-title {
+            color: var(--bio-leaf-dark);
+            font-size: 3.5cqw;
+            font-weight: 800;
+        }
+        .card-sub {
+            color: var(--bio-stone);
+            font-size: 2.8cqw;
+        }
+
+        /* Organic Button */
+        .btn-organic {
+            background: var(--bio-leaf-dark);
+            color: #fff;
+            padding: 3cqw 8cqw;
+            font-size: 3.5cqw;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px 50px 50px 0px; /* Leaf shape */
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(47, 79, 47, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 2cqw;
+        }
+
+        .btn-organic:hover {
+            border-radius: 50px 50px 0px 50px; /* Morph shape on hover */
+            background: #233d23;
+            transform: scale(1.05);
+        }
+
+        /* Leaf Icon (Pure CSS) */
+        .leaf-icon {
+            width: 1em;
+            height: 1em;
+            background-color: currentColor;
+            border-radius: 0% 100% 0% 100%;
+            transform: rotate(-45deg);
+        }
+
+        /* Animation */
+        @keyframes breathe {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.1) translate(10px, -10px); }
+        }
+
+        /* Absolute label for the Style Name as requested */
+        .style-label {
+            position: absolute;
+            top: 4cqw;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(47, 79, 47, 0.1);
+            color: var(--bio-leaf-dark);
+            padding: 1cqw 3cqw;
+            border-radius: 20px;
+            font-size: 2.5cqw;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Container: Keeps 1:1 Ratio -->
+    <div class="demo-wrapper">
+        
+        <!-- Background Blobs -->
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <!-- Tag to explicitly identify style -->
+        <div class="style-label">UI Style: Biophilic</div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Decorative Plant SVG -->
+            <svg width="20%" height="20%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--bio-leaf-dark); margin-bottom: 2cqw;">
+                <path d="M7 3v18"/>
+                <path d="M7 21C7 21 10 21 12 21C17.5228 21 22 16.5228 22 11C22 5.47715 17.5228 1 12 1C10 1 7 1 7 1"/>
+                <path d="M7 11C12 11 15 12 15 16"/>
+            </svg>
+
+            <h1>Biophilic Design</h1>
+            <p>Connect with nature through digital harmony.</p>
+
+            <!-- Interactive Element 1 -->
+            <div class="glass-card">
+                <div class="icon-box">
+                    <div class="leaf-icon"></div>
+                </div>
+                <div class="card-text">
+                    <div class="card-title">Organic Shapes</div>
+                    <div class="card-sub">Soft, flowing geometry</div>
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <button class="btn-organic">
+                Explore
+                <span class="leaf-icon" style="font-size: 0.8em;"></span>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

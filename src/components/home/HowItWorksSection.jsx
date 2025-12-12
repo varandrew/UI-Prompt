@@ -1,151 +1,133 @@
 import { useLanguage } from '../../hooks/useLanguage';
-import { HandDrawnArrow } from '../icons/HandDrawnIcons';
+import { useDarkMode } from '../../hooks/useDarkMode';
+import { Search, Eye, Copy, Code } from 'lucide-react';
 
 /**
- * HowItWorksSection - 使用流程區（Paper/Cutout 索引卡片風格）
+ * HowItWorksSection - 使用流程區（Paper/Scrapbook 索引卡片風格）
  * 展示 4 步使用流程
- * 使用 CSS 伪元素徽章、索引卡片、纸夹装饰、手繪箭頭連接
+ * 使用 Washi Tape 裝飾、手寫字體風格、虛線連接路徑
  */
+
+// Washi Tape Component
+const WashiTape = ({ className = "" }) => (
+  <div
+    className={`absolute h-6 w-16 opacity-80 mix-blend-multiply dark:mix-blend-screen shadow-sm bg-white/50 dark:bg-white/20 ${className}`}
+    style={{
+      clipPath: 'polygon(2% 0%, 98% 0%, 100% 100%, 0% 100%, 1% 5%, 0% 10%, 2% 20%, 0% 30%, 1% 40%, 0% 50%, 2% 60%, 0% 70%, 1% 80%, 0% 90%)'
+    }}
+  />
+);
+
+// Step Card Component
+const HowItWorksStep = ({ number, titleKey, descKey, rotate, bgColor, icon, t }) => {
+  const IconComponent = icon;
+  return (
+    <div
+      className={`relative flex flex-col items-center p-6 shadow-lg rounded-sm w-full md:w-64 transform ${rotate} transition-transform hover:scale-105 hover:z-10 border border-black/5 dark:border-white/10`}
+      style={{ backgroundColor: bgColor }}
+    >
+      <WashiTape className="-top-3 left-1/2 -translate-x-1/2 rotate-1" />
+      <div
+        className="absolute -top-4 -left-4 w-10 h-10 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 rounded-full flex items-center justify-center font-marker text-xl shadow-md border-2 border-white dark:border-gray-700 transform -rotate-12"
+      >
+        {number}
+      </div>
+      <div className="mb-4 p-3 bg-white/40 dark:bg-white/10 rounded-full border border-black/5 dark:border-white/10">
+        <IconComponent className="w-8 h-8 text-gray-700 dark:text-gray-200" strokeWidth={1.5} />
+      </div>
+      <h4 className="text-xl font-bold font-handwriting text-gray-800 dark:text-gray-100 mb-2 text-center">
+        {t(`home.howItWorks.${titleKey}`)}
+      </h4>
+      <p className="text-sm font-handwriting text-gray-700 dark:text-gray-300 text-center leading-relaxed">
+        {t(`home.howItWorks.${descKey}`)}
+      </p>
+    </div>
+  );
+};
+
 export function HowItWorksSection() {
   const { t } = useLanguage();
+  const { isDarkMode } = useDarkMode();
 
   const steps = [
     {
       number: '01',
-      color: 'blue',          // 索引卡片顏色
-      badgeColor: 'orange',   // CSS 徽章顏色类名
-      rotation: 2,            // 旋轉角度
       titleKey: 'step1Title',
-      descKey: 'step1Desc'
+      descKey: 'step1Desc',
+      icon: Search,
+      color: '#e0f2fe', // sky-100
+      darkColor: '#1e3a4f',
+      rotate: '-rotate-2'
     },
     {
       number: '02',
-      color: 'kraft',
-      badgeColor: 'yellow',
-      rotation: -3,
       titleKey: 'step2Title',
-      descKey: 'step2Desc'
+      descKey: 'step2Desc',
+      icon: Eye,
+      color: '#ecfccb', // lime-100
+      darkColor: '#1e2d20',
+      rotate: 'rotate-1'
     },
     {
       number: '03',
-      color: 'blue',
-      badgeColor: 'pink',
-      rotation: 4,
       titleKey: 'step3Title',
-      descKey: 'step3Desc'
+      descKey: 'step3Desc',
+      icon: Copy,
+      color: '#ffe4e6', // rose-100
+      darkColor: '#3d2035',
+      rotate: '-rotate-1'
     },
     {
       number: '04',
-      color: 'kraft',
-      badgeColor: 'green',
-      rotation: -2,
       titleKey: 'step4Title',
-      descKey: 'step4Desc'
+      descKey: 'step4Desc',
+      icon: Code,
+      color: '#fef3c7', // amber-100
+      darkColor: '#3d2d1a',
+      rotate: 'rotate-2'
     }
   ];
 
   return (
-    <section className="w-full py-20 px-6 bg-white dark:bg-gray-900 relative overflow-hidden">
-      {/* 背景點綴 - 模擬桌面 */}
-      <div
-        className="absolute inset-0 opacity-10 dark:opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 15% 20%, rgba(158, 158, 158, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 85% 80%, rgba(158, 158, 158, 0.08) 0%, transparent 50%)
-          `
-        }}
-      />
+    <section className="w-full py-24 px-6 bg-white dark:bg-[#1f1c18] relative overflow-hidden">
+      {/* Section Title */}
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl text-gray-800 dark:text-gray-100 font-marker mb-2 transform rotate-1 inline-block bg-white dark:bg-[#2a2520] px-4 py-2 border-2 border-black/10 dark:border-white/10 shadow-[4px_4px_0px_rgba(0,0,0,0.1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,0.05)]">
+          {t('home.howItWorks.title')}
+        </h2>
+        <p className="mt-4 text-xl font-handwriting text-gray-600 dark:text-gray-300">
+          {t('home.howItWorks.subtitle')}
+        </p>
+      </div>
 
+      {/* Dashed Path (SVG Background) */}
+      <div className="absolute top-1/2 left-0 w-full h-20 hidden lg:block -z-10 opacity-30 dark:opacity-20 pointer-events-none translate-y-8">
+        <svg width="100%" height="100%" viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path d="M50 50 Q 300 10, 600 50 T 1150 50" stroke="currentColor" className="text-black dark:text-white" strokeWidth="2" fill="none" strokeDasharray="10,10" />
+        </svg>
+      </div>
+
+      {/* Steps Container */}
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* 標題區域 */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 dark:text-gray-100 mb-4">
-            {t('home.howItWorks.title')}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 font-light max-w-2xl mx-auto">
-            {t('home.howItWorks.subtitle')}
-          </p>
-        </div>
-
-        {/* 步驟卡片列表 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="relative flex flex-col items-center group"
-            >
-              {/* 索引卡片 */}
-              <article
-                className={`
-                  paper-index-card
-                  paper-lined-texture
-                  paper-clip-top
-                  rounded-sm
-                  p-6 pt-14
-                  w-full
-                  relative
-                  transition-all duration-220
-                  hover:shadow-xl
-                  ${step.color === 'kraft' ? 'paper-card-kraft' : 'paper-card-blue'}
-                `}
-                style={{
-                  transform: `rotate(${step.rotation}deg)`,
-                  minHeight: '240px',
-                  transition: 'all 220ms cubic-bezier(0.4, 0, 0.2, 1)'
-                }}
-              >
-                {/* CSS 徽章編號 - 置於虛線標題欄內 */}
-                <div className="absolute top-3 left-1/2 transform -translate-x-1/2">
-                  <div
-                    className={`paper-badge paper-badge-${step.badgeColor}`}
-                    style={{
-                      transform: `rotate(${-step.rotation}deg)`  // 反向旋轉使徽章保持水平
-                    }}
-                  >
-                    {step.number}
-                  </div>
-                </div>
-
-                {/* 標題 */}
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 text-center mt-2">
-                  {t(`home.howItWorks.${step.titleKey}`)}
-                </h3>
-
-                {/* 描述 */}
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-center text-sm">
-                  {t(`home.howItWorks.${step.descKey}`)}
-                </p>
-              </article>
-
-              {/* 手繪箭頭連接線 (桌面版，除了最後一個) */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:flex absolute top-[120px] left-[calc(100%+8px)] w-[40px] items-center justify-center paper-arrow-container">
-                  <HandDrawnArrow size={50} direction="right" />
-                </div>
-              )}
-
-              {/* 移動端向下箭頭 */}
-              {index < steps.length - 1 && (
-                <div className="lg:hidden flex justify-center my-4 paper-arrow-container">
-                  <HandDrawnArrow size={40} direction="down" />
-                </div>
-              )}
-            </div>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4 lg:px-4">
+          {steps.map((step, idx) => (
+            <HowItWorksStep
+              key={idx}
+              number={step.number}
+              titleKey={step.titleKey}
+              descKey={step.descKey}
+              rotate={step.rotate}
+              icon={step.icon}
+              bgColor={isDarkMode ? step.darkColor : step.color}
+              t={t}
+            />
           ))}
         </div>
 
-        {/* 底部提示（無 emoji）*/}
-        <div className="mt-16 text-center">
-          <p
-            className="text-gray-500 dark:text-gray-400 text-sm inline-block"
-            style={{
-              fontFamily: '"Comic Sans MS", "Marker Felt", cursive',
-              transform: 'rotate(1deg)',
-              letterSpacing: '0.02em'
-            }}
-          >
-            {t('home.howItWorks.note') || '只需四步，輕鬆生成專業 UI 設計'}
+        {/* Bottom Note */}
+        <div className="text-center mt-12">
+          <p className="inline-block text-lg font-handwriting text-gray-500 dark:text-gray-400 bg-white/60 dark:bg-gray-800/60 px-6 py-2 rounded-full border border-dashed border-gray-400 dark:border-gray-600">
+            {t('home.howItWorks.note') || 'Just four steps to easily generate professional UI design'}
           </p>
         </div>
       </div>

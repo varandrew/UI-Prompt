@@ -1,0 +1,25 @@
+{
+  "id": "core-memphis",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "孟菲斯風格",
+      "en-US": "Memphis Design"
+    },
+    "description": {
+      "zh-CN": "1980年代義大利設計運動，大膽的色彩、幾何圖形和不對稱布局。",
+      "en-US": "1980s Italian design movement featuring bold colors, geometric shapes, and asymmetric layouts."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "core-memphis-memphis-creative",
+      "title": {
+        "zh-CN": "孟菲斯創意頁面",
+        "en-US": "Memphis Creative Page"
+      }
+    }
+  ]
+}

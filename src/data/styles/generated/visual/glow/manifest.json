@@ -1,0 +1,25 @@
+{
+  "id": "visual-glow",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "发光效果",
+      "en-US": "Glow Effect"
+    },
+    "description": {
+      "zh-CN": "box-shadow 发光，脉冲动画，呼吸灯效",
+      "en-US": "Box-shadow glow with pulse animation and breathing light"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-glow-luminous-cards",
+      "title": {
+        "zh-CN": "霓光面板",
+        "en-US": "Luminous Glow Cards"
+      }
+    }
+  ]
+}

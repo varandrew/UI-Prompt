@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Marketplace Hub | Solarpunk Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'solar-yellow': '#F4E04D',
+                        'solar-yellow-glow': '#FFF59D',
+                        'eco-green': '#00BFA5',
+                        'leaf-green': '#69F0AE',
+                        'sky-blue': '#40C4FF',
+                        'deep-green': '#004D40',
+                        'glass-white': 'rgba(255, 255, 255, 0.65)',
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        body {
+            background-color: #f0fdf4;
+            background-image:
+                radial-gradient(at 0% 0%, hsla(192, 100%, 93%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(60, 100%, 88%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(152, 100%, 90%, 1) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #1a4731;
+            overflow-x: hidden;
+        }
+
+        /* --- Solarpunk Materials --- */
+
+        /* Frosted Glass Effect */
+        .glass-panel {
+            background: var(--glass-white);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Interaction: Lift & Brighten */
+        .glass-panel:hover {
+            transform: translateY(-5px) scale(1.01);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 15px 45px rgba(0, 191, 165, 0.15);
+            border-color: #ffffff;
+        }
+
+        /* Fine Lines & Grids */
+        .tech-grid {
+            background-image: linear-gradient(rgba(0, 191, 165, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 191, 165, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* --- Typography & Details --- */
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00BFA5 0%, #2979FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Buttons --- */
+        .btn-solar {
+            background: linear-gradient(90deg, #F4E04D, #69F0AE);
+            color: #004D40;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.75rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(244, 224, 77, 0.3);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-solar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(105, 240, 174, 0.4);
+            filter: brightness(1.05);
+        }
+
+        .btn-solar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-solar:hover::after {
+            left: 100%;
+        }
+
+        /* --- Animations --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes energy-flow {
+            0% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+            100% { opacity: 0.3; transform: scale(1); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.6;
+            animation: energy-flow 10s infinite ease-in-out;
+        }
+
+        /* Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.02);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 191, 165, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 191, 165, 0.6);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative">
+
+    <!-- Background Canvas for Particles -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 p-4">
+        <div class="max-w-7xl mx-auto glass-panel px-6 py-3 flex justify-between items-center rounded-full">
+            <div class="flex items-center gap-2 cursor-pointer group">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-solar-yellow to-eco-green flex items-center justify-center text-white group-hover:rotate-180 transition-transform duration-700">
+                    <i class="fa-solid fa-leaf text-sm"></i>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-wide text-deep-green">EcoHub</span>
+            </div>
+
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-600">
+                <a href="#marketplace" class="hover:text-eco-green transition-colors relative group">
+                    Marketplace
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-eco-green transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#community" class="hover:text-eco-green transition-colors relative group">
+                    Community
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-eco-green transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#tech" class="hover:text-eco-green transition-colors relative group">
+                    Tech Specs
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-eco-green transition-all group-hover:w-full"></span>
+                </a>
+            </div>
+
+            <div class="flex gap-3">
+                <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white transition-colors text-gray-600 relative">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="absolute top-0 right-0 w-3 h-3 bg-solar-yellow rounded-full border border-white animate-pulse"></span>
+                </button>
+                <button class="btn-solar text-sm py-2 px-5 rounded-full hidden sm:block">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto min-h-[90vh] flex items-center">
+        <!-- Decoration Orbs -->
+        <div class="glow-orb w-96 h-96 bg-yellow-200 top-20 left-[-100px]"></div>
+        <div class="glow-orb w-96 h-96 bg-green-200 bottom-20 right-[-100px]"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+            <div class="space-y-6 z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 border border-green-100 backdrop-blur-sm text-deep-green text-xs font-semibold tracking-wider uppercase animate-float">
+                    <span class="w-2 h-2 rounded-full bg-eco-green animate-pulse"></span>
+                    Powering the Future
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] text-deep-green">
+                    Reclaim the <br>
+                    <span class="text-gradient">Solar Future.</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-gray-600 max-w-lg leading-relaxed">
+                    A decentralized marketplace for hydroponics, clean energy modules, and sustainable tech. Join the Solarpunk revolution.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button class="btn-solar text-lg shadow-lg shadow-yellow-200/50">
+                        Explore Marketplace
+                    </button>
+                    <button class="px-8 py-3 rounded-full border border-gray-300 hover:border-eco-green hover:text-eco-green transition-colors bg-white/30 backdrop-blur-sm font-medium">
+                        View Roadmap
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="pt-8 flex gap-8">
+                    <div>
+                        <p class="text-3xl font-bold text-deep-green font-heading">12k+</p>
+                        <p class="text-sm text-gray-500">Trees Planted</p>
+                    </div>
+                    <div class="w-px h-12 bg-gray-300/50"></div>
+                    <div>
+                        <p class="text-3xl font-bold text-deep-green font-heading">45MW</p>
+                        <p class="text-sm text-gray-500">Clean Energy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="relative h-full min-h-[400px] flex items-center justify-center">
+                <!-- Main Glass Card -->
+                <div class="glass-panel p-6 w-full max-w-md animate-float relative z-20 tech-grid">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 text-6xl text-eco-green">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+
+                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                         alt="Plant in glass"
+                         class="w-full h-64 object-cover rounded-xl mb-4 shadow-sm">
+
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <h3 class="text-xl font-bold text-deep-green">Bio-Dome Alpha</h3>
+                            <p class="text-sm text-gray-500 flex items-center gap-1">
+                                <i class="fa-solid fa-bolt text-solar-yellow"></i> Net Positive Energy
+                            </p>
+                        </div>
+                        <div class="bg-white/50 p-2 rounded-lg backdrop-blur-md">
+                            <span class="font-bold text-eco-green">240 SOL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Elements Behind -->
+                <div class="glass-panel absolute top-10 right-0 p-3 w-40 animate-float-delayed z-10 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-deep-green">Pure H2O</p>
+                        <p class="text-[10px] text-gray-500">99.9% Filtered</p>
+                    </div>
+                </div>
+
+                <div class="glass-panel absolute bottom-20 left-[-20px] p-3 w-48 animate-float z-30 flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-deep-green">Solar Efficiency</p>
+                        <p class="text-[10px] text-gray-500">+25% Output</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories / Visual Philosophy Strip -->
+    <div class="w-full border-y border-white/40 bg-white/20 backdrop-blur-sm overflow-hidden py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-8 text-gray-500 text-sm font-medium tracking-widest uppercase opacity-70">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-eco-green"></i> Sustainable</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-solar-yellow"></i> Regenerative</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-sky-blue"></i> Transparent</span>
+            <span class="hidden md:flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-purple-400"></i> Decentralized</span>
+        </div>
+    </div>
+
+    <!-- Marketplace Grid -->
+    <section id="marketplace" class="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-4xl font-bold text-deep-green mb-2">Curated Eco-Tech</h2>
+                <p class="text-gray-500">Tools for a cleaner, greener homestead.</p>
+            </div>
+            <a href="#" class="text-eco-green hover:underline decoration-2 underline-offset-4 hidden sm:block">View All Products -></a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="glass-panel group cursor-pointer">
+                <div class="relative h-64 overflow-hidden rounded-t-2xl">
+                    <div class="absolute top-3 left-3 z-10 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-deep-green shadow-sm">
+                        Best Seller
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1592833159057-65a2845730bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         alt="Solar Panel">
+                    <!-- Overlay Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-deep-green/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-deep-green">Nano-Solar Roof Tiles</h3>
+                        <span class="text-eco-green font-bold text-lg">450 C</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-2">Transparent solar collecting tiles that blend seamlessly with modern architecture. High efficiency.</p>
+                    <div class="flex justify-between items-center border-t border-gray-200/50 pt-4">
+                        <div class="flex gap-1 text-yellow-500 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-eco-green hover:text-white transition-colors flex items-center justify-center text-gray-600" onclick="addToCart(this)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="glass-panel group cursor-pointer">
+                <div class="relative h-64 overflow-hidden rounded-t-2xl">
+                    <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         alt="Hydroponics">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-deep-green">Vertical Garden Kit</h3>
+                        <span class="text-eco-green font-bold text-lg">120 C</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-2">Modular hydroponic system for urban apartments. Grow fresh greens with 90% less water.</p>
+                    <div class="flex justify-between items-center border-t border-gray-200/50 pt-4">
+                        <div class="flex gap-1 text-yellow-500 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-eco-green hover:text-white transition-colors flex items-center justify-center text-gray-600" onclick="addToCart(this)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-panel group cursor-pointer">
+                <div class="relative h-64 overflow-hidden rounded-t-2xl">
+                    <img src="https://images.unsplash.com/photo-1534237710431-e2fc698436d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         alt="Smart Thermostat">
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-deep-green">AI Energy Node</h3>
+                        <span class="text-eco-green font-bold text-lg">890 C</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 line-clamp-2">Central hub for your smart home that optimizes power consumption based on grid load and sunlight.</p>
+                    <div class="flex justify-between items-center border-t border-gray-200/50 pt-4">
+                        <div class="flex gap-1 text-yellow-500 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <button class="w-8 h-8 rounded-full bg-gray-100 hover:bg-eco-green hover:text-white transition-colors flex items-center justify-center text-gray-600" onclick="addToCart(this)">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Visual Break / Tech Section -->
+    <section id="tech" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-white/40 backdrop-blur-sm z-0"></div>
+        <!-- Tech Grid Background -->
+        <div class="absolute inset-0 tech-grid opacity-30 z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+            <div class="glass-panel p-8 md:p-12 border border-white/60">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h4 class="text-sm font-bold text-eco-green uppercase tracking-widest mb-2">The Architecture</h4>
+                        <h2 class="text-3xl md:text-5xl font-bold text-deep-green mb-6">Designed for <br>Regeneration.</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-500 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-wind text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg text-deep-green">Atmospheric Cleaning</h5>
+                                    <p class="text-sm text-gray-600">Every transaction contributes to carbon removal projects verified on chain.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-recycle text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg text-deep-green">Circular Economy</h5>
+                                    <p class="text-sm text-gray-600">Products are designed for disassembly, repair, and complete recycling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <!-- Abstract Tech Visualization -->
+                        <div class="aspect-square bg-gradient-to-br from-eco-green/10 to-blue-500/10 rounded-full border border-white/50 flex items-center justify-center relative animate-float">
+                            <div class="absolute inset-4 rounded-full border border-dashed border-eco-green/40 spin-slow"></div>
+                            <div class="absolute inset-12 rounded-full border border-white/60 bg-white/20 backdrop-blur-xl"></div>
+                            <i class="fa-solid fa-seedling text-6xl text-gradient relative z-10"></i>
+
+                            <!-- Floating Particles CSS only -->
+                            <div class="absolute top-0 right-10 w-4 h-4 rounded-full bg-solar-yellow animate-bounce"></div>
+                            <div class="absolute bottom-10 left-10 w-3 h-3 rounded-full bg-sky-blue animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-bold text-deep-green mb-4">The Solar Collective</h2>
+            <p class="text-gray-500">Join 50,000+ others building the cities of tomorrow.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="glass-panel p-6 text-center hover:-translate-y-2 transition-transform">
+                <i class="fa-brands fa-discord text-4xl text-[#5865F2] mb-3"></i>
+                <h4 class="font-bold">Discord</h4>
+                <p class="text-xs text-gray-500">Gov & Chat</p>
+            </div>
+            <div class="glass-panel p-6 text-center hover:-translate-y-2 transition-transform">
+                <i class="fa-brands fa-twitter text-4xl text-[#1DA1F2] mb-3"></i>
+                <h4 class="font-bold">Twitter</h4>
+                <p class="text-xs text-gray-500">Updates</p>
+            </div>
+            <div class="glass-panel p-6 text-center hover:-translate-y-2 transition-transform">
+                <i class="fa-solid fa-book-open text-4xl text-gray-700 mb-3"></i>
+                <h4 class="font-bold">Wiki</h4>
+                <p class="text-xs text-gray-500">Blueprints</p>
+            </div>
+            <div class="glass-panel p-6 text-center hover:-translate-y-2 transition-transform">
+                <i class="fa-solid fa-hand-holding-heart text-4xl text-pink-500 mb-3"></i>
+                <h4 class="font-bold">DAO</h4>
+                <p class="text-xs text-gray-500">Vote</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white/40 backdrop-blur-md border-t border-white/50 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-solar-yellow to-eco-green flex items-center justify-center text-white">
+                            <i class="fa-solid fa-leaf text-sm"></i>
+                        </div>
+                        <span class="font-heading font-bold text-xl text-deep-green">EcoHub</span>
+                    </div>
+                    <p class="text-sm text-gray-500">Building the optimistic future, one block at a time.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-deep-green mb-4">Market</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-eco-green transition-colors">Energy</a></li>
+                        <li><a href="#" class="hover:text-eco-green transition-colors">Agriculture</a></li>
+                        <li><a href="#" class="hover:text-eco-green transition-colors">Smart Home</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-deep-green mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="#" class="hover:text-eco-green transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-eco-green transition-colors">Impact Report</a></li>
+                        <li><a href="#" class="hover:text-eco-green transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-deep-green mb-4">Newsletter</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Email address" class="bg-white/50 border border-gray-200 rounded-l-lg px-4 py-2 w-full focus:outline-none focus:border-eco-green text-sm">
+                        <button class="bg-eco-green text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition-colors">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <p>&copy; 2024 Eco Marketplace Hub. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-deep-green">Privacy Policy</a>
+                    <a href="#" class="hover:text-deep-green">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 glass-panel px-6 py-4 transform translate-y-32 transition-transform duration-500 flex items-center gap-3 shadow-2xl z-50">
+        <div class="w-8 h-8 rounded-full bg-eco-green text-white flex items-center justify-center">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-deep-green text-sm">Added to Cart</h4>
+            <p class="text-xs text-gray-500">The future is looking brighter.</p>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. Background Particle System (Solar Motes) ---
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        let width, height;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; // Very slow horizontal
+                this.vy = (Math.random() - 0.5) * 0.5; // Very slow vertical
+                this.size = Math.random() * 3 + 1;
+                // Colors: Yellows and Greens with low opacity
+                const colors = ['rgba(244, 224, 77, ', 'rgba(105, 240, 174, ', 'rgba(64, 196, 255, '];
+                this.colorPrefix = colors[Math.floor(Math.random() * colors.length)];
+                this.alpha = Math.random() * 0.3 + 0.1;
+                this.t = Math.random() * Math.PI * 2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.t += 0.01;
+
+                // Gentle oscillation
+                this.alpha = 0.2 + Math.sin(this.t) * 0.1;
+
+                // Wrap around screen
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.colorPrefix + this.alpha + ')';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.floor(window.innerWidth / 15); // Density
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            initParticles();
+        });
+
+        // Start Animation
+        resize();
+        initParticles();
+        animate();
+
+        // --- 2. Interactions ---
+
+        // Add to Cart Interaction
+        function addToCart(btn) {
+            // Visual feedback on button
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            btn.classList.add('bg-eco-green', 'text-white');
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+                showToast();
+
+                setTimeout(() => {
+                    btn.innerHTML = originalIcon;
+                    btn.classList.remove('bg-eco-green', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-600');
+                }, 2000);
+            }, 600);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-32');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32');
+            }, 3000);
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav div');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'bg-white/80');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-white/80');
+            }
+        });
+    </script>
+</body>
+</html>

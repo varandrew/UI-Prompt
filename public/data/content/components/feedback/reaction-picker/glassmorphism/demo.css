@@ -1,0 +1,51 @@
+.reaction-trigger-glass {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 9999px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+          }
+
+          .reaction-trigger-glass:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+          }
+
+          .reaction-picker-glass {
+            display: inline-flex;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 9999px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideUpGlass 0.3s ease-out;
+          }
+
+          .reaction-btn-glass {
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          .reaction-btn-glass:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.2);
+          }
+
+          @keyframes slideUpGlass {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }

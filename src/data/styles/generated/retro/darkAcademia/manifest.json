@@ -1,0 +1,25 @@
+{
+  "id": "retro-darkAcademia",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "暗黑学院",
+      "en-US": "Dark Academia"
+    },
+    "description": {
+      "zh-CN": "古典图书馆美学，深色调 + 羊皮纸质感 + 烛光氛围",
+      "en-US": "Classical library aesthetics with dark tones + parchment texture + candlelight ambiance"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "retro-dark-academia-library",
+      "title": {
+        "zh-CN": "学院图书馆",
+        "en-US": "Academic Library"
+      }
+    }
+  ]
+}

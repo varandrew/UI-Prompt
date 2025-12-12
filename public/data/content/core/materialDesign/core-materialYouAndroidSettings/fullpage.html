@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>core-materialYouAndroidSettings - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="fullpage.css">
+  <style>
+
+  </style>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material You Settings</title>
+
+  <!-- Material Web Components -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Android Device Showcase Container -->
+  <div class="android-device-showcase">
+    <div class="android-device-frame">
+      <!-- Physical Buttons -->
+      <div class="device-button device-button-power"></div>
+      <div class="device-button device-button-volume-up"></div>
+      <div class="device-button device-button-volume-down"></div>
+
+      <!-- Device Screen -->
+      <div class="device-screen">
+        <div class="mu-app">
+    <!-- Top App Bar -->
+    <header class="mu-top-bar">
+      <button class="mu-icon-button">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <h1 class="mu-top-bar-title">Settings</h1>
+      <button class="mu-icon-button">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+      </button>
+      <button class="mu-icon-button">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Theme Switcher -->
+    <section class="mu-theme-section">
+      <div class="mu-section-header">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+        </svg>
+        <h2>Dynamic Color Themes</h2>
+      </div>
+      <div class="mu-theme-grid">
+        <button class="mu-theme-button active" data-theme="blue">
+          <div class="mu-theme-preview" style="background: linear-gradient(135deg, #0061A4 0%, #65C6FF 100%)"></div>
+          <span>Blue</span>
+        </button>
+        <button class="mu-theme-button" data-theme="purple">
+          <div class="mu-theme-preview" style="background: linear-gradient(135deg, #6A1B9A 0%, #D1C4E9 100%)"></div>
+          <span>Purple</span>
+        </button>
+        <button class="mu-theme-button" data-theme="green">
+          <div class="mu-theme-preview" style="background: linear-gradient(135deg, #2E7D32 0%, #A5D6A7 100%)"></div>
+          <span>Green</span>
+        </button>
+        <button class="mu-theme-button" data-theme="orange">
+          <div class="mu-theme-preview" style="background: linear-gradient(135deg, #E65100 0%, #FFCC80 100%)"></div>
+          <span>Orange</span>
+        </button>
+        <button class="mu-theme-button" data-theme="pink">
+          <div class="mu-theme-preview" style="background: linear-gradient(135deg, #C2185B 0%, #F8BBD0 100%)"></div>
+          <span>Pink</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Density Control -->
+    <section class="mu-density-section">
+      <div class="mu-section-header">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+          <path d="M3 3h18v2H3V3zm0 16h18v2H3v-2zm0-8h18v2H3v-2z"/>
+        </svg>
+        <h2>Density Level</h2>
+      </div>
+      <div class="mu-density-control">
+        <button class="mu-density-button" data-density="compact">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M3 19h6v-7H3v7zm7 0h12v-7H10v7zM3 5v6h19V5H3z"/>
+          </svg>
+          <span>Compact</span>
+        </button>
+        <button class="mu-density-button active" data-density="standard">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M20 13H3c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h17c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm0-10H3c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h17c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1z"/>
+          </svg>
+          <span>Standard</span>
+        </button>
+        <button class="mu-density-button" data-density="comfortable">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path d="M3 9h4V5H3v4zm0 5h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zM8 9h4V5H8v4zm5-4v4h4V5h-4zm5 9h4v-4h-4v4zM3 19h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm5 0h4v-4h-4v4zm0-14v4h4V5h-4z"/>
+          </svg>
+          <span>Comfortable</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Settings List -->
+    <main class="mu-content">
+      <!-- Personalization -->
+      <section class="mu-list-section">
+        <h3 class="mu-list-header">Personalization</h3>
+        <div class="mu-list">
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M4 4h7V2H4c-1.1 0-2 .9-2 2v7h2V4zm6 9-4 5h12l-3-4-2.03 2.71L10 13zm7-4.5c0-.83-.67-1.5-1.5-1.5S14 7.67 14 8.5s.67 1.5 1.5 1.5S17 9.33 17 8.5zM20 2h-7v2h7v7h2V4c0-1.1-.9-2-2-2zm0 18h-7v2h7c1.1 0 2-.9 2-2v-7h-2v7zM4 13H2v7c0 1.1.9 2 2 2h7v-2H4v-7z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Wallpaper & style</div>
+              <div class="mu-list-subtitle">Colors, icons, themes</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zm8-2v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Home screen</div>
+              <div class="mu-list-subtitle">App grid, widgets</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h1.9c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Lock screen</div>
+              <div class="mu-list-subtitle">Shortcuts, notifications</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Display -->
+      <section class="mu-list-section">
+        <h3 class="mu-list-header">Display</h3>
+        <div class="mu-list">
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Brightness</div>
+              <div class="mu-list-subtitle">Adaptive brightness on</div>
+            </div>
+            <div class="mu-switch">
+              <input type="checkbox" id="brightness-switch" checked>
+              <label for="brightness-switch"></label>
+            </div>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Dark theme</div>
+              <div class="mu-list-subtitle">Off</div>
+            </div>
+            <div class="mu-switch">
+              <input type="checkbox" id="dark-theme-switch">
+              <label for="dark-theme-switch"></label>
+            </div>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M12.34 2.02C6.59 1.82 2 6.42 2 12c0 5.52 4.48 10 10 10 3.71 0 6.93-2.02 8.66-5.02-7.51-.25-12.09-8.43-8.32-14.96z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Screen timeout</div>
+              <div class="mu-list-subtitle">2 minutes</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sound & vibration -->
+      <section class="mu-list-section">
+        <h3 class="mu-list-header">Sound & vibration</h3>
+        <div class="mu-list">
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Volume</div>
+              <div class="mu-list-subtitle">Media, calls, alarms</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M0 15h2V9H0v6zm3 2h2V7H3v10zm19-8v6h2V9h-2zm-3 8h2V7h-2v10zM16.5 3h-9C6.67 3 6 3.67 6 4.5v15c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5v-15c0-.83-.67-1.5-1.5-1.5zM16 19H8V5h8v14z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Vibration & haptics</div>
+              <div class="mu-list-subtitle">On</div>
+            </div>
+            <div class="mu-switch">
+              <input type="checkbox" id="vibration-switch" checked>
+              <label for="vibration-switch"></label>
+            </div>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M7.58 4.08L6.15 2.65C3.75 4.48 2.17 7.3 2.03 10.5h2c.15-2.65 1.51-4.97 3.55-6.42zm12.39 6.42h2c-.15-3.2-1.73-6.02-4.12-7.85l-1.42 1.43c2.02 1.45 3.39 3.77 3.54 6.42zM18 11c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2v-5zm-6 11c.14 0 .27-.01.4-.04.65-.14 1.18-.58 1.44-1.18.1-.24.15-.5.15-.78h-4c.01 1.1.9 2 2.01 2z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Do Not Disturb</div>
+              <div class="mu-list-subtitle">Off</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notifications -->
+      <section class="mu-list-section">
+        <h3 class="mu-list-header">Notifications</h3>
+        <div class="mu-list">
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.93 6 11v5l-2 2v1h16v-1l-2-2z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">App notifications</div>
+              <div class="mu-list-subtitle">12 apps recently sent notifications</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+          <div class="mu-list-item">
+            <svg class="mu-list-icon" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+            </svg>
+            <div class="mu-list-text">
+              <div class="mu-list-title">Notification history</div>
+              <div class="mu-list-subtitle">Last 24 hours</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FAB -->
+    <button class="mu-fab">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+      </svg>
+    </button>
+        </div>
+
+        <!-- Android Navigation Bar -->
+        <div class="device-navigation-bar">
+          <div class="device-nav-gesture"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme Switcher
+    const themeButtons = document.querySelectorAll('.mu-theme-button');
+    const app = document.querySelector('.mu-app');
+
+    const themes = {
+      blue: {
+        primary: '#0061A4',
+        onPrimary: '#FFFFFF',
+        primaryContainer: '#CFE5FF',
+        onPrimaryContainer: '#001D35',
+        secondary: '#50606E',
+        onSecondary: '#FFFFFF',
+        secondaryContainer: '#D3E5F5',
+        surface: '#F8F9FF',
+        surfaceVariant: '#DEE3EB',
+        onSurface: '#1A1C1E',
+        outline: '#6F7983'
+      },
+      purple: {
+        primary: '#6A1B9A',
+        onPrimary: '#FFFFFF',
+        primaryContainer: '#EADDFF',
+        onPrimaryContainer: '#21005D',
+        secondary: '#625B71',
+        onSecondary: '#FFFFFF',
+        secondaryContainer: '#E8DEF8',
+        surface: '#FEF7FF',
+        surfaceVariant: '#E7E0EC',
+        onSurface: '#1C1B1F',
+        outline: '#79747E'
+      },
+      green: {
+        primary: '#2E7D32',
+        onPrimary: '#FFFFFF',
+        primaryContainer: '#C8E6C9',
+        onPrimaryContainer: '#00390A',
+        secondary: '#52634F',
+        onSecondary: '#FFFFFF',
+        secondaryContainer: '#D5E8D4',
+        surface: '#F7FBF6',
+        surfaceVariant: '#DEE5D9',
+        onSurface: '#1A1C19',
+        outline: '#72796D'
+      },
+      orange: {
+        primary: '#E65100',
+        onPrimary: '#FFFFFF',
+        primaryContainer: '#FFDCC4',
+        onPrimaryContainer: '#2D1600',
+        secondary: '#735943',
+        onSecondary: '#FFFFFF',
+        secondaryContainer: '#FFDCC4',
+        surface: '#FFF8F5',
+        surfaceVariant: '#F4DED1',
+        onSurface: '#211A16',
+        outline: '#857166'
+      },
+      pink: {
+        primary: '#C2185B',
+        onPrimary: '#FFFFFF',
+        primaryContainer: '#FFD9E2',
+        onPrimaryContainer: '#3E001D',
+        secondary: '#74565F',
+        onSecondary: '#FFFFFF',
+        secondaryContainer: '#FFD9E2',
+        surface: '#FFF8F8',
+        surfaceVariant: '#F4DDE1',
+        onSurface: '#211A1C',
+        outline: '#857377'
+      }
+    };
+
+    themeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const theme = button.dataset.theme;
+        themeButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Apply theme colors
+        const colors = themes[theme];
+        for (const [key, value] of Object.entries(colors)) {
+          app.style.setProperty(`--mu-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, value);
+        }
+      });
+    });
+
+    // Density Switcher
+    const densityButtons = document.querySelectorAll('.mu-density-button');
+
+    densityButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const density = button.dataset.density;
+        densityButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        app.classList.remove('density-compact', 'density-standard', 'density-comfortable');
+        app.classList.add(`density-${density}`);
+      });
+    });
+
+    // Initialize with default theme
+    app.style.setProperty('--mu-primary', themes.blue.primary);
+    app.style.setProperty('--mu-on-primary', themes.blue.onPrimary);
+    app.style.setProperty('--mu-primary-container', themes.blue.primaryContainer);
+    app.style.setProperty('--mu-on-primary-container', themes.blue.onPrimaryContainer);
+    app.style.setProperty('--mu-secondary', themes.blue.secondary);
+    app.style.setProperty('--mu-on-secondary', themes.blue.onSecondary);
+    app.style.setProperty('--mu-secondary-container', themes.blue.secondaryContainer);
+    app.style.setProperty('--mu-surface', themes.blue.surface);
+    app.style.setProperty('--mu-surface-variant', themes.blue.surfaceVariant);
+    app.style.setProperty('--mu-on-surface', themes.blue.onSurface);
+    app.style.setProperty('--mu-outline', themes.blue.outline);
+
+    // Add default density class
+    app.classList.add('density-standard');
+  </script>
+</body>
+</html>
+
+</body>
+</html>

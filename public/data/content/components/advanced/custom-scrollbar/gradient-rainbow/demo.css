@@ -1,0 +1,49 @@
+.scrollbar-rainbow-gradient {
+            background: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+            animation: rainbow-rotate 3s linear infinite;
+          }
+          .scrollbar-rainbow-border {
+            border-image: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff) 1;
+            animation: border-rainbow 3s linear infinite;
+          }
+          @keyframes rainbow-rotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+          }
+          @keyframes border-rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+          }
+          .scrollbar-rainbow::-webkit-scrollbar {
+            width: 14px;
+          }
+          .scrollbar-rainbow::-webkit-scrollbar-track {
+            background: linear-gradient(180deg,
+              #ffe0e0, #fff4e0, #ffffe0, #e0ffe0, #e0e0ff, #f0e0ff);
+            border-radius: 10px;
+          }
+          .scrollbar-rainbow::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg,
+              #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+            border-radius: 10px;
+            background-size: 100% 300%;
+            animation: gradient-flow 3s ease infinite;
+            transition: all 0.3s ease;
+          }
+          .scrollbar-rainbow::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg,
+              #ff3333, #ff9933, #ffff33, #33ff33, #3333ff, #9933ff);
+            background-size: 100% 300%;
+            animation: gradient-flow-fast 1.5s ease infinite;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+          }
+          @keyframes gradient-flow {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+          }
+          @keyframes gradient-flow-fast {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+          }

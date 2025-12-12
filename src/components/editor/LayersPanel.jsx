@@ -1,4 +1,4 @@
-import { useEditorStore } from '../../stores/editorStore';
+import { useCanvasStore, useSelectionStore } from '../../stores';
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, useDroppable } from '@dnd-kit/core';
 import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
@@ -27,10 +27,12 @@ export function LayersPanel() {
       .catch(() => {});
     return () => { mounted = false; };
   }, []);
-  const canvasState = useEditorStore((s) => s.canvasState);
-  const selectedComponentId = useEditorStore((s) => s.selectedComponentId);
-  const selectComponent = useEditorStore((s) => s.selectComponent);
-  const moveComponent = useEditorStore((s) => s.moveComponent);
+
+  // 使用模塊化 Store
+  const componentTree = useCanvasStore((s) => s.componentTree);
+  const moveComponent = useCanvasStore((s) => s.moveComponent);
+  const selectedComponentId = useSelectionStore((s) => s.selectedComponentId);
+  const selectComponent = useSelectionStore((s) => s.selectComponent);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
@@ -59,7 +61,7 @@ export function LayersPanel() {
   };
 
   const isDescendant = (ancestorId, nodeId) => {
-    const ancestor = findComponentById(canvasState.componentTree, ancestorId);
+    const ancestor = findComponentById(componentTree, ancestorId);
     if (!ancestor) return false;
     const dfs = (n) => {
       if (!n) return false;
@@ -79,11 +81,11 @@ export function LayersPanel() {
     if (!draggedId || !overId || draggedId === overId) return;
 
     // 來源位置
-    const fromInfo = findParentAndIndex(canvasState.componentTree, draggedId);
+    const fromInfo = findParentAndIndex(componentTree, draggedId);
     if (!fromInfo) return;
 
     // 目标節點与父節點資訊
-    const targetNode = findComponentById(canvasState.componentTree, overId);
+    const targetNode = findComponentById(componentTree, overId);
     if (!targetNode) return;
 
     // 判斷是否投放到容器：容器或 Page 可作為新父
@@ -97,7 +99,7 @@ export function LayersPanel() {
       newIndex = children.length; // 追加至尾
     } else {
       // 投放到目标的父節點，插入到目标索引位置（之前）
-      const overInfo = findParentAndIndex(canvasState.componentTree, overId);
+      const overInfo = findParentAndIndex(componentTree, overId);
       if (!overInfo) return;
       newParentId = overInfo.parentId;
       newIndex = overInfo.index; // 插入到目标之前
@@ -113,8 +115,8 @@ export function LayersPanel() {
     }
 
     // 父子合法性校驗
-    const draggedNode = findComponentById(canvasState.componentTree, draggedId);
-    const newParentNode = findComponentById(canvasState.componentTree, newParentId);
+    const draggedNode = findComponentById(componentTree, draggedId);
+    const newParentNode = findComponentById(componentTree, newParentId);
     if (!draggedNode || !newParentNode) return;
     if (!canDropIntoParent(draggedNode.componentType, newParentNode.componentType)) {
       return; // 非法放置，直接忽略
@@ -247,7 +249,7 @@ export function LayersPanel() {
     return acc;
   };
 
-  const flat = canvasState?.componentTree ? flattenTree(canvasState.componentTree) : [];
+  const flat = componentTree ? flattenTree(componentTree) : [];
   const SHOULD_VIRTUALIZE = !!ListComponent && flat.length > 200; // 大量節點時啟用虛擬化
 
   const handleDragEnd = (event) => {
@@ -257,7 +259,7 @@ export function LayersPanel() {
     const overId = over.id;
     if (activeId === overId) return;
 
-    const root = canvasState.componentTree;
+    const root = componentTree;
     const activeNode = findComponentById(root, activeId);
     if (!activeNode) return;
 
@@ -303,7 +305,7 @@ export function LayersPanel() {
         组件层级
       </div>
 
-      {canvasState.componentTree ? (
+      {componentTree ? (
         SHOULD_VIRTUALIZE ? (
           <ListComponent
             height={400}
@@ -334,7 +336,7 @@ export function LayersPanel() {
           </ListComponent>
         ) : (
           <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-            {renderTree(canvasState.componentTree)}
+            {renderTree(componentTree)}
           </DndContext>
         )
       ) : (

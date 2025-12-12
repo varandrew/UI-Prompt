@@ -1,0 +1,32 @@
+{
+  "id": "retro-arcadeCRT",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "街机 CRT 扫描线",
+      "en-US": "Arcade CRT Scanlines"
+    },
+    "description": {
+      "zh-CN": "CRT 显示器扫描线效果，霓虹发光与RGB色差",
+      "en-US": "CRT monitor scanline effects with neon glow and RGB chromatic aberration"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "retro-arcadeCRT-arcade-hall",
+      "title": {
+        "zh-CN": "街机游戏大厅",
+        "en-US": "Arcade Game Hall"
+      }
+    },
+    {
+      "id": "retro-arcadeCRT-cyberpunk-control",
+      "title": {
+        "zh-CN": "赛博朋克控制中心",
+        "en-US": "Cyberpunk Control Center"
+      }
+    }
+  ]
+}

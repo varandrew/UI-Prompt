@@ -1,0 +1,39 @@
+{
+  "id": "core-skeuomorphism",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "擬物化",
+      "en-US": "Skeuomorphism"
+    },
+    "description": {
+      "zh-CN": "模拟真实世界物体的纹理、阴影和质感，创造出逼真的数位介面元素。",
+      "en-US": "Simulates real-world textures, shadows, and materials to create realistic digital interface elements."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "core-skeuomorphism-tech-corp-homepage",
+      "title": {
+        "zh-CN": "科技公司主頁",
+        "en-US": "Tech Corp Homepage"
+      }
+    },
+    {
+      "id": "core-skeuomorphism-vintage-library-landing",
+      "title": {
+        "zh-CN": "復古圖書館頁面",
+        "en-US": "Vintage Library Landing"
+      }
+    },
+    {
+      "id": "core-skeuomorphism-analog-synthesizer",
+      "title": {
+        "zh-CN": "类比合成器控制台",
+        "en-US": "Analog Synthesizer"
+      }
+    }
+  ]
+}

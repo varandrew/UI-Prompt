@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Tracking Style Demo</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <div class="demo-container" id="card">
+        <!-- Visual Layers -->
+        <div class="grid-bg"></div>
+        <div class="glow-overlay"></div>
+        <div class="border-highlight"></div>
+        
+        <!-- Crosshairs following mouse -->
+        <div class="crosshair ch-v"></div>
+        <div class="crosshair ch-h"></div>
+
+        <!-- Decor -->
+        <div class="corner-decor tl"></div>
+        <div class="corner-decor br"></div>
+
+        <!-- Text Content -->
+        <div class="content">
+            <h1>Mouse Tracking</h1>
+            <div class="tagline">UI STYLE DEMO</div>
+
+            <div class="data-panel">
+                <div class="data-item">X: <span id="posX">000</span></div>
+                <div class="data-item">Y: <span id="posY">000</span></div>
+            </div>
+
+            <button class="interactive-btn">HOVER ME</button>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+        const posX = document.getElementById('posX');
+        const posY = document.getElementById('posY');
+
+        // Function to update CSS variables based on mouse position
+        const updateMousePosition = (e) => {
+            const rect = card.getBoundingClientRect();
+            
+            // Calculate relative position within the card (0 to 100%)
+            // We use clamp to ensure effects don't break if mouse leaves instantly
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+
+            // Normalize for CSS percentage
+            let xPercent = (x / rect.width) * 100;
+            let yPercent = (y / rect.height) * 100;
+
+            // Clamp values between 0 and 100 for clean edge behavior
+            xPercent = Math.min(Math.max(xPercent, 0), 100);
+            yPercent = Math.min(Math.max(yPercent, 0), 100);
+
+            // Update CSS Custom Properties
+            document.documentElement.style.setProperty('--mouse-x', `${xPercent}%`);
+            document.documentElement.style.setProperty('--mouse-y', `${yPercent}%`);
+
+            // Update Text UI
+            posX.textContent = Math.round(xPercent).toString().padStart(3, '0');
+            posY.textContent = Math.round(yPercent).toString().padStart(3, '0');
+        };
+
+        // Listen to mouse move on the whole window to ensure smooth tracking even if cursor drifts slightly off
+        document.addEventListener('mousemove', updateMousePosition);
+
+        // Mobile touch support
+        document.addEventListener('touchmove', (e) => {
+            updateMousePosition(e.touches[0]);
+        }, { passive: true });
+
+    </script>
+</body>
+</html>

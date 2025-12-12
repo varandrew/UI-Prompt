@@ -1,5 +1,6 @@
 import Editor from '@monaco-editor/react';
 import { useCallback } from 'react';
+import { useLanguage } from '../../hooks/useLanguage';
 
 /**
  * Monaco Editor 包裝組件
@@ -15,6 +16,7 @@ export function CodeEditor({
   readOnly = false,
   height = '100%'
 }) {
+  const { t } = useLanguage();
   const handleEditorChange = useCallback((value) => {
     if (onChange && !readOnly) {
       onChange(value || '');
@@ -87,7 +89,7 @@ export function CodeEditor({
         }}
         loading={
           <div className="flex items-center justify-center h-full text-gray-400">
-            Loading editor...
+            {t('common.loading') || 'Loading editor...'}
           </div>
         }
       />

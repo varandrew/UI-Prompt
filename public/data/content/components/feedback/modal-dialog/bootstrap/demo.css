@@ -1,0 +1,174 @@
+.modal-bootstrap-overlay {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            min-height: 550px;
+            animation: modalBootstrapFadeIn 0.15s linear;
+          }
+          .preview-fullscreen .modal-bootstrap-overlay {
+            position: fixed;
+            inset: 0;
+            padding-top: 3rem;
+            padding-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 100vh;
+          }
+          .modal-bootstrap-dialog {
+            max-width: 100%;
+            width: 100%;
+            animation: modalBootstrapSlideDown 0.3s ease-out;
+          }
+          .preview-fullscreen .modal-bootstrap-dialog {
+            max-width: 32rem;
+            width: 90%;
+          }
+          .modal-bootstrap-content {
+            background: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          }
+          .modal-bootstrap-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #dee2e6;
+          }
+          .modal-bootstrap-title {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: #212529;
+          }
+          .modal-bootstrap-close {
+            padding: 0.5rem;
+            margin: -0.5rem -0.5rem -0.5rem auto;
+            background: transparent;
+            border: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            opacity: 0.5;
+            transition: opacity 0.15s;
+          }
+          .modal-bootstrap-close:hover {
+            opacity: 0.75;
+          }
+          .modal-bootstrap-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1.25rem;
+          }
+          .form-label {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #212529;
+          }
+          .modal-bootstrap-input {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+          }
+          .modal-bootstrap-input:focus {
+            color: #212529;
+            background-color: #fff;
+            border-color: #86b7fe;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+          }
+          .mb-3 {
+            margin-bottom: 1rem;
+          }
+          .form-check {
+            display: block;
+            min-height: 1.5rem;
+            padding-left: 1.5em;
+            margin-bottom: 0.125rem;
+          }
+          .form-check-input {
+            width: 1em;
+            height: 1em;
+            margin-top: 0.25em;
+            margin-left: -1.5em;
+            vertical-align: top;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            appearance: none;
+            border-radius: 0.25em;
+          }
+          .form-check-label {
+            margin-left: 0.5rem;
+            color: #212529;
+          }
+          .modal-bootstrap-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 1rem;
+            border-top: 1px solid #dee2e6;
+            gap: 0.5rem;
+          }
+          .modal-bootstrap-btn-primary {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #0d6efd;
+            border: 1px solid #0d6efd;
+            border-radius: 0.375rem;
+            transition: all 0.15s ease-in-out;
+          }
+          .modal-bootstrap-btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+          }
+          .modal-bootstrap-btn-secondary {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #fff;
+            background-color: #6c757d;
+            border: 1px solid #6c757d;
+            border-radius: 0.375rem;
+            transition: all 0.15s ease-in-out;
+          }
+          .modal-bootstrap-btn-secondary:hover {
+            background-color: #5c636a;
+            border-color: #565e64;
+          }
+          @keyframes modalBootstrapFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes modalBootstrapSlideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-3rem);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }

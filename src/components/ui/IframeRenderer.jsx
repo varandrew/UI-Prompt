@@ -47,14 +47,54 @@ export function IframeRenderer({
    * 防止從外部加載潛在的惡意內容
    */
   const stripExternalAssets = (html) => {
-    if (!html) return html;
+   if (!html) return html;
     try {
+      const allowlist = /(cdn\.tailwindcss\.com|cdn\.jsdelivr\.net\/npm\/tailwindcss|fonts\.googleapis\.com|fonts\.gstatic\.com|cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome)/i;
       return html
-        .replace(/<script[^>]+src=["']https?:\/\/[^"']+["'][^>]*>\s*<\/script>/gi, '')
-        .replace(/<link[^>]+href=["']https?:\/\/[^"']+["'][^>]*>/gi, '');
+        .replace(/<script[^>]+src=["']([^"']+)["'][^>]*>\s*<\/script>/gi, (match, src) => {
+          if (allowlist.test(src)) return match;
+          if (/\/@vite\//i.test(src)) return '';
+          if (/https?:\/\//i.test(src)) return '';
+          return match; // 保留相對路徑或內聯
+        })
+        .replace(/<link[^>]+href=["']https?:\/\/[^"']+["'][^>]*>/gi, (match, href) => {
+          if (allowlist.test(href)) return match;
+          return '';
+        })
+        .replace(/<script[^>]+src=["']\/@vite\/[^"']*["'][^>]*><\/script>/gi, '')
+        .replace(/<link[^>]+href=["']\/@vite\/[^"']*["'][^>]*>/gi, '');
     } catch {
       return html;
     }
+  };
+
+  /**
+   * 提取允許重新注入的外部資源（目前僅允許 Tailwind CDN）
+   * 先記錄來源，再經過消毒流程，最後在 iframe head 內注回
+   */
+  const extractAllowedExternalAssets = (html) => {
+    if (!html) return { scripts: [], links: [] };
+    const allowlist = /(cdn\.tailwindcss\.com|cdn\.jsdelivr\.net\/npm\/tailwindcss|fonts\.googleapis\.com|fonts\.gstatic\.com|cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome)/i;
+    const scripts = [];
+    const links = [];
+
+    try {
+      html.replace(/<script[^>]+src=["']([^"']+)["'][^>]*>\s*<\/script>/gi, (match, src) => {
+        if (allowlist.test(src)) scripts.push(src);
+        return match;
+      });
+      html.replace(/<link[^>]+href=["']([^"']+)["'][^>]*>/gi, (match, href) => {
+        if (allowlist.test(href)) links.push(href);
+        return match;
+      });
+    } catch {
+      // 忽略提取失敗，返回已收集的資源
+    }
+
+    return {
+      scripts: Array.from(new Set(scripts)),
+      links: Array.from(new Set(links))
+    };
   };
 
   /**
@@ -137,11 +177,29 @@ export function IframeRenderer({
     if (!doc) return;
 
     // 步驟 1: 清理 HTML
+    const { scripts: externalScripts, links: externalLinks } = extractAllowedExternalAssets(demoHTML);
     const noExternal = stripExternalAssets(demoHTML || '');
     const { html: noStyleHtml, styles: inlineStyles } = extractInlineStyles(noExternal);
     const bodyInner = extractBodyInner(noStyleHtml);
     const sanitizedHTML = DOMPurify.sanitize(bodyInner || '');
     const combinedStyles = sanitizeCss(`${inlineStyles || ''}\n${customStyles || ''}`);
+    const hasTailwindScript = externalScripts.some((src) => /tailwindcss\.com/i.test(src));
+    const hasTailwindCss = externalLinks.some((href) => /tailwindcss/i.test(href));
+    const hasFontAwesome = externalLinks.some((href) => /font-awesome/i.test(href));
+    const hasGoogleFonts = externalLinks.some((href) => /fonts\.googleapis\.com/i.test(href));
+    const externalAssetsHTML = [
+      ...(hasTailwindScript && !hasTailwindCss
+        ? ['<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css" />']
+        : []),
+      ...(hasFontAwesome
+        ? []
+        : ['<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />']),
+      ...(hasGoogleFonts
+        ? []
+        : ['<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" />']),
+      ...externalLinks.map((href) => `<link rel="stylesheet" href="${href}" />`),
+      ...externalScripts.map((src) => `<script src="${src}"></script>`)
+    ].join('\n');
 
     // 步驟 2: 檢測佈局模式
     const isFullWidthLayout =
@@ -156,6 +214,7 @@ export function IframeRenderer({
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+${externalAssetsHTML}
 <link rel="stylesheet" href="${appCssUrl}" />
 <style>
   html, body { margin: 0; padding: 0; height: 100%; }
@@ -202,10 +261,10 @@ export function IframeRenderer({
   if (!isVisible) {
     return (
       <div className={`demo-box ${demoBoxClass}`} style={demoBoxStyle}>
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
           <div className="flex flex-col items-center gap-2">
-            <div className="w-8 h-8 border-4 border-gray-300 dark:border-gray-600 border-t-gray-600 dark:border-t-gray-400 rounded-full animate-spin"></div>
-            <span className="text-sm text-gray-400 dark:text-gray-500">Loading...</span>
+            <div className="w-6 h-6 border-2 border-zinc-200 dark:border-zinc-700 border-t-zinc-400 dark:border-t-zinc-500 rounded-full animate-spin"></div>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500">{language === 'zh-CN' ? '加载中...' : 'Loading...'}</span>
           </div>
         </div>
       </div>

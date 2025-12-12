@@ -1,0 +1,197 @@
+/* CSS Variables */
+  .frutiger-aero-demo {
+    --aero-sky-blue: #4da6ff;
+    --aero-cyan-blue: #66b3ff;
+    --aero-light-blue: #80c0ff;
+    --aero-turquoise: #00ced1;
+    --aero-white-trans: rgba(255, 255, 255, 0.4);
+    --aero-white-border: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Main container */
+  .frutiger-aero-demo {
+    min-height: 280px;
+    padding: 16px;
+    background: linear-gradient(135deg, #87CEEB 0%, #7EC8E3 50%, #5FB3CC 100%);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Card with glassmorphism */
+  .aero-card {
+    background: var(--aero-white-trans);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--aero-white-border);
+    border-radius: 16px;
+    box-shadow:
+      0 8px 32px rgba(0,0,0,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .aero-header {
+    text-align: center;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+
+  .glass-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 4px 8px rgba(77, 166, 255, 0.3));
+  }
+
+  .aero-title {
+    font-size: 26px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  }
+
+  .aero-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #34495e;
+    opacity: 0.9;
+  }
+
+  /* Content area */
+  .aero-content {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* Bubble group */
+  .bubble-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .aero-bubble {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    position: relative;
+    box-shadow:
+      0 8px 32px rgba(77, 166, 255, 0.3),
+      inset 0 2px 8px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  .aero-bubble:hover {
+    transform: scale(1.1);
+  }
+
+  /* Inner glow effect */
+  .aero-bubble::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 35%;
+    height: 35%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    filter: blur(4px);
+  }
+
+  .bubble-1 {
+    width: 50px;
+    height: 50px;
+  }
+
+  .bubble-2 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .bubble-3 {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* Glass button */
+  .aero-glass-button {
+    position: relative;
+    padding: 12px 28px;
+    background: rgba(52, 152, 219, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(52, 152, 219, 0.5);
+    border-radius: 8px;
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(52, 152, 219, 0.2);
+  }
+
+  .aero-glass-button:hover {
+    background: rgba(52, 152, 219, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(52, 152, 219, 0.3);
+  }
+
+  .button-shine {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 60%
+    );
+    animation: shine 3s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0%, 100% { transform: translateX(-100%) translateY(-100%); }
+    50% { transform: translateX(50%) translateY(50%); }
+  }
+
+  .button-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Footer */
+  .aero-footer {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .gradient-bar {
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      #4da6ff 0%,
+      #66b3ff 25%,
+      #00ced1 50%,
+      #66b3ff 75%,
+      #4da6ff 100%
+    );
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(77, 166, 255, 0.4);
+  }

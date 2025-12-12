@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grain Noise Demo</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --accent-color: #ff4d4d;
+            --card-bg: #111;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e0e0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Container for the demo. 
+           We use 'vmin' to ensure it stays square and fits within the smallest viewport dimension.
+        */
+        .demo-container {
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            overflow: hidden; /* Clips the noise overlay */
+            background-color: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Container query for internal sizing */
+            container-type: size;
+        }
+
+        /* The Visual Layer (Gradients/Shapes) 
+           This sits behind the noise to show off the texture.
+        */
+        .visual-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: radial-gradient(circle at 30% 20%, #333, #000);
+        }
+
+        /* An abstract shape to highlight the grain effect */
+        .orb {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            background: linear-gradient(135deg, #ff4d4d, #4d79ff);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(40px);
+            opacity: 0.8;
+            animation: breathe 8s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
+        }
+
+        /* THE GRAIN LAYER
+           This is the key component. It uses the SVG filter defined in HTML.
+           pointer-events: none ensures clicks pass through to controls.
+           mix-blend-mode: overlay composites it onto the background.
+        */
+        .grain-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            opacity: 0.7; /* Default opacity */
+            pointer-events: none;
+            filter: url(#noiseFilter);
+        }
+
+        /* UI Content Layer 
+           Sits above the noise so text remains sharp, OR below if you want text textured.
+           Here we place it above for readability, but below a subtle second noise layer could work too.
+        */
+        .ui-layer {
+            position: relative;
+            z-index: 20;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 8cqw; /* responsive padding based on container width */
+            box-sizing: border-box;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 2cqw;
+        }
+
+        .brand {
+            font-size: 4cqw;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .tag {
+            font-size: 2.5cqw;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5em 1em;
+            border-radius: 99px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .main-title {
+            font-size: 14cqw;
+            line-height: 0.9;
+            font-weight: 800;
+            mix-blend-mode: exclusion; /* Makes text interact with background */
+            margin: 0;
+        }
+
+        .controls {
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            padding: 4cqw;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 3cqw;
+            margin-bottom: 1.5cqw;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        /* Custom Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            height: 4cqw;
+            width: 4cqw;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -1.8cqw; /* Center on track */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* Firefox specific slider styles */
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            height: 4cqw;
+            width: 4cqw;
+            border: none;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        /* Invisible SVG setup */
+        .svg-defs {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- SVG Definitions for the Noise Filter -->
+    <svg class="svg-defs">
+        <filter id="noiseFilter">
+            <!-- 
+                baseFrequency: controls roughness (higher = finer grain).
+                numOctaves: controls detail/complexity.
+                stitchTiles: ensures seamless pattern if tiled.
+            -->
+            <feTurbulence 
+                type="fractalNoise" 
+                baseFrequency="0.80" 
+                numOctaves="3" 
+                stitchTiles="stitch"/>
+            <!-- Remove color to make it black and white grain -->
+            <feColorMatrix type="saturate" values="0"/>
+        </filter>
+    </svg>
+
+    <!-- Main Demo Card (Square) -->
+    <div class="demo-container">
+        
+        <!-- Background Visuals -->
+        <div class="visual-layer">
+            <div class="orb"></div>
+        </div>
+
+        <!-- The Grain Texture Overlay -->
+        <div class="grain-overlay" id="grainOverlay"></div>
+
+        <!-- UI Elements -->
+        <div class="ui-layer">
+            <div class="header">
+                <div class="brand">FILM_UI</div>
+                <div class="tag">V 1.0</div>
+            </div>
+
+            <h1 class="main-title">GRAIN<br>NOISE</h1>
+
+            <div class="controls">
+                <div class="slider-label">
+                    <span>TEXTURE INTENSITY</span>
+                    <span id="intensityValue">70%</span>
+                </div>
+                <input type="range" id="grainSlider" min="0" max="100" value="70">
+                
+                <div style="margin-top: 2cqw; display: flex; gap: 2cqw;">
+                     <!-- Toggle to switch grain type demo -->
+                    <button id="typeBtn" style="
+                        flex: 1;
+                        background: white; 
+                        border: none; 
+                        padding: 2cqw; 
+                        font-family: inherit; 
+                        font-weight: bold; 
+                        font-size: 3cqw;
+                        cursor: pointer;
+                        border-radius: 6px;">
+                        CHANGE FREQUENCY
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // UI Logic
+        const slider = document.getElementById('grainSlider');
+        const overlay = document.getElementById('grainOverlay');
+        const intensityDisplay = document.getElementById('intensityValue');
+        const typeBtn = document.getElementById('typeBtn');
+        const turbulence = document.querySelector('#noiseFilter feTurbulence');
+
+        // Update Opacity based on slider
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            // Map 0-100 to 0-1 opacity
+            overlay.style.opacity = val / 100;
+            intensityDisplay.textContent = val + "%";
+        });
+
+        // Toggle Frequency for Rough vs Fine Grain
+        let isFine = true;
+        typeBtn.addEventListener('click', () => {
+            isFine = !isFine;
+            if(isFine) {
+                // Fine Grain (High Frequency)
+                turbulence.setAttribute('baseFrequency', '0.80');
+                typeBtn.textContent = "MODE: FINE";
+            } else {
+                // Rough Grain (Low Frequency)
+                turbulence.setAttribute('baseFrequency', '0.45');
+                typeBtn.textContent = "MODE: ROUGH";
+            }
+        });
+
+        // Init label
+        typeBtn.textContent = "MODE: FINE";
+
+        // Optional: Add subtle parallax to grain for realism on mouse move
+        const container = document.querySelector('.demo-container');
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Move orb slightly
+            const orb = document.querySelector('.orb');
+            const moveX = (x / rect.width - 0.5) * 20;
+            const moveY = (y / rect.height - 0.5) * 20;
+            orb.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div class="w-full max-w-2xl mx-auto p-6">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+              <h3 class="font-light text-2xl mb-2 text-gray-900">
+                {{t:demo.reactionPicker.minimalism.title}}
+              </h3>
+              <p class="text-gray-500 mb-8 text-sm font-light">{{t:demo.reactionPicker.minimalism.subtitle}}</p>
+
+              <div class="border-l-2 border-black pl-6 py-4">
+                <p class="text-gray-800 mb-4">{{t:demo.reactionPicker.minimalism.postText}}</p>
+
+                <div class="flex items-center gap-2">
+                  <button class="reaction-trigger-min" onclick="toggleReactionsMin(event)">
+                    <span class="reaction-icon">+</span>
+                    <span class="reaction-count">5</span>
+                  </button>
+
+                  <div class="reaction-picker-min hidden">
+                    <button class="reaction-btn-min" onclick="selectReactionMin('👍')">👍</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('❤️')">❤️</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('👏')">👏</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('🎯')">🎯</button>
+                    <button class="reaction-btn-min" onclick="selectReactionMin('✨')">✨</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            function toggleReactionsMin(event) {
+              event.stopPropagation();
+              const picker = event.currentTarget.parentElement.querySelector('.reaction-picker-min');
+              picker.classList.toggle('hidden');
+            }
+
+            function selectReactionMin(emoji) {
+              const trigger = event.currentTarget.closest('.flex').querySelector('.reaction-icon');
+              trigger.textContent = emoji;
+              event.currentTarget.closest('.flex').querySelector('.reaction-picker-min').classList.add('hidden');
+            }
+          </script>

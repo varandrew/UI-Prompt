@@ -1,0 +1,39 @@
+{
+  "id": "core-minimalism",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "极简主义",
+      "en-US": "Minimalism"
+    },
+    "description": {
+      "zh-CN": "\"少即是多\"的设计哲学，强调留白、简洁排版和最少的视觉元素。",
+      "en-US": "\"Less is more\" design philosophy emphasizing white space, clean typography, and minimal visual elements."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "saas-landing",
+      "title": {
+        "zh-CN": "SaaS 產品落地頁",
+        "en-US": "SaaS Landing Page"
+      }
+    },
+    {
+      "id": "core-minimalism-japanese-style",
+      "title": {
+        "zh-CN": "日式極簡風格",
+        "en-US": "Japanese Minimalist Style"
+      }
+    },
+    {
+      "id": "core-minimalism-portfolio",
+      "title": {
+        "zh-CN": "極簡作品集",
+        "en-US": "Minimalist Portfolio"
+      }
+    }
+  ]
+}

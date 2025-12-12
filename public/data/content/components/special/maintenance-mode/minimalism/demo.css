@@ -1,0 +1,10 @@
+@keyframes minimal-fade {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+          }
+          .maintenance-minimal-fade {
+            animation: minimal-fade 3s ease-in-out infinite;
+          }
+          .maintenance-minimal-progress {
+            animation: minimal-fade 2s ease-in-out infinite;
+          }

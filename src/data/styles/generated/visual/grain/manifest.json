@@ -1,0 +1,17 @@
+{
+  "id": "visual-grain",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "颗粒噪点",
+      "en-US": "Grain Noise"
+    },
+    "description": {
+      "zh-CN": "SVG 噪点，胶片质感，复古颗粒",
+      "en-US": "SVG noise with film texture and vintage grain"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

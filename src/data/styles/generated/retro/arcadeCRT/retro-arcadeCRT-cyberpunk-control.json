@@ -1,0 +1,11 @@
+{
+  "id": "retro-arcadeCRT-cyberpunk-control",
+  "title": {
+    "zh-CN": "赛博朋克控制中心",
+    "en-US": "Cyberpunk Control Center"
+  },
+  "description": {
+    "zh-CN": "未来科技控制室界面，展示完整的表单组件、状态反馈、数据可视化和实时监控系统",
+    "en-US": "Futuristic tech control room interface showcasing complete form components, status feedback, data visualization, and real-time monitoring system"
+  }
+}

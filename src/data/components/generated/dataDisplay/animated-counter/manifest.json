@@ -1,0 +1,85 @@
+{
+  "id": "animated-counter",
+  "category": "dataDisplay",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.dataDisplay.animated-counter.title",
+      "en-US": "data.components.dataDisplay.animated-counter.title"
+    },
+    "description": {
+      "zh-CN": "data.components.dataDisplay.animated-counter.description",
+      "en-US": "data.components.dataDisplay.animated-counter.description"
+    },
+    "tags": [
+      "dataDisplay"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.minimalism.name",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.minimalism.description",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "skeuomorphism",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.skeuomorphism.name",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.skeuomorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.skeuomorphism.description",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.skeuomorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "material-design",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.material-design.name",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.material-design.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.material-design.description",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.material-design.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "terminal-cli",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.terminal-cli.name",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.terminal-cli.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.terminal-cli.description",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.terminal-cli.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "cyberpunk",
+      "name": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.cyberpunk.name",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.cyberpunk.name"
+      },
+      "description": {
+        "zh-CN": "data.components.dataDisplay.animated-counter.variants.cyberpunk.description",
+        "en-US": "data.components.dataDisplay.animated-counter.variants.cyberpunk.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

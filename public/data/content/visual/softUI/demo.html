@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft UI Demo</title>
+    <style>
+        /* CSS Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none; /* Prevent text selection for app-like feel */
+        }
+
+        body {
+            /* The 'Soft UI' usually relies on a specific off-white/grey base color */
+            background-color: #E0E5EC; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #4D5974; /* Soft dark text color */
+            overflow: hidden;
+        }
+
+        /* Main Container 
+           - Forces a Square Aspect Ratio 
+           - Responsive to the viewport (vmin) for the 'small size' requirement 
+        */
+        .soft-ui-container {
+            width: 85vmin;
+            height: 85vmin;
+            max-width: 400px;
+            max-height: 400px;
+            background-color: #E0E5EC;
+            border-radius: 15%; /* Soft rounded corners */
+            
+            /* The Core Neumorphism Shadow: Light top-left, Dark bottom-right */
+            box-shadow: 
+                9px 9px 16px rgb(163,177,198,0.6), 
+                -9px -9px 16px rgba(255,255,255, 0.5);
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 5%;
+            position: relative;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 5vmin;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #4D5974;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+        }
+
+        p.subtitle {
+            font-size: 3vmin;
+            margin-top: -2vmin;
+            opacity: 0.7;
+        }
+
+        /* Component: Circular Action Button 
+           Demonstrates the "Convex" shape
+        */
+        .btn-circle {
+            width: 20vmin;
+            height: 20vmin;
+            max-width: 90px;
+            max-height: 90px;
+            border-radius: 50%;
+            background: #E0E5EC;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8vmin;
+            color: #4D5974;
+            transition: all 0.2s ease-in-out;
+
+            /* Soft Shadow */
+            box-shadow: 
+                6px 6px 10px 0 rgba(163,177,198, 0.7),
+                -6px -6px 10px 0 rgba(255,255,255, 0.8);
+        }
+
+        /* Active State: The "Pressed" effect */
+        .btn-circle:active, .btn-circle.active {
+            box-shadow: 
+                inset 4px 4px 8px 0 rgba(163,177,198, 0.7),
+                inset -4px -4px 8px 0 rgba(255,255,255, 0.8);
+            color: #6D5DFD; /* Accent color change */
+            transform: scale(0.98);
+        }
+
+        /* Component: Toggle Switch 
+           Demonstrates the "Concave" (inset) shape container with a Convex button
+        */
+        .toggle-wrapper {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-label {
+            font-size: 3.5vmin;
+            font-weight: 600;
+        }
+
+        .toggle-switch {
+            width: 12vmin;
+            height: 6vmin;
+            max-width: 60px;
+            max-height: 30px;
+            border-radius: 50px;
+            background: #E0E5EC;
+            position: relative;
+            cursor: pointer;
+            
+            /* Inset Shadow (Concave) */
+            box-shadow: 
+                inset 2px 2px 5px rgba(163,177,198, 0.7),
+                inset -2px -2px 5px rgba(255,255,255, 0.8);
+        }
+
+        .toggle-knob {
+            width: 5vmin;
+            height: 5vmin;
+            max-width: 26px;
+            max-height: 26px;
+            border-radius: 50%;
+            background: #E0E5EC;
+            position: absolute;
+            top: 0.5vmin;
+            left: 0.5vmin;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+            /* Knob Shadow (Convex) */
+            box-shadow: 
+                2px 2px 4px rgba(163,177,198, 0.4),
+                -2px -2px 4px rgba(255,255,255, 0.8);
+        }
+
+        /* Toggle Active State */
+        .toggle-switch.on .toggle-knob {
+            left: calc(100% - 5.5vmin); /* Move to right */
+            background: #6D5DFD; /* Active Color */
+            box-shadow: 
+                2px 2px 4px rgba(0,0,0, 0.2),
+                -2px -2px 4px rgba(255,255,255, 0.1);
+        }
+
+        /* Component: Progress Bar / Slider 
+           Demonstrates a "Track"
+        */
+        .slider-container {
+            width: 80%;
+            margin-top: 2vmin;
+        }
+        
+        .slider-track {
+            width: 100%;
+            height: 2vmin;
+            max-height: 12px;
+            border-radius: 50px;
+            background: #E0E5EC;
+            /* Inset shadow for the track */
+            box-shadow: 
+                inset 3px 3px 6px rgba(163,177,198, 0.7),
+                inset -3px -3px 6px rgba(255,255,255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-fill {
+            height: 100%;
+            width: 60%; /* Demo value */
+            background: #6D5DFD;
+            border-radius: 50px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            animation: breathe 3s infinite ease-in-out;
+        }
+
+        /* Animation for demo purpose */
+        @keyframes breathe {
+            0% { width: 60%; }
+            50% { width: 75%; }
+            100% { width: 60%; }
+        }
+        
+        /* Icon styling SVG */
+        svg {
+            width: 50%;
+            height: 50%;
+            fill: currentColor;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="soft-ui-container">
+        <!-- Title Section -->
+        <div>
+            <h1>Soft UI</h1>
+            <p class="subtitle">Neumorphism</p>
+        </div>
+
+        <!-- Interactive Power Button -->
+        <button class="btn-circle" id="powerBtn" aria-label="Power Button">
+            <!-- Simple Power Icon SVG -->
+            <svg viewBox="0 0 24 24">
+                <path d="M12,2A1,1 0 0,1 13,3V11A1,1 0 0,1 11,11V3A1,1 0 0,1 12,2M7.6,4.74A1,1 0 0,0 6.18,6.15C7.27,7.24 8.08,8.5 8.56,9.9C9.05,11.3 9.07,12.83 8.6,14.25C8.14,15.67 7.23,16.9 6,17.75C4.76,18.6 3.28,19 1.76,18.84V18.84C0.24,18.68 -1.16,17.96 -2.25,16.87C-3.34,15.78 -4.06,14.38 -4.22,12.86C-4.38,11.34 -3.98,9.86 -3.13,8.62C-2.28,7.39 -1.05,6.48 0.37,6.02L0.38,6.02A1,1 0 0,0 1.09,4.11C-0.92,4.72 -2.69,5.99 -3.9,7.74C-5.12,9.49 -5.69,11.6 -5.46,13.76C-5.23,15.92 -4.21,17.91 -2.66,19.46C-1.11,21.01 0.88,22.03 3.04,22.26C5.2,22.49 7.31,21.92 9.06,20.71C10.81,19.5 12.08,17.73 12.69,15.72C13.3,13.71 13.13,11.55 12.2,9.66C11.28,7.77 9.68,6.23 7.6,4.74Z" transform="translate(12, 12) scale(0.8) translate(-4, -12)"/>
+            </svg>
+        </button>
+
+        <!-- Toggle Section -->
+        <div class="toggle-wrapper">
+            <span class="toggle-label">Active</span>
+            <div class="toggle-switch" id="toggleSwitch">
+                <div class="toggle-knob"></div>
+            </div>
+        </div>
+
+        <!-- Slider Section -->
+        <div class="slider-container">
+            <div class="slider-track">
+                <div class="slider-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple Interaction Logic to demonstrate states
+        
+        // 1. Power Button Toggle
+        const powerBtn = document.getElementById('powerBtn');
+        powerBtn.addEventListener('click', () => {
+            powerBtn.classList.toggle('active');
+            
+            // Haptic feedback simulation (if supported)
+            if (navigator.vibrate) navigator.vibrate(50);
+        });
+
+        // 2. Switch Toggle
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        toggleSwitch.addEventListener('click', () => {
+            toggleSwitch.classList.toggle('on');
+             // Haptic feedback
+             if (navigator.vibrate) navigator.vibrate(30);
+        });
+    </script>
+</body>
+</html>

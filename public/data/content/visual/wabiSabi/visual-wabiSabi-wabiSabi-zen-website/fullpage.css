@@ -1,0 +1,97 @@
+/* Wabi-Sabi Website Template Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
+
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #F5F3EF;
+  color: #3A3731;
+  line-height: 1.6;
+}
+
+/* Typography */
+.font-serif {
+  font-family: 'Noto Serif', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Texture Overlays */
+.texture-paper {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.texture-grain {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(58, 55, 49, 0.03) 10px, rgba(58, 55, 49, 0.03) 20px);
+}
+
+/* Focus States for Accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #3A3731;
+  outline-offset: 2px;
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #C9BDB1;
+  color: #F5F3EF;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 5vw, 2.25rem);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8E5DF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9BDB1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7A7772;
+}

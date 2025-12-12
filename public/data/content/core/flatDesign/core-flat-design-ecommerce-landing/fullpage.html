@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>core-flat-design-ecommerce-landing - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+/* ================================================
+   Flat Design E-Commerce Product Page - Styles
+   Multi-Color E-Commerce Theme
+   ================================================ */
+
+/* CSS Variables */
+:root {
+  /* Primary Colors */
+  --flat-ec-blue: #3498db;
+  --flat-ec-green: #2ecc71;
+  --flat-ec-orange: #e67e22;
+  --flat-ec-red: #e74c3c;
+  --flat-ec-purple: #9b59b6;
+  --flat-ec-pink: #e91e63;
+  --flat-ec-teal: #1abc9c;
+  --flat-ec-indigo: #3f51b5;
+
+  /* Background Colors */
+  --flat-ec-bg-light: #ecf0f1;
+  --flat-ec-bg-white: #ffffff;
+
+  /* Text Colors */
+  --flat-ec-text-dark: #2c3e50;
+  --flat-ec-text-light: #7f8c8d;
+  --flat-ec-text-muted: #95a5a6;
+}
+
+/* Global Styles */
+.flat-ecommerce-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+  color: var(--flat-ec-text-dark);
+  background-color: var(--flat-ec-bg-light);
+  margin: 0;
+  padding: 0;
+}
+
+.flat-ecommerce-page * {
+  box-sizing: border-box;
+}
+
+/* ================================================
+   Top Navigation Bar
+   ================================================ */
+.flat-ecommerce-nav {
+  background-color: var(--flat-ec-blue);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: none; /* Flat design: no shadows */
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  font-size: 1.75rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+}
+
+/* Search Bar */
+.nav-search {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  color: var(--flat-ec-text-dark);
+  outline: none;
+  transition: background-color 0.3s ease;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-input:focus {
+  background-color: white;
+}
+
+.search-input::placeholder {
+  color: var(--flat-ec-text-muted);
+}
+
+.search-btn {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--flat-ec-green);
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.search-btn:hover {
+  background-color: #27ae60;
+}
+
+/* Nav Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-icon-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border-radius: 4px;
+}
+
+.nav-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.badge-purple {
+  background-color: var(--flat-ec-purple);
+}
+
+.badge-red {
+  background-color: var(--flat-ec-red);
+}
+
+/* Nav User */
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-user:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  color: var(--flat-ec-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+
+.user-role {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ================================================
+   Category Navigation Bar
+   ================================================ */
+.category-nav {
+  background-color: white;
+  border-bottom: 2px solid var(--flat-ec-bg-light);
+}
+
+.category-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+}
+
+.category-btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.category-btn:hover {
+  transform: translateY(-2px);
+}
+
+.category-btn-blue { background-color: var(--flat-ec-blue); }
+.category-btn-blue:hover { background-color: #2980b9; }
+
+.category-btn-green { background-color: var(--flat-ec-green); }
+.category-btn-green:hover { background-color: #27ae60; }
+
+.category-btn-orange { background-color: var(--flat-ec-orange); }
+.category-btn-orange:hover { background-color: #d35400; }
+
+.category-btn-red { background-color: var(--flat-ec-red); }
+.category-btn-red:hover { background-color: #c0392b; }
+
+.category-btn-purple { background-color: var(--flat-ec-purple); }
+.category-btn-purple:hover { background-color: #8e44ad; }
+
+.category-btn-pink { background-color: var(--flat-ec-pink); }
+.category-btn-pink:hover { background-color: #c2185b; }
+
+.category-btn-teal { background-color: var(--flat-ec-teal); }
+.category-btn-teal:hover { background-color: #16a085; }
+
+.category-btn-indigo { background-color: var(--flat-ec-indigo); }
+.category-btn-indigo:hover { background-color: #303f9f; }
+
+/* ================================================
+   Promotional Banner
+   ================================================ */
+.promo-banner {
+  background: linear-gradient(135deg, var(--flat-ec-red) 0%, var(--flat-ec-orange) 100%);
+  color: white;
+  padding: 3rem 0;
+}
+
+.promo-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.promo-content {
+  text-align: left;
+}
+
+.promo-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.promo-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  letter-spacing: 2px;
+}
+
+.promo-subtitle {
+  font-size: 1.5rem;
+  margin: 0 0 2rem 0;
+  opacity: 0.95;
+}
+
+.promo-timer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.timer-item {
+  text-align: center;
+}
+
+.timer-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+.timer-label {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+.timer-divider {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.promo-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: white;
+  color: var(--flat-ec-red);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.promo-btn:hover {
+  background-color: var(--flat-ec-bg-light);
+  transform: translateY(-2px);
+}
+
+.promo-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-image-placeholder {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  border-radius: 8px;
+}
+
+/* ================================================
+   Main Content Area
+   ================================================ */
+.main-content {
+  background-color: var(--flat-ec-bg-light);
+  padding: 3rem 0;
+}
+
+.content-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+}
+
+/* ================================================
+   Sidebar Filter
+   ================================================ */
+.sidebar-filter {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.filter-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--flat-ec-bg-light);
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--flat-ec-text-dark);
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--flat-ec-text-dark);
+}
+
+.filter-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.color-swatch {
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.color-swatch:hover {
+  border-color: var(--flat-ec-text-dark);
+}
+
+.color-red { background-color: #e74c3c; }
+.color-blue { background-color: #3498db; }
+.color-green { background-color: #2ecc71; }
+.color-yellow { background-color: #f1c40f; }
+.color-black { background-color: #2c3e50; }
+.color-white { background-color: #ecf0f1; border-color: #bdc3c7; }
+
+/* ================================================
+   Product Grid Area
+   ================================================ */
+.product-grid-area {
+  /* Main product area */
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.products-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--flat-ec-text-dark);
+}
+
+.products-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.products-sort label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--flat-ec-text-light);
+}
+
+.sort-select {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--flat-ec-bg-light);
+  background-color: white;
+  font-size: 0.9rem;
+  color: var(--flat-ec-text-dark);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.sort-select:focus {
+  border-color: var(--flat-ec-blue);
+}
+
+/* ================================================
+   Product Grid
+   ================================================ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+}
+
+.product-placeholder-icon {
+  font-size: 5rem;
+}
+
+/* Product Image Backgrounds */
+.product-img-blue { background-color: #e8f4fc; }
+.product-img-green { background-color: #e8f8f1; }
+.product-img-orange { background-color: #fcf0e8; }
+.product-img-red { background-color: #fce8e8; }
+.product-img-purple { background-color: #f3e8fc; }
+.product-img-pink { background-color: #fce8f3; }
+.product-img-teal { background-color: #e8fcf7; }
+.product-img-indigo { background-color: #e8ecfc; }
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+}
+
+.badge-sale { background-color: var(--flat-ec-red); }
+.badge-new { background-color: var(--flat-ec-green); }
+.badge-hot { background-color: var(--flat-ec-orange); }
+
+.product-content {
+  padding: 1.25rem;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--flat-ec-text-dark);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.stars {
+  font-size: 0.9rem;
+}
+
+.rating-count {
+  font-size: 0.85rem;
+  color: var(--flat-ec-text-light);
+}
+
+.product-price {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.price-original {
+  font-size: 0.95rem;
+  color: var(--flat-ec-text-light);
+  text-decoration: line-through;
+}
+
+.price-current {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--flat-ec-text-dark);
+}
+
+.btn-add-cart {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--flat-ec-green);
+  color: white;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-add-cart:hover {
+  background-color: #27ae60;
+}
+
+/* ================================================
+   Product Features Banner
+   ================================================ */
+.features-banner {
+  background-color: white;
+  padding: 3rem 0;
+}
+
+.features-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--flat-ec-bg-light);
+  border-radius: 8px;
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.feature-icon-green { background-color: var(--flat-ec-green); }
+.feature-icon-blue { background-color: var(--flat-ec-blue); }
+.feature-icon-orange { background-color: var(--flat-ec-orange); }
+.feature-icon-purple { background-color: var(--flat-ec-purple); }
+
+.feature-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--flat-ec-text-dark);
+}
+
+.feature-desc {
+  font-size: 0.9rem;
+  color: var(--flat-ec-text-light);
+  margin: 0;
+}
+
+/* ================================================
+   Footer
+   ================================================ */
+.flat-ecommerce-footer {
+  background-color: var(--flat-ec-text-dark);
+  color: white;
+  padding: 3rem 0 1rem 0;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-col {
+  /* Column styles */
+}
+
+.footer-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 1rem 0;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+  border-radius: 4px;
+}
+
+.social-btn:hover {
+  opacity: 0.8;
+}
+
+.social-btn-blue { background-color: #3b5998; }
+.social-btn-teal { background-color: #1da1f2; }
+.social-btn-pink { background-color: #e1306c; }
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  font-size: 0.9rem;
+  outline: none;
+  border-radius: 4px;
+}
+
+.newsletter-btn {
+  padding: 0.75rem 1.25rem;
+  background-color: var(--flat-ec-blue);
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.newsletter-btn:hover {
+  background-color: #2980b9;
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ================================================
+   Floating Cart Button
+   ================================================ */
+.floating-cart-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 64px;
+  height: 64px;
+  background-color: var(--flat-ec-blue);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.floating-cart-btn:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+}
+
+.cart-icon {
+  font-size: 1.75rem;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--flat-ec-red);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ================================================
+   Responsive Design
+   ================================================ */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .promo-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .promo-content {
+    text-align: center;
+  }
+
+  .promo-timer {
+    justify-content: center;
+  }
+
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-filter {
+    position: static;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-search {
+    order: 3;
+    width: 100%;
+    max-width: none;
+    margin-top: 1rem;
+  }
+
+  .category-container {
+    overflow-x: auto;
+  }
+
+  .promo-title {
+    font-size: 2.5rem;
+  }
+
+  .promo-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .content-container {
+    padding: 0 1rem;
+  }
+
+  .promo-title {
+    font-size: 2rem;
+  }
+
+  .timer-value {
+    font-size: 1.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .floating-cart-btn {
+    width: 56px;
+    height: 56px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .cart-icon {
+    font-size: 1.5rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Flat Design E-Commerce Product Page - Full Page -->
+<div class="flat-ecommerce-page">
+  <!-- Top Navigation Bar -->
+  <nav class="flat-ecommerce-nav">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <span class="logo-icon">🛍️</span>
+        <span class="logo-text">FlatShop</span>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="nav-search">
+        <input type="text" placeholder="Search products..." class="search-input">
+        <button class="search-btn">🔍</button>
+      </div>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <button class="nav-icon-btn">
+          <span class="icon">❤️</span>
+          <span class="badge badge-purple">5</span>
+        </button>
+        <button class="nav-icon-btn">
+          <span class="icon">🛒</span>
+          <span class="badge badge-red">3</span>
+        </button>
+        <div class="nav-user">
+          <div class="user-avatar">JD</div>
+          <div class="user-info">
+            <div class="user-name">John Doe</div>
+            <div class="user-role">VIP Member</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Category Navigation Bar -->
+  <div class="category-nav">
+    <div class="category-container">
+      <a href="javascript:void(0)" class="category-btn category-btn-blue">Electronics</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-green">Fashion</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-orange">Home & Garden</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-red">Sports</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-purple">Beauty</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-pink">Toys</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-teal">Books</a>
+      <a href="javascript:void(0)" class="category-btn category-btn-indigo">Automotive</a>
+    </div>
+  </div>
+
+  <!-- Promotional Banner -->
+  <section class="promo-banner">
+    <div class="promo-container">
+      <div class="promo-content">
+        <div class="promo-badge">LIMITED TIME</div>
+        <h1 class="promo-title">MEGA SALE</h1>
+        <p class="promo-subtitle">Up to 70% OFF on selected items</p>
+        <div class="promo-timer">
+          <div class="timer-item">
+            <div class="timer-value">12</div>
+            <div class="timer-label">HOURS</div>
+          </div>
+          <div class="timer-divider">:</div>
+          <div class="timer-item">
+            <div class="timer-value">34</div>
+            <div class="timer-label">MINS</div>
+          </div>
+          <div class="timer-divider">:</div>
+          <div class="timer-item">
+            <div class="timer-value">56</div>
+            <div class="timer-label">SECS</div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="promo-btn">Shop Now</a>
+      </div>
+      <div class="promo-image">
+        <div class="promo-image-placeholder">
+          <span class="promo-icon">🎁</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <div class="content-container">
+      <!-- Sidebar Filter -->
+      <aside class="sidebar-filter">
+        <div class="filter-section">
+          <h3 class="filter-title">Price Range</h3>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>Under $25</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>$25 - $50</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>$50 - $100</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>Over $100</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-title">Category</h3>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="checkbox" checked>
+              <span>Electronics</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>Fashion</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>Home & Garden</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>Sports</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-title">Color</h3>
+          <div class="color-options">
+            <button class="color-swatch color-red"></button>
+            <button class="color-swatch color-blue"></button>
+            <button class="color-swatch color-green"></button>
+            <button class="color-swatch color-yellow"></button>
+            <button class="color-swatch color-black"></button>
+            <button class="color-swatch color-white"></button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-title">Rating</h3>
+          <div class="filter-options">
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>⭐⭐⭐⭐⭐ (5 stars)</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>⭐⭐⭐⭐ & Up</span>
+            </label>
+            <label class="filter-checkbox">
+              <input type="checkbox">
+              <span>⭐⭐⭐ & Up</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Product Grid -->
+      <main class="product-grid-area">
+        <div class="products-header">
+          <h2 class="products-title">Featured Products</h2>
+          <div class="products-sort">
+            <label>Sort by:</label>
+            <select class="sort-select">
+              <option>Popularity</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="product-image product-img-blue">
+              <span class="product-placeholder-icon">📱</span>
+            </div>
+            <div class="product-badge badge-sale">-30%</div>
+            <div class="product-content">
+              <h3 class="product-name">Wireless Headphones</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(124)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-original">$99.99</span>
+                <span class="price-current">$69.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="product-image product-img-green">
+              <span class="product-placeholder-icon">👕</span>
+            </div>
+            <div class="product-badge badge-new">NEW</div>
+            <div class="product-content">
+              <h3 class="product-name">Cotton T-Shirt</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐</span>
+                <span class="rating-count">(89)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$24.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="product-image product-img-orange">
+              <span class="product-placeholder-icon">☕</span>
+            </div>
+            <div class="product-badge badge-sale">-15%</div>
+            <div class="product-content">
+              <h3 class="product-name">Coffee Maker</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(256)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-original">$89.99</span>
+                <span class="price-current">$76.49</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card">
+            <div class="product-image product-img-red">
+              <span class="product-placeholder-icon">⚽</span>
+            </div>
+            <div class="product-badge badge-hot">HOT</div>
+            <div class="product-content">
+              <h3 class="product-name">Sports Equipment</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐</span>
+                <span class="rating-count">(178)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$45.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="product-card">
+            <div class="product-image product-img-purple">
+              <span class="product-placeholder-icon">💄</span>
+            </div>
+            <div class="product-badge badge-sale">-25%</div>
+            <div class="product-content">
+              <h3 class="product-name">Beauty Kit</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(342)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-original">$59.99</span>
+                <span class="price-current">$44.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="product-card">
+            <div class="product-image product-img-pink">
+              <span class="product-placeholder-icon">🧸</span>
+            </div>
+            <div class="product-badge badge-new">NEW</div>
+            <div class="product-content">
+              <h3 class="product-name">Plush Toy</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(92)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$19.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="product-card">
+            <div class="product-image product-img-teal">
+              <span class="product-placeholder-icon">📚</span>
+            </div>
+            <div class="product-content">
+              <h3 class="product-name">Bestselling Book</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(467)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$14.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="product-card">
+            <div class="product-image product-img-indigo">
+              <span class="product-placeholder-icon">🚗</span>
+            </div>
+            <div class="product-badge badge-sale">-40%</div>
+            <div class="product-content">
+              <h3 class="product-name">Car Accessories</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐</span>
+                <span class="rating-count">(203)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-original">$79.99</span>
+                <span class="price-current">$47.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 9 -->
+          <div class="product-card">
+            <div class="product-image product-img-blue">
+              <span class="product-placeholder-icon">💻</span>
+            </div>
+            <div class="product-badge badge-hot">HOT</div>
+            <div class="product-content">
+              <h3 class="product-name">Laptop Stand</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(389)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$34.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 10 -->
+          <div class="product-card">
+            <div class="product-image product-img-green">
+              <span class="product-placeholder-icon">🌱</span>
+            </div>
+            <div class="product-badge badge-new">NEW</div>
+            <div class="product-content">
+              <h3 class="product-name">Plant Pot Set</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐</span>
+                <span class="rating-count">(156)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$29.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 11 -->
+          <div class="product-card">
+            <div class="product-image product-img-orange">
+              <span class="product-placeholder-icon">🎧</span>
+            </div>
+            <div class="product-badge badge-sale">-20%</div>
+            <div class="product-content">
+              <h3 class="product-name">Gaming Headset</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(512)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-original">$119.99</span>
+                <span class="price-current">$95.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+
+          <!-- Product 12 -->
+          <div class="product-card">
+            <div class="product-image product-img-red">
+              <span class="product-placeholder-icon">⌚</span>
+            </div>
+            <div class="product-badge badge-hot">HOT</div>
+            <div class="product-content">
+              <h3 class="product-name">Smart Watch</h3>
+              <div class="product-rating">
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+                <span class="rating-count">(678)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$199.99</span>
+              </div>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Product Features Banner -->
+  <section class="features-banner">
+    <div class="features-container">
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-green">🚚</div>
+        <h4 class="feature-title">Free Shipping</h4>
+        <p class="feature-desc">On orders over $50</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-blue">↩️</div>
+        <h4 class="feature-title">Easy Returns</h4>
+        <p class="feature-desc">30-day return policy</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-orange">💳</div>
+        <h4 class="feature-title">Secure Payment</h4>
+        <p class="feature-desc">100% secure checkout</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon feature-icon-purple">💬</div>
+        <h4 class="feature-title">24/7 Support</h4>
+        <p class="feature-desc">Always here to help</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="flat-ecommerce-footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4 class="footer-heading">About FlatShop</h4>
+          <p class="footer-text">Your one-stop shop for quality products at affordable prices. Shop with confidence!</p>
+          <div class="footer-social">
+            <a href="javascript:void(0)" class="social-btn social-btn-blue">Facebook</a>
+            <a href="javascript:void(0)" class="social-btn social-btn-teal">Twitter</a>
+            <a href="javascript:void(0)" class="social-btn social-btn-pink">Instagram</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)">Electronics</a></li>
+            <li><a href="javascript:void(0)">Fashion</a></li>
+            <li><a href="javascript:void(0)">Home & Garden</a></li>
+            <li><a href="javascript:void(0)">Sports</a></li>
+            <li><a href="javascript:void(0)">Beauty</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)">Contact Us</a></li>
+            <li><a href="javascript:void(0)">Shipping Info</a></li>
+            <li><a href="javascript:void(0)">Returns</a></li>
+            <li><a href="javascript:void(0)">FAQ</a></li>
+            <li><a href="javascript:void(0)">Order Tracking</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p class="footer-text">Subscribe to get updates on new arrivals and special offers.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" class="newsletter-input">
+            <button type="submit" class="newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 FlatShop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Cart Button -->
+  <button class="floating-cart-btn">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-badge">3</span>
+  </button>
+</div>
+
+## Design Overview
+
+Flat Design E-Commerce Product Page demonstrates the principles of flat design in an e-commerce context:
+- Pure solid colors without shadows
+- Clean product cards with clear visual hierarchy
+- Multi-color category navigation
+- Simple, bold typography
+- Straightforward user interface elements
+
+## Color Scheme
+
+### Primary Colors
+- Blue #3498db - Primary navigation, main buttons
+- Green #2ecc71 - Success states, Add to Cart buttons
+- Orange #e67e22 - Promotional tags
+- Red #e74c3c - Sale badges, delete actions
+- Purple #9b59b6 - VIP, premium features
+
+### Background Colors
+- Light Gray #ecf0f1 - Page background
+- White #ffffff - Product cards, content areas
+
+### Text Colors
+- Dark Gray #2c3e50 - Primary text
+- Light Gray #7f8c8d - Secondary text
+
+## Page Structure
+
+### 1. Top Navigation Bar
+- Logo with icon
+- Search bar with search button
+- User actions (wishlist, cart, profile)
+
+### 2. Category Navigation
+- 8 colorful category buttons
+- Each category has its own color theme
+
+### 3. Promotional Banner
+- Large promotional area
+- Countdown timer
+- Call-to-action button
+
+### 4. Main Content
+- Sidebar filter (price, category, color, rating)
+- Product grid (12 products, 4 columns x 3 rows)
+- Product cards with image, badge, name, rating, price, add-to-cart button
+
+### 5. Product Features Banner
+- 4 feature cards highlighting store benefits
+- Icon + title + description layout
+
+### 6. Footer
+- 4-column layout
+- About, Shop, Customer Service, Newsletter
+- Social media links
+- Copyright information
+
+### 7. Floating Cart Button
+- Fixed position at bottom-right
+- Badge showing cart count
+- Quick access to shopping cart
+
+## Visual Features
+
+### Flat Design Characteristics
+- No shadows on any elements
+- Solid color backgrounds
+- Simple border styles
+- Clear color-based visual hierarchy
+- Clean, minimalist layout
+
+### Product Cards
+- Flat design aesthetic
+- Large product image placeholder with emoji icons
+- Badge overlays (Sale, New, Hot)
+- Star rating display
+- Original and current price display
+- Flat "Add to Cart" button
+
+### Interactive Elements
+- Category buttons with hover effects
+- Product cards with hover elevation (transform only)
+- Color swatch buttons
+- Filter checkboxes
+- Newsletter subscription form
+
+## Technical Implementation
+
+All interactive elements use:
+- transition properties for smooth animations
+- hover states with color/transform changes
+- border-based visual separation
+- No box-shadow properties (pure flat design)
+- Responsive grid layouts
+
+## Usage Recommendations
+
+This e-commerce template is ideal for:
+- Online retail stores
+- Product showcase websites
+- Multi-category marketplaces
+- Modern shopping platforms
+- Mobile-friendly e-commerce sites
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "categories": {
+    "core": {
+      "name": "Core Design Systems",
+      "families": [
+        "flatDesign",
+        "fluent2",
+        "materialDesign",
+        "minimalism",
+        "skeuomorphism",
+        "typography"
+      ]
+    },
+        "visual": {
+          "name": "Visual Design Families",
+          "families": [
+            "3dElements",
+            "accessibility",
+            "ambient",
+        "antiDesign",
+        "auroraGlass",
+        "biophilic",
+        "claymorphism",
+        "darkMode",
+        "dataVisualization",
+        "duotone",
+        "fabric",
+        "generativeArt",
+        "glassmorphism",
+        "glow",
+        "gradients",
+        "grain",
+        "handDrawnSketch",
+        "holographic",
+        "holographicFoil",
+        "industrial",
+        "kawaiiMinimal",
+        "leather",
+        "light",
+        "liminalSpace",
+        "liquid",
+        "memphis",
+        "monochrome",
+        "natural",
+        "nature",
+        "neoBrutalism",
+        "neon",
+        "neonCyberpunk",
+        "neonNoir",
+        "neumorphismDark",
+        "organic",
+        "outlineStyle",
+        "paperCutout",
+        "particle",
+        "scandi",
+        "sciFiHud",
+        "scrollNarrative",
+        "smoke",
+        "softUI",
+        "solarpunk",
+        "spotlight",
+        "utilityFirst",
+        "vaporwave",
+        "wabiSabi",
+        "y2k"
+      ]
+    },
+    "retro": {
+      "name": "Retro & Vintage",
+      "families": [
+        "arcadeCRT",
+        "artDeco",
+        "darkAcademia",
+        "digitalRetro",
+        "frutigerAero",
+        "newspaper",
+        "retroFuturism",
+        "retroOS",
+        "swissDesign"
+      ]
+    },
+    "interaction": {
+      "name": "Interaction Patterns",
+      "families": ["mouseTracking"]
+    },
+    "layout": {
+      "name": "Layout Systems",
+      "families": ["layoutStyles"]
+    }
+  }
+}

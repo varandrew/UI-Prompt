@@ -7,7 +7,6 @@ import { getDemoHTML } from "../../utils/i18n/demoI18n";
 import { getStylePreviewUrl } from '../../utils/styleHelper';
 import { LANGUAGES } from "../../utils/i18n/languageConstants";
 import { containsJSX } from '../../utils/jsxCompiler';
-import templateMetadata from '../../data/metadata/templateMetadata.json';
 import { getCategoryLabel } from '../../data/metadata/categoryMetadata';
 
 // 🆕 子組件導入
@@ -57,12 +56,12 @@ export function StyleCard({
   const [showPrompt, setShowPrompt] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
 
   const { language, t } = useLanguage();
   const cardRef = useRef(null);
 
   // ===== IntersectionObserver: 延遲加載 =====
+  // 修復 Issue #14: 使用空依賴陣列，避免不必要的 observer 重新創建
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
@@ -70,9 +69,10 @@ export function StyleCard({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasLoaded) {
+          if (entry.isIntersecting) {
             setIsVisible(true);
-            setHasLoaded(true);
+            // 一次性觸發後立即斷開，避免重複執行
+            observer.disconnect();
           }
         });
       },
@@ -87,7 +87,7 @@ export function StyleCard({
     return () => {
       observer.disconnect();
     };
-  }, [hasLoaded]);
+  }, []); // 空依賴陣列：只在組件掛載時執行一次
 
   // ===== 國際化處理 =====
   const currentDemoHTML = getDemoHTML(demoHTML, language);
@@ -142,45 +142,6 @@ export function StyleCard({
     if (demoJSX) return true;
     return renderMode === 'auto' && currentDemoHTML && containsJSX(currentDemoHTML);
   }, [renderMode, demoJSX, currentDemoHTML]);
-
-  // ===== 元數據解析（NEW 徽章、更新時間） =====
-  const metadata = useMemo(() => {
-    if (!id || !templateMetadata?.templates) return null;
-
-    // ���確匹配
-    if (templateMetadata.templates[id]) {
-      return templateMetadata.templates[id];
-    }
-
-    // 雙向模糊匹配
-    const allKeys = Object.keys(templateMetadata.templates);
-    const matchedKey = allKeys.find(key => {
-      const keyLower = key.toLowerCase();
-      const idLower = id.toLowerCase();
-      return keyLower.includes(idLower) || idLower.includes(keyLower);
-    });
-
-    return matchedKey ? templateMetadata.templates[matchedKey] : null;
-  }, [id]);
-
-  const isNew = useMemo(() => {
-    if (!metadata) return false;
-    return metadata.isNew === true;
-  }, [metadata]);
-
-  const updatedAt = useMemo(() => {
-    if (!metadata?.updatedAt) return null;
-    try {
-      const date = new Date(metadata.updatedAt);
-      return date.toLocaleDateString(language === 'zh-CN' ? 'zh-CN' : 'en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
-    } catch {
-      return null;
-    }
-  }, [metadata, language]);
 
   // ===== 分類處理 =====
   const primaryCategoryLabel = useMemo(() => {
@@ -244,12 +205,61 @@ export function StyleCard({
   };
 
   const handlePreview = () => {
-    if (id) {
-      const previewUrl = getStylePreviewUrl(id);
+    // ⭐ DEBUG: 驗證傳入的 ID
+    console.log(`[StyleCard handlePreview] id prop: "${id}" (${id?.length} chars)`);
+
+    // ⭐ ID 驗證保護
+    if (!id || typeof id !== 'string' || id.length === 0) {
+      console.error('[StyleCard] Invalid id:', id);
+      setShowPreview(true);  // Fallback 到模態框預覽
+      return;
+    }
+
+    // ⭐ 修復：避免模板 ID 缺少分類前綴導致路由 404，單模板時仍保留預覽索引
+    const isSinglePreview = previews && previews.length === 1;
+    const templatePreviewId = isSinglePreview ? (previews[0].templateId || previews[0].id) : null;
+    const hasCategoryPrefix = templatePreviewId
+      ? /^(core|visual|retro|layout|interaction)-/i.test(templatePreviewId)
+      : false;
+
+    let previewId = id;
+    let query = '';
+
+    if (isSinglePreview && templatePreviewId) {
+      if (hasCategoryPrefix) {
+        // 單一模板且已有分類前綴，直接使用
+        previewId = templatePreviewId;
+        console.log(`[StyleCard] 單一模板，使用帶前綴 templateId: ${previewId}`);
+      } else {
+        // 缺少分類前綴時改用 family id，並鎖定第一個預覽索引
+        previewId = id;
+        query = 'previewIndex=0';
+        console.warn(`[StyleCard] 模板 ID 缺少分類前綴，改用 family id: ${previewId}`);
+      }
+    } else if (previews && previews.length > 1) {
+      // 多個模板：使用 family ID 以顯示所有模板和切換器
+      console.log(`[StyleCard] 多個模板 (${previews.length})，使用 family ID: ${id}`);
+    } else if (id) {
+      console.log(`[StyleCard] 使用 card id: ${id}`);
+    }
+
+    if (previewId) {
+      const baseUrl = getStylePreviewUrl(previewId);
+      const previewUrl = query ? `${baseUrl}?${query}` : baseUrl;
       const fullUrl = window.location.origin + previewUrl;
+
+      // ⭐ URL 完整性驗證
+      if (!fullUrl.includes(encodeURIComponent(previewId))) {
+        console.error('[StyleCard] URL validation FAILED:', {
+          previewId,
+          expectedLength: previewId.length,
+          fullUrl
+        });
+      }
+
       window.open(fullUrl, '_blank');
     } else {
-      console.warn('StyleCard: 缺少 id 屬性，使用模態框預覽');
+      console.warn('[StyleCard] Missing previewId, fallback to modal');
       setShowPreview(true);
     }
   };
@@ -291,12 +301,11 @@ export function StyleCard({
       <StyleCardUI
         title={displayTitle}
         description={displayDescription}
-        isNew={isNew}
         primaryCategoryLabel={primaryCategoryLabel}
         secondaryCategories={secondaryCategories}
+        templatesCount={previews?.length || 0}
         tags={tags}
         onTagClick={onTagClick}
-        updatedAt={updatedAt}
         onGetPrompt={handleGetPrompt}
         onPreview={handlePreview}
         language={language}
@@ -312,8 +321,6 @@ export function StyleCard({
       <StyleCardContainer
         demoContent={renderDemo()}
         uiContent={renderUI()}
-        isNew={isNew}
-        t={t}
         cardRef={cardRef}
       />
 

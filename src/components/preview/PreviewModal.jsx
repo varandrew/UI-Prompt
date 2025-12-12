@@ -7,7 +7,7 @@
  * - 本組件專注於 UI 渲染和 Props 處理
  */
 
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useLanguage } from '../../hooks/useLanguage';
@@ -103,6 +103,16 @@ export function PreviewModal({
 
   // 檢查是否為數據可視化類型
   const isDataVisualization = currentPreview?.type === 'data-visualization';
+
+  // 無需異步載入（例如組件變體只有內聯 HTML）時，立即關閉 loading 遮罩
+  useEffect(() => {
+    if (!isOpen) return;
+    if (isReactPreview) return;
+    if (fullPagePreviewId) return;
+    if (previewsList.length === 0) {
+      setLoading(false);
+    }
+  }, [isOpen, isReactPreview, fullPagePreviewId, previewsList.length, setLoading]);
 
   // 構建 Prompt 內容
   const promptContent = useMemo(() => {

@@ -1,0 +1,25 @@
+{
+  "id": "visual-generativeArt",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "生成艺术",
+      "en-US": "Generative Art"
+    },
+    "description": {
+      "zh-CN": "生成艺术设计，通过算法创建图案、粒子和动态视觉效果。",
+      "en-US": "Generative art design with algorithmically created patterns, particles, and dynamic visual effects."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-tech-generative-art",
+      "title": {
+        "zh-CN": "生成艺术",
+        "en-US": "Generative Art"
+      }
+    }
+  ]
+}

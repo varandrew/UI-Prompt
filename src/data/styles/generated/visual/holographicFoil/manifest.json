@@ -1,0 +1,25 @@
+{
+  "id": "visual-holographicFoil",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "全息箔效果",
+      "en-US": "Holographic Foil"
+    },
+    "description": {
+      "zh-CN": "全息箔效果，具有虹彩色彩和彩虹反射。",
+      "en-US": "Holographic foil effect with iridescent colors and rainbow reflections."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-holographicFoil-holographicFoil-landing",
+      "title": {
+        "zh-CN": "全息着陆页",
+        "en-US": "Holographic Landing"
+      }
+    }
+  ]
+}

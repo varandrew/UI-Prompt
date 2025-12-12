@@ -1,0 +1,242 @@
+/* ===== Ensure parent containers have height ===== */
+.demo-root {
+  min-height: 500px !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* ===== Base Container ===== */
+.grain-demo-visual {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  padding: 0;
+  width: 100%;
+  height: 500px;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  /* Ultra-fine background grain */
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='bg-noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='50' height='50' filter='url(%23bg-noise)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ===== Main Grain Shapes ===== */
+.grain-shape {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 -10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+/* Large Circle - Coarse Grain */
+.grain-shape.large {
+  width: 280px;
+  height: 280px;
+  top: 15%;
+  left: 15%;
+  background: linear-gradient(135deg, #e0c3fc 0%, #fbc2eb 100%);
+  animation: grainFloat1 6s ease-in-out infinite;
+}
+
+/* Medium Circle - Medium Grain with rotating inner layer */
+.grain-shape.medium {
+  width: 180px;
+  height: 180px;
+  top: 50%;
+  right: 20%;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  animation: grainFloat2 8s ease-in-out infinite 1s;
+}
+
+.grain-shape.medium::before {
+  content: '';
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle at 50% 50%,
+    transparent 0,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 3px
+  );
+  animation: grainRotate 10s linear infinite;
+}
+
+/* Small Circle - Fine Grain */
+.grain-shape.small {
+  width: 120px;
+  height: 120px;
+  bottom: 25%;
+  left: 25%;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  box-shadow: 
+    0 15px 45px rgba(0, 0, 0, 0.12),
+    0 0 20px rgba(255, 236, 210, 0.6);
+  animation: grainFloat3 5s ease-in-out infinite 2s;
+}
+
+/* Coarse Grain Texture (Large Circle) */
+.grain-coarse {
+  background-image: url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='coarse'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23coarse)' opacity='0.25'/%3E%3C/svg%3E");
+}
+
+/* Medium Grain Texture (Medium Circle) */
+.grain-medium {
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='medium'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23medium)' opacity='0.18'/%3E%3C/svg%3E");
+}
+
+/* Fine Grain Texture (Small Circle) */
+.grain-fine {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='fine'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23fine)' opacity='0.12'/%3E%3C/svg%3E");
+}
+
+/* ===== Floating Animations ===== */
+@keyframes grainFloat1 {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% { 
+    transform: translate3d(-15px, -25px, 0) scale(1.05);
+  }
+  66% { 
+    transform: translate3d(10px, -35px, 0) scale(0.98);
+  }
+}
+
+@keyframes grainFloat2 {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  33% { 
+    transform: translate3d(20px, -30px, 0) scale(0.95) rotate(3deg);
+  }
+  66% { 
+    transform: translate3d(-15px, -20px, 0) scale(1.05) rotate(-2deg);
+  }
+}
+
+@keyframes grainFloat3 {
+  0%, 100% { 
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% { 
+    transform: translate3d(-20px, -30px, 0) scale(1.08);
+  }
+}
+
+@keyframes grainRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== Background Grain Particles ===== */
+.grain-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grain-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  animation: dotFloat 5s ease-in-out infinite;
+}
+
+@keyframes dotFloat {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateY(-15px) scale(1.2);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: translateY(-25px) scale(1.4);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-15px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* ===== Glowing Title ===== */
+.grain-title-glow {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.grain-title-glow h3 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  text-shadow:
+    0 0 10px rgba(224, 195, 252, 0.8),
+    0 0 20px rgba(251, 194, 235, 0.6),
+    0 0 40px rgba(224, 195, 252, 0.4);
+  animation: titleGlow 3s ease-in-out infinite;
+  letter-spacing: 0.05em;
+}
+
+@keyframes titleGlow {
+  0%, 100% { 
+    text-shadow:
+      0 0 10px rgba(224, 195, 252, 0.8),
+      0 0 20px rgba(251, 194, 235, 0.6),
+      0 0 40px rgba(224, 195, 252, 0.4);
+  }
+  50% { 
+    text-shadow:
+      0 0 20px rgba(224, 195, 252, 1),
+      0 0 30px rgba(251, 194, 235, 0.9),
+      0 0 60px rgba(224, 195, 252, 0.7),
+      0 0 80px rgba(251, 194, 235, 0.5);
+  }
+}
+
+/* ===== Hover Effects ===== */
+.grain-shape:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.2),
+    inset 0 -15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .grain-shape.large { 
+    width: 200px; 
+    height: 200px; 
+    top: 10%;
+    left: 10%;
+  }
+  .grain-shape.medium { 
+    width: 140px; 
+    height: 140px;
+    top: 55%;
+    right: 10%;
+  }
+  .grain-shape.small { 
+    width: 90px; 
+    height: 90px;
+    bottom: 20%;
+    left: 15%;
+  }
+  .grain-title-glow h3 { 
+    font-size: 32px; 
+  }
+  .grain-dot { 
+    width: 2px !important; 
+    height: 2px !important; 
+  }
+}

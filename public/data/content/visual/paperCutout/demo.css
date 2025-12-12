@@ -1,0 +1,150 @@
+/* 演示容器 */
+      .paper-cutout-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+        padding: 24px 16px;
+        background: #FAF0E6;
+        position: relative;
+      }
+
+      /* 便利贴样式 */
+      .sticky-note {
+        position: relative;
+        padding: 18px 14px;
+        background: linear-gradient(135deg, #FFF59D, #FFF176);
+        border-radius: 2px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+        transform: rotate(-2deg);
+        transition: all 0.3s ease;
+        font-family: 'Caveat', cursive;
+      }
+
+      .sticky-note:hover {
+        transform: rotate(0deg) translateY(-4px);
+        box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+      }
+
+      /* 图钉装饰 */
+      .sticky-pin {
+        position: absolute;
+        top: -6px;
+        right: 16px;
+        width: 14px;
+        height: 14px;
+        background: #E57373;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+
+      .sticky-pin::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 5px;
+        height: 5px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 50%;
+      }
+
+      .sticky-title {
+        margin: 0 0 6px 0;
+        font-size: 17px;
+        font-weight: 700;
+        color: #2C3E50;
+      }
+
+      .sticky-text {
+        margin: 0;
+        font-size: 13px;
+        color: #34495E;
+        line-height: 1.4;
+      }
+
+      /* 纸张卡片样式 */
+      .paper-card {
+        position: relative;
+        padding: 18px 14px;
+        background: #FFFAF0;
+        border-radius: 2px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+        transform: rotate(1deg);
+        transition: all 0.3s ease;
+        border-top: 3px dashed rgba(0,0,0,0.1);
+      }
+
+      .paper-card:hover {
+        transform: rotate(0deg) translateY(-4px);
+        box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+      }
+
+      /* 回形针装饰 */
+      .paper-clip {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        width: 20px;
+        height: 6px;
+        background: #90A4AE;
+        border: 2px solid #78909C;
+        border-radius: 3px;
+        transform: rotate(15deg);
+        box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      }
+
+      .paper-heading {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #2C3E50;
+        font-family: 'Caveat', cursive;
+      }
+
+      .paper-body {
+        margin: 0;
+        font-size: 12px;
+        color: #546E7A;
+        line-height: 1.5;
+      }
+
+      /* 拼贴标签组 */
+      .collage-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+      }
+
+      .collage-tag {
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #2C3E50;
+        border-radius: 2px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        font-family: 'Caveat', cursive;
+      }
+
+      .collage-tag:hover {
+        transform: translateX(3px);
+        box-shadow: 3px 3px 6px rgba(0,0,0,0.18);
+      }
+
+      .tag-pink {
+        background: #F8BBD0;
+        transform: rotate(-2deg);
+      }
+
+      .tag-blue {
+        background: #90CAF9;
+        transform: rotate(1deg);
+      }
+
+      .tag-green {
+        background: #AED581;
+        transform: rotate(-1deg);
+      }

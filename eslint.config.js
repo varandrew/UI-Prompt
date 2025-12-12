@@ -6,7 +6,7 @@ import importPlugin from 'eslint-plugin-import'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', 'node_modules']),
+  globalIgnores(['dist', 'node_modules', 'public/data/content', 'templates', 'scripts']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [

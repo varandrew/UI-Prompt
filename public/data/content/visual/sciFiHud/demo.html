@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sci-Fi HUD Demo</title>
+    <!-- Import Tech Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --hud-primary: #00f3ff;
+            --hud-secondary: #0066ff;
+            --hud-alert: #ff3333;
+            --hud-dim: rgba(0, 243, 255, 0.15);
+            --bg-color: #050505;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        /* The Main Container 
+           Forces a square aspect ratio and handles scaling.
+           We use 'container-type: size' logic via vmin/percentages 
+        */
+        .hud-wrapper {
+            width: 95vmin; /* Occupy most of the smallest viewport dimension */
+            height: 95vmin;
+            max-width: 600px; /* Cap size for desktop */
+            max-height: 600px;
+            position: relative;
+            background: radial-gradient(circle at center, #0a1518 0%, #000000 100%);
+            border: 1px solid #111;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Grid Background Pattern */
+        .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--hud-dim) 1px, transparent 1px),
+                linear-gradient(90deg, var(--hud-dim) 1px, transparent 1px);
+            background-size: 10% 10%;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Vignette & Scanline */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5%;
+            background: linear-gradient(to bottom, transparent, var(--hud-primary), transparent);
+            opacity: 0.1;
+            animation: scan 3s linear infinite;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+
+        /* Corners */
+        .corner {
+            position: absolute;
+            width: 10%;
+            height: 10%;
+            border-color: var(--hud-primary);
+            border-style: solid;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+        .tl { top: 2%; left: 2%; border-width: 2px 0 0 2px; }
+        .tr { top: 2%; right: 2%; border-width: 2px 2px 0 0; }
+        .bl { bottom: 2%; left: 2%; border-width: 0 0 2px 2px; }
+        .br { bottom: 2%; right: 2%; border-width: 0 2px 2px 0; }
+
+        /* Central UI Structure */
+        .content-layer {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            padding: 5%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2%;
+        }
+
+        /* Glitch Text Effect */
+        .glitch-text {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--hud-primary);
+            text-shadow: 2px 0 var(--hud-secondary), -2px 0 var(--hud-alert);
+            animation: glitch 1s infinite alternate-reverse;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-align: center;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 var(--hud-secondary), -2px 0 var(--hud-alert); transform: skew(0deg); }
+            20% { text-shadow: 2px 0 var(--hud-secondary), -2px 0 var(--hud-alert); transform: skew(0deg); }
+            21% { text-shadow: -2px 0 var(--hud-alert), 2px 0 var(--hud-secondary); transform: skew(10deg); }
+            22% { text-shadow: 2px 0 var(--hud-secondary), -2px 0 var(--hud-alert); transform: skew(0deg); }
+            100% { transform: skew(0deg); }
+        }
+
+        /* Components */
+        .panel {
+            border: 1px solid var(--hud-dim);
+            background: rgba(0, 20, 30, 0.4);
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--hud-primary);
+            transform: scaleX(0);
+            transition: transform 0.5s;
+            transform-origin: left;
+        }
+        .panel:hover::before { transform: scaleX(1); }
+
+        .label {
+            color: var(--hud-primary);
+            font-size: 0.7em;
+            text-transform: uppercase;
+            margin-bottom: 5%;
+            opacity: 0.8;
+            border-bottom: 1px solid var(--hud-dim);
+            padding-bottom: 2px;
+        }
+
+        .value {
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* Circular Reactor */
+        .center-display {
+            grid-column: 2;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .reactor-ring {
+            width: 80%;
+            height: 80%;
+            border: 2px dashed var(--hud-dim);
+            border-radius: 50%;
+            position: absolute;
+            animation: rotate 10s linear infinite;
+        }
+        
+        .reactor-ring-2 {
+            width: 60%;
+            height: 60%;
+            border: 2px solid var(--hud-primary);
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            position: absolute;
+            animation: rotate-rev 5s linear infinite;
+            box-shadow: 0 0 15px var(--hud-primary);
+        }
+
+        .reactor-core {
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, var(--hud-primary), transparent);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Bars */
+        .bar-container {
+            width: 100%;
+            height: 10px;
+            background: #111;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: var(--hud-primary);
+            width: 50%;
+            box-shadow: 0 0 10px var(--hud-primary);
+            transition: width 0.2s;
+        }
+        
+        /* Log List */
+        .log-panel {
+            grid-column: 1 / span 3;
+            grid-row: 3;
+            font-size: 0.6em;
+            color: var(--hud-secondary);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-top: 1px solid var(--hud-dim);
+            padding-top: 5px;
+        }
+        .log-entry { margin-bottom: 2px; }
+        .log-entry::before { content: '> '; color: var(--hud-primary); }
+
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+        @keyframes rotate-rev { 100% { transform: rotate(-360deg); } }
+        @keyframes pulse { 0%, 100% { opacity: 0.3; transform: scale(0.95); } 50% { opacity: 0.7; transform: scale(1.05); } }
+        
+        /* Utility for small text scaling */
+        .dynamic-text {
+            font-size: clamp(8px, 2vmin, 14px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hud-wrapper text-xs sm:text-sm md:text-base">
+        <!-- Visual Layers -->
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        
+        <!-- Decorative Corners -->
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <!-- Main Grid Layout -->
+        <div class="content-layer">
+            
+            <!-- Top Header -->
+            <div class="col-span-3 flex justify-between items-end border-b border-cyan-900 pb-2 mb-2" style="height: 10%;">
+                <div class="text-cyan-400 font-bold" style="font-size: 0.8em;">SYS.844</div>
+                <div class="glitch-text" style="font-size: 1.5em;">SCI-FI HUD</div>
+                <div class="text-red-500 font-bold animate-pulse" style="font-size: 0.8em;">LIVE</div>
+            </div>
+
+            <!-- Left Panel: Stats -->
+            <div class="panel" style="grid-row: 2; grid-column: 1;">
+                <div class="label">CPU LOAD</div>
+                <div class="value dynamic-text" id="cpu-val">45%</div>
+                <div class="bar-container"><div class="bar-fill" id="cpu-bar" style="width: 45%;"></div></div>
+                
+                <div class="label mt-4">MEM</div>
+                <div class="value dynamic-text" id="mem-val">12TB</div>
+                <div class="bar-container"><div class="bar-fill" id="mem-bar" style="background: var(--hud-secondary); width: 60%;"></div></div>
+            </div>
+
+            <!-- Center: Visualizer -->
+            <div class="center-display">
+                <div class="reactor-ring"></div>
+                <div class="reactor-ring-2"></div>
+                <div class="reactor-core"></div>
+                <div style="position: absolute; font-size: 0.6em; color: white; margin-top: 120%;">TARGET ACQUIRED</div>
+            </div>
+
+            <!-- Right Panel: Data -->
+            <div class="panel" style="grid-row: 2; grid-column: 3;">
+                <div class="label">SHIELD</div>
+                <div class="value dynamic-text" style="color: var(--hud-primary);">100%</div>
+                
+                <div class="label mt-4">TEMP</div>
+                <div class="value dynamic-text" id="temp-val" style="color: var(--hud-alert);">305K</div>
+                
+                <div class="mt-auto text-right text-[0.6em] text-cyan-700">
+                    X: <span id="coord-x">00</span><br>
+                    Y: <span id="coord-y">00</span>
+                </div>
+            </div>
+
+            <!-- Bottom: Logs -->
+            <div class="log-panel dynamic-text" id="log-container">
+                <div class="log-entry">Initializing system graphics...</div>
+                <div class="log-entry">Connecting to secure server...</div>
+                <div class="log-entry">Interface loaded successfully.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Update Random Stats
+        function updateStats() {
+            // CPU
+            const cpu = Math.floor(Math.random() * 40) + 30;
+            document.getElementById('cpu-val').innerText = cpu + '%';
+            document.getElementById('cpu-bar').style.width = cpu + '%';
+
+            // Coordinates
+            document.getElementById('coord-x').innerText = (Math.random() * 1000).toFixed(2);
+            document.getElementById('coord-y').innerText = (Math.random() * 1000).toFixed(2);
+
+            // Temp
+            const temp = Math.floor(Math.random() * 50) + 300;
+            document.getElementById('temp-val').innerText = temp + 'K';
+            
+            // Memory Jitter
+            const mem = Math.floor(Math.random() * 10) + 50;
+            document.getElementById('mem-bar').style.width = mem + '%';
+        }
+
+        // Add System Logs
+        const logs = [
+            "Scanning sector 7...",
+            "Packet intercepted.",
+            "Refreshing UI cache...",
+            "Optimizing core grid...",
+            "Incoming transmission...",
+            "Decrypting signal...",
+            "Warning: Surge detected.",
+            "Stabilizing power output..."
+        ];
+
+        function addLog() {
+            const container = document.getElementById('log-container');
+            const newLog = document.createElement('div');
+            newLog.className = 'log-entry';
+            newLog.innerText = logs[Math.floor(Math.random() * logs.length)];
+            container.appendChild(newLog);
+
+            if (container.children.length > 4) {
+                container.removeChild(container.firstChild);
+            }
+        }
+
+        // Intervals
+        setInterval(updateStats, 800);
+        setInterval(addLog, 2500);
+
+    </script>
+</body>
+</html>

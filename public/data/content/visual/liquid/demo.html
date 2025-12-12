@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Motion Demo</title>
+    <style>
+        /* Reset and Base Layout */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* The Main Demo Container 
+           Uses 'vmin' to ensure it stays a square and fits the smallest dimension of the screen.
+        */
+        .demo-square {
+            position: relative;
+            width: 80vmin; 
+            height: 80vmin;
+            /* Max limits for desktop viewing */
+            max-width: 400px;
+            max-height: 400px;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* THE LIQUID ENGINE
+           This is where the magic happens.
+           1. background: black (essential for the contrast filter)
+           2. filter: contrast(25) (Removes the blur visual, making edges sharp again)
+        */
+        .liquid-engine {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            filter: contrast(25);
+            /* Isolate creates a stacking context so the mix-blend-mode doesn't affect the body */
+            isolation: isolate;
+        }
+
+        /* Common blob styles */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            /* The blur creates the gradient alpha channel needed for the contrast filter to 'snap' */
+            filter: blur(20px); 
+            opacity: 0.8;
+            will-change: transform;
+        }
+
+        /* Blob Colors & Gradients 
+           Using radial gradients for depth.
+        */
+        .blob-1 {
+            width: 50%;
+            height: 50%;
+            top: 25%;
+            left: 25%;
+            background: radial-gradient(circle at 30% 30%, #4facfe, #00f2fe);
+            animation: morphMain 8s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            width: 30%;
+            height: 30%;
+            top: 20%;
+            left: 20%;
+            background: radial-gradient(circle, #ff0844, #ffb199);
+            animation: orbit1 6s linear infinite;
+        }
+
+        .blob-3 {
+            width: 25%;
+            height: 25%;
+            bottom: 20%;
+            right: 20%;
+            background: radial-gradient(circle, #a18cd1, #fbc2eb);
+            animation: orbit2 9s linear infinite;
+        }
+
+        /* The UI Overlay
+           Sits ON TOP of the liquid engine (z-index: 10).
+           It should not be blurred or contrasted.
+        */
+        .ui-overlay {
+            position: absolute;
+            z-index: 10;
+            inset: 0;
+            pointer-events: none; /* Let clicks pass through if we added interactivity */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 8%;
+        }
+
+        /* Header Tag */
+        .tag-pill {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5% 4%;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 3.5vmin; /* Fluid font size */
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Main Label */
+        .label-container {
+            text-align: center;
+        }
+
+        .main-title {
+            color: #fff;
+            font-size: 8vmin; /* Fluid font size */
+            font-weight: 800;
+            line-height: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 2%;
+        }
+
+        .sub-title {
+            color: rgba(255,255,255,0.7);
+            font-size: 3.5vmin; /* Fluid font size */
+            font-weight: 400;
+        }
+
+        /* Footer indicator */
+        .indicator-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .indicator-progress {
+            width: 30%;
+            height: 100%;
+            background: #fff;
+            border-radius: 2px;
+            animation: scan 3s ease-in-out infinite alternate;
+        }
+
+        /* ANIMATIONS */
+
+        /* Main blob pulsing and moving slightly */
+        @keyframes morphMain {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10%, -10%) scale(1.1); }
+            66% { transform: translate(-5%, 15%) scale(0.9); }
+        }
+
+        /* Orbiting blobs */
+        @keyframes orbit1 {
+            0% { transform: rotate(0deg) translate(25vmin) rotate(0deg); }
+            100% { transform: rotate(360deg) translate(25vmin) rotate(-360deg); }
+        }
+
+        @keyframes orbit2 {
+            0% { transform: rotate(0deg) translate(20vmin) rotate(0deg); }
+            100% { transform: rotate(-360deg) translate(20vmin) rotate(360deg); }
+        }
+
+        /* Progress bar animation */
+        @keyframes scan {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(230%); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="demo-square">
+        <!-- Layer 1: The Liquid Effect Engine -->
+        <div class="liquid-engine">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+
+        <!-- Layer 2: The Info Overlay -->
+        <div class="ui-overlay">
+            <div class="tag-pill">UI Demo</div>
+            
+            <div class="label-container">
+                <h1 class="main-title">Liquid<br>Motion</h1>
+                <p class="sub-title">Gradient Blur & Morph</p>
+            </div>
+
+            <div class="indicator-bar">
+                <div class="indicator-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional JS to add interactivity on mouse move
+        // This makes the center blob slightly follow the mouse for a dynamic feel
+        const container = document.querySelector('.demo-square');
+        const mainBlob = document.querySelector('.blob-1');
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            // Calculate mouse position relative to center of the box
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Move the main blob slightly (divided by 10 for subtlety)
+            mainBlob.style.transform = `translate(${x / 8}px, ${y / 8}px)`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            // Reset to animation logic implicitly by clearing inline styles
+            mainBlob.style.transform = '';
+        });
+    </script>
+</body>
+</html>

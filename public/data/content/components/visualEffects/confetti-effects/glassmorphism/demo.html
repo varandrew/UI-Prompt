@@ -1,0 +1,83 @@
+<div class="w-full max-w-2xl mx-auto space-y-6 p-6">
+            <div class="glass-card rounded-3xl p-8" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);">
+              <h3 class="font-light text-2xl mb-2 text-white" style="text-shadow: 0 2px 10px rgba(0,0,0,0.2)">
+                {{t:demo.confetti.glass.title}}
+              </h3>
+              <p class="text-white/80 mb-8 text-sm font-light">{{t:demo.confetti.glass.subtitle}}</p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Translucent Confetti -->
+                <button onclick="glassConfetti()" class="confetti-btn-glass group block p-8 rounded-2xl text-center transition-all duration-300" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                  <svg class="w-8 h-8 mx-auto mb-2 stroke-white" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                  </svg>
+                  <p class="font-light text-sm text-white">
+                    {{t:demo.confetti.glass.soft}}
+                  </p>
+                </button>
+
+                <!-- Pastel Frost -->
+                <button onclick="frostConfetti()" class="confetti-btn-glass group block p-8 rounded-2xl text-center transition-all duration-300" style="background: rgba(200, 220, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                  <svg class="w-8 h-8 mx-auto mb-2 fill-white" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z M12 22L2 17L12 12L22 17L12 22Z"/>
+                  </svg>
+                  <p class="font-light text-sm text-white">
+                    {{t:demo.confetti.glass.pastel}}
+                  </p>
+                </button>
+
+                <!-- Ethereal -->
+                <button onclick="etherealConfetti()" class="confetti-btn-glass group block p-8 rounded-2xl text-center transition-all duration-300" style="background: rgba(255, 200, 255, 0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                  <svg class="w-8 h-8 mx-auto mb-2 fill-white" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  <p class="font-light text-sm text-white">
+                    {{t:demo.confetti.glass.ethereal}}
+                  </p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+          <script>
+            function glassConfetti() {
+              confetti({
+                particleCount: 70,
+                spread: 60,
+                origin: { y: 0.6 },
+                colors: ['#E0F7FA', '#B2EBF2', '#80DEEA', '#4DD0E1', '#26C6DA'],
+                shapes: ['circle'],
+                scalar: 1.0,
+                gravity: 0.7,
+                drift: 0.5
+              });
+            }
+
+            function frostConfetti() {
+              confetti({
+                particleCount: 60,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#E8EAF6', '#C5CAE9', '#9FA8DA', '#7986CB', '#5C6BC0'],
+                shapes: ['circle', 'square'],
+                scalar: 0.9,
+                gravity: 0.6,
+                drift: 1.0
+              });
+            }
+
+            function etherealConfetti() {
+              confetti({
+                particleCount: 80,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#F3E5F5', '#E1BEE7', '#CE93D8', '#BA68C8', '#AB47BC'],
+                shapes: ['circle'],
+                scalar: 1.1,
+                gravity: 0.5,
+                drift: 0.8,
+                ticks: 300
+              });
+            }
+          </script>

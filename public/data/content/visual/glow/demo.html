@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Effect Demo</title>
+    <!-- Tailwind CSS for layout structure -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --glow-color: #00f2ff;
+            --glow-secondary: #008cff;
+            --bg-dark: #09090b;
+            --card-bg: #18181b;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* The Main Demo Container 
+           Enforces 1:1 Aspect Ratio (Square)
+        */
+        .demo-container {
+            width: 90vw;
+            max-width: 400px; /* Cap size for larger screens */
+            aspect-ratio: 1 / 1;
+            background-image: 
+                radial-gradient(circle at center, #1f1f25 0%, transparent 70%),
+                linear-gradient(#131316 1px, transparent 1px),
+                linear-gradient(90deg, #131316 1px, transparent 1px);
+            background-size: 100% 100%, 20px 20px, 20px 20px;
+            border-radius: 24px;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* The "Glow Component" 
+           This is the specific UI style requested 
+        */
+        .glow-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15%; /* Squircle shape */
+            width: 50%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+            
+            /* The Core Animation: Infinite Pulse & Breathe */
+            animation: breathe-glow 3s infinite ease-in-out;
+        }
+
+        /* Text Styling */
+        .title {
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            margin-top: 5%;
+            font-size: 0.8em; /* Relative to parent font size */
+        }
+
+        /* Animation Keyframes
+           Combines Box-Shadow changes (breathing) with Transform (pulse) 
+        */
+        @keyframes breathe-glow {
+            0% {
+                box-shadow: 0 0 5px rgba(0, 242, 255, 0.2), 
+                            0 0 10px rgba(0, 242, 255, 0.1),
+                            inset 0 0 5px rgba(0, 242, 255, 0.1);
+                border-color: rgba(0, 242, 255, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                /* Intense Glow Phase */
+                box-shadow: 0 0 20px var(--glow-color), 
+                            0 0 40px var(--glow-secondary),
+                            inset 0 0 15px rgba(0, 242, 255, 0.3);
+                border-color: var(--glow-color);
+                transform: scale(1.05); /* Slight pulse */
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(0, 242, 255, 0.2), 
+                            0 0 10px rgba(0, 242, 255, 0.1),
+                            inset 0 0 5px rgba(0, 242, 255, 0.1);
+                border-color: rgba(0, 242, 255, 0.3);
+                transform: scale(1);
+            }
+        }
+
+        /* Interactive State: Hover pauses and intensifies */
+        .glow-card:hover {
+            animation-play-state: paused;
+            box-shadow: 0 0 30px var(--glow-color), 0 0 60px var(--glow-secondary);
+            transform: scale(1.1);
+        }
+
+        /* Label for the UI style (floating at bottom) */
+        .style-label {
+            position: absolute;
+            bottom: 10%;
+            color: #666;
+            font-size: 12px;
+            font-family: monospace;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container: Always Square -->
+    <div class="demo-container" id="container">
+        
+        <!-- The Component Demonstrating the Style -->
+        <div class="glow-card" id="demoCard">
+            <!-- Content -->
+            <div class="content-wrapper">
+                <h2 class="title" id="demoTitle">Glow<br>Effect</h2>
+                <p class="subtitle" id="demoSub">Pulse & Breathe</p>
+            </div>
+        </div>
+
+        <!-- Descriptive Label -->
+        <div class="style-label">UI Style Demo</div>
+
+    </div>
+
+    <script>
+        /**
+         * Logic: Auto-Scaling Font Size
+         * This script ensures that no matter how small the user makes the window
+         * or the demo frame, the text inside the component remains perfectly proportioned.
+         */
+        function adjustLayout() {
+            const container = document.getElementById('container');
+            const card = document.getElementById('demoCard');
+            const title = document.getElementById('demoTitle');
+            
+            // Get current dimensions
+            const containerWidth = container.offsetWidth;
+            
+            // Calculate font size relative to container width (responsive scaling)
+            // We use roughly 8% of the container width for the base font size
+            const newFontSize = Math.floor(containerWidth * 0.08);
+            
+            // Apply fluid typography
+            title.style.fontSize = `${newFontSize}px`;
+            
+            // Ensure square shape is maintained precisely if CSS aspect-ratio fails (older browsers)
+            container.style.height = `${containerWidth}px`;
+        }
+
+        // Add Click Interaction for "Burst" effect
+        const card = document.getElementById('demoCard');
+        card.addEventListener('click', () => {
+            // Remove animation class to reset it
+            card.style.animation = 'none';
+            card.offsetHeight; /* trigger reflow */
+            
+            // Add a burst visual
+            card.style.boxShadow = "0 0 60px #fff, 0 0 100px var(--glow-color)";
+            card.style.transform = "scale(0.95)";
+            card.style.borderColor = "#fff";
+
+            // Restore animation after short delay
+            setTimeout(() => {
+                card.style.animation = "breathe-glow 3s infinite ease-in-out";
+                card.style.transform = "";
+                card.style.boxShadow = "";
+                card.style.borderColor = "";
+            }, 150);
+        });
+
+        // Run on load and resize
+        window.addEventListener('load', adjustLayout);
+        window.addEventListener('resize', adjustLayout);
+    </script>
+</body>
+</html>

@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>visual-scandi-scandi-interior - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+  /* CSS Variables */
+  :root {
+    --scandi-bg: #F5F5F0;
+    --scandi-card: #FFFFFF;
+    --scandi-wood: #8B7355;
+    --scandi-green: #A8C69F;
+    --scandi-gray: #B0A8A0;
+    --scandi-text: #2D2D2D;
+    --scandi-text-secondary: #5A5A5A;
+    --scandi-border: #E8E8E3;
+    --scandi-shadow: rgba(0, 0, 0, 0.06);
+  }
+
+  /* Reset & Base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--scandi-text);
+    background-color: var(--scandi-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scroll Progress Bar */
+  .scandi-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--scandi-wood), var(--scandi-green));
+    z-index: 9999;
+    transition: width 0.1s ease;
+  }
+
+  /* Navigation */
+  .scandi-nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--scandi-border);
+    z-index: 1000;
+    padding: 1rem 0;
+  }
+
+  .scandi-nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .scandi-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--scandi-wood);
+  }
+
+  .scandi-logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .scandi-nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .scandi-nav-menu a {
+    text-decoration: none;
+    color: var(--scandi-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .scandi-nav-menu a:hover {
+    color: var(--scandi-wood);
+  }
+
+  .scandi-nav-cta {
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .scandi-nav-cta:hover {
+    background-color: #75614a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.2);
+  }
+
+  /* Hero Section */
+  .scandi-hero {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(180deg, var(--scandi-bg) 0%, #FFFFFF 100%);
+  }
+
+  .scandi-hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .scandi-hero-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--scandi-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .scandi-hero-title {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--scandi-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .scandi-hero-highlight {
+    font-weight: 600;
+    color: var(--scandi-wood);
+  }
+
+  .scandi-hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--scandi-text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .scandi-hero-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .scandi-btn-primary {
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .scandi-btn-primary:hover {
+    background-color: #75614a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 115, 85, 0.3);
+  }
+
+  .scandi-btn-secondary {
+    background-color: transparent;
+    color: var(--scandi-text);
+    border: 2px solid var(--scandi-border);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .scandi-btn-secondary:hover {
+    border-color: var(--scandi-wood);
+    color: var(--scandi-wood);
+    transform: translateY(-2px);
+  }
+
+  .scandi-btn-arrow {
+    transition: transform 0.2s;
+  }
+
+  .scandi-btn-secondary:hover .scandi-btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Hero Image - Minimalist Office Scene */
+  .scandi-hero-image {
+    position: relative;
+    height: 400px;
+  }
+
+  .scandi-desk-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .scandi-desk {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 40%;
+    background: linear-gradient(180deg, #A88B6F 0%, #8B7355 100%);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 -2px 20px rgba(139, 115, 85, 0.2);
+  }
+
+  .scandi-laptop {
+    position: absolute;
+    bottom: 30%;
+    left: 30%;
+    width: 40%;
+    height: 30%;
+    background: linear-gradient(135deg, #E8E8E3 0%, #D0D0C8 100%);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .scandi-plant {
+    position: absolute;
+    bottom: 28%;
+    right: 20%;
+    width: 60px;
+    height: 80px;
+    background: var(--scandi-green);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.7;
+  }
+
+  .scandi-plant::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    background: var(--scandi-gray);
+    border-radius: 0 0 50% 50%;
+  }
+
+  .scandi-lamp {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 50px;
+    height: 120px;
+    background: linear-gradient(180deg, #E8E8E3 0%, #D0D0C8 100%);
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .scandi-lamp::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 40px;
+    background: rgba(255, 223, 186, 0.3);
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+
+  /* Stats Section */
+  .scandi-stats {
+    padding: 4rem 0;
+    background-color: white;
+  }
+
+  .scandi-section-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .scandi-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .scandi-stat-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--scandi-bg);
+    border-radius: 12px;
+    transition: transform 0.2s;
+  }
+
+  .scandi-stat-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .scandi-stat-number {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--scandi-wood);
+    margin-bottom: 0.5rem;
+  }
+
+  .scandi-stat-label {
+    font-size: 0.95rem;
+    color: var(--scandi-text-secondary);
+    font-weight: 500;
+  }
+
+  /* Section Header */
+  .scandi-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .scandi-section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--scandi-text-secondary);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .scandi-section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--scandi-text);
+    margin-bottom: 1rem;
+  }
+
+  .scandi-section-desc {
+    font-size: 1.1rem;
+    color: var(--scandi-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Features Section */
+  .scandi-features {
+    padding: 6rem 0;
+    background-color: var(--scandi-bg);
+  }
+
+  .scandi-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .scandi-feature-card {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--scandi-shadow);
+    transition: all 0.3s;
+  }
+
+  .scandi-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .scandi-feature-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--scandi-wood);
+    margin-bottom: 1.5rem;
+  }
+
+  .scandi-feature-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .scandi-feature-desc {
+    font-size: 0.95rem;
+    color: var(--scandi-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Products Section */
+  .scandi-products {
+    padding: 6rem 0;
+    background-color: white;
+  }
+
+  .scandi-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .scandi-product-card {
+    background-color: var(--scandi-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .scandi-product-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .scandi-product-image {
+    aspect-ratio: 1;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .scandi-product-placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .scandi-product-content {
+    padding: 1.5rem;
+  }
+
+  .scandi-product-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .scandi-product-desc {
+    font-size: 0.85rem;
+    color: var(--scandi-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .scandi-product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .scandi-product-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--scandi-wood);
+  }
+
+  .scandi-product-btn {
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .scandi-product-btn:hover {
+    background-color: #75614a;
+    transform: translateY(-1px);
+  }
+
+  /* Team Section */
+  .scandi-team {
+    padding: 6rem 0;
+    background-color: var(--scandi-bg);
+  }
+
+  .scandi-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .scandi-team-card {
+    text-align: center;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--scandi-shadow);
+  }
+
+  .scandi-team-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--scandi-wood), var(--scandi-green));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scandi-avatar-placeholder {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .scandi-team-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .scandi-team-role {
+    font-size: 0.9rem;
+    color: var(--scandi-wood);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .scandi-team-bio {
+    font-size: 0.9rem;
+    color: var(--scandi-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Testimonials Section */
+  .scandi-testimonials {
+    padding: 6rem 0;
+    background-color: white;
+  }
+
+  .scandi-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .scandi-testimonial-card {
+    background-color: var(--scandi-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--scandi-wood);
+  }
+
+  .scandi-testimonial-stars {
+    color: var(--scandi-wood);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .scandi-testimonial-text {
+    font-size: 0.95rem;
+    color: var(--scandi-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .scandi-testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .scandi-testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--scandi-green), var(--scandi-gray));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    font-size: 0.9rem;
+  }
+
+  .scandi-testimonial-name {
+    font-weight: 500;
+    color: var(--scandi-text);
+    font-size: 0.95rem;
+  }
+
+  .scandi-testimonial-company {
+    font-size: 0.85rem;
+    color: var(--scandi-text-secondary);
+  }
+
+  /* Pricing Section */
+  .scandi-pricing {
+    padding: 6rem 0;
+    background-color: var(--scandi-bg);
+  }
+
+  .scandi-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .scandi-pricing-card {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--scandi-shadow);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .scandi-pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  .scandi-pricing-featured {
+    border: 2px solid var(--scandi-wood);
+  }
+
+  .scandi-pricing-badge {
+    position: absolute;
+    top: -12px;
+    right: 2rem;
+    background-color: var(--scandi-wood);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+  }
+
+  .scandi-pricing-name {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    margin-bottom: 1rem;
+  }
+
+  .scandi-pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .scandi-pricing-amount {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--scandi-wood);
+  }
+
+  .scandi-pricing-period {
+    font-size: 1rem;
+    color: var(--scandi-text-secondary);
+  }
+
+  .scandi-pricing-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .scandi-pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    color: var(--scandi-text-secondary);
+  }
+
+  .scandi-pricing-features svg {
+    width: 20px;
+    height: 20px;
+    color: var(--scandi-green);
+    flex-shrink: 0;
+  }
+
+  .scandi-pricing-btn {
+    width: 100%;
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .scandi-pricing-btn:hover {
+    background-color: #75614a;
+    transform: translateY(-2px);
+  }
+
+  .scandi-pricing-btn-featured {
+    background-color: var(--scandi-text);
+  }
+
+  .scandi-pricing-btn-featured:hover {
+    background-color: #1a1a1a;
+  }
+
+  /* FAQ Section */
+  .scandi-faq {
+    padding: 6rem 0;
+    background-color: white;
+  }
+
+  .scandi-faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .scandi-faq-item {
+    background-color: var(--scandi-bg);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .scandi-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+  }
+
+  .scandi-faq-question:hover {
+    background-color: #ECECE7;
+  }
+
+  .scandi-faq-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--scandi-wood);
+    transition: transform 0.3s;
+  }
+
+  .scandi-faq-item[open] .scandi-faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .scandi-faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--scandi-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Contact Form Section */
+  .scandi-contact {
+    padding: 6rem 0;
+    background-color: var(--scandi-bg);
+  }
+
+  .scandi-contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--scandi-shadow);
+  }
+
+  .scandi-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .scandi-form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .scandi-form-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .scandi-form-input,
+  .scandi-form-textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid var(--scandi-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--scandi-text);
+    background-color: var(--scandi-bg);
+    transition: all 0.2s;
+  }
+
+  .scandi-form-input:focus,
+  .scandi-form-textarea:focus {
+    outline: none;
+    border-color: var(--scandi-wood);
+    background-color: white;
+  }
+
+  .scandi-form-textarea {
+    resize: vertical;
+    font-family: inherit;
+  }
+
+  .scandi-form-submit {
+    width: 100%;
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .scandi-form-submit:hover {
+    background-color: #75614a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+  }
+
+  /* Newsletter Section */
+  .scandi-newsletter {
+    padding: 4rem 0;
+    background-color: white;
+  }
+
+  .scandi-newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .scandi-newsletter-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--scandi-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .scandi-newsletter-desc {
+    font-size: 1rem;
+    color: var(--scandi-text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .scandi-newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .scandi-newsletter-input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--scandi-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--scandi-bg);
+    transition: all 0.2s;
+  }
+
+  .scandi-newsletter-input:focus {
+    outline: none;
+    border-color: var(--scandi-wood);
+    background-color: white;
+  }
+
+  .scandi-newsletter-btn {
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .scandi-newsletter-btn:hover {
+    background-color: #75614a;
+    transform: translateY(-2px);
+  }
+
+  .scandi-newsletter-privacy {
+    font-size: 0.85rem;
+    color: var(--scandi-text-secondary);
+  }
+
+  /* Footer */
+  .scandi-footer {
+    background-color: var(--scandi-text);
+    color: var(--scandi-bg);
+    padding: 4rem 0 2rem;
+  }
+
+  .scandi-footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .scandi-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .scandi-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .scandi-footer-logo-icon {
+    font-size: 1.5rem;
+  }
+
+  .scandi-footer-tagline {
+    font-size: 0.95rem;
+    color: #9A9A95;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .scandi-footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .scandi-social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .scandi-social-link:hover {
+    background-color: var(--scandi-wood);
+    transform: translateY(-2px);
+  }
+
+  .scandi-social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scandi-footer-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--scandi-bg);
+    margin-bottom: 1rem;
+  }
+
+  .scandi-footer-links {
+    list-style: none;
+  }
+
+  .scandi-footer-links li {
+    margin-bottom: 0.75rem;
+  }
+
+  .scandi-footer-links a {
+    text-decoration: none;
+    color: #9A9A95;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .scandi-footer-links a:hover {
+    color: var(--scandi-bg);
+  }
+
+  .scandi-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .scandi-footer-copyright {
+    font-size: 0.9rem;
+    color: #9A9A95;
+  }
+
+  .scandi-footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .scandi-footer-legal a {
+    text-decoration: none;
+    color: #9A9A95;
+    transition: color 0.2s;
+  }
+
+  .scandi-footer-legal a:hover {
+    color: var(--scandi-bg);
+  }
+
+  .scandi-footer-legal span {
+    color: #5A5A55;
+  }
+
+  .scandi-footer-lang {
+    background-color: transparent;
+    color: #9A9A95;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  /* Back to Top Button */
+  .scandi-back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    background-color: var(--scandi-wood);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .scandi-back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .scandi-back-to-top:hover {
+    background-color: #75614a;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .scandi-back-to-top svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Loading Spinner */
+  .scandi-loading {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+  }
+
+  .scandi-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--scandi-border);
+    border-top-color: var(--scandi-wood);
+    border-radius: 50%;
+    animation: scandi-spin 0.8s linear infinite;
+  }
+
+  @keyframes scandi-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .scandi-hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .scandi-hero-title {
+      font-size: 3rem;
+    }
+
+    .scandi-stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scandi-features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scandi-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scandi-team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .scandi-nav-menu {
+      display: none;
+    }
+
+    .scandi-hero-title {
+      font-size: 2.5rem;
+    }
+
+    .scandi-hero-actions {
+      flex-direction: column;
+    }
+
+    .scandi-btn-primary,
+    .scandi-btn-secondary {
+      width: 100%;
+    }
+
+    .scandi-stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-newsletter-form {
+      flex-direction: column;
+    }
+
+    .scandi-footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .scandi-footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+
+  /* Scroll Behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus Styles (Accessibility) */
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus,
+  select:focus,
+  summary:focus {
+    outline: 2px solid var(--scandi-wood);
+    outline-offset: 2px;
+  }
+
+  /* Print Styles */
+  @media print {
+    .scandi-nav,
+    .scandi-back-to-top,
+    .scandi-progress-bar {
+      display: none;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scandi-progress-bar" id="progressBar"></div>
+
+  <!-- Navigation -->
+  <nav class="scandi-nav" role="navigation" aria-label="Main Navigation">
+    <div class="scandi-nav-container">
+      <div class="scandi-logo" aria-label="Hygge Home Office">
+        <span class="scandi-logo-icon">🏡</span>
+        <span class="scandi-logo-text">HYGGE</span>
+      </div>
+      <ul class="scandi-nav-menu" role="menubar">
+        <li role="none"><a href="javascript:void(0)" role="menuitem">Product</a></li>
+        <li role="none"><a href="javascript:void(0)" role="menuitem">Features</a></li>
+        <li role="none"><a href="javascript:void(0)" role="menuitem">Pricing</a></li>
+        <li role="none"><a href="javascript:void(0)" role="menuitem">About</a></li>
+        <li role="none"><a href="javascript:void(0)" role="menuitem">Contact</a></li>
+      </ul>
+      <button class="scandi-nav-cta" aria-label="Get Started">Get Started</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="scandi-hero" role="banner">
+    <div class="scandi-hero-container">
+      <div class="scandi-hero-content">
+        <span class="scandi-hero-label">NORDIC WORKSPACE DESIGN</span>
+        <h1 class="scandi-hero-title">
+          Work in<br/>
+          <span class="scandi-hero-highlight">Harmony</span>
+        </h1>
+        <p class="scandi-hero-subtitle">
+          Create a workspace where comfort meets productivity.<br/>
+          Minimalist design, natural materials, maximum focus.
+        </p>
+        <div class="scandi-hero-actions">
+          <button class="scandi-btn-primary">Explore Collection</button>
+          <button class="scandi-btn-secondary">
+            <span>Watch Tour</span>
+            <span class="scandi-btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+      <div class="scandi-hero-image">
+        <!-- Minimalist Office Illustration -->
+        <div class="scandi-desk-scene">
+          <div class="scandi-desk"></div>
+          <div class="scandi-laptop"></div>
+          <div class="scandi-plant"></div>
+          <div class="scandi-lamp"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats Section -->
+  <section class="scandi-stats" aria-label="Statistics">
+    <div class="scandi-section-container">
+      <div class="scandi-stats-grid">
+        <div class="scandi-stat-card">
+          <div class="scandi-stat-number">10K+</div>
+          <div class="scandi-stat-label">Happy Customers</div>
+        </div>
+        <div class="scandi-stat-card">
+          <div class="scandi-stat-number">99.8%</div>
+          <div class="scandi-stat-label">Satisfaction Rate</div>
+        </div>
+        <div class="scandi-stat-card">
+          <div class="scandi-stat-number">500+</div>
+          <div class="scandi-stat-label">Workspace Designs</div>
+        </div>
+        <div class="scandi-stat-card">
+          <div class="scandi-stat-number">24/7</div>
+          <div class="scandi-stat-label">Support Available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="scandi-features" aria-label="Key Features">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">CORE PRINCIPLES</span>
+        <h2 class="scandi-section-title">Design Philosophy</h2>
+        <p class="scandi-section-desc">
+          Every element serves a purpose. Form follows function,<br/>
+          beauty emerges from simplicity.
+        </p>
+      </div>
+      <div class="scandi-features-grid">
+        <article class="scandi-feature-card">
+          <div class="scandi-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M9 3v18"/>
+            </svg>
+          </div>
+          <h3 class="scandi-feature-title">Clean Workspace</h3>
+          <p class="scandi-feature-desc">
+            Clutter-free environment designed to enhance focus and minimize distractions.
+          </p>
+        </article>
+
+        <article class="scandi-feature-card">
+          <div class="scandi-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            </svg>
+          </div>
+          <h3 class="scandi-feature-title">Natural Light</h3>
+          <p class="scandi-feature-desc">
+            Maximize daylight exposure with thoughtfully positioned windows and reflective surfaces.
+          </p>
+        </article>
+
+        <article class="scandi-feature-card">
+          <div class="scandi-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+          </div>
+          <h3 class="scandi-feature-title">Ergonomic Design</h3>
+          <p class="scandi-feature-desc">
+            Furniture crafted to support natural posture and promote long-term health.
+          </p>
+        </article>
+
+        <article class="scandi-feature-card">
+          <div class="scandi-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3 class="scandi-feature-title">Storage Solutions</h3>
+          <p class="scandi-feature-desc">
+            Intelligent organization systems that keep essentials accessible yet invisible.
+          </p>
+        </article>
+
+        <article class="scandi-feature-card">
+          <div class="scandi-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="scandi-feature-title">Minimal Distractions</h3>
+          <p class="scandi-feature-desc">
+            Calming neutral tones and soft textures create a serene work atmosphere.
+          </p>
+        </article>
+
+        <article class="scandi-feature-card">
+          <div class="scandi-feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="scandi-feature-title">Cozy Atmosphere</h3>
+          <p class="scandi-feature-desc">
+            Warmth and comfort through natural wood, soft fabrics, and ambient lighting.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section class="scandi-products" aria-label="Product Showcase">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">COLLECTION</span>
+        <h2 class="scandi-section-title">Featured Products</h2>
+      </div>
+      <div class="scandi-products-grid">
+        <article class="scandi-product-card">
+          <div class="scandi-product-image">
+            <div class="scandi-product-placeholder">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="40" y="60" width="120" height="80" fill="#8B7355" opacity="0.3"/>
+                <rect x="50" y="70" width="100" height="60" fill="#8B7355" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="scandi-product-content">
+            <h3 class="scandi-product-name">Nordic Desk Oak</h3>
+            <p class="scandi-product-desc">Solid oak desk with minimalist design and cable management.</p>
+            <div class="scandi-product-footer">
+              <span class="scandi-product-price">$899</span>
+              <button class="scandi-product-btn" aria-label="Add Nordic Desk Oak to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scandi-product-card">
+          <div class="scandi-product-image">
+            <div class="scandi-product-placeholder">
+              <svg viewBox="0 0 200 200" fill="none">
+                <ellipse cx="100" cy="120" rx="60" ry="40" fill="#A8C69F" opacity="0.3"/>
+                <rect x="95" y="120" width="10" height="40" fill="#8B7355" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="scandi-product-content">
+            <h3 class="scandi-product-name">Ceramic Task Lamp</h3>
+            <p class="scandi-product-desc">Handcrafted ceramic base with warm LED lighting.</p>
+            <div class="scandi-product-footer">
+              <span class="scandi-product-price">$249</span>
+              <button class="scandi-product-btn" aria-label="Add Ceramic Task Lamp to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scandi-product-card">
+          <div class="scandi-product-image">
+            <div class="scandi-product-placeholder">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="50" y="40" width="100" height="120" rx="8" fill="#B0A8A0" opacity="0.3"/>
+                <rect x="60" y="60" width="80" height="20" fill="#B0A8A0" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="scandi-product-content">
+            <h3 class="scandi-product-name">Modular Shelving</h3>
+            <p class="scandi-product-desc">Customizable birch wood shelving system for any space.</p>
+            <div class="scandi-product-footer">
+              <span class="scandi-product-price">$499</span>
+              <button class="scandi-product-btn" aria-label="Add Modular Shelving to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="scandi-product-card">
+          <div class="scandi-product-image">
+            <div class="scandi-product-placeholder">
+              <svg viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="60" r="30" fill="#A8C69F" opacity="0.4"/>
+                <rect x="95" y="90" width="10" height="80" fill="#8B7355" opacity="0.3"/>
+              </svg>
+            </div>
+          </div>
+          <div class="scandi-product-content">
+            <h3 class="scandi-product-name">Monstera Plant Set</h3>
+            <p class="scandi-product-desc">Live plants with handmade ceramic pots to purify air.</p>
+            <div class="scandi-product-footer">
+              <span class="scandi-product-price">$129</span>
+              <button class="scandi-product-btn" aria-label="Add Monstera Plant Set to cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="scandi-team" aria-label="Our Team">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">MEET THE TEAM</span>
+        <h2 class="scandi-section-title">Design Experts</h2>
+        <p class="scandi-section-desc">
+          Passionate designers bringing Nordic simplicity to modern workspaces.
+        </p>
+      </div>
+      <div class="scandi-team-grid">
+        <article class="scandi-team-card">
+          <div class="scandi-team-avatar">
+            <div class="scandi-avatar-placeholder">AS</div>
+          </div>
+          <h3 class="scandi-team-name">Anna Svensson</h3>
+          <p class="scandi-team-role">Lead Designer</p>
+          <p class="scandi-team-bio">
+            15 years experience in Scandinavian interior design. Specializes in workspace ergonomics.
+          </p>
+        </article>
+
+        <article class="scandi-team-card">
+          <div class="scandi-team-avatar">
+            <div class="scandi-avatar-placeholder">MJ</div>
+          </div>
+          <h3 class="scandi-team-name">Magnus Johansson</h3>
+          <p class="scandi-team-role">Furniture Craftsman</p>
+          <p class="scandi-team-bio">
+            Master carpenter creating sustainable furniture from Nordic wood sources.
+          </p>
+        </article>
+
+        <article class="scandi-team-card">
+          <div class="scandi-team-avatar">
+            <div class="scandi-avatar-placeholder">EL</div>
+          </div>
+          <h3 class="scandi-team-name">Emma Larsson</h3>
+          <p class="scandi-team-role">Color Consultant</p>
+          <p class="scandi-team-bio">
+            Expert in creating calming color palettes that enhance productivity and well-being.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="scandi-testimonials" aria-label="Customer Testimonials">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">TESTIMONIALS</span>
+        <h2 class="scandi-section-title">What Customers Say</h2>
+      </div>
+      <div class="scandi-testimonials-grid">
+        <article class="scandi-testimonial-card">
+          <div class="scandi-testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="scandi-testimonial-text">
+            "The Nordic desk completely transformed my home office. The quality is exceptional and the design is timeless. Best investment I've made."
+          </p>
+          <div class="scandi-testimonial-author">
+            <div class="scandi-testimonial-avatar">JD</div>
+            <div>
+              <div class="scandi-testimonial-name">James Davidson</div>
+              <div class="scandi-testimonial-company">Freelance Designer</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="scandi-testimonial-card">
+          <div class="scandi-testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="scandi-testimonial-text">
+            "I love how everything is functional yet beautiful. The minimalist aesthetic helps me focus, and the natural materials create such a calming atmosphere."
+          </p>
+          <div class="scandi-testimonial-author">
+            <div class="scandi-testimonial-avatar">SC</div>
+            <div>
+              <div class="scandi-testimonial-name">Sarah Chen</div>
+              <div class="scandi-testimonial-company">Tech Startup CEO</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="scandi-testimonial-card">
+          <div class="scandi-testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="scandi-testimonial-text">
+            "The modular shelving system is genius. It adapts to my changing needs and looks stunning. The customer service was also top-notch."
+          </p>
+          <div class="scandi-testimonial-author">
+            <div class="scandi-testimonial-avatar">MP</div>
+            <div>
+              <div class="scandi-testimonial-name">Michael Park</div>
+              <div class="scandi-testimonial-company">Architect</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Tables -->
+  <section class="scandi-pricing" aria-label="Pricing Plans">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">PRICING</span>
+        <h2 class="scandi-section-title">Choose Your Plan</h2>
+        <p class="scandi-section-desc">
+          Flexible options for individuals and teams. All plans include free shipping.
+        </p>
+      </div>
+      <div class="scandi-pricing-grid">
+        <article class="scandi-pricing-card">
+          <h3 class="scandi-pricing-name">Starter</h3>
+          <div class="scandi-pricing-price">
+            <span class="scandi-pricing-amount">$29</span>
+            <span class="scandi-pricing-period">/month</span>
+          </div>
+          <ul class="scandi-pricing-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>1 Workspace Design</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Basic Furniture Access</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Email Support</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Design Consultation (1hr)</span>
+            </li>
+          </ul>
+          <button class="scandi-pricing-btn" aria-label="Select Starter Plan">Get Started</button>
+        </article>
+
+        <article class="scandi-pricing-card scandi-pricing-featured">
+          <div class="scandi-pricing-badge">POPULAR</div>
+          <h3 class="scandi-pricing-name">Professional</h3>
+          <div class="scandi-pricing-price">
+            <span class="scandi-pricing-amount">$79</span>
+            <span class="scandi-pricing-period">/month</span>
+          </div>
+          <ul class="scandi-pricing-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>3 Workspace Designs</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Full Furniture Catalog</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Priority Support</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Weekly Design Sessions</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Custom Color Palettes</span>
+            </li>
+          </ul>
+          <button class="scandi-pricing-btn scandi-pricing-btn-featured" aria-label="Select Professional Plan">Get Started</button>
+        </article>
+
+        <article class="scandi-pricing-card">
+          <h3 class="scandi-pricing-name">Enterprise</h3>
+          <div class="scandi-pricing-price">
+            <span class="scandi-pricing-amount">Custom</span>
+          </div>
+          <ul class="scandi-pricing-features">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Unlimited Workspaces</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Bespoke Furniture</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Dedicated Account Manager</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>On-site Installation</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>Lifetime Warranty</span>
+            </li>
+          </ul>
+          <button class="scandi-pricing-btn" aria-label="Contact Sales for Enterprise Plan">Contact Sales</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="scandi-faq" aria-label="Frequently Asked Questions">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">FAQ</span>
+        <h2 class="scandi-section-title">Common Questions</h2>
+      </div>
+      <div class="scandi-faq-list">
+        <details class="scandi-faq-item">
+          <summary class="scandi-faq-question">
+            <span>What are your shipping options?</span>
+            <svg class="scandi-faq-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </summary>
+          <div class="scandi-faq-answer">
+            We offer free standard shipping (5-7 business days) on all orders. Express shipping (2-3 days) is available for $49. White glove delivery and installation services are also available for larger furniture pieces.
+          </div>
+        </details>
+
+        <details class="scandi-faq-item">
+          <summary class="scandi-faq-question">
+            <span>What is your return policy?</span>
+            <svg class="scandi-faq-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </summary>
+          <div class="scandi-faq-answer">
+            We want you to love your purchase. If you're not completely satisfied, you can return any item within 60 days for a full refund. Items must be in original condition with all packaging materials. Return shipping is free for defective items.
+          </div>
+        </details>
+
+        <details class="scandi-faq-item">
+          <summary class="scandi-faq-question">
+            <span>Can I customize furniture pieces?</span>
+            <svg class="scandi-faq-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </summary>
+          <div class="scandi-faq-answer">
+            Absolutely! We offer customization options for wood finishes, dimensions, and hardware. Our Professional and Enterprise plans include access to our full customization service. Contact our design team to discuss your specific needs.
+          </div>
+        </details>
+
+        <details class="scandi-faq-item">
+          <summary class="scandi-faq-question">
+            <span>What warranty do you provide?</span>
+            <svg class="scandi-faq-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </summary>
+          <div class="scandi-faq-answer">
+            All furniture comes with a 5-year warranty covering manufacturing defects and structural issues. Accessories and lighting have a 2-year warranty. Enterprise customers receive lifetime warranty coverage on all purchases.
+          </div>
+        </details>
+
+        <details class="scandi-faq-item">
+          <summary class="scandi-faq-question">
+            <span>Do you offer installation services?</span>
+            <svg class="scandi-faq-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </summary>
+          <div class="scandi-faq-answer">
+            Yes! We offer professional installation services in select cities. Our team will deliver, assemble, and position your furniture exactly where you want it. Installation fees vary by location and product complexity - contact us for a quote.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="scandi-contact" aria-label="Contact Form">
+    <div class="scandi-section-container">
+      <div class="scandi-section-header">
+        <span class="scandi-section-label">GET IN TOUCH</span>
+        <h2 class="scandi-section-title">Contact Us</h2>
+        <p class="scandi-section-desc">
+          Have questions? We're here to help. Send us a message and we'll respond within 24 hours.
+        </p>
+      </div>
+      <form class="scandi-contact-form" aria-label="Contact Form">
+        <div class="scandi-form-row">
+          <div class="scandi-form-group">
+            <label for="name" class="scandi-form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="scandi-form-input"
+              placeholder="Your name"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="scandi-form-group">
+            <label for="email" class="scandi-form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="scandi-form-input"
+              placeholder="your@email.com"
+              required
+              aria-required="true"
+            />
+          </div>
+        </div>
+        <div class="scandi-form-group">
+          <label for="subject" class="scandi-form-label">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            class="scandi-form-input"
+            placeholder="How can we help?"
+            required
+            aria-required="true"
+          />
+        </div>
+        <div class="scandi-form-group">
+          <label for="message" class="scandi-form-label">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="scandi-form-textarea"
+            rows="5"
+            placeholder="Tell us more about your project..."
+            required
+            aria-required="true"
+          ></textarea>
+        </div>
+        <button type="submit" class="scandi-form-submit" aria-label="Send Message">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="scandi-newsletter" aria-label="Newsletter Signup">
+    <div class="scandi-section-container">
+      <div class="scandi-newsletter-content">
+        <h2 class="scandi-newsletter-title">Stay Inspired</h2>
+        <p class="scandi-newsletter-desc">
+          Get design tips, new product launches, and exclusive offers delivered to your inbox.
+        </p>
+        <form class="scandi-newsletter-form" aria-label="Newsletter Signup Form">
+          <input
+            type="email"
+            class="scandi-newsletter-input"
+            placeholder="Enter your email"
+            required
+            aria-required="true"
+            aria-label="Email Address"
+          />
+          <button type="submit" class="scandi-newsletter-btn" aria-label="Subscribe to Newsletter">
+            Subscribe
+          </button>
+        </form>
+        <p class="scandi-newsletter-privacy">
+          We respect your privacy. Unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="scandi-footer" role="contentinfo">
+    <div class="scandi-footer-container">
+      <div class="scandi-footer-grid">
+        <div class="scandi-footer-col">
+          <div class="scandi-footer-logo">
+            <span class="scandi-footer-logo-icon">🏡</span>
+            <span class="scandi-footer-logo-text">HYGGE</span>
+          </div>
+          <p class="scandi-footer-tagline">
+            Creating harmonious workspaces<br/>through Nordic design principles.
+          </p>
+          <div class="scandi-footer-social" role="group" aria-label="Social Media Links">
+            <a href="javascript:void(0)" aria-label="Instagram" class="scandi-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="#F5F5F0" stroke-width="2"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#F5F5F0" stroke-width="2"/>
+              </svg>
+            </a>
+            <a href="javascript:void(0)" aria-label="Pinterest" class="scandi-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.5 17s1-4 1.5-6c0 0-1-2 0-3.5s3-1.5 4-1c1 .5 1.5 2.5.5 4.5-1 2-2.5 2.5-2.5 2.5s2 .5 3.5-.5c1.5-1 2-3.5 1.5-5.5s-2.5-3-5-3c-2.5 0-5 1.5-5.5 4.5s.5 5 2.5 6.5" fill="none" stroke="#F5F5F0" stroke-width="2"/>
+              </svg>
+            </a>
+            <a href="javascript:void(0)" aria-label="LinkedIn" class="scandi-social-link">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+                <path d="M8 11v5M8 8v.01M12 16v-5M16 16v-3a2 2 0 0 0-4 0" fill="none" stroke="#F5F5F0" stroke-width="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="scandi-footer-col">
+          <h3 class="scandi-footer-heading">Products</h3>
+          <ul class="scandi-footer-links">
+            <li><a href="javascript:void(0)">Desks</a></li>
+            <li><a href="javascript:void(0)">Chairs</a></li>
+            <li><a href="javascript:void(0)">Shelving</a></li>
+            <li><a href="javascript:void(0)">Lighting</a></li>
+            <li><a href="javascript:void(0)">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="scandi-footer-col">
+          <h3 class="scandi-footer-heading">Company</h3>
+          <ul class="scandi-footer-links">
+            <li><a href="javascript:void(0)">About Us</a></li>
+            <li><a href="javascript:void(0)">Our Story</a></li>
+            <li><a href="javascript:void(0)">Sustainability</a></li>
+            <li><a href="javascript:void(0)">Careers</a></li>
+            <li><a href="javascript:void(0)">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="scandi-footer-col">
+          <h3 class="scandi-footer-heading">Support</h3>
+          <ul class="scandi-footer-links">
+            <li><a href="javascript:void(0)">Help Center</a></li>
+            <li><a href="javascript:void(0)">Shipping Info</a></li>
+            <li><a href="javascript:void(0)">Returns</a></li>
+            <li><a href="javascript:void(0)">Warranty</a></li>
+            <li><a href="javascript:void(0)">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scandi-footer-bottom">
+        <p class="scandi-footer-copyright">
+          © 2025 Hygge Home Office. All rights reserved.
+        </p>
+        <div class="scandi-footer-legal">
+          <a href="javascript:void(0)">Privacy Policy</a>
+          <span>•</span>
+          <a href="javascript:void(0)">Terms of Service</a>
+          <span>•</span>
+          <select class="scandi-footer-lang" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="sv">Svenska</option>
+            <option value="da">Dansk</option>
+            <option value="no">Norsk</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="scandi-back-to-top" id="backToTop" aria-label="Back to Top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Loading Spinner (hidden by default) -->
+  <div class="scandi-loading" style="display: none;" aria-hidden="true">
+    <div class="scandi-spinner"></div>
+  </div>
+
+## 配色方案
+
+配色方案：霓虹粉紫 (#FF71CE)、霓虹蓝 (#01CDFE)、霓虹紫 (#B967FF)、暗紫背景 (#2E1F47)
+
+
+主色米白色背景 (#F5F5F0)、纯白卡片 (#FFFFFF)、木材色调 (#8B7355)、浅绿色 (#A8C69F)、中性灰色 (#B0A8A0)、深色文字 (#212529)
+
+</body>
+</html>

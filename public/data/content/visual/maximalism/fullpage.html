@@ -1,0 +1,163 @@
+<!-- 企業級 SaaS Dashboard - 純 CSS 设計 -->
+      <div class="dashboard-wrapper">
+
+        <!-- 頂部导航欄 -->
+        <header class="navbar">
+          <div class="nav-container">
+            <div class="nav-left">
+              <div class="logo-box"><span class="logo-text">E</span></div>
+              <span class="brand-name">EnterpriseHub</span>
+            </div>
+            <div class="nav-right">
+              <button class="icon-button">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                </svg>
+                <span class="notification-dot"></span>
+              </button>
+              <div class="user-avatar">JD</div>
+            </div>
+          </div>
+        </header>
+
+        <!-- 主內容区 -->
+        <main class="main-content">
+          <div class="container">
+            <!-- 页面标題 -->
+            <div class="page-header">
+              <div>
+                <h1 class="page-title">Dashboard Overview</h1>
+                <p class="page-subtitle">Welcome back! Here's your performance summary.</p>
+              </div>
+              <div class="button-group">
+                <button class="btn btn-secondary">Export</button>
+                <button class="btn btn-primary">+ New Project</button>
+              </div>
+            </div>
+
+            <!-- KPI 卡片网格 -->
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Total Revenue</span>
+                  <div class="icon-box icon-box-blue">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">$2.4M</span>
+                  <span class="kpi-change kpi-change-positive">↑ 12.5%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Active Users</span>
+                  <div class="icon-box icon-box-green">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">18.2K</span>
+                  <span class="kpi-change kpi-change-positive">↑ 8.3%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Conversion Rate</span>
+                  <div class="icon-box icon-box-purple">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">3.6%</span>
+                  <span class="kpi-change kpi-change-negative">↓ 2.1%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-header">
+                  <span class="kpi-label">Growth Rate</span>
+                  <div class="icon-box icon-box-orange">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kpi-value-row">
+                  <span class="kpi-value">+94%</span>
+                  <span class="kpi-change kpi-change-positive">↑ 5.2%</span>
+                </div>
+                <p class="kpi-note">vs last month</p>
+              </div>
+            </div>
+
+            <!-- 数据表格 -->
+            <div class="data-section">
+              <div class="section-header">
+                <h2 class="section-title">Recent Transactions</h2>
+              </div>
+              <div class="table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Acme Corporation</td>
+                      <td>$12,450</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 15, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Tech Innovations Inc</td>
+                      <td>$8,320</td>
+                      <td><span class="badge badge-warning">Pending</span></td>
+                      <td>Oct 14, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Global Solutions Ltd</td>
+                      <td>$5,100</td>
+                      <td><span class="badge badge-danger">Failed</span></td>
+                      <td>Oct 13, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#004</td>
+                      <td>StartupXYZ</td>
+                      <td>$9,800</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 12, 2025</td>
+                    </tr>
+                    <tr>
+                      <td>#005</td>
+                      <td>Enterprise Group</td>
+                      <td>$15,600</td>
+                      <td><span class="badge badge-success">Completed</span></td>
+                      <td>Oct 11, 2025</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>

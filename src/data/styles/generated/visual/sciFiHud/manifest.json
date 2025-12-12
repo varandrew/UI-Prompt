@@ -1,0 +1,25 @@
+{
+  "id": "visual-sciFiHud",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "科幻 HUD",
+      "en-US": "Sci-Fi HUD"
+    },
+    "description": {
+      "zh-CN": "科幻平视显示器风格，适用于数据可视化、系统监控和未来感仪表板界面。",
+      "en-US": "Science fiction HUD style, suitable for data visualization, system monitoring and futuristic dashboard interfaces."
+    },
+    "tags": ["futuristic", "data-visualization", "dashboard", "dark-theme", "tech"],
+    "relatedStyles": ["neonCyberpunk", "dataVisualization", "darkMode"]
+  },
+  "templates": [
+    {
+      "id": "visual-tech-sci-fi-hud",
+      "title": {
+        "zh-CN": "科幻 HUD",
+        "en-US": "Sci-Fi HUD"
+      }
+    }
+  ]
+}

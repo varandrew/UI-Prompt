@@ -1,0 +1,33 @@
+/* TODO: 添加完整頁面樣式代碼 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+}
+
+.fullpage-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullpage-header {
+  padding: 20px;
+  /* TODO: 添加 header 樣式 */
+}
+
+.fullpage-main {
+  flex: 1;
+  padding: 40px 20px;
+  /* TODO: 添加 main 樣式 */
+}
+
+.fullpage-footer {
+  padding: 20px;
+  /* TODO: 添加 footer 樣式 */
+}

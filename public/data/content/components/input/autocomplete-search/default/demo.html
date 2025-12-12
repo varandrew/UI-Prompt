@@ -1,0 +1,82 @@
+<div class="w-full max-w-lg space-y-6">
+        <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-6">
+          <h3 class="font-semibold text-lg mb-4">{{t:demo.input.smartSearch}}</h3>
+
+          <div class="space-y-4">
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <input type="text" placeholder="{{t:demo.input.searchFrameworks}}" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors" />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                <kbd class="px-2 py-1 text-xs bg-gray-100 border border-gray-300 rounded">↓</kbd>
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg max-h-60 overflow-auto">
+              <div class="py-2">
+                <div class="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center">
+                      <span class="text-blue-600 text-sm font-bold">R</span>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">React</p>
+                      <p class="text-xs text-gray-500">{{t:demo.input.javaScriptLibrary}}</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400">{{t:demo.input.popular}}</span>
+                </div>
+
+                <div class="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-green-100 rounded flex items-center justify-center">
+                      <span class="text-green-600 text-sm font-bold">V</span>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">Vue.js</p>
+                      <p class="text-xs text-gray-500">{{t:demo.input.progressiveFramework}}</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-gray-400">{{t:demo.input.popular}}</span>
+                </div>
+
+                <div class="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">
+                      <span class="text-purple-600 text-sm font-bold">A</span>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">Angular</p>
+                      <p class="text-xs text-gray-500">完整框架</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="px-4 py-2 bg-gray-50 border-b border-gray-100">
+                  <p class="text-xs text-gray-500 font-medium">搜索结果 (3 个)</p>
+                </div>
+
+                <div class="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center">
+                      <span class="text-orange-600 text-sm font-bold">S</span>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">Svelte</p>
+                      <p class="text-xs text-gray-500">编译时框架</p>
+                    </div>
+                  </div>
+                  <span class="text-xs text-blue-600">新</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-sm text-gray-500">
+            <p>💡 提示：使用方向键导航，ESC 关闭下拉菜单</p>
+          </div>
+        </div>
+      </div>

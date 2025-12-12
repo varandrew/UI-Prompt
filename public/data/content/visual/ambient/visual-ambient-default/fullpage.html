@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Ambient Focus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body class="antialiased selection:bg-teal-500/30 selection:text-teal-200">
+
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Ambient Background Layer -->
+    <div class="ambient-layer">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col p-6 md:p-10 lg:p-16 max-w-7xl mx-auto">
+        
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-16 fade-in">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/10">
+                    <i class="fa-solid fa-waveform text-teal-300 text-xs"></i>
+                </div>
+                <span class="text-xl font-light tracking-widest text-white/90 uppercase">Aura</span>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-white/50">
+                <a href="#" class="hover:text-white transition-colors duration-300">Soundscapes</a>
+                <a href="#" class="hover:text-white transition-colors duration-300">Breathe</a>
+                <a href="#" class="hover:text-white transition-colors duration-300">Sleep</a>
+                <a href="#" class="text-teal-400">Profile</a>
+            </nav>
+            <button class="md:hidden text-white/70">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <main class="flex-grow flex flex-col justify-center mb-12">
+            <div class="max-w-2xl">
+                <p class="text-teal-400/80 text-sm tracking-[0.2em] mb-4 uppercase">Evening Session</p>
+                <h1 class="text-5xl md:text-7xl font-light text-transparent bg-clip-text bg-gradient-to-br from-white to-white/60 mb-6 leading-tight text-glow">
+                    Drift into <br> <span class="italic font-serif opacity-90">stillness.</span>
+                </h1>
+                <p class="text-lg text-white/60 font-light leading-relaxed max-w-lg mb-10">
+                    Your environment adapts to your rhythm. Select a frequency to begin your immersion.
+                </p>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                
+                <!-- Card 1 -->
+                <div class="glass-panel rounded-2xl p-6 group cursor-pointer relative overflow-hidden" onclick="playTrack('Deep Focus', '40Hz Binaural')">
+                    <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <i class="fa-solid fa-play text-white/80"></i>
+                    </div>
+                    <div class="h-10 w-10 rounded-full bg-indigo-500/20 flex items-center justify-center mb-4 text-indigo-300 border border-indigo-500/20 group-hover:border-indigo-400/40 transition-colors">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <h3 class="text-xl text-white/90 font-light mb-2 group-hover:text-white transition-colors">Deep Focus</h3>
+                    <p class="text-sm text-white/40 mb-4">40Hz Binaural Beats</p>
+                    <!-- Visualizer placeholder -->
+                    <div class="flex gap-1 h-8 items-end opacity-40 group-hover:opacity-80 transition-opacity">
+                        <div class="w-1 bg-indigo-400 h-3 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+                        <div class="w-1 bg-indigo-400 h-6 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                        <div class="w-1 bg-indigo-400 h-4 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                        <div class="w-1 bg-indigo-400 h-8 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+                        <div class="w-1 bg-indigo-400 h-5 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel rounded-2xl p-6 group cursor-pointer relative overflow-hidden" onclick="playTrack('Rainfall', 'Ambient Nature')">
+                    <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <i class="fa-solid fa-play text-white/80"></i>
+                    </div>
+                    <div class="h-10 w-10 rounded-full bg-teal-500/20 flex items-center justify-center mb-4 text-teal-300 border border-teal-500/20 group-hover:border-teal-400/40 transition-colors">
+                        <i class="fa-solid fa-cloud-showers-heavy"></i>
+                    </div>
+                    <h3 class="text-xl text-white/90 font-light mb-2 group-hover:text-white transition-colors">Rainfall</h3>
+                    <p class="text-sm text-white/40 mb-4">Ambient Nature</p>
+                    <div class="flex gap-1 h-8 items-end opacity-40 group-hover:opacity-80 transition-opacity">
+                        <div class="w-1 bg-teal-400 h-4 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                        <div class="w-1 bg-teal-400 h-2 rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+                        <div class="w-1 bg-teal-400 h-5 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+                        <div class="w-1 bg-teal-400 h-3 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
+                        <div class="w-1 bg-teal-400 h-6 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel rounded-2xl p-6 group cursor-pointer relative overflow-hidden" onclick="playTrack('Solar Drift', 'Warm Pads')">
+                    <div class="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <i class="fa-solid fa-play text-white/80"></i>
+                    </div>
+                    <div class="h-10 w-10 rounded-full bg-rose-500/20 flex items-center justify-center mb-4 text-rose-300 border border-rose-500/20 group-hover:border-rose-400/40 transition-colors">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="text-xl text-white/90 font-light mb-2 group-hover:text-white transition-colors">Solar Drift</h3>
+                    <p class="text-sm text-white/40 mb-4">Warm Pads</p>
+                    <div class="flex gap-1 h-8 items-end opacity-40 group-hover:opacity-80 transition-opacity">
+                        <div class="w-1 bg-rose-400 h-5 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+                        <div class="w-1 bg-rose-400 h-7 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
+                        <div class="w-1 bg-rose-400 h-4 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                        <div class="w-1 bg-rose-400 h-2 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                        <div class="w-1 bg-rose-400 h-5 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Player Bar (Sticky Bottom) -->
+        <footer class="glass-panel rounded-xl p-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-music text-white/40 text-sm"></i>
+                </div>
+                <div class="hidden sm:block">
+                    <h4 id="track-name" class="text-sm text-white font-medium">No Track Playing</h4>
+                    <p id="artist-name" class="text-xs text-white/40">Select a mood</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <button class="text-white/40 hover:text-white transition-colors"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="play-btn" class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform" onclick="togglePlay()">
+                    <i class="fa-solid fa-play ml-1"></i>
+                </button>
+                <button class="text-white/40 hover:text-white transition-colors"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+
+            <div class="hidden sm:flex items-center gap-2 w-24">
+                <i class="fa-solid fa-volume-low text-xs text-white/40"></i>
+                <div class="h-1 bg-white/10 rounded-full flex-grow relative overflow-hidden group">
+                    <div class="h-full bg-white/60 w-2/3 absolute top-0 left-0 rounded-full"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = playBtn.querySelector('i');
+        const trackName = document.getElementById('track-name');
+        const artistName = document.getElementById('artist-name');
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            updatePlayIcon();
+        }
+
+        function updatePlayIcon() {
+            if (isPlaying) {
+                playIcon.className = 'fa-solid fa-pause';
+            } else {
+                playIcon.className = 'fa-solid fa-play ml-1';
+            }
+        }
+
+        function playTrack(title, subtitle) {
+            trackName.textContent = title;
+            artistName.textContent = subtitle;
+            isPlaying = true;
+            updatePlayIcon();
+            
+            // Subtle feedback animation on player
+            const footer = document.querySelector('footer');
+            footer.classList.add('border-white/40');
+            setTimeout(() => {
+                footer.classList.remove('border-white/40');
+            }, 300);
+        }
+
+        // Initialize gentle drift offsets for extra organic feel
+        // This adds a tiny bit of JS randomness to the CSS animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach(orb => {
+                const randomDelay = Math.random() * -20;
+                orb.style.animationDelay = `${randomDelay}s`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+# Custom Prompt
+
+## 中文版本 (zh-CN)
+
+请使用 TailwindCSS 创建模板「Fluent 2 通知中心」，延续 fluent2 家族风格，包含 Hero、卡片/图文区与 CTA。
+
+---
+
+## English Version (en-US)
+
+Build a “Fluent 2 Notification Center” page in TailwindCSS. Embrace Fluent 2 traits: soft corners, subtle depth, clear strokes, layered translucency used sparingly, calm gradients, and accessible contrast. Focus on information clarity and actionable controls for notifications/preferences.
+
+**Layout & Flow**
+- Hero: headline 38–52px, subhead 16–18px, primary CTA (e.g., “Enable alerts”) and secondary (“Manage rules”). Use a light neutral or soft gradient background with a single illustration/spot; keep text contrast high.
+- Notification digest: grid or list of cards (4–8). Each card shows source, title, short body, timestamp, severity badge, and quick actions (mute/pin/mark read). Provide filter/sort controls above the list.
+- Preference matrix: two-column section with toggles or checkboxes per channel (Email/Push/SMS/In-app) and category (Security, Billing, Product). Include a “Mute schedule / Do Not Disturb” block.
+- Activity log: tabular list with 1px dividers, sticky header, monospace timestamps, and status icons. Provide bulk actions (Mark all read, Clear).
+- Closing CTA: reassure privacy and control; link to “Privacy settings” or “Export data.”
+
+**Visual Language (Fluent 2)**
+- Surfaces: light neutrals with soft elevation. Use `shadow-sm`/`shadow-md` equivalents; avoid harsh shadows. Strokes at 8–12% opacity for cards/panels.
+- Corners: 8–12px radius; consistent across buttons, cards, inputs. Use inner padding 16–24px.
+- Color: primary accent (blue/teal) with desaturated supporting tones; status colors for success/info/warn/critical aligned with Fluent guidance. Gradients are gentle (two-stop, low contrast).
+- Icons: simple, line or duotone; pair with text. Avoid dense icon-only rows.
+
+**Typography**
+- Headings 600–700 weight; body 15–16px, line-height 1.6–1.7. Labels in small caps or semi-bold. Numbers/timestamps in monospace for alignment.
+- Keep line lengths reasonable; use `text-balance` for long headings if available.
+
+**Components & States**
+- Buttons: pill/squircle radius, filled primary + ghost secondary. Hover = tint shift; active = slight press; focus-visible outline 2–3px in accent. Allow icon-leading variants for “Mute” or “Filter.”
+- Toggles/checkboxes: smooth transitions (140–200ms), clear on/off contrast, focus ring. Provide labels on the right; avoid icon-only toggles.
+- Chips/badges: soft corners, gentle fills for status (info/success/warn/critical). Include text labels, not color-only.
+- Cards: `border border-slate-200/70 bg-white shadow-sm rounded-xl` with ample spacing; optional top accent bar for category.
+- Tables/lists: `divide-y` lines, hover row tint subtle; selection states with clear focus ring and checkbox alignment.
+
+**Motion**
+- Calm, purposeful: fade/translate 120–180ms ease-out. No bounce. Respect `prefers-reduced-motion`; disable row hover lift on touch/coarse pointers.
+- Micro-interactions: toggles/checkboxes animate fill/knob; buttons press 1–2px.
+
+**Accessibility**
+- Contrast ≥ 4.5:1 on text; status colors paired with icons/text. Focus styles always visible. Hit targets ≥44px. Provide aria-labels for controls and alt text for illustrations.
+- Do not rely on color alone for severity; include labels (Info/Warning/Error) and icons.
+
+**Copy Tone**
+- Reassuring, clear, control-focused. Examples: “Stay informed, not overwhelmed.” “Choose when and how we notify you.” “Silence on schedule.”
+- CTA examples: “Enable alerts”, “Review channels”, “Open privacy center.”
+
+**Tailwind Hints (reference)**
+- Container: `max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-24`
+- Surfaces: `rounded-xl border border-slate-200/70 bg-white shadow-sm` with `backdrop-blur-[2px]` only if needed and contrast-safe.
+- Buttons: `rounded-full px-5 py-3 font-semibold transition hover:shadow-md active:translate-y-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`
+- Toggles: `peer` + `peer-checked:` patterns; use `ring` utilities for focus.
+- Lists/Tables: `divide-y divide-slate-200 text-sm leading-6 font-mono` for logs; `grid gap-4 md:grid-cols-2` for notification cards.

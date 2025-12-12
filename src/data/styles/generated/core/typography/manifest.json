@@ -1,0 +1,32 @@
+{
+  "id": "core-typography",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "排版",
+      "en-US": "Typography"
+    },
+    "description": {
+      "zh-CN": "通过文字本身的视觉表现力传达信息的设计风格，强调字体选择、层级系统和排版节奏。",
+      "en-US": "Design styles where the visual expressiveness of text itself conveys information, emphasizing font selection, hierarchy systems, and typographic rhythm."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "kinetic",
+      "title": {
+        "zh-CN": "动态排版",
+        "en-US": "Kinetic Typography"
+      }
+    },
+    {
+      "id": "typographyFirst",
+      "title": {
+        "zh-CN": "排版优先",
+        "en-US": "Typography First"
+      }
+    }
+  ]
+}

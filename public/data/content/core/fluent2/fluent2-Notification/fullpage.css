@@ -1,0 +1,606 @@
+
+/* Fluent 2.0 通知中心样式 */
+
+/* 页面基础 */
+.fluent2-notification-page {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: #242424;
+  line-height: 1.5;
+}
+
+/* ========== Acrylic 导航栏 ========== */
+.fluent2-notif-nav {
+  background: rgba(243, 243, 243, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.fluent2-notif-nav-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fluent2-notif-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fluent2-notif-logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.fluent2-notif-logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #242424;
+}
+
+.fluent2-notif-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fluent2-notif-icon-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #605E5C;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-notif-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.fluent2-notif-avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0078D4, #50E6FF);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ========== 主内容区 ========== */
+.fluent2-notif-main-container {
+  display: flex;
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: calc(100vh - 60px);
+}
+
+/* ========== 左侧内容区域 ========== */
+.fluent2-notif-content {
+  flex: 1;
+  padding: 40px 48px;
+  overflow-y: auto;
+}
+
+.fluent2-notif-header {
+  margin-bottom: 32px;
+}
+
+.fluent2-notif-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #242424;
+  margin: 0 0 8px 0;
+}
+
+.fluent2-notif-subtitle {
+  font-size: 14px;
+  color: #605E5C;
+  margin: 0;
+}
+
+/* ========== 通知分类标签 ========== */
+.fluent2-notif-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 0;
+}
+
+.fluent2-notif-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #605E5C;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  margin-bottom: -2px;
+}
+
+.fluent2-notif-tab:hover {
+  background: rgba(0, 120, 212, 0.05);
+  color: #0078D4;
+}
+
+.fluent2-notif-tab.active {
+  color: #0078D4;
+  font-weight: 600;
+  border-bottom-color: #0078D4;
+}
+
+.fluent2-tab-badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.06);
+  color: #605E5C;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.fluent2-notif-tab.active .fluent2-tab-badge {
+  background: #0078D4;
+  color: white;
+}
+
+/* ========== 通知列表 ========== */
+.fluent2-notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.fluent2-notif-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fluent2-notif-group-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8A8886;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+/* ========== 通知项 ========== */
+.fluent2-notif-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.fluent2-notif-item:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.fluent2-notif-item:focus {
+  outline: 2px solid #0078D4;
+  outline-offset: 2px;
+}
+
+.fluent2-notif-item.unread {
+  background: rgba(0, 120, 212, 0.02);
+  border-left: 3px solid #0078D4;
+}
+
+.fluent2-notif-unread-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 8px;
+  height: 8px;
+  background: #0078D4;
+  border-radius: 50%;
+}
+
+.fluent2-notif-item-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.fluent2-notif-item-icon.mention {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 105, 180, 0.1));
+  color: #8A2BE2;
+}
+
+.fluent2-notif-item-icon.task {
+  background: linear-gradient(135deg, rgba(0, 120, 212, 0.1), rgba(80, 230, 255, 0.1));
+  color: #0078D4;
+}
+
+.fluent2-notif-item-icon.success {
+  background: linear-gradient(135deg, rgba(16, 124, 16, 0.1), rgba(146, 195, 83, 0.1));
+  color: #107C10;
+}
+
+.fluent2-notif-item-icon.message {
+  background: linear-gradient(135deg, rgba(234, 0, 94, 0.1), rgba(255, 105, 180, 0.1));
+  color: #C239B3;
+}
+
+.fluent2-notif-item-icon.info {
+  background: linear-gradient(135deg, rgba(0, 120, 212, 0.1), rgba(80, 230, 255, 0.1));
+  color: #0078D4;
+}
+
+.fluent2-notif-item-icon.warning {
+  background: linear-gradient(135deg, rgba(253, 176, 34, 0.1), rgba(255, 170, 68, 0.1));
+  color: #FDB022;
+}
+
+.fluent2-notif-item-icon.announcement {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 105, 180, 0.1));
+  color: #8A2BE2;
+}
+
+.fluent2-notif-item-content {
+  flex: 1;
+}
+
+.fluent2-notif-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.fluent2-notif-item-title {
+  font-size: 15px;
+  color: #242424;
+  line-height: 1.4;
+}
+
+.fluent2-notif-item-time {
+  font-size: 12px;
+  color: #8A8886;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.fluent2-notif-item-body {
+  font-size: 14px;
+  color: #605E5C;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.mention-highlight {
+  color: #0078D4;
+  font-weight: 600;
+  background: rgba(0, 120, 212, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.fluent2-notif-item-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.fluent2-notif-action-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: transparent;
+  color: #242424;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-notif-action-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.fluent2-notif-action-btn.primary {
+  background: #0078D4;
+  color: white;
+  border-color: #0078D4;
+}
+
+.fluent2-notif-action-btn.primary:hover {
+  background: #106EBE;
+}
+
+.fluent2-notif-item-close {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #8A8886;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.fluent2-notif-item-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* 通知项元数据 */
+.fluent2-notif-item-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.fluent2-meta-badge {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.05);
+  color: #605E5C;
+  border-radius: 4px;
+}
+
+.fluent2-meta-badge.success {
+  background: rgba(16, 124, 16, 0.1);
+  color: #107C10;
+}
+
+/* 通知项进度条 */
+.fluent2-notif-item-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.fluent2-progress-bar-small {
+  flex: 1;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.fluent2-progress-fill-small {
+  height: 100%;
+  background: linear-gradient(90deg, #0078D4, #50E6FF);
+  border-radius: 3px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-progress-fill-small.warning {
+  background: linear-gradient(90deg, #FDB022, #FFAA44);
+}
+
+.fluent2-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #605E5C;
+  white-space: nowrap;
+}
+
+/* ========== 通知底部 ========== */
+.fluent2-notif-footer {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.fluent2-notif-footer-text {
+  font-size: 14px;
+  color: #8A8886;
+  margin: 0 0 16px 0;
+}
+
+.fluent2-notif-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: white;
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-notif-footer-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* ========== 右侧通知侧边栏 ========== */
+.fluent2-notif-sidebar {
+  width: 360px;
+  background: rgba(243, 243, 243, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 24px;
+  overflow-y: auto;
+  animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fluent2-notif-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.fluent2-sidebar-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #242424;
+  margin: 0;
+}
+
+.fluent2-sidebar-close-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #8A8886;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-sidebar-close-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* 统计卡片 */
+.fluent2-sidebar-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.fluent2-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluent2-stat-card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.fluent2-stat-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.fluent2-stat-icon.unread {
+  background: linear-gradient(135deg, rgba(0, 120, 212, 0.1), rgba(80, 230, 255, 0.1));
+}
+
+.fluent2-stat-icon.mentions {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 105, 180, 0.1));
+}
+
+.fluent2-stat-icon.tasks {
+  background: linear-gradient(135deg, rgba(16, 124, 16, 0.1), rgba(146, 195, 83, 0.1));
+}
+
+.fluent2-stat-content {
+  flex: 1;
+}
+
+.fluent2-stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0078D4;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.fluent2-stat-label {
+  font-size: 12px;
+  color: #8A8886;
+}
+
+/* 侧边栏区段标题 */
+.fluent2-sidebar-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #242424;
+  margin: 0 0 12px 0;
+}
+
+/* 快速操作 */
+.fluent2-sidebar-actions {
+  margin-bottom: 32px;
+}
+
+.fluent2-sidebar-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  background: white;
+  color: #242424;
+  font-size: 14px;
+}

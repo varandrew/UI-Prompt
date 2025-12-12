@@ -1,0 +1,131 @@
+@keyframes bounceIn {
+            0% {
+              opacity: 0;
+              transform: scale(0.3);
+            }
+            50% {
+              opacity: 1;
+              transform: scale(1.05);
+            }
+            70% {
+              transform: scale(0.9);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+          }
+
+          .ant-stat-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+          }
+
+          .ant-stat-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            border-color: #1890ff;
+            transform: translateY(-2px);
+          }
+
+          .ant-stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+          }
+
+          .ant-stat-title {
+            color: rgba(0, 0, 0, 0.45);
+            font-size: 0.875rem;
+            line-height: 1.5;
+          }
+
+          .ant-stat-icon-wrapper {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+          }
+
+          .ant-stat-card:hover .ant-stat-icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+          }
+
+          .ant-blue {
+            background: #e6f7ff;
+            color: #1890ff;
+          }
+
+          .ant-green {
+            background: #f6ffed;
+            color: #52c41a;
+          }
+
+          .ant-orange {
+            background: #fff7e6;
+            color: #fa8c16;
+          }
+
+          .ant-purple {
+            background: #f9f0ff;
+            color: #722ed1;
+          }
+
+          .ant-stat-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
+
+          .ant-stat-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+          }
+
+          .ant-stat-value {
+            font-size: 1.875rem;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.85);
+            line-height: 1.2;
+            font-variant-numeric: tabular-nums;
+          }
+
+          .ant-stat-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+          }
+
+          .ant-trend-up,
+          .ant-trend-down {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+          }
+
+          .ant-trend-up {
+            color: #cf1322;
+          }
+
+          .ant-trend-down {
+            color: #3f8600;
+          }
+
+          .ant-trend-icon {
+            width: 0.875rem;
+            height: 0.875rem;
+          }
+
+          .ant-stat-desc {
+            font-size: 0.875rem;
+            color: rgba(0, 0, 0, 0.45);
+          }

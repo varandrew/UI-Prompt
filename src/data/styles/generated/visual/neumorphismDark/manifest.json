@@ -1,0 +1,25 @@
+{
+  "id": "visual-neumorphismDark",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "新拟态暗色",
+      "en-US": "Neumorphism Dark"
+    },
+    "description": {
+      "zh-CN": "Neumorphism Dark 是新拟态设计的暗色版本，适合现代暗色主题应用和夜间模式界面。使用柔和的阴影和高光在深色背景上创造微妙的立体感，配合紫色强调色，营造优雅、现代、低调的氛围。",
+      "en-US": "Neumorphism Dark is the dark version of neomorphism design, suitable for modern dark theme applications and night mode interfaces. Using soft shadows and highlights on dark backgrounds to create subtle depth, combined with purple accent color, it delivers elegant, modern, and understated atmosphere."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-neumorphismDark-neumorphism-dark",
+      "title": {
+        "zh-CN": "暗色新拟态",
+        "en-US": "Neumorphism Dark"
+      }
+    }
+  ]
+}

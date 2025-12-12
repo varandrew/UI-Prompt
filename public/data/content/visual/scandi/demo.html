@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scandinavian Design Demo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter for clean sans-serif -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --scandi-bg: #F5F7F5; /* Soft grey-green-white */
+            --scandi-card: #FFFFFF;
+            --scandi-text: #2C2C2C; /* Soft black */
+            --scandi-accent: #8B7E74; /* Muted wood/taupe */
+            --scandi-highlight: #A5B5AB; /* Muted sage */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The Main Square Container */
+        #app-container {
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            background-color: var(--scandi-bg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            /* Adaptive font size base */
+            font-size: clamp(12px, 2vmin, 18px);
+        }
+
+        /* Abstract "Wood" texture accent */
+        .wood-accent {
+            background-color: var(--scandi-accent);
+            opacity: 0.1;
+        }
+
+        /* Soft transitions */
+        .interactive {
+            transition: all 0.3s ease;
+        }
+        .interactive:active {
+            transform: scale(0.98);
+        }
+
+        /* Custom Scrollbar hide */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Square Container -->
+    <div id="app-container" class="rounded-none sm:rounded-3xl text-[var(--scandi-text)]">
+        
+        <!-- Header: Minimal & Functional -->
+        <header class="w-full p-6 flex justify-between items-center z-10">
+            <div class="flex items-center gap-2">
+                <i data-lucide="menu" class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-800 transition-colors"></i>
+            </div>
+            <span class="uppercase tracking-[0.2em] text-xs font-medium text-gray-500">Nordic Living</span>
+            <div class="relative">
+                <div class="w-2 h-2 bg-[var(--scandi-accent)] rounded-full absolute top-0 right-0"></div>
+                <i data-lucide="shopping-bag" class="w-6 h-6 text-gray-600 cursor-pointer"></i>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col justify-center px-8 relative">
+            
+            <!-- Abstract background element -->
+            <div class="absolute top-0 right-0 w-2/3 h-full wood-accent rounded-l-full -z-0 translate-x-1/4"></div>
+
+            <!-- Product Visual (CSS Shapes + Icon to avoid external image deps) -->
+            <div class="w-full flex justify-center items-center mb-6 z-10 relative">
+                <div class="w-48 h-48 sm:w-64 sm:h-64 bg-white rounded-full shadow-xl flex items-center justify-center relative overflow-hidden group interactive cursor-pointer">
+                    <!-- Decor circle -->
+                    <div class="absolute w-full h-full border-[1px] border-gray-100 rounded-full scale-90"></div>
+                    <!-- Icon representing furniture -->
+                    <i data-lucide="armchair" class="w-24 h-24 text-[var(--scandi-accent)] group-hover:scale-110 transition-transform duration-500 stroke-1"></i>
+                    
+                    <!-- Floating tag -->
+                    <div class="absolute bottom-6 bg-[var(--scandi-text)] text-white text-[10px] px-3 py-1 rounded-full shadow-lg">
+                        New Arrival
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="z-10 text-center space-y-2">
+                <h1 class="text-3xl font-light tracking-tight text-gray-800">København Chair</h1>
+                <p class="text-sm text-gray-500 font-light max-w-[80%] mx-auto leading-relaxed">
+                    Designed for comfort with natural materials. Oak wood finish with organic cotton blend.
+                </p>
+            </div>
+
+            <!-- Price & Action -->
+            <div class="mt-8 flex items-center justify-between w-full max-w-[80%] mx-auto z-10 glass-panel p-2 pl-6 pr-2 rounded-full shadow-sm">
+                <div class="flex flex-col items-start">
+                    <span class="text-[10px] text-gray-400 uppercase tracking-wider">Price</span>
+                    <span class="text-lg font-medium">$299.00</span>
+                </div>
+                <button class="bg-[var(--scandi-text)] text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-[var(--scandi-accent)] transition-colors shadow-lg interactive" onclick="addToCart()">
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+        </main>
+
+        <!-- Footer / Navigation Tabs -->
+        <footer class="w-full p-4 pb-6 z-10">
+            <div class="flex justify-between items-center px-8 text-gray-400">
+                <div class="flex flex-col items-center gap-1 cursor-pointer text-[var(--scandi-text)]">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                    <div class="w-1 h-1 bg-current rounded-full"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer hover:text-[var(--scandi-accent)] transition-colors">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer hover:text-[var(--scandi-accent)] transition-colors">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col items-center gap-1 cursor-pointer hover:text-[var(--scandi-accent)] transition-colors">
+                    <i data-lucide="user" class="w-5 h-5"></i>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Toast Notification (Hidden by default) -->
+        <div id="toast" class="absolute top-20 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 opacity-0 transition-opacity duration-300 pointer-events-none z-50">
+            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span class="text-xs font-medium text-gray-600">Added to cart</span>
+        </div>
+
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Simple interaction logic
+        function addToCart() {
+            const toast = document.getElementById('toast');
+            const btn = document.querySelector('button');
+            
+            // Button feedback
+            btn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 150);
+
+            // Toast feedback
+            toast.style.opacity = '1';
+            toast.style.transform = 'translate(-50%, 0)';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translate(-50%, -10px)';
+            }, 2000);
+        }
+
+        // Auto-scale font size on resize to keep proportions in the square
+        function adjustScale() {
+            const container = document.getElementById('app-container');
+            // Force redraw of icons if needed, though SVG scales naturally
+        }
+
+        window.addEventListener('resize', adjustScale);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "id": "visual-tech-sci-fi-hud",
+  "title": {
+    "zh-CN": "科幻 HUD",
+    "en-US": "Sci-Fi HUD"
+  },
+  "description": {
+    "zh-CN": "科幻平视显示器（HUD）界面，具有未来感的数据可视化。",
+    "en-US": "Science fiction HUD (Heads-Up Display) interface with futuristic data visualization."
+  },
+  "colorScheme": {
+    "zh-CN": "深色背景 (#0F172A)、青色光效 (#06B6D4)、綠色掃描线 (#10B981)、HUD橙色 (#F97316)",
+    "en-US": "Dark background (#0F172A), cyan glow (#06B6D4), green scanlines (#10B981), HUD orange (#F97316)"
+  },
+  "demoBoxClass": "bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900",
+  "previews": [
+    {
+      "id": "dashboard",
+      "name": {
+        "zh-CN": "HUD 儀表板",
+        "en-US": "HUD Dashboard"
+      },
+      "type": "fullpage",
+      "description": {
+        "zh-CN": "科幻風格的系統監控儀表板，包含雷達掃描、系統狀態和數據流。",
+        "en-US": "Sci-fi style system monitoring dashboard with radar scanning, system status and data stream."
+      }
+    },
+    {
+      "id": "home-office",
+      "name": {
+        "zh-CN": "居家辦公儀表板",
+        "en-US": "Home Office Dashboard"
+      },
+      "type": "fullpage",
+      "description": {
+        "zh-CN": "科幻風格的居家辦公生產力儀表板，包含任務管理、時間軸和系統狀態。",
+        "en-US": "Sci-fi style home office productivity dashboard with task management, timeline and system status."
+      }
+    }
+  ]
+}

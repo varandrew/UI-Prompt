@@ -13,7 +13,7 @@
  *   window.EditorBench.measureRender(() => { /* 做一些操作 */ /* })
  */
 
-import { useEditorStore } from '../../stores/editorStore';
+import { useCanvasStore } from '../../stores';
 
 function buildLargeTree(count = 1000) {
   // 根 -> Flex -> count * Text
@@ -52,7 +52,7 @@ function buildLargeTree(count = 1000) {
 }
 
 function replaceCanvasFast(newCanvas) {
-  const store = useEditorStore.getState();
+  const store = useCanvasStore.getState();
   if (typeof store.replaceCanvas === 'function') {
     store.replaceCanvas(newCanvas);
   } else {

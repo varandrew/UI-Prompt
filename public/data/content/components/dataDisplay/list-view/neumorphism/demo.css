@@ -1,0 +1,15 @@
+@keyframes rotateIn {
+            from {
+              opacity: 0;
+              transform: perspective(1000px) rotateY(-15deg) translateZ(-50px);
+            }
+            to {
+              opacity: 1;
+              transform: perspective(1000px) rotateY(0deg) translateZ(0);
+            }
+          }
+
+          .neomorph-card:hover > div {
+            box-shadow: 8px 8px 16px #c5c8cf, -8px -8px 16px #ffffff !important;
+            transform: translateY(-2px);
+          }

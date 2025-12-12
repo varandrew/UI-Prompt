@@ -1,0 +1,73 @@
+.scrollbar-interactive-enhanced::-webkit-scrollbar {
+            width: 8px;
+            transition: width 0.3s ease;
+          }
+          .scrollbar-interactive-enhanced::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #f8fafc, #e0e7ff);
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+          }
+          .scrollbar-interactive-enhanced::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #6366f1, #8b5cf6);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+              0 2px 8px rgba(99, 102, 241, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            animation: subtle-pulse 3s ease-in-out infinite;
+          }
+          .scrollbar-interactive-enhanced::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #4f46e5, #7c3aed);
+            box-shadow:
+              0 4px 16px rgba(99, 102, 241, 0.4),
+              0 0 20px rgba(139, 92, 246, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: enhanced-pulse 1.5s ease-in-out infinite;
+          }
+          .scrollbar-interactive-enhanced:hover::-webkit-scrollbar {
+            width: 12px;
+          }
+          .scrollbar-interactive-enhanced::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(180deg, #3730a3, #6b21a8);
+            box-shadow:
+              0 6px 20px rgba(99, 102, 241, 0.5),
+              0 0 30px rgba(139, 92, 246, 0.4),
+              inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+          }
+
+          @keyframes subtle-pulse {
+            0%, 100% {
+              box-shadow:
+                0 2px 8px rgba(99, 102, 241, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            50% {
+              box-shadow:
+                0 3px 12px rgba(99, 102, 241, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+          }
+
+          @keyframes enhanced-pulse {
+            0%, 100% {
+              box-shadow:
+                0 4px 16px rgba(99, 102, 241, 0.4),
+                0 0 20px rgba(139, 92, 246, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+            50% {
+              box-shadow:
+                0 6px 20px rgba(99, 102, 241, 0.5),
+                0 0 30px rgba(139, 92, 246, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.6);
+            }
+          }
+
+          /* Firefox compatibility */
+          .scrollbar-interactive-enhanced {
+            scrollbar-width: thin;
+            scrollbar-color: #6366f1 #e0e7ff;
+          }

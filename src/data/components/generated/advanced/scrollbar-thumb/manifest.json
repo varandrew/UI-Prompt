@@ -1,0 +1,72 @@
+{
+  "id": "scrollbar-thumb",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.scrollbar-thumb.title",
+      "en-US": "data.components.advanced.scrollbar-thumb.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.scrollbar-thumb.description",
+      "en-US": "data.components.advanced.scrollbar-thumb.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimal-modern",
+      "name": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.minimal-modern.name",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.minimal-modern.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.minimal-modern.description",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.minimal-modern.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "gradient-effects",
+      "name": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.gradient-effects.name",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.gradient-effects.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.gradient-effects.description",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.gradient-effects.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "brand-customizable",
+      "name": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.brand-customizable.name",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.brand-customizable.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.brand-customizable.description",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.brand-customizable.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "interactive-enhanced",
+      "name": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.interactive-enhanced.name",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.interactive-enhanced.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.scrollbar-thumb.variants.interactive-enhanced.description",
+        "en-US": "data.components.advanced.scrollbar-thumb.variants.interactive-enhanced.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

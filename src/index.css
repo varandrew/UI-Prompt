@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+/* Google Fonts for Paper/Scrapbook Style */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
+
+/* Paper/Scrapbook Style Fonts */
+.font-handwriting {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+/* Paper Shadow Effects */
+.paper-shadow {
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1), 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.paper-shadow-hover {
+  box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.15), 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Lined Paper Texture */
+.lined-paper {
+  background-image: repeating-linear-gradient(transparent, transparent 31px, #94a3b8 31px, #94a3b8 32px);
+  background-attachment: local;
+}
+
 /* Tailwind v4 Dark Mode 配置 */
 @variant dark (&:where(.dark, .dark *));
 
@@ -2491,3 +2518,38 @@ body {
 .dark .paper-arrow-container:hover {
   color: #9CA3AF;
 }
+
+/* ==================== Homepage Dark Mode Styles ==================== */
+
+/* Lined paper background for dark mode */
+.dark [style*="--line-color"] {
+  --line-color: rgba(75, 85, 99, 0.3) !important;
+}
+
+/* Paper shadow adjustments for dark mode */
+.dark .paper-shadow {
+  box-shadow:
+    2px 2px 8px rgba(0, 0, 0, 0.4),
+    4px 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.dark .paper-shadow-hover {
+  box-shadow:
+    3px 3px 12px rgba(0, 0, 0, 0.5),
+    6px 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Feature card dark mode backgrounds */
+.dark .bg-\[\#4a4520\] { background-color: #4a4520; }
+.dark .bg-\[\#4a2035\] { background-color: #4a2035; }
+.dark .bg-\[\#1e3a5f\] { background-color: #1e3a5f; }
+.dark .bg-\[\#3d2845\] { background-color: #3d2845; }
+.dark .bg-\[\#1e3d2a\] { background-color: #1e3d2a; }
+.dark .bg-\[\#4a3520\] { background-color: #4a3520; }
+.dark .bg-\[\#3d3520\] { background-color: #3d3520; }
+
+/* Section backgrounds for dark mode */
+.dark .bg-\[\#1a1815\] { background-color: #1a1815; }
+.dark .bg-\[\#1f1c18\] { background-color: #1f1c18; }
+.dark .bg-\[\#2a2520\] { background-color: #2a2520; }
+.dark .bg-\[\#15130f\] { background-color: #15130f; }

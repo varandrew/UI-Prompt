@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo-Brutalism Demo</title>
+    <style>
+        /* CORE VARIABLES */
+        :root {
+            --bg-color: #FFFDF5;
+            --accent-main: #FF6B6B; /* Coral Red */
+            --accent-sec: #4ECDC4;  /* Teal */
+            --accent-pop: #FFE66D;  /* Yellow */
+            --accent-drk: #1A535C;  /* Dark Teal */
+            --border-width: 3px;
+            --shadow-offset: 4px;
+            --black: #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Neutral background to highlight the demo */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        /* THE DEMO CONTAINER - SQUARE SHAPE */
+        .app-container {
+            width: 90vmin;      /* Responsive to smallest viewport dimension */
+            height: 90vmin;     /* Force Square */
+            max-width: 500px;   /* Cap size */
+            max-height: 500px;
+            background-color: var(--bg-color);
+            border: var(--border-width) solid var(--black);
+            box-shadow: 8px 8px 0px 0px var(--black);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* MARQUEE HEADER */
+        .marquee-container {
+            background-color: var(--accent-pop);
+            border-bottom: var(--border-width) solid var(--black);
+            padding: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            animation: scroll 10s linear infinite;
+        }
+
+        /* GRID LAYOUT */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1.5fr 1fr 1fr;
+            gap: 0; /* Borders handle separation */
+            overflow: hidden;
+        }
+
+        /* COMMON COMPONENT STYLES */
+        .b-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-right: var(--border-width) solid var(--black);
+            border-bottom: var(--border-width) solid var(--black);
+            position: relative;
+            transition: all 0.1s ease;
+            text-align: center;
+        }
+
+        /* Remove borders for edges to fit container */
+        .b-box:nth-child(even) { border-right: none; }
+        .main-content .b-box:nth-last-child(-n+2) { border-bottom: none; }
+
+
+        /* FEATURED IMAGE / HERO AREA */
+        .hero-section {
+            grid-column: 1 / -1; /* Span full width */
+            background-color: var(--accent-main);
+            color: var(--black);
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: row;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background: #fff;
+            border: var(--border-width) solid var(--black);
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transform: rotate(-5deg);
+            box-shadow: 3px 3px 0 0 var(--black);
+        }
+
+        /* INTERACTIVE BUTTONS */
+        .action-area {
+            background-color: #fff;
+        }
+
+        .brutal-btn {
+            background-color: var(--accent-sec);
+            border: var(--border-width) solid var(--black);
+            color: var(--black);
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--black);
+            transition: transform 0.1s, box-shadow 0.1s;
+            text-transform: uppercase;
+            width: 80%;
+        }
+
+        .brutal-btn:active {
+            transform: translate(var(--shadow-offset), var(--shadow-offset));
+            box-shadow: 0 0 0 0 var(--black);
+        }
+
+        /* STATS / INFO BOX */
+        .stat-box {
+            background-color: #e0e7ff;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* TOGGLE AREA */
+        .toggle-area {
+            background-color: var(--accent-pop);
+        }
+        .toggle-switch {
+            width: 60px;
+            height: 30px;
+            background: #fff;
+            border: var(--border-width) solid var(--black);
+            border-radius: 99px; /* Rounded pill is rare in brutalism, but works for toggles */
+            position: relative;
+            cursor: pointer;
+        }
+        .toggle-knob {
+            width: 20px;
+            height: 20px;
+            background: var(--black);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 4px;
+            transform: translateY(-50%);
+            transition: left 0.2s cubic-bezier(0, 1.45, 1, 1);
+        }
+        .toggle-switch.active .toggle-knob {
+            left: calc(100% - 24px);
+            background: var(--accent-main);
+        }
+
+        /* MODAL / ALERT POPUP (Hidden by default) */
+        .mini-modal {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #fff;
+            border: var(--border-width) solid var(--black);
+            padding: 15px;
+            box-shadow: 6px 6px 0 0 var(--black);
+            display: none;
+            z-index: 10;
+            width: 200px;
+        }
+        .mini-modal strong { display: block; margin-bottom: 5px; text-transform: uppercase;}
+        .close-modal {
+            background: var(--black);
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            padding: 5px 10px;
+            width: 100%;
+        }
+
+        /* KEYFRAMES */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* RESPONSIVE TEXT ADJUSTMENT */
+        @media (max-width: 350px) {
+            .hero-title { font-size: 1.5rem; }
+            .brutal-btn { font-size: 0.8rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- MAIN SQUARE CONTAINER -->
+    <div class="app-container">
+        
+        <!-- HEADER MARQUEE -->
+        <div class="marquee-container">
+            <div class="marquee-content">
+                NEO-BRUTALISM UI DEMO /// BOLD COLORS /// THICK BORDERS /// RAW SHAPES /// NEO-BRUTALISM UI DEMO /// BOLD COLORS /// THICK BORDERS /// RAW SHAPES ///
+            </div>
+        </div>
+
+        <!-- GRID CONTENT -->
+        <div class="main-content">
+            
+            <!-- 1. HERO SECTION -->
+            <div class="b-box hero-section">
+                <div class="hero-title">
+                    RAW<br>STYLE
+                </div>
+                <div class="hero-badge">Ver 1.0</div>
+            </div>
+
+            <!-- 2. INTERACTIVE BUTTON -->
+            <div class="b-box action-area">
+                <button class="brutal-btn" onclick="triggerAction()">Click Me</button>
+            </div>
+
+            <!-- 3. STATISTIC -->
+            <div class="b-box stat-box">
+                <span class="stat-number">01</span>
+                <span class="stat-label">Component</span>
+            </div>
+
+            <!-- 4. TOGGLE -->
+            <div class="b-box toggle-area">
+                <div class="toggle-switch" onclick="toggleSwitch(this)">
+                    <div class="toggle-knob"></div>
+                </div>
+                <span style="margin-top:5px; font-weight:700; font-size:0.7rem;">MODE</span>
+            </div>
+
+            <!-- 5. ICON/SHAPE -->
+            <div class="b-box" style="background-color: #fff;">
+                <div style="width: 40px; height: 40px; border: 3px solid black; background: var(--accent-sec); box-shadow: 3px 3px 0 0 black;"></div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div style="background: var(--black); color: white; padding: 5px; text-align: center; font-weight: bold; font-size: 0.8rem;">
+            DESIGN SYSTEM: NEO-BRUTAL
+        </div>
+
+        <!-- POPUP COMPONENT -->
+        <div class="mini-modal" id="modal">
+            <strong>Action Triggered!</strong>
+            <p style="font-size: 0.8rem; margin: 0;">Notice the hard shadows and lack of gradients.</p>
+            <button class="close-modal" onclick="closeModal()">CLOSE [x]</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Toggle Switch Logic
+        function toggleSwitch(element) {
+            element.classList.toggle('active');
+            const body = document.querySelector('.app-container');
+            
+            // Simple theme swap logic for demo
+            if(element.classList.contains('active')) {
+                document.documentElement.style.setProperty('--accent-main', '#A3E635'); // Lime
+                document.documentElement.style.setProperty('--accent-pop', '#C084FC'); // Purple
+            } else {
+                document.documentElement.style.setProperty('--accent-main', '#FF6B6B'); // Red
+                document.documentElement.style.setProperty('--accent-pop', '#FFE66D'); // Yellow
+            }
+        }
+
+        // Button Action Logic
+        function triggerAction() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

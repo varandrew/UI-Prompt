@@ -1,0 +1,126 @@
+.maintenance-glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          }
+
+          .maintenance-glass-icon-container {
+            position: relative;
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .maintenance-glass-icon-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 50%;
+            animation: glass-icon-pulse 2s ease-in-out infinite;
+          }
+
+          @keyframes glass-icon-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+          }
+
+          .maintenance-glass-countdown {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+          }
+
+          .maintenance-glass-pulse {
+            animation: glass-text-pulse 2s ease-in-out infinite;
+          }
+
+          @keyframes glass-text-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+          }
+
+          .maintenance-glass-progress-bar {
+            width: 85%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(16, 185, 129, 0.8));
+            border-radius: 1rem;
+            animation: glass-progress-glow 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+          }
+
+          @keyframes glass-progress-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.8); }
+          }
+
+          .maintenance-glass-stat {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.75rem;
+            padding: 1rem 0.5rem;
+            transition: all 0.3s ease;
+          }
+
+          .maintenance-glass-stat:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+          }
+
+          .maintenance-glass-btn-primary {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: center;
+            transition: all 0.3s ease;
+          }
+
+          .maintenance-glass-btn-primary:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+          }
+
+          .maintenance-glass-btn-secondary {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: center;
+            transition: all 0.3s ease;
+          }
+
+          .maintenance-glass-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+          }
+
+          .maintenance-glass-float {
+            animation: glass-float 3s ease-in-out infinite;
+          }
+
+          @keyframes glass-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }

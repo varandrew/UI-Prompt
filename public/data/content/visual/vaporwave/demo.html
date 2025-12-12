@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaporwave HUD Demo</title>
+    <!-- Import Retro/Pixel Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            /* Vaporwave Palette */
+            --hud-primary: #ff71ce;   /* Neon Pink */
+            --hud-secondary: #01cdfe; /* Cyan */
+            --hud-tertiary: #b967ff;  /* Purple */
+            --hud-alert: #fffb96;     /* Pastel Yellow */
+            --hud-dim: rgba(255, 113, 206, 0.2);
+            --bg-grad-start: #2b003b;
+            --bg-grad-end: #0a0010;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'VT323', monospace; /* Retro Terminal Font */
+        }
+
+        /* Main Container */
+        .hud-wrapper {
+            width: 95vmin;
+            height: 95vmin;
+            max-width: 600px;
+            max-height: 600px;
+            position: relative;
+            background: linear-gradient(to bottom, var(--bg-grad-start), var(--bg-grad-end));
+            border: 2px solid var(--hud-secondary);
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(185, 103, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Retro Grid Background - Perspective Effect */
+        .grid-overlay {
+            position: absolute;
+            bottom: 0;
+            left: -50%;
+            width: 200%;
+            height: 50%;
+            background-image: 
+                linear-gradient(var(--hud-primary) 1px, transparent 1px),
+                linear-gradient(90deg, var(--hud-primary) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.2;
+            transform: perspective(300px) rotateX(60deg);
+            z-index: 0;
+            pointer-events: none;
+            animation: grid-scroll 4s linear infinite;
+        }
+
+        @keyframes grid-scroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 40px; }
+        }
+
+        /* CRT Scanline Effect */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        /* Windows 95 Style Corners */
+        .corner {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--hud-secondary);
+            z-index: 2;
+        }
+        .tl { top: 0; left: 0; clip-path: polygon(0 0, 100% 0, 0 100%); }
+        .tr { top: 0; right: 0; clip-path: polygon(100% 0, 100% 100%, 0 0); }
+        .bl { bottom: 0; left: 0; clip-path: polygon(0 100%, 100% 100%, 0 0); }
+        .br { bottom: 0; right: 0; clip-path: polygon(100% 100%, 0 100%, 100% 0); }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            padding: 5%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 2%;
+        }
+
+        /* Glitchy Title */
+        .aesthetic-text {
+            font-family: 'Press Start 2P', cursive; /* Pixel header font */
+            color: var(--hud-alert);
+            text-shadow: 3px 3px 0px var(--hud-primary);
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Components */
+        .panel {
+            border: 2px solid var(--hud-dim);
+            background: rgba(43, 0, 59, 0.5);
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        .label {
+            color: var(--hud-secondary);
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin-bottom: 5%;
+            border-bottom: 2px dashed var(--hud-primary);
+            padding-bottom: 2px;
+            letter-spacing: 2px;
+        }
+
+        .value {
+            color: #fff;
+            font-size: 1.8em;
+            text-shadow: 2px 2px var(--hud-tertiary);
+        }
+
+        /* Center Visual: The Sun */
+        .center-display {
+            grid-column: 2;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        .synth-sun {
+            width: 70%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #fffb96 0%, #ff71ce 50%, #b967ff 100%);
+            position: relative;
+            box-shadow: 0 0 30px var(--hud-primary);
+            /* Creating the stripes */
+            mask-image: linear-gradient(to bottom, black 60%, transparent 60%, transparent 65%, black 65%, black 70%, transparent 70%, transparent 75%, black 75%, black 80%, transparent 80%, transparent 85%, black 85%, black 90%, transparent 90%, transparent 95%, black 95%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 50%, transparent 55%, black 55%, black 65%, transparent 65%, transparent 70%, black 70%, black 80%, transparent 80%, transparent 85%, black 85%);
+        }
+
+        .palm-tree {
+            font-size: 3em;
+            position: absolute;
+            bottom: 10%;
+            color: black;
+            text-shadow: 0 0 5px var(--hud-primary);
+            z-index: 10;
+        }
+
+        /* Gradient Bars */
+        .bar-container {
+            width: 100%;
+            height: 12px;
+            background: #220022;
+            margin-top: 5px;
+            border: 1px solid var(--hud-secondary);
+        }
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--hud-secondary), var(--hud-primary));
+            width: 50%;
+            transition: width 0.2s;
+        }
+        
+        /* Logs */
+        .log-panel {
+            grid-column: 1 / span 3;
+            grid-row: 3;
+            font-size: 1.1em;
+            color: var(--hud-primary);
+            background: rgba(0,0,0,0.3);
+            border: 1px dotted var(--hud-secondary);
+            padding: 5px;
+            font-family: 'VT323', monospace;
+        }
+        .log-entry { margin-bottom: 2px; }
+        .log-entry::before { content: '💾 '; }
+
+        /* Utility for small text scaling */
+        .dynamic-text {
+            font-size: clamp(10px, 2.5vmin, 18px);
+        }
+
+        .fullwidth {
+            /* Simulating fullwidth via letter spacing if char not available */
+            /* But we will use actual fullwidth chars in HTML */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hud-wrapper">
+        <!-- Visual Layers -->
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        
+        <!-- Decorative Corners -->
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <!-- Main Grid Layout -->
+        <div class="content-layer">
+            
+            <!-- Top Header -->
+            <div class="col-span-3 flex justify-between items-start border-b-2 border-pink-500 pb-2 mb-2" style="height: 15%;">
+                <div class="text-cyan-300" style="font-size: 1.2em;">１９８４</div>
+                <div class="aesthetic-text dynamic-text" style="font-size: 1.2em;">ＶＡＰＯＲ<br>ＳＹＳＴＥＭＳ</div>
+                <div class="text-yellow-200 animate-pulse" style="font-size: 1.2em;">REC ●</div>
+            </div>
+
+            <!-- Left Panel: Stats -->
+            <div class="panel" style="grid-row: 2; grid-column: 1;">
+                <div class="label">ＣＰＵ</div>
+                <div class="value dynamic-text" id="cpu-val">42%</div>
+                <div class="bar-container"><div class="bar-fill" id="cpu-bar" style="width: 42%;"></div></div>
+                
+                <div class="label mt-4">ＲＡＭ</div>
+                <div class="value dynamic-text" id="mem-val">64KB</div>
+                <div class="bar-container"><div class="bar-fill" id="mem-bar" style="background: linear-gradient(90deg, #b967ff, #fffb96); width: 60%;"></div></div>
+            </div>
+
+            <!-- Center: Synth Sun -->
+            <div class="center-display">
+                <div class="synth-sun"></div>
+                <!-- Simple ASCII/Emoji art for visual flair -->
+                <div class="palm-tree" style="margin-left: -40px;">🌴</div>
+                <div class="palm-tree" style="margin-left: 40px; transform: scaleX(-1);">🌴</div>
+                <div style="margin-top: 10px; color: var(--hud-secondary); font-size: 1.2em; letter-spacing: 2px;">ＯＮＬＩＮＥ</div>
+            </div>
+
+            <!-- Right Panel: Data -->
+            <div class="panel" style="grid-row: 2; grid-column: 3;">
+                <div class="label">ＷＡＶＥ</div>
+                <div class="value dynamic-text" style="color: var(--hud-alert);">FM</div>
+                
+                <div class="label mt-4">ＭＯＯＤ</div>
+                <div class="value dynamic-text" id="mood-val" style="color: var(--hud-primary);">CHILL</div>
+                
+                <div class="mt-auto text-right text-[0.8em] text-pink-300">
+                    A: <span id="coord-x">A1</span><br>
+                    B: <span id="coord-y">B2</span>
+                </div>
+            </div>
+
+            <!-- Bottom: Logs -->
+            <div class="log-panel dynamic-text" id="log-container">
+                <div class="log-entry">Loading cassettes...</div>
+                <div class="log-entry">Dialing up...</div>
+                <div class="log-entry">Connected to the grid.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Update Random Stats
+        function updateStats() {
+            // CPU
+            const cpu = Math.floor(Math.random() * 40) + 30;
+            document.getElementById('cpu-val').innerText = cpu + '%';
+            document.getElementById('cpu-bar').style.width = cpu + '%';
+
+            // Coordinates
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            document.getElementById('coord-x').innerText = chars[Math.floor(Math.random() * 26)] + Math.floor(Math.random() * 9);
+            document.getElementById('coord-y').innerText = chars[Math.floor(Math.random() * 26)] + Math.floor(Math.random() * 9);
+
+            // Memory Jitter
+            const mem = Math.floor(Math.random() * 30) + 40;
+            document.getElementById('mem-bar').style.width = mem + '%';
+        }
+
+        // Add System Logs
+        const logs = [
+            "Playing: Macintosh Plus",
+            "Downloading aesthetic.exe...",
+            "Slowing down music...",
+            "Adding reverb...",
+            "404: Reality Not Found",
+            "Inserting floppy disk...",
+            "System cool-down initialized.",
+            "Glitch detected in sector 9."
+        ];
+
+        function addLog() {
+            const container = document.getElementById('log-container');
+            const newLog = document.createElement('div');
+            newLog.className = 'log-entry';
+            newLog.innerText = logs[Math.floor(Math.random() * logs.length)];
+            container.appendChild(newLog);
+
+            if (container.children.length > 3) {
+                container.removeChild(container.firstChild);
+            }
+        }
+
+        // Intervals
+        setInterval(updateStats, 1000);
+        setInterval(addLog, 3000);
+
+    </script>
+</body>
+</html>

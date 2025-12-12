@@ -1,0 +1,33 @@
+{
+  "id": "kanban-board",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.kanban-board.title",
+      "en-US": "data.components.advanced.kanban-board.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.kanban-board.description",
+      "en-US": "data.components.advanced.kanban-board.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.advanced.kanban-board.title",
+        "en-US": "data.components.advanced.kanban-board.title"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.kanban-board.description",
+        "en-US": "data.components.advanced.kanban-board.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

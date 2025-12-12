@@ -1,0 +1,34 @@
+{
+  "id": "tags-input",
+  "category": "input",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.input.tags-input.title",
+      "en-US": "data.components.input.tags-input.title"
+    },
+    "description": {
+      "zh-CN": "data.components.input.tags-input.description",
+      "en-US": "data.components.input.tags-input.description"
+    },
+    "tags": [
+      "input",
+      "form"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.input.tags-input.title",
+        "en-US": "data.components.input.tags-input.title"
+      },
+      "description": {
+        "zh-CN": "data.components.input.tags-input.description",
+        "en-US": "data.components.input.tags-input.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

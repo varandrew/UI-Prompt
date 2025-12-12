@@ -1,0 +1,32 @@
+{
+  "id": "core-brutalism",
+  "category": "core",
+  "family": {
+    "name": {
+      "zh-CN": "粗野主義",
+      "en-US": "Brutalism"
+    },
+    "description": {
+      "zh-CN": "大膽的排版、強烈的對比和原始的美學，打破傳統設計規則。",
+      "en-US": "Bold typography, high contrast, and raw aesthetics that break traditional design rules."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "modern-brutalism-dev-workspace",
+      "title": {
+        "zh-CN": "開發者工作區",
+        "en-US": "Developer Workspace"
+      }
+    },
+    {
+      "id": "modern-brutalism-project-mgmt",
+      "title": {
+        "zh-CN": "項目管理界面",
+        "en-US": "Project Management UI"
+      }
+    }
+  ]
+}

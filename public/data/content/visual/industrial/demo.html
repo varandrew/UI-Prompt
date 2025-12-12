@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Design Demo</title>
+    <style>
+        :root {
+            --bg-dark: #121214;
+            --bg-panel: #1e1e20;
+            --border-color: #444;
+            --accent-color: #ff9d00; /* Safety Orange */
+            --text-main: #d0d0d0;
+            --text-dim: #666;
+            --font-stack: 'Courier New', Courier, monospace; /* Technical feel */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0a0a0a;
+            font-family: var(--font-stack);
+            overflow: hidden;
+        }
+
+        /* Square Container 
+           Using container queries (cqw) for internal sizing to ensure it looks good at any size.
+        */
+        .chassis {
+            width: 90vmin;
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            background-color: var(--bg-dark);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #333;
+            box-shadow: 0 0 0 1px #000, 0 20px 50px rgba(0,0,0,0.7);
+            /* Industrial "Grid" Texture Background */
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 4cqw 4cqw;
+            
+            /* Enable container queries */
+            container-type: size;
+            
+            /* Metallic finish effect */
+            overflow: hidden;
+        }
+
+        /* Decorative Screws */
+        .screw {
+            position: absolute;
+            width: 3cqw;
+            height: 3cqw;
+            background: linear-gradient(135deg, #555, #222);
+            border-radius: 50%;
+            box-shadow: inset 1px 1px 2px rgba(255,255,255,0.1), 0 1px 2px black;
+            z-index: 10;
+        }
+        .screw::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60%;
+            height: 15%;
+            background: #111;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .screw.tl { top: 2cqw; left: 2cqw; }
+        .screw.tr { top: 2cqw; right: 2cqw; }
+        .screw.bl { bottom: 2cqw; left: 2cqw; }
+        .screw.br { bottom: 2cqw; right: 2cqw; }
+
+        /* Main Content Wrapper */
+        .interface-grid {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100%;
+            padding: 8cqw; /* Space for screws */
+            gap: 2cqw;
+            box-sizing: border-box;
+        }
+
+        /* HEADER SECTION */
+        .header-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1cqw;
+            color: var(--text-main);
+        }
+
+        .title-block h1 {
+            font-size: 7cqw;
+            margin: 0;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: #eee;
+        }
+        .subtitle {
+            font-size: 2.5cqw;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+        }
+
+        .sys-status {
+            font-size: 2cqw;
+            color: var(--text-dim);
+            text-align: right;
+        }
+        .sys-status span {
+            display: block;
+            color: var(--accent-color);
+        }
+
+        /* DATA VISUALIZATION / SCREEN */
+        .screen-container {
+            background: #000;
+            border: 1px solid var(--border-color);
+            position: relative;
+            padding: 2cqw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        /* Scanline effect */
+        .screen-container::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .graph-label {
+            position: absolute;
+            top: 1cqw;
+            left: 2cqw;
+            font-size: 2cqw;
+            color: var(--text-dim);
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 60%;
+            gap: 2%;
+            padding: 0 2cqw;
+        }
+
+        .bar {
+            width: 100%;
+            background: #333;
+            position: relative;
+            transition: height 0.3s ease;
+        }
+        .bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--accent-color);
+            height: 4px; /* "Cap" on the bar */
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        .bar:hover {
+            background: #444;
+        }
+
+        /* CONTROLS SECTION */
+        .control-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2cqw;
+        }
+
+        .btn {
+            background: linear-gradient(180deg, #333, #222);
+            border: 1px solid #555;
+            border-bottom: 3px solid #111;
+            color: #ccc;
+            padding: 2cqw;
+            font-family: inherit;
+            font-size: 3cqw;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2cqw;
+            position: relative;
+            transition: all 0.1s;
+        }
+        
+        .btn:active {
+            transform: translateY(2px);
+            border-bottom: 1px solid #111;
+            background: #222;
+        }
+
+        /* LED indicator on button */
+        .led {
+            width: 2cqw;
+            height: 2cqw;
+            background-color: #333;
+            border-radius: 50%;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .btn.active .led {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 5px var(--accent-color);
+        }
+
+        .btn.active {
+            color: #fff;
+            border-color: #666;
+        }
+
+        /* Hazard stripe decoration */
+        .hazard-strip {
+            height: 1.5cqw;
+            background: repeating-linear-gradient(
+                45deg,
+                #222,
+                #222 10px,
+                #333 10px,
+                #333 20px
+            );
+            border-top: 1px solid #444;
+            margin-top: 1cqw;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="chassis">
+        <!-- Structural Screws -->
+        <div class="screw tl"></div>
+        <div class="screw tr"></div>
+        <div class="screw bl"></div>
+        <div class="screw br"></div>
+
+        <div class="interface-grid">
+            
+            <!-- Header -->
+            <div class="header-panel">
+                <div class="title-block">
+                    <div class="subtitle">SYS.84</div>
+                    <h1>Industrial</h1>
+                </div>
+                <div class="sys-status">
+                    STATUS
+                    <span id="statusText">STANDBY</span>
+                </div>
+            </div>
+
+            <!-- Main Display -->
+            <div class="screen-container">
+                <div class="graph-label">LOAD_MONITOR_V2</div>
+                <div class="bar-chart" id="chart">
+                    <!-- Bars generated by JS -->
+                    <div class="bar" style="height: 30%"></div>
+                    <div class="bar" style="height: 50%"></div>
+                    <div class="bar" style="height: 70%"></div>
+                    <div class="bar" style="height: 40%"></div>
+                    <div class="bar" style="height: 60%"></div>
+                    <div class="bar" style="height: 20%"></div>
+                    <div class="bar" style="height: 80%"></div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="control-panel">
+                <button class="btn" id="pwrBtn">
+                    <div class="led"></div>
+                    POWER
+                </button>
+                <button class="btn" id="modeBtn">
+                    <div class="led"></div>
+                    MANUAL
+                </button>
+            </div>
+
+            <!-- Decorative Strip -->
+            <div class="hazard-strip"></div>
+        </div>
+    </div>
+
+    <script>
+        const pwrBtn = document.getElementById('pwrBtn');
+        const modeBtn = document.getElementById('modeBtn');
+        const statusText = document.getElementById('statusText');
+        const bars = document.querySelectorAll('.bar');
+
+        let isPowerOn = false;
+        let updateInterval;
+
+        // Toggle Power
+        pwrBtn.addEventListener('click', () => {
+            isPowerOn = !isPowerOn;
+            pwrBtn.classList.toggle('active');
+            
+            if (isPowerOn) {
+                statusText.innerText = "ONLINE";
+                statusText.style.color = "#0f0"; // Green for OK
+                startSimulation();
+            } else {
+                statusText.innerText = "STANDBY";
+                statusText.style.color = "var(--accent-color)";
+                stopSimulation();
+            }
+        });
+
+        // Toggle Mode
+        modeBtn.addEventListener('click', () => {
+            modeBtn.classList.toggle('active');
+            if(modeBtn.classList.contains('active')) {
+                modeBtn.innerHTML = '<div class="led"></div>AUTO';
+            } else {
+                modeBtn.innerHTML = '<div class="led"></div>MANUAL';
+            }
+        });
+
+        function startSimulation() {
+            // Randomize bar heights every 500ms
+            updateInterval = setInterval(() => {
+                bars.forEach(bar => {
+                    const h = Math.floor(Math.random() * 80) + 10;
+                    bar.style.height = h + "%";
+                });
+            }, 600);
+        }
+
+        function stopSimulation() {
+            clearInterval(updateInterval);
+            bars.forEach(bar => {
+                bar.style.height = "10%";
+            });
+        }
+    </script>
+</body>
+</html>

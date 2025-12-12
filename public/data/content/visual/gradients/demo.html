@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Style Guide Demo (Stable)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Font */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        :root {
+            --color-primary-start: #4f46e5; /* Indigo 600 */
+            --color-primary-end: #db2777;   /* Pink 600 */
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9; /* Slate 100 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars on small screens */
+        }
+
+        /* STABLE NOISE TEXTURE 
+           - Explicit Z-index -1 to stay behind content
+           - Pointer events none to prevent click blocking
+        */
+        .bg-noise {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04; /* Very subtle texture */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 0; 
+        }
+
+        /* GRADIENT BORDER TRICK */
+        .btn-gradient-border {
+            position: relative;
+            background: linear-gradient(#ffffff, #ffffff) padding-box,
+                        linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end)) border-box;
+            border: 2px solid transparent;
+        }
+        
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        .hover-glow:active {
+            transform: scale(0.98);
+        }
+        /* Hover effect only on devices that support hover */
+        @media (hover: hover) {
+            .hover-glow:hover {
+                filter: brightness(1.1);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px -6px rgba(79, 70, 229, 0.3);
+            }
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ROBUST RESPONSIVE TEXT 
+           - Replaced 'cqw' with 'clamp()' and 'vw'
+           - Ensures text scales but stays within readable limits
+        */
+        .demo-text-huge { 
+            font-size: clamp(2.5rem, 9vw, 4.5rem); 
+            line-height: 1.1; 
+        }
+        .demo-text-large { 
+            font-size: clamp(1.25rem, 5vw, 2rem); 
+        }
+        .demo-text-base { 
+            font-size: clamp(0.875rem, 3.5vw, 1.1rem); 
+        }
+        .demo-text-small { 
+            font-size: clamp(0.7rem, 2.5vw, 0.9rem); 
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+      MAIN CARD CONTAINER 
+      - Fixed aspect ratio 1:1 using Tailwind's aspect-square
+      - Max width constraint for desktops
+      - Relative padding (%) instead of cqw
+    -->
+    <main class="relative w-full max-w-[500px] aspect-square rounded-[10%] overflow-hidden shadow-2xl ring-1 ring-black/5 bg-white text-slate-900 mx-4">
+        
+        <!-- LAYER 0: White Background -->
+        <div class="absolute inset-0 bg-white z-0"></div>
+        
+        <!-- LAYER 1: Deep Gradient Orb (Top Right) -->
+        <!-- Moved pointer-events-none to prevent it from blocking clicks if it overlaps buttons -->
+        <div class="absolute -top-[25%] -right-[25%] w-[90%] h-[90%] bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-full blur-[80px] opacity-80 animate-pulse-slow z-0 pointer-events-none transition-all duration-500" id="gradient-orb"></div>
+
+        <!-- LAYER 2: Noise -->
+        <div class="bg-noise"></div>
+
+        <!-- LAYER 3: Content (High Z-Index to ensure clickability) -->
+        <div class="relative z-10 w-full h-full flex flex-col justify-between p-[8%]">
+            
+            <!-- Header -->
+            <header>
+                <div class="flex items-center gap-2 opacity-60 mb-[2%] text-slate-900">
+                    <i data-lucide="layers" class="w-5 h-5 md:w-6 md:h-6"></i>
+                    <span class="demo-text-small font-bold tracking-widest uppercase">Style Guide 01</span>
+                </div>
+                <h1 class="demo-text-huge font-extrabold tracking-tighter text-slate-900 leading-tight">
+                    Pure<br>
+                    <span class="text-gradient">Gradient.</span>
+                </h1>
+            </header>
+
+            <!-- Middle Card -->
+            <!-- Using Flexbox grow to fill available space nicely -->
+            <div class="flex-1 flex items-center justify-center py-[4%]">
+                <div class="w-full bg-white/60 backdrop-blur-md border border-white/80 rounded-2xl p-[6%] shadow-lg flex flex-col gap-[4%] hover:bg-white/70 transition-colors duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="demo-text-large font-bold text-slate-900">Contrast</h2>
+                            <p class="demo-text-small text-slate-600 mt-1 leading-relaxed font-medium">
+                                Robust spacing & deep colors.
+                            </p>
+                        </div>
+                        <div class="bg-gradient-to-br from-indigo-500 to-pink-500 w-12 h-12 md:w-16 md:h-16 rounded-xl shadow-lg shadow-indigo-500/20 shrink-0 ml-4"></div>
+                    </div>
+                    
+                    <!-- Decorative Lines -->
+                    <div class="grid grid-cols-3 gap-2 mt-auto opacity-20">
+                        <div class="h-1.5 bg-slate-900 rounded-full"></div>
+                        <div class="h-1.5 bg-slate-900 rounded-full"></div>
+                        <div class="h-1.5 bg-slate-900 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer: Buttons -->
+            <!-- Grid with fixed gap -->
+            <footer class="grid grid-cols-2 gap-[4%]">
+                
+                <!-- Primary Button -->
+                <button class="hover-glow group relative w-full py-[6%] rounded-xl font-bold demo-text-base text-white overflow-hidden shadow-md shadow-indigo-500/20">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-pink-600"></div>
+                    <span class="relative flex items-center justify-center gap-2">
+                        Explore <i data-lucide="arrow-right" class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </button>
+
+                <!-- Secondary Button -->
+                <button class="hover-glow btn-gradient-border w-full py-[6%] rounded-xl font-bold demo-text-base text-slate-800 flex items-center justify-center gap-2 shadow-sm bg-white">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">
+                        Details
+                    </span>
+                </button>
+
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Interaction Logic
+        const container = document.querySelector('main');
+        const gradientOrb = document.getElementById('gradient-orb');
+        let isAlternate = false;
+
+        // Click anywhere on the card to switch themes
+        container.addEventListener('click', (e) => {
+            // Prevent triggering if clicking a button (optional UX choice, but kept simple here)
+            // if (e.target.closest('button')) return;
+
+            isAlternate = !isAlternate;
+            
+            if (isAlternate) {
+                // Switch to Cyan/Blue Theme
+                gradientOrb.classList.remove('from-indigo-600', 'via-purple-600', 'to-pink-500');
+                gradientOrb.classList.add('from-cyan-600', 'via-blue-600', 'to-indigo-500');
+            } else {
+                // Switch back to Indigo/Pink Theme
+                gradientOrb.classList.remove('from-cyan-600', 'via-blue-600', 'to-indigo-500');
+                gradientOrb.classList.add('from-indigo-600', 'via-purple-600', 'to-pink-500');
+            }
+        });
+    </script>
+</body>
+</html>

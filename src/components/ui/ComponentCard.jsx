@@ -197,7 +197,7 @@ export function ComponentCard({
               width: '154%',
               height: '154%'
             }}
-            sandbox="allow-scripts allow-same-origin"
+            sandbox="allow-same-origin allow-scripts allow-forms"
             scrolling="no"
             loading="lazy"
           />

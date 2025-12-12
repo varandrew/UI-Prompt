@@ -1,0 +1,33 @@
+{
+  "id": "autocomplete-search",
+  "category": "input",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.input.autocomplete-search.title",
+      "en-US": "data.components.input.autocomplete-search.title"
+    },
+    "description": {
+      "zh-CN": "data.components.input.autocomplete-search.description",
+      "en-US": "data.components.input.autocomplete-search.description"
+    },
+    "tags": [
+      "input"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "data.components.input.autocomplete-search.title",
+        "en-US": "data.components.input.autocomplete-search.title"
+      },
+      "description": {
+        "zh-CN": "data.components.input.autocomplete-search.description",
+        "en-US": "data.components.input.autocomplete-search.description"
+      },
+      "hasContent": true,
+      "hasStyles": false
+    }
+  ]
+}

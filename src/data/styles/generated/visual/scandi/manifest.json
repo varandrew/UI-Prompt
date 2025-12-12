@@ -1,0 +1,25 @@
+{
+  "id": "visual-scandi",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "斯堪的纳维亚风格",
+      "en-US": "Scandinavian"
+    },
+    "description": {
+      "zh-CN": "斯堪的纳维亚设计，极简美学、自然材质和功能性简约。",
+      "en-US": "Scandinavian design with minimalist aesthetics, natural materials, and functional simplicity."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-scandi-scandi-interior",
+      "title": {
+        "zh-CN": "斯堪的纳维亚室内设计",
+        "en-US": "Scandinavian Interior"
+      }
+    }
+  ]
+}

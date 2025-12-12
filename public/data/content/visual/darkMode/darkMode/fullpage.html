@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>darkMode - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+/* ===== Dark Mode 動画效果 ===== */
+
+/* 卡片 Hover 效果 */
+.dark-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6 !important;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* 导航鏈接 Hover */
+.dark-nav-link:hover {
+  color: #3b82f6 !important;
+  border-bottom: 2px solid #3b82f6 !important;
+}
+
+/* 側边欄項目 Hover */
+.dark-sidebar-item:hover:not(.active) {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border-left-color: #3b82f6 !important;
+}
+
+/* 任务項目 Hover */
+.dark-task-item:hover {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border-color: #3b82f6 !important;
+  transform: translateX(4px);
+}
+
+/* ===== 关鍵幀動画 ===== */
+
+/* 旋轉動画 (Spinner) */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 彈跳動画 (Dots) */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 脈衝動画 (Pulse) */
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* 淡入上移動画 (Timeline) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 進度條填充動画 */
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+}
+
+/* ===== 響應式设計 ===== */
+@media (max-width: 768px) {
+  .dark-navbar > div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .dark-mode-full-page > div {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #2a2a2a;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="dark-mode-full-page min-h-screen" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: #e5e7eb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+
+  <!-- 頂部导航欄 -->
+  <nav class="dark-navbar" style="position: sticky; top: 0; z-index: 50; background: rgba(26, 26, 26, 0.95); border-bottom: 1px solid #2a2a2a; backdrop-filter: blur(12px);">
+    <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+
+      <!-- Logo & Brand -->
+      <div style="display: flex; align-items: center; gap: 3rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);">
+            <svg style="width: 20px; height: 20px; color: white;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"/>
+            </svg>
+          </div>
+          <span style="font-size: 20px; font-weight: 700; color: #e5e7eb;">DevMonitor</span>
+        </div>
+
+        <!-- 主导航 -->
+        <div style="display: flex; gap: 2rem; align-items: center;">
+          <a href="javascript:void(0)" class="dark-nav-link" style="color: #3b82f6; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s; border-bottom: 2px solid #3b82f6; padding-bottom: 0.25rem;">Dashboard</a>
+          <a href="javascript:void(0)" class="dark-nav-link" style="color: #9ca3af; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s;">Projects</a>
+          <a href="javascript:void(0)" class="dark-nav-link" style="color: #9ca3af; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s;">Analytics</a>
+          <a href="javascript:void(0)" class="dark-nav-link" style="color: #9ca3af; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.3s;">Settings</a>
+        </div>
+      </div>
+
+      <!-- 右側工具区 -->
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <!-- 搜尋框 -->
+        <div style="position: relative;">
+          <input
+            type="text"
+            placeholder="Search projects..."
+            style="padding: 0.5rem 2.5rem 0.5rem 1rem; background: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 8px; color: #e5e7eb; font-size: 14px; width: 240px; outline: none; transition: all 0.3s;"
+          >
+          <svg style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: #6b7280;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+
+        <!-- 通知圖标 -->
+        <div style="position: relative; cursor: pointer;">
+          <div style="width: 40px; height: 40px; background: #2a2a2a; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+            <svg style="width: 20px; height: 20px; color: #9ca3af;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+          </div>
+          <span style="position: absolute; top: -4px; right: -4px; background: #ef4444; color: white; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;">3</span>
+        </div>
+
+        <!-- 用戶頭像 -->
+        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #6366f1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; cursor: pointer;">
+          JD
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主容器 (側边欄 + 內容区) -->
+  <div style="display: flex; max-width: 1400px; margin: 0 auto;">
+
+    <!-- 側边欄 -->
+    <aside style="width: 260px; background: rgba(26, 26, 26, 0.5); padding: 1.5rem; border-right: 1px solid #2a2a2a; min-height: calc(100vh - 73px);">
+      <div style="margin-bottom: 2rem;">
+        <h3 style="font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Active Projects</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="dark-sidebar-item active" style="padding: 0.75rem; background: rgba(59, 130, 246, 0.1); border-left: 3px solid #3b82f6; border-radius: 6px; cursor: pointer; transition: all 0.3s;">
+            <div style="font-weight: 600; font-size: 14px; color: #e5e7eb;">Portfolio Website</div>
+            <div style="font-size: 12px; color: #9ca3af; margin-top: 0.25rem;">React • Tailwind</div>
+          </div>
+          <div class="dark-sidebar-item" style="padding: 0.75rem; background: transparent; border-left: 3px solid transparent; border-radius: 6px; cursor: pointer; transition: all 0.3s;">
+            <div style="font-weight: 600; font-size: 14px; color: #9ca3af;">E-commerce API</div>
+            <div style="font-size: 12px; color: #6b7280; margin-top: 0.25rem;">Node.js • Express</div>
+          </div>
+          <div class="dark-sidebar-item" style="padding: 0.75rem; background: transparent; border-left: 3px solid transparent; border-radius: 6px; cursor: pointer; transition: all 0.3s;">
+            <div style="font-weight: 600; font-size: 14px; color: #9ca3af;">Mobile App</div>
+            <div style="font-size: 12px; color: #6b7280; margin-top: 0.25rem;">React Native</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Quick Actions</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <button style="padding: 0.75rem; background: #2a2a2a; border: none; border-radius: 6px; color: #e5e7eb; font-size: 14px; font-weight: 600; cursor: pointer; text-align: left; transition: all 0.3s;">
+            + New Project
+          </button>
+          <button style="padding: 0.75rem; background: #2a2a2a; border: none; border-radius: 6px; color: #e5e7eb; font-size: 14px; font-weight: 600; cursor: pointer; text-align: left; transition: all 0.3s;">
+            📊 View Analytics
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主內容区 -->
+    <main style="flex: 1; padding: 2rem;">
+
+      <!-- Hero Section -->
+      <section style="margin-bottom: 3rem;">
+        <h1 style="font-size: 32px; font-weight: 700; color: #e5e7eb; margin-bottom: 0.5rem;">Welcome back, John 👋</h1>
+        <p style="color: #9ca3af; font-size: 16px;">Here's what's happening with your projects today.</p>
+      </section>
+
+      <!-- 統計卡片区 -->
+      <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+        <!-- CPU Usage -->
+        <div class="dark-stat-card" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 1.5rem; border-radius: 12px; border: 1px solid #2a2a2a; transition: all 0.3s; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+              <div style="font-size: 12px; color: #9ca3af; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">CPU Usage</div>
+              <div style="font-size: 28px; font-weight: 700; color: #e5e7eb;">42%</div>
+            </div>
+            <div style="width: 48px; height: 48px; background: rgba(59, 130, 246, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 24px; height: 24px; color: #3b82f6;" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13 7H7v6h6V7z"></path>
+                <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px;">
+            <span style="color: #10b981;">↑ 8%</span>
+            <span style="color: #6b7280;">from last hour</span>
+          </div>
+        </div>
+
+        <!-- Memory -->
+        <div class="dark-stat-card" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 1.5rem; border-radius: 12px; border: 1px solid #2a2a2a; transition: all 0.3s; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+              <div style="font-size: 12px; color: #9ca3af; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Memory</div>
+              <div style="font-size: 28px; font-weight: 700; color: #e5e7eb;">8.2 GB</div>
+            </div>
+            <div style="width: 48px; height: 48px; background: rgba(16, 185, 129, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 24px; height: 24px; color: #10b981;" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z"></path>
+                <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z"></path>
+                <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z"></path>
+              </svg>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px;">
+            <span style="color: #f59e0b;">↓ 12%</span>
+            <span style="color: #6b7280;">from last hour</span>
+          </div>
+        </div>
+
+        <!-- Total Builds -->
+        <div class="dark-stat-card" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 1.5rem; border-radius: 12px; border: 1px solid #2a2a2a; transition: all 0.3s; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+              <div style="font-size: 12px; color: #9ca3af; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Total Builds</div>
+              <div style="font-size: 28px; font-weight: 700; color: #e5e7eb;">1,247</div>
+            </div>
+            <div style="width: 48px; height: 48px; background: rgba(139, 92, 246, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 24px; height: 24px; color: #8b5cf6;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px;">
+            <span style="color: #10b981;">↑ 23</span>
+            <span style="color: #6b7280;">today</span>
+          </div>
+        </div>
+
+        <!-- Test Coverage -->
+        <div class="dark-stat-card" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 1.5rem; border-radius: 12px; border: 1px solid #2a2a2a; transition: all 0.3s; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+            <div>
+              <div style="font-size: 12px; color: #9ca3af; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Coverage</div>
+              <div style="font-size: 28px; font-weight: 700; color: #e5e7eb;">87%</div>
+            </div>
+            <div style="width: 48px; height: 48px; background: rgba(245, 158, 11, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <svg style="width: 24px; height: 24px; color: #f59e0b;" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 13px;">
+            <span style="color: #10b981;">↑ 5%</span>
+            <span style="color: #6b7280;">from last week</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Build Status Timeline -->
+      <section style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2rem; border-radius: 12px; border: 1px solid #2a2a2a; margin-bottom: 3rem;">
+        <h2 style="font-size: 20px; font-weight: 700; color: #e5e7eb; margin-bottom: 1.5rem;">Build Status Timeline</h2>
+
+        <div style="position: relative; padding-left: 2rem;">
+          <!-- 時間軸线條 -->
+          <div style="position: absolute; left: 0.375rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6, #2a2a2a);"></div>
+
+          <!-- Timeline Item 1 -->
+          <div class="dark-timeline-item" style="position: relative; padding-bottom: 2rem; opacity: 0; animation: fadeInUp 0.6s ease forwards;">
+            <div style="position: absolute; left: -1.625rem; top: 0; width: 12px; height: 12px; background: #10b981; border: 2px solid #0a0a0a; border-radius: 50%; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);"></div>
+            <div style="background: rgba(16, 185, 129, 0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid #10b981;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: #e5e7eb;">Build #1247 Successful ✓</span>
+                <span style="font-size: 12px; color: #9ca3af;">2 minutes ago</span>
+              </div>
+              <div style="font-size: 14px; color: #9ca3af;">Production deployment completed • Duration: 4m 32s</div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="dark-timeline-item" style="position: relative; padding-bottom: 2rem; opacity: 0; animation: fadeInUp 0.6s ease 0.2s forwards;">
+            <div style="position: absolute; left: -1.625rem; top: 0; width: 12px; height: 12px; background: #3b82f6; border: 2px solid #0a0a0a; border-radius: 50%; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);"></div>
+            <div style="background: rgba(59, 130, 246, 0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid #3b82f6;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: #e5e7eb;">Tests Passed</span>
+                <span style="font-size: 12px; color: #9ca3af;">15 minutes ago</span>
+              </div>
+              <div style="font-size: 14px; color: #9ca3af;">All 324 tests passed • Coverage: 87%</div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="dark-timeline-item" style="position: relative; padding-bottom: 2rem; opacity: 0; animation: fadeInUp 0.6s ease 0.4s forwards;">
+            <div style="position: absolute; left: -1.625rem; top: 0; width: 12px; height: 12px; background: #f59e0b; border: 2px solid #0a0a0a; border-radius: 50%; box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);"></div>
+            <div style="background: rgba(245, 158, 11, 0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid #f59e0b;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: #e5e7eb;">Code Review Pending</span>
+                <span style="font-size: 12px; color: #9ca3af;">1 hour ago</span>
+              </div>
+              <div style="font-size: 14px; color: #9ca3af;">PR #342 waiting for approval • 3 files changed</div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="dark-timeline-item" style="position: relative; opacity: 0; animation: fadeInUp 0.6s ease 0.6s forwards;">
+            <div style="position: absolute; left: -1.625rem; top: 0; width: 12px; height: 12px; background: #6b7280; border: 2px solid #0a0a0a; border-radius: 50%;"></div>
+            <div style="background: rgba(107, 114, 128, 0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid #6b7280;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: #e5e7eb;">Dependency Update</span>
+                <span style="font-size: 12px; color: #9ca3af;">3 hours ago</span>
+              </div>
+              <div style="font-size: 14px; color: #9ca3af;">Updated React to v19.1.0 • 12 packages updated</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Active Tasks List View -->
+      <section style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2rem; border-radius: 12px; border: 1px solid #2a2a2a; margin-bottom: 3rem;">
+        <h2 style="font-size: 20px; font-weight: 700; color: #e5e7eb; margin-bottom: 1.5rem;">Active Tasks</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Task Item 1 -->
+          <div class="dark-task-item" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(26, 26, 26, 0.5); border-radius: 8px; border: 1px solid #2a2a2a; transition: all 0.3s;">
+            <input type="checkbox" style="width: 18px; height: 18px; cursor: pointer; accent-color: #3b82f6;">
+            <div style="flex: 1;">
+              <div style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.25rem;">Implement user authentication</div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 11px; font-weight: 600; border-radius: 4px;">HIGH</span>
+                <span style="font-size: 13px; color: #6b7280;">Due: Today</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #8b5cf6, #6366f1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; color: white;">JD</div>
+            </div>
+          </div>
+
+          <!-- Task Item 2 -->
+          <div class="dark-task-item" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(26, 26, 26, 0.5); border-radius: 8px; border: 1px solid #2a2a2a; transition: all 0.3s;">
+            <input type="checkbox" style="width: 18px; height: 18px; cursor: pointer; accent-color: #3b82f6;">
+            <div style="flex: 1;">
+              <div style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.25rem;">Fix responsive layout issues</div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-size: 11px; font-weight: 600; border-radius: 4px;">MEDIUM</span>
+                <span style="font-size: 13px; color: #6b7280;">Due: Tomorrow</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #ec4899, #f43f5e); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; color: white;">SM</div>
+            </div>
+          </div>
+
+          <!-- Task Item 3 -->
+          <div class="dark-task-item" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(26, 26, 26, 0.5); border-radius: 8px; border: 1px solid #2a2a2a; transition: all 0.3s;">
+            <input type="checkbox" checked style="width: 18px; height: 18px; cursor: pointer; accent-color: #3b82f6;">
+            <div style="flex: 1; opacity: 0.6;">
+              <div style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.25rem; text-decoration: line-through;">Update dependencies</div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(107, 114, 128, 0.1); color: #6b7280; font-size: 11px; font-weight: 600; border-radius: 4px;">LOW</span>
+                <span style="font-size: 13px; color: #6b7280;">Completed</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #8b5cf6, #6366f1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; color: white;">JD</div>
+            </div>
+          </div>
+
+          <!-- Task Item 4 -->
+          <div class="dark-task-item" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(26, 26, 26, 0.5); border-radius: 8px; border: 1px solid #2a2a2a; transition: all 0.3s;">
+            <input type="checkbox" style="width: 18px; height: 18px; cursor: pointer; accent-color: #3b82f6;">
+            <div style="flex: 1;">
+              <div style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.25rem;">Write API documentation</div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(245, 158, 11, 0.1); color: #f59e0b; font-size: 11px; font-weight: 600; border-radius: 4px;">MEDIUM</span>
+                <span style="font-size: 13px; color: #6b7280;">Due: Dec 5</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #14b8a6, #06b6d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; color: white;">AL</div>
+            </div>
+          </div>
+
+          <!-- Task Item 5 -->
+          <div class="dark-task-item" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(26, 26, 26, 0.5); border-radius: 8px; border: 1px solid #2a2a2a; transition: all 0.3s;">
+            <input type="checkbox" style="width: 18px; height: 18px; cursor: pointer; accent-color: #3b82f6;">
+            <div style="flex: 1;">
+              <div style="font-weight: 600; color: #e5e7eb; margin-bottom: 0.25rem;">Optimize database queries</div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="display: inline-block; padding: 0.25rem 0.5rem; background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 11px; font-weight: 600; border-radius: 4px;">HIGH</span>
+                <span style="font-size: 13px; color: #6b7280;">Due: Dec 3</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #f59e0b, #f97316); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; color: white;">MK</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Performance Metrics -->
+      <section style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2rem; border-radius: 12px; border: 1px solid #2a2a2a; margin-bottom: 3rem;">
+        <h2 style="font-size: 20px; font-weight: 700; color: #e5e7eb; margin-bottom: 1.5rem;">Performance Metrics</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          <!-- Progress Bar 1 -->
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="font-size: 14px; font-weight: 600; color: #e5e7eb;">Build Time Optimization</span>
+              <span style="font-size: 14px; font-weight: 700; color: #3b82f6;">78%</span>
+            </div>
+            <div style="width: 100%; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden;">
+              <div class="dark-progress-bar" style="width: 78%; height: 100%; background: linear-gradient(90deg, #3b82f6, #2563eb); border-radius: 4px; animation: progressFill 1.5s ease-out;"></div>
+            </div>
+          </div>
+
+          <!-- Progress Bar 2 -->
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="font-size: 14px; font-weight: 600; color: #e5e7eb;">Code Quality Score</span>
+              <span style="font-size: 14px; font-weight: 700; color: #10b981;">92%</span>
+            </div>
+            <div style="width: 100%; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden;">
+              <div class="dark-progress-bar" style="width: 92%; height: 100%; background: linear-gradient(90deg, #10b981, #059669); border-radius: 4px; animation: progressFill 1.5s ease-out 0.2s backwards;"></div>
+            </div>
+          </div>
+
+          <!-- Progress Bar 3 -->
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="font-size: 14px; font-weight: 600; color: #e5e7eb;">Security Audit</span>
+              <span style="font-size: 14px; font-weight: 700; color: #f59e0b;">65%</span>
+            </div>
+            <div style="width: 100%; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden;">
+              <div class="dark-progress-bar" style="width: 65%; height: 100%; background: linear-gradient(90deg, #f59e0b, #d97706); border-radius: 4px; animation: progressFill 1.5s ease-out 0.4s backwards;"></div>
+            </div>
+          </div>
+
+          <!-- Progress Bar 4 -->
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="font-size: 14px; font-weight: 600; color: #e5e7eb;">Test Coverage</span>
+              <span style="font-size: 14px; font-weight: 700; color: #8b5cf6;">87%</span>
+            </div>
+            <div style="width: 100%; height: 8px; background: #2a2a2a; border-radius: 4px; overflow: hidden;">
+              <div class="dark-progress-bar" style="width: 87%; height: 100%; background: linear-gradient(90deg, #8b5cf6, #7c3aed); border-radius: 4px; animation: progressFill 1.5s ease-out 0.6s backwards;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loading Animations Demo -->
+      <section style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 2rem; border-radius: 12px; border: 1px solid #2a2a2a;">
+        <h2 style="font-size: 20px; font-weight: 700; color: #e5e7eb; margin-bottom: 1.5rem;">Loading Animations</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+          <!-- Spinner 1 -->
+          <div style="text-align: center;">
+            <div style="display: inline-block; width: 48px; height: 48px; border: 4px solid #2a2a2a; border-top-color: #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <div style="margin-top: 1rem; font-size: 14px; color: #9ca3af;">Spinner Loader</div>
+          </div>
+
+          <!-- Dots 2 -->
+          <div style="text-align: center;">
+            <div style="display: flex; justify-content: center; gap: 0.5rem;">
+              <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; animation-delay: -0.32s;"></div>
+              <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; animation-delay: -0.16s;"></div>
+              <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both;"></div>
+            </div>
+            <div style="margin-top: 1rem; font-size: 14px; color: #9ca3af;">Dots Loader</div>
+          </div>
+
+          <!-- Pulse 3 -->
+          <div style="text-align: center;">
+            <div style="position: relative; width: 48px; height: 48px; margin: 0 auto;">
+              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #3b82f6; border-radius: 50%; opacity: 0.6; animation: pulse 2s infinite;"></div>
+              <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #3b82f6; border-radius: 50%; opacity: 0.6; animation: pulse 2s infinite 1s;"></div>
+            </div>
+            <div style="margin-top: 1rem; font-size: 14px; color: #9ca3af;">Pulse Loader</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background: rgba(26, 26, 26, 0.95); border-top: 1px solid #2a2a2a; padding: 2rem; margin-top: 4rem;">
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div style="color: #6b7280; font-size: 14px;">
+        © 2025 DevMonitor. Built with <span style="color: #ef4444;">♥</span> using Dark Mode principles.
+      </div>
+      <div style="display: flex; gap: 2rem;">
+        <a href="javascript:void(0)" style="color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.3s;">Documentation</a>
+        <a href="javascript:void(0)" style="color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.3s;">GitHub</a>
+        <a href="javascript:void(0)" style="color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.3s;">Support</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

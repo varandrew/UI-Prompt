@@ -1,0 +1,11 @@
+{
+  "id": "visual-accessibility-basic",
+  "title": {
+    "zh-CN": "无障碍仪表盘",
+    "en-US": "Accessibility Dashboard"
+  },
+  "description": {
+    "zh-CN": "高对比、易读的仪表盘组件示例",
+    "en-US": "High-contrast, readable dashboard component sample"
+  }
+}

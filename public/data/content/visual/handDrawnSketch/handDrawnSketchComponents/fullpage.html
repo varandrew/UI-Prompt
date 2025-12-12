@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>handDrawnSketchComponents - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+  :root {
+    --ink: #23303d;
+    --paper: #fff8dc;
+    --sky: #e8f4f8;
+    --note-yellow:#ffef8a;
+    --note-pink:#ffd6e7;
+    --green:#10b981;
+    --blue:#3b82f6;
+    --orange:#fb923c;
+    --danger:#ef4444;
+  }
+
+  html,body{ background: linear-gradient(180deg, var(--paper), var(--sky)); }
+  *{ box-sizing: border-box; }
+
+  /* Sticky header */
+  .sketchc-header{ position: sticky; top:0; z-index:10; background:#fff; border-bottom:2px solid var(--ink); box-shadow:4px 4px 0 var(--ink); }
+  .sketchc-header-inner{ max-width:1100px; margin:0 auto; padding:10px 16px; display:flex; align-items:center; gap:12px; }
+  .sketchc-logo{ display:flex; align-items:center; gap:8px; }
+  .sketchc-logo-text{ font-family:'Caveat',cursive; font-size:22px; color:var(--ink); letter-spacing:1px; }
+  .sketchc-nav{ margin-left:auto; display:flex; gap:12px; }
+  .sketchc-nav-link{ color:var(--ink); text-decoration:none; padding:4px 8px; border:2px solid transparent; }
+  .sketchc-nav-link:hover{ border-color:var(--ink); }
+  .sketchc-search{ margin-left:8px; }
+
+  /* Hero */
+  .sketchc-hero{ max-width:1100px; margin:32px auto; padding:24px; text-align:center; position:relative; }
+  .sketchc-title{ font-family:'Caveat',cursive; font-size:44px; color:var(--ink); margin:0 0 8px; }
+  .sketchc-subtitle{ font-family:'Patrick Hand',cursive; font-size:18px; color:#44515e; margin:0 0 16px; }
+  .sketchc-cta{ display:flex; gap:10px; justify-content:center; }
+  .sketchc-hero-note{ position:absolute; right:16px; top:-10px; background:var(--note-yellow); border:2px solid var(--ink); padding:6px 10px; transform:rotate(8deg); font-family:'Reenie Beanie',cursive; }
+
+  /* Buttons */
+  .sketchc-btn{ border:2px solid var(--ink); background:#fff; color:var(--ink); box-shadow:3px 3px 0 var(--ink); padding:8px 14px; cursor:pointer; font-family:'Patrick Hand',cursive; }
+  .sketchc-btn:hover{ transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink); }
+  .sketchc-btn-primary{ background:var(--blue); color:#fff; }
+  .sketchc-btn-secondary{ background:#fff; }
+  .sketchc-btn-outline{ background:#fff; border-style:dashed; }
+  .sketchc-btn-doodle{ background:var(--note-pink); }
+  .sketchc-btn-ghost{ background:transparent; }
+  .sketchc-btn-danger{ background:var(--danger); color:#fff; }
+
+  /* Inputs */
+  .sketchc-input,.sketchc-textarea{ width:100%; border:2px solid var(--ink); padding:8px 10px; font-family:'Patrick Hand',cursive; }
+  .sketchc-input:focus,.sketchc-textarea:focus{ outline:none; box-shadow:0 0 0 3px rgba(59,130,246,.15); }
+  .sketchc-label{ display:block; font-family:'Patrick Hand',cursive; color:var(--ink); margin-bottom:10px; }
+  .sketchc-form-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+
+  /* Grid */
+  .sketchc-main{ padding:0 16px 48px; }
+  .sketchc-grid{ max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .sketchc-card{ background:#fff; border:2px solid var(--ink); box-shadow:6px 6px 0 var(--ink); padding:16px; }
+  .sketchc-card-title{ margin:0 0 10px; font-family:'Caveat',cursive; font-size:28px; color:var(--ink); }
+
+  .sketchc-buttons{ display:flex; flex-wrap:wrap; gap:10px; }
+  .sketchc-cards{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .sketchc-postit{ background:var(--note-yellow); border:2px solid var(--ink); padding:10px; box-shadow:4px 4px 0 var(--ink); transform:rotate(-2deg); font-family:'Reenie Beanie',cursive; }
+  .sketchc-notebook{ background:#fff; border:2px solid var(--ink); padding:10px 12px; position:relative; }
+  .sketchc-notebook .sketchc-rule{ position:absolute; left:42px; top:0; bottom:0; width:2px; background:#60a5fa; }
+  .sketchc-whiteboard{ background:#f5f7fb; border:2px solid var(--ink); padding:10px; }
+  .sketchc-doodle{ background:#fff; border:2px dashed var(--ink); padding:10px; }
+
+  /* Timeline */
+  .sketchc-timeline{ list-style:none; padding:0; margin:0; border-left:3px dashed var(--ink); padding-left:14px; position:relative; }
+  .sketchc-timeline li{ margin:12px 0; }
+  .sketchc-timeline .dot{ width:10px; height:10px; border:2px solid var(--ink); background:#fff; border-radius:50%; position:absolute; left:-7px; margin-top:6px; }
+  .sketchc-arrow{ width:100%; height:20px; margin-top:8px; }
+  .sketchc-arrow path{ fill:none; stroke:var(--ink); stroke-width:2; stroke-linecap:round; stroke-dasharray:3 3; animation:draw 3s linear infinite; }
+
+  @keyframes draw{ to{ stroke-dashoffset:60; } }
+
+  /* Drag list */
+  .sketchc-draglist{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+  .sketchc-draglist li{ background:var(--note-yellow); border:2px solid var(--ink); padding:8px 10px; box-shadow:4px 4px 0 var(--ink); cursor:grab; }
+  .sketchc-draglist li.dragging{ opacity:.7; transform:scale(.98); }
+  .sketchc-hint{ font-family:'Patrick Hand',cursive; color:#4b5563; margin-top:6px; }
+
+  /* Loaders */
+  .sketchc-loaders{ display:flex; gap:14px; align-items:center; }
+  .loader-pencil{ width:46px; height:46px; border:2px solid var(--ink); position:relative; overflow:hidden; }
+  .loader-pencil span{ position:absolute; left:4px; top:12px; width:38px; height:2px; background:var(--ink); animation:pencil 1.2s linear infinite; }
+  @keyframes pencil{ 0%{transform:translateX(-38px)} 100%{transform:translateX(38px)} }
+  .loader-flip{ perspective:400px; border:2px solid var(--ink); padding:8px 12px; background:#fff; }
+  .loader-flip span{ display:inline-block; transform-style:preserve-3d; animation:flip 1.8s ease-in-out infinite; }
+  @keyframes flip{ 0%{transform:rotateX(0)} 50%{transform:rotateX(180deg)} 100%{transform:rotateX(360deg)} }
+  .loader-scribble{ width:46px; height:46px; border:2px dashed var(--ink); background:repeating-linear-gradient(90deg, transparent 0 6px, rgba(35,48,61,.12) 6px 8px); animation:wiggle 1.2s ease-in-out infinite; }
+
+  /* More components */
+  .badge{ display:inline-block; border:2px solid var(--ink); padding:2px 8px; box-shadow:2px 2px 0 var(--ink); font-family:'Patrick Hand',cursive; }
+  .badge-green{ background:#d1fae5; }
+  .badge-blue{ background:#dbeafe; }
+  .badge-orange{ background:#ffedd5; }
+  .alert{ border:2px solid var(--ink); padding:8px 10px; margin:6px 0; background:#fff; }
+  .alert-info{ background:#eef6ff; }
+  .alert-warning{ background:#fff7ed; }
+  .tooltip-parent{ position:relative; }
+  .tooltip{ position:absolute; left:50%; transform:translateX(-50%); bottom:130%; white-space:nowrap; background:#fff; border:2px solid var(--ink); padding:4px 6px; box-shadow:3px 3px 0 var(--ink); opacity:0; pointer-events:none; transition:opacity .2s; }
+  .tooltip-parent:hover .tooltip{ opacity:1; }
+  .sketchc-progress .bar{ border:2px solid var(--ink); height:12px; width:240px; background:#fff; }
+  .sketchc-progress .bar>div{ height:100%; background:linear-gradient(90deg, var(--blue), var(--green)); }
+  .sketchc-table{ width:100%; border-collapse:separate; border-spacing:0; }
+  .sketchc-table th,.sketchc-table td{ border:2px solid var(--ink); padding:6px 8px; text-align:left; }
+  .sketchc-accordion summary{ cursor:pointer; }
+  .sketchc-avatars{ display:flex; gap:8px; }
+  .avatar{ width:28px; height:28px; border:2px solid var(--ink); border-radius:50%; background:#fff; box-shadow:2px 2px 0 var(--ink); }
+  .sketchc-dividers hr{ border:0; border-top:2px solid var(--ink); }
+  .sketchc-dividers hr.doodle{ border-top-style:dashed; }
+  .sketchc-dropdown{ position:relative; }
+  .dropdown{ position:absolute; top:110%; left:0; background:#fff; border:2px solid var(--ink); box-shadow:4px 4px 0 var(--ink); list-style:none; margin:0; padding:6px 0; min-width:160px; display:block; }
+  .dropdown[aria-hidden="true"]{ display:none; }
+  .dropdown li a{ display:block; padding:6px 10px; color:var(--ink); text-decoration:none; }
+  .dropdown li a:hover{ background:#f3f4f6; }
+  .sketchc-tabs{ display:flex; gap:8px; margin-top:8px; }
+  .tab{ border:2px solid var(--ink); background:#fff; padding:6px 10px; }
+  .tab.active{ background:var(--sky); }
+  .sketchc-pagination{ display:flex; gap:6px; margin-top:8px; }
+  .page{ border:2px solid var(--ink); background:#fff; padding:4px 8px; }
+  .page.active{ background:var(--sky); }
+
+  /* Animations */
+  .sketchc-wiggle{ animation:wiggle 2.5s ease-in-out infinite; }
+  @keyframes wiggle{ 0%{transform:rotate(7deg)} 50%{transform:rotate(2deg)} 100%{transform:rotate(7deg)} }
+
+  /* Footer */
+  .sketchc-footer{ max-width:1100px; margin:20px auto 40px; text-align:center; color:#374151; font-family:'Patrick Hand',cursive; }
+
+  /* Responsive */
+  @media (max-width: 768px){
+    .sketchc-grid{ grid-template-columns:1fr; }
+    .sketchc-cards{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width: 480px){
+    .sketchc-title{ font-size:32px; }
+    .sketchc-cards{ grid-template-columns:1fr; }
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- Google Fonts: Hand-drawn fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&family=Reenie+Beanie&display=swap" rel="stylesheet">
+
+  <header class="sketchc-header">
+    <div class="sketchc-header-inner">
+      <div class="sketchc-logo">
+        <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <filter id="sketchc-rough">
+              <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2"/>
+              <feDisplacementMap in="SourceGraphic" scale="1.6"/>
+            </filter>
+          </defs>
+          <circle cx="20" cy="20" r="14" fill="none" stroke="#23303d" stroke-width="2" filter="url(#sketchc-rough)"/>
+          <path d="M 12 20 L 18 26 L 28 14" fill="none" stroke="#23303d" stroke-width="2.5" stroke-linecap="round" filter="url(#sketchc-rough)"/>
+        </svg>
+        <span class="sketchc-logo-text">Sketch UI</span>
+      </div>
+      <nav class="sketchc-nav" aria-label="Main">
+        <a href="javascript:void(0)" class="sketchc-nav-link">Components</a>
+        <a href="javascript:void(0)" class="sketchc-nav-link">Guidelines</a>
+        <a href="javascript:void(0)" class="sketchc-nav-link">Docs</a>
+      </nav>
+      <div class="sketchc-search">
+        <input class="sketchc-input" placeholder="Search components..." aria-label="Search components" />
+      </div>
+    </div>
+  </header>
+
+  <main class="sketchc-main">
+    <section class="sketchc-hero">
+      <div class="sketchc-hero-note sketchc-wiggle" aria-hidden="true">★</div>
+      <h1 class="sketchc-title">UI Components Showcase</h1>
+      <p class="sketchc-subtitle">Hand-drawn interface kit with 18 components</p>
+      <div class="sketchc-cta">
+        <a href="#components" class="sketchc-btn sketchc-btn-primary">Browse Library</a>
+        <button class="sketchc-btn sketchc-btn-secondary" id="scrollTopBtn">Back to Top</button>
+      </div>
+    </section>
+
+    <section id="components" class="sketchc-grid" aria-label="Components grid">
+      <!-- Buttons -->
+      <article class="sketchc-card" aria-labelledby="grp-buttons">
+        <h2 id="grp-buttons" class="sketchc-card-title">Buttons</h2>
+        <div class="sketchc-buttons">
+          <button class="sketchc-btn sketchc-btn-primary">Primary</button>
+          <button class="sketchc-btn sketchc-btn-secondary">Secondary</button>
+          <button class="sketchc-btn sketchc-btn-outline">Outline</button>
+          <button class="sketchc-btn sketchc-btn-doodle">Doodle</button>
+          <button class="sketchc-btn sketchc-btn-ghost">Ghost</button>
+          <button class="sketchc-btn sketchc-btn-danger">Danger</button>
+        </div>
+      </article>
+
+      <!-- Cards -->
+      <article class="sketchc-card" aria-labelledby="grp-cards">
+        <h2 id="grp-cards" class="sketchc-card-title">Cards</h2>
+        <div class="sketchc-cards">
+          <div class="sketchc-postit">Post-it note<br/><small>sticky</small></div>
+          <div class="sketchc-notebook">
+            <div class="sketchc-rule"></div>
+            <h3>Notebook</h3>
+            <p>Hand lines & punch holes</p>
+          </div>
+          <div class="sketchc-whiteboard">
+            <h3>Whiteboard</h3>
+            <p>Quick brainstorm area</p>
+          </div>
+          <div class="sketchc-doodle">
+            <h3>Doodle</h3>
+            <p>Freehand playful frame</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Forms -->
+      <article class="sketchc-card" aria-labelledby="grp-forms">
+        <h2 id="grp-forms" class="sketchc-card-title">Forms</h2>
+        <form class="sketchc-form" onsubmit="return false;">
+          <label class="sketchc-label">Name
+            <input class="sketchc-input" placeholder="Enter your name"/>
+          </label>
+          <label class="sketchc-label">Comments
+            <textarea class="sketchc-textarea" rows="3" placeholder="Write something..."></textarea>
+          </label>
+          <div class="sketchc-form-row">
+            <label class="sketchc-checkbox"><input type="checkbox"/> Remember</label>
+            <label class="sketchc-radio"><input name="r" type="radio"/> Option A</label>
+            <label class="sketchc-radio"><input name="r" type="radio"/> Option B</label>
+            <label class="sketchc-slider"><input type="range" min="0" max="100" value="60"/></label>
+          </div>
+          <button class="sketchc-btn sketchc-btn-primary" type="submit">Submit</button>
+        </form>
+      </article>
+
+      <!-- Timeline (⭐) -->
+      <article class="sketchc-card" aria-labelledby="grp-timeline">
+        <h2 id="grp-timeline" class="sketchc-card-title">Timeline</h2>
+        <ol class="sketchc-timeline">
+          <li>
+            <div class="dot"></div>
+            <h3>Idea</h3>
+            <p>Capture concepts on sticky notes.</p>
+          </li>
+          <li>
+            <div class="dot"></div>
+            <h3>Sketch</h3>
+            <p>Draw flows with arrows and markers.</p>
+          </li>
+          <li>
+            <div class="dot"></div>
+            <h3>Prototype</h3>
+            <p>Validate interactions with users.</p>
+          </li>
+          <li>
+            <div class="dot"></div>
+            <h3>Release</h3>
+            <p>Ship the MVP and iterate fast.</p>
+          </li>
+        </ol>
+        <svg class="sketchc-arrow" viewBox="0 0 120 20" aria-hidden="true"><path d="M2 10 Q 60 -4 118 10"/></svg>
+      </article>
+
+      <!-- List View (⭐ Draggable sticky notes) -->
+      <article class="sketchc-card" aria-labelledby="grp-list">
+        <h2 id="grp-list" class="sketchc-card-title">List View</h2>
+        <ul id="sketchc-draglist" class="sketchc-draglist" aria-label="Draggable list">
+          <li draggable="true"><input type="checkbox"/> Brainstorm topics</li>
+          <li draggable="true"><input type="checkbox"/> Create wireframes</li>
+          <li draggable="true"><input type="checkbox"/> Review with team</li>
+          <li draggable="true"><input type="checkbox"/> Prepare sprint</li>
+        </ul>
+        <p class="sketchc-hint">Drag items to reorder</p>
+      </article>
+
+      <!-- Loading Animations (⭐) -->
+      <article class="sketchc-card" aria-labelledby="grp-loading">
+        <h2 id="grp-loading" class="sketchc-card-title">Loading Animations</h2>
+        <div class="sketchc-loaders">
+          <div class="loader-pencil" aria-label="Pencil draw" role="status"><span></span></div>
+          <div class="loader-flip" aria-label="Note flip" role="status"><span>Note</span></div>
+          <div class="loader-scribble" aria-label="Doodle scribble" role="status"></div>
+        </div>
+      </article>
+
+      <!-- Navigation / Badges / Alerts / Tooltips / Progress / Table / Accordion / Avatars / Icons / Dividers / Dropdowns / Pagination / Tabs -->
+      <article class="sketchc-card" aria-labelledby="grp-others">
+        <h2 id="grp-others" class="sketchc-card-title">More Components</h2>
+        <div class="sketchc-more">
+          <div class="sketchc-badges">
+            <span class="badge badge-green">New</span>
+            <span class="badge badge-blue">Beta</span>
+            <span class="badge badge-orange">Hot</span>
+          </div>
+          <div class="sketchc-alerts">
+            <div class="alert alert-info">Heads up! This is a sketch.</div>
+            <div class="alert alert-warning">Be careful with changes.</div>
+          </div>
+          <div class="sketchc-tooltips">
+            <button class="sketchc-btn sketchc-btn-outline tooltip-parent">Hover me
+              <span class="tooltip">Hello!</span>
+            </button>
+          </div>
+          <div class="sketchc-progress">
+            <div class="bar"><div style="width: 60%"></div></div>
+          </div>
+          <div class="sketchc-table-wrap">
+            <table class="sketchc-table" aria-label="Demo table">
+              <thead><tr><th>Task</th><th>Status</th><th>Owner</th></tr></thead>
+              <tbody>
+                <tr><td>Sketch UI</td><td>Active</td><td>Alex</td></tr>
+                <tr><td>Timeline</td><td>In Progress</td><td>Bea</td></tr>
+                <tr><td>Draggable List</td><td>Done</td><td>Chris</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <details class="sketchc-accordion">
+            <summary>Accordion Section</summary>
+            <p>Hand-drawn borders with soft motion.</p>
+          </details>
+          <div class="sketchc-avatars">
+            <span class="avatar" aria-label="A"></span>
+            <span class="avatar" aria-label="B"></span>
+            <span class="avatar" aria-label="C"></span>
+          </div>
+          <div class="sketchc-dividers"><hr/><hr class="doodle"/></div>
+          <div class="sketchc-dropdown">
+            <button class="sketchc-btn sketchc-btn-ghost" id="ddBtn">Dropdown</button>
+            <ul class="dropdown" id="ddMenu" role="menu" aria-hidden="true">
+              <li role="menuitem"><a href="javascript:void(0)">Action</a></li>
+              <li role="menuitem"><a href="javascript:void(0)">Another</a></li>
+              <li role="menuitem"><a href="javascript:void(0)">Something</a></li>
+            </ul>
+          </div>
+          <div class="sketchc-tabs" role="tablist" aria-label="Tabs">
+            <button class="tab active" role="tab" aria-selected="true">One</button>
+            <button class="tab" role="tab">Two</button>
+            <button class="tab" role="tab">Three</button>
+          </div>
+          <nav class="sketchc-pagination" aria-label="Pagination">
+            <button class="page" aria-label="Previous">‹</button>
+            <button class="page active">1</button>
+            <button class="page">2</button>
+            <button class="page">3</button>
+            <button class="page" aria-label="Next">›</button>
+          </nav>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="sketchc-footer">
+    <p>© 2025 Sketch UI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll to top
+    (function(){
+      const btn = document.getElementById('scrollTopBtn');
+      if(btn){ btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'})); }
+    })();
+
+    // Draggable list view
+    (function(){
+      const list = document.getElementById('sketchc-draglist');
+      if(!list) return;
+      let dragEl = null;
+      list.addEventListener('dragstart', (e) => {
+        dragEl = e.target.closest('li');
+        e.dataTransfer.effectAllowed = 'move';
+        dragEl.classList.add('dragging');
+      });
+      list.addEventListener('dragend', () => {
+        if(dragEl) dragEl.classList.remove('dragging');
+        dragEl = null;
+      });
+      list.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        const after = Array.from(list.querySelectorAll('li:not(.dragging)'))
+          .find(li => e.clientY <= li.getBoundingClientRect().top + li.offsetHeight/2);
+        const cur = list.querySelector('li.dragging');
+        if(!cur) return;
+        if(after) list.insertBefore(cur, after); else list.appendChild(cur);
+      });
+    })();
+
+    // Dropdown
+    (function(){
+      const btn = document.getElementById('ddBtn');
+      const menu = document.getElementById('ddMenu');
+      if(!btn || !menu) return;
+      const toggle = () => {
+        const show = menu.getAttribute('aria-hidden') !== 'false';
+        menu.setAttribute('aria-hidden', show ? 'false' : 'true');
+      };
+      btn.addEventListener('click', toggle);
+      document.addEventListener('click', (e)=>{ if(!btn.contains(e.target) && !menu.contains(e.target)) menu.setAttribute('aria-hidden','true'); });
+    })();
+
+    // Loading animations loop (flip text)
+    (function(){
+      const el = document.querySelector('.loader-flip span');
+      if(!el) return;
+      const words = ['Note','Sketch','Draw'];
+      let i=0; setInterval(()=>{ i=(i+1)%words.length; el.textContent = words[i]; }, 1800);
+    })();
+  </script>
+
+</body>
+</html>

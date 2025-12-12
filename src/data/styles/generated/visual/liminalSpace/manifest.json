@@ -1,0 +1,32 @@
+{
+  "id": "visual-liminalSpace",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "Liminal Space 边界空间",
+      "en-US": "Liminal Space"
+    },
+    "description": {
+      "zh-CN": "介于存在与虚无之间的暧昧过渡空间设计，营造空旷、不安、介于真实与虚幻之间的数位美学体验。",
+      "en-US": "Ambiguous transitional space design between existence and nothingness, creating a vacant, unsettling digital aesthetic experience between reality and virtuality."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-liminalSpace-vacant-space",
+      "title": {
+        "zh-CN": "虚空空间 VACANT_SPACE.EXE",
+        "en-US": "Vacant Space VACANT_SPACE.EXE"
+      }
+    },
+    {
+      "id": "visual-liminalSpace-digital-museum",
+      "title": {
+        "zh-CN": "数位博物馆档案馆",
+        "en-US": "Digital Museum Archive"
+      }
+    }
+  ]
+}

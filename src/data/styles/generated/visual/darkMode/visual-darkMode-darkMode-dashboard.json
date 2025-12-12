@@ -1,0 +1,11 @@
+{
+  "id": "visual-darkMode-darkMode-dashboard",
+  "title": {
+    "zh-CN": "深色开发者工具仪表盘",
+    "en-US": "Developer Tools Dashboard"
+  },
+  "description": {
+    "zh-CN": "深色霓虹强调的开发者面板，包含终端卡片、性能图表与代码展示区。",
+    "en-US": "Dark neon-accented developer dashboard with terminal cards, performance charts, and code display areas."
+  }
+}

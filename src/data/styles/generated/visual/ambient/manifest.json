@@ -1,0 +1,25 @@
+{
+  "id": "visual-ambient",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "环境光",
+      "en-US": "Ambient Light"
+    },
+    "description": {
+      "zh-CN": "柔和光晕，径向模糊，氛围渲染",
+      "en-US": "Soft halo with radial blur and atmospheric rendering"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-ambient-default",
+      "title": {
+        "zh-CN": "环境光预设",
+        "en-US": "Ambient Default"
+      }
+    }
+  ]
+}

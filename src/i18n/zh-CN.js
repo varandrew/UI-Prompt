@@ -4,6 +4,7 @@ export default {
     "home": "首页",
     "allStyles": "风格",
     "allComponents": "组件",
+    "about": "关于",
     "core": "核心风格",
     "visualDesign": "视觉设计",
     "typography": "排版",
@@ -16,14 +17,29 @@ export default {
     "additional": "新增风格",
     "new-trend": "新趋势",
     "navigation": "导航",
-    "forms": "表单",
     "dataDisplay": "数据展示",
     "feedback": "反馈",
     "advanced": "高级",
     "interactive": "互动特效",
     "inputEnhanced": "输入增强",
     "specialViews": "特殊视图",
-    "visualEffects": "视觉特效"
+    "visualEffects": "视觉特效",
+
+    // 次級分類 (Secondary Categories)
+    "nature": "自然元素",
+    "translucent": "半透明",
+    "gradient": "渐变色彩",
+    "light": "光效",
+    "tech": "科技",
+    "texture": "纹理质感",
+    "digital": "数字复古",
+    "print": "印刷设计",
+    "luxury": "奢华风格",
+    "academic": "学术风格",
+    "editorial": "编辑排版",
+    "effectDriven": "效果驱动",
+    "playful": "趣味童趣",
+    "creative": "创意设计"
   },
   "header": {
     "appName": "UI Design Prompt",
@@ -48,6 +64,7 @@ export default {
     "clearFilters": "清除筛选",
     "clear": "清除",
     "close": "关闭",
+    "gotIt": "知道了，谢谢！",
     "totalCount": "共 {total} 项 ({styles} 个风格 + {components} 个组件)",
     "foundResults": "找到 {count} 个符合条件的风格",
     "showingAll": "显示全部 {count} 个风格",
@@ -63,9 +80,7 @@ export default {
     "backToGallery": "返回画廊",
     "loadFailed": "载入失败，请稍后重试。",
     "variantsCount": "共 {count} 个变体示例",
-    "new": "新增",
-    "updated": "已更新",
-    "lastUpdated": "最近更新"
+    "templatesCount": "{count} 个模板"
   },
   "toast": {
     "copied": "已复制到剪贴板",
@@ -76,8 +91,19 @@ export default {
     "testText": "测试文本"
   },
   "pages": {
-    "forms": {
-      "subtitle": "表单输入与控制组件"
+    "about": {
+      "title": "关于 UI Design Prompt",
+      "subtitle": "让 AI 生成的 UI 不再千篇一律",
+      "problemTitle": "我们发现的问题",
+      "problemDesc": "当每个人都用相同的 Prompt 请 AI 生成 UI，结果就是千篇一律的设计。缺乏统一的设计语言、细节粗糙、代码混乱...",
+      "solutionTitle": "我们的解决方案",
+      "solutionDesc": "我们整理了 70+ 种经过实战验证的设计风格，每个风格都有完整的 Prompt 模板和 CSS 规范。复制、粘贴、生成 — 就这么简单。",
+      "philosophyTitle": "设计哲学",
+      "philosophyDesc": "极简外壳，真实演示。我们相信好的工具应该让创作者专注于创作本身。",
+      "contactTitle": "联系我们",
+      "githubRepo": "GitHub 仓库",
+      "author": "作者",
+      "website": "网站"
     },
     "layout": {
       "subtitle": "内容的组织和排列方式"
@@ -129,15 +155,9 @@ export default {
     "additional": {
       "subtitle": "额外的设计风格与交互模式"
     },
-    "newTrend": {
-      "subtitle": "2025年设计趋势与新兴美学"
-    },
     "components": {
       "navigation": {
         "subtitle": "导航栏、标签页、分页等导航组件"
-      },
-      "forms": {
-        "subtitle": "基础表单输入与控制组件"
       },
       "dataDisplay": {
         "subtitle": "表格、卡片、列表等数据展示组件"
@@ -243,6 +263,10 @@ export default {
   "preview": {
     "modeLabel": "预览模式:",
     "noContent": "无预览内容",
+    "noTemplateTitle": "暂无网站模板",
+    "noTemplateDescription": "此设计风格暂时还没有完整的网站模板示例。我们正在努力为您准备更多高质量的模板，敬请期待！",
+    "noTemplateHint": "您可以点击「AI Prompt」按钮查看该风格的设计指南和生成提示",
+    "incompleteContent": "此模板仅显示简化内容，完整版本正在开发中。",
     "main": "主要展示",
     "title": "{title} - 预览",
     "fullTitle": "{title} - 完整预览",
@@ -324,18 +348,6 @@ export default {
   },
   "data": {
     "components": {
-      "forms": {
-        "coming-soon": {
-          "title": "表单组件",
-          "description": "表单组件正在开发中，敬请期待",
-          "variants": {
-            "placeholder": {
-              "name": "敬请期待",
-              "description": "表单组件即将上线"
-            }
-          }
-        }
-      },
       "input": {
         "autocomplete-search": {
           "description": "自动完成搜索组件，支持智能建议和键盘导航",
@@ -1375,10 +1387,6 @@ export default {
           "title": "科技公司主页",
           "description": "模拟专业科技设备的金属与玻璃质感，展示现代科技公司的企业形象"
         },
-        "homeOfficeDashboard": {
-          "title": "居家办公仪表板",
-          "description": "模拟真实办公室环境的数字工作空间，打造温暖亲切的 home office 氛围"
-        },
         "vintageLibraryLanding": {
           "title": "复古图书馆页面",
           "description": "古典图书馆美学，羊皮纸质感与蜡封装饰元素的知识殿堂"
@@ -1399,13 +1407,10 @@ export default {
           "vintageAudioPanel": "复古音响控制面板",
           "vintageAudioPanelDesc": "模拟70-80年代高端音响设备，展示拟物化设计的经典特征。包含深色皮革背景纹理、拉丝金属边框、木质装饰条、玻璃显示屏（VU音量表盘）、金属旋钮控制器（音量/低音）、发光LED指示灯（红/绿/蓝）、凸起物理按钮、撥桿开关等真实交互元素。",
           "techCompanyDesc": "模拟专业科技设备的金属与玻璃质感，展示现代科技公司的企业形象。包含发光 LED 指示灯、金属旋钮控制器、玻璃面板效果、聚光灯产品展示等拟物化元素。",
-          "homeOfficeDesc": "模拟真实办公室环境的数字工作空间。结合木质纹理、皮革材质、便签纸、翻页日历、文件柜抽屉等办公用品的物理质感，打造温暖亲切的 home office 氛围。",
           "vintageAudioPanelColorScheme": "主色深棕皮革 (#2C2420)、黑色拉丝金属 (#1A1A1A, #4A4A4A)、木质装饰 (#5D4E37, #3D2E17)、深绿显示屏 (#0A1A0A)、终端绿文字 (#4ADE80)、LED红色 (#FF0000)、LED绿色 (#00FF00)、LED蓝色 (#00AAFF)、金属旋钮 (#7A7A7A, #6A6A6A)、按钮红色 (#C41E3A)",
           "techCompanyColorScheme": "主色深灰金属 (#2A2A2A)、金属渐变 (#404040, #1A1A1A)、强调色金色 (#D4AF37)、LED绿色 (#00FF41)、LED蓝色 (#00D9FF)、LED橙色 (#FFA500)、玻璃效果半透明白 (rgba(255,255,255,0.1-0.3))",
-          "homeOfficeColorScheme": "主色木质棕色 (#8B4513, #A0522D)、皮革棕 (#654321)、便签黄色 (#FFE066)、便签粉色 (#FFB3BA)、便签绿色 (#BAFFC9)、便签蓝色 (#BAE1FF)、LCD绿色 (#00FF41)、金属银色 (#C0C0C0)",
           "vintageLibraryColorScheme": "主色羊皮纸 (#F5E6D3)、深棕皮革 (#5C4033)、黄铜金属 (#B87333)、深褐文字 (#3E2723)、酒红色 (#8B4513)、橡木色 (#8B7355)、古董白 (#FAEBD7)、蜡封红/绿/蓝/金",
           "techCorpHomepage": "科技公司主页",
-          "homeOfficeDashboard": "居家办公仪表板",
           "vintageLibraryLanding": "复古图书馆页面",
           "leatherTexture": "皮革质感 - 旅行日志",
           "leatherTextureDesc": "模拟旅行者手工皮革笔记本，融合邮票样式卡片、Polaroid相片墙、手写日记页面等复古元素。包含深褐色皮革背景纹理、邮票锯齿边缘、旅行印章装饰、黄铜徽章、手写字体标题、透明胶带效果、装订线细节等真实质感元素。",
@@ -1606,10 +1611,6 @@ export default {
         "title": "黏土质感",
         "description": "Claymorphism 是 3D 黏土质感设计风格，适合创意设计、插画风格和儿童产品。通过多层内外阴影、柔和的色彩渐变和圆润的造型，创造如同真实黏土般的立体触感和柔软质地，营造温暖、友好、富有触感的氛围。"
       },
-      "claymation": {
-        "title": "黏土动画玩具",
-        "description": "Claymation 是定格动画玩具风格，灵感来自经典定格动画（如《超级无敌掌门狗》《小鸡快跑》）。使用极度圆润的形状、明亮糖果色渐变和角色化设计（表情、眼睛），模拟手工黏土玩具的质感和童趣，营造温暖、可爱、富有想象力的视觉体验。适合儿童教育、玩具电商、轻松小游戏等需要降低使用门槛的产品。"
-      },
       "neumorphismDark": {
         "title": "新拟态暗色",
         "description": "Neumorphism Dark 是新拟态设计的暗色版本，适合现代暗色主题应用和夜间模式界面。使用柔和的阴影和高光在深色背景上创造微妙的立体感，配合紫色强调色，营造优雅、现代、低调的氛围。"
@@ -1643,7 +1644,7 @@ export default {
         }
       },
       "3d-elements": {
-        "title": "3D Elements 3D 元素",
+        "title": "3D 元素",
         "description": "具有深度、阴影和透视效果的三维设计元素。",
         "previews": {
           "productShowcase": "3D 产品展示平台",
@@ -1659,6 +1660,18 @@ export default {
       "kineticTypography": {
         "title": "动态排版",
         "description": "使用 CSS 动画创建动态文字效果，让文字本身成为视觉焦点，通过脉冲、弹跳、渐变等效果营造强烈视觉冲击力。"
+      },
+      "typographyFirst": {
+        "title": "排版优先",
+        "description": "排版优先的设计哲学，将文字本身作为设计的绝对主角。通过超大字重、文字描邊、漸變填充和互動效果，展示現代排版美学。",
+        "colorScheme": "深黑背景 (#080808) 配淡白文字 (#f4f4f0)、文字漸變（白色→中灰 #666666）、低透明度白色邊框（border-white/10）",
+        "features": [
+          "超大响应式标题（clamp 流畅缩放）",
+          "文字描邊效果（Text Stroke）",
+          "漸變文字填充（Gradient Text）",
+          "Scroll 動畫揭示",
+          "Hover 互動效果"
+        ]
       },
       "anti-design": {
         "title": "反设计",
@@ -1733,10 +1746,6 @@ export default {
           "componentsDesc": "18+ 手绘风格 UI 组件展示，包含按钮、卡片、表单元素、时间线、可拖放列表、加载动画、徽章、警告框、提示框、手风琴、表格等完整交互组件"
         }
       },
-      "translucent": {
-        "title": "透明质感",
-        "description": "通过透明度、背景模糊和光影穿透创造层次丰富的视觉效果"
-      },
       "glassmorphism": {
         "title": "Glassmorphism（玻璃态）",
         "description": "使用毛玻璃效果和背景模糊创造现代、通透的界面设计，带来轻盈悬浮的视觉体验",
@@ -1767,33 +1776,13 @@ export default {
         "title": "极光玻璃",
         "description": "渐变极光色彩，动态光影，流动透明"
       },
-      "translucentLayers": {
-        "title": "透明层叠",
-        "description": "多层透明叠加，景深效果，空间层次"
-      },
       "gradient": {
         "title": "渐变效果",
         "description": "多种渐变技术（线性、径向、圆锥、网格）创造丰富色彩过渡"
       },
-      "meshGradient": {
-        "title": "网格渐变",
-        "description": "多个径向渐变叠加，创造复杂网格色彩"
-      },
       "holographic": {
         "title": "全息渐变",
         "description": "彩虹色谱，动态色相旋转，未来感光效"
-      },
-      "colorTransition": {
-        "title": "色彩过渡",
-        "description": "平滑色彩流动，多停靠点渐变，和谐过渡"
-      },
-      "animatedGradient": {
-        "title": "动画渐变",
-        "description": "渐变位置动画，色彩循环变化，动态背景"
-      },
-      "threed": {
-        "title": "3D 效果",
-        "description": "使用 CSS 3D 变换、透视和阴影创造立体空间效果"
       },
       "isometric": {
         "title": "等距投影",
@@ -1815,10 +1804,6 @@ export default {
         "title": "3D 立方体",
         "description": "六面立方体，透视旋转，完整 3D 结构"
       },
-      "shape": {
-        "title": "形状设计",
-        "description": "通过 CSS 和 SVG 创造有机形状、几何图形和动态变形效果"
-      },
       "geometric": {
         "title": "几何图形",
         "description": "规则多边形，对称布局，数学美感"
@@ -1834,10 +1819,6 @@ export default {
       "polygon": {
         "title": "多边形",
         "description": "clip-path 裁剪，三角形、六边形，几何拼接"
-      },
-      "texture": {
-        "title": "纹理质感",
-        "description": "使用 CSS 渐变、滤镜和图案创造各种材质纹理效果"
       },
       "clayTexture": {
         "title": "黏土质感",
@@ -1857,7 +1838,11 @@ export default {
       },
       "leather": {
         "title": "皮革质感",
-        "description": "皮革纹理，凹凸效果，高级材质"
+        "description": "皮革纹理，凹凸效果，高级材质",
+        "vintageJournal": {
+          "title": "复古旅行日志",
+          "description": "模拟旅行者手工皮革笔记本，融合邮票样式卡片、Polaroid相片墙、手写日记页面等复古元素"
+        }
       },
       "light": {
         "title": "光效设计",
@@ -1874,10 +1859,6 @@ export default {
       "glow": {
         "title": "发光效果",
         "description": "box-shadow 发光，脉冲动画，呼吸灯效"
-      },
-      "backlight": {
-        "title": "背光效果",
-        "description": "旋转渐变边框，::before 伪元素，背光装饰"
       },
       "spotlight": {
         "title": "聚光灯",
@@ -2000,7 +1981,7 @@ export default {
       },
       "retroOS": {
         "title": "复古操作系统",
-        "description": "Windows 95/98 操作系统，CRT 显示器 + 桌面 UI + 像素图标",
+        "description": "Windows 95/98时代的经典图形用户界面设计，完美重现了个人电脑黄金时代的视觉语言。采用标志性的16色像素图标、3D浮雕按钮效果、灰色系统窗口和经典的「开始」菜单设计。这一风格以拟物化的桌面隐喻为核心，通过可拖动的窗口、任务栏、系统托盘和文件夹层级结构，创造出直观且富有触感的交互体验。视觉元素包括CRT显示器的厚重边框感、MS Sans Serif字体、彩色滚动条和Windows经典主题配色，完整保留了90年代计算机界面的复古质感。适合怀旧主题应用、复古游戏模拟器、桌面工具和教育性历史展示，唤起千禧年前后个人电脑普及时代的温暖回忆。",
         "retroOS95": {
           "title": "Windows 95",
           "description": "Windows 95/98 风格界面，经典桌面操作系统"
@@ -2008,7 +1989,7 @@ export default {
       },
       "retroFuturism": {
         "title": "复古未来主义",
-        "description": "1980年代 DOS 终端，磷光文字 + ASCII 艺术 + 扫描线效果",
+        "description": "1980年代复古科幻风格的数字美学，灵感源自早期计算机终端和科幻电影中的未来想象。采用标志性的磷光绿色或琥珀色单色文字、复古CRT扫描线效果、ASCII艺术图形和等宽字体排版，营造出神秘的黑客文化氛围。这一风格重现了DOS时代、早期Unix系统和大型机终端的视觉特征，通过像素化图标、命令行界面元素和数字网格背景，展现了人类对计算机技术初期的敬畏与探索精神。适合科技主题、编程工具、网络安全平台和怀旧游戏界面，完美诠释了赛博朋克文化的起源和早期数字革命的粗粝质感。",
         "retroFuture": {
           "title": "DOS 终端",
           "description": "1980年代 DOS 终端风格，黑客美学"
@@ -2037,7 +2018,7 @@ export default {
       },
       "frutigerAero": {
         "title": "Frutiger Aero",
-        "description": "Y2K 未来主义，玻璃质感 + 水晶气泡 + 天空蓝渐变",
+        "description": "2000年代中期流行的标志性设计风格，以Windows Vista和Mac OS X为代表，采用多层次的透明玻璃质感、飘浮的水晶气泡和天空蓝渐变色彩。这一风格融合了Y2K时代的科技乐观主义与自然有机美学，通过半透明材质、柔和阴影、光泽高光和流动的自然元素（如水滴、云朵、草地），创造出既现代又亲和的视觉体验。适合展示科技产品、操作系统界面和强调透明度与深度感的现代应用，完美诠释了2000年代对未来数字世界的美好想象。",
         "frutigerAeroOS": {
           "title": "Aero 操作系统",
           "description": "Windows Vista/7 风格玻璃质感界面"
@@ -2148,8 +2129,8 @@ export default {
         "description": "互动式粒子追踪和 3D 视差效果展示"
       },
       "mouseTracking": {
-        "title": "鼠标追踪互动",
-        "description": "Canvas 粒子系统配合 3D 视差卡片的未来感互动设计"
+        "title": "鼠标追踪",
+        "description": "专注指针随动与光晕响应的鼠标追踪效果，突出光标位置反馈"
       }
     },
     "accessibilityHighContrast": {
@@ -2187,33 +2168,6 @@ export default {
       "preview": {
         "outlineBusiness": "Business Website",
         "outlineElearning": "E-learning Platform"
-      }
-    },
-    "newTrend": {
-      "maximalism": {
-        "title": "极繁主义",
-        "description": "当代流行、粗犷大胆、多彩缤纷、实验性的设计风格",
-        "colorScheme": "金色 (#FFD700)、霓虹粉 (#FF69B4)、紫色 (#9370DB)、黑色背景 (#000000)"
-      },
-      "scandi": {
-        "title": "斯堪的纳维亚风格",
-        "description": "当代流行、极简主义、简洁、有机流动，灵感来自北欧美学的设计风格",
-        "colorScheme": "米白色 (#F5F5F0)、浅灰 (#E5E5E0)、深灰文字 (#2C2C2C)、绿植绿 (#A8B5A0)"
-      },
-      "memphis": {
-        "title": "孟菲斯设计",
-        "description": "复古怀旧、粗犷大胆、几何规整、多彩缤纷的 1980 年代设计运动",
-        "colorScheme": "明黄色 (#FFD700)、青色 (#00CED1)、粉红色 (#FF69B4)、黑色 (#000000)"
-      },
-      "claymation": {
-        "title": "黏土动画风格",
-        "description": "当代流行、有机流动、多彩缤纷、创意展示，具有趣味黏土动画美学的设计风格",
-        "colorScheme": "粉红渐变 (#FF69B4)、蓝色渐变 (#5B9EF5)、黄色按钮 (#FFC107)、白色 (#FFFFFF)"
-      },
-      "corporate": {
-        "title": "企业风格",
-        "description": "专业企业设计、简洁有序、适合企业应用和商业平台的设计风格",
-        "colorScheme": "蓝色主色 (#2563EB)、灰色背景 (#F9FAFB)、白色 (#FFFFFF)、中性灰 (#6B7280)"
       }
     },
     "additionalColorSchemes": {
@@ -2390,12 +2344,6 @@ export default {
       "uk": "英国",
       "message": "留言",
       "messagePlaceholder": "请输入您的留言..."
-    },
-    "forms": {
-      "comingSoon": {
-        "title": "表单组件即将上线",
-        "description": "我们正在努力开发更多精美的表单组件，敬请期待！"
-      }
     },
     "interactive": {
       "hoverEffectsTitle": "悬停效果展示",
@@ -3295,9 +3243,6 @@ export default {
       "minimal": {
         "label": "极简主义"
       },
-      "translucent": {
-        "label": "半透明"
-      },
       "colorful": {
         "label": "多彩缤纷"
       },
@@ -3543,7 +3488,10 @@ export default {
       "accessibilityDesc": "所有组件遵循 WCAG 标准，支持键盘导航和屏幕阅读器",
       "responsive": "响应式设计",
       "responsiveDesc": "Mobile-first 设计，完美适配手机、平板、桌面设备",
-      "note": "点击卡片探索更多功能细节"
+      "note": "点击卡片探索更多功能细节",
+      "clickToExplore": "点击探索更多功能细节",
+      "techSpecs": "技术规格",
+      "techSpecsDesc": "该组件完全响应式，符合最新 WCAG 标准。专为即插即用设计。"
     },
     "howItWorks": {
       "title": "使用流程",
@@ -3562,15 +3510,23 @@ export default {
       "title": "核心优势",
       "subtitle": "对比传统 AI 生成方式，我们提供更专业的解决方案",
       "beforeTitle": "AI 直出问题",
-      "problem1": "视觉同质化 - 生成的 UI 千篇一律，缺乏辨识度",
-      "problem2": "缺乏设计语言 - 没有统一的设计系统和规范",
-      "problem3": "不够精致 - 细节处理粗糙，缺少专业感",
-      "problem4": "可维护性差 - 代码结构混乱，难以修改和扩展",
+      "problem1Title": "视觉同质化",
+      "problem1": "生成的 UI 千篇一律，缺乏辨识度",
+      "problem2Title": "缺乏设计语言",
+      "problem2": "没有统一的设计系统和规范",
+      "problem3Title": "不够精致",
+      "problem3": "细节处理粗糙，缺少专业感",
+      "problem4Title": "可维护性差",
+      "problem4": "代码结构混乱，难以修改和扩展",
       "afterTitle": "我们的解决方案",
-      "solution1": "40+ 独特风格 - 从经典到现代，每种风格都有明确的设计语言",
-      "solution2": "完整设计系统 - 提供结构化的 Prompt 模板和设计规范",
-      "solution3": "实战验证模板 - 每个模板都经过实际项目验证",
-      "solution4": "结构化 Prompt - 生成的代码遵循最佳实践，易于维护",
+      "solution1Title": "40+ 独特风格",
+      "solution1": "从经典到现代，每种风格都有明确的设计语言",
+      "solution2Title": "完整设计系统",
+      "solution2": "提供结构化的 Prompt 模板和设计规范",
+      "solution3Title": "实战验证模板",
+      "solution3": "每个模板都经过实际项目验证",
+      "solution4Title": "结构化 Prompt",
+      "solution4": "生成的代码遵循最佳实践，易于维护",
       "cta": "开始探索风格",
       "note": "立即体验专业级 UI 设计工具"
     }

@@ -1,0 +1,17 @@
+{
+  "id": "visual-light",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "光效设计",
+      "en-US": "Light Effects"
+    },
+    "description": {
+      "zh-CN": "通过多层阴影、发光和模糊创造霓虹、氛围和聚光灯效果",
+      "en-US": "Create neon, ambient, and spotlight effects through multi-layer shadows, glow, and blur"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": []
+}

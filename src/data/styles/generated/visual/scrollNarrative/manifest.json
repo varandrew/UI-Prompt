@@ -1,0 +1,46 @@
+{
+  "id": "visual-scrollNarrative",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "滚动叙事",
+      "en-US": "Scroll Narrative"
+    },
+    "description": {
+      "zh-CN": "滚动驱动的叙事设计，通过视差效果和滚动交互讲故事，创造沉浸式体验。",
+      "en-US": "Scroll-driven narrative design with parallax effects and scroll interactions to tell stories, creating immersive experiences."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "product-feature-showcase",
+      "title": {
+        "zh-CN": "SaaS 产品功能展示",
+        "en-US": "Product Feature Showcase"
+      }
+    },
+    {
+      "id": "product-launch-timeline",
+      "title": {
+        "zh-CN": "产品发布时间轴",
+        "en-US": "Product Launch Timeline"
+      }
+    },
+    {
+      "id": "parallax-story-experience",
+      "title": {
+        "zh-CN": "视差动画叙事体验",
+        "en-US": "Parallax Story Experience"
+      }
+    },
+    {
+      "id": "vision-launch-narrative",
+      "title": {
+        "zh-CN": "视觉启航叙事",
+        "en-US": "Vision Launch Narrative"
+      }
+    }
+  ]
+}

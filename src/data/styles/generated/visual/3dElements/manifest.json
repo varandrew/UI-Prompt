@@ -1,0 +1,25 @@
+{
+  "id": "visual-3dElements",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "3D Elements 3D 元素",
+      "en-US": "3D Elements"
+    },
+    "description": {
+      "zh-CN": "具有深度、阴影和透视效果的三维设计元素。",
+      "en-US": "Three-dimensional design elements with depth, shadows, and perspective effects."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-tech-3d-elements",
+      "title": {
+        "zh-CN": "3D 元素",
+        "en-US": "3D Elements"
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+
+  /* Brutalism Complete Page Styles */
+
+  /* Navigation Link Hover */
+  nav a:hover {
+    border: 2px solid #ffffff !important;
+    background: #ff0000 !important;
+    color: #000000 !important;
+  }
+
+  /* Button Hover Effects */
+  button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  /* Input Focus Effects */
+  input:focus, select:focus {
+    outline: none;
+    border-color: #ff0000 !important;
+  }
+
+  /* Table Row Hover */
+  tbody tr:hover {
+    background: #e5e5e5 !important;
+  }
+
+  /* Footer Link Hover */
+  footer a:hover {
+    color: #ff0000 !important;
+    background: #ffffff !important;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    nav > div {
+      flex-direction: column;
+      gap: 1rem !important;
+    }
+
+    section > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    table {
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 64px !important;
+    }
+
+    h2 {
+      font-size: 32px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    nav input {
+      width: 100% !important;
+    }
+
+    h1 {
+      font-size: 48px !important;
+    }
+
+    h2 {
+      font-size: 24px !important;
+    }
+
+    table {
+      font-size: 12px;
+    }
+
+    th, td {
+      padding: 0.75rem !important;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem !important;
+      font-size: 14px !important;
+    }
+  }
+
+  /* Page Container */
+  .min-full-page {
+    min-height: 100vh;
+  }

@@ -1,0 +1,11 @@
+{
+  "id": "visual-tech-data-visualization",
+  "title": {
+    "zh-CN": "Data Visualization 数据可视化",
+    "en-US": "Data Visualization"
+  },
+  "description": {
+    "zh-CN": "专注于数据可视化的设计，包含图表、图形和分析界面。",
+    "en-US": "Data visualization focused design with charts, graphs, and analytical interfaces."
+  }
+}

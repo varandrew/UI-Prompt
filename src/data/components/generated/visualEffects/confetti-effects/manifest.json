@@ -1,0 +1,87 @@
+{
+  "id": "confetti-effects",
+  "category": "visualEffects",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.visualEffects.confetti-effects.title",
+      "en-US": "data.components.visualEffects.confetti-effects.title"
+    },
+    "description": {
+      "zh-CN": "data.components.visualEffects.confetti-effects.description",
+      "en-US": "data.components.visualEffects.confetti-effects.description"
+    },
+    "tags": [
+      "visualEffects",
+      "effect",
+      "celebration"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.minimalism.name",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.minimalism.description",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "material-design",
+      "name": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.material-design.name",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.material-design.name"
+      },
+      "description": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.material-design.description",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.material-design.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neo-brutalism",
+      "name": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.neo-brutalism.name",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.neo-brutalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.neo-brutalism.description",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.neo-brutalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.glassmorphism.name",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.glassmorphism.description",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "cyberpunk",
+      "name": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.cyberpunk.name",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.cyberpunk.name"
+      },
+      "description": {
+        "zh-CN": "data.components.visualEffects.confetti-effects.variants.cyberpunk.description",
+        "en-US": "data.components.visualEffects.confetti-effects.variants.cyberpunk.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

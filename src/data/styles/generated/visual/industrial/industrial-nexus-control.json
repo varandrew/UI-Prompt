@@ -1,0 +1,25 @@
+{
+  "id": "industrial-nexus-control",
+  "title": {
+    "zh-CN": "Nexus 控制中心",
+    "en-US": "Nexus Control Center"
+  },
+  "description": {
+    "zh-CN": "专业工业控制系统界面，包含服务器集群监控、实时事件日志、手动控制面板和KPI统计。深色网格背景搭配橙色强调，营造高科技工业氛围。",
+    "en-US": "Professional industrial control system interface featuring server cluster monitoring, real-time event logs, manual control panels, and KPI statistics. Dark grid background with orange accents creates a high-tech industrial atmosphere."
+  },
+  "renderMode": "jsx",
+  "previewId": "industrial-nexus-control",
+  "previews": [
+    {
+      "id": "industrial-nexus-control",
+      "name": {
+        "zh-CN": "Nexus 控制中心",
+        "en-US": "Nexus Control Center"
+      },
+      "type": "fullpage",
+      "renderMode": "jsx"
+    }
+  ],
+  "config": {}
+}

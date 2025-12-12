@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cyberpunk - Full Page Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+/* Cyberpunk 核心動画 */
+@keyframes cyber-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes cyber-pulse-bar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes cyber-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cyber-flow {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(150vh); opacity: 0; }
+}
+
+@keyframes cyber-scan-icon {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+}
+
+@keyframes cyber-glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* Hover 效果 */
+.cyber-nav-link:hover {
+  border: 1px solid #00ff41 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5) !important;
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px #00ff41 !important;
+}
+
+.cyber-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.4) !important;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5) !important;
+}
+
+@keyframes cyber-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cyber-hologram {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.02); opacity: 0.3; }
+}
+
+@keyframes cyber-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cyber-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes cyber-data-stream {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+@keyframes cyber-progress-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes cyber-scan-progress {
+  0% { left: -20%; }
+  100% { left: 120%; }
+}
+
+@keyframes cyber-fab-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 255, 65, 0.5); }
+  50% { transform: scale(1.1); box-shadow: 0 0 50px rgba(0, 255, 65, 0.8); }
+}
+
+/* Hover 效果 */
+.cyber-nav-link:hover {
+  border: 1px solid #00ff41 !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5) !important;
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px #00ff41 !important;
+}
+
+.cyber-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.4) !important;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5) !important;
+}
+
+table tr:hover {
+  background: rgba(0, 255, 65, 0.05) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+}
+
+footer a:hover {
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+/* 故障效果 */
+.cyber-glitch {
+  animation: cyber-glitch 5s infinite;
+}
+
+/* 響應式设計 */
+@media (max-width: 768px) {
+  .cyber-navbar > div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  h1.cyber-glitch {
+    font-size: 32px !important;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  table th, table td {
+    padding: 0.5rem !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="cyberpunk-full-page min-h-screen" style="background: #0a0a0a; color: #00ff41; font-family: 'Courier New', monospace; position: relative; overflow-x: hidden;">
+
+  <!-- 背景网格效果 -->
+  <div class="cyber-grid" style="position: fixed; inset: 0; pointer-events: none; z-index: 0; background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px); background-size: 50px 50px; perspective: 1000px; transform: rotateX(60deg) translateZ(-100px);"></div>
+
+  <!-- 掃描线動画 -->
+  <div class="cyber-scanline" style="position: fixed; inset: 0; pointer-events: none; z-index: 1; background: linear-gradient(transparent 50%, rgba(0, 255, 65, 0.03) 50%); background-size: 100% 4px; animation: cyber-scan 8s linear infinite;"></div>
+
+  <!-- 主內容容器 -->
+  <div style="position: relative; z-index: 2;">
+
+    <!-- 頂部导航欄 - 霓虹导航 -->
+    <nav class="cyber-navbar" style="position: sticky; top: 0; z-index: 50; background: rgba(10, 10, 10, 0.95); border-bottom: 2px solid #00ff41; backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;">
+
+        <!-- Logo -->
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <div style="width: 40px; height: 40px; background: #00ff41; border: 2px solid #00ffff; display: flex; align-items: center; justify-content: center; position: relative; animation: cyber-pulse 2s ease-in-out infinite;">
+            <span style="font-size: 20px; font-weight: 900; color: #0a0a0a;">C</span>
+            <div style="position: absolute; inset: -2px; border: 1px solid #00ff41; animation: cyber-rotate 3s linear infinite;"></div>
+          </div>
+          <span style="font-size: 20px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;">CYBER_TERMINAL</span>
+        </div>
+
+        <!-- 主导航 -->
+        <div style="display: flex; gap: 2rem; align-items: center;">
+          <a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ff41; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s; text-shadow: 0 0 5px #00ff41;">MONITOR</a>
+          <a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ffff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s;">TERMINAL</a>
+          <a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ffff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s;">SYSTEMS</a>
+          <a href="javascript:void(0)" class="cyber-nav-link" style="font-weight: 700; color: #00ffff; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid transparent; transition: all 0.3s;">CONFIG</a>
+        </div>
+
+        <!-- 右側工具 -->
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <!-- 終端搜索框 -->
+          <div style="position: relative;">
+            <input type="text" placeholder="SEARCH..." style="padding: 0.5rem 1rem; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41; color: #00ff41; font-family: 'Courier New', monospace; font-size: 14px; width: 180px; box-shadow: 0 0 10px rgba(0, 255, 65, 0.3); outline: none;">
+            <span style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); color: #00ff41;">🔍</span>
+          </div>
+
+          <!-- 通知圖标 -->
+          <div style="position: relative; cursor: pointer;">
+            <div style="width: 36px; height: 36px; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41; display: flex; align-items: center; justify-content: center; animation: cyber-pulse 2s ease-in-out infinite;">
+              <span style="font-size: 16px;">🔔</span>
+            </div>
+            <span style="position: absolute; top: -6px; right: -6px; background: #00ff41; color: #0a0a0a; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 900;">7</span>
+          </div>
+
+          <!-- 用戶頭像 -->
+          <div style="width: 36px; height: 36px; background: rgba(0, 255, 255, 0.2); border: 2px solid #00ffff; display: flex; align-items: center; justify-content: center; color: #00ffff; font-weight: 900; font-size: 14px; box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);">
+            H4X
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero 区塊 -->
+    <section style="background: linear-gradient(135deg, rgba(0, 255, 65, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%); padding: 4rem 2rem; border-bottom: 1px solid #00ff41; position: relative; overflow: hidden;">
+      <div style="max-width: 1400px; margin: 0 auto; position: relative; z-index: 1;">
+        <h1 class="cyber-glitch" style="font-size: 56px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41; margin: 0; line-height: 1.2; position: relative;">
+          SYSTEM_ACCESS_GRANTED
+        </h1>
+        <p style="font-size: 18px; font-weight: 400; color: #00ffff; margin-top: 1rem; max-width: 600px; text-shadow: 0 0 5px #00ffff;">
+          // Welcome to the Matrix, Neo. Your monitoring dashboard is online.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button style="padding: 0.75rem 2rem; background: transparent; color: #00ff41; border: 2px solid #00ff41; font-weight: 900; font-size: 14px; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 65, 0.3); transition: all 0.3s; font-family: 'Courier New', monospace;">
+            [ INITIALIZE ]
+          </button>
+          <button style="padding: 0.75rem 2rem; background: rgba(0, 255, 255, 0.1); color: #00ffff; border: 2px solid #00ffff; font-weight: 900; font-size: 14px; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); transition: all 0.3s; font-family: 'Courier New', monospace;">
+            [ CONNECT ]
+          </button>
+        </div>
+      </div>
+
+      <!-- 数据流背景 -->
+      <div class="cyber-dataflow" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.1; overflow: hidden;">
+        <div style="position: absolute; top: -50%; left: 10%; font-size: 12px; animation: cyber-flow 15s linear infinite; animation-delay: 0s;">010101010101</div>
+        <div style="position: absolute; top: -50%; left: 30%; font-size: 12px; animation: cyber-flow 20s linear infinite; animation-delay: 2s;">110110110110</div>
+        <div style="position: absolute; top: -50%; left: 50%; font-size: 12px; animation: cyber-flow 18s linear infinite; animation-delay: 4s;">101010101010</div>
+        <div style="position: absolute; top: -50%; left: 70%; font-size: 12px; animation: cyber-flow 22s linear infinite; animation-delay: 1s;">011011011011</div>
+        <div style="position: absolute; top: -50%; left: 90%; font-size: 12px; animation: cyber-flow 16s linear infinite; animation-delay: 3s;">100100100100</div>
+      </div>
+    </section>
+
+    <!-- 監控面板区 - 4 統計卡 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// SYSTEM_MONITOR</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+        <!-- 監控卡 1: CPU -->
+        <div class="cyber-card" style="background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); transition: all 0.3s; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0, 255, 65, 0.2), transparent); animation: cyber-pulse 2s ease-in-out infinite;"></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="width: 50px; height: 50px; background: rgba(0, 255, 65, 0.2); border: 2px solid #00ff41; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 1rem;">
+                💻
+              </div>
+              <h3 style="font-size: 12px; font-weight: 700; color: #00ffff; margin: 0; text-transform: uppercase; letter-spacing: 1px;">CPU_USAGE</h3>
+              <p style="font-size: 36px; font-weight: 900; color: #00ff41; margin: 0.5rem 0; text-shadow: 0 0 10px #00ff41;">78%</p>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: #00ff41; font-weight: 900; font-size: 14px;">↑ OPTIMAL</span>
+              </div>
+
+              <!-- 環形進度條 -->
+              <div style="margin-top: 1rem; position: relative; width: 100%; height: 8px; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41;">
+                <div style="position: absolute; top: 0; left: 0; width: 78%; height: 100%; background: #00ff41; box-shadow: 0 0 10px #00ff41; animation: cyber-pulse-bar 2s ease-in-out infinite;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 監控卡 2: GPU -->
+        <div class="cyber-card" style="background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); transition: all 0.3s; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent); animation: cyber-pulse 2s ease-in-out infinite 0.5s;"></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="width: 50px; height: 50px; background: rgba(0, 255, 255, 0.2); border: 2px solid #00ffff; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 1rem;">
+                🎮
+              </div>
+              <h3 style="font-size: 12px; font-weight: 700; color: #00ffff; margin: 0; text-transform: uppercase; letter-spacing: 1px;">GPU_USAGE</h3>
+              <p style="font-size: 36px; font-weight: 900; color: #00ffff; margin: 0.5rem 0; text-shadow: 0 0 10px #00ffff;">92%</p>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: #00ffff; font-weight: 900; font-size: 14px;">↑ HIGH</span>
+              </div>
+
+              <div style="margin-top: 1rem; position: relative; width: 100%; height: 8px; background: rgba(0, 255, 255, 0.1); border: 1px solid #00ffff;">
+                <div style="position: absolute; top: 0; left: 0; width: 92%; height: 100%; background: #00ffff; box-shadow: 0 0 10px #00ffff; animation: cyber-pulse-bar 2s ease-in-out infinite 0.3s;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 監控卡 3: 网絡流量 -->
+        <div class="cyber-card" style="background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); transition: all 0.3s; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0, 255, 65, 0.2), transparent); animation: cyber-pulse 2s ease-in-out infinite 1s;"></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="width: 50px; height: 50px; background: rgba(0, 255, 65, 0.2); border: 2px solid #00ff41; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 1rem;">
+                🌐
+              </div>
+              <h3 style="font-size: 12px; font-weight: 700; color: #00ffff; margin: 0; text-transform: uppercase; letter-spacing: 1px;">NETWORK</h3>
+              <p style="font-size: 36px; font-weight: 900; color: #00ff41; margin: 0.5rem 0; text-shadow: 0 0 10px #00ff41;">142</p>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: #00ff41; font-weight: 900; font-size: 14px;">MB/s</span>
+              </div>
+
+              <div style="margin-top: 1rem; position: relative; width: 100%; height: 8px; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41;">
+                <div style="position: absolute; top: 0; left: 0; width: 65%; height: 100%; background: #00ff41; box-shadow: 0 0 10px #00ff41; animation: cyber-pulse-bar 2s ease-in-out infinite 0.6s;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 監控卡 4: 威脅检測 -->
+        <div class="cyber-card" style="background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); transition: all 0.3s; position: relative;">
+          <div style="position: absolute; top: 0; right: 0; width: 60px; height: 60px; background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent); animation: cyber-pulse 2s ease-in-out infinite 1.5s;"></div>
+
+          <div style="display: flex; justify-content: space-between; align-items: start;">
+            <div style="flex: 1;">
+              <div style="width: 50px; height: 50px; background: rgba(0, 255, 255, 0.2); border: 2px solid #00ffff; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 1rem; animation: cyber-scan-icon 3s linear infinite;">
+                🛡️
+              </div>
+              <h3 style="font-size: 12px; font-weight: 700; color: #00ffff; margin: 0; text-transform: uppercase; letter-spacing: 1px;">SECURITY</h3>
+              <p style="font-size: 36px; font-weight: 900; color: #00ffff; margin: 0.5rem 0; text-shadow: 0 0 10px #00ffff;">0</p>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: #00ffff; font-weight: 900; font-size: 14px;">THREATS</span>
+              </div>
+
+              <div style="margin-top: 1rem; position: relative; width: 100%; height: 8px; background: rgba(0, 255, 255, 0.1); border: 1px solid #00ffff;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #00ffff; box-shadow: 0 0 10px #00ffff;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据終端区 - Data Terminal -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// DATA_TERMINAL</h2>
+
+      <div style="background: rgba(0, 0, 0, 0.8); border: 1px solid #00ff41; padding: 1.5rem; box-shadow: 0 0 20px rgba(0, 255, 65, 0.3); font-family: 'Courier New', monospace; position: relative; overflow: hidden;">
+        <!-- 終端标題欄 -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #00ff41; padding-bottom: 0.5rem;">
+          <span style="color: #00ff41; font-size: 14px; font-weight: 700;">root@cyber-terminal:~#</span>
+          <div style="display: flex; gap: 0.5rem;">
+            <span style="width: 12px; height: 12px; background: #00ff41; border-radius: 50%;"></span>
+            <span style="width: 12px; height: 12px; background: #00ffff; border-radius: 50%;"></span>
+            <span style="width: 12px; height: 12px; background: rgba(255, 255, 255, 0.3); border-radius: 50%;"></span>
+          </div>
+        </div>
+
+        <!-- 終端輸出 -->
+        <div style="color: #00ff41; font-size: 13px; line-height: 1.6; max-height: 200px; overflow-y: auto;">
+          <div style="margin-bottom: 0.5rem;">[2077-11-05 23:42:01] System initialized...</div>
+          <div style="margin-bottom: 0.5rem; color: #00ffff;">[2077-11-05 23:42:02] Network connection established</div>
+          <div style="margin-bottom: 0.5rem;">[2077-11-05 23:42:03] Loading neural interface...</div>
+          <div style="margin-bottom: 0.5rem; color: #00ffff;">[2077-11-05 23:42:04] Scanning for threats... <span style="color: #00ff41;">[OK]</span></div>
+          <div style="margin-bottom: 0.5rem;">[2077-11-05 23:42:05] Memory optimization complete</div>
+          <div style="margin-bottom: 0.5rem; color: #00ffff;">[2077-11-05 23:42:06] All systems operational</div>
+          <div style="margin-top: 1rem; display: flex; align-items: center;">
+            <span style="color: #00ff41;">root@cyber-terminal:~# </span>
+            <span style="display: inline-block; width: 8px; height: 14px; background: #00ff41; margin-left: 4px; animation: cyber-cursor 1s infinite;"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 全息投影区 - Hologram Display -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// HOLOGRAM_DISPLAY</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- 全息卡片 1 -->
+        <div style="background: rgba(0, 255, 65, 0.03); border: 1px solid #00ff41; padding: 2rem; box-shadow: 0 0 30px rgba(0, 255, 65, 0.2); position: relative; transform: perspective(1000px) rotateX(2deg); transition: all 0.3s;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid rgba(0, 255, 65, 0.3); pointer-events: none; animation: cyber-hologram 3s infinite;"></div>
+
+          <div style="position: relative; z-index: 1;">
+            <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">🔐</div>
+            <h3 style="font-size: 18px; font-weight: 700; color: #00ff41; text-align: center; margin-bottom: 1rem; text-shadow: 0 0 10px #00ff41;">ACCESS CONTROL</h3>
+            <div style="text-align: center; color: #00ffff; font-size: 14px;">
+              <p style="margin: 0.5rem 0;">Status: <span style="color: #00ff41;">ACTIVE</span></p>
+              <p style="margin: 0.5rem 0;">Level: <span style="color: #00ff41;">MAXIMUM</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 全息卡片 2 -->
+        <div style="background: rgba(0, 255, 255, 0.03); border: 1px solid #00ffff; padding: 2rem; box-shadow: 0 0 30px rgba(0, 255, 255, 0.2); position: relative; transform: perspective(1000px) rotateX(2deg); transition: all 0.3s;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid rgba(0, 255, 255, 0.3); pointer-events: none; animation: cyber-hologram 3s infinite 0.5s;"></div>
+
+          <div style="position: relative; z-index: 1;">
+            <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">📡</div>
+            <h3 style="font-size: 18px; font-weight: 700; color: #00ffff; text-align: center; margin-bottom: 1rem; text-shadow: 0 0 10px #00ffff;">NEURAL LINK</h3>
+            <div style="text-align: center; color: #00ffff; font-size: 14px;">
+              <p style="margin: 0.5rem 0;">Bandwidth: <span style="color: #00ffff;">10 GB/s</span></p>
+              <p style="margin: 0.5rem 0;">Latency: <span style="color: #00ffff;">< 1ms</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline 時間軸 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// ACTIVITY_LOG</h2>
+
+      <div style="position: relative; padding-left: 2rem;">
+        <!-- 垂直线 -->
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #00ff41, #00ffff); box-shadow: 0 0 10px #00ff41;"></div>
+
+        <!-- Timeline 項目 1 -->
+        <div style="position: relative; margin-bottom: 2rem; padding-left: 2rem;">
+          <div style="position: absolute; left: -6px; top: 0; width: 12px; height: 12px; background: #00ff41; border-radius: 50%; box-shadow: 0 0 15px #00ff41;"></div>
+          <div style="background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; padding: 1rem; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);">
+            <h4 style="color: #00ff41; font-size: 14px; font-weight: 700; margin-bottom: 0.5rem;">System Update Complete</h4>
+            <p style="color: #00ffff; font-size: 12px; margin: 0;">23:42:06 - All modules updated successfully</p>
+          </div>
+        </div>
+
+        <!-- Timeline 項目 2 -->
+        <div style="position: relative; margin-bottom: 2rem; padding-left: 2rem;">
+          <div style="position: absolute; left: -6px; top: 0; width: 12px; height: 12px; background: #00ffff; border-radius: 50%; box-shadow: 0 0 15px #00ffff;"></div>
+          <div style="background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; padding: 1rem; box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);">
+            <h4 style="color: #00ffff; font-size: 14px; font-weight: 700; margin-bottom: 0.5rem;">Security Scan</h4>
+            <p style="color: #00ffff; font-size: 12px; margin: 0;">23:42:04 - No threats detected</p>
+          </div>
+        </div>
+
+        <!-- Timeline 項目 3 -->
+        <div style="position: relative; margin-bottom: 2rem; padding-left: 2rem;">
+          <div style="position: absolute; left: -6px; top: 0; width: 12px; height: 12px; background: #00ff41; border-radius: 50%; box-shadow: 0 0 15px #00ff41;"></div>
+          <div style="background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; padding: 1rem; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);">
+            <h4 style="color: #00ff41; font-size: 14px; font-weight: 700; margin-bottom: 0.5rem;">Neural Link Established</h4>
+            <p style="color: #00ffff; font-size: 12px; margin: 0;">23:42:03 - Connection speed: 10 GB/s</p>
+          </div>
+        </div>
+
+        <!-- Timeline 項目 4 -->
+        <div style="position: relative; padding-left: 2rem;">
+          <div style="position: absolute; left: -6px; top: 0; width: 12px; height: 12px; background: #00ffff; border-radius: 50%; box-shadow: 0 0 15px #00ffff;"></div>
+          <div style="background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; padding: 1rem; box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);">
+            <h4 style="color: #00ffff; font-size: 14px; font-weight: 700; margin-bottom: 0.5rem;">System Boot</h4>
+            <p style="color: #00ffff; font-size: 12px; margin: 0;">23:42:01 - Initialization complete</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading 動画区 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// LOADING_ANIMATIONS</h2>
+
+      <div style="display: flex; gap: 4rem; flex-wrap: wrap; justify-content: center; align-items: center; padding: 2rem; background: rgba(0, 255, 65, 0.03); border: 1px solid #00ff41;">
+        <!-- Loading 1: 環形掃描器 -->
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; border: 3px solid rgba(0, 255, 65, 0.2); border-top-color: #00ff41; border-radius: 50%; animation: cyber-spin 1s linear infinite; box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);"></div>
+          <p style="color: #00ffff; font-size: 12px; margin-top: 1rem;">SCANNER</p>
+        </div>
+
+        <!-- Loading 2: 點陣脈動 -->
+        <div style="text-align: center;">
+          <div style="display: flex; gap: 8px;">
+            <span style="width: 12px; height: 12px; background: #00ff41; border-radius: 50%; animation: cyber-dot-pulse 1.4s infinite; box-shadow: 0 0 10px #00ff41;"></span>
+            <span style="width: 12px; height: 12px; background: #00ffff; border-radius: 50%; animation: cyber-dot-pulse 1.4s infinite 0.2s; box-shadow: 0 0 10px #00ffff;"></span>
+            <span style="width: 12px; height: 12px; background: #00ff41; border-radius: 50%; animation: cyber-dot-pulse 1.4s infinite 0.4s; box-shadow: 0 0 10px #00ff41;"></span>
+          </div>
+          <p style="color: #00ffff; font-size: 12px; margin-top: 1rem;">PULSE</p>
+        </div>
+
+        <!-- Loading 3: 数据流 -->
+        <div style="text-align: center;">
+          <div style="width: 60px; height: 60px; position: relative; overflow: hidden; border: 1px solid #00ff41;">
+            <div style="position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, transparent, #00ff41, transparent); animation: cyber-data-stream 2s linear infinite;"></div>
+          </div>
+          <p style="color: #00ffff; font-size: 12px; margin-top: 1rem;">DATA STREAM</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 進度條区 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// PROGRESS_BARS</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <!-- 進度條 1 -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="color: #00ff41; font-size: 14px; font-weight: 700;">Download Progress</span>
+            <span style="color: #00ffff; font-size: 14px;">85%</span>
+          </div>
+          <div style="position: relative; width: 100%; height: 12px; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41;">
+            <div style="position: absolute; top: 0; left: 0; width: 85%; height: 100%; background: linear-gradient(90deg, #00ff41, #00ffff); box-shadow: 0 0 15px #00ff41; animation: cyber-progress-glow 2s ease-in-out infinite;"></div>
+          </div>
+        </div>
+
+        <!-- 進度條 2 -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="color: #00ffff; font-size: 14px; font-weight: 700;">Upload Status</span>
+            <span style="color: #00ff41; font-size: 14px;">62%</span>
+          </div>
+          <div style="position: relative; width: 100%; height: 12px; background: rgba(0, 255, 255, 0.1); border: 1px solid #00ffff;">
+            <div style="position: absolute; top: 0; left: 0; width: 62%; height: 100%; background: #00ffff; box-shadow: 0 0 15px #00ffff; animation: cyber-progress-glow 2s ease-in-out infinite 0.5s;"></div>
+          </div>
+        </div>
+
+        <!-- 進度條 3: 掃描线效果 -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span style="color: #00ff41; font-size: 14px; font-weight: 700;">System Scan</span>
+            <span style="color: #00ffff; font-size: 14px;">100%</span>
+          </div>
+          <div style="position: relative; width: 100%; height: 12px; background: rgba(0, 255, 65, 0.1); border: 1px solid #00ff41; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #00ff41; box-shadow: 0 0 15px #00ff41;"></div>
+            <div style="position: absolute; top: 0; left: -20%; width: 20%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent); animation: cyber-scan-progress 2s linear infinite;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 按鈕組展示 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// BUTTON_VARIANTS</h2>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <!-- Primary Button -->
+        <button style="padding: 0.75rem 2rem; background: transparent; color: #00ff41; border: 2px solid #00ff41; font-weight: 900; font-size: 14px; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 65, 0.3); transition: all 0.3s; font-family: 'Courier New', monospace;">
+          [ PRIMARY ]
+        </button>
+
+        <!-- Secondary Button -->
+        <button style="padding: 0.75rem 2rem; background: rgba(0, 255, 255, 0.1); color: #00ffff; border: 2px solid #00ffff; font-weight: 900; font-size: 14px; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); transition: all 0.3s; font-family: 'Courier New', monospace;">
+          [ SECONDARY ]
+        </button>
+
+        <!-- Ghost Button -->
+        <button style="padding: 0.75rem 2rem; background: transparent; color: rgba(0, 255, 65, 0.7); border: 1px solid rgba(0, 255, 65, 0.5); font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.3s; font-family: 'Courier New', monospace;">
+          [ GHOST ]
+        </button>
+      </div>
+    </section>
+
+    <!-- 表單区 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; margin-bottom: 2rem; border-left: 4px solid #00ffff; padding-left: 1rem;">// INPUT_FORMS</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <!-- 輸入框組 -->
+        <div>
+          <label style="display: block; color: #00ff41; font-size: 12px; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">USERNAME</label>
+          <input type="text" placeholder="Enter username..." style="width: 100%; padding: 0.75rem; background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; color: #00ff41; font-family: 'Courier New', monospace; font-size: 14px; box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); outline: none;">
+        </div>
+
+        <!-- 密碼框 -->
+        <div>
+          <label style="display: block; color: #00ffff; font-size: 12px; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">PASSWORD</label>
+          <input type="password" placeholder="Enter password..." style="width: 100%; padding: 0.75rem; background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; color: #00ffff; font-family: 'Courier New', monospace; font-size: 14px; box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); outline: none;">
+        </div>
+
+        <!-- 選擇框 -->
+        <div>
+          <label style="display: block; color: #00ff41; font-size: 12px; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">ACCESS LEVEL</label>
+          <select style="width: 100%; padding: 0.75rem; background: rgba(0, 255, 65, 0.05); border: 1px solid #00ff41; color: #00ff41; font-family: 'Courier New', monospace; font-size: 14px; box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); outline: none;">
+            <option>Level 1 - Basic</option>
+            <option>Level 2 - Advanced</option>
+            <option>Level 3 - Maximum</option>
+          </select>
+        </div>
+
+        <!-- 日期選擇器 -->
+        <div>
+          <label style="display: block; color: #00ffff; font-size: 12px; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">DATE</label>
+          <input type="date" style="width: 100%; padding: 0.75rem; background: rgba(0, 255, 255, 0.05); border: 1px solid #00ffff; color: #00ffff; font-family: 'Courier New', monospace; font-size: 14px; box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); outline: none;">
+        </div>
+      </div>
+
+      <!-- 提交按鈕 -->
+      <div style="margin-top: 2rem;">
+        <button style="padding: 1rem 3rem; background: #00ff41; color: #0a0a0a; border: 2px solid #00ff41; font-weight: 900; font-size: 16px; cursor: pointer; box-shadow: 0 0 20px rgba(0, 255, 65, 0.5); transition: all 0.3s; font-family: 'Courier New', monospace; width: 100%;">
+          [ SUBMIT ]
+        </button>
+      </div>
+    </section>
+
+    <!-- 数据表格 -->
+    <section style="max-width: 1400px; margin: 0 auto; padding: 3rem 2rem;">
+      <h2 style="font-size: 24px; font-weight: 900; color: #00ff41; text-shadow: 0 0 10px #00ff41; margin-bottom: 2rem; border-left: 4px solid #00ff41; padding-left: 1rem;">// DATA_TABLE</h2>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; background: rgba(0, 255, 65, 0.03); border: 1px solid #00ff41;">
+          <thead>
+            <tr style="background: rgba(0, 255, 65, 0.1); border-bottom: 2px solid #00ff41;">
+              <th style="padding: 1rem; text-align: left; color: #00ff41; font-size: 12px; font-weight: 700; text-transform: uppercase;">ID</th>
+              <th style="padding: 1rem; text-align: left; color: #00ff41; font-size: 12px; font-weight: 700; text-transform: uppercase;">USER</th>
+              <th style="padding: 1rem; text-align: left; color: #00ff41; font-size: 12px; font-weight: 700; text-transform: uppercase;">ACTION</th>
+              <th style="padding: 1rem; text-align: left; color: #00ff41; font-size: 12px; font-weight: 700; text-transform: uppercase;">STATUS</th>
+              <th style="padding: 1rem; text-align: left; color: #00ff41; font-size: 12px; font-weight: 700; text-transform: uppercase;">TIMESTAMP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(0, 255, 65, 0.2); transition: all 0.3s;">
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">#001</td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">neo@matrix</td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">System Access</td>
+              <td style="padding: 1rem;"><span style="padding: 0.25rem 0.75rem; background: rgba(0, 255, 65, 0.2); border: 1px solid #00ff41; color: #00ff41; font-size: 12px; font-weight: 700;">SUCCESS</span></td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">23:42:06</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(0, 255, 65, 0.2); transition: all 0.3s;">
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">#002</td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">trinity@cyber</td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">Data Transfer</td>
+              <td style="padding: 1rem;"><span style="padding: 0.25rem 0.75rem; background: rgba(0, 255, 255, 0.2); border: 1px solid #00ffff; color: #00ffff; font-size: 12px; font-weight: 700;">PENDING</span></td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">23:41:58</td>
+            </tr>
+            <tr style="transition: all 0.3s;">
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">#003</td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">morpheus@red</td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">Neural Link</td>
+              <td style="padding: 1rem;"><span style="padding: 0.25rem 0.75rem; background: rgba(0, 255, 65, 0.2); border: 1px solid #00ff41; color: #00ff41; font-size: 12px; font-weight: 700;">SUCCESS</span></td>
+              <td style="padding: 1rem; color: #00ffff; font-size: 14px;">23:41:45</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAB - 浮動操作按鈕 -->
+    <button style="position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: #00ff41; color: #0a0a0a; border: 2px solid #00ffff; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 0 30px rgba(0, 255, 65, 0.5); z-index: 100; transition: all 0.3s; animation: cyber-fab-pulse 3s ease-in-out infinite;">
+      ⚡
+    </button>
+
+    <!-- Footer -->
+    <footer style="background: rgba(10, 10, 10, 0.95); border-top: 2px solid #00ff41; padding: 2rem; margin-top: 4rem;">
+      <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
+        <p style="color: #00ff41; font-size: 14px; margin-bottom: 0.5rem; text-shadow: 0 0 5px #00ff41;">© 2077 CYBER TERMINAL - ALL RIGHTS RESERVED</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 1rem;">
+          <a href="javascript:void(0)" style="color: #00ffff; font-size: 12px; text-decoration: none; transition: all 0.3s;">PRIVACY</a>
+          <a href="javascript:void(0)" style="color: #00ffff; font-size: 12px; text-decoration: none; transition: all 0.3s;">TERMS</a>
+          <a href="javascript:void(0)" style="color: #00ffff; font-size: 12px; text-decoration: none; transition: all 0.3s;">CONTACT</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+## 配色方案
+
+配色方案：霓虹粉紫 (#FF71CE)、霓虹蓝 (#01CDFE)、霓虹紫 (#B967FF)、暗紫背景 (#2E1F47)
+
+
+主色深黑 (#0a0a0a)、霓虹绿色 (#00ff41)、霓虹青色 (#00ffff)、半透明霓虹绿 (rgba(0,255,65,0.1-0.5))、半透明霓虹青 (rgba(0,255,255,0.1-0.5))
+
+</body>
+</html>

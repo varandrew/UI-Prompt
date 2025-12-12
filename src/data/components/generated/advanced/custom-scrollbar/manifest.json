@@ -1,0 +1,85 @@
+{
+  "id": "custom-scrollbar",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.advanced.custom-scrollbar.title",
+      "en-US": "data.components.advanced.custom-scrollbar.title"
+    },
+    "description": {
+      "zh-CN": "data.components.advanced.custom-scrollbar.description",
+      "en-US": "data.components.advanced.custom-scrollbar.description"
+    },
+    "tags": [
+      "advanced"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "material-design",
+      "name": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.material-design.name",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.material-design.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.material-design.description",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.material-design.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.glassmorphism.name",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.glassmorphism.description",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neon-cyberpunk",
+      "name": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.neon-cyberpunk.name",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.neon-cyberpunk.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.neon-cyberpunk.description",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.neon-cyberpunk.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "minimal-flat",
+      "name": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.minimal-flat.name",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.minimal-flat.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.minimal-flat.description",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.minimal-flat.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "gradient-rainbow",
+      "name": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.gradient-rainbow.name",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.gradient-rainbow.name"
+      },
+      "description": {
+        "zh-CN": "data.components.advanced.custom-scrollbar.variants.gradient-rainbow.description",
+        "en-US": "data.components.advanced.custom-scrollbar.variants.gradient-rainbow.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

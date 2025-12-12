@@ -1,0 +1,92 @@
+<div class="w-full max-w-2xl mx-auto space-y-6 p-6">
+            <div class="bg-black rounded-lg border-2 border-cyan-500 p-8 relative overflow-hidden" style="box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-cyan-900/20"></div>
+              <div class="relative z-10">
+                <h3 class="font-black text-2xl mb-2 text-cyan-400 uppercase" style="text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.4);">
+                  {{t:demo.confetti.cyberpunk.title}}
+                </h3>
+                <p class="text-purple-300 mb-8 text-sm font-bold">{{t:demo.confetti.cyberpunk.subtitle}}</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <!-- Neon Explosion -->
+                  <button onclick="neonConfetti()" class="confetti-btn-cyber group block p-8 bg-gradient-to-br from-cyan-500 to-blue-600 border-2 border-cyan-400 rounded-lg transition-all duration-300 hover:scale-105" style="box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);">
+                    <svg class="w-8 h-8 mx-auto mb-2 stroke-white stroke-[2]" fill="none" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <p class="font-black text-sm text-white uppercase">
+                      {{t:demo.confetti.cyberpunk.neon}}
+                    </p>
+                  </button>
+
+                  <!-- Glitch Burst -->
+                  <button onclick="glitchConfetti()" class="confetti-btn-cyber group block p-8 bg-gradient-to-br from-purple-600 to-pink-600 border-2 border-purple-400 rounded-lg transition-all duration-300 hover:scale-105" style="box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);">
+                    <svg class="w-8 h-8 mx-auto mb-2 fill-white" viewBox="0 0 24 24">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z M12 22L2 17L12 12L22 17L12 22Z"/>
+                    </svg>
+                    <p class="font-black text-sm text-white uppercase">
+                      {{t:demo.confetti.cyberpunk.glitch}}
+                    </p>
+                  </button>
+
+                  <!-- Matrix Rain -->
+                  <button onclick="matrixConfetti()" class="confetti-btn-cyber group block p-8 bg-gradient-to-br from-green-500 to-emerald-700 border-2 border-green-400 rounded-lg transition-all duration-300 hover:scale-105" style="box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);">
+                    <svg class="w-8 h-8 mx-auto mb-2 fill-white" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    <p class="font-black text-sm text-white uppercase">
+                      {{t:demo.confetti.cyberpunk.matrix}}
+                    </p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+          <script>
+            function neonConfetti() {
+              confetti({
+                particleCount: 120,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#00FFFF', '#0080FF', '#00BFFF', '#1E90FF', '#4169E1'],
+                shapes: ['square', 'circle'],
+                scalar: 1.3,
+                gravity: 1.0,
+                ticks: 250
+              });
+            }
+
+            function glitchConfetti() {
+              const count = 150;
+              const defaults = {
+                origin: { y: 0.7 },
+                colors: ['#FF00FF', '#FF1493', '#FF69B4', '#DA70D6', '#BA55D3'],
+                shapes: ['square']
+              };
+
+              function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                  particleCount: Math.floor(count * particleRatio)
+                }));
+              }
+
+              fire(0.25, { spread: 26, startVelocity: 55 });
+              fire(0.2, { spread: 60 });
+              fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+              fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            }
+
+            function matrixConfetti() {
+              confetti({
+                particleCount: 100,
+                spread: 50,
+                origin: { y: 0.6 },
+                colors: ['#00FF00', '#00FF7F', '#32CD32', '#3CB371', '#2E8B57'],
+                shapes: ['square'],
+                scalar: 1.1,
+                gravity: 1.3,
+                ticks: 200
+              });
+            }
+          </script>

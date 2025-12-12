@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "categories": {
+    "navigation": {
+      "name": {
+        "zh-CN": "导航组件",
+        "en-US": "Navigation"
+      },
+      "key": "navigation",
+      "path": "/components/navigation",
+      "components": [
+        "breadcrumbs",
+        "tabs",
+        "pagination",
+        "sidebar",
+        "stepper"
+      ]
+    },
+    "dataDisplay": {
+      "name": {
+        "zh-CN": "数据展示",
+        "en-US": "Data Display"
+      },
+      "key": "dataDisplay",
+      "path": "/components/data",
+      "components": [
+        "table-basic",
+        "card-grid",
+        "list-view",
+        "statistics-card",
+        "animated-counter"
+      ]
+    },
+    "feedback": {
+      "name": {
+        "zh-CN": "反馈组件",
+        "en-US": "Feedback"
+      },
+      "key": "feedback",
+      "path": "/components/feedback",
+      "components": [
+        "alert-messages",
+        "toast-notifications",
+        "modal-dialog",
+        "reaction-picker"
+      ]
+    },
+    "advanced": {
+      "name": {
+        "zh-CN": "高级组件",
+        "en-US": "Advanced"
+      },
+      "key": "advanced",
+      "path": "/components/advanced",
+      "components": [
+        "calendar-date-picker",
+        "file-upload",
+        "rich-text-editor",
+        "color-picker",
+        "range-slider",
+        "custom-scrollbar",
+        "scrollbar-thumb",
+        "kanban-board",
+        "code-editor",
+        "query-builder",
+        "map-picker"
+      ]
+    },
+    "input": {
+      "name": {
+        "zh-CN": "输入增强",
+        "en-US": "Input Enhanced"
+      },
+      "key": "inputEnhanced",
+      "path": "/components/input",
+      "components": [
+        "autocomplete-search",
+        "tags-input",
+        "rich-textarea"
+      ]
+    },
+    "interactive": {
+      "name": {
+        "zh-CN": "交互组件",
+        "en-US": "Interactive"
+      },
+      "key": "interactive",
+      "path": "/components/interactive",
+      "components": [
+        "hover-effects",
+        "loading-animations",
+        "tour-guide",
+        "drag-drop"
+      ]
+    },
+    "special": {
+      "name": {
+        "zh-CN": "特殊视图",
+        "en-US": "Special Views"
+      },
+      "key": "specialViews",
+      "path": "/components/special",
+      "components": [
+        "empty-state",
+        "no-search-results",
+        "404-error-page",
+        "500-error-page",
+        "maintenance-mode"
+      ]
+    },
+    "visualEffects": {
+      "name": {
+        "zh-CN": "视觉效果",
+        "en-US": "Visual Effects"
+      },
+      "key": "visualEffects",
+      "path": "/components/visual-effects",
+      "components": [
+        "confetti-effects"
+      ]
+    }
+  }
+}

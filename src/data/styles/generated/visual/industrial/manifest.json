@@ -1,0 +1,49 @@
+{
+  "id": "visual-industrial",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "工业设计",
+      "en-US": "Industrial Design"
+    },
+    "description": {
+      "zh-CN": "Industrial Design 是工业设计风格，适合技术类产品、后台管理系统和专业工具。强调功能性和实用主义美学，使用深色调、粗体大写字体、网格纹理和金属质感，营造坚固、可靠、专业的工业氛围。",
+      "en-US": "Industrial Design style is suitable for technical products, backend management systems, and professional tools. Emphasizing functionality and utilitarian aesthetics, using dark tones, bold uppercase typography, grid textures, and metallic feel, it delivers sturdy, reliable, and professional industrial atmosphere."
+    },
+    "tags": [
+      "industrial",
+      "utilitarian",
+      "technical",
+      "dark-theme"
+    ],
+    "relatedStyles": [
+      "brutalism",
+      "cyberpunk"
+    ]
+  },
+  "templates": [
+    {
+      "id": "industrial-strataos-dashboard",
+      "title": {
+        "zh-CN": "StrataOS 工业仪表板",
+        "en-US": "StrataOS Industrial Dashboard"
+      },
+      "previewId": "industrial-strataos-dashboard"
+    },
+    {
+      "id": "industrial-nexus-control",
+      "title": {
+        "zh-CN": "Nexus 控制中心",
+        "en-US": "Nexus Control Center"
+      },
+      "previewId": "industrial-nexus-control"
+    },
+    {
+      "id": "visual-industrial-analog-synth",
+      "title": {
+        "zh-CN": "模擬合成器介面",
+        "en-US": "Analog Synth Interface"
+      }
+    }
+  ]
+}

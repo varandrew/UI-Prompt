@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Museum Archive - Liminal Space</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>INJECT_STYLES_HERE</style>
+</head>
+<body class="museum-body">
+  <!-- Mouse Spotlight Effect -->
+  <div class="museum-spotlight" id="spotlight"></div>
+
+  <!-- Background Layers -->
+  <div class="museum-background">
+    <div class="museum-fog"></div>
+    <div class="museum-noise"></div>
+    <div class="museum-scanlines"></div>
+    <div class="museum-vignette"></div>
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="museum-particles">
+    <div class="museum-particle" style="left: 10%; top: 15%; --delay: 0s; --duration: 15s;"></div>
+    <div class="museum-particle" style="left: 30%; top: 45%; --delay: 3s; --duration: 18s;"></div>
+    <div class="museum-particle museum-particle-cyan" style="left: 60%; top: 25%; --delay: 6s; --duration: 14s;"></div>
+    <div class="museum-particle museum-particle-cyan" style="left: 85%; top: 65%; --delay: 9s; --duration: 16s;"></div>
+    <div class="museum-particle" style="left: 50%; top: 80%; --delay: 12s; --duration: 17s;"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="museum-header">
+    <div class="museum-container">
+      <div class="museum-header-content">
+        <div class="museum-logo">
+          <span class="museum-logo-icon">█</span>
+          <span class="museum-logo-text">ARCHIVE_SYSTEM</span>
+          <span class="museum-logo-version">v3.2.1</span>
+        </div>
+        <nav class="museum-nav">
+          <a href="javascript:void(0)" class="museum-nav-link active">CATALOG</a>
+          <a href="javascript:void(0)" class="museum-nav-link">EXHIBITS</a>
+          <a href="javascript:void(0)" class="museum-nav-link">ACCESS</a>
+        </nav>
+        <div class="museum-header-status">
+          <span class="museum-signal-indicator"></span>
+          <span class="museum-status-text">OFFLINE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="museum-hero">
+    <div class="museum-container">
+      <div class="museum-hero-content">
+        <div class="museum-timestamp">SYSTEM_TIME: 03:47:21 AM</div>
+        <h1 class="museum-title">
+          <span class="museum-title-line">DIGITAL ARCHIVE</span>
+          <span class="museum-title-line museum-title-glow">MUSEUM_v3.2.1</span>
+        </h1>
+        <p class="museum-subtitle">
+          // Preserving fragments of forgotten spaces<br/>
+          // Collection ID: DA-2025-0347
+        </p>
+        <div class="museum-camera-grid">
+          <div class="museum-camera">
+            <span class="museum-camera-led"></span>
+            <span class="museum-camera-label">CAM_01</span>
+          </div>
+          <div class="museum-camera">
+            <span class="museum-camera-led museum-led-active"></span>
+            <span class="museum-camera-label">CAM_02</span>
+          </div>
+          <div class="museum-camera">
+            <span class="museum-camera-led"></span>
+            <span class="museum-camera-label">CAM_03</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archive Grid -->
+  <section class="museum-archive">
+    <div class="museum-container">
+      <div class="museum-section-header">
+        <h2 class="museum-section-title">ARCHIVAL_RECORDS</h2>
+        <div class="museum-section-meta">
+          <span class="museum-meta-item">TOTAL: 0847</span>
+          <span class="museum-meta-divider">|</span>
+          <span class="museum-meta-item">ACTIVE: 0004</span>
+        </div>
+      </div>
+
+      <div class="museum-archive-grid">
+        <!-- Archive Item 1 -->
+        <article class="museum-item">
+          <div class="museum-item-glow"></div>
+          <div class="museum-item-header">
+            <span class="museum-item-id">RECORD_A-001</span>
+            <span class="museum-item-status museum-status-inactive">INACTIVE</span>
+          </div>
+          <div class="museum-item-image">
+            <div class="museum-placeholder"></div>
+          </div>
+          <div class="museum-item-body">
+            <h3 class="museum-item-title">Hall A / Sector 01</h3>
+            <p class="museum-item-desc">Empty waiting area / Late night documentation / No visitors detected</p>
+            <div class="museum-item-meta">
+              <span class="museum-meta-tag">TERMINAL</span>
+              <span class="museum-meta-tag">VACANT</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Archive Item 2 -->
+        <article class="museum-item">
+          <div class="museum-item-glow"></div>
+          <div class="museum-item-header">
+            <span class="museum-item-id">RECORD_B-007</span>
+            <span class="museum-item-status museum-status-monitoring">MONITORING</span>
+          </div>
+          <div class="museum-item-image">
+            <div class="museum-placeholder"></div>
+          </div>
+          <div class="museum-item-body">
+            <h3 class="museum-item-title">Corridor B / Section 07</h3>
+            <p class="museum-item-desc">Long hallway observation / Fluorescent lighting / Echo absent</p>
+            <div class="museum-item-meta">
+              <span class="museum-meta-tag">PASSAGE</span>
+              <span class="museum-meta-tag">MONITORED</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Archive Item 3 -->
+        <article class="museum-item">
+          <div class="museum-item-glow"></div>
+          <div class="museum-item-header">
+            <span class="museum-item-id">RECORD_C-013</span>
+            <span class="museum-item-status museum-status-inactive">INACTIVE</span>
+          </div>
+          <div class="museum-item-image">
+            <div class="museum-placeholder"></div>
+          </div>
+          <div class="museum-item-body">
+            <h3 class="museum-item-title">Archive Chamber C</h3>
+            <p class="museum-item-desc">Storage facility / Temperature controlled / Undisturbed since 2019</p>
+            <div class="museum-item-meta">
+              <span class="museum-meta-tag">STORAGE</span>
+              <span class="museum-meta-tag">SEALED</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Archive Item 4 -->
+        <article class="museum-item">
+          <div class="museum-item-glow"></div>
+          <div class="museum-item-header">
+            <span class="museum-item-id">RECORD_D-024</span>
+            <span class="museum-item-status museum-status-monitoring">MONITORING</span>
+          </div>
+          <div class="museum-item-image">
+            <div class="museum-placeholder"></div>
+          </div>
+          <div class="museum-item-body">
+            <h3 class="museum-item-title">Gateway D / Transit Zone</h3>
+            <p class="museum-item-desc">Transitional space / Perpetual waiting state / No destination recorded</p>
+            <div class="museum-item-meta">
+              <span class="museum-meta-tag">GATEWAY</span>
+              <span class="museum-meta-tag">LIMINAL</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access Control Section -->
+  <section class="museum-access">
+    <div class="museum-container">
+      <div class="museum-access-panel">
+        <div class="museum-panel-header">
+          <h3 class="museum-panel-title">ARCHIVE_ACCESS_PROTOCOL</h3>
+          <div class="museum-panel-status">
+            <span class="museum-access-led museum-led-pulse"></span>
+            <span>RESTRICTED</span>
+          </div>
+        </div>
+
+        <div class="museum-form-grid">
+          <div class="museum-form-group">
+            <label class="museum-label">ACCESS_CODE</label>
+            <input
+              type="text"
+              class="museum-input"
+              placeholder="ENTER 8-DIGIT CODE"
+              maxlength="8"
+            />
+          </div>
+
+          <div class="museum-form-group">
+            <label class="museum-label">CLEARANCE_LEVEL</label>
+            <select class="museum-select">
+              <option>VISITOR</option>
+              <option>RESEARCHER</option>
+              <option>CURATOR</option>
+              <option>ADMINISTRATOR</option>
+            </select>
+          </div>
+
+          <div class="museum-form-group museum-form-full">
+            <label class="museum-label">SIGNAL_STRENGTH</label>
+            <div class="museum-range-container">
+              <input type="range" class="museum-range" id="signalRange" min="0" max="100" value="27" />
+              <div class="museum-range-value" id="signalValue">27%</div>
+            </div>
+          </div>
+
+          <div class="museum-form-group museum-form-full">
+            <div class="museum-button-group">
+              <button class="museum-button museum-button-primary">SUBMIT_REQUEST</button>
+              <button class="museum-button museum-button-secondary">CANCEL_SESSION</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="museum-system-log">
+          <div class="museum-log-title">SYSTEM_LOG</div>
+          <div class="museum-log-entry">[03:47:21] Unauthorized access attempt detected</div>
+          <div class="museum-log-entry">[03:47:18] Clearance verification failed</div>
+          <div class="museum-log-entry">[03:47:15] Connection timeout - retry in 120s</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="museum-footer">
+    <div class="museum-container">
+      <div class="museum-footer-grid">
+        <div class="museum-footer-section">
+          <div class="museum-footer-title">SYSTEM_INFO</div>
+          <div class="museum-footer-text">Digital Archive Museum v3.2.1</div>
+          <div class="museum-footer-text">Protocol: ARCHIVE_STANDARD_2025</div>
+        </div>
+        <div class="museum-footer-section">
+          <div class="museum-footer-title">CONNECTION_STATUS</div>
+          <div class="museum-footer-text">Network: DISCONNECTED</div>
+          <div class="museum-footer-text">Last Sync: 2024-12-15 03:47 AM</div>
+        </div>
+        <div class="museum-footer-section">
+          <div class="museum-footer-title">NOTICE</div>
+          <div class="museum-footer-text museum-footer-warning">[ RESTRICTED AREA ]</div>
+          <div class="museum-footer-text museum-footer-warning">[ NO SIGNAL DETECTED ]</div>
+        </div>
+      </div>
+      <div class="museum-footer-bottom">
+        <p class="museum-copyright">© 2025 DIGITAL_ARCHIVE_SYSTEM // ALL RECORDS ENCRYPTED</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mouse spotlight effect
+    const spotlight = document.getElementById('spotlight');
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      spotlight.style.left = x + 'px';
+      spotlight.style.top = y + 'px';
+    });
+
+    // Signal range slider
+    const signalRange = document.getElementById('signalRange');
+    const signalValue = document.getElementById('signalValue');
+    if (signalRange && signalValue) {
+      signalRange.addEventListener('input', (e) => {
+        signalValue.textContent = e.target.value + '%';
+      });
+    }
+
+    // Archive item hover effect
+    document.querySelectorAll('.museum-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateY(-8px)';
+      });
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Navigation links
+    document.querySelectorAll('.museum-nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.museum-nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

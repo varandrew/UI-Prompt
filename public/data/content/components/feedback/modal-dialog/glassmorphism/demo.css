@@ -1,0 +1,95 @@
+.modal-glass-overlay {
+            position: relative;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            padding: 2rem 1rem;
+            animation: modalGlassFadeIn 0.3s ease-out;
+          }
+          .preview-fullscreen .modal-glass-overlay {
+            position: fixed;
+            inset: 0;
+            padding: 0;
+            min-height: 100vh;
+          }
+          .modal-glass-content {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 100%;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: modalGlassZoomRotate 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+          }
+          .preview-fullscreen .modal-glass-content {
+            max-width: 28rem;
+            width: 90%;
+          }
+          .modal-glass-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+          }
+          .modal-glass-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+          }
+          .modal-glass-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+          }
+          .modal-glass-checkbox {
+            display: flex;
+            align-items: center;
+          }
+          .modal-glass-btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+          }
+          .modal-glass-btn-primary:hover {
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+          }
+          .modal-glass-btn-secondary {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+          }
+          .modal-glass-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+          @keyframes modalGlassFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes modalGlassZoomRotate {
+            from {
+              opacity: 0;
+              transform: scale(0.8) rotate(2deg);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1) rotate(0deg);
+            }
+          }

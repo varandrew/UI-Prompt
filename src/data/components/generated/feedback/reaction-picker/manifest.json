@@ -1,0 +1,72 @@
+{
+  "id": "reaction-picker",
+  "category": "feedback",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.feedback.reaction-picker.title",
+      "en-US": "data.components.feedback.reaction-picker.title"
+    },
+    "description": {
+      "zh-CN": "data.components.feedback.reaction-picker.description",
+      "en-US": "data.components.feedback.reaction-picker.description"
+    },
+    "tags": [
+      "feedback"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "material-design",
+      "name": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.material-design.name",
+        "en-US": "data.components.feedback.reaction-picker.variants.material-design.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.material-design.description",
+        "en-US": "data.components.feedback.reaction-picker.variants.material-design.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.glassmorphism.name",
+        "en-US": "data.components.feedback.reaction-picker.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.glassmorphism.description",
+        "en-US": "data.components.feedback.reaction-picker.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism",
+      "name": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.neumorphism.name",
+        "en-US": "data.components.feedback.reaction-picker.variants.neumorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.neumorphism.description",
+        "en-US": "data.components.feedback.reaction-picker.variants.neumorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.minimalism.name",
+        "en-US": "data.components.feedback.reaction-picker.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.reaction-picker.variants.minimalism.description",
+        "en-US": "data.components.feedback.reaction-picker.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

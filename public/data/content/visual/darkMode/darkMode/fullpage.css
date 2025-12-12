@@ -1,0 +1,98 @@
+
+/* ===== Dark Mode 動画效果 ===== */
+
+/* 卡片 Hover 效果 */
+.dark-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6 !important;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* 导航鏈接 Hover */
+.dark-nav-link:hover {
+  color: #3b82f6 !important;
+  border-bottom: 2px solid #3b82f6 !important;
+}
+
+/* 側边欄項目 Hover */
+.dark-sidebar-item:hover:not(.active) {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border-left-color: #3b82f6 !important;
+}
+
+/* 任务項目 Hover */
+.dark-task-item:hover {
+  background: rgba(59, 130, 246, 0.05) !important;
+  border-color: #3b82f6 !important;
+  transform: translateX(4px);
+}
+
+/* ===== 关鍵幀動画 ===== */
+
+/* 旋轉動画 (Spinner) */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 彈跳動画 (Dots) */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 脈衝動画 (Pulse) */
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* 淡入上移動画 (Timeline) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 進度條填充動画 */
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+}
+
+/* ===== 響應式设計 ===== */
+@media (max-width: 768px) {
+  .dark-navbar > div {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .dark-mode-full-page > div {
+    flex-direction: column;
+  }
+
+  aside {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #2a2a2a;
+  }
+}

@@ -1,0 +1,112 @@
+<div class="modal-drawer-overlay">
+            <div class="modal-drawer-content">
+              <div class="modal-drawer-header">
+                <h3 class="text-xl font-semibold text-gray-900">Filter Options</h3>
+                <button class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="Close">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="modal-drawer-body">
+                <div class="modal-drawer-section">
+                  <h4 class="modal-drawer-section-title">Category</h4>
+                  <div class="space-y-2">
+                    <label class="modal-drawer-checkbox">
+                      <input type="checkbox" checked>
+                      <span>All Products</span>
+                      <span class="modal-drawer-badge">248</span>
+                    </label>
+                    <label class="modal-drawer-checkbox">
+                      <input type="checkbox">
+                      <span>Electronics</span>
+                      <span class="modal-drawer-badge">89</span>
+                    </label>
+                    <label class="modal-drawer-checkbox">
+                      <input type="checkbox">
+                      <span>Clothing</span>
+                      <span class="modal-drawer-badge">156</span>
+                    </label>
+                    <label class="modal-drawer-checkbox">
+                      <input type="checkbox">
+                      <span>Home & Garden</span>
+                      <span class="modal-drawer-badge">73</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="modal-drawer-divider"></div>
+
+                <div class="modal-drawer-section">
+                  <h4 class="modal-drawer-section-title">Price Range</h4>
+                  <div class="space-y-4">
+                    <div class="flex gap-3">
+                      <input type="number" placeholder="Min" class="modal-drawer-input">
+                      <span class="text-gray-500 self-center">—</span>
+                      <input type="number" placeholder="Max" class="modal-drawer-input">
+                    </div>
+                    <div class="modal-drawer-slider-container">
+                      <input type="range" min="0" max="1000" value="250" class="modal-drawer-slider">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-drawer-divider"></div>
+
+                <div class="modal-drawer-section">
+                  <h4 class="modal-drawer-section-title">Rating</h4>
+                  <div class="space-y-2">
+                    <label class="modal-drawer-radio">
+                      <input type="radio" name="rating" checked>
+                      <span class="flex items-center gap-1">
+                        <span class="text-yellow-400">★★★★★</span>
+                        <span class="text-sm text-gray-600">(5.0)</span>
+                      </span>
+                    </label>
+                    <label class="modal-drawer-radio">
+                      <input type="radio" name="rating">
+                      <span class="flex items-center gap-1">
+                        <span class="text-yellow-400">★★★★</span>
+                        <span class="text-gray-300">☆</span>
+                        <span class="text-sm text-gray-600">(4.0+)</span>
+                      </span>
+                    </label>
+                    <label class="modal-drawer-radio">
+                      <input type="radio" name="rating">
+                      <span class="flex items-center gap-1">
+                        <span class="text-yellow-400">★★★</span>
+                        <span class="text-gray-300">☆☆</span>
+                        <span class="text-sm text-gray-600">(3.0+)</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="modal-drawer-divider"></div>
+
+                <div class="modal-drawer-section">
+                  <h4 class="modal-drawer-section-title">Availability</h4>
+                  <div class="space-y-2">
+                    <label class="modal-drawer-checkbox">
+                      <input type="checkbox" checked>
+                      <span>In Stock</span>
+                    </label>
+                    <label class="modal-drawer-checkbox">
+                      <input type="checkbox">
+                      <span>Pre-order</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-drawer-footer">
+                <button class="modal-drawer-btn-secondary">
+                  Reset All
+                </button>
+                <button class="modal-drawer-btn-primary">
+                  Apply Filters
+                </button>
+              </div>
+            </div>
+          </div>

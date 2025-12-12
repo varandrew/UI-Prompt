@@ -1,0 +1,163 @@
+/* 根容器 - 科技森林背景 */
+  .solarpunk-mini {
+    aspect-ratio: 1 / 1;  /* 確保正方形 */
+    width: 100%;
+    background: linear-gradient(180deg, #1a3a0f 0%, #2d5016 50%, #1e3a2e 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.4);
+  }
+
+  /* 掃描線效果（微妙的科技感） */
+  .solarpunk-mini::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.3) 50%,
+      transparent 100%);
+    animation: scan 5s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(300px); opacity: 0; }
+  }
+
+  /* 藤蔓葉片基礎樣式 */
+  .vine-leaf {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  .vine-top-left {
+    top: 8%;
+    left: 8%;
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .vine-top-right {
+    top: 8%;
+    right: 8%;
+    animation: float-slow 6s ease-in-out infinite 1s;
+  }
+
+  .vine-bottom-left {
+    bottom: 8%;
+    left: 8%;
+    animation: float-slow 6s ease-in-out infinite 2s;
+  }
+
+  .vine-bottom-right {
+    bottom: 8%;
+    right: 8%;
+    animation: float-slow 6s ease-in-out infinite 3s;
+  }
+
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(5deg);
+    }
+  }
+
+  /* 六邊形太陽能面板 */
+  .hexagon-panel {
+    width: 140px;
+    height: 140px;
+    background: rgba(74, 124, 60, 0.6);
+    backdrop-filter: blur(10px);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    border: 2px solid #d4af37;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 3s ease-in-out infinite;
+    box-shadow:
+      0 0 30px rgba(212, 175, 55, 0.4),
+      inset 0 0 40px rgba(212, 175, 55, 0.1);
+  }
+
+  /* 脈衝動畫（能量流動感） */
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow:
+        0 0 30px rgba(212, 175, 55, 0.4),
+        inset 0 0 40px rgba(212, 175, 55, 0.1);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow:
+        0 0 50px rgba(212, 175, 55, 0.8),
+        inset 0 0 60px rgba(212, 175, 55, 0.2);
+      transform: scale(1.02);
+    }
+  }
+
+  /* 六邊形內發光層 */
+  .hexagon-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%,
+      rgba(212, 175, 55, 0.3) 0%,
+      transparent 60%);
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* 六邊形圖標 */
+  .hexagon-icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* SVG 脈衝環動畫 */
+  .pulse-ring {
+    animation: ring-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes ring-pulse {
+    0%, 100% {
+      r: 12px;
+      opacity: 1;
+    }
+    50% {
+      r: 16px;
+      opacity: 0.3;
+    }
+  }
+
+  /* 簡潔標籤 */
+  .panel-label {
+    position: absolute;
+    bottom: 15%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #e8f5e9;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    z-index: 3;
+    opacity: 0.8;
+  }

@@ -1,0 +1,492 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { Volume2, Power, Music, Activity, Disc, Zap } from 'lucide-react';
+
+// --- UTILITY COMPONENTS ---
+
+// 1. The Screw: Essential for the "assembled" look
+const Screw = ({ className }) => (
+  <div className={`relative w-4 h-4 rounded-full bg-zinc-400 shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),0_1px_1px_rgba(0,0,0,0.8)] flex items-center justify-center ${className}`}>
+    <div className="absolute w-full h-full rounded-full bg-gradient-to-br from-zinc-300 to-zinc-600 opacity-80" />
+    {/* The Cross Slot */}
+    <div className="relative w-2.5 h-0.5 bg-zinc-700/60 rotate-45 shadow-[inset_0_1px_1px_rgba(0,0,0,0.8)]" />
+    <div className="absolute w-2.5 h-0.5 bg-zinc-700/60 -rotate-45 shadow-[inset_0_1px_1px_rgba(0,0,0,0.8)]" />
+  </div>
+);
+
+// 2. The LED: Indicator light with glow
+const LED = ({ active, color = 'red', size = 'sm' }) => {
+  const sizeClasses = size === 'sm' ? 'w-2 h-2' : 'w-3 h-3';
+
+  // Dynamic glow based on color and active state
+  const getGlow = () => {
+    if (!active) return 'bg-zinc-800 shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)] border-zinc-900';
+
+    if (color === 'red') return 'bg-red-500 shadow-[0_0_10px_2px_rgba(239,68,68,0.6),inset_0_1px_4px_rgba(255,255,255,0.5)] border-red-700';
+    if (color === 'green') return 'bg-emerald-400 shadow-[0_0_10px_2px_rgba(52,211,153,0.6),inset_0_1px_4px_rgba(255,255,255,0.5)] border-emerald-600';
+    if (color === 'blue') return 'bg-cyan-400 shadow-[0_0_10px_2px_rgba(34,211,238,0.6),inset_0_1px_4px_rgba(255,255,255,0.5)] border-cyan-600';
+    return 'bg-yellow-400 shadow-[0_0_10px_2px_rgba(250,204,21,0.6),inset_0_1px_4px_rgba(255,255,255,0.5)] border-yellow-600';
+  };
+
+  return (
+    <div className={`rounded-full border ${sizeClasses} transition-all duration-150 ${getGlow()}`} />
+  );
+};
+
+// 3. The Metal Toggle Switch
+const ToggleSwitch = ({ label, active, onToggle }) => {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <div
+        className="relative w-12 h-20 bg-zinc-800 rounded-lg shadow-[inset_0_2px_5px_rgba(0,0,0,0.8),0_1px_0_rgba(255,255,255,0.1)] p-1 cursor-pointer group"
+        onClick={onToggle}
+      >
+        {/* The Channel/Groove */}
+        <div className="absolute inset-x-3 top-2 bottom-2 bg-black rounded-full shadow-[inset_0_0_5px_rgba(0,0,0,1)]" />
+
+        {/* The Actual Switch Lever */}
+        <div
+          className={`absolute left-1 right-1 h-10 rounded shadow-[0_4px_6px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.4)] transition-all duration-200 ease-out z-10
+            ${active ? 'top-1 bg-gradient-to-b from-zinc-200 to-zinc-400' : 'bottom-1 bg-gradient-to-b from-zinc-400 to-zinc-600'}
+          `}
+        >
+          {/* Ridges on the switch for grip */}
+          <div className="w-full h-full flex flex-col justify-center items-center gap-0.5 opacity-30">
+             <div className="w-8 h-[1px] bg-black"></div>
+             <div className="w-8 h-[1px] bg-black"></div>
+             <div className="w-8 h-[1px] bg-black"></div>
+          </div>
+        </div>
+      </div>
+      <span className="text-[10px] font-bold tracking-widest text-zinc-400 uppercase drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">{label}</span>
+    </div>
+  );
+};
+
+// 4. The Rotary Knob (Potentiometer)
+const Knob = ({ label, value, min = 0, max = 100, onChange }) => {
+  const [isDragging, setIsDragging] = useState(false);
+  const knobRef = useRef(null);
+  const startY = useRef(0);
+  const startValue = useRef(0);
+
+  // Convert value (0-100) to degrees (-135 to 135)
+  const rotation = -135 + (value / (max - min)) * 270;
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
+      const sensitivity = 0.5; // Multiplier for drag speed
+      const deltaY = startY.current - e.clientY;
+      let newValue = startValue.current + (deltaY * sensitivity);
+      newValue = Math.min(Math.max(newValue, min), max);
+      onChange(newValue);
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+      document.body.style.cursor = 'default';
+    };
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'ns-resize';
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, min, max, onChange]);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    startY.current = e.clientY;
+    startValue.current = value;
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <div className="relative w-20 h-20 flex items-center justify-center">
+        {/* Ticks around the knob */}
+        {[...Array(11)].map((_, i) => {
+          const tickRot = -135 + (i * 27);
+          return (
+            <div
+              key={i}
+              className={`absolute w-1 h-2 bg-zinc-500 origin-bottom shadow-[0_1px_1px_rgba(0,0,0,1)] ${i % 5 === 0 ? 'h-3 w-1.5 bg-zinc-300' : ''}`}
+              style={{
+                transform: `rotate(${tickRot}deg) translateY(-42px)`,
+                bottom: '50%'
+              }}
+            />
+          );
+        })}
+
+        {/* The Knob Body */}
+        <div
+          ref={knobRef}
+          onMouseDown={handleMouseDown}
+          className="relative w-16 h-16 rounded-full cursor-ns-resize active:cursor-ns-resize shadow-[0_8px_15px_rgba(0,0,0,0.6),0_2px_4px_rgba(0,0,0,0.4)] z-10"
+          style={{
+            background: 'conic-gradient(from 180deg, #27272a, #52525b, #27272a)'
+          }}
+        >
+          {/* Top Bevel */}
+          <div className="absolute inset-1 rounded-full bg-gradient-to-b from-zinc-600 to-zinc-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]">
+            {/* Top Face texture */}
+            <div className="absolute inset-0.5 rounded-full bg-zinc-800 opacity-90"
+                 style={{backgroundImage: 'radial-gradient(#3f3f46 1px, transparent 1px)', backgroundSize: '4px 4px'}}>
+            </div>
+
+            {/* Indicator Line */}
+            <div
+              className="absolute top-1 left-1/2 -translate-x-1/2 w-1.5 h-6 bg-orange-500 rounded-sm shadow-[0_0_5px_rgba(249,115,22,0.5)]"
+              style={{ transformOrigin: '50% 28px', transform: `rotate(${rotation}deg)` }}
+            ></div>
+          </div>
+        </div>
+      </div>
+      <span className="text-[10px] font-bold tracking-widest text-zinc-400 uppercase drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] select-none">{label}</span>
+    </div>
+  );
+};
+
+// 5. The Fader (Slider)
+const Fader = ({ label, value, onChange }) => {
+  const [isDragging, setIsDragging] = useState(false);
+  const trackRef = useRef(null);
+
+  const handleInteraction = (clientY) => {
+    if (!trackRef.current) return;
+    const rect = trackRef.current.getBoundingClientRect();
+    const height = rect.height;
+    const bottom = rect.bottom;
+
+    // Calculate percentage from bottom
+    let percentage = (bottom - clientY) / height;
+    percentage = Math.min(Math.max(percentage, 0), 1);
+
+    onChange(Math.round(percentage * 100));
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (isDragging) {
+        handleInteraction(e.clientY);
+      }
+    };
+    const handleMouseUp = () => {
+      setIsDragging(false);
+      document.body.style.cursor = 'default';
+    };
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'pointer';
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging]);
+
+  return (
+    <div className="flex flex-col items-center h-48 w-12 gap-3">
+      <div
+        className="relative flex-1 w-full flex justify-center py-2"
+        ref={trackRef}
+        onMouseDown={(e) => { setIsDragging(true); handleInteraction(e.clientY); }}
+      >
+        {/* Track Groove */}
+        <div className="w-2 h-full bg-black rounded-full shadow-[inset_0_1px_3px_rgba(0,0,0,1),0_1px_0_rgba(255,255,255,0.1)] relative">
+            {/* Tick Marks */}
+            <div className="absolute -left-4 top-0 bottom-0 flex flex-col justify-between py-1">
+                {[...Array(6)].map((_, i) => (
+                    <div key={i} className="w-2 h-[1px] bg-zinc-600"></div>
+                ))}
+            </div>
+            <div className="absolute -right-4 top-0 bottom-0 flex flex-col justify-between py-1">
+                {[...Array(6)].map((_, i) => (
+                    <div key={i} className="w-2 h-[1px] bg-zinc-600"></div>
+                ))}
+            </div>
+        </div>
+
+        {/* Fader Cap */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 w-8 h-12 bg-zinc-300 rounded shadow-[0_4px_6px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.8),inset_0_-2px_10px_rgba(0,0,0,0.1)] cursor-pointer z-20 group"
+          style={{ bottom: `${value}%`, transform: 'translate(-50%, 50%)' }}
+        >
+             {/* Concave center of fader cap */}
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[2px] bg-black opacity-80"></div>
+             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-400 opacity-50 rounded"></div>
+        </div>
+      </div>
+      <span className="text-[10px] font-bold tracking-widest text-zinc-400 uppercase drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] select-none">{label}</span>
+    </div>
+  );
+};
+
+// 6. Tangible Push Button
+const PushButton = ({ icon: Icon, label, active, onClick, color = 'zinc' }) => {
+    // Button base colors
+    const baseColor = color === 'orange' ? 'bg-orange-600' : 'bg-zinc-700';
+    const gradient = color === 'orange'
+        ? 'from-orange-500 to-orange-700'
+        : 'from-zinc-600 to-zinc-800';
+
+    return (
+        <div className="flex flex-col items-center gap-2">
+            <button
+                onClick={onClick}
+                className={`
+                    relative w-14 h-14 rounded-lg outline-none group
+                    transition-all duration-75
+                    ${active ? 'translate-y-0.5' : '-translate-y-0'}
+                `}
+            >
+                {/* Shadow Logic (Complex to simulate mechanical travel) */}
+                <div className={`
+                    absolute inset-0 rounded-lg
+                    ${active
+                        ? 'shadow-[inset_0_3px_6px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.05)]'
+                        : 'shadow-[0_4px_6px_rgba(0,0,0,0.6),0_8px_15px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.3)]'}
+                `}></div>
+
+                {/* The Button Body */}
+                <div className={`
+                    absolute inset-0 rounded-lg bg-gradient-to-b ${gradient}
+                    flex items-center justify-center text-zinc-200
+                    ${active ? 'opacity-80' : 'opacity-100'}
+                `}>
+                    {/* Inner concave/texture */}
+                    <div className="absolute inset-2 rounded bg-gradient-to-br from-black/20 to-white/10 opacity-50"></div>
+
+                    {/* Icon with glow if active */}
+                    <div className={`relative z-10 transition-all ${active ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-zinc-300 drop-shadow-[0_-1px_0_rgba(0,0,0,0.5)]'}`}>
+                        <Icon size={20} strokeWidth={2.5} />
+                    </div>
+                </div>
+            </button>
+            {label && (
+                <span className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">{label}</span>
+            )}
+        </div>
+    );
+};
+
+// 7. The Retro Display
+const Display = ({ mode, bpm, volume }) => {
+    return (
+        <div className="relative w-full h-32 bg-black rounded-lg p-1 shadow-[inset_0_2px_8px_rgba(0,0,0,1),0_1px_0_rgba(255,255,255,0.1)] overflow-hidden">
+            {/* Glass Glare Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20"></div>
+
+            {/* The Screen Content */}
+            <div className="w-full h-full bg-[#1a1a1c] relative rounded overflow-hidden flex flex-col p-4 border border-[#333]">
+                {/* Background Grid */}
+                <div className="absolute inset-0 opacity-10"
+                     style={{backgroundImage: 'linear-gradient(#444 1px, transparent 1px), linear-gradient(90deg, #444 1px, transparent 1px)', backgroundSize: '10px 10px'}}>
+                </div>
+
+                {/* VFD (Vacuum Fluorescent Display) Style Text */}
+                <div className="flex justify-between items-end mb-2 z-10">
+                    <div>
+                        <div className="text-[10px] text-cyan-700 uppercase mb-1">Mode Select</div>
+                        <div className="text-xl font-mono text-cyan-400 tracking-wider drop-shadow-[0_0_5px_rgba(34,211,238,0.6)]">
+                            {mode}
+                        </div>
+                    </div>
+                    <div className="text-right">
+                        <div className="text-[10px] text-cyan-700 uppercase mb-1">Master Output</div>
+                        <div className="flex gap-0.5 items-end h-8">
+                             {[...Array(8)].map((_, i) => (
+                                 <div key={i} className={`w-2 rounded-sm ${i < (volume / 12) ? 'bg-cyan-400 shadow-[0_0_5px_rgba(34,211,238,0.8)]' : 'bg-cyan-900/30'}`} style={{height: `${(i+1) * 10}%`}}></div>
+                             ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-auto flex justify-between items-center z-10 border-t border-cyan-900/30 pt-2">
+                    <div className="flex items-center gap-2">
+                        <Activity size={12} className="text-cyan-600" />
+                        <span className="text-cyan-500 font-mono text-xs">{bpm} BPM</span>
+                    </div>
+                    <span className="text-[10px] text-cyan-800 font-mono">SYS.READY</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// --- MAIN APP ---
+
+export default function AnalogSynth() {
+    // State management for the "Machine"
+    const [power, setPower] = useState(true);
+    const [masterVol, setMasterVol] = useState(75);
+    const [filterCutoff, setFilterCutoff] = useState(40);
+    const [resonance, setResonance] = useState(60);
+    const [fader1, setFader1] = useState(80);
+    const [fader2, setFader2] = useState(30);
+    const [fader3, setFader3] = useState(55);
+    const [fader4, setFader4] = useState(90);
+    const [mode, setMode] = useState('ANALOG_01');
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    // Derived Visual State
+    const opacity = power ? 'opacity-100' : 'opacity-40 grayscale';
+    const ledColor = power ? 'bg-cyan-500' : 'bg-zinc-800';
+
+    return (
+        <div className="min-h-screen bg-zinc-900 flex items-center justify-center p-4 md:p-8 font-sans selection:bg-none">
+
+            {/* THE CHASSIS: The physical box holding everything */}
+            <div className="relative bg-zinc-800 rounded-3xl shadow-[0_30px_60px_-10px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.2)] border-b-8 border-zinc-950 max-w-4xl w-full p-2">
+
+                {/* Brushed Metal Surface Texture */}
+                <div className="absolute inset-2 rounded-2xl bg-gradient-to-b from-[#3a3a40] to-[#27272a] overflow-hidden pointer-events-none z-0">
+                    <div className="absolute inset-0 opacity-20 mix-blend-overlay bg-repeat"
+                         style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")'}}>
+                    </div>
+                </div>
+
+                {/* THE MAIN INTERFACE PLATE */}
+                <div className={`relative z-10 rounded-xl p-6 md:p-10 transition-all duration-700 ${opacity}`}>
+
+                    {/* Screws in corners */}
+                    <Screw className="absolute top-4 left-4" />
+                    <Screw className="absolute top-4 right-4" />
+                    <Screw className="absolute bottom-4 left-4" />
+                    <Screw className="absolute bottom-4 right-4" />
+
+                    {/* TOP SECTION: Header & Display */}
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+                        {/* Branding & Power */}
+                        <div className="md:col-span-3 flex flex-col justify-between">
+                            <div>
+                                <h1 className="text-2xl font-black italic tracking-tighter text-zinc-300 drop-shadow-[0_-1px_0_rgba(0,0,0,0.8)] mb-1">
+                                    CHROMA<span className="text-orange-500">SYNTH</span>
+                                </h1>
+                                <p className="text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase">Tactile Audio Workstation</p>
+                            </div>
+
+                            <div className="mt-8 flex items-center gap-6 p-4 bg-black/20 rounded-xl shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] border-b border-white/5">
+                                <ToggleSwitch
+                                    label="Power"
+                                    active={power}
+                                    onToggle={() => setPower(!power)}
+                                />
+                                <div className="flex flex-col items-center gap-2">
+                                    <LED active={power} color="red" size="md" />
+                                    <span className="text-[9px] font-bold text-zinc-500">MAINS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Display Screen */}
+                        <div className="md:col-span-6">
+                            <Display mode={mode} bpm={128} volume={masterVol} />
+                        </div>
+
+                        {/* Master Output Section */}
+                        <div className="md:col-span-3 flex flex-col items-center justify-end">
+                            <div className="bg-zinc-700/30 p-4 rounded-xl border border-white/5 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)]">
+                                <Knob
+                                    label="Master Vol"
+                                    value={masterVol}
+                                    onChange={setMasterVol}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-950 to-transparent opacity-50 mb-1 border-b border-white/5 mb-10"></div>
+
+                    {/* MIDDLE SECTION: Controls */}
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+
+                        {/* Left: Filters (Knobs) */}
+                        <div className="md:col-span-4 bg-[#232326] rounded-xl p-6 shadow-[inset_0_2px_6px_rgba(0,0,0,0.5),0_1px_0_rgba(255,255,255,0.05)] border border-black/40 relative">
+                             {/* Metal Plate Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl pointer-events-none"></div>
+                            <Screw className="absolute top-2 left-2 w-3 h-3" />
+                            <Screw className="absolute bottom-2 right-2 w-3 h-3" />
+
+                            <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-6 text-center border-b border-zinc-700 pb-2">Filter Section</h3>
+                            <div className="flex justify-around items-center">
+                                <Knob
+                                    label="Cutoff"
+                                    value={filterCutoff}
+                                    onChange={setFilterCutoff}
+                                />
+                                <Knob
+                                    label="Resonance"
+                                    value={resonance}
+                                    onChange={setResonance}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Center: Transport (Buttons) */}
+                        <div className="md:col-span-4 flex flex-col items-center justify-center gap-6">
+                             <div className="flex gap-4 p-4 rounded-2xl bg-black/20 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] border-b border-white/5">
+                                <PushButton
+                                    icon={Disc}
+                                    label="Play"
+                                    active={isPlaying}
+                                    onClick={() => {setIsPlaying(!isPlaying); setMode("PLAYING")}}
+                                    color="orange"
+                                />
+                                <PushButton
+                                    icon={Power}
+                                    label="Stop"
+                                    active={!isPlaying}
+                                    onClick={() => {setIsPlaying(false); setMode("STOPPED")}}
+                                />
+                                <PushButton
+                                    icon={Zap}
+                                    label="Rec"
+                                    active={mode === 'RECORDING'}
+                                    onClick={() => setMode("RECORDING")}
+                                />
+                             </div>
+
+                             <div className="flex gap-4">
+                                <div className="flex flex-col items-center gap-1">
+                                    <LED active={isPlaying} color="green" />
+                                    <span className="text-[8px] text-zinc-600 font-bold">RUN</span>
+                                </div>
+                                <div className="flex flex-col items-center gap-1">
+                                    <LED active={mode === 'RECORDING'} color="red" />
+                                    <span className="text-[8px] text-zinc-600 font-bold">REC</span>
+                                </div>
+                             </div>
+                        </div>
+
+                        {/* Right: Mixer (Faders) */}
+                        <div className="md:col-span-4 bg-[#2a2a2d] rounded-xl p-6 shadow-[inset_0_2px_6px_rgba(0,0,0,0.5)] relative border-t border-white/5">
+                            <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 text-center">Mixer</h3>
+                            <div className="flex justify-between px-2">
+                                <Fader label="CH 1" value={fader1} onChange={setFader1} />
+                                <Fader label="CH 2" value={fader2} onChange={setFader2} />
+                                <Fader label="CH 3" value={fader3} onChange={setFader3} />
+                                <Fader label="CH 4" value={fader4} onChange={setFader4} />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* Rubber Feet (Visible at bottom edge) */}
+                <div className="absolute -bottom-1 left-10 w-12 h-2 bg-[#111] rounded-b-lg shadow-lg"></div>
+                <div className="absolute -bottom-1 right-10 w-12 h-2 bg-[#111] rounded-b-lg shadow-lg"></div>
+            </div>
+
+            {/* Ambient Lighting Reflection (Decor) */}
+            <div className="fixed top-0 left-0 w-full h-full pointer-events-none bg-gradient-to-tr from-blue-900/10 to-orange-900/10 z-50"></div>
+        </div>
+    );
+}

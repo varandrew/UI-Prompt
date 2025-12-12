@@ -1,0 +1,33 @@
+.scrollbar-gradient-effects::-webkit-scrollbar {
+            width: 10px;
+          }
+          .scrollbar-gradient-effects::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #dbeafe, #e9d5ff);
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+          }
+          .scrollbar-gradient-effects::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6, #6366f1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+              0 0 10px rgba(59, 130, 246, 0.3),
+              0 2px 8px rgba(0, 0, 0, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+          }
+          .scrollbar-gradient-effects::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #2563eb, #7c3aed, #4f46e5);
+            box-shadow:
+              0 0 15px rgba(59, 130, 246, 0.5),
+              0 0 25px rgba(139, 92, 246, 0.3),
+              0 4px 12px rgba(0, 0, 0, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transform: scaleY(1.05);
+          }
+
+          /* Firefox compatibility */
+          .scrollbar-gradient-effects {
+            scrollbar-width: thin;
+            scrollbar-color: #6366f1 #dbeafe;
+          }

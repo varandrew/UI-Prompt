@@ -1,0 +1,33 @@
+.anti-card {
+        width: 80%;
+        height: 80%;
+        padding: 1.5rem;
+        background: linear-gradient(45deg, #ffeb3b, #ff9800, #e91e63);
+        border: 6px solid #000;
+        position: relative;
+        transform: rotate(-3deg);
+        box-shadow: 8px 8px 0 #000, 16px 16px 0 rgba(0,0,0,0.2);
+        transition: all 0.2s ease;
+      }
+      .anti-card::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          #ff0000 10px,
+          #ff0000 20px
+        );
+        z-index: -1;
+        animation: anti-move 3s linear infinite;
+      }
+      @keyframes anti-move {
+        0% { transform: translateX(0) rotate(-3deg); }
+        50% { transform: translateX(10px) rotate(-1deg); }
+        100% { transform: translateX(0) rotate(-3deg); }
+      }

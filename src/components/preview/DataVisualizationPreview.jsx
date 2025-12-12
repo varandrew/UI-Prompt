@@ -6,7 +6,8 @@
 import React, { useState } from 'react';
 import { dataVisualizationScenarios } from '../../data/components/dataVisualizationScenarios';
 import { useLanguage } from '../../hooks/useLanguage';
-import { injectAppStylesIntoIframe, stripTailwindCdn } from '../../utils/previewCss';
+import { injectAppStylesIntoIframe } from '../../utils/previewCss';
+import { stripExternalAssets } from './utils/buildPreviewHTML';
 
 // 語言取值助手：支援不同大小写/連字號鍵，並提供稳健後备
 const pickI18n = (obj, language) => {
@@ -57,8 +58,8 @@ export function DataVisualizationPreview({
 
   // Enhanced HTML with dynamic data injection
   const getEnhancedHTML = (scenario) => {
-    // 先移除 Tailwind CDN 以避免生产環境警告与外部依賴
-    let html = stripTailwindCdn(scenario.html || '');
+    // 使用 stripExternalAssets 過濾不安全資源（保留 Tailwind CDN 白名單）
+    let html = stripExternalAssets(scenario.html || '');
 
     // Add Chart.js for dynamic charts if needed
     if (html.includes('chart-js-placeholder')) {
@@ -289,7 +290,7 @@ export function DataVisualizationPreview({
             srcDoc={getEnhancedHTML(currentScenario)}
             className="w-full min-h-[600px] border-0"
             onLoad={handleIframeLoad}
-            sandbox="allow-scripts allow-same-origin allow-forms"
+            sandbox="allow-same-origin allow-scripts allow-forms"
             title={`Data Visualization Preview - ${pickI18n(currentScenario.name)}`}
           />
         </div>

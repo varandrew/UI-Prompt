@@ -1,0 +1,118 @@
+.modal-brutal-overlay {
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            padding: 2rem 1rem;
+            animation: modalBrutalFadeIn 0.2s ease-out;
+          }
+          .preview-fullscreen .modal-brutal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            min-height: 100vh;
+          }
+          .modal-brutal-content {
+            background: #fff;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0 #000;
+            max-width: 100%;
+            width: 100%;
+            animation: modalBrutalBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+          .preview-fullscreen .modal-brutal-content {
+            max-width: 500px;
+            width: 90%;
+          }
+          .modal-brutal-header {
+            background: #ff3366;
+            border-bottom: 4px solid #000;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .modal-brutal-header h3 {
+            color: #fff;
+            text-shadow: 3px 3px 0 #000;
+          }
+          .modal-brutal-close {
+            background: #fff;
+            border: 3px solid #000;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+          .modal-brutal-close:hover {
+            background: #000;
+            color: #fff;
+            transform: translate(2px, 2px);
+          }
+          .modal-brutal-body {
+            padding: 2rem 1.5rem;
+            color: #000;
+          }
+          .modal-brutal-footer {
+            border-top: 4px solid #000;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            background: #f5f5f5;
+          }
+          .modal-brutal-btn-secondary,
+          .modal-brutal-btn-danger {
+            padding: 0.75rem 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 3px solid #000;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+          }
+          .modal-brutal-btn-secondary {
+            background: #fff;
+            color: #000;
+          }
+          .modal-brutal-btn-secondary:hover {
+            background: #000;
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 #000;
+          }
+          .modal-brutal-btn-danger {
+            background: #ff3366;
+            color: #fff;
+          }
+          .modal-brutal-btn-danger:hover {
+            background: #000;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 #ff3366;
+          }
+          @keyframes modalBrutalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes modalBrutalBounce {
+            0% {
+              opacity: 0;
+              transform: scale(0.3) rotate(-5deg);
+            }
+            50% {
+              transform: scale(1.05) rotate(2deg);
+            }
+            70% {
+              transform: scale(0.95) rotate(-1deg);
+            }
+            100% {
+              opacity: 1;
+              transform: scale(1) rotate(0);
+            }
+          }

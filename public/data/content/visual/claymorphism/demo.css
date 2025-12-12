@@ -1,0 +1,115 @@
+
+:root {
+    --clay-bg: #f0f4f8;
+    --clay-primary: #ff6b6b;
+    --clay-secondary: #4ecdc4;
+    --clay-accent: #ffe66d;
+    --clay-text: #2d3436;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #2d3436;
+    background-image: radial-gradient(#353b48 15%, transparent 16%), radial-gradient(#353b48 15%, transparent 16%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* The Core Clay Effect */
+.clay-object {
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* This complex shadow stack creates the waxy, rounded 3D look */
+    box-shadow: 
+        inset -6px -6px 10px rgba(0, 0, 0, 0.15), /* Inner shadow (bottom right) */
+        inset 6px 6px 12px rgba(255, 255, 255, 0.6), /* Inner highlight (top left) */
+        8px 8px 16px rgba(0, 0, 0, 0.15); /* Drop shadow for floating */
+}
+
+/* Active State (Squishing the clay) */
+.clay-object:active, .clay-object.pressed {
+    transform: scale(0.96);
+    box-shadow: 
+        inset -3px -3px 5px rgba(0, 0, 0, 0.1),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific Color Variants */
+.clay-pink { background-color: var(--clay-primary); color: white; }
+.clay-teal { background-color: var(--clay-secondary); color: white; }
+.clay-yellow { background-color: var(--clay-accent); color: var(--clay-text); }
+.clay-white { background-color: #ffffff; color: var(--clay-text); }
+
+/* Typography */
+h1, h2, h3 { font-family: 'Fredoka', sans-serif; }
+
+/* The Organic "Blob" shape for the mascot */
+.clay-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morph 6s ease-in-out infinite;
+}
+
+@keyframes morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+/* Eye Animation */
+.eye-pupil {
+    animation: lookAround 4s infinite;
+}
+
+@keyframes lookAround {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(3px, -2px); }
+    50% { transform: translate(-3px, 2px); }
+    75% { transform: translate(0, 3px); }
+}
+
+/* Toggle Switch */
+.clay-toggle {
+    appearance: none;
+    width: 60px;
+    height: 32px;
+    background: #eee;
+    border-radius: 999px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+    position: relative;
+    outline: none;
+    cursor: pointer;
+}
+.clay-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--clay-primary);
+    box-shadow: inset -2px -2px 4px rgba(0,0,0,0.2), inset 2px 2px 4px rgba(255,255,255,0.5);
+    transition: 0.3s;
+}
+.clay-toggle:checked { background: #bfebe8; }
+.clay-toggle:checked::after {
+    left: 30px;
+    background: var(--clay-secondary);
+}
+
+/* Scrollbar hidden for aesthetic */
+::-webkit-scrollbar { width: 0px; background: transparent; }
+
+/* Specimen Label */
+.specimen-tag {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}

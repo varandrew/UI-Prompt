@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisma - Holographic Design System</title>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="holo-nav">
+        <div class="holo-container holo-nav-container">
+            <a href="#" class="holo-logo">
+                <span class="holo-logo-icon"></span>
+                PRISMA
+            </a>
+            <div class="holo-nav-links">
+                <a href="#features" class="holo-link">Features</a>
+                <a href="#gallery" class="holo-link">Gallery</a>
+                <a href="#about" class="holo-link">About</a>
+            </div>
+            <button class="holo-btn holo-btn-sm holo-btn-primary">Connect Wallet</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="holo-hero">
+        <div class="holo-hero-bg"></div>
+        <div class="holo-container holo-hero-content">
+            <div class="holo-hero-text">
+                <span class="holo-tag">Web 4.0 Interface</span>
+                <h1 class="holo-hero-title">Reality is <br> <span class="holo-text-gradient">Programmable</span></h1>
+                <p class="holo-hero-subtitle">
+                    Experience the next generation of UI design. High-fidelity holographic components for the spatial web.
+                </p>
+                <div class="holo-hero-actions">
+                    <button class="holo-btn holo-btn-lg holo-btn-primary"><span>Get Started</span></button>
+                    <button class="holo-btn holo-btn-lg holo-btn-ghost">View Spec</button>
+                </div>
+            </div>
+            <div class="holo-hero-visual">
+                <div class="holo-prism-card">
+                    <div class="holo-prism-shine"></div>
+                    <div class="holo-stat-row">
+                        <div class="holo-stat-label">APY</div>
+                        <div class="holo-stat-val">+124.5%</div>
+                    </div>
+                    <div class="holo-graph-placeholder">
+                        <svg viewBox="0 0 200 60" class="holo-chart-line">
+                            <path d="M0,50 Q20,40 40,45 T80,30 T120,20 T160,35 T200,10" fill="none" stroke="url(#holoGrad)" stroke-width="4"/>
+                            <defs>
+                                <linearGradient id="holoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#00ffff" />
+                                    <stop offset="50%" stop-color="#ff00cc" />
+                                    <stop offset="100%" stop-color="#ffff00" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="holo-floating-orb"></div>
+                <div class="holo-floating-orb sm"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="holo-section">
+        <div class="holo-container">
+            <div class="holo-section-header">
+                <h2>Spectrum Features</h2>
+                <p>Designed for the ethereal plane.</p>
+            </div>
+            
+            <div class="holo-grid">
+                <!-- Feature 1 -->
+                <div class="holo-feature-card">
+                    <div class="holo-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Multi-Layered</h3>
+                    <p>Depth that feels real using advanced CSS backdrops and blend modes.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="holo-feature-card">
+                    <div class="holo-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-5.38C13.72 10.8 7.82 8.53 1.74 9.43"/></svg>
+                    </div>
+                    <h3>Global Illumination</h3>
+                    <p>Simulated light sources that interact with borders and text.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="holo-feature-card">
+                    <div class="holo-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Fast Rendering</h3>
+                    <p>Hardware accelerated animations for 60fps performance on all devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interaction Area -->
+    <section class="holo-section holo-section-dark">
+        <div class="holo-container holo-flex-row">
+            <div class="holo-form-container">
+                <h3>Join the Waitlist</h3>
+                <form class="holo-form">
+                    <div class="holo-input-group">
+                        <label>Email Address</label>
+                        <input type="email" class="holo-input" placeholder="you@future.com">
+                    </div>
+                    <div class="holo-input-group">
+                        <label>Interest</label>
+                        <select class="holo-input">
+                            <option>Developer</option>
+                            <option>Designer</option>
+                        </select>
+                    </div>
+                    <button type="button" class="holo-btn holo-btn-primary full-width">
+                        <span>Request Access</span>
+                    </button>
+                </form>
+            </div>
+            <div class="holo-text-block">
+                <h2>Secure by Design</h2>
+                <p>Our holographic interface isn't just pretty. It utilizes quantum-resistant cryptography visualizations to ensure your data feels as safe as it is.</p>
+                <ul class="holo-list">
+                    <li>Zero-knowledge proofs</li>
+                    <li>Biometric light auth</li>
+                    <li>Decentralized storage</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="holo-footer">
+        <div class="holo-container">
+            <div class="holo-footer-brand">
+                <span class="holo-text-gradient">PRISMA</span>
+                <p>&copy; 2025 Holographic Inc.</p>
+            </div>
+            <div class="holo-footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

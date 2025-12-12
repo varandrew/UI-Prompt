@@ -1,0 +1,103 @@
+.modal-notif-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 100%;
+            padding: 1rem;
+          }
+          .preview-fullscreen .modal-notif-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            max-width: 400px;
+            z-index: 9999;
+            padding: 0;
+          }
+          .modal-notif {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid;
+            animation: modalNotifSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .modal-notif-success {
+            border-left-color: #10b981;
+          }
+          .modal-notif-error {
+            border-left-color: #ef4444;
+          }
+          .modal-notif-warning {
+            border-left-color: #f59e0b;
+          }
+          .modal-notif-info {
+            border-left-color: #3b82f6;
+          }
+          .modal-notif-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+          .modal-notif-success .modal-notif-icon {
+            background: #d1fae5;
+            color: #10b981;
+          }
+          .modal-notif-error .modal-notif-icon {
+            background: #fee2e2;
+            color: #ef4444;
+          }
+          .modal-notif-warning .modal-notif-icon {
+            background: #fef3c7;
+            color: #f59e0b;
+          }
+          .modal-notif-info .modal-notif-icon {
+            background: #dbeafe;
+            color: #3b82f6;
+          }
+          .modal-notif-content {
+            flex: 1;
+            min-width: 0;
+          }
+          .modal-notif-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #111827;
+            margin-bottom: 0.25rem;
+          }
+          .modal-notif-message {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.4;
+          }
+          .modal-notif-close {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+          }
+          .modal-notif-close:hover {
+            background: #f3f4f6;
+            color: #6b7280;
+          }
+          @keyframes modalNotifSlideIn {
+            from {
+              opacity: 0;
+              transform: translateX(100%) scale(0.9);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0) scale(1);
+            }
+          }

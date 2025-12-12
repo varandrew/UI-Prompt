@@ -1,0 +1,25 @@
+{
+  "id": "visual-darkMode",
+  "category": "visual",
+  "family": {
+    "name": {
+      "zh-CN": "深色模式",
+      "en-US": "Dark Mode"
+    },
+    "description": {
+      "zh-CN": "深色模式设计，采用深色调、高对比度，提供舒适的视觉体验。",
+      "en-US": "Dark mode design with deep colors, high contrast, and comfortable visual experience."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "visual-darkMode-darkMode-dashboard",
+      "title": {
+        "zh-CN": "开发者工具仪表板",
+        "en-US": "Developer Tools Dashboard"
+      }
+    }
+  ]
+}

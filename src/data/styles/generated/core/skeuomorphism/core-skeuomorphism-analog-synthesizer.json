@@ -1,0 +1,58 @@
+{
+  "id": "core-skeuomorphism-analog-synthesizer",
+  "category": "core",
+  "family": "skeuomorphism",
+  "title": {
+    "zh-CN": "类比合成器控制台",
+    "en-US": "Analog Synthesizer"
+  },
+  "description": {
+    "zh-CN": "具有 Skeuomorphism 设计风格的交互式类比音频合成器控制台，展示旋钮、推子、按钮和显示屏等物理 UI 元素的逼真模拟。每个组件都具有精细的阴影、质感和交互反馈，营造出真实的机械质感。",
+    "en-US": "An interactive analog audio synthesizer control panel designed with Skeuomorphism style, showcasing realistic simulations of physical UI elements such as knobs, faders, buttons, and displays. Each component features intricate shadows, textures, and interactive feedback to create an authentic mechanical feel."
+  },
+  "customPrompt": {
+    "zh-CN": "设计一个 Skeuomorphism 风格的类比音频合成器控制台，具有以下特色：\n- 旋钮（Knob）控制器，带有精细的刻度标记和转动指示器\n- 推子（Fader）混合器，可以实时调整音量和效果\n- 机械按钮，具有下按动画和视觉反馈\n- VFD 风格显示屏，显示模式、BPM 和输出电平\n- LED 指示灯，具有真实的发光效果\n- 金属切换开关，控制电源状态\n- 机械螺丝，增加组装感\n- 金属拉丝纹理表面\n- 响应式布局，支持桌面和平板设备\n\n使用 Tailwind CSS 实现所有视觉效果，并通过 React 状态管理提供完整的交互功能。",
+    "en-US": "Design a Skeuomorphism-style analog audio synthesizer control panel with the following features:\n- Rotary knobs with fine graduation marks and rotation indicators\n- Faders mixer for real-time volume and effect adjustments\n- Mechanical buttons with press animations and visual feedback\n- VFD-style display showing mode, BPM, and output levels\n- LED indicators with realistic glow effects\n- Metal toggle switches for power control\n- Mechanical screws for assembled appearance\n- Brushed metal texture surfaces\n- Responsive layout supporting desktop and tablet devices\n\nImplement all visual effects using Tailwind CSS and provide complete interactive functionality through React state management."
+  },
+  "stylePrompt": {
+    "zh-CN": "使用 Skeuomorphism 设计原则，重点强调物理真实感和可触及性。包含深色金属表面、精确的阴影层级、细腻的光线反射、质感元素和机械细节。确保每个交互元素都有清晰的按下状态反馈。",
+    "en-US": "Apply Skeuomorphism design principles emphasizing physical realism and tangibility. Include dark metal surfaces, precise shadow hierarchy, subtle light reflections, textured elements, and mechanical details. Ensure every interactive element has clear press-state feedback."
+  },
+  "features": [
+    "Rotary Potentiometer Knobs",
+    "Vertical Fader Mixers",
+    "Push Buttons with Feedback",
+    "VFD Display Screen",
+    "LED Indicator Lights",
+    "Toggle Power Switch",
+    "Metal Hardware Screws",
+    "Brushed Metal Texture",
+    "Interactive State Management",
+    "Responsive Design"
+  ],
+  "tags": [
+    "skeuomorphism",
+    "interactive",
+    "audio",
+    "synthesizer",
+    "mechanical",
+    "hardware",
+    "ui-controls",
+    "tactile",
+    "realistic",
+    "dark-mode"
+  ],
+  "type": "fullpage",
+  "contentUrl": "/data/content/core/skeuomorphism/core-skeuomorphism-analog-synthesizer/fullpage.jsx",
+  "stylesUrl": "/data/content/core/skeuomorphism/core-skeuomorphism-analog-synthesizer/fullpage.css",
+  "previews": [
+    {
+      "id": "analog-synthesizer-main",
+      "title": {
+        "zh-CN": "主控制台",
+        "en-US": "Main Console"
+      },
+      "type": "fullpage"
+    }
+  ]
+}

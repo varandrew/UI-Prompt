@@ -141,7 +141,7 @@ export function createSchemaValidator(schema) {
           return false;
         }
       } else if (typeof typeOrValidator === 'string') {
-        // eslint-disable-next-line valid-typeof
+         
         if (typeof fieldValue !== typeOrValidator) {
           return false;
         }

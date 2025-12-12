@@ -1,0 +1,165 @@
+{
+  "id": "modal-dialog",
+  "category": "feedback",
+  "component": {
+    "name": {
+      "zh-CN": "data.components.feedback.modal-dialog.title",
+      "en-US": "data.components.feedback.modal-dialog.title"
+    },
+    "description": {
+      "zh-CN": "data.components.feedback.modal-dialog.description",
+      "en-US": "data.components.feedback.modal-dialog.description"
+    },
+    "tags": [
+      "feedback",
+      "overlay",
+      "popup"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "minimalism",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.minimalism.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.minimalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.minimalism.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.minimalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "material",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.material.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.material.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.material.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.material.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "glassmorphism",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.glassmorphism.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.glassmorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.glassmorphism.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.glassmorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neumorphism",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.neumorphism.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.neumorphism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.neumorphism.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.neumorphism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "bootstrap",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.bootstrap.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.bootstrap.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.bootstrap.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.bootstrap.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "neo-brutalism",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.neo-brutalism.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.neo-brutalism.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.neo-brutalism.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.neo-brutalism.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "cyberpunk",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.cyberpunk.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.cyberpunk.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.cyberpunk.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.cyberpunk.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "bottom-sheet",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.bottom-sheet.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.bottom-sheet.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.bottom-sheet.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.bottom-sheet.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "side-drawer",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.side-drawer.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.side-drawer.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.side-drawer.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.side-drawer.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "notification",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.notification.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.notification.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.notification.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.notification.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "image-preview",
+      "name": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.image-preview.name",
+        "en-US": "data.components.feedback.modal-dialog.variants.image-preview.name"
+      },
+      "description": {
+        "zh-CN": "data.components.feedback.modal-dialog.variants.image-preview.description",
+        "en-US": "data.components.feedback.modal-dialog.variants.image-preview.description"
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

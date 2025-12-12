@@ -1,0 +1,25 @@
+{
+  "id": "retro-digitalRetro",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "数位复古",
+      "en-US": "Digital Retro"
+    },
+    "description": {
+      "zh-CN": "数位时代复古美学，融合80-90年代电脑图形与现代设计",
+      "en-US": "Digital retro aesthetics blending 80s-90s computer graphics with modern design"
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "retro-digitalRetro-pixel-art",
+      "title": {
+        "zh-CN": "像素艺术游戏",
+        "en-US": "Pixel Art Game"
+      }
+    }
+  ]
+}

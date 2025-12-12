@@ -1,0 +1,25 @@
+{
+  "id": "retro-retroFuturism",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "复古未来主义",
+      "en-US": "Retro Futurism"
+    },
+    "description": {
+      "zh-CN": "1980年代复古科幻风格的数字美学，灵感源自早期计算机终端和科幻电影中的未来想象。采用标志性的磷光绿色或琥珀色单色文字、复古CRT扫描线效果、ASCII艺术图形和等宽字体排版，营造出神秘的黑客文化氛围。这一风格重现了DOS时代、早期Unix系统和大型机终端的视觉特征，通过像素化图标、命令行界面元素和数字网格背景，展现了人类对计算机技术初期的敬畏与探索精神。适合科技主题、编程工具、网络安全平台和怀旧游戏界面，完美诠释了赛博朋克文化的起源和早期数字革命的粗粝质感。",
+      "en-US": "1980s retro-futuristic digital aesthetic inspired by early computer terminals and sci-fi cinema's vision of the future. Featuring iconic phosphor green or amber monochrome text, vintage CRT scanline effects, ASCII art graphics, and monospace typography that creates an atmospheric hacker culture ambiance. This style recreates the visual characteristics of the DOS era, early Unix systems, and mainframe terminals through pixelated icons, command-line interface elements, and digital grid backgrounds, expressing humanity's awe and exploration spirit toward early computing technology. Perfectly suited for technology themes, programming tools, cybersecurity platforms, and nostalgic gaming interfaces, beautifully interpreting the origins of cyberpunk culture and the raw texture of the early digital revolution."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    {
+      "id": "retro-futurism-dos",
+      "title": {
+        "zh-CN": "DOS 终端",
+        "en-US": "DOS Terminal"
+      }
+    }
+  ]
+}

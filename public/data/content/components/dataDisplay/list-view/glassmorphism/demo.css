@@ -1,0 +1,17 @@
+@keyframes blurFadeIn {
+            from {
+              opacity: 0;
+              filter: blur(10px);
+              transform: translateX(-20px);
+            }
+            to {
+              opacity: 1;
+              filter: blur(0px);
+              transform: translateX(0);
+            }
+          }
+
+          .glass-item:hover > div {
+            transform: translateX(5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+          }

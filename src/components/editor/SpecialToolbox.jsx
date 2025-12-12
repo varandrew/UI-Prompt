@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useEditorStore } from '../../stores';
+import { useCanvasStore, useSelectionStore } from '../../stores';
 import { findComponentById } from '../../stores/utils/componentHelpers';
 
 /**
@@ -11,11 +11,12 @@ import { findComponentById } from '../../stores/utils/componentHelpers';
  * - 針對 Page（根節點）提供简化设定（背景色、最小高度）
  */
 export function SpecialToolbox() {
-  const canvasState = useEditorStore((s) => s.canvasState);
-  const selectedComponentId = useEditorStore((s) => s.selectedComponentId);
-  const updateBaseProps = useEditorStore((s) => s.updateBaseProps);
-  const deleteComponent = useEditorStore((s) => s.deleteComponent);
-  const { componentTree, componentProps } = canvasState || {};
+  // 使用模塊化 Store
+  const componentTree = useCanvasStore((s) => s.componentTree);
+  const componentProps = useCanvasStore((s) => s.componentProps);
+  const updateBaseProps = useCanvasStore((s) => s.updateBaseProps);
+  const deleteComponent = useCanvasStore((s) => s.deleteComponent);
+  const selectedComponentId = useSelectionStore((s) => s.selectedComponentId);
 
   const node = useMemo(() => findComponentById(componentTree, selectedComponentId), [componentTree, selectedComponentId]);
   const props = componentProps?.[selectedComponentId];

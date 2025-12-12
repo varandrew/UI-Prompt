@@ -1,0 +1,19 @@
+{
+  "id": "masonry",
+  "category": "layout",
+  "family": {
+    "name": {
+      "zh-CN": "瀑布流佈局",
+      "en-US": "Masonry Layout"
+    },
+    "description": {
+      "zh-CN": "靈活的瀑布流佈局，支持不同高度的卡片，創造動態的視覺節奏。",
+      "en-US": "Flexible masonry layout supporting cards of different heights, creating dynamic visual rhythm."
+    },
+    "tags": [],
+    "relatedStyles": []
+  },
+  "templates": [
+    "masonry"
+  ]
+}

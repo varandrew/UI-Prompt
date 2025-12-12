@@ -1,0 +1,207 @@
+.notebook-demo {
+  background:
+    linear-gradient(90deg, #e8dcc4 1px, transparent 1px),
+    linear-gradient(#e8dcc4 1px, transparent 1px),
+    #f9f6f0;
+  background-size: 20px 20px;
+  padding: 48px 24px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Patrick Hand', 'Indie Flower', cursive;
+  position: relative;
+}
+
+.notebook-page {
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      #d4c5a9 31px,
+      #d4c5a9 32px
+    ),
+    linear-gradient(90deg,
+      transparent 0,
+      transparent 40px,
+      #e8a5a5 40px,
+      #e8a5a5 42px,
+      transparent 42px
+    ),
+    #fffef8;
+  width: 100%;
+  max-width: 600px;
+  min-height: 350px;
+  padding: 48px 48px 48px 60px;
+  border-radius: 3px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 0 100px rgba(139, 69, 19, 0.02);
+  filter: url(#notebook-sketch);
+  position: relative;
+}
+
+.notebook-content {
+  position: relative;
+  z-index: 1;
+}
+
+.notebook-header {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.notebook-header h2 {
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c1810;
+  transform: rotate(-1deg);
+}
+
+.notebook-header .date {
+  font-family: 'Indie Flower', cursive;
+  font-size: 14px;
+  color: #8b6f47;
+  transform: rotate(2deg);
+}
+
+.notebook-section {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.doodle-circle {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #ff6b6b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-5deg);
+  animation: doodle-float 3s ease-in-out infinite;
+}
+
+.doodle-circle span {
+  font-size: 18px;
+}
+
+.doodle-arrow {
+  position: absolute;
+  left: -35px;
+  top: 8px;
+  font-size: 28px;
+  color: #4ecdc4;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  transform: rotate(-10deg);
+  animation: arrow-wiggle 2s ease-in-out infinite;
+}
+
+.notebook-section h3 {
+  margin: 0 0 12px 0;
+  font-family: 'Caveat', cursive;
+  font-size: 26px;
+  font-weight: 700;
+  color: #3d2817;
+  transform: rotate(-0.5deg);
+}
+
+.notebook-section p {
+  margin: 0;
+  font-family: 'Indie Flower', cursive;
+  font-size: 16px;
+  line-height: 32px;
+  color: #5d4e37;
+}
+
+.sketchy-list {
+  margin: 0;
+  padding-left: 24px;
+  list-style: none;
+}
+
+.sketchy-list li {
+  position: relative;
+  font-family: 'Indie Flower', cursive;
+  font-size: 16px;
+  line-height: 32px;
+  color: #5d4e37;
+}
+
+.sketchy-list li::before {
+  content: '✓';
+  position: absolute;
+  left: -24px;
+  color: #95d5b2;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.doodle-underline {
+  margin-top: 32px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffb703 0px,
+    #ffb703 8px,
+    transparent 8px,
+    transparent 12px
+  );
+  transform: rotate(-0.5deg) scaleX(1.02);
+  opacity: 0.6;
+}
+
+@keyframes doodle-float {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  50% { transform: rotate(-5deg) translateY(-4px); }
+}
+
+@keyframes arrow-wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(-8deg); }
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .notebook-demo {
+    padding: 24px 12px;
+  }
+
+  .notebook-page {
+    padding: 32px 32px 32px 48px;
+    min-height: 300px;
+  }
+
+  .notebook-header h2 {
+    font-size: 28px;
+  }
+
+  .notebook-section h3 {
+    font-size: 22px;
+  }
+
+  .notebook-section p,
+  .sketchy-list li {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .doodle-circle {
+    width: 28px;
+    height: 28px;
+    left: -36px;
+  }
+
+  .doodle-arrow {
+    left: -32px;
+    font-size: 24px;
+  }
+}
