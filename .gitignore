@@ -33,6 +33,9 @@ docs/
 # Serena MCP
 .serena/
 
+# Claude Code
+.claude/
+
 # Test coverage
 coverage/
 
