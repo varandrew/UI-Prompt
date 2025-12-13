@@ -36,19 +36,24 @@ function escapeHTML(str) {
  *
  * @param {Object} options - Build options
  * @param {string} options.displayTitle - The style title to display (will be sanitized)
+ * @param {string} [options.language='en-US'] - Language code for the HTML lang attribute
+ * @param {Function} [options.t] - Translation function (optional, for future i18n support)
  * @returns {string} Complete HTML document string with embedded styles and scripts
  *
  * @example
  * const html = buildEmptyStateHTML({
- *   displayTitle: 'Glassmorphism'
+ *   displayTitle: 'Glassmorphism',
+ *   language: 'zh-CN'
  * });
  */
-export function buildEmptyStateHTML({ displayTitle }) {
+export function buildEmptyStateHTML({ displayTitle, language = 'en-US', t: _t }) {
   // Sanitize the title to prevent XSS
   const safeTitle = escapeHTML(displayTitle || '');
+  // Use provided language or default to en-US
+  const htmlLang = language || 'en-US';
 
   return `<!DOCTYPE html>
-<html lang="en-US">
+<html lang="${htmlLang}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
