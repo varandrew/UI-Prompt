@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import DOMPurify from 'dompurify';
+import { cachedSanitize } from '../../utils/sanitizeCache';
 import appCssUrl from '../../index.css?url';
 import { createLogger } from '../../utils/logger';
 
@@ -181,7 +181,7 @@ export function IframeRenderer({
     const noExternal = stripExternalAssets(demoHTML || '');
     const { html: noStyleHtml, styles: inlineStyles } = extractInlineStyles(noExternal);
     const bodyInner = extractBodyInner(noStyleHtml);
-    const sanitizedHTML = DOMPurify.sanitize(bodyInner || '');
+    const sanitizedHTML = cachedSanitize(bodyInner || '', 'html');
     const combinedStyles = sanitizeCss(`${inlineStyles || ''}\n${customStyles || ''}`);
     const hasTailwindScript = externalScripts.some((src) => /tailwindcss\.com/i.test(src));
     const hasTailwindCss = externalLinks.some((href) => /tailwindcss/i.test(href));
@@ -260,7 +260,7 @@ ${externalAssetsHTML}
   // 如果不可見，顯示佔位符
   if (!isVisible) {
     return (
-      <div className={`demo-box ${demoBoxClass}`} style={demoBoxStyle}>
+      <div className={`demo-box relative z-10 ${demoBoxClass}`} style={demoBoxStyle}>
         <div className="w-full h-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-900">
           <div className="flex flex-col items-center gap-2">
             <div className="w-6 h-6 border-2 border-zinc-200 dark:border-zinc-700 border-t-zinc-400 dark:border-t-zinc-500 rounded-full animate-spin"></div>
@@ -273,11 +273,11 @@ ${externalAssetsHTML}
 
   // 渲染 iframe
   return (
-    <div className={`demo-box ${demoBoxClass}`} style={demoBoxStyle}>
+    <div className={`demo-box relative z-10 ${demoBoxClass}`} style={demoBoxStyle}>
       <iframe
         ref={iframeRef}
         title={`style-demo-${id}`}
-        className="w-full h-full border-0"
+        className="relative w-full h-full border-0 z-10 mix-blend-multiply dark:mix-blend-normal"
         sandbox="allow-same-origin allow-scripts allow-forms"
       />
     </div>

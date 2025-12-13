@@ -12,7 +12,7 @@ export const styleEnhancements = {
   'core-flatDesign': {
     primaryCategory: 'core',
     categories: ['core'],
-    tags: ['contemporary', 'flat', 'minimal', 'bold', 'colorful', 'clean', 'ecommerce'],
+    tags: ['contemporary', 'flat', 'minimal', 'bold', 'colorful', 'clean', 'ecommerce', 'design-system'],
     relatedStyles: ['core-minimalism', 'core-material']
   },
   'core-materialDesign': {
@@ -20,6 +20,12 @@ export const styleEnhancements = {
     categories: ['core'],
     tags: ['contemporary', 'depth', 'geometric', 'enterprise', 'bold', 'colorful'],
     relatedStyles: ['core-flatDesign', 'core-fluent2']
+  },
+  'core-materialDesign-principles': {
+    primaryCategory: 'core',
+    categories: ['core'],
+    tags: ['contemporary', 'depth', 'geometric', 'enterprise', 'interactive', 'educational'],
+    relatedStyles: ['core-materialDesign', 'core-flatDesign', 'core-fluent2']
   },
   'core-minimalism': {
     primaryCategory: 'core',
@@ -194,12 +200,6 @@ export const styleEnhancements = {
   },
 
   // Tech & Data
-  'visual-dataVisualization': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'tech'],
-    tags: ['contemporary', 'dataDriven', 'enterprise', 'geometric', 'clean'],
-    relatedStyles: ['visual-tech-bento-grids', 'core-minimalism']
-  },
   'visual-generativeArt': {
     primaryCategory: 'visual',
     categories: ['visual', 'tech'],
@@ -226,17 +226,11 @@ export const styleEnhancements = {
     tags: ['contemporary', 'depth', 'soft', 'clean', 'minimal', 'creative'],
     relatedStyles: ['core-materialDesign', 'visual-glassmorphism']
   },
-  'visual-neumorphismDark': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'modern'],
-    tags: ['contemporary', 'depth', 'soft', 'minimal', 'dark', 'elegant'],
-    relatedStyles: ['visual-softUI', 'core-minimalism']
-  },
   'visual-darkMode': {
     primaryCategory: 'visual',
     categories: ['visual'],
     tags: ['contemporary', 'dark', 'minimal', 'modern'],
-    relatedStyles: ['visual-neumorphismDark', 'core-minimalism']
+    relatedStyles: ['core-minimalism']
   },
 
   // Textures
@@ -315,6 +309,12 @@ export const styleEnhancements = {
     categories: ['visual'],
     tags: ['contemporary', 'accessible', 'high-contrast', 'enterprise'],
     relatedStyles: ['core-minimalism']
+  },
+  'visual-accessibility-basic': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'accessibility'],
+    tags: ['contemporary', 'accessible', 'wcag-compliant', 'high-contrast', 'inclusive', 'government', 'enterprise'],
+    relatedStyles: ['visual-accessibility', 'core-minimalism', 'visual-utilityFirst']
   },
 
   // Keep existing visual styles
@@ -498,12 +498,6 @@ export const styleEnhancements = {
     tags: ['contemporary', 'playful', 'colorful', 'rounded', 'friendly', 'creative', 'animated'],
     relatedStyles: ['visual-claymorphism', 'visual-kawaii-minimal', 'visual-paperCutout']
   },
-  'visual-neumorphism-dark': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'modern'],
-    tags: ['contemporary', 'depth', 'soft', 'minimal', 'dark', 'elegant'],
-    relatedStyles: ['visual-soft-ui', 'core-minimalism', 'visual-monochrome']
-  },
   'visual-industrial': {
     primaryCategory: 'visual',
     categories: ['visual', 'modern'],
@@ -550,6 +544,12 @@ export const styleEnhancements = {
     tags: ['contemporary', 'bold', 'experimental', 'creative', 'colorful'],
     relatedStyles: ['visual-neo-brutalism', 'visual-y2k', 'core-flat']
   },
+  'visual-antiDesign-studio': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'tech'],
+    tags: ['contemporary', 'bold', 'experimental', 'creative', 'colorful', 'brutalism'],
+    relatedStyles: ['visual-neoBrutalism', 'visual-y2k', 'visual-tech-anti-design']
+  },
   'visual-tech-generative-art': {
     primaryCategory: 'visual',
     categories: ['visual', 'tech'],
@@ -562,17 +562,11 @@ export const styleEnhancements = {
     tags: ['contemporary', 'effectDriven', 'futuristic', 'gaming', 'creative'],
     relatedStyles: ['visual-neon-cyberpunk', 'visual-neon-noir', 'visual-tech-generative-art']
   },
-  'visual-tech-data-visualization': {
-    primaryCategory: 'visual',
-    categories: ['visual', 'tech'],
-    tags: ['contemporary', 'dataDriven', 'enterprise', 'geometric', 'clean'],
-    relatedStyles: ['visual-tech-bento-grids', 'core-minimalism', 'visual-outlineStyle-business']
-  },
   'visual-tech-bento-grids': {
     primaryCategory: 'visual',
     categories: ['visual', 'tech', 'layout'],
     tags: ['contemporary', 'geometric', 'clean', 'enterprise', 'creative'],
-    relatedStyles: ['visual-tech-data-visualization', 'core-minimalism', 'visual-outlineStyle-business']
+    relatedStyles: ['core-minimalism', 'visual-outlineStyle-business']
   },
 
   // Translucent 系列
@@ -580,7 +574,7 @@ export const styleEnhancements = {
     primaryCategory: 'visual',
     categories: ['visual', 'translucent'],
     tags: ['contemporary', 'translucent', 'depth', 'gradient', 'clean', 'creative', 'modern'],
-    relatedStyles: ['core-fluent2', 'visual-y2k', 'visual-translucent-aurora-glass', 'core-material', 'visual-neumorphism-dark']
+    relatedStyles: ['core-fluent2', 'visual-y2k', 'visual-translucent-aurora-glass', 'core-material']
   },
   'visual-translucent-translucent-layers': {
     primaryCategory: 'visual',

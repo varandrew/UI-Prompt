@@ -1,6 +1,6 @@
 import { useMemo, useCallback } from 'react';
 import { useLoaderData, useSearchParams } from 'react-router-dom';
-import { useLanguage } from '../../hooks/useLanguage';
+
 import { PromptDrawer } from '../../components/prompt/PromptDrawer';
 import { PreviewPromptGenerator } from '../../utils/promptGenerator';
 import { DataVisualizationPreview } from '../../components/preview/DataVisualizationPreview';
@@ -37,7 +37,6 @@ import { buildEmptyStateHTML } from '../../components/preview/utils/emptyStateTe
 export function StylePreviewPage() {
   // ========== 1. Data from loader ==========
   const { style } = useLoaderData();
-  const { t, language } = useLanguage();
   const [searchParams] = useSearchParams();
 
   // ========== 2. Extract style properties ==========
@@ -58,13 +57,13 @@ export function StylePreviewPage() {
   const displayTitle = useMemo(() => {
     if (!title) return '';
     if (typeof title === 'string') {
-      return title.includes('.') ? t(title) : title;
+      return title;
     }
     if (typeof title === 'object') {
-      return title[language] || title['en-US'] || title['zh-CN'] || '';
+      return title['en-US'] || title['zh-CN'] || '';
     }
     return String(title);
-  }, [title, t, language]);
+  }, [title]);
 
   // ========== 4. Stabilize previews list ==========
   const previewsList = useMemo(
@@ -88,7 +87,8 @@ export function StylePreviewPage() {
     styleId: style.id,
     previewsList,
     defaultPreviewId,
-    searchParams
+    searchParams,
+    language: 'en-US'
   });
 
   // ========== 7. Use extracted async loader hook ==========
@@ -104,7 +104,8 @@ export function StylePreviewPage() {
     fullPagePreviewId,
     styleId: style.id,
     isReactPreview,
-    setIsLoading
+    setIsLoading,
+    language: 'en-US'
   });
 
   // ========== 8. Build preview HTML using extended utility ==========
@@ -127,9 +128,7 @@ export function StylePreviewPage() {
     // Styles with only demoHTML (component demos) should show "no template" message
     if (!hasAsyncContent && !hasPreviewsList && !hasFullPageHTML) {
       return buildEmptyStateHTML({
-        displayTitle,
-        language,
-        t
+        displayTitle
       });
     }
 
@@ -146,9 +145,7 @@ export function StylePreviewPage() {
       fullPageStyles,
       htmlContent: demoHTML,
       customStyles,
-      language,
-      displayTitle,
-      t
+      displayTitle
     });
   }, [
     asyncPreview,
@@ -161,9 +158,7 @@ export function StylePreviewPage() {
     fullPageStyles,
     demoHTML,
     customStyles,
-    language,
     displayTitle,
-    t,
     previewCacheRef
   ]);
 
@@ -177,7 +172,7 @@ export function StylePreviewPage() {
           style.fullPageHTML ||
           style.demoHTML ||
           '',
-        language,
+        'en-US',
         '', // previewDescription
         [], // previewFeatures
         '', // previewColorScheme
@@ -187,7 +182,7 @@ export function StylePreviewPage() {
       logger.error('Error generating prompt:', error);
       return '';
     }
-  }, [style, language, activeIndex, previewsList, currentPreview]);
+  }, [style, activeIndex, previewsList, currentPreview]);
 
   // ========== 10. Event handlers ==========
   const handleOpenFullPageWindow = useCallback(() => {
@@ -220,8 +215,6 @@ export function StylePreviewPage() {
             setShowPrompt={setShowPrompt}
             onOpenFullPage={handleOpenFullPageWindow}
             promptContent={promptContent}
-            t={t}
-            language={language}
           />
         )}
 
@@ -246,7 +239,7 @@ export function StylePreviewPage() {
           ) : (
             <iframe
               key={`${style.id}:${activeIndex}:${asyncPreview ? 'ready' : 'loading'}`}
-              title={t('preview.header', { title: displayTitle })}
+              title={`${displayTitle} - Preview`}
               srcDoc={previewHTML}
               className="w-full h-full border-0"
               onLoad={() => setIsLoading(false)}
@@ -263,7 +256,7 @@ export function StylePreviewPage() {
       <PromptDrawer
         isOpen={showPrompt}
         onClose={() => setShowPrompt(false)}
-        title={t('preview.promptTitle', { title: displayTitle })}
+        title={`${displayTitle} - Prompt`}
         content={promptContent}
       />
     </>

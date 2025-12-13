@@ -161,7 +161,7 @@ export function AllStylesPage() {
         </section>
       ) : filteredStyles.length > 0 ? (
         <div className="opacity-0 transition-opacity duration-300 ease-out" style={{ opacity: isLoading ? 0 : 1 }}>
-          {filteredStyles.length > 40 ? (
+          {filteredStyles.length > 12 ? (
             <VirtualMasonryVariable
               items={filteredStyles}
               itemHeight={400}

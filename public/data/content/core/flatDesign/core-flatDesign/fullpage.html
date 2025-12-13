@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System: The Flat Family</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- NAVIGATION -->
+    <nav class="bg-slate-900 text-white py-6 border-b-4 border-blue-500 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- Simple Geometric Logo -->
+                <div class="w-8 h-8 bg-blue-500 rounded-sm"></div>
+                <span class="text-xl font-bold tracking-tight">Design<span class="text-blue-500">System</span>_v2.0</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-wider">
+                <a href="#philosophy" class="nav-link text-slate-300 hover:text-white transition-colors">Philosophy</a>
+                <a href="#usage" class="nav-link text-slate-300 hover:text-white transition-colors">Usage</a>
+                <a href="#components" class="nav-link text-slate-300 hover:text-white transition-colors">Components</a>
+            </div>
+            <button class="md:hidden text-white" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="square" stroke-linejoin="miter" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden bg-slate-800 p-4 absolute w-full border-b-2 border-slate-700">
+            <a href="#philosophy" class="block py-2 text-white font-medium">Philosophy</a>
+            <a href="#usage" class="block py-2 text-white font-medium">Usage</a>
+            <a href="#components" class="block py-2 text-white font-medium">Components</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION: Poster Style -->
+    <header class="bg-white pt-20 pb-24">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block bg-blue-100 text-blue-800 px-3 py-1 text-xs font-bold uppercase tracking-widest mb-6">
+                    Internal Guideline
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-slate-900 leading-[0.95] mb-8">
+                    CLARITY.<br>
+                    EFFICIENCY.<br>
+                    <span class="text-blue-600">FLAT.</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed max-w-lg mb-10">
+                    We are shifting our dashboard and utility products to the Flat Design family. 
+                    No shadows. No bevels. Just content, structure, and pure color.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#components" class="flat-btn bg-blue-600 text-white px-8 py-4 font-bold hover:bg-blue-700 transition-colors">
+                        View Component Library
+                    </a>
+                    <a href="#philosophy" class="flat-btn bg-slate-100 text-slate-900 px-8 py-4 font-bold hover:bg-slate-200 transition-colors">
+                        Read Philosophy
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Visual Representation of Flat Design -->
+            <div class="relative h-96 w-full bg-slate-100 p-8 flex flex-col justify-center items-center overflow-hidden border-2 border-slate-200">
+                <!-- Abstract Geometric Layout -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-red-500 rounded-full"></div>
+                
+                <div class="relative z-10 bg-white p-6 w-3/4 max-w-sm border-2 border-slate-900">
+                    <div class="h-4 w-1/3 bg-slate-900 mb-4"></div>
+                    <div class="h-2 w-full bg-slate-200 mb-2"></div>
+                    <div class="h-2 w-full bg-slate-200 mb-2"></div>
+                    <div class="h-2 w-2/3 bg-slate-200 mb-6"></div>
+                    <div class="flex gap-2">
+                        <div class="h-10 w-1/2 bg-blue-600 flex items-center justify-center text-white text-xs font-bold">ACTION</div>
+                        <div class="h-10 w-1/2 border-2 border-slate-300 flex items-center justify-center text-slate-500 text-xs font-bold">CANCEL</div>
+                    </div>
+                </div>
+                <p class="absolute bottom-4 right-4 text-xs font-mono text-slate-400 uppercase tracking-widest">Fig 1.0: Poster Aesthetic</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION: THE SCENE (Where & Why) -->
+    <section id="usage" class="bg-blue-600 text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-blue-400 pt-12">
+                <div class="md:col-span-1">
+                    <h2 class="text-3xl font-bold mb-4">Where it belongs</h2>
+                    <p class="text-blue-100 leading-relaxed">
+                        The flat family is ideal for products that need to feel direct and easy to read. It focuses attention on content rather than decoration.
+                    </p>
+                </div>
+                <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Use Case Cards -->
+                    <div class="bg-blue-700 p-6 hover:bg-blue-800 transition-colors cursor-default">
+                        <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="square" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Admin Consoles</h3>
+                        <p class="text-sm text-blue-200">High density data requires low visual noise.</p>
+                    </div>
+
+                    <div class="bg-blue-700 p-6 hover:bg-blue-800 transition-colors cursor-default">
+                        <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="square" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="square" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">SaaS Marketing</h3>
+                        <p class="text-sm text-blue-200">Clear value propositions without distraction.</p>
+                    </div>
+
+                    <div class="bg-blue-700 p-6 hover:bg-blue-800 transition-colors cursor-default">
+                        <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="square" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Productivity Tools</h3>
+                        <p class="text-sm text-blue-200">Helping users understand layout at a glance.</p>
+                    </div>
+
+                    <div class="bg-blue-700 p-6 hover:bg-blue-800 transition-colors cursor-default">
+                        <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="square" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Learning Platforms</h3>
+                        <p class="text-sm text-blue-200">Information hierarchy through typography.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUAL PHILOSOPHY -->
+    <section id="philosophy" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">Visual Philosophy</h2>
+                <div class="h-1 w-24 bg-blue-600"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Text Content -->
+                <div class="space-y-12">
+                    <div class="flex gap-6 items-start">
+                        <div class="text-4xl font-bold text-slate-200">01</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">Blocks & Typography</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                We discard volume and material realism. Instead, we rely on simple geometry, solid backgrounds, and strong contrast. The whole UI behaves like a well-composed information poster.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="text-4xl font-bold text-slate-200">02</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">Hierarchy</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                Hierarchy is expressed through font size, weight, color value, and whitespace rather than shadows or bevels.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start">
+                        <div class="text-4xl font-bold text-slate-200">03</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">Zones</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                Large areas of flat color divide the page into zones. Primary hues carry key actions, light neutrals preserve breathing room.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Demo of Philosophy -->
+                <div class="bg-white p-8 border border-slate-200">
+                    <div class="bg-slate-900 p-8 text-center text-white mb-6">
+                        <h4 class="text-2xl font-bold">Solid Backgrounds</h4>
+                        <p class="text-slate-400 mt-2">No gradients. No texture.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-emerald-500 h-32 flex flex-col items-center justify-center text-white">
+                            <span class="font-bold text-xl">Strong</span>
+                            <span class="text-sm opacity-80">Contrast</span>
+                        </div>
+                        <div class="bg-amber-400 h-32 flex flex-col items-center justify-center text-slate-900">
+                            <span class="font-bold text-xl">Primary</span>
+                            <span class="text-sm opacity-80">Hues</span>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-slate-200 p-6 text-center">
+                        <h5 class="text-3xl font-light mb-2 text-slate-400">Typography</h5>
+                        <h5 class="text-3xl font-bold text-slate-900">Is Structure</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE COMPONENT LIBRARY (Material & Interaction) -->
+    <section id="components" class="bg-white py-24 border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Description -->
+                <div class="lg:col-span-4">
+                    <h2 class="text-4xl font-bold mb-6">Interaction & Mood</h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        In the flat family, "material" is a single layer of solid color. 
+                        <br><br>
+                        <strong>Interaction rules:</strong>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-slate-600">
+                            <li>Color shifts, not movement.</li>
+                            <li>Toggled fills for state changes.</li>
+                            <li>Short timings.</li>
+                            <li>No glows, no dropshadows.</li>
+                        </ul>
+                    </p>
+                    <div class="p-6 bg-blue-50 border-l-4 border-blue-500">
+                        <p class="text-sm text-blue-900 italic">
+                            "Buttons are simply colored rectangles, not sculpted objects."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- The Playground -->
+                <div class="lg:col-span-8 bg-slate-50 p-8 lg:p-12 border border-slate-200">
+                    <div class="flex justify-between items-end mb-8 border-b border-slate-200 pb-4">
+                        <h3 class="text-xl font-bold uppercase tracking-wider text-slate-400">Component Playground</h3>
+                        <span class="text-xs font-mono text-slate-400">LIVE PREVIEW</span>
+                    </div>
+
+                    <!-- Row 1: Buttons -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Primary Action</span>
+                            <button class="flat-btn w-full bg-blue-600 text-white font-semibold py-3 px-6 hover:bg-blue-700">
+                                Save Changes
+                            </button>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Secondary Action</span>
+                            <button class="flat-btn w-full bg-transparent border-2 border-slate-300 text-slate-600 font-semibold py-2.5 px-6 hover:border-slate-400 hover:text-slate-800">
+                                Cancel
+                            </button>
+                        </div>
+                        <div class="space-y-2">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Destructive</span>
+                            <button class="flat-btn w-full bg-red-100 text-red-600 font-semibold py-3 px-6 hover:bg-red-200 hover:text-red-800">
+                                Delete Item
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Tabs/Toggles -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                        <div class="space-y-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Tab Switching (Toggled Fills)</span>
+                            <div class="flex bg-slate-200 p-1">
+                                <button onclick="switchTab(this)" class="flex-1 py-2 text-sm font-bold text-slate-900 bg-white shadow-none transition-colors duration-150">Daily</button>
+                                <button onclick="switchTab(this)" class="flex-1 py-2 text-sm font-bold text-slate-500 hover:text-slate-700 transition-colors duration-150">Weekly</button>
+                                <button onclick="switchTab(this)" class="flex-1 py-2 text-sm font-bold text-slate-500 hover:text-slate-700 transition-colors duration-150">Monthly</button>
+                            </div>
+                            <p class="text-xs text-slate-500">Notice the active state is just a solid fill, no "lifting".</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase">Form Inputs (Strong Borders)</span>
+                            <div class="relative">
+                                <input type="text" placeholder="Enter email..." class="w-full bg-white border-2 border-slate-300 py-3 px-4 text-slate-900 focus:outline-none focus:border-blue-500 transition-colors duration-200 placeholder-slate-400">
+                                <div class="absolute right-4 top-3.5 text-slate-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="square" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Alerts/Zones -->
+                    <div class="space-y-2">
+                         <span class="text-xs font-bold text-slate-400 uppercase">Messaging Zones</span>
+                         <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
+                             <div>
+                                 <h4 class="font-bold">Update Available</h4>
+                                 <p class="text-sm opacity-90">A new version of the system is ready.</p>
+                             </div>
+                             <button class="bg-white text-blue-600 px-4 py-2 text-sm font-bold hover:bg-blue-50 transition-colors">Update</button>
+                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-6 h-6 bg-blue-500 rounded-sm"></div>
+                    <span class="text-white font-bold text-lg">DesignSystem_v2.0</span>
+                </div>
+                <p class="max-w-xs text-sm">
+                    A calm, contemporary, and rational mood. Interfaces feel sharp and tidy, with clear sections and minimal ornamentation.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Style Guide</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Component Library</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Icon Set</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4">Connect</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition-colors">Slack Channel</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Repository</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-xs text-center">
+            &copy; 2023 Product Design Team. Simplicity is the ultimate sophistication.
+        </div>
+    </footer>
+
+    <script>
+        // Simple Logic for Mobile Menu
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Logic for the Tab Switcher in Playground
+        // Demonstrates the "Instant State Change" principle
+        function switchTab(el) {
+            // Get parent container
+            const container = el.parentElement;
+            const buttons = container.querySelectorAll('button');
+            
+            // Reset all buttons to inactive state
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.add('text-slate-500', 'hover:text-slate-700');
+            });
+
+            // Set clicked button to active state
+            el.classList.remove('text-slate-500', 'hover:text-slate-700');
+            el.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+        }
+    </script>
+</body>
+</html>

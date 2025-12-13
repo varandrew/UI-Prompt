@@ -3,22 +3,29 @@
   "category": "core",
   "family": {
     "name": {
-      "zh-CN": "Material Design",
-      "en-US": "Material Design"
+      "zh-CN": "Material Design 系統",
+      "en-US": "Material Design System"
     },
     "description": {
-      "zh-CN": "Google 的设计语言，使用纸张隐喻、卡片式布局和有意义的动画过渡。",
-      "en-US": "Google's design language using paper metaphors, card-based layouts, and meaningful motion."
+      "zh-CN": "完整的 Material Design 系統指南，展示設計原則、組件和交互模式。提供現代化的卡片佈局、陰影階層和涟漪反饋效果。",
+      "en-US": "A comprehensive Material Design system guide showcasing design principles, components, and interaction patterns. Features modern card layouts, shadow hierarchy, and ripple effects."
     },
-    "tags": [],
-    "relatedStyles": []
+    "tags": ["contemporary", "depth", "geometric", "enterprise", "interactive"],
+    "relatedStyles": ["core-flatDesign", "core-fluent2", "visual-softUI"]
   },
   "templates": [
     {
+      "id": "core-materialDesign-principles",
+      "title": {
+        "zh-CN": "Material Design 設計原則",
+        "en-US": "Material Design Principles"
+      }
+    },
+    {
       "id": "core-material-design",
       "title": {
-        "zh-CN": "Material Design 經典",
-        "en-US": "Material Design Classic"
+        "zh-CN": "Material Design 基礎",
+        "en-US": "Material Design Basic"
       }
     },
     {

@@ -1,0 +1,11 @@
+{
+  "id": "accessibilityHighContrast",
+  "title": {
+    "zh-CN": "高对比度仪表盘",
+    "en-US": "High Contrast Dashboard"
+  },
+  "description": {
+    "zh-CN": "专为高对比度需求设计的仪表盘，具备清晰的视觉层级和易读性。",
+    "en-US": "Dashboard designed for high contrast requirements with clear visual hierarchy and readability."
+  }
+}

@@ -30,8 +30,6 @@ import { previewLogger as logger } from '../../utils/logger';
  * @param {Function} props.setShowPrompt - Opens prompt drawer callback
  * @param {Function} props.onOpenFullPage - Opens full page in new window callback
  * @param {string} props.promptContent - Prompt content (for logging)
- * @param {Function} props.t - Translation function
- * @param {string} props.language - Current language code
  */
 export function PreviewPageHeader({
   displayTitle,
@@ -43,9 +41,7 @@ export function PreviewPageHeader({
   isLoadingPreview,
   setShowPrompt,
   onOpenFullPage,
-  promptContent,
-  t,
-  language
+  promptContent
 }) {
   /**
    * Handle Edit Code button click
@@ -67,7 +63,6 @@ export function PreviewPageHeader({
       styleId,
       promptLength: promptContent?.length || 0,
       hasPrompt: !!promptContent,
-      language,
       isLoadingPreview
     });
     setShowPrompt(true);
@@ -97,15 +92,15 @@ export function PreviewPageHeader({
       {/* Mobile: Title and close button on same row */}
       <div className="flex items-center justify-between w-full md:w-auto">
         <h3 className="text-lg font-semibold dark:text-gray-100 flex items-center gap-2">
-          {t('preview.header', { title: displayTitle })}
+          {displayTitle} - Preview
           {/* Open in new page button (icon only) - hidden for React previews */}
           {!isReactPreview && (
             <button
               type="button"
               onClick={onOpenFullPage}
               className="inline-flex items-center justify-center p-1.5 text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-gray-400 transition-colors"
-              title={t('ui.openInNewPage')}
-              aria-label={t('ui.openInNewPage')}
+              title="Open Preview in New Page"
+              aria-label="Open Preview in New Page"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +121,7 @@ export function PreviewPageHeader({
           role="button"
           tabIndex={0}
           className="md:hidden cursor-pointer flex items-center justify-center dark:text-gray-100"
-          aria-label={t('buttons.close')}
+          aria-label="Close"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -165,8 +160,8 @@ export function PreviewPageHeader({
               type="button"
               onClick={handleEditCode}
               className="inline-flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-gray-400"
-              title={t('buttons.editCode') || 'Edit Code'}
-              aria-label={t('buttons.editCode') || 'Edit Code'}
+              title="Edit Code"
+              aria-label="Edit Code"
             >
               <Code2 className="h-5 w-5" />
             </button>
@@ -177,8 +172,8 @@ export function PreviewPageHeader({
             type="button"
             onClick={handleShowPrompt}
             className="inline-flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-gray-400"
-            title={t('buttons.prompt')}
-            aria-label={t('buttons.prompt')}
+            title="AI Prompt"
+            aria-label="AI Prompt"
           >
             <Sparkles className="h-5 w-5" />
           </button>
@@ -190,7 +185,7 @@ export function PreviewPageHeader({
             role="button"
             tabIndex={0}
             className="hidden md:flex cursor-pointer items-center justify-center dark:text-gray-100"
-            aria-label={t('buttons.close')}
+            aria-label="Close"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -221,9 +216,7 @@ PreviewPageHeader.propTypes = {
   isLoadingPreview: PropTypes.bool.isRequired,
   setShowPrompt: PropTypes.func.isRequired,
   onOpenFullPage: PropTypes.func.isRequired,
-  promptContent: PropTypes.string,
-  t: PropTypes.func.isRequired,
-  language: PropTypes.string.isRequired
+  promptContent: PropTypes.string
 };
 
 PreviewPageHeader.defaultProps = {

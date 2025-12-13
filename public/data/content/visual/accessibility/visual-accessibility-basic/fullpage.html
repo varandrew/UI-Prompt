@@ -1,619 +1,379 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="antialiased">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>visual-accessibility-basic - Full Page Preview</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicConnect - Inclusive Service Portal</title>
+    <meta name="description" content="Accessible government service portal designed for inclusivity and WCAG 2.1 AA compliance.">
 
-/* Accessibility High Contrast Styles */
+    <!-- Tailwind CSS (Utility Framework) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-/* Base Styles */
-.a11y-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
-}
+    <!-- FontAwesome for Semantic Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-/* Focus Visible Ring */
-*:focus-visible {
-  outline: 4px solid #3B82F6 !important;
-  outline-offset: 2px;
-}
+    <!-- Google Fonts: Inter (Highly legible sans-serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-/* Cards */
-.a11y-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // We will use 'class' to toggle high contrast dark mode manually if needed
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Semantic Palette for High Contrast
+                        'gov-blue': '#003366', // Deep, trustworthy blue (Primary)
+                        'gov-blue-dark': '#002244',
+                        'gov-text': '#1a1a1a', // Near black for better readability than pure black
+                        'gov-text-secondary': '#4a4a4a', // Dark grey, meets 4.5:1 on white
+                        'focus-yellow': '#FFD700',
+                        'error-red': '#D32F2F', // High contrast red
+                        'success-green': '#1B5E20', // High contrast green
+                    },
+                    spacing: {
+                        '18': '4.5rem', // Custom spacing for larger click targets
+                    }
+                }
+            }
+        }
+    </script>
 
-.a11y-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Buttons */
-.a11y-btn-primary,
-.a11y-btn-secondary {
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 900;
-}
-
-.a11y-btn-primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.a11y-btn-secondary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.a11y-btn-primary:active:not(:disabled),
-.a11y-btn-secondary:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Inputs */
-.a11y-input {
-  font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.a11y-input:hover {
-  border-color: #374151;
-}
-
-/* Checkbox */
-.a11y-checkbox {
-  cursor: pointer;
-  accent-color: #000000;
-  transition: all 0.2s ease;
-}
-
-.a11y-checkbox:checked {
-  background-color: #000000;
-}
-
-/* Navigation */
-.a11y-nav-link {
-  transition: all 0.2s ease;
-}
-
-.a11y-nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Theme Buttons */
-.a11y-theme-btn {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.a11y-theme-btn:hover {
-  transform: scale(1.1);
-}
-
-.a11y-theme-btn:active {
-  transform: scale(0.95);
-}
-
-/* Toggle Switch */
-.a11y-toggle input:checked + div {
-  background-color: #000000;
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Screen Reader Only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* High Contrast Theme Adjustments */
-.theme-yellow * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.theme-cyan * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Keyboard Navigation Indicator */
-body.user-is-tabbing *:focus {
-  outline: 4px solid #3B82F6 !important;
-  outline-offset: 2px;
-}
-
-  </style>
+    <link rel="stylesheet" href="fullpage.css">
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessibility High Contrast - Enterprise Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="a11y-body bg-white text-black min-h-screen">
+    <!-- 1. SKIP LINK (Accessiblity Requirement) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Theme Switcher (Top Right) -->
-  <div class="fixed top-4 right-4 z-50 flex gap-2">
-    <button data-theme="default" type="button" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-white focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on White" aria-label="Switch to black on white theme">
-      <span class="sr-only">Black on White</span>
-    </button>
-    <button data-theme="yellow" type="button" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-yellow-400 focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on Yellow" aria-label="Switch to black on yellow theme">
-      <span class="sr-only">Black on Yellow</span>
-    </button>
-    <button data-theme="cyan" type="button" class="a11y-theme-btn w-10 h-10 rounded-lg border-4 border-black bg-cyan-400 focus-visible:ring-4 focus-visible:ring-blue-500" title="Black on Cyan" aria-label="Switch to black on cyan theme">
-      <span class="sr-only">Cyan on Black</span>
-    </button>
-  </div>
-
-  <!-- Accessibility Settings Panel -->
-  <div class="a11y-settings-panel fixed top-20 right-4 z-40 bg-white border-4 border-black p-6 rounded-lg shadow-xl max-w-sm">
-    <h2 class="text-xl font-bold mb-4 border-b-4 border-black pb-2">Accessibility Settings</h2>
-
-    <!-- Font Size Control -->
-    <div class="mb-6">
-      <label class="block font-bold mb-3 text-lg" for="fontSize">Font Size</label>
-      <div class="flex items-center gap-4">
-        <button onclick="changeFontSize('decrease')" class="a11y-btn-secondary px-4 py-2 font-bold border-4 border-black rounded focus-visible:ring-4 focus-visible:ring-blue-500" aria-label="Decrease font size">A-</button>
-        <span id="fontSizeDisplay" class="font-bold text-2xl">100%</span>
-        <button onclick="changeFontSize('increase')" class="a11y-btn-secondary px-4 py-2 font-bold border-4 border-black rounded focus-visible:ring-4 focus-visible:ring-blue-500" aria-label="Increase font size">A+</button>
-      </div>
+    <!-- TOP BAR: User Preferences -->
+    <div class="bg-slate-100 border-b border-slate-300 py-2 px-4 md:px-8 flex justify-end gap-4 text-sm" role="complementary" aria-label="Accessibility Settings">
+        <span class="font-bold text-gov-text flex items-center gap-2">
+            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+            Display Settings:
+        </span>
+        <button id="toggle-contrast" class="flex items-center gap-1 hover:underline text-gov-blue font-medium focus:outline-none">
+            <i class="fa-solid fa-adjust" aria-hidden="true"></i>
+            <span class="sr-only">Toggle</span> High Contrast
+        </button>
+        <button id="toggle-size" class="flex items-center gap-1 hover:underline text-gov-blue font-medium focus:outline-none">
+            <i class="fa-solid fa-text-height" aria-hidden="true"></i>
+            <span class="sr-only">Toggle</span> Large Text
+        </button>
     </div>
 
-    <!-- Reduce Motion Toggle -->
-    <div class="mb-6">
-      <label class="flex items-center gap-4 cursor-pointer" for="reduceMotion">
-        <input type="checkbox" id="reduceMotion" onchange="toggleReduceMotion()" class="a11y-checkbox w-7 h-7 border-4 border-black rounded focus-visible:ring-4 focus-visible:ring-blue-500">
-        <span class="font-bold text-lg">Reduce Motion</span>
-      </label>
-    </div>
+    <!-- HEADER -->
+    <header class="bg-white border-b-2 border-gov-blue shadow-sm py-4 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <!-- Logo area: Clear text fallback -->
+            <a href="#" class="flex items-center gap-3 no-underline group">
+                <div class="w-10 h-10 bg-gov-blue text-white flex items-center justify-center rounded-sm group-focus:ring-2 ring-offset-2">
+                    <i class="fa-solid fa-landmark text-xl"></i>
+                </div>
+                <div>
+                    <span class="block text-xl font-bold text-gov-blue leading-tight">CivicConnect</span>
+                    <span class="block text-sm text-gov-text-secondary font-medium">Official Service Portal</span>
+                </div>
+            </a>
 
-    <!-- High Contrast Toggle -->
-    <div>
-      <label class="flex items-center gap-4 cursor-pointer" for="highContrast">
-        <input type="checkbox" id="highContrast" checked disabled class="a11y-checkbox w-7 h-7 border-4 border-black rounded">
-        <span class="font-bold text-lg">High Contrast Mode</span>
-      </label>
-    </div>
-  </div>
+            <!-- Navigation: Tab order matches visual order -->
+            <nav aria-label="Main Navigation">
+                <ul class="flex flex-wrap gap-2 md:gap-6 text-gov-blue font-bold">
+                    <li><a href="#" class="py-2 px-3 hover:bg-slate-100 rounded underline-offset-4 decoration-2 hover:underline aria-[current]:underline aria-[current]:text-gov-blue-dark" aria-current="page">Dashboard</a></li>
+                    <li><a href="#" class="py-2 px-3 hover:bg-slate-100 rounded underline-offset-4 decoration-2 hover:underline">Services</a></li>
+                    <li><a href="#" class="py-2 px-3 hover:bg-slate-100 rounded underline-offset-4 decoration-2 hover:underline">Documents</a></li>
+                    <li><a href="#" class="py-2 px-3 hover:bg-slate-100 rounded underline-offset-4 decoration-2 hover:underline">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Main Navigation -->
-  <nav class="a11y-nav bg-white border-b-4 border-black sticky top-0 z-30" role="navigation" aria-label="Main navigation">
-    <div class="container mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <h1 class="text-2xl font-black">ENTERPRISE DASHBOARD</h1>
-        <ul class="flex gap-6" role="menubar">
-          <li role="none">
-            <a href="javascript:void(0)" class="a11y-nav-link font-bold text-lg px-4 py-2 border-2 border-transparent hover:border-black focus-visible:ring-4 focus-visible:ring-blue-500 rounded" role="menuitem">Dashboard</a>
-          </li>
-          <li role="none">
-            <a href="javascript:void(0)" class="a11y-nav-link font-bold text-lg px-4 py-2 border-2 border-transparent hover:border-black focus-visible:ring-4 focus-visible:ring-blue-500 rounded" role="menuitem">Reports</a>
-          </li>
-          <li role="none">
-            <a href="javascript:void(0)" class="a11y-nav-link font-bold text-lg px-4 py-2 border-2 border-transparent hover:border-black focus-visible:ring-4 focus-visible:ring-blue-500 rounded" role="menuitem">Settings</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- MAIN CONTENT -->
+    <main id="main-content" class="flex-grow max-w-7xl w-full mx-auto p-4 md:p-8 space-y-8">
 
-  <!-- Main Content -->
-  <main class="container mx-auto px-6 py-12" role="main">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb" class="text-sm font-medium">
+            <ol class="flex items-center gap-2 text-gov-text-secondary">
+                <li><a href="#" class="underline text-gov-blue hover:text-gov-blue-dark">Home</a></li>
+                <li aria-hidden="true" class="text-slate-400">/</li>
+                <li class="text-gov-text font-bold" aria-current="page">My Dashboard</li>
+            </ol>
+        </nav>
 
-    <!-- Stats Grid -->
-    <section aria-labelledby="stats-heading" class="mb-12">
-      <h2 id="stats-heading" class="text-3xl font-black mb-8 pb-4 border-b-4 border-black">Key Metrics</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Section: Overview -->
+        <section aria-labelledby="overview-heading">
+            <div class="flex items-center justify-between mb-6">
+                <h1 id="overview-heading" class="text-3xl font-bold text-gov-text tracking-tight">System Overview</h1>
+                <span class="text-sm bg-slate-100 border border-slate-300 px-3 py-1 rounded text-gov-text font-medium">
+                    Last updated: Oct 24, 2023
+                </span>
+            </div>
 
-        <!-- Stat Card 1 -->
-        <article class="a11y-card bg-white border-4 border-black rounded-lg p-6 focus-within:ring-4 focus-within:ring-blue-500">
-          <div class="flex items-start justify-between mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Information Density with Clarity -->
+                <article class="bg-white border-2 border-slate-200 p-6 rounded-sm shadow-sm hover:border-gov-blue transition-colors">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="text-lg font-bold text-gov-text mb-2">Pending Tasks</h2>
+                            <p class="text-4xl font-bold text-gov-blue mb-1">3</p>
+                            <p class="text-gov-text-secondary text-sm">Action required within 7 days</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 text-gov-blue rounded-full border border-blue-100">
+                            <i class="fa-solid fa-clipboard-check text-xl" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <a href="#" class="mt-4 inline-block text-gov-blue font-bold underline hover:no-underline focus:bg-yellow-100">
+                        View Tasks <i class="fa-solid fa-arrow-right ml-1 text-sm" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <!-- Card 2: Status indicated by Text + Icon + Color -->
+                <article class="bg-white border-2 border-slate-200 p-6 rounded-sm shadow-sm hover:border-gov-blue transition-colors">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="text-lg font-bold text-gov-text mb-2">Application Status</h2>
+                            <!-- Status Pill: High Contrast Border + Icon -->
+                            <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-50 border-2 border-green-700 text-green-900 rounded-full font-bold text-sm">
+                                <i class="fa-solid fa-check-circle" aria-hidden="true"></i>
+                                <span>Approved</span>
+                            </div>
+                            <p class="text-gov-text-secondary text-sm mt-3">Ref: #APP-2023-892</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Alert state -->
+                <article class="bg-white border-2 border-slate-200 p-6 rounded-sm shadow-sm hover:border-gov-blue transition-colors">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="text-lg font-bold text-gov-text mb-2">Messages</h2>
+                            <p class="text-4xl font-bold text-gov-text mb-1">0</p>
+                            <p class="text-gov-text-secondary text-sm">No new notifications</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 text-slate-600 rounded-full border border-slate-200">
+                            <i class="fa-solid fa-envelope text-xl" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Section: Complex Form Interaction (Demonstrating Input States) -->
+        <section aria-labelledby="form-heading" class="bg-white border-2 border-slate-200 rounded-sm p-6 md:p-8">
+            <h2 id="form-heading" class="text-2xl font-bold text-gov-text mb-6 border-b border-slate-200 pb-2">
+                Submit Monthly Report
+            </h2>
+
+            <form id="report-form" class="max-w-2xl space-y-6" novalidate>
+
+                <!-- Input Group: Text -->
+                <div class="space-y-2">
+                    <label for="report-title" class="block font-bold text-gov-text text-base">
+                        Report Title <span class="text-error-red" aria-hidden="true">*</span>
+                        <span class="sr-only">(required)</span>
+                    </label>
+                    <p id="report-title-desc" class="text-sm text-gov-text-secondary">Provide a descriptive title for the internal records.</p>
+                    <input type="text" id="report-title" aria-describedby="report-title-desc" required
+                        class="w-full p-3 border-2 border-slate-400 rounded-sm text-gov-text focus:border-gov-blue placeholder-slate-500 bg-white"
+                        placeholder="e.g., Q3 Financial Summary">
+                </div>
+
+                <!-- Input Group: Select -->
+                <div class="space-y-2">
+                    <label for="department" class="block font-bold text-gov-text text-base">
+                        Department <span class="text-error-red" aria-hidden="true">*</span>
+                    </label>
+                    <div class="relative">
+                        <select id="department" required
+                            class="w-full p-3 border-2 border-slate-400 rounded-sm text-gov-text focus:border-gov-blue bg-white appearance-none">
+                            <option value="">Select a department...</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="it">Information Technology</option>
+                            <option value="fin">Finance</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gov-text">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulated Error State -->
+                <div class="space-y-2">
+                    <label for="email-contact" class="block font-bold text-gov-text text-base">
+                        Contact Email <span class="text-error-red" aria-hidden="true">*</span>
+                    </label>
+                    <!-- Input with error styling (Red thick border) -->
+                    <input type="email" id="email-contact" aria-invalid="true" aria-describedby="email-error" value="invalid-email"
+                        class="w-full p-3 border-2 border-error-red bg-red-50 rounded-sm text-gov-text focus:border-gov-blue">
+
+                    <!-- Error Message: Text + Color + Icon -->
+                    <p id="email-error" class="flex items-center gap-2 text-error-red font-bold text-sm" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                        <span>Please enter a valid email address containing '@'.</span>
+                    </p>
+                </div>
+
+                <!-- Actions -->
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <button type="submit" class="bg-gov-blue text-white px-8 py-3 rounded-sm font-bold border-2 border-transparent hover:bg-gov-blue-dark active:bg-black transition-colors shadow-md">
+                        Submit Report
+                    </button>
+                    <button type="button" class="bg-white text-gov-text px-8 py-3 rounded-sm font-bold border-2 border-slate-400 hover:border-gov-text hover:bg-slate-50 transition-colors">
+                        Save Draft
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Section: Data Table (Reading Order & Clarity) -->
+        <section aria-labelledby="table-heading">
+            <h2 id="table-heading" class="text-2xl font-bold text-gov-text mb-4">Recent Documents</h2>
+            <div class="overflow-x-auto border-2 border-slate-200 rounded-sm">
+                <table class="w-full text-left border-collapse">
+                    <caption class="sr-only">List of recently accessed documents with date and status</caption>
+                    <thead class="bg-slate-100 border-b-2 border-slate-300">
+                        <tr>
+                            <th scope="col" class="p-4 font-bold text-gov-text w-1/2">Document Name</th>
+                            <th scope="col" class="p-4 font-bold text-gov-text">Date</th>
+                            <th scope="col" class="p-4 font-bold text-gov-text">Status</th>
+                            <th scope="col" class="p-4 font-bold text-gov-text text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gov-text">
+                        <tr class="border-b border-slate-200 hover:bg-slate-50">
+                            <td class="p-4 font-medium">Policy_Update_v2.pdf</td>
+                            <td class="p-4">Oct 22, 2023</td>
+                            <td class="p-4">
+                                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded border border-slate-300 bg-white text-sm font-semibold">
+                                    <span class="w-2 h-2 rounded-full bg-slate-500"></span> Draft
+                                </span>
+                            </td>
+                            <td class="p-4 text-right">
+                                <a href="#" class="text-gov-blue font-bold hover:underline">Download</a>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50/50">
+                            <td class="p-4 font-medium">Health_Safety_2023.docx</td>
+                            <td class="p-4">Sep 15, 2023</td>
+                            <td class="p-4">
+                                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded border border-green-700 bg-green-50 text-green-900 text-sm font-bold">
+                                    <i class="fa-solid fa-check text-xs"></i> Final
+                                </span>
+                            </td>
+                            <td class="p-4 text-right">
+                                <a href="#" class="text-gov-blue font-bold hover:underline">Download</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gov-text text-white py-12 px-4 md:px-8 mt-12 border-t-4 border-gov-blue">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+                <span class="text-2xl font-bold block mb-4">CivicConnect</span>
+                <p class="text-slate-300 leading-relaxed max-w-xs">
+                    Committed to providing accessible digital services for all citizens.
+                </p>
+            </div>
             <div>
-              <p class="text-sm font-bold uppercase tracking-wider mb-2">Total Users</p>
-              <p class="text-4xl font-black">24,891</p>
+                <h3 class="font-bold text-lg mb-4 border-b border-slate-600 pb-2 inline-block">Support</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-slate-300 hover:text-white hover:underline focus:text-white">Help Center</a></li>
+                    <li><a href="#" class="text-slate-300 hover:text-white hover:underline focus:text-white">Contact Us</a></li>
+                    <li><a href="#" class="text-slate-300 hover:text-white hover:underline focus:text-white">Report an Issue</a></li>
+                </ul>
             </div>
-            <div class="w-16 h-16 bg-black flex items-center justify-center rounded-lg">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 text-base">
-            <span class="font-black">↑ 12.5%</span>
-            <span class="font-bold">from last month</span>
-          </div>
-        </article>
-
-        <!-- Stat Card 2 -->
-        <article class="a11y-card bg-white border-4 border-black rounded-lg p-6 focus-within:ring-4 focus-within:ring-blue-500">
-          <div class="flex items-start justify-between mb-4">
             <div>
-              <p class="text-sm font-bold uppercase tracking-wider mb-2">Revenue</p>
-              <p class="text-4xl font-black">$48,392</p>
+                <h3 class="font-bold text-lg mb-4 border-b border-slate-600 pb-2 inline-block">Legal</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-slate-300 hover:text-white hover:underline focus:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-slate-300 hover:text-white hover:underline focus:text-white">Terms of Use</a></li>
+                    <li><a href="#" class="text-slate-300 hover:text-white hover:underline focus:text-white">Accessibility Statement</a></li>
+                </ul>
             </div>
-            <div class="w-16 h-16 bg-black flex items-center justify-center rounded-lg">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 text-base">
-            <span class="font-black">↑ 8.2%</span>
-            <span class="font-bold">from last month</span>
-          </div>
-        </article>
-
-        <!-- Stat Card 3 -->
-        <article class="a11y-card bg-white border-4 border-black rounded-lg p-6 focus-within:ring-4 focus-within:ring-blue-500">
-          <div class="flex items-start justify-between mb-4">
-            <div>
-              <p class="text-sm font-bold uppercase tracking-wider mb-2">Active Projects</p>
-              <p class="text-4xl font-black">127</p>
-            </div>
-            <div class="w-16 h-16 bg-black flex items-center justify-center rounded-lg">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="flex items-center gap-2 text-base">
-            <span class="font-black">↓ 3.1%</span>
-            <span class="font-bold">from last month</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Data Visualization -->
-    <section aria-labelledby="chart-heading" class="mb-12">
-      <h2 id="chart-heading" class="text-3xl font-black mb-8 pb-4 border-b-4 border-black">Performance Overview</h2>
-      <div class="a11y-card bg-white border-4 border-black rounded-lg p-8">
-        <div class="space-y-6">
-
-          <!-- Bar Chart Item 1 -->
-          <div>
-            <div class="flex justify-between items-center mb-3">
-              <span class="font-bold text-xl">January</span>
-              <span class="font-black text-2xl">92%</span>
-            </div>
-            <div class="w-full h-10 bg-gray-200 border-4 border-black rounded overflow-hidden" role="img" aria-label="January performance: 92%">
-              <div class="h-full bg-black" style="width: 92%;"></div>
-            </div>
-          </div>
-
-          <!-- Bar Chart Item 2 -->
-          <div>
-            <div class="flex justify-between items-center mb-3">
-              <span class="font-bold text-xl">February</span>
-              <span class="font-black text-2xl">85%</span>
-            </div>
-            <div class="w-full h-10 bg-gray-200 border-4 border-black rounded overflow-hidden" role="img" aria-label="February performance: 85%">
-              <div class="h-full bg-black" style="width: 85%;"></div>
-            </div>
-          </div>
-
-          <!-- Bar Chart Item 3 -->
-          <div>
-            <div class="flex justify-between items-center mb-3">
-              <span class="font-bold text-xl">March</span>
-              <span class="font-black text-2xl">78%</span>
-            </div>
-            <div class="w-full h-10 bg-gray-200 border-4 border-black rounded overflow-hidden" role="img" aria-label="March performance: 78%">
-              <div class="h-full bg-black" style="width: 78%;"></div>
-            </div>
-          </div>
-
-          <!-- Bar Chart Item 4 -->
-          <div>
-            <div class="flex justify-between items-center mb-3">
-              <span class="font-bold text-xl">April</span>
-              <span class="font-black text-2xl">96%</span>
-            </div>
-            <div class="w-full h-10 bg-gray-200 border-4 border-black rounded overflow-hidden" role="img" aria-label="April performance: 96%">
-              <div class="h-full bg-black" style="width: 96%;"></div>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
-
-    <!-- Form Section -->
-    <section aria-labelledby="form-heading" class="mb-12">
-      <h2 id="form-heading" class="text-3xl font-black mb-8 pb-4 border-b-4 border-black">Create New Task</h2>
-      <form class="a11y-card bg-white border-4 border-black rounded-lg p-8">
-
-        <!-- Task Name Input -->
-        <div class="mb-8">
-          <label for="taskName" class="block font-bold text-xl mb-3">Task Name<span class="text-red-600" aria-label="required">*</span></label>
-          <input
-            type="text"
-            id="taskName"
-            class="a11y-input w-full px-6 py-4 text-xl border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500 focus:outline-none"
-            placeholder="Enter task name"
-            required
-            aria-required="true"
-          >
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-700 text-center text-slate-400">
+            <p>&copy; 2023 CivicConnect Government Services. All rights reserved.</p>
         </div>
+    </footer>
 
-        <!-- Priority Select -->
-        <div class="mb-8">
-          <label for="priority" class="block font-bold text-xl mb-3">Priority<span class="text-red-600" aria-label="required">*</span></label>
-          <select
-            id="priority"
-            class="a11y-input w-full px-6 py-4 text-xl border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500 focus:outline-none"
-            required
-            aria-required="true"
-          >
-            <option value="">Select priority</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="critical">Critical</option>
-          </select>
-        </div>
+    <!-- INTERACTION LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
 
-        <!-- Description Textarea -->
-        <div class="mb-8">
-          <label for="description" class="block font-bold text-xl mb-3">Description</label>
-          <textarea
-            id="description"
-            rows="5"
-            class="a11y-input w-full px-6 py-4 text-xl border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500 focus:outline-none"
-            placeholder="Enter task description"
-          ></textarea>
-        </div>
+            // 1. Accessibility Toggles (Simulation)
+            const btnContrast = document.getElementById('toggle-contrast');
+            const btnSize = document.getElementById('toggle-size');
+            const body = document.body;
 
-        <!-- Checkboxes -->
-        <div class="mb-8 space-y-4">
-          <label class="flex items-center gap-4 cursor-pointer">
-            <input type="checkbox" class="a11y-checkbox w-7 h-7 border-4 border-black rounded focus-visible:ring-4 focus-visible:ring-blue-500">
-            <span class="font-bold text-lg">Send email notification</span>
-          </label>
-          <label class="flex items-center gap-4 cursor-pointer">
-            <input type="checkbox" class="a11y-checkbox w-7 h-7 border-4 border-black rounded focus-visible:ring-4 focus-visible:ring-blue-500">
-            <span class="font-bold text-lg">Add to calendar</span>
-          </label>
-        </div>
+            btnContrast.addEventListener('click', () => {
+                const isHighContrast = body.classList.toggle('high-contrast');
+                btnContrast.setAttribute('aria-pressed', isHighContrast);
+            });
 
-        <!-- Submit Buttons -->
-        <div class="flex gap-4 flex-wrap">
-          <button type="submit" class="a11y-btn-primary px-8 py-4 text-xl font-black bg-black text-white border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500 hover:bg-gray-800">
-            Create Task
-          </button>
-          <button type="button" class="a11y-btn-secondary px-8 py-4 text-xl font-black bg-white text-black border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500 hover:bg-gray-100">
-            Cancel
-          </button>
-        </div>
+            btnSize.addEventListener('click', () => {
+                const isLarge = body.classList.toggle('large-text');
+                btnSize.setAttribute('aria-pressed', isLarge);
+            });
 
-      </form>
-    </section>
+            // 2. Form Validation Logic (Accessible Pattern)
+            const form = document.getElementById('report-form');
 
-    <!-- Interactive Elements Demo -->
-    <section aria-labelledby="interactive-heading">
-      <h2 id="interactive-heading" class="text-3xl font-black mb-8 pb-4 border-b-4 border-black">Interactive Elements</h2>
-      <div class="a11y-card bg-white border-4 border-black rounded-lg p-8">
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
 
-        <!-- Toggle Switches -->
-        <div class="mb-8">
-          <h3 class="font-bold text-2xl mb-6">Toggle Switches</h3>
-          <div class="space-y-4">
-            <label class="flex items-center gap-4 cursor-pointer">
-              <div class="a11y-toggle relative w-20 h-10 border-4 border-black rounded-full focus-within:ring-4 focus-within:ring-blue-500">
-                <input type="checkbox" class="sr-only peer" checked>
-                <div class="absolute top-0 left-0 w-8 h-8 bg-black rounded-full transition-transform peer-checked:translate-x-10"></div>
-              </div>
-              <span class="font-bold text-lg">Enable notifications</span>
-            </label>
-            <label class="flex items-center gap-4 cursor-pointer">
-              <div class="a11y-toggle relative w-20 h-10 border-4 border-black rounded-full focus-within:ring-4 focus-within:ring-blue-500">
-                <input type="checkbox" class="sr-only peer">
-                <div class="absolute top-0 left-0 w-8 h-8 bg-black rounded-full transition-transform peer-checked:translate-x-10"></div>
-              </div>
-              <span class="font-bold text-lg">Auto-save</span>
-            </label>
-          </div>
-        </div>
+                // Simple validation demo
+                const inputs = form.querySelectorAll('input[required], select[required]');
+                let hasError = false;
+                let firstErrorInput = null;
 
-        <!-- Button Group -->
-        <div>
-          <h3 class="font-bold text-2xl mb-6">Button Group</h3>
-          <div class="flex gap-4 flex-wrap">
-            <button class="a11y-btn-primary px-6 py-3 text-lg font-black bg-black text-white border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500">
-              Primary
-            </button>
-            <button class="a11y-btn-secondary px-6 py-3 text-lg font-black bg-white text-black border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500">
-              Secondary
-            </button>
-            <button class="a11y-btn-secondary px-6 py-3 text-lg font-black bg-gray-200 text-black border-4 border-black rounded-lg focus-visible:ring-4 focus-visible:ring-blue-500" disabled>
-              Disabled
-            </button>
-          </div>
-        </div>
+                inputs.forEach(input => {
+                    // Reset previous error states
+                    input.classList.remove('border-error-red', 'bg-red-50');
+                    input.classList.add('border-slate-400');
+                    input.setAttribute('aria-invalid', 'false');
 
-      </div>
-    </section>
+                    // Remove existing error message
+                    const existingMsg = document.getElementById(`${input.id}-error-msg`);
+                    if (existingMsg) existingMsg.remove();
 
-  </main>
+                    if (!input.value.trim()) {
+                        hasError = true;
 
-  <!-- Footer -->
-  <footer class="bg-white border-t-4 border-black mt-20 py-8" role="contentinfo">
-    <div class="container mx-auto px-6 text-center">
-      <p class="font-bold text-lg">Enterprise Dashboard © 2025 - WCAG AAA Compliant</p>
-      <p class="font-bold mt-2">Contrast Ratio: 21:1 (AAA) | Keyboard Navigable | Screen Reader Friendly</p>
-    </div>
-  </footer>
+                        // Apply error styles visually
+                        input.classList.remove('border-slate-400');
+                        input.classList.add('border-error-red', 'bg-red-50');
+                        input.setAttribute('aria-invalid', 'true');
 
-  <script>
-    // Theme Switcher
-    function switchTheme(theme) {
-      const body = document.querySelector('.a11y-body');
-      const cards = document.querySelectorAll('.a11y-card');
-      const nav = document.querySelector('.a11y-nav');
-      const settingsPanel = document.querySelector('.a11y-settings-panel');
+                        // Create error message programmatically
+                        const errorMsg = document.createElement('p');
+                        errorMsg.id = `${input.id}-error-msg`;
+                        errorMsg.className = "flex items-center gap-2 text-error-red font-bold text-sm mt-2";
+                        errorMsg.setAttribute('role', 'alert');
+                        errorMsg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>This field is required.</span>`;
 
-      // Remove all theme classes
-      body.classList.remove('theme-default', 'theme-yellow', 'theme-cyan');
+                        // Associate via aria-describedby logic (simplified for demo)
+                        input.parentElement.appendChild(errorMsg);
 
-      if (theme === 'yellow') {
-        body.classList.add('theme-yellow');
-        body.style.backgroundColor = '#FFD700';
-        body.style.color = '#000000';
-        cards.forEach(card => {
-          card.style.backgroundColor = '#FFD700';
-          card.style.borderColor = '#000000';
+                        if (!firstErrorInput) firstErrorInput = input;
+                    }
+                });
+
+                if (hasError && firstErrorInput) {
+                    firstErrorInput.focus();
+                } else {
+                    alert('Form submitted successfully (Demo)');
+                }
+            });
         });
-        if (nav) {
-          nav.style.backgroundColor = '#FFD700';
-          nav.style.borderColor = '#000000';
-        }
-        if (settingsPanel) {
-          settingsPanel.style.backgroundColor = '#FFD700';
-          settingsPanel.style.borderColor = '#000000';
-        }
-      } else if (theme === 'cyan') {
-        body.classList.add('theme-cyan');
-        body.style.backgroundColor = '#000000';
-        body.style.color = '#00E5FF';
-        cards.forEach(card => {
-          card.style.backgroundColor = '#000000';
-          card.style.color = '#00E5FF';
-          card.style.borderColor = '#00E5FF';
-        });
-        if (nav) {
-          nav.style.backgroundColor = '#000000';
-          nav.style.color = '#00E5FF';
-          nav.style.borderColor = '#00E5FF';
-        }
-        if (settingsPanel) {
-          settingsPanel.style.backgroundColor = '#000000';
-          settingsPanel.style.color = '#00E5FF';
-          settingsPanel.style.borderColor = '#00E5FF';
-        }
-
-        // Update buttons for cyan theme
-        document.querySelectorAll('.a11y-btn-primary').forEach(btn => {
-          btn.style.backgroundColor = '#00E5FF';
-          btn.style.color = '#000000';
-          btn.style.borderColor = '#00E5FF';
-        });
-        document.querySelectorAll('.a11y-btn-secondary').forEach(btn => {
-          btn.style.backgroundColor = '#000000';
-          btn.style.color = '#00E5FF';
-          btn.style.borderColor = '#00E5FF';
-        });
-      } else {
-        // Default theme
-        body.classList.add('theme-default');
-        body.style.backgroundColor = '#FFFFFF';
-        body.style.color = '#000000';
-        cards.forEach(card => {
-          card.style.backgroundColor = '#FFFFFF';
-          card.style.color = '#000000';
-          card.style.borderColor = '#000000';
-        });
-        if (nav) {
-          nav.style.backgroundColor = '#FFFFFF';
-          nav.style.color = '#000000';
-          nav.style.borderColor = '#000000';
-        }
-        if (settingsPanel) {
-          settingsPanel.style.backgroundColor = '#FFFFFF';
-          settingsPanel.style.color = '#000000';
-          settingsPanel.style.borderColor = '#000000';
-        }
-
-        // Reset buttons
-        document.querySelectorAll('.a11y-btn-primary').forEach(btn => {
-          btn.style.backgroundColor = '#000000';
-          btn.style.color = '#FFFFFF';
-          btn.style.borderColor = '#000000';
-        });
-        document.querySelectorAll('.a11y-btn-secondary').forEach(btn => {
-          btn.style.backgroundColor = '#FFFFFF';
-          btn.style.color = '#000000';
-          btn.style.borderColor = '#000000';
-        });
-      }
-    }
-
-    // Font Size Control
-    let currentFontSize = 100;
-    function changeFontSize(action) {
-      if (action === 'increase' && currentFontSize < 150) {
-        currentFontSize += 10;
-      } else if (action === 'decrease' && currentFontSize > 80) {
-        currentFontSize -= 10;
-      }
-      document.documentElement.style.fontSize = currentFontSize + '%';
-      document.getElementById('fontSizeDisplay').textContent = currentFontSize + '%';
-    }
-
-    // Reduce Motion Toggle
-    function toggleReduceMotion() {
-      const isChecked = document.getElementById('reduceMotion').checked;
-      if (isChecked) {
-        document.body.style.setProperty('--animation-duration', '0.01s');
-      } else {
-        document.body.style.setProperty('--animation-duration', '0.3s');
-      }
-    }
-
-    // Keyboard navigation enhancement
-    document.addEventListener('DOMContentLoaded', function() {
-      // Attach theme switch handlers (DOMPurify-safe)
-      document.querySelectorAll('.a11y-theme-btn').forEach(btn => {
-        const theme = btn.getAttribute('data-theme')
-        if (!theme) return
-        btn.addEventListener('click', () => switchTheme(theme))
-      })
-      switchTheme('default')
-
-      // Add visible focus indicators
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Tab') {
-          document.body.classList.add('user-is-tabbing');
-        }
-      });
-
-      document.addEventListener('mousedown', function() {
-        document.body.classList.remove('user-is-tabbing');
-      });
-    });
-  </script>
-
-</body>
-</html>
-
+    </script>
 </body>
 </html>

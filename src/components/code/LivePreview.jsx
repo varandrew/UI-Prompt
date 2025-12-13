@@ -172,6 +172,12 @@ export function LivePreview({
         doc = doc.replace(/<\/head>/i, `  <link rel="stylesheet" href="${appCssUrl}">\n</head>`);
       }
 
+      // 若存在外部 CSS 內容（debouncedCss），即使是完整文檔也強制內嵌，避免樣式缺失
+      if (debouncedCss && /<\/head>/i.test(doc)) {
+        const safeCss = debouncedCss.replace(/<\/style>/gi, '');
+        doc = doc.replace(/<\/head>/i, `  <style>\n${safeCss}\n  </style>\n</head>`);
+      }
+
       return doc;
     }
 

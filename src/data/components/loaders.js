@@ -36,7 +36,7 @@ export function clearLoadersCache() {
 }
 
 // 風格类別載入器
-// ⚡ 新架構：直接從 JSON manifest 加載，不再依賴 templates/
+// ⚡ 新架構：優先使用預構建索引（build-time），fallback 到動態加載（dev-time）
 export async function loadStyleCategories(forceRefresh = false) {
   // Fast path: return cached result if available
   if (!forceRefresh && __styleCategoriesCache) return __styleCategoriesCache;
@@ -47,6 +47,70 @@ export async function loadStyleCategories(forceRefresh = false) {
   // Create new loading promise
   __styleCategoriesPromise = (async () => {
     try {
+      // 🚀 優先使用預構建索引（build-time optimization）
+      try {
+        const response = await fetch('/data/styles-index.json');
+        if (response.ok) {
+          const index = await response.json();
+          console.log('✅ [Performance] Using prebuilt styles index (fast path)');
+
+          // ⚡ 新策略：索引只做元數據快取，仍然為每個 family 補全完整內容
+          const result = await Promise.all(
+            Object.entries(index.categories).map(async ([categoryId, cat]) => {
+              const families = Array.isArray(cat.families) ? cat.families : [];
+
+              const fullFamilies = await Promise.all(
+                families.map(async (familyMeta) => {
+                  const familyId =
+                    familyMeta.familyId ||
+                    (typeof familyMeta.id === 'string' && familyMeta.id.startsWith(`${categoryId}-`)
+                      ? familyMeta.id.replace(`${categoryId}-`, '')
+                      : familyMeta.id);
+                  if (!familyId) return null;
+                  try {
+                    const full = await loadFullFamily(categoryId, familyId);
+                    return full
+                      ? {
+                          // full data 優先（含 demoHTML/customStyles/previews 等）
+                          ...full,
+                          // 兼容索引元資料（如 templatesCount、tags）
+                          ...familyMeta,
+                          id: full.id || familyMeta.id,
+                          familyId: full.familyId || familyId,
+                          primaryCategory: full.primaryCategory || categoryId,
+                          category: full.category || categoryId
+                        }
+                      : null;
+                  } catch (err) {
+                    console.warn(`[loadStyleCategories] 索引快取加載 family 失敗: ${categoryId}/${familyId}`, err);
+                    return null;
+                  }
+                })
+              );
+
+              const validFamilies = fullFamilies.filter(Boolean);
+
+              return {
+                id: categoryId,
+                key: categoryId,
+                path: CATEGORY_PATHS[categoryId] || `/${categoryId}`,
+                data: enhanceStyles(validFamilies), // 仍然進行標籤增強
+                icon: ''
+              };
+            })
+          );
+
+          // Cache successful result
+          __styleCategoriesCache = result;
+          return result;
+        }
+      } catch (indexError) {
+        console.warn('⚠️ Prebuilt index not available, falling back to dynamic loading:', indexError.message);
+      }
+
+      // ⏱️ Fallback: 動態加載（dev mode 或構建索引未生成時）
+      console.log('🔄 [Dev Mode] Loading styles dynamically...');
+
       // 載入 registry
       const registryMod = await import('../styles/_registry.json');
       const registry = registryMod.default || registryMod;

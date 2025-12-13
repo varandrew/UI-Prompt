@@ -13,5 +13,13 @@
     "tags": [],
     "relatedStyles": []
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "visual-grain",
+      "title": {
+        "zh-CN": "颗粒噪点",
+        "en-US": "Grain Noise"
+      }
+    }
+  ]
 }

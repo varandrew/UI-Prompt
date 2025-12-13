@@ -40,9 +40,6 @@ const FAMILY_ID_MAP = {
   'auroraglass': 'auroraGlass',
 
   // Morphism Variants
-  'neumorph': 'neumorphismDark',
-  'neumorphism': 'neumorphismDark',
-  'neumorphismdark': 'neumorphismDark',
   'clay': 'claymorphism',
 
   // Neon & Glow Effects
@@ -84,9 +81,6 @@ const FAMILY_ID_MAP = {
   'ambient': 'ambient',
 
   // Data & Visualization
-  'dataviz': 'dataVisualization',
-  'data': 'dataVisualization',
-  'datavisualization': 'dataVisualization',
   'genart': 'generativeArt',
   'generative': 'generativeArt',
   'generativeart': 'generativeArt',
@@ -923,7 +917,7 @@ export function parseStyleId(styleId) {
   const firstSegment = remainderParts[0] || '';
   const mappedFirst = FAMILY_ID_MAP[firstSegment] || firstSegment;
 
-  // 嘗試利用 registry 中的 family 列表進行模糊匹配，解決像 visual-tech-data-visualization 這類多段 ID
+  // 嘗試利用 registry 中的 family 列表進行模糊匹配，解決像 visual-tech-3d-elements 這類多段 ID
   const normalizedStyle = normalizeId(remainder);
   const categoryEntry = registry?.categories?.[category];
 

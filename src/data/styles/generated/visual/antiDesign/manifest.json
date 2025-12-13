@@ -3,22 +3,30 @@
   "category": "visual",
   "family": {
     "name": {
-      "zh-CN": "反设计",
-      "en-US": "Anti-Design"
+      "zh-CN": "反設計工作室",
+      "en-US": "Anti-Design Studio"
     },
     "description": {
-      "zh-CN": "反设计运动，以非常规布局挑战传统设计规范。",
-      "en-US": "Anti-design movement challenging traditional design norms with unconventional layouts."
+      "zh-CN": "打破設計規則的大膽實驗性風格。拒絕網格系統、標準字體和傳統互動，擁抱視覺侵略性和混亂的美學。",
+      "en-US": "A bold experimental style that breaks design rules. Rejects grid systems, standard typography, and traditional interactions, embracing visual aggression and chaotic aesthetics."
     },
-    "tags": [],
-    "relatedStyles": []
+    "tags": ["contemporary", "bold", "experimental", "creative", "colorful", "brutalism"],
+    "relatedStyles": ["visual-neoBrutalism", "visual-y2k", "visual-memphis"]
   },
   "templates": [
     {
+      "id": "visual-antiDesign-studio",
+      "title": {
+        "zh-CN": "反設計工作室",
+        "en-US": "Anti-Design Studio"
+      },
+      "isDefault": true
+    },
+    {
       "id": "visual-tech-anti-design",
       "title": {
-        "zh-CN": "反设计",
-        "en-US": "Anti-Design"
+        "zh-CN": "科技反設計",
+        "en-US": "Tech Anti-Design"
       }
     }
   ]

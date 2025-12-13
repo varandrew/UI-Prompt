@@ -7,7 +7,7 @@
  * - 預覽文檔構建
  */
 
-import DOMPurify from 'dompurify';
+import { cachedSanitize } from '../../../utils/sanitizeCache';
 import { getDemoHTML } from '../../../utils/i18n/demoI18n';
 import appCssUrl from '../../../index.css?url';
 import { generateReactIframeHTML } from '../../../utils/reactRuntime';
@@ -157,13 +157,14 @@ const INTERACTIVE_SCRIPT = `(function(){function i(){try{document.addEventListen
 
 /**
  * 構建 React JSX 加載中頁面
- * @param {string} language - 語言代碼
  * @param {string} loadingText - 加載提示文字
  * @returns {string} 加載頁面 HTML
  */
-export function buildReactLoadingHTML(language, loadingText) {
+export function buildReactLoadingHTML(loadingText = 'Loading...', language = 'en-US') {
+  const langAttr = language || 'en-US';
+
   return `<!DOCTYPE html>
-<html lang="${language}">
+<html lang="${langAttr}">
 <head>
   <meta charset="UTF-8">
   <title>${loadingText}</title>
@@ -209,19 +210,20 @@ export function buildReactLoadingHTML(language, loadingText) {
 
 /**
  * 構建 React JSX 錯誤頁面
- * @param {string} language - 語言代碼
  * @param {object|string} error - 錯誤對象或消息
  * @returns {string} 錯誤頁面 HTML
  */
-export function buildReactErrorHTML(language, error) {
+export function buildReactErrorHTML(error, language = 'en-US') {
   const errorMessage = typeof error === 'string' ? error : (error?.message || 'Unknown compilation error');
   const errorStack = typeof error === 'object' ? error.stack : '';
 
-  const title = language === 'zh-CN' ? '編譯錯誤' : 'Compilation Error';
-  const headerText = language === 'zh-CN' ? 'React JSX 編譯失敗' : 'React JSX Compilation Failed';
+  const title = 'Compilation Error';
+  const headerText = 'React JSX Compilation Failed';
+  const langAttr = language || 'en-US';
+  const isZh = String(langAttr).toLowerCase().startsWith('zh');
 
   return `<!DOCTYPE html>
-<html lang="${language}">
+<html lang="${langAttr}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -297,10 +299,10 @@ export function buildReactErrorHTML(language, error) {
       <span class="error-icon">⚠️</span>
       <span>${headerText}</span>
     </div>
-    <div class="error-message">${DOMPurify.sanitize(errorMessage)}</div>
-    ${errorStack ? `<div class="error-stack">${DOMPurify.sanitize(errorStack)}</div>` : ''}
+    <div class="error-message">${cachedSanitize(errorMessage, 'html')}</div>
+    ${errorStack ? `<div class="error-stack">${cachedSanitize(errorStack, 'html')}</div>` : ''}
     <div class="error-hint">
-      ${language === 'zh-CN'
+      ${isZh
         ? '請檢查 JSX 代碼語法是否正確，確保所有導入的組件都已定義。'
         : 'Please check your JSX syntax and ensure all imported components are defined.'}
     </div>
@@ -396,10 +398,11 @@ export function buildPreactJSXPreview({ jsx, styles = '', title = 'Preact Previe
  * @param {string} language - 語言代碼
  * @returns {string} 清理後的 HTML
  */
-function processHTML(html, language) {
-  const processed = getDemoHTML(html || '', language);
+function processHTML(html, language = 'en-US') {
+  const lang = language || 'en-US';
+  const processed = getDemoHTML(html || '', lang);
   const normalized = stripExternalAssets(normalizeMarkdownHeadings(processed));
-  return DOMPurify.sanitize(normalized);
+  return cachedSanitize(normalized, 'html');
 }
 
 /**
@@ -408,7 +411,7 @@ function processHTML(html, language) {
  * @returns {string} 清理後的 CSS
  */
 function sanitizeStyles(styles) {
-  return DOMPurify.sanitize(styles || '');
+  return cachedSanitize(styles || '', 'css');
 }
 
 /**
@@ -418,13 +421,15 @@ function sanitizeStyles(styles) {
  */
 function buildHTMLDocument({
   title,
-  language,
   styles,
   content,
-  bodyClass = 'preview-fullscreen'
+  bodyClass = 'preview-fullscreen',
+  language = 'en-US'
 }) {
+  const langAttr = language || 'en-US';
+
   return `<!DOCTYPE html>
-<html lang="${language}">
+<html lang="${langAttr}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -443,13 +448,14 @@ function buildHTMLDocument({
 
 /**
  * 構建加載中骨架頁面
- * @param {string} language - 語言代碼
  * @param {string} loadingText - 加載提示文字
  * @returns {string} 骨架頁面 HTML
  */
-function buildLoadingHTML(language, loadingText) {
+function buildLoadingHTML(loadingText = 'Loading...', language = 'en-US') {
+  const langAttr = language || 'en-US';
+
   return `<!DOCTYPE html>
-<html lang="${language}">
+<html lang="${langAttr}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -477,9 +483,7 @@ function buildLoadingHTML(language, loadingText) {
  * @param {string} options.fullPageStyles - 完整頁面樣式
  * @param {string} options.htmlContent - 卡片級 HTML 內容
  * @param {string} options.customStyles - 自定義樣式
- * @param {string} options.language - 語言代碼
  * @param {string} options.displayTitle - 顯示標題
- * @param {Function} options.t - 翻譯函數
  * @param {Object} options.asyncPreview - 異步加載的預覽對象（支持 renderMode）
  * @param {string} options.asyncPreviewId - 異步預覽 ID
  * @param {boolean} options.isLoadingPreview - 是否正在加載預覽
@@ -495,14 +499,15 @@ export function buildPreviewHTML({
   fullPageStyles,
   htmlContent,
   customStyles,
-  language,
   displayTitle,
-  t,
   asyncPreview,
   asyncPreviewId, // eslint-disable-line no-unused-vars -- Reserved for future async preview caching
   isLoadingPreview,
-  previewCacheRef // eslint-disable-line no-unused-vars -- Reserved for future preview cache optimization
+  previewCacheRef, // eslint-disable-line no-unused-vars -- Reserved for future preview cache optimization
+  language = 'en-US'
 }) {
+  const resolvedLanguage = language || 'en-US';
+
   // ========== JSX 渲染模式處理 ==========
   // 優先處理 asyncPreview 的 JSX 渲染模式
   if (asyncPreview) {
@@ -512,7 +517,7 @@ export function buildPreviewHTML({
     if (renderMode === 'react-jsx') {
       // 如果有編譯錯誤，顯示錯誤頁面
       if (error) {
-        return buildReactErrorHTML(language, error);
+        return buildReactErrorHTML(error, resolvedLanguage);
       }
 
       // 如果有編譯後的代碼，渲染 React 預覽
@@ -521,14 +526,13 @@ export function buildPreviewHTML({
           compiledCode,
           componentName: componentName || 'App',
           styles: styles || customStyles || '',
-          title: t('preview.fullTitle', { title: displayTitle }),
-          language
+          title: `${displayTitle} - Full Preview`
         });
       }
 
       // 如果正在加載，顯示加載頁面
       if (isLoadingPreview) {
-        return buildReactLoadingHTML(language, t('loading') || 'Loading...');
+        return buildReactLoadingHTML('Loading...', resolvedLanguage);
       }
     }
 
@@ -537,8 +541,7 @@ export function buildPreviewHTML({
       return buildPreactJSXPreview({
         jsx,
         styles: styles || customStyles || '',
-        title: t('preview.fullTitle', { title: displayTitle }),
-        language
+        title: `${displayTitle} - Full Preview`
       });
     }
 
@@ -547,19 +550,18 @@ export function buildPreviewHTML({
       // 如果 HTML 是完整的獨立文檔（包含 <!DOCTYPE> 或 <html>），特殊處理
       // 不要通過 buildHTMLDocument 重新包裝，否則會丟失內嵌的 <style> 和 <script>
       if (html && isCompleteHTMLDocument(html)) {
-        // 如果有外部 CSS 連結，需要將 CSS 內嵌
-        if (hasExternalCSSLink(html) && styles) {
+        // 若提供了樣式，無論是否存在外部連結都內嵌到文檔內，避免 CSS 被忽略
+        if (styles) {
           return inlineExternalCSS(html, styles);
         }
-        // 沒有外部 CSS 連結，直接返回完整 HTML
         return html;
       }
 
       return buildHTMLDocument({
-        title: t('preview.fullTitle', { title: displayTitle }),
-        language,
+        title: `${displayTitle} - Full Preview`,
         styles: sanitizeStyles(styles || ''),
-        content: processHTML(html || '', language)
+        content: processHTML(html || '', resolvedLanguage),
+        language: resolvedLanguage
       });
     }
   }
@@ -569,17 +571,17 @@ export function buildPreviewHTML({
   if (previewContent && (previewContent.html || previewContent.styles)) {
     // 如果 HTML 是完整的獨立文檔，特殊處理
     if (previewContent.html && isCompleteHTMLDocument(previewContent.html)) {
-      if (hasExternalCSSLink(previewContent.html) && previewContent.styles) {
+      if (previewContent.styles) {
         return inlineExternalCSS(previewContent.html, previewContent.styles);
       }
       return previewContent.html;
     }
 
     return buildHTMLDocument({
-      title: t('preview.fullTitle', { title: displayTitle }),
-      language,
+      title: `${displayTitle} - Full Preview`,
       styles: sanitizeStyles(previewContent.styles),
-      content: processHTML(previewContent.html, language)
+      content: processHTML(previewContent.html, resolvedLanguage),
+      language: resolvedLanguage
     });
   }
 
@@ -589,7 +591,7 @@ export function buildPreviewHTML({
 
     // 3a. 若需要異步加載但內容尚未到位，顯示骨架頁面
     if ((current?.previewId || fullPagePreviewId) && !previewContent) {
-      return buildLoadingHTML(language, t('loading'));
+      return buildLoadingHTML('Loading...', resolvedLanguage);
     }
 
     // 3b. 解析當前預覽的 HTML 和樣式
@@ -615,21 +617,19 @@ export function buildPreviewHTML({
       }
     }
 
-    const titleKey = current.type === 'full' ? 'preview.fullTitle' : 'preview.title';
-
     // 如果 HTML 是完整的獨立文檔，特殊處理
     if (previewHTML && isCompleteHTMLDocument(previewHTML)) {
-      if (hasExternalCSSLink(previewHTML) && previewStyles) {
+      if (previewStyles) {
         return inlineExternalCSS(previewHTML, previewStyles);
       }
       return previewHTML;
     }
 
     return buildHTMLDocument({
-      title: t(titleKey, { title: displayTitle }),
-      language,
+      title: `${displayTitle} - Full Preview`,
       styles: sanitizeStyles(previewStyles),
-      content: processHTML(previewHTML, language)
+      content: processHTML(previewHTML, resolvedLanguage),
+      language: resolvedLanguage
     });
   }
 
@@ -637,17 +637,17 @@ export function buildPreviewHTML({
   if (fullPageHTML) {
     // 如果 HTML 是完整的獨立文檔，特殊處理
     if (isCompleteHTMLDocument(fullPageHTML)) {
-      if (hasExternalCSSLink(fullPageHTML) && fullPageStyles) {
+      if (fullPageStyles) {
         return inlineExternalCSS(fullPageHTML, fullPageStyles);
       }
       return fullPageHTML;
     }
 
     return buildHTMLDocument({
-      title: t('preview.fullTitle', { title: displayTitle }),
-      language,
+      title: `${displayTitle} - Full Preview`,
       styles: sanitizeStyles(fullPageStyles),
-      content: processHTML(fullPageHTML, language)
+      content: processHTML(fullPageHTML, resolvedLanguage),
+      language: resolvedLanguage
     });
   }
 
@@ -655,10 +655,10 @@ export function buildPreviewHTML({
   const extractedContent = extractFullPageContent(htmlContent);
 
   return buildHTMLDocument({
-    title: t('preview.title', { title: displayTitle }),
-    language,
+    title: `${displayTitle} - Preview`,
     styles: sanitizeStyles(customStyles),
-    content: processHTML(extractedContent, language)
+    content: processHTML(extractedContent, resolvedLanguage),
+    language: resolvedLanguage
   });
 }
 

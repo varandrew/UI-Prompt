@@ -626,24 +626,6 @@ export default {
               "description": "霓虹发光数字，未来科技感"
             }
           }
-        },
-        "data-visualization": {
-          "variants": {
-            "enterprise-dashboard": {
-              "description": "企业仪表板数据可视化，带有全面的指标",
-              "name": "企业仪表板"
-            },
-            "financial-trading": {
-              "description": "金融交易数据可视化，带有实时图表",
-              "name": "金融交易"
-            },
-            "analytics-dashboard": {
-              "description": "分析仪表板数据可视化，带有交互式图表",
-              "name": "分析仪表板"
-            }
-          },
-          "description": "数据可视化组件，用于显示图表、图形和分析仪表板",
-          "title": "数据可视化"
         }
       },
       "advanced": {
@@ -1611,10 +1593,6 @@ export default {
         "title": "黏土质感",
         "description": "Claymorphism 是 3D 黏土质感设计风格，适合创意设计、插画风格和儿童产品。通过多层内外阴影、柔和的色彩渐变和圆润的造型，创造如同真实黏土般的立体触感和柔软质地，营造温暖、友好、富有触感的氛围。"
       },
-      "neumorphismDark": {
-        "title": "新拟态暗色",
-        "description": "Neumorphism Dark 是新拟态设计的暗色版本，适合现代暗色主题应用和夜间模式界面。使用柔和的阴影和高光在深色背景上创造微妙的立体感，配合紫色强调色，营造优雅、现代、低调的氛围。"
-      },
       "industrial": {
         "title": "工业设计",
         "description": "Industrial Design 是工业设计风格，适合技术类产品、后台管理系统和专业工具。强调功能性和实用主义美学，使用深色调、粗体大写字体、网格纹理和金属质感，营造坚固、可靠、专业的工业氛围。"
@@ -1634,14 +1612,6 @@ export default {
       "gradients": {
         "title": "Gradients 渐变",
         "description": "充满活力的渐变设计，具有流畅的色彩过渡和现代美学。"
-      },
-      "data-visualization": {
-        "title": "Data Visualization 数据可视化",
-        "description": "专注于数据可视化的设计，包含图表、图形和分析界面。",
-        "previews": {
-          "professionalScenarios": "专业数据可视化场景",
-          "professionalScenariosDesc": "展示企业仪表板、金融平台、分析平台和实时监控四种专业场景"
-        }
       },
       "3d-elements": {
         "title": "3D 元素",

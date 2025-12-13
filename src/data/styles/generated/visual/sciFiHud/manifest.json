@@ -11,7 +11,7 @@
       "en-US": "Science fiction HUD style, suitable for data visualization, system monitoring and futuristic dashboard interfaces."
     },
     "tags": ["futuristic", "data-visualization", "dashboard", "dark-theme", "tech"],
-    "relatedStyles": ["neonCyberpunk", "dataVisualization", "darkMode"]
+    "relatedStyles": ["neonCyberpunk", "darkMode"]
   },
   "templates": [
     {

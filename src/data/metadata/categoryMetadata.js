@@ -338,6 +338,7 @@ export const universalTagTranslations = {
   classic: { 'zh-cn': '经典', 'en-US': 'Classic' },
   timeless: { 'zh-cn': '永恒', 'en-US': 'Timeless' },
   nostalgic: { 'zh-cn': '怀旧', 'en-US': 'Nostalgic' },
+  modern: { 'zh-cn': '现代', 'en-US': 'Modern' },
 
   // Use cases and purposes
   creative: { 'zh-cn': '创意展示', 'en-US': 'Creative' },
@@ -383,6 +384,8 @@ export const universalTagTranslations = {
   codeHeavy: { 'zh-cn': '技术复杂', 'en-US': 'Code-heavy' },
   experimental: { 'zh-cn': '实验性', 'en-US': 'Experimental' },
   interactive: { 'zh-cn': '交互', 'en-US': 'Interactive' },
+  aiPowered: { 'zh-cn': 'AI驱动', 'en-US': 'AI-powered' },
+  generative: { 'zh-cn': '生成式', 'en-US': 'Generative' },
 
   // Nature and organic elements
   biophilic: { 'zh-cn': '生物相关', 'en-US': 'Biophilic' },
@@ -402,24 +405,39 @@ export const universalTagTranslations = {
   rainbow: { 'zh-cn': '彩虹', 'en-US': 'Rainbow' },
   warm: { 'zh-cn': '暖色', 'en-US': 'Warm' },
   calm: { 'zh-cn': '平静', 'en-US': 'Calm' },
+  light: { 'zh-cn': '明亮', 'en-US': 'Light' },
+  mono: { 'zh-cn': '单色', 'en-US': 'Mono' },
 
   // Shape and form
   rounded: { 'zh-cn': '圆润', 'en-US': 'Rounded' },
   sharp: { 'zh-cn': '锐利', 'en-US': 'Sharp' },
   shadow: { 'zh-cn': '阴影', 'en-US': 'Shadow' },
   bento: { 'zh-cn': '便当盒', 'en-US': 'Bento' },
+  layered: { 'zh-cn': '分层', 'en-US': 'Layered' },
+  glow: { 'zh-cn': '发光', 'en-US': 'Glow' },
 
   // Font and text characteristics
   serif: { 'zh-cn': '衬线', 'en-US': 'Serif' },
   monospace: { 'zh-cn': '等宽', 'en-US': 'Monospace' },
   script: { 'zh-cn': '手写体', 'en-US': 'Script' },
+  handwritten: { 'zh-cn': '手写', 'en-US': 'Handwritten' },
 
   // Specific design styles
   arcade: { 'zh-cn': '街机', 'en-US': 'Arcade' },
   crt: { 'zh-cn': 'CRT', 'en-US': 'CRT' },
   pixel: { 'zh-cn': '像素', 'en-US': 'Pixel' },
+  pixelArt: { 'zh-cn': '像素艺术', 'en-US': 'Pixel Art' },
   digital: { 'zh-cn': '数字', 'en-US': 'Digital' },
   sketch: { 'zh-cn': '素描', 'en-US': 'Sketch' },
+  paperCutout: { 'zh-cn': '纸切艺术', 'en-US': 'Paper Cutout' },
+  memphis: { 'zh-cn': '孟菲斯', 'en-US': 'Memphis' },
+  kawaii: { 'zh-cn': '可爱', 'en-US': 'Kawaii' },
+  glassmorphic: { 'zh-cn': '玻璃态', 'en-US': 'Glassmorphic' },
+  claymation: { 'zh-cn': '黏土动画', 'en-US': 'Claymation' },
+  hud: { 'zh-cn': 'HUD', 'en-US': 'HUD' },
+  immersive: { 'zh-cn': '沉浸式', 'en-US': 'Immersive' },
+  liminal: { 'zh-cn': '异空间', 'en-US': 'Liminal' },
+  kinetic: { 'zh-cn': '动态', 'en-US': 'Kinetic' },
 
   // Brand and accessibility
   brand: { 'zh-cn': '品牌', 'en-US': 'Brand' },
@@ -444,7 +462,29 @@ export const universalTagTranslations = {
   paper: { 'zh-cn': '纸张', 'en-US': 'Paper' },
   art: { 'zh-cn': '艺术', 'en-US': 'Art' },
   aurora: { 'zh-cn': '极光', 'en-US': 'Aurora' },
-  holographic: { 'zh-cn': '全息', 'en-US': 'Holographic' }
+  holographic: { 'zh-cn': '全息', 'en-US': 'Holographic' },
+  leather: { 'zh-cn': '皮革', 'en-US': 'Leather' },
+  texture: { 'zh-cn': '纹理', 'en-US': 'Texture' },
+  grain: { 'zh-cn': '谷物', 'en-US': 'Grain' },
+  grid: { 'zh-cn': '网格', 'en-US': 'Grid' },
+  scroll: { 'zh-cn': '滚动', 'en-US': 'Scroll' },
+  object: { 'zh-cn': '对象', 'en-US': 'Object' },
+  string: { 'zh-cn': '字符串', 'en-US': 'String' },
+  harmonious: { 'zh-cn': '和谐', 'en-US': 'Harmonious' },
+  luxury: { 'zh-cn': '奢华', 'en-US': 'Luxury' },
+  maximalism: { 'zh-cn': '极大主义', 'en-US': 'Maximalism' },
+  new: { 'zh-cn': '新颖', 'en-US': 'New' },
+  traditional: { 'zh-cn': '传统', 'en-US': 'Traditional' },
+  utilitarian: { 'zh-cn': '实用主义', 'en-US': 'Utilitarian' },
+  informal: { 'zh-cn': '非正式', 'en-US': 'Informal' },
+  game: { 'zh-cn': '游戏', 'en-US': 'Game' },
+  future: { 'zh-cn': '未来', 'en-US': 'Future' },
+  academic: { 'zh-cn': '学术', 'en-US': 'Academic' },
+  interaction: { 'zh-cn': '交互', 'en-US': 'Interaction' },
+  material: { 'zh-cn': '材质', 'en-US': 'Material' },
+  layout: { 'zh-cn': '布局', 'en-US': 'Layout' },
+  core: { 'zh-cn': '核心', 'en-US': 'Core' },
+  visual: { 'zh-cn': '视觉', 'en-US': 'Visual' }
 };
 
 /**

@@ -3,28 +3,48 @@
   "category": "core",
   "family": {
     "name": {
-      "zh-CN": "扁平化设计",
-      "en-US": "Flat Design"
+      "zh-CN": "平面设计系统",
+      "en-US": "Flat Design System"
     },
     "description": {
-      "zh-CN": "去除阴影、渐变和纹理，使用纯色和简洁图标创造二维视觉效果。",
-      "en-US": "Removes shadows, gradients, and textures, using solid colors and simple icons for a two-dimensional visual effect."
+      "zh-CN": "简洁高效的扁平设计系统，无阴影、无渐变，强调内容和结构。完整的设计规范包括视觉哲学、交互原则和组件库。",
+      "en-US": "Clean and efficient flat design system with no shadows or gradients, emphasizing content and structure. Complete design specifications including visual philosophy, interaction principles, and component library."
     },
-    "tags": [],
-    "relatedStyles": []
+    "tags": [
+      "contemporary",
+      "flat",
+      "minimal",
+      "bold",
+      "colorful",
+      "clean",
+      "design-system",
+      "ecommerce"
+    ],
+    "relatedStyles": [
+      "core-minimalism",
+      "core-material",
+      "core-memphis"
+    ]
   },
   "templates": [
     {
+      "id": "core-flatDesign",
+      "title": {
+        "zh-CN": "平面设计系统完整指南",
+        "en-US": "Flat Design System Complete Guide"
+      }
+    },
+    {
       "id": "core-flat-design",
       "title": {
-        "zh-CN": "扁平化創意作品集",
+        "zh-CN": "扁平设计创意作品集",
         "en-US": "Flat Design Creative Portfolio"
       }
     },
     {
       "id": "core-flat-design-ecommerce-landing",
       "title": {
-        "zh-CN": "扁平化電商落地頁",
+        "zh-CN": "扁平设计电商落地页",
         "en-US": "Flat Design E-commerce Landing"
       }
     }

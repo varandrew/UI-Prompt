@@ -1,141 +1,115 @@
+/* * GLOBAL ACCESSIBILITY STYLES 
+ */
 
-/* Accessibility High Contrast Styles */
-
-/* Base Styles */
-.a11y-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  line-height: 1.6;
-  font-size: 16px;
+:root {
+    --focus-ring-color: #0056b3;
+    --focus-ring-width: 3px;
 }
 
-/* Focus Visible Ring */
+body {
+    font-size: 16px; /* Minimum 16px base */
+    line-height: 1.6; /* Comfortable reading height */
+    color: #1a1a1a;
+    background-color: #f8f9fa; /* Low noise, off-white background */
+}
+
+/* * FOCUS STATES 
+ * Distinct, high-contrast focus indicators. 
+ * Uses an offset outline to be visible on dark and light backgrounds.
+ */
 *:focus-visible {
-  outline: 4px solid #3B82F6 !important;
-  outline-offset: 2px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9); /* Inner white ring for separation */
 }
 
-/* Cards */
-.a11y-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* * SKIP LINK 
+ * Hidden visually but accessible to screen readers/keyboard.
+ * Appears on top when focused.
+ */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #003366;
+    color: white;
+    padding: 1rem 2rem;
+    z-index: 9999;
+    font-weight: bold;
+    text-decoration: none;
+    transition: top 0.2s;
+    border: 2px solid white;
+}
+.skip-link:focus {
+    top: 0;
 }
 
-.a11y-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Buttons */
-.a11y-btn-primary,
-.a11y-btn-secondary {
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 900;
-}
-
-.a11y-btn-primary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.a11y-btn-secondary:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.a11y-btn-primary:active:not(:disabled),
-.a11y-btn-secondary:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Inputs */
-.a11y-input {
-  font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.a11y-input:hover {
-  border-color: #374151;
-}
-
-/* Checkbox */
-.a11y-checkbox {
-  cursor: pointer;
-  accent-color: #000000;
-  transition: all 0.2s ease;
-}
-
-.a11y-checkbox:checked {
-  background-color: #000000;
-}
-
-/* Navigation */
-.a11y-nav-link {
-  transition: all 0.2s ease;
-}
-
-.a11y-nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Theme Buttons */
-.a11y-theme-btn {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.a11y-theme-btn:hover {
-  transform: scale(1.1);
-}
-
-.a11y-theme-btn:active {
-  transform: scale(0.95);
-}
-
-/* Toggle Switch */
-.a11y-toggle input:checked + div {
-  background-color: #000000;
-}
-
-/* Reduced Motion */
+/* * REDUCED MOTION 
+ * Respects system preferences.
+ */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
-/* Screen Reader Only */
+/* * HIGH CONTRAST MODE SIMULATION 
+ * (Toggled via JS for demo purposes)
+ */
+body.high-contrast {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+body.high-contrast .bg-white {
+    background-color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+}
+body.high-contrast .text-gov-text, 
+body.high-contrast .text-gov-text-secondary,
+body.high-contrast .text-slate-600,
+body.high-contrast .text-slate-700 {
+    color: #FFFFFF !important;
+}
+body.high-contrast .bg-gov-blue {
+    background-color: #FFFF00 !important;
+    color: #000000 !important;
+    border: 2px solid #FFFFFF;
+}
+body.high-contrast a {
+    color: #FFFF00 !important;
+    text-decoration: underline;
+}
+body.high-contrast input, 
+body.high-contrast select, 
+body.high-contrast textarea {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+body.high-contrast .border-slate-200 {
+    border-color: #FFFFFF !important;
+}
+
+/* * LARGE TEXT MODE SIMULATION 
+ */
+body.large-text {
+    font-size: 120%;
+}
+
+/* Utility for screen reader only text */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* High Contrast Theme Adjustments */
-.theme-yellow * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.theme-cyan * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Keyboard Navigation Indicator */
-body.user-is-tabbing *:focus {
-  outline: 4px solid #3B82F6 !important;
-  outline-offset: 2px;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

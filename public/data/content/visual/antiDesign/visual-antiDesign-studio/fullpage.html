@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO RULES | Anti-Design Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 w-full z-50 p-4 pointer-events-none">
+        <div class="flex justify-between items-start pointer-events-auto">
+            <div class="bg-black text-white p-4 transform rotate-3 brutal-box border-4 border-white hover:rotate-0 transition-transform">
+                <h1 class="font-display text-2xl leading-none">ANTI<br>AGENCY</h1>
+            </div>
+            
+            <div class="flex flex-col gap-4 items-end">
+                <button class="brutal-btn transform -rotate-2 text-sm">Works?</button>
+                <button class="brutal-btn transform rotate-3 text-sm bg-yellow-300">Manifesto</button>
+                <button class="brutal-btn transform -rotate-1 text-sm bg-white">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-32 pb-20 px-6 md:px-12 overflow-hidden min-h-[90vh] flex flex-col justify-center">
+        <!-- Background Decor -->
+        <div class="absolute top-20 right-10 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>
+        <div class="absolute bottom-20 left-10 w-80 h-80 bg-red-600 rotate-45 mix-blend-multiply opacity-50"></div>
+
+        <!-- Main Headline -->
+        <div class="relative z-10 max-w-7xl mx-auto chaos-target">
+            <div class="bg-yellow-300 inline-block px-2 mb-4 border-2 border-black transform -rotate-2">
+                <span class="font-bold tracking-widest">EST. 2025 // NO NEUTRALS</span>
+            </div>
+            
+            <h2 class="font-display text-[14vw] md:text-[10vw] text-black leading-[0.85] tracking-tighter mix-blend-hard-light relative">
+                <span class="block transform -rotate-1 hover:translate-x-4 transition-transform duration-100">WEAPONISE</span>
+                <span class="block text-white outline-text transform rotate-2 ml-4 md:ml-20 hover:-translate-x-4 transition-transform duration-100">MISALIGNMENT</span>
+                <span class="block transform -rotate-1 text-red-600 hover:scale-105 transition-transform duration-100">IMMEDIATELY</span>
+            </h2>
+
+            <!-- Floating Sticker -->
+            <div class="sticker bg-green-400 w-32 h-32 md:w-48 md:h-48 top-[40%] right-[5%] md:right-[15%] rotate-12 flex flex-col justify-center items-center shadow-[8px_8px_0_black]" style="--rot: 12deg;">
+                <span class="font-display text-xl md:text-2xl transform -rotate-12">GRID<br>IS<br>DEAD</span>
+            </div>
+        </div>
+
+        <div class="mt-12 md:ml-32 max-w-xl bg-white border-4 border-black p-6 shadow-hard rotate-1 chaos-target">
+            <p class="text-lg md:text-xl font-bold leading-tight">
+                Your brand is polite. That's the problem. We build interfaces that feel like a panic attack in a punk venue. 
+                <span class="bg-black text-white px-1">Comfort is the enemy of memory.</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- MARQUEE -->
+    <div class="py-12 relative z-20">
+        <div class="marquee-container shadow-hard">
+            <div class="marquee-content">
+                /// BREAK THE GRID /// CLASH THE COLORS /// IGNORE THE SAFE ZONE /// MAKE IT LOUD /// BREAK THE GRID /// CLASH THE COLORS /// IGNORE THE SAFE ZONE /// MAKE IT LOUD
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                /// BREAK THE GRID /// CLASH THE COLORS /// IGNORE THE SAFE ZONE /// MAKE IT LOUD /// BREAK THE GRID /// CLASH THE COLORS /// IGNORE THE SAFE ZONE /// MAKE IT LOUD
+            </div>
+        </div>
+    </div>
+
+    <!-- WORK / GRID SECTION -->
+    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto relative">
+        <div class="absolute -left-12 top-0 font-display text-9xl opacity-5 text-gray-400 rotate-90 hidden md:block">
+            FEATURED
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-4 items-center">
+            
+            <!-- Card 1 -->
+            <article class="brutal-box card-1 p-0 group overflow-hidden chaos-target">
+                <div class="h-48 bg-black overflow-hidden border-b-4 border-black relative">
+                    <div class="absolute inset-0 bg-[url('https://placehold.co/600x400/FF00FF/000000?text=NOISE')] bg-cover bg-center group-hover:scale-110 transition-transform duration-75"></div>
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-display text-2xl mb-2">ACID RAVE</h3>
+                    <p class="text-sm font-bold mb-4">Underground Music Label</p>
+                    <p class="text-xs leading-relaxed border-t-2 border-black pt-2">
+                        Designed a site that hurts to look at, increasing ticket sales by 400%.
+                    </p>
+                    <button class="mt-4 text-xs font-bold underline decoration-4 decoration-black hover:decoration-white hover:bg-black hover:text-white px-1 transition-colors">VIEW CASE STUDY</button>
+                </div>
+            </article>
+
+            <!-- Card 2 (Dominant) -->
+            <article class="brutal-box card-2 p-8 md:col-span-1 md:row-span-2 min-h-[500px] flex flex-col justify-between relative chaos-target">
+                <div class="absolute top-4 right-4 text-6xl opacity-50">★</div>
+                <div>
+                    <h3 class="font-display text-4xl mb-4 bg-black inline-block px-2 transform -skew-x-12">DO NOT<br>SCROLL</h3>
+                    <p class="mt-4 font-mono text-sm">
+                        Conventional UI is a lie told by boring people. We used raw HTML canvas and WebGL distortions to create a fashion catalog that users have to "fight" to navigate.
+                    </p>
+                </div>
+                <div class="border-4 border-white p-4 mt-8 bg-black transform rotate-2">
+                    <span class="text-xs text-gray-400 block mb-1">PROJECT:</span>
+                    <span class="font-bold text-xl text-green-400">VANDAL COUTURE</span>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="brutal-box card-3 p-6 bg-yellow-300 border-red-600 chaos-target">
+                <div class="flex justify-between items-start border-b-4 border-black pb-4 mb-4">
+                    <h3 class="font-display text-xl">GLITCH_MAG</h3>
+                    <span class="bg-black text-white text-xs px-2 py-1 rounded-full">EDITORIAL</span>
+                </div>
+                <p class="text-sm font-bold">
+                    A brutalist editorial platform for experimental art. The layout changes every time you reload.
+                </p>
+                <div class="mt-6 flex justify-end">
+                    <div class="w-12 h-12 bg-black rounded-full border-4 border-white hover:bg-red-600 transition-colors"></div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- MANIFESTO / TEXT WALL -->
+    <section class="bg-black text-white py-20 px-6 relative overflow-hidden jagged-edge pb-32">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="font-display text-5xl md:text-7xl leading-none text-transparent stroke-white" style="-webkit-text-stroke: 2px white;">
+                CHAOS<br>IS THE<br>NEW<br>ORDER
+            </div>
+            <div class="font-mono text-sm md:text-base space-y-6">
+                <p class="bg-blue-700 p-4 border-2 border-white transform rotate-1 shadow-[6px_6px_0_white]">
+                    > We reject the 12-column grid.<br>
+                    > We reject 16px font sizes.<br>
+                    > We reject "delightful" micro-interactions.<br>
+                    > We embrace visual aggression.
+                </p>
+                <p class="p-4 border-l-8 border-neon-green bg-gray-900">
+                    Your users are tired of clean SaaS dashboards. They want to feel something. Give them textures. Give them overlap. Give them attitude.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Decorative geometric shapes -->
+        <div class="absolute bottom-10 left-10 w-0 h-0 border-l-[50px] border-l-transparent border-t-[75px] border-t-yellow-400 border-r-[50px] border-r-transparent rotate-12"></div>
+        <div class="absolute top-20 right-20 w-24 h-24 bg-red-600 rotate-45 border-4 border-white"></div>
+    </section>
+
+    <!-- INTERACTIVE FOOTER -->
+    <footer class="bg-white border-t-8 border-black pt-16 pb-8 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-display text-4xl mb-8 transform -rotate-2">CONTROL THE CHAOS</h2>
+            
+            <div class="bg-gray-100 p-8 border-4 border-black shadow-hard inline-block w-full max-w-md relative">
+                <label for="chaosLevel" class="block font-bold mb-4 text-left">CHAOS LEVEL: <span id="chaosValue">50%</span></label>
+                <input type="range" id="chaosLevel" min="0" max="100" value="50">
+                <p class="text-xs text-left mt-2 font-mono text-gray-500">WARNING: HIGH LEVELS MAY CAUSE MOTION SICKNESS.</p>
+                
+                <!-- Absolute Deco on Control Panel -->
+                <div class="absolute -top-4 -right-4 w-8 h-8 bg-black"></div>
+                <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-black"></div>
+            </div>
+
+            <div class="mt-16 flex flex-wrap justify-center gap-6 font-bold text-sm uppercase">
+                <a href="#" class="bg-black text-white px-4 py-2 hover:bg-neon-green hover:text-black transform hover:-translate-y-1 transition-all">Instagram</a>
+                <a href="#" class="bg-black text-white px-4 py-2 hover:bg-neon-green hover:text-black transform hover:-translate-y-1 transition-all">Twitter</a>
+                <a href="#" class="bg-black text-white px-4 py-2 hover:bg-neon-green hover:text-black transform hover:-translate-y-1 transition-all">Hate Mail</a>
+            </div>
+
+            <div class="mt-12 font-mono text-xs opacity-50">
+                © 2025 ANTI-DESIGN STUDIO. NO RIGHTS RESERVED. STEAL THIS LAYOUT.
+            </div>
+        </div>
+    </footer>
+
+    <script src="fullpage.js"></script>
+</body>
+</html>

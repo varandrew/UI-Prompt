@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V A P O R W A V E // D R E A M S</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Press+Start+2P&family=VT323&family=Mr+Dafoe&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body>
+
+    <!-- CRT Effect Overlay -->
+    <div class="crt-overlay"></div>
+
+    <!-- VHS Timestamp -->
+    <div class="vhs-time" id="vhsTime">PLAY ▷ 12:00 PM</div>
+
+    <!-- 3D Background World -->
+    <div class="world">
+        <div class="sun"></div>
+        <div class="mountains"></div>
+        <div class="grid"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                NeonDreams
+                <span>SYSTEMS INC.</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Visuals</a></li>
+                    <li><a href="#">BBS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="hero-text">
+                <h1 class="glitch-title">AESTHETICS</h1>
+                <div class="japanese-sub">ヴェイパーウェイヴ</div>
+                <p style="margin-top: 20px; font-size: 1.4rem; color: #fff; text-shadow: 0 0 10px var(--neon-blue);">
+                    NOSTALGIA FOR A FUTURE THAT NEVER WAS
+                </p>
+            </div>
+
+            <div class="grid-cards">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <h2>Synthwave</h2>
+                    <p>Experience the analog warmth of 80s synthesizers and drum machines.</p>
+                    <button class="btn-retro">Listen Now</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h2>Arcade</h2>
+                    <p>Insert coin to begin. High scores reset at midnight.</p>
+                    <button class="btn-retro">Play</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h2>Visuals</h2>
+                    <p>Glitch art, 3D renders, and lost VHS footage from 1995.</p>
+                    <button class="btn-retro">View Gallery</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="marquee-container">
+            <div class="marquee-content">
+                ★ WELCOME TO THE VIRTUAL PLAZA ★ ENJOY YOUR STAY ★ SYSTEM ONLINE ★ LISTENING TO: MACINTOSH PLUS ★ DON'T COPY THAT FLOPPY ★
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 1984-2024 NEONDREAMS CORP. ALL RIGHTS RESERVED. <br> DESIGNED IN TOKYO.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Update VHS Time
+        function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            const strTime = `PLAY ▷ ${hours}:${minutes} ${ampm}`;
+            document.getElementById('vhsTime').innerText = strTime;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Mouse Move Grid Parallax
+        const world = document.querySelector('.world');
+        document.addEventListener('mousemove', (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 50;
+            const y = (window.innerHeight / 2 - e.pageY) / 50;
+            world.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+        });
+
+        // Glitch text randomizer
+        const title = document.querySelector('.glitch-title');
+        setInterval(() => {
+            if(Math.random() > 0.95) {
+                const original = title.innerText;
+                const glitchChars = '!@#$%^&*<>?';
+                let newText = '';
+                for(let i=0; i<original.length; i++) {
+                    if(Math.random() > 0.7) {
+                        newText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                    } else {
+                        newText += original[i];
+                    }
+                }
+                title.innerText = newText;
+                setTimeout(() => {
+                    title.innerText = "AESTHETICS";
+                }, 100);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

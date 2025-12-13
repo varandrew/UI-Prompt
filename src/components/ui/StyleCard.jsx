@@ -8,6 +8,7 @@ import { getStylePreviewUrl } from '../../utils/styleHelper';
 import { LANGUAGES } from "../../utils/i18n/languageConstants";
 import { containsJSX } from '../../utils/jsxCompiler';
 import { getCategoryLabel } from '../../data/metadata/categoryMetadata';
+import { useSharedIntersectionObserver } from '../../hooks/useSharedIntersectionObserver';
 
 // 🆕 子組件導入
 import { IframeRenderer } from './IframeRenderer';
@@ -45,7 +46,6 @@ export function StyleCard({
   variant = null,
   id = null,
   primaryCategory = null,
-  categories = [],
   layoutMode = 'centered',
   customPrompt = null,
   stylePrompt = null,
@@ -58,36 +58,12 @@ export function StyleCard({
   const [isVisible, setIsVisible] = useState(false);
 
   const { language, t } = useLanguage();
-  const cardRef = useRef(null);
 
-  // ===== IntersectionObserver: 延遲加載 =====
-  // 修復 Issue #14: 使用空依賴陣列，避免不必要的 observer 重新創建
-  useEffect(() => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            // 一次性觸發後立即斷開，避免重複執行
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        rootMargin: '200px',
-        threshold: 0.01
-      }
-    );
-
-    observer.observe(card);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []); // 空依賴陣列：只在組件掛載時執行一次
+  // ===== 共享 IntersectionObserver: 延遲加載 =====
+  // 使用共享 observer 減少記憶體使用（原本每個卡片一個 observer，現在全局共享一個）
+  const cardRef = useSharedIntersectionObserver(() => {
+    setIsVisible(true);
+  });
 
   // ===== 國際化處理 =====
   const currentDemoHTML = getDemoHTML(demoHTML, language);
@@ -152,11 +128,6 @@ export function StyleCard({
       return null;
     }
   }, [primaryCategory, language]);
-
-  const secondaryCategories = useMemo(() => {
-    if (!categories || categories.length === 0) return [];
-    return categories.filter((catId) => !!catId && catId !== primaryCategory);
-  }, [categories, primaryCategory]);
 
   // ===== Prompt 生成 =====
   const styleObject = useMemo(() => ({
@@ -302,7 +273,6 @@ export function StyleCard({
         title={displayTitle}
         description={displayDescription}
         primaryCategoryLabel={primaryCategoryLabel}
-        secondaryCategories={secondaryCategories}
         templatesCount={previews?.length || 0}
         tags={tags}
         onTagClick={onTagClick}
@@ -310,7 +280,6 @@ export function StyleCard({
         onPreview={handlePreview}
         language={language}
         t={t}
-        getCategoryLabel={getCategoryLabel}
       />
     );
   };
@@ -322,6 +291,7 @@ export function StyleCard({
         demoContent={renderDemo()}
         uiContent={renderUI()}
         cardRef={cardRef}
+        templatesCount={previews?.length || 0}
       />
 
       {/* Prompt 抽屜 */}

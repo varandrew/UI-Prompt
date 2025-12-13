@@ -36,27 +36,23 @@ function escapeHTML(str) {
  *
  * @param {Object} options - Build options
  * @param {string} options.displayTitle - The style title to display (will be sanitized)
- * @param {string} options.language - Current language ('zh-CN' or 'en-US')
- * @param {Function} options.t - Translation function from i18n
  * @returns {string} Complete HTML document string with embedded styles and scripts
  *
  * @example
  * const html = buildEmptyStateHTML({
- *   displayTitle: 'Glassmorphism',
- *   language: 'zh-CN',
- *   t: (key, params) => translate(key, params)
+ *   displayTitle: 'Glassmorphism'
  * });
  */
-export function buildEmptyStateHTML({ displayTitle, language, t }) {
+export function buildEmptyStateHTML({ displayTitle }) {
   // Sanitize the title to prevent XSS
   const safeTitle = escapeHTML(displayTitle || '');
 
   return `<!DOCTYPE html>
-<html lang="${language}">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${t('preview.title', { title: safeTitle })}</title>
+  <title>${safeTitle} - Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -124,7 +120,7 @@ export function buildEmptyStateHTML({ displayTitle, language, t }) {
   <!-- Subtle Navigation Context -->
   <nav class="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-10">
     <div class="text-sm font-medium tracking-wide text-neutral-900">${safeTitle}</div>
-    <div class="text-sm text-neutral-400">${t('common.styles')}</div>
+    <div class="text-sm text-neutral-400">Design Styles</div>
   </nav>
 
   <!-- Main Content Area -->
@@ -142,12 +138,12 @@ export function buildEmptyStateHTML({ displayTitle, language, t }) {
 
       <!-- Typography: Clean hierarchy -->
       <h1 class="fade-in-up delay-100 text-3xl sm:text-4xl font-light tracking-tight text-neutral-900 mb-4">
-        ${t('preview.noTemplateTitle')}
+        No Website Template Available
       </h1>
 
       <!-- Description -->
       <p class="fade-in-up delay-200 text-neutral-500 text-base leading-relaxed mb-10 max-w-sm">
-        ${t('preview.noTemplateDescription')}
+        This design style doesn't have a full website template example yet. We're working hard to prepare more high-quality templates for you. Stay tuned!
       </p>
 
       <!-- Action Button -->
@@ -157,7 +153,7 @@ export function buildEmptyStateHTML({ displayTitle, language, t }) {
             <svg xmlns="http://www.w3.org/2000/svg" class="lucide w-4 h-4 text-neutral-400 group-hover:text-white transition-colors duration-200" viewBox="0 0 24 24">
               <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
             </svg>
-            <span>${t('buttons.prompt')}</span>
+            <span>AI Prompt</span>
           </span>
         </button>
       </div>
@@ -165,7 +161,7 @@ export function buildEmptyStateHTML({ displayTitle, language, t }) {
       <!-- Contextual Note -->
       <div class="fade-in-up delay-300 mt-6">
         <p class="text-xs text-neutral-400">
-          ${t('preview.noTemplateHint')}
+          You can click the 'AI Prompt' button to view the design guide and generation prompts for this style
         </p>
       </div>
 

@@ -1,11 +1,12 @@
 {
   "id": "visual-accessibility-basic",
   "title": {
-    "zh-CN": "无障碍仪表盘",
-    "en-US": "Accessibility Dashboard"
+    "zh-CN": "CivicConnect - 无障碍政务门户",
+    "en-US": "CivicConnect - Inclusive Service Portal"
   },
   "description": {
-    "zh-CN": "高对比、易读的仪表盘组件示例",
-    "en-US": "High-contrast, readable dashboard component sample"
+    "zh-CN": "遵循WCAG 2.1 AA标准的包容性政务服务门户，具备高对比度、清晰的阅读层级、屏幕阅读器友好、键盘导航支持、可访问的表单等功能。",
+    "en-US": "Accessible government service portal designed for inclusivity and WCAG 2.1 AA compliance, featuring high contrast, clear reading hierarchy, screen reader support, keyboard navigation, and accessible forms."
   }
 }
+

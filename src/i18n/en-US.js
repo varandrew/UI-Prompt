@@ -627,24 +627,6 @@ export default {
               "description": "Neon glowing numbers with futuristic tech feel"
             }
           }
-        },
-        "data-visualization": {
-          "variants": {
-            "enterprise-dashboard": {
-              "description": "Enterprise dashboard data visualization with comprehensive metrics",
-              "name": "Enterprise Dashboard"
-            },
-            "financial-trading": {
-              "description": "Financial trading data visualization with real-time charts",
-              "name": "Financial Trading"
-            },
-            "analytics-dashboard": {
-              "description": "Analytics dashboard data visualization with interactive charts",
-              "name": "Analytics Dashboard"
-            }
-          },
-          "description": "Data visualization component for displaying charts, graphs, and analytics dashboards",
-          "title": "Data Visualization"
         }
       },
       "advanced": {
@@ -1593,10 +1575,6 @@ export default {
         "title": "Claymorphism",
         "description": "Claymorphism is a 3D clay texture design style, suitable for creative design, illustration style, and children's products. Through multi-layer inner and outer shadows, soft color gradients, and rounded shapes, it creates realistic clay-like tactile feel and soft texture, delivering warm, friendly, and tangible atmosphere."
       },
-      "neumorphismDark": {
-        "title": "Neumorphism Dark",
-        "description": "Neumorphism Dark is the dark version of neomorphism design, suitable for modern dark theme applications and night mode interfaces. Using soft shadows and highlights on dark backgrounds to create subtle depth, combined with purple accent color, it delivers elegant, modern, and understated atmosphere."
-      },
       "industrial": {
         "title": "Industrial Design",
         "description": "Industrial Design style is suitable for technical products, backend management systems, and professional tools. Emphasizing functionality and utilitarian aesthetics, using dark tones, bold uppercase typography, grid textures, and metallic feel, it delivers sturdy, reliable, and professional industrial atmosphere."
@@ -1616,14 +1594,6 @@ export default {
       "gradients": {
         "title": "Gradients",
         "description": "Vibrant gradient designs with smooth color transitions and modern aesthetics."
-      },
-      "data-visualization": {
-        "title": "Data Visualization",
-        "description": "Data visualization focused design with charts, graphs, and analytical interfaces.",
-        "previews": {
-          "professionalScenarios": "Professional Data Visualization Scenarios",
-          "professionalScenariosDesc": "Showcase enterprise dashboard, financial platform, analytics platform, and real-time monitoring scenarios"
-        }
       },
       "3d-elements": {
         "title": "3D Elements",

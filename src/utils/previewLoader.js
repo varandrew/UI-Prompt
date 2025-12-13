@@ -31,8 +31,6 @@ const FAMILY_ID_MAP = {
   'soft-ui': 'softUI',
   // Visual
   'glass': 'glassmorphism',
-  'neumorph': 'neumorphismDark',
-  'neumorphism': 'neumorphismDark',
   'clay': 'claymorphism',
   'cyberpunk': 'neonCyberpunk',
   'neoncyberpunk': 'neonCyberpunk',
@@ -53,8 +51,6 @@ const FAMILY_ID_MAP = {
   'holofoil': 'holographicFoil',
   'kawaii': 'kawaiiMinimal',
   'kawaiiminimal': 'kawaiiMinimal',
-  'dataviz': 'dataVisualization',
-  'datavisualization': 'dataVisualization',
   'genart': 'generativeArt',
   'generativeart': 'generativeArt',
   'fabric': 'fabric',
@@ -128,10 +124,12 @@ const previewIdMapping = {
   'flat-design-ecommerce': { category: 'core', familyId: 'flatDesign', templateId: 'ecommerceLanding' },
   'core-flat-design': { category: 'core', familyId: 'flatDesign', templateId: 'core-flat-design' },
   'core-flat-design-ecommerce-landing': { category: 'core', familyId: 'flatDesign', templateId: 'core-flat-design-ecommerce-landing' },
+  'core-flatDesign': { category: 'core', familyId: 'flatDesign', templateId: 'core-flatDesign' },
 
   // MaterialDesign
   'core-material-design': { category: 'core', familyId: 'materialDesign', templateId: 'core-material-design' },
   'core-materialYouAndroidSettings': { category: 'core', familyId: 'materialDesign', templateId: 'core-materialYouAndroidSettings' },
+  'core-materialDesign-principles': { category: 'core', familyId: 'materialDesign', templateId: 'core-materialDesign-principles' },
 
   // Memphis (core)
   'core-memphis-memphis-creative': { category: 'core', familyId: 'memphis', templateId: 'core-memphis-memphis-creative' },
@@ -155,7 +153,6 @@ const previewIdMapping = {
   // === Visual Styles ===
   'neo-brutalism': { category: 'visual', familyId: 'neoBrutalism', templateId: 'projectManagement' },
   'glassmorphism': { category: 'visual', familyId: 'glassmorphism', templateId: 'glassmorphism-v1' },
-  'neumorphism': { category: 'visual', familyId: 'neomorphism', templateId: 'neomorphism-v1' },
   'soft-ui-light': { category: 'visual', familyId: 'softUI', templateId: 'softUILight' },
   'soft-ui-dark': { category: 'visual', familyId: 'softUI', templateId: 'softUIDark' },
 
@@ -182,7 +179,6 @@ const previewIdMapping = {
   'modern-brutalism-dev-workspace': { category: 'visual', familyId: 'brutalism', templateId: 'devWorkspace' },
 
   'gradients': { category: 'visual', familyId: 'gradient', templateId: 'gradients-v1' },
-  'data-visualization': { category: 'visual', familyId: 'dataVisualization', templateId: 'dataVisualization-v1' },
 
   // 3D Elements (visual/tech)
   'visual-tech-3d-elements': { category: 'visual', familyId: '3dElements', templateId: 'visual-tech-3d-elements' },
@@ -199,6 +195,7 @@ const previewIdMapping = {
   // AntiDesign
   'antiDesign': { category: 'visual', familyId: 'antiDesign', templateId: 'antiDesign' },
   'visual-tech-anti-design': { category: 'visual', familyId: 'antiDesign', templateId: 'visual-tech-anti-design' },
+  'visual-antiDesign-studio': { category: 'visual', familyId: 'antiDesign', templateId: 'visual-antiDesign-studio' },
 
   // BentoGrids
   'bentoGrids': { category: 'visual', familyId: 'bentoGrids', templateId: 'bentoGrids' },
@@ -215,12 +212,11 @@ const previewIdMapping = {
   'darkMode': { category: 'visual', familyId: 'darkMode', templateId: 'darkMode' },
   'visual-darkMode-darkMode-dashboard': { category: 'visual', familyId: 'darkMode', templateId: 'visual-darkMode-darkMode-dashboard' },
 
-  // DataVisualization
-  'dataVisualization': { category: 'visual', familyId: 'dataVisualization', templateId: 'dataVisualization' },
-  'visual-tech-data-visualization': { category: 'visual', familyId: 'dataVisualization', templateId: 'visual-tech-data-visualization' },
-
   // Fabric
   'visual-fabric-woven-weft': { category: 'visual', familyId: 'fabric', templateId: 'visual-fabric-woven-weft' },
+
+  // Grain
+  'visual-grain': { category: 'visual', familyId: 'grain', templateId: 'visual-grain' },
 
   // GenerativeArt
   'generativeArt': { category: 'visual', familyId: 'generativeArt', templateId: 'generativeArt' },
@@ -290,12 +286,12 @@ const previewIdMapping = {
   'cyberpunkMatrixTerminal': { category: 'visual', familyId: 'neonCyberpunk', templateId: 'cyberpunkMatrixTerminal' },
   'visual-neon-cyberpunk': { category: 'visual', familyId: 'neonCyberpunk', templateId: 'visual-neon-cyberpunk' },
 
+  // Neon (new)
+  'visual-neon': { category: 'visual', familyId: 'neon', templateId: 'visual-neon' },
+
   // NeonNoir (additional)
   'neonNoir': { category: 'visual', familyId: 'neonNoir', templateId: 'neonNoir' },
   'visual-neon-noir': { category: 'visual', familyId: 'neonNoir', templateId: 'visual-neon-noir' },
-
-  // NeumorphismDark
-  'visual-neumorphismDark-neumorphism-dark': { category: 'visual', familyId: 'neumorphismDark', templateId: 'visual-neumorphismDark-neumorphism-dark' },
 
   // Organic
   'visual-organic-flow-workspace': { category: 'visual', familyId: 'organic', templateId: 'visual-organic-flow-workspace' },
@@ -339,6 +335,7 @@ const previewIdMapping = {
 
   // Vaporwave (additional) - 'vaporwave' key 已在上方定義
   'visual-vaporwave-vaporwave-aesthetic': { category: 'visual', familyId: 'vaporwave', templateId: 'visual-vaporwave-vaporwave-aesthetic' },
+  'visual-vaporwave-vaporwave-dreams': { category: 'visual', familyId: 'vaporwave', templateId: 'visual-vaporwave-vaporwave-dreams' },
 
   // Y2K (additional) - 'y2k' key 已在下方定義
   'visual-y2k': { category: 'visual', familyId: 'y2k', templateId: 'visual-y2k' },
@@ -416,6 +413,9 @@ const previewIdMapping = {
   // === Interaction Styles ===
   'interaction-mouse-tracking': { category: 'interaction', familyId: 'mouseTracking', templateId: 'interaction-mouse-tracking' }
 };
+
+// Convert to Map for better performance (O(1) lookup for 630+ entries)
+const previewIdMap = new Map(Object.entries(previewIdMapping));
 
 /**
  * 從 public/data/content/ 動態加載預覽內容
@@ -514,8 +514,8 @@ export async function loadPreview(previewId) {
     return previewCache.get(previewId);
   }
 
-  // 查找映射
-  const mapping = previewIdMapping[previewId];
+  // 查找映射 (using Map for O(1) lookup)
+  const mapping = previewIdMap.get(previewId);
   if (!mapping) {
     logger.warn(`Preview ID not found in mapping: ${previewId}`);
     return { html: '', styles: '' };

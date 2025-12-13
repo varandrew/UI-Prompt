@@ -1,0 +1,342 @@
+:root {
+    /* Color Palette */
+    --primary: #6200EE;
+    --primary-variant: #3700B3;
+    --secondary: #03DAC6;
+    --secondary-variant: #018786;
+    --background: #F5F5F5;
+    --surface: #FFFFFF;
+    --error: #B00020;
+    
+    /* Text Colors */
+    --on-primary: #FFFFFF;
+    --on-secondary: #000000;
+    --on-background: #000000;
+    --on-surface: #000000;
+    --text-primary: rgba(0, 0, 0, 0.87);
+    --text-secondary: rgba(0, 0, 0, 0.60);
+    --text-disabled: rgba(0, 0, 0, 0.38);
+
+    /* Elevations / Shadows */
+    --elevation-0: none;
+    --elevation-1: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 1px 3px 0 rgba(0,0,0,0.12);
+    --elevation-2: 0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12);
+    --elevation-4: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+    --elevation-8: 0 5px 5px -3px rgba(0,0,0,0.2), 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12);
+    --elevation-16: 0 8px 10px -5px rgba(0,0,0,0.2), 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12);
+
+    /* Transitions */
+    --transition-default: 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 80px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+/* AppBar */
+.app-bar {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--elevation-4);
+}
+
+.app-bar .menu-icon {
+    margin-right: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 8px;
+    transition: background-color 0.2s;
+}
+
+.app-bar .menu-icon:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.app-bar h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    letter-spacing: 0.15px;
+}
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* Card Component */
+.card {
+    background-color: var(--surface);
+    border-radius: 4px;
+    box-shadow: var(--elevation-1);
+    padding: 16px;
+    transition: box-shadow var(--transition-default), transform var(--transition-default);
+    position: relative;
+    overflow: hidden; /* For ripple containment */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: var(--elevation-8);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    padding: 8px 0 16px 0;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    letter-spacing: 0.15px;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.card-content {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    flex-grow: 1;
+}
+
+.card-actions {
+    padding-top: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Buttons */
+.btn {
+    border: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.btn-text {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.btn-text:hover {
+    background-color: rgba(98, 0, 238, 0.04);
+}
+
+.btn-contained {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    box-shadow: var(--elevation-2);
+}
+
+.btn-contained:hover {
+    box-shadow: var(--elevation-4);
+    background-color: var(--primary-variant);
+}
+
+.btn-contained:active {
+    box-shadow: var(--elevation-8);
+}
+
+/* FAB */
+.fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--elevation-4);
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+    z-index: 90;
+    outline: none;
+    border: none;
+}
+
+.fab:hover {
+    box-shadow: var(--elevation-8);
+    transform: scale(1.05);
+}
+
+.fab:active {
+    box-shadow: var(--elevation-16);
+}
+
+/* Ripple Effect CSS */
+span.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+.btn-contained span.ripple {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Interactive Demo Section specific styles */
+.layer-demo {
+    height: 200px;
+    background-color: #eee;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px -16px;
+}
+
+.paper-sheet {
+    width: 120px;
+    height: 120px;
+    background: white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.sheet-1 { z-index: 1; box-shadow: var(--elevation-1); }
+.sheet-2 { z-index: 2; box-shadow: var(--elevation-4); background: var(--primary); color: white; border-radius: 50%; width: 60px; height: 60px; top: 30px; right: 40px;}
+
+/* Dialog */
+.dialog-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.dialog-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dialog {
+    background: white;
+    padding: 24px;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: var(--elevation-16);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.2s;
+}
+
+.dialog-overlay.open .dialog {
+    transform: translateY(0) scale(1);
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: rgba(0,0,0,0.12);
+    margin: 24px 0;
+}
+
+/* Chips */
+.chip {
+    display: inline-flex;
+    background-color: #e0e0e0;
+    color: rgba(0,0,0,0.87);
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 16px;
+    align-items: center;
+    margin: 4px;
+    font-size: 0.875rem;
+}
+
+.chip i {
+    font-size: 18px;
+    margin-right: 8px;
+    color: #666;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 16px; }
+.text-primary { color: var(--primary); }
+
+/* Media Queries */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .app-bar h1 {
+        font-size: 1.1rem;
+    }
+}

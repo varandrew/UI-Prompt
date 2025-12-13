@@ -1,0 +1,67 @@
+/* FLAT DESIGN OVERRIDES 
+   Enforcing the "No Shadow, No Gradient" rule.
+*/
+:root {
+    --primary: #3b82f6; /* Flat Blue */
+    --accent: #f59e0b;  /* Flat Amber */
+    --danger: #ef4444;  /* Flat Red */
+    --dark: #0f172a;    /* Slate 900 */
+    --light: #f8fafc;   /* Slate 50 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light);
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* INTERACTION LOGIC: 
+   "Interaction feedback is communicated mainly through color shifts"
+   "Short timings and straightforward easing"
+*/
+.flat-btn {
+    transition: background-color 0.15s ease-out, color 0.15s ease-out, transform 0.05s linear;
+}
+
+.flat-btn:active {
+    transform: translateY(2px); /* Physical feeling without depth */
+}
+
+.flat-card {
+    transition: background-color 0.2s ease;
+}
+
+.nav-link {
+    position: relative;
+}
+
+/* The "Underline" effect mentioned in prompt */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.2s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Utility specific for Flat Design */
+.border-thick {
+    border-width: 2px;
+}
+
+.no-blur {
+    backdrop-filter: none;
+}

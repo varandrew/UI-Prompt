@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Design Principles</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body>
+
+    <!-- AppBar -->
+    <header class="app-bar">
+        <span class="material-icons menu-icon ripple-target">menu</span>
+        <h1>Material Design System</h1>
+    </header>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <div style="margin-bottom: 40px; text-align: center; padding: 40px 0;">
+            <h2 style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 16px;">System Guidelines</h2>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                A comprehensive guide to the behavior, visuals, and interaction models of our project's design system.
+            </p>
+        </div>
+
+        <div class="grid">
+            
+            <!-- Card 1: Role -->
+            <div class="card ripple-target">
+                <div class="card-header">
+                    <h2 class="card-title">Role & Purpose</h2>
+                    <div class="card-subtitle">Why we use Material</div>
+                </div>
+                <div class="card-content">
+                    <p>This system is built for multi-platform consistency. It serves:</p>
+                    <div style="display: flex; flex-wrap: wrap; margin-bottom: 16px;">
+                        <span class="chip"><i class="material-icons">devices</i>Cross-device</span>
+                        <span class="chip"><i class="material-icons">admin_panel_settings</i>Admin Consoles</span>
+                        <span class="chip"><i class="material-icons">speed</i>Productivity</span>
+                    </div>
+                    <p>It provides familiar affordances like cards and Floating Action Buttons (FABs) so users recognize patterns instantly.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-text ripple-target">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Visual Philosophy (Interactive) -->
+            <div class="card" id="philosophy-card">
+                <div class="card-header">
+                    <h2 class="card-title">Visual Philosophy</h2>
+                    <div class="card-subtitle">Paper Surfaces + Elevation</div>
+                </div>
+                <div class="card-content">
+                    <p>The interface is a world of abstract paper sheets. Depth is conveyed through shadows (elevation).</p>
+                    
+                    <!-- Interactive Layer Visualization -->
+                    <div class="layer-demo">
+                        <div class="paper-sheet sheet-1" id="demo-sheet">Card (Elev 1)</div>
+                        <div class="fab" style="position: absolute; right: 20px; bottom: 20px; width: 40px; height: 40px;">
+                            <i class="material-icons" style="font-size: 20px;">add</i>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem;"><em>Try hovering over this card or the button below to see elevation changes.</em></p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-contained ripple-target" onclick="toggleElevation()">Lift Sheet</button>
+                </div>
+            </div>
+
+            <!-- Card 3: Material & Texture -->
+            <div class="card ripple-target">
+                <div class="card-header">
+                    <h2 class="card-title">Material & Texture</h2>
+                </div>
+                <div class="card-content">
+                    <div style="background: #eee; height: 100px; margin: -16px -16px 16px -16px; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 50px; height: 50px; background: var(--primary); border-radius: 4px; margin: 8px; box-shadow: var(--elevation-4);"></div>
+                        <div style="width: 50px; height: 50px; background: var(--secondary); border-radius: 50%; margin: 8px; box-shadow: var(--elevation-4);"></div>
+                        <div style="width: 50px; height: 50px; background: white; border-radius: 4px; margin: 8px; box-shadow: var(--elevation-2);"></div>
+                    </div>
+                    <p><strong>Surfaces:</strong> White or light neutrals. No noise.</p>
+                    <p><strong>Colors:</strong> Bold Primary (Purple) and Secondary (Teal) accents.</p>
+                    <p><strong>Shape:</strong> Small, consistent corner radii (4px).</p>
+                    <p style="opacity: var(--text-disabled);">Text hierarchy uses opacity for clarity.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Interaction Experience -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Interaction</h2>
+                    <div class="card-subtitle">Touch Feedback & Motion</div>
+                </div>
+                <div class="card-content">
+                    <p>Every interaction provides feedback. Tap the area below to see the <strong>Ripple Effect</strong>.</p>
+                    <div class="ripple-target" style="height: 80px; background: rgba(98, 0, 238, 0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--primary); font-weight: 500;">
+                        TAP ME
+                    </div>
+                    <p class="mt-2">Components scale and change opacity smoothly, following natural easing curves.</p>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-outlined ripple-target" style="border: 1px solid rgba(0,0,0,0.12); color: var(--primary);" onclick="openDialog()">Open Dialog</button>
+                </div>
+            </div>
+
+            <!-- Card 5: Overall Mood -->
+            <div class="card ripple-target" style="grid-column: 1 / -1; background: var(--primary); color: white;">
+                <div class="card-header">
+                    <h2 class="card-title" style="color: white;">Overall Mood</h2>
+                </div>
+                <div class="card-content" style="color: rgba(255,255,255,0.9);">
+                    <p style="color: inherit; font-size: 1.1rem; line-height: 1.8;">
+                        Modern. Friendly. System-like.
+                        <br>
+                        We aren't creating a one-off website. We are building a coherent ecosystem where layers of well-ordered cards and comfortable spacing create an approachable, legible interface. It is tactile, but efficient.
+                    </p>
+                </div>
+            </div>
+
+        </div> <!-- End Grid -->
+    </div> <!-- End Container -->
+
+    <!-- Floating Action Button -->
+    <button class="fab ripple-target" onclick="toggleElevation()">
+        <i class="material-icons">edit</i>
+    </button>
+
+    <!-- Dialog Component -->
+    <div class="dialog-overlay" id="demo-dialog">
+        <div class="dialog">
+            <h2 style="margin-bottom: 16px; font-size: 1.25rem;">High Elevation</h2>
+            <p>Dialogs sit at the highest elevation, floating above all other content. The background is dimmed (scrim) to focus user attention.</p>
+            <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+                <button class="btn btn-text ripple-target" onclick="closeDialog()">Cancel</button>
+                <button class="btn btn-text ripple-target" onclick="closeDialog()">Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // RIPPLE EFFECT ENGINE
+        function createRipple(event) {
+            const button = event.currentTarget;
+            
+            const circle = document.createElement("span");
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+
+            // Calculate click position relative to the element
+            const rect = button.getBoundingClientRect();
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - rect.left - radius}px`;
+            circle.style.top = `${event.clientY - rect.top - radius}px`;
+            circle.classList.add("ripple");
+
+            // Remove existing ripple to keep DOM clean
+            const ripple = button.getElementsByClassName("ripple")[0];
+            if (ripple) {
+                ripple.remove();
+            }
+
+            button.appendChild(circle);
+        }
+
+        // Attach ripple to all targets
+        const buttons = document.getElementsByClassName("ripple-target");
+        for (const button of buttons) {
+            button.addEventListener("click", createRipple);
+        }
+
+        // VISUAL PHILOSOPHY DEMO
+        let isLifted = false;
+        function toggleElevation() {
+            const sheet = document.getElementById('demo-sheet');
+            isLifted = !isLifted;
+            
+            if (isLifted) {
+                sheet.style.boxShadow = "var(--elevation-8)";
+                sheet.style.transform = "translateY(-10px) scale(1.05)";
+                sheet.innerText = "Lifted (Elev 8)";
+            } else {
+                sheet.style.boxShadow = "var(--elevation-1)";
+                sheet.style.transform = "translateY(0) scale(1)";
+                sheet.innerText = "Card (Elev 1)";
+            }
+        }
+
+        // DIALOG CONTROLS
+        function openDialog() {
+            document.getElementById('demo-dialog').classList.add('open');
+        }
+
+        function closeDialog() {
+            document.getElementById('demo-dialog').classList.remove('open');
+        }
+
+        // Close dialog on outside click
+        document.getElementById('demo-dialog').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDialog();
+            }
+        });
+    </script>
+</body>
+</html>

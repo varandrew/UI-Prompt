@@ -15,11 +15,19 @@
   },
   "templates": [
     {
+      "id": "accessibilityHighContrast",
+      "title": {
+        "zh-CN": "高对比度仪表盘",
+        "en-US": "High Contrast Dashboard"
+      }
+    },
+    {
       "id": "visual-accessibility-basic",
       "title": {
-        "zh-CN": "无障碍仪表盘",
-        "en-US": "Accessibility Dashboard"
+        "zh-CN": "CivicConnect - 无障碍政务门户",
+        "en-US": "CivicConnect - Inclusive Service Portal"
       }
     }
   ]
 }
+

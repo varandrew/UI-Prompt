@@ -1,0 +1,1087 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2025-12-13T06:35:18.965Z",
+  "categories": {
+    "core": {
+      "name": "Core Design Systems",
+      "families": [
+        {
+          "id": "core-flatDesign",
+          "familyId": "flatDesign",
+          "category": "core",
+          "title": {
+            "zh-CN": "平面设计系统",
+            "en-US": "Flat Design System"
+          },
+          "description": {
+            "zh-CN": "简洁高效的扁平设计系统，无阴影、无渐变，强调内容和结构。完整的设计规范包括视觉哲学、交互原则和组件库。",
+            "en-US": "Clean and efficient flat design system with no shadows or gradients, emphasizing content and structure. Complete design specifications including visual philosophy, interaction principles, and component library."
+          },
+          "tags": [
+            "contemporary",
+            "flat",
+            "minimal",
+            "bold",
+            "colorful",
+            "clean",
+            "design-system",
+            "ecommerce"
+          ],
+          "templatesCount": 3,
+          "primaryCategory": "core"
+        },
+        {
+          "id": "core-fluent2",
+          "familyId": "fluent2",
+          "category": "core",
+          "title": {
+            "zh-CN": "Fluent Design 2.0",
+            "en-US": "Fluent Design 2.0"
+          },
+          "description": {
+            "zh-CN": "Microsoft 最新设计系统，采用 Acrylic 和 Mica 材质效果，展现现代企业级应用的优雅与实用性。",
+            "en-US": "Microsoft's latest design system featuring Acrylic and Mica materials, showcasing elegance and practicality for modern enterprise applications."
+          },
+          "tags": [],
+          "templatesCount": 3,
+          "primaryCategory": "core"
+        },
+        {
+          "id": "core-materialDesign",
+          "familyId": "materialDesign",
+          "category": "core",
+          "title": {
+            "zh-CN": "Material Design 系統",
+            "en-US": "Material Design System"
+          },
+          "description": {
+            "zh-CN": "完整的 Material Design 系統指南，展示設計原則、組件和交互模式。提供現代化的卡片佈局、陰影階層和涟漪反饋效果。",
+            "en-US": "A comprehensive Material Design system guide showcasing design principles, components, and interaction patterns. Features modern card layouts, shadow hierarchy, and ripple effects."
+          },
+          "tags": [
+            "contemporary",
+            "depth",
+            "geometric",
+            "enterprise",
+            "interactive"
+          ],
+          "templatesCount": 3,
+          "primaryCategory": "core"
+        },
+        {
+          "id": "core-minimalism",
+          "familyId": "minimalism",
+          "category": "core",
+          "title": {
+            "zh-CN": "极简主义",
+            "en-US": "Minimalism"
+          },
+          "description": {
+            "zh-CN": "\"少即是多\"的设计哲学，强调留白、简洁排版和最少的视觉元素。",
+            "en-US": "\"Less is more\" design philosophy emphasizing white space, clean typography, and minimal visual elements."
+          },
+          "tags": [],
+          "templatesCount": 3,
+          "primaryCategory": "core"
+        },
+        {
+          "id": "core-skeuomorphism",
+          "familyId": "skeuomorphism",
+          "category": "core",
+          "title": {
+            "zh-CN": "擬物化",
+            "en-US": "Skeuomorphism"
+          },
+          "description": {
+            "zh-CN": "模拟真实世界物体的纹理、阴影和质感，创造出逼真的数位介面元素。",
+            "en-US": "Simulates real-world textures, shadows, and materials to create realistic digital interface elements."
+          },
+          "tags": [],
+          "templatesCount": 3,
+          "primaryCategory": "core"
+        },
+        {
+          "id": "core-typography",
+          "familyId": "typography",
+          "category": "core",
+          "title": {
+            "zh-CN": "排版",
+            "en-US": "Typography"
+          },
+          "description": {
+            "zh-CN": "通过文字本身的视觉表现力传达信息的设计风格，强调字体选择、层级系统和排版节奏。",
+            "en-US": "Design styles where the visual expressiveness of text itself conveys information, emphasizing font selection, hierarchy systems, and typographic rhythm."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "core"
+        }
+      ]
+    },
+    "visual": {
+      "name": "Visual Design Families",
+      "families": [
+        {
+          "id": "visual-3dElements",
+          "familyId": "3dElements",
+          "category": "visual",
+          "title": {
+            "zh-CN": "3D Elements 3D 元素",
+            "en-US": "3D Elements"
+          },
+          "description": {
+            "zh-CN": "具有深度、阴影和透视效果的三维设计元素。",
+            "en-US": "Three-dimensional design elements with depth, shadows, and perspective effects."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-accessibility",
+          "familyId": "accessibility",
+          "category": "visual",
+          "title": {
+            "zh-CN": "无障碍设计",
+            "en-US": "Accessibility"
+          },
+          "description": {
+            "zh-CN": "高对比、清晰层级与键盘友好的基础无障碍界面风格。",
+            "en-US": "Accessible UI with strong contrast, clear hierarchy, and keyboard-friendly patterns."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-ambient",
+          "familyId": "ambient",
+          "category": "visual",
+          "title": {
+            "zh-CN": "环境光",
+            "en-US": "Ambient Light"
+          },
+          "description": {
+            "zh-CN": "柔和光晕，径向模糊，氛围渲染",
+            "en-US": "Soft halo with radial blur and atmospheric rendering"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-antiDesign",
+          "familyId": "antiDesign",
+          "category": "visual",
+          "title": {
+            "zh-CN": "反設計工作室",
+            "en-US": "Anti-Design Studio"
+          },
+          "description": {
+            "zh-CN": "打破設計規則的大膽實驗性風格。拒絕網格系統、標準字體和傳統互動，擁抱視覺侵略性和混亂的美學。",
+            "en-US": "A bold experimental style that breaks design rules. Rejects grid systems, standard typography, and traditional interactions, embracing visual aggression and chaotic aesthetics."
+          },
+          "tags": [
+            "contemporary",
+            "bold",
+            "experimental",
+            "creative",
+            "colorful",
+            "brutalism"
+          ],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-auroraGlass",
+          "familyId": "auroraGlass",
+          "category": "visual",
+          "title": {
+            "zh-CN": "极光玻璃",
+            "en-US": "Aurora Glass"
+          },
+          "description": {
+            "zh-CN": "渐变极光色彩，动态光影，流动透明",
+            "en-US": "Gradient aurora colors with dynamic lighting and flowing transparency"
+          },
+          "tags": [],
+          "templatesCount": 0,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-biophilic",
+          "familyId": "biophilic",
+          "category": "visual",
+          "title": {
+            "zh-CN": "亲生物设计",
+            "en-US": "Biophilic Design"
+          },
+          "description": {
+            "zh-CN": "Biophilic Design 是亲生物设计风格，适合健康、环保和生活方式类应用。将自然元素融入数字界面，使用绿色调、有机形状、流动曲线和自然纹理，营造和谐、宁静、与自然连接的氛围。",
+            "en-US": "Biophilic Design style is suitable for health, environmental, and lifestyle applications. Integrating natural elements into digital interfaces, using green tones, organic shapes, flowing curves, and natural textures, it delivers harmonious, peaceful atmosphere with connection to nature."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-claymorphism",
+          "familyId": "claymorphism",
+          "category": "visual",
+          "title": {
+            "zh-CN": "黏土质感",
+            "en-US": "Claymorphism"
+          },
+          "description": {
+            "zh-CN": "Claymorphism 是 3D 黏土质感设计风格，适合创意设计、插画风格和儿童产品。通过多层内外阴影、柔和的色彩渐变和圆润的造型，创造如同真实黏土般的立体触感和柔软质地，营造温暖、友好、富有触感的氛围。",
+            "en-US": "Claymorphism is a 3D clay texture design style, suitable for creative design, illustration style, and children's products. Through multi-layer inner and outer shadows, soft color gradients, and rounded shapes, it creates realistic clay-like tactile feel and soft texture, delivering warm, friendly, and tangible atmosphere."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-darkMode",
+          "familyId": "darkMode",
+          "category": "visual",
+          "title": {
+            "zh-CN": "深色模式",
+            "en-US": "Dark Mode"
+          },
+          "description": {
+            "zh-CN": "深色模式设计，采用深色调、高对比度，提供舒适的视觉体验。",
+            "en-US": "Dark mode design with deep colors, high contrast, and comfortable visual experience."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-duotone",
+          "familyId": "duotone",
+          "category": "visual",
+          "title": {
+            "zh-CN": "双色调",
+            "en-US": "Duotone"
+          },
+          "description": {
+            "zh-CN": "使用两种对比色创造戏剧性视觉冲击的双色调配色方案。",
+            "en-US": "Duotone color scheme using two contrasting colors for dramatic visual impact."
+          },
+          "tags": [
+            "duotone",
+            "high-contrast",
+            "bold",
+            "brand",
+            "visual-impact"
+          ],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-fabric",
+          "familyId": "fabric",
+          "category": "visual",
+          "title": {
+            "zh-CN": "织物纹理",
+            "en-US": "Fabric Texture"
+          },
+          "description": {
+            "zh-CN": "编织图案，布料质感，交织效果",
+            "en-US": "Woven patterns with cloth texture and interlaced effects"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-generativeArt",
+          "familyId": "generativeArt",
+          "category": "visual",
+          "title": {
+            "zh-CN": "生成艺术",
+            "en-US": "Generative Art"
+          },
+          "description": {
+            "zh-CN": "生成艺术设计，通过算法创建图案、粒子和动态视觉效果。",
+            "en-US": "Generative art design with algorithmically created patterns, particles, and dynamic visual effects."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-glassmorphism",
+          "familyId": "glassmorphism",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Glassmorphism（玻璃态）",
+            "en-US": "Glassmorphism"
+          },
+          "description": {
+            "zh-CN": "使用毛玻璃效果和背景模糊创造现代、通透的界面设计，带来轻盈悬浮的视觉体验",
+            "en-US": "Create modern, translucent interfaces with frosted glass effects and background blur, delivering a lightweight floating visual experience"
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-glow",
+          "familyId": "glow",
+          "category": "visual",
+          "title": {
+            "zh-CN": "发光效果",
+            "en-US": "Glow Effect"
+          },
+          "description": {
+            "zh-CN": "box-shadow 发光，脉冲动画，呼吸灯效",
+            "en-US": "Box-shadow glow with pulse animation and breathing light"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-gradients",
+          "familyId": "gradients",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Gradients 渐变",
+            "en-US": "Gradients"
+          },
+          "description": {
+            "zh-CN": "充满活力的渐变设计，具有流畅的色彩过渡和现代美学。",
+            "en-US": "Vibrant gradient designs with smooth color transitions and modern aesthetics."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-grain",
+          "familyId": "grain",
+          "category": "visual",
+          "title": {
+            "zh-CN": "颗粒噪点",
+            "en-US": "Grain Noise"
+          },
+          "description": {
+            "zh-CN": "SVG 噪点，胶片质感，复古颗粒",
+            "en-US": "SVG noise with film texture and vintage grain"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-handDrawnSketch",
+          "familyId": "handDrawnSketch",
+          "category": "visual",
+          "title": {
+            "zh-CN": "手绘涂鸦",
+            "en-US": "Hand-Drawn Sketch"
+          },
+          "description": {
+            "zh-CN": "通过手写字体、SVG 滤镜和随性线条创造温暖亲切的视觉体验。结合粘贴便签、网格纸背景和手绘边框元素，营造友好轻松的设计氛围。",
+            "en-US": "Create warm and approachable visual experiences through handwritten fonts, SVG filters, and casual lines. Combining sticky notes, grid paper backgrounds, and hand-drawn borders to create a friendly and relaxed design atmosphere."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-holographic",
+          "familyId": "holographic",
+          "category": "visual",
+          "title": {
+            "zh-CN": "全息渐变",
+            "en-US": "Holographic Gradient"
+          },
+          "description": {
+            "zh-CN": "彩虹色谱，动态色相旋转，未来感光效",
+            "en-US": "Rainbow spectrum with dynamic hue rotation and futuristic glow"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-holographicFoil",
+          "familyId": "holographicFoil",
+          "category": "visual",
+          "title": {
+            "zh-CN": "全息箔效果",
+            "en-US": "Holographic Foil"
+          },
+          "description": {
+            "zh-CN": "全息箔效果，具有虹彩色彩和彩虹反射。",
+            "en-US": "Holographic foil effect with iridescent colors and rainbow reflections."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-industrial",
+          "familyId": "industrial",
+          "category": "visual",
+          "title": {
+            "zh-CN": "工业设计",
+            "en-US": "Industrial Design"
+          },
+          "description": {
+            "zh-CN": "Industrial Design 是工业设计风格，适合技术类产品、后台管理系统和专业工具。强调功能性和实用主义美学，使用深色调、粗体大写字体、网格纹理和金属质感，营造坚固、可靠、专业的工业氛围。",
+            "en-US": "Industrial Design style is suitable for technical products, backend management systems, and professional tools. Emphasizing functionality and utilitarian aesthetics, using dark tones, bold uppercase typography, grid textures, and metallic feel, it delivers sturdy, reliable, and professional industrial atmosphere."
+          },
+          "tags": [
+            "industrial",
+            "utilitarian",
+            "technical",
+            "dark-theme"
+          ],
+          "templatesCount": 3,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-kawaiiMinimal",
+          "familyId": "kawaiiMinimal",
+          "category": "visual",
+          "title": {
+            "zh-CN": "可爱极简",
+            "en-US": "Kawaii Minimal"
+          },
+          "description": {
+            "zh-CN": "可爱极简设计，融合可爱、趣味元素与极简美学。",
+            "en-US": "Kawaii minimal design with cute, playful elements and minimalist aesthetics."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-texture-leather",
+          "familyId": "leather",
+          "category": "visual",
+          "title": {
+            "zh-CN": "皮革质感",
+            "en-US": "Leather Texture"
+          },
+          "description": {
+            "zh-CN": "深色皮革面板风格，通过径向渐变、噪点纹理、缝线和金属细节营造厚重而奢华的视觉体验",
+            "en-US": "Dark leather panel style with radial gradients, noise textures, stitching and metal accents"
+          },
+          "tags": [
+            "classic",
+            "depth",
+            "creative",
+            "enterprise"
+          ],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-light",
+          "familyId": "light",
+          "category": "visual",
+          "title": {
+            "zh-CN": "光效设计",
+            "en-US": "Light Effects"
+          },
+          "description": {
+            "zh-CN": "通过多层阴影、发光和模糊创造霓虹、氛围和聚光灯效果",
+            "en-US": "Create neon, ambient, and spotlight effects through multi-layer shadows, glow, and blur"
+          },
+          "tags": [],
+          "templatesCount": 0,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-liminalSpace",
+          "familyId": "liminalSpace",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Liminal Space 边界空间",
+            "en-US": "Liminal Space"
+          },
+          "description": {
+            "zh-CN": "介于存在与虚无之间的暧昧过渡空间设计，营造空旷、不安、介于真实与虚幻之间的数位美学体验。",
+            "en-US": "Ambiguous transitional space design between existence and nothingness, creating a vacant, unsettling digital aesthetic experience between reality and virtuality."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-liquid",
+          "familyId": "liquid",
+          "category": "visual",
+          "title": {
+            "zh-CN": "液体流动",
+            "en-US": "Liquid Motion"
+          },
+          "description": {
+            "zh-CN": "变形动画，径向渐变，模糊融合",
+            "en-US": "Morphing animation with radial gradients and blur blending"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-memphis",
+          "familyId": "memphis",
+          "category": "visual",
+          "title": {
+            "zh-CN": "孟菲斯风格",
+            "en-US": "Memphis"
+          },
+          "description": {
+            "zh-CN": "孟菲斯设计风格，具有大胆图案、几何形状和鲜艳色彩。",
+            "en-US": "Memphis design style with bold patterns, geometric shapes, and vibrant colors."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-monochrome",
+          "familyId": "monochrome",
+          "category": "visual",
+          "title": {
+            "zh-CN": "单色",
+            "en-US": "Monochrome"
+          },
+          "description": {
+            "zh-CN": "黑白灰单色系设计，营造优雅与极简的视觉效果。",
+            "en-US": "Monochromatic design using only black, white, and gray tones to create elegant and minimalist visual effects."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-natural",
+          "familyId": "natural",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Natural 自然风格",
+            "en-US": "Natural"
+          },
+          "description": {
+            "zh-CN": "受自然启发的有机设计，采用大地色调和纹理质感。",
+            "en-US": "Natural and organic design inspired by nature with earthy tones and textures."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-nature",
+          "familyId": "nature",
+          "category": "visual",
+          "title": {
+            "zh-CN": "自然元素",
+            "en-US": "Nature Elements"
+          },
+          "description": {
+            "zh-CN": "自然元素视觉效果家族，包含极光、波浪、粒子、液体和烟雾五种自然现象的动态模拟。通过 CSS 动画、SVG 路径和滤镜效果实现流动、飘渺、有机的视觉体验。",
+            "en-US": "Nature-inspired visual effects family featuring aurora, waves, particles, liquid, and smoke simulations. Uses CSS animations, SVG paths, and filter effects to deliver flowing, ethereal, organic visuals."
+          },
+          "tags": [],
+          "templatesCount": 0,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-neoBrutalism",
+          "familyId": "neoBrutalism",
+          "category": "visual",
+          "title": {
+            "zh-CN": "新粗野主义",
+            "en-US": "Neo-Brutalism"
+          },
+          "description": {
+            "zh-CN": "高对比、粗边框与鲜艳配色的大胆原始风格。",
+            "en-US": "Bold, raw design style with high contrast, thick borders, and vibrant colors."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-neon",
+          "familyId": "neon",
+          "category": "visual",
+          "title": {
+            "zh-CN": "霓虹发光",
+            "en-US": "Neon Glow"
+          },
+          "description": {
+            "zh-CN": "多层 text-shadow，电光效果，闪烁动画",
+            "en-US": "Multi-layer text-shadow with electric effects and flicker animation"
+          },
+          "tags": [
+            "neon",
+            "colorful",
+            "futuristic",
+            "contemporary"
+          ],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-neonCyberpunk",
+          "familyId": "neonCyberpunk",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Neon Cyberpunk 霓虹赛博朋克",
+            "en-US": "Neon Cyberpunk"
+          },
+          "description": {
+            "zh-CN": "霓虹赛博朋克美学，鲜明霓虹色与深色背景、未来科技质感。",
+            "en-US": "Neon cyberpunk design with vibrant neon colors, dark backgrounds, and futuristic tech aesthetics."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-neonNoir",
+          "familyId": "neonNoir",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Neon Noir 霓虹黑色电影",
+            "en-US": "Neon Noir"
+          },
+          "description": {
+            "zh-CN": "将赛博朋克与黑色电影氛围结合的霓虹风格。",
+            "en-US": "Neon noir design combining cyberpunk aesthetics with film noir atmosphere and neon lighting."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-organic",
+          "familyId": "organic",
+          "category": "visual",
+          "title": {
+            "zh-CN": "现代有机设计",
+            "en-US": "Modern Organic"
+          },
+          "description": {
+            "zh-CN": "自然有机设计风格，具有流动动画和温暖的大地色调。",
+            "en-US": "Natural organic design style with flowing animations and warm earth tones."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-outlineStyle",
+          "familyId": "outlineStyle",
+          "category": "visual",
+          "title": {
+            "zh-CN": "线条风格",
+            "en-US": "Outline Style"
+          },
+          "description": {
+            "zh-CN": "通过线条定义形状，简洁专业，强调极简主义和清晰的视觉层次。",
+            "en-US": "Defining shapes through lines, clean and professional, emphasizing minimalism and clear visual hierarchy."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-paperCutout",
+          "familyId": "paperCutout",
+          "category": "visual",
+          "title": {
+            "zh-CN": "剪纸风格",
+            "en-US": "Paper Cutout"
+          },
+          "description": {
+            "zh-CN": "剪纸设计风格，具有分层元素和阴影效果。",
+            "en-US": "Paper cutout design style with layered elements and shadow effects."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-particle",
+          "familyId": "particle",
+          "category": "visual",
+          "title": {
+            "zh-CN": "粒子系统",
+            "en-US": "Particle System"
+          },
+          "description": {
+            "zh-CN": "小圆点，发光效果，随机浮动",
+            "en-US": "Small dots with glow effects and random floating"
+          },
+          "tags": [],
+          "templatesCount": 0,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-scandi",
+          "familyId": "scandi",
+          "category": "visual",
+          "title": {
+            "zh-CN": "斯堪的纳维亚风格",
+            "en-US": "Scandinavian"
+          },
+          "description": {
+            "zh-CN": "斯堪的纳维亚设计，极简美学、自然材质和功能性简约。",
+            "en-US": "Scandinavian design with minimalist aesthetics, natural materials, and functional simplicity."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-sciFiHud",
+          "familyId": "sciFiHud",
+          "category": "visual",
+          "title": {
+            "zh-CN": "科幻 HUD",
+            "en-US": "Sci-Fi HUD"
+          },
+          "description": {
+            "zh-CN": "科幻平视显示器风格，适用于数据可视化、系统监控和未来感仪表板界面。",
+            "en-US": "Science fiction HUD style, suitable for data visualization, system monitoring and futuristic dashboard interfaces."
+          },
+          "tags": [
+            "futuristic",
+            "data-visualization",
+            "dashboard",
+            "dark-theme",
+            "tech"
+          ],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-scrollNarrative",
+          "familyId": "scrollNarrative",
+          "category": "visual",
+          "title": {
+            "zh-CN": "滚动叙事",
+            "en-US": "Scroll Narrative"
+          },
+          "description": {
+            "zh-CN": "滚动驱动的叙事设计，通过视差效果和滚动交互讲故事，创造沉浸式体验。",
+            "en-US": "Scroll-driven narrative design with parallax effects and scroll interactions to tell stories, creating immersive experiences."
+          },
+          "tags": [],
+          "templatesCount": 4,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-smoke",
+          "familyId": "smoke",
+          "category": "visual",
+          "title": {
+            "zh-CN": "烟雾效果",
+            "en-US": "Smoke Effect"
+          },
+          "description": {
+            "zh-CN": "径向渐变，极致模糊，缓慢上升",
+            "en-US": "Radial gradients with extreme blur and slow ascent"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-softUI",
+          "familyId": "softUI",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Soft UI 柔和界面",
+            "en-US": "Soft UI"
+          },
+          "description": {
+            "zh-CN": "柔和圆角与阴影过渡的界面风格，强调顺滑过渡与亲和力。",
+            "en-US": "Soft, rounded interface design with gentle shadows and smooth transitions."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-solarpunk",
+          "familyId": "solarpunk",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Solarpunk 太阳庞克",
+            "en-US": "Solarpunk"
+          },
+          "description": {
+            "zh-CN": "融合环保科技与未来愿景的生态设计，强调可持续能源与社区共享",
+            "en-US": "Eco-futuristic design blending sustainable technology with community-driven vision"
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-spotlight",
+          "familyId": "spotlight",
+          "category": "visual",
+          "title": {
+            "zh-CN": "聚光灯",
+            "en-US": "Spotlight"
+          },
+          "description": {
+            "zh-CN": "移动径向光，焦点照明，舞台效果",
+            "en-US": "Moving radial light for focal lighting and stage effects"
+          },
+          "tags": [],
+          "templatesCount": 0,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-utilityFirst",
+          "familyId": "utilityFirst",
+          "category": "visual",
+          "title": {
+            "zh-CN": "实用优先",
+            "en-US": "Utility First"
+          },
+          "description": {
+            "zh-CN": "实用优先设计哲学，最小化自定义 CSS，专注于功能性 Tailwind 类。",
+            "en-US": "Utility-first design philosophy with minimal custom CSS, focusing on functional Tailwind classes."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-vaporwave",
+          "familyId": "vaporwave",
+          "category": "visual",
+          "title": {
+            "zh-CN": "蒸汽波",
+            "en-US": "Vaporwave"
+          },
+          "description": {
+            "zh-CN": "80年代电脑美学与网络艺术的融合，霓虹渐变与全角字符。",
+            "en-US": "Fusion of 80s computer aesthetics and net art with neon gradients and fullwidth characters."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-wabiSabi",
+          "familyId": "wabiSabi",
+          "category": "visual",
+          "title": {
+            "zh-CN": "侘寂风格",
+            "en-US": "Wabi-Sabi"
+          },
+          "description": {
+            "zh-CN": "侘寂设计风格，拥抱不完美与自然之美，结合极简美学。",
+            "en-US": "Wabi-sabi design embracing imperfection and natural beauty with minimalist aesthetics."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        },
+        {
+          "id": "visual-y2k",
+          "familyId": "y2k",
+          "category": "visual",
+          "title": {
+            "zh-CN": "Y2K",
+            "en-US": "Y2K"
+          },
+          "description": {
+            "zh-CN": "千禧年设计美学，融合玻璃态效果、气泡装饰、青蓝色渐变和金属质感。",
+            "en-US": "Millennium design aesthetics with glassmorphism, bubble decorations, cyan-blue gradients, and metallic textures."
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "visual"
+        }
+      ]
+    },
+    "retro": {
+      "name": "Retro & Vintage",
+      "families": [
+        {
+          "id": "retro-arcadeCRT",
+          "familyId": "arcadeCRT",
+          "category": "retro",
+          "title": {
+            "zh-CN": "街机 CRT 扫描线",
+            "en-US": "Arcade CRT Scanlines"
+          },
+          "description": {
+            "zh-CN": "CRT 显示器扫描线效果，霓虹发光与RGB色差",
+            "en-US": "CRT monitor scanline effects with neon glow and RGB chromatic aberration"
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-artDeco",
+          "familyId": "artDeco",
+          "category": "retro",
+          "title": {
+            "zh-CN": "装饰艺术",
+            "en-US": "Art Deco"
+          },
+          "description": {
+            "zh-CN": "1920-1930年代奢华风格，几何图案与金色装饰",
+            "en-US": "1920-1930s luxury style with geometric patterns and gold decorations"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-darkAcademia",
+          "familyId": "darkAcademia",
+          "category": "retro",
+          "title": {
+            "zh-CN": "暗黑学院",
+            "en-US": "Dark Academia"
+          },
+          "description": {
+            "zh-CN": "古典图书馆美学，深色调 + 羊皮纸质感 + 烛光氛围",
+            "en-US": "Classical library aesthetics with dark tones + parchment texture + candlelight ambiance"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-digitalRetro",
+          "familyId": "digitalRetro",
+          "category": "retro",
+          "title": {
+            "zh-CN": "数位复古",
+            "en-US": "Digital Retro"
+          },
+          "description": {
+            "zh-CN": "数位时代复古美学，融合80-90年代电脑图形与现代设计",
+            "en-US": "Digital retro aesthetics blending 80s-90s computer graphics with modern design"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-frutigerAero",
+          "familyId": "frutigerAero",
+          "category": "retro",
+          "title": {
+            "zh-CN": "Frutiger Aero",
+            "en-US": "Frutiger Aero"
+          },
+          "description": {
+            "zh-CN": "2000年代中期流行的标志性设计风格，以Windows Vista和Mac OS X为代表，采用多层次的透明玻璃质感、飘浮的水晶气泡和天空蓝渐变色彩。这一风格融合了Y2K时代的科技乐观主义与自然有机美学，通过半透明材质、柔和阴影、光泽高光和流动的自然元素（如水滴、云朵、草地），创造出既现代又亲和的视觉体验。适合展示科技产品、操作系统界面和强调透明度与深度感的现代应用，完美诠释了2000年代对未来数字世界的美好想象。",
+            "en-US": "Iconic mid-2000s design aesthetic exemplified by Windows Vista and Mac OS X, featuring multi-layered translucent glass textures, floating crystal bubbles, and sky-blue gradient color palettes. This style merges Y2K-era technological optimism with organic natural beauty through semi-transparent materials, soft shadows, glossy highlights, and flowing natural elements such as water droplets, clouds, and grass fields. Creating a modern yet approachable visual experience, it perfectly suits technology products, operating system interfaces, and contemporary applications emphasizing transparency and depth perception, beautifully expressing the 2000s vision of a promising digital future."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-newspaper",
+          "familyId": "newspaper",
+          "category": "retro",
+          "title": {
+            "zh-CN": "报纸排版",
+            "en-US": "Newspaper Typography"
+          },
+          "description": {
+            "zh-CN": "传统报纸排版技术：首字下沉、多栏布局、衬线字体",
+            "en-US": "Traditional newspaper layout: drop caps, multi-column layout, serif fonts"
+          },
+          "tags": [],
+          "templatesCount": 2,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-retroFuturism",
+          "familyId": "retroFuturism",
+          "category": "retro",
+          "title": {
+            "zh-CN": "复古未来主义",
+            "en-US": "Retro Futurism"
+          },
+          "description": {
+            "zh-CN": "1980年代复古科幻风格的数字美学，灵感源自早期计算机终端和科幻电影中的未来想象。采用标志性的磷光绿色或琥珀色单色文字、复古CRT扫描线效果、ASCII艺术图形和等宽字体排版，营造出神秘的黑客文化氛围。这一风格重现了DOS时代、早期Unix系统和大型机终端的视觉特征，通过像素化图标、命令行界面元素和数字网格背景，展现了人类对计算机技术初期的敬畏与探索精神。适合科技主题、编程工具、网络安全平台和怀旧游戏界面，完美诠释了赛博朋克文化的起源和早期数字革命的粗粝质感。",
+            "en-US": "1980s retro-futuristic digital aesthetic inspired by early computer terminals and sci-fi cinema's vision of the future. Featuring iconic phosphor green or amber monochrome text, vintage CRT scanline effects, ASCII art graphics, and monospace typography that creates an atmospheric hacker culture ambiance. This style recreates the visual characteristics of the DOS era, early Unix systems, and mainframe terminals through pixelated icons, command-line interface elements, and digital grid backgrounds, expressing humanity's awe and exploration spirit toward early computing technology. Perfectly suited for technology themes, programming tools, cybersecurity platforms, and nostalgic gaming interfaces, beautifully interpreting the origins of cyberpunk culture and the raw texture of the early digital revolution."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-retroOS",
+          "familyId": "retroOS",
+          "category": "retro",
+          "title": {
+            "zh-CN": "复古操作系统",
+            "en-US": "Retro OS"
+          },
+          "description": {
+            "zh-CN": "Windows 95/98时代的经典图形用户界面设计，完美重现了个人电脑黄金时代的视觉语言。采用标志性的16色像素图标、3D浮雕按钮效果、灰色系统窗口和经典的「开始」菜单设计。这一风格以拟物化的桌面隐喻为核心，通过可拖动的窗口、任务栏、系统托盘和文件夹层级结构，创造出直观且富有触感的交互体验。视觉元素包括CRT显示器的厚重边框感、MS Sans Serif字体、彩色滚动条和Windows经典主题配色，完整保留了90年代计算机界面的复古质感。适合怀旧主题应用、复古游戏模拟器、桌面工具和教育性历史展示，唤起千禧年前后个人电脑普及时代的温暖回忆。",
+            "en-US": "Classic Windows 95/98-era graphical user interface design that perfectly recreates the visual language of personal computing's golden age. Featuring iconic 16-color pixel icons, 3D embossed button effects, gray system windows, and the legendary Start menu design. This style centers on skeuomorphic desktop metaphors, creating an intuitive and tactile interactive experience through draggable windows, taskbars, system trays, and folder hierarchies. Visual elements include CRT monitor's thick bezel aesthetics, MS Sans Serif typography, colorful scrollbars, and Windows classic theme color schemes, fully preserving the retro texture of 1990s computer interfaces. Ideal for nostalgic themed applications, retro game emulators, desktop utilities, and educational historical presentations, evoking warm memories of the pre-millennium personal computer revolution era."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        },
+        {
+          "id": "retro-swissDesign",
+          "familyId": "swissDesign",
+          "category": "retro",
+          "title": {
+            "zh-CN": "瑞士设计",
+            "en-US": "Swiss Design"
+          },
+          "description": {
+            "zh-CN": "现代主义网格系统，Helvetica + 极简配色 + 数学精确",
+            "en-US": "Modernist grid system with Helvetica + minimal palette + mathematical precision"
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "retro"
+        }
+      ]
+    },
+    "interaction": {
+      "name": "Interaction Patterns",
+      "families": [
+        {
+          "id": "interaction-mouseTracking",
+          "familyId": "mouseTracking",
+          "category": "interaction",
+          "title": {
+            "zh-CN": "鼠标追踪",
+            "en-US": "Mouse Tracking"
+          },
+          "description": {
+            "zh-CN": "专注光标位置反馈的鼠标追踪效果，突出指针随动与光晕响应。",
+            "en-US": "Focused mouse-tracking effects that highlight cursor-follow response and glow feedback."
+          },
+          "tags": [],
+          "templatesCount": 1,
+          "primaryCategory": "interaction"
+        }
+      ]
+    },
+    "layout": {
+      "name": "Layout Systems",
+      "families": []
+    }
+  }
+}
