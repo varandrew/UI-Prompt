@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo } from 'react';
 import { PromptDrawer } from '../prompt/PromptDrawer';
 import { PreviewModal } from '../preview/PreviewModal';
 import { PromptGenerator } from '../../utils/promptGenerator';
@@ -9,11 +9,13 @@ import { LANGUAGES } from "../../utils/i18n/languageConstants";
 import { containsJSX } from '../../utils/jsxCompiler';
 import { getCategoryLabel } from '../../data/metadata/categoryMetadata';
 import { useSharedIntersectionObserver } from '../../hooks/useSharedIntersectionObserver';
+import { useLazyDemoContent } from '../../hooks/useLazyDemoContent';
 
 // 🆕 子組件導入
 import { IframeRenderer } from './IframeRenderer';
 import { JSXCompiler } from './JSXCompiler';
 import { StyleCardUI, StyleCardContainer } from './StyleCardUI';
+import { DemoSkeleton, DemoPlaceholder } from './DemoSkeleton';
 
 /**
  * StyleCard - 風格卡片主組件（重構版）
@@ -50,7 +52,10 @@ export function StyleCard({
   customPrompt = null,
   stylePrompt = null,
   demoJSX = null,
-  renderMode = 'auto'
+  renderMode = 'auto',
+  // 🚀 新增：用於延遲載入 demo 內容
+  categoryId = null,
+  familyId = null
 }) {
   // ===== 狀態管理 =====
   const [showPrompt, setShowPrompt] = useState(false);
@@ -65,8 +70,25 @@ export function StyleCard({
     setIsVisible(true);
   });
 
+  // ===== 🚀 延遲載入 Demo 內容 =====
+  // 當卡片進入 viewport 且沒有初始 demoHTML 時，才載入 demo 內容
+  const shouldLazyLoad = isVisible && !demoHTML && categoryId && familyId;
+  const {
+    demoHTML: lazyDemoHTML,
+    customStyles: lazyCustomStyles,
+    isLoading: isDemoLoading
+  } = useLazyDemoContent(
+    categoryId || primaryCategory,
+    familyId,
+    shouldLazyLoad
+  );
+
+  // 合併初始內容和延遲載入的內容
+  const effectiveDemoHTML = demoHTML || lazyDemoHTML;
+  const effectiveCustomStyles = customStyles || lazyCustomStyles;
+
   // ===== 國際化處理 =====
-  const currentDemoHTML = getDemoHTML(demoHTML, language);
+  const currentDemoHTML = getDemoHTML(effectiveDemoHTML, language);
 
   /**
    * 渲染文本：支持多種格式（i18n 對象、翻譯鍵、純文本）
@@ -237,13 +259,30 @@ export function StyleCard({
 
   // ===== 渲染 Demo 區域（根據模式選擇子組件） =====
   const renderDemo = () => {
+    // 🚀 延遲載入狀態處理
+    // 1. 未進入 viewport：顯示佔位元素
+    if (!isVisible) {
+      return <DemoPlaceholder />;
+    }
+
+    // 2. 正在載入中（無初始內容且需要延遲載入）
+    if (shouldLazyLoad && isDemoLoading) {
+      return <DemoSkeleton />;
+    }
+
+    // 3. 載入完成但沒有內容
+    if (!currentDemoHTML && !demoJSX) {
+      return <DemoPlaceholder />;
+    }
+
+    // 4. 正常渲染 demo 內容
     const jsxSource = demoJSX || currentDemoHTML;
 
     if (shouldUseJSX) {
       return (
         <JSXCompiler
           jsxCode={jsxSource}
-          customStyles={customStyles}
+          customStyles={effectiveCustomStyles}
           id={id || displayTitle}
           isVisible={isVisible}
           demoBoxClass={demoBoxClass}
@@ -255,7 +294,7 @@ export function StyleCard({
     return (
       <IframeRenderer
         demoHTML={currentDemoHTML}
-        customStyles={customStyles}
+        customStyles={effectiveCustomStyles}
         id={id || displayTitle}
         language={language}
         layoutMode={layoutMode}

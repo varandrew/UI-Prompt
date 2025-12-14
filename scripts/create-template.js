@@ -92,7 +92,7 @@ async function main() {
     }
 
     // Create directory structure
-    const contentDir = path.join(projectRoot, `public/data/content/${config.category}/${config.family}/${config.templateId}`);
+    const contentDir = path.join(projectRoot, `public/data/content/styles/${config.category}/${config.family}/${config.templateId}`);
     fs.mkdirSync(contentDir, { recursive: true });
     console.log(`✅ 已創建目錄：${contentDir}`);
 
@@ -115,7 +115,7 @@ async function main() {
 
     // Create Prompt files (optional)
     if (config.createPrompts) {
-      const promptDir = path.join(projectRoot, `public/data/prompts/${config.category}/${config.family}/${config.templateId}`);
+      const promptDir = path.join(projectRoot, `public/data/prompts/styles/${config.category}/${config.family}/${config.templateId}`);
       fs.mkdirSync(promptDir, { recursive: true });
 
       const customPrompt = generatePromptTemplate('custom');
@@ -144,7 +144,7 @@ async function main() {
 
     if (config.createPrompts) {
       console.log(`2. 填寫 Prompt 文件（可選）：`);
-      console.log(`   public/data/prompts/${config.category}/${config.family}/${config.templateId}/\n`);
+      console.log(`   public/data/prompts/styles/${config.category}/${config.family}/${config.templateId}/\n`);
     }
 
     console.log(`${config.createPrompts ? '3' : '2'}. 完善標籤配置：`);

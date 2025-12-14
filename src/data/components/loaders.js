@@ -10,6 +10,10 @@ import { loadFullFamily } from '../loaders/jsonStyleLoader';
 import { loadComponentRegistry, loadCategoryComponents } from '../loaders/jsonComponentLoader';
 import { enhanceStyles } from '../metadata/styleTagsMapping';
 
+// 新增：元數據快取（用於 loadStyleMetadataOnly）
+let __styleMetadataCache = null;
+let __styleMetadataPromise = null;
+
 // Category 路徑映射
 const CATEGORY_PATHS = {
   core: '/',
@@ -31,6 +35,8 @@ let __componentCategoriesPromise = null;
 export function clearLoadersCache() {
   __styleCategoriesCache = null;
   __styleCategoriesPromise = null;
+  __styleMetadataCache = null;
+  __styleMetadataPromise = null;
   __componentCategoriesCache = null;
   __componentCategoriesPromise = null;
 }
@@ -160,6 +166,108 @@ export async function loadStyleCategories(forceRefresh = false) {
   return __styleCategoriesPromise;
 }
 
+/**
+ * 🚀 loadStyleMetadataOnly - 僅載入元數據（高效能首屏渲染）
+ *
+ * 與 loadStyleCategories 的區別：
+ * - loadStyleCategories: 載入完整內容（demoHTML, CSS, Prompts）→ 200+ HTTP 請求
+ * - loadStyleMetadataOnly: 僅載入 styles-index.json → 1 個 HTTP 請求
+ *
+ * 用於 AllStylesPage 首次渲染，demo 內容將由 useLazyDemoContent hook 延遲載入
+ */
+export async function loadStyleMetadataOnly(forceRefresh = false) {
+  // Fast path: return cached result if available
+  if (!forceRefresh && __styleMetadataCache) return __styleMetadataCache;
+
+  // Race condition fix: reuse existing in-flight promise
+  if (!forceRefresh && __styleMetadataPromise) return __styleMetadataPromise;
+
+  __styleMetadataPromise = (async () => {
+    try {
+      const response = await fetch('/data/styles-index.json');
+      if (!response.ok) {
+        throw new Error(`Failed to fetch styles-index.json: ${response.status}`);
+      }
+
+      const index = await response.json();
+      console.log('⚡ [Performance] Using metadata-only loading (ultra-fast path)');
+
+      const result = Object.entries(index.categories).map(([categoryId, cat]) => {
+        const families = Array.isArray(cat.families) ? cat.families : [];
+
+        return {
+          id: categoryId,
+          key: categoryId,
+          path: CATEGORY_PATHS[categoryId] || `/${categoryId}`,
+          data: families.map(familyMeta => {
+            // 解析 familyId
+            const familyId =
+              familyMeta.familyId ||
+              (typeof familyMeta.id === 'string' && familyMeta.id.startsWith(`${categoryId}-`)
+                ? familyMeta.id.replace(`${categoryId}-`, '')
+                : familyMeta.id);
+
+            // Generate placeholder previews array for template count display
+            const previewsPlaceholder = familyMeta.templatesCount > 0
+              ? Array.from({ length: familyMeta.templatesCount }, (_, i) => ({
+                  id: `template-${i + 1}`,
+                  name: `Template ${i + 1}`,
+                  _placeholder: true
+                }))
+              : [];
+
+            return {
+              // 元數據（來自 styles-index.json）
+              id: familyMeta.id,
+              familyId: familyId,
+              title: familyMeta.title,
+              description: familyMeta.description,
+              tags: familyMeta.tags || [],
+              templatesCount: familyMeta.templatesCount || 0,
+              primaryCategory: familyMeta.primaryCategory || categoryId,
+              category: categoryId,
+
+              // Demo 內容設為 null，將由 useLazyDemoContent 延遲載入
+              demoHTML: null,
+              customStyles: null,
+
+              // Prompts（來自 styles-index.json，構建時已包含）
+              customPrompt: familyMeta.customPrompt || null,
+              stylePrompt: familyMeta.stylePrompt || null,
+
+              // ⭐ 添加 previews 佔位符，讓 StyleCard 可以顯示模板數量
+              previews: previewsPlaceholder,
+
+              // 標記需要延遲載入
+              _needsContentLoad: true
+            };
+          }),
+          icon: ''
+        };
+      });
+
+      // Apply tag enhancement (同步操作，不影響效能)
+      const enhancedResult = result.map(category => ({
+        ...category,
+        data: enhanceStyles(category.data)
+      }));
+
+      // Cache successful result
+      __styleMetadataCache = enhancedResult;
+      return enhancedResult;
+    } catch (error) {
+      console.error('[loadStyleMetadataOnly] Failed:', error);
+      // Fallback to full loading
+      console.warn('⚠️ Falling back to loadStyleCategories...');
+      return loadStyleCategories(forceRefresh);
+    } finally {
+      __styleMetadataPromise = null;
+    }
+  })();
+
+  return __styleMetadataPromise;
+}
+
 // 組件类別載入器 - 使用 JSON 架構
 export async function loadComponentCategories(forceRefresh = false) {
   // Fast path: return cached result if available
@@ -237,6 +345,7 @@ export async function getComponentsStatsAsync() {
 
 export default {
   loadStyleCategories,
+  loadStyleMetadataOnly,
   loadComponentCategories,
   getStylesStatsAsync,
   getComponentsStatsAsync,

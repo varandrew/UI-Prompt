@@ -1,0 +1,82 @@
+# Custom Prompt
+
+## 中文版本 (zh-CN)
+
+请使用 TailwindCSS 创建模板「动态排版」，延续 typography 家族风格，包含 Hero、卡片/图文区与 CTA。
+---
+
+Create a “Kinetic Typography” page in TailwindCSS where type is the hero. Emphasize bold headlines, animated text accents, controlled motion, and clear hierarchy. Keep backgrounds simple/neutral so text remains the focus.
+
+**Layout & Sections**
+- Hero: dominant headline (48–72px) with kinetic accents (staggered words, slide/fade-in), concise subhead (16–18px), primary CTA. Provide a calm fallback for `prefers-reduced-motion`.
+- Feature/story blocks: 2–3 sections with large typographic statements, supporting body copy, and a small link. Use columns on desktop, stack on mobile.
+- Info/list segment: bullet or numbered list with strong labels and generous line-height; optionally use monospace for data points.
+- Quote band: oversized quote with attribution; consider underline/strikethrough/reveal animations.
+- CTA footer: bold line + single action, minimal decoration.
+
+**Typography**
+- Use a strong sans or display face for headlines (weight 700–900); body 15–16px, line-height 1.6–1.75. Consider pairing with monospace accents for contrast.
+- Play with tracking/leading: tight for headlines, relaxed for body. Limit font families to 1–2 to avoid clutter.
+- Keep line lengths 50–75 chars; use `text-balance` where available to prevent awkward wraps.
+
+**Motion**
+- Text-led animations: staggered fade/slide, clip/mask reveals, underline grows. Durations 140–240ms ease-out. Disable or simplify when `prefers-reduced-motion` is set.
+- Hover states on links/buttons: simple underline/offset, slight color shift; avoid heavy transforms.
+
+**Color & Background**
+- Neutral base (white/near-white or deep charcoal). One accent color for highlights/links/CTA. Avoid busy gradients or textures behind body text.
+- Use high contrast (≥ 4.5:1) for readability; add subtle separators if needed.
+
+**Components**
+- Buttons: text-forward, maybe outlined with accent underlines; hover underline animation; focus-visible outline 2–3px.
+- Cards: minimalist, relying on type weight/size; thin dividers; minimal shadow.
+- Badges/labels: small caps or mono; consistent spacing.
+
+**Accessibility**
+- Respect reduced motion; ensure focus states on all interactive elements; avoid relying solely on color for emphasis—use weight/size/underline too.
+
+**Tailwind Tips (reference)**
+- Container: `max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-24`
+- Headlines: `font-black tracking-tight leading-[1.05]` for hero; body `text-base leading-relaxed`
+- Animations: use utility + class combos (e.g., `animate-[fadeIn_200ms_ease-out]` via custom keyframes) with `motion-reduce:animate-none`
+- Links/CTA: `underline decoration-2 decoration-current underline-offset-4 hover:decoration-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`
+
+---
+
+## English Version (en-US)
+
+Create a “Kinetic Typography” page in TailwindCSS where type is the hero. Emphasize bold headlines, animated text accents, controlled motion, and clear hierarchy. Keep backgrounds simple/neutral so text remains the focus.
+
+**Layout & Sections**
+- Hero: dominant headline (48–72px) with kinetic accents (staggered words, slide/fade-in), concise subhead (16–18px), primary CTA. Provide a calm fallback for `prefers-reduced-motion`.
+- Feature/story blocks: 2–3 sections with large typographic statements, supporting body copy, and a small link. Use columns on desktop, stack on mobile.
+- Info/list segment: bullet or numbered list with strong labels and generous line-height; optionally use monospace for data points.
+- Quote band: oversized quote with attribution; consider underline/strikethrough/reveal animations.
+- CTA footer: bold line + single action, minimal decoration.
+
+**Typography**
+- Use a strong sans or display face for headlines (weight 700–900); body 15–16px, line-height 1.6–1.75. Consider pairing with monospace accents for contrast.
+- Play with tracking/leading: tight for headlines, relaxed for body. Limit font families to 1–2 to avoid clutter.
+- Keep line lengths 50–75 chars; use `text-balance` where available to prevent awkward wraps.
+
+**Motion**
+- Text-led animations: staggered fade/slide, clip/mask reveals, underline grows. Durations 140–240ms ease-out. Disable or simplify when `prefers-reduced-motion` is set.
+- Hover states on links/buttons: simple underline/offset, slight color shift; avoid heavy transforms.
+
+**Color & Background**
+- Neutral base (white/near-white or deep charcoal). One accent color for highlights/links/CTA. Avoid busy gradients or textures behind body text.
+- Use high contrast (≥ 4.5:1) for readability; add subtle separators if needed.
+
+**Components**
+- Buttons: text-forward, maybe outlined with accent underlines; hover underline animation; focus-visible outline 2–3px.
+- Cards: minimalist, relying on type weight/size; thin dividers; minimal shadow.
+- Badges/labels: small caps or mono; consistent spacing.
+
+**Accessibility**
+- Respect reduced motion; ensure focus states on all interactive elements; avoid relying solely on color for emphasis—use weight/size/underline too.
+
+**Tailwind Tips (reference)**
+- Container: `max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-24`
+- Headlines: `font-black tracking-tight leading-[1.05]` for hero; body `text-base leading-relaxed`
+- Animations: use utility + class combos (e.g., `animate-[fadeIn_200ms_ease-out]` via custom keyframes) with `motion-reduce:animate-none`
+- Links/CTA: `underline decoration-2 decoration-current underline-offset-4 hover:decoration-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`

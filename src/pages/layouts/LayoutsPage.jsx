@@ -62,6 +62,7 @@ export function LayoutsPage() {
             layoutMode={style.layoutMode}
             colorScheme={style.colorScheme}
             tags={style.tags || []}
+            previews={style.previews}
             onTagClick={(tagId) => {
               // TODO: Implement tag filtering
               void tagId;

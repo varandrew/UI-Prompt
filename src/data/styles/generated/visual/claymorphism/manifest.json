@@ -15,6 +15,13 @@
   },
   "templates": [
     {
+      "id": "visual-claymorphism-design-system",
+      "title": {
+        "zh-CN": "黏土设计系统",
+        "en-US": "Claymorphism Design System"
+      }
+    },
+    {
       "id": "visual-claymorphism-claymorphism-dashboard",
       "title": {
         "zh-CN": "创意黏土仪表盘",

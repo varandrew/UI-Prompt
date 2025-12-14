@@ -24,7 +24,11 @@ export default {
     },
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'fluent': '0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)',
+      },
+    },
   },
   plugins: [],
 }

@@ -33,7 +33,8 @@ export function useAsyncPreviewLoader({
   fullPagePreviewId,
   styleId,
   isReactPreview,
-  setIsLoading
+  setIsLoading,
+  language = 'en-US' // eslint-disable-line no-unused-vars -- Reserved for future i18n use
 }) {
   // Cache ref to store loaded previews and avoid redundant network requests
   const previewCacheRef = useRef({});

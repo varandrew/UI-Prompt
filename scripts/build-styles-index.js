@@ -67,11 +67,79 @@ function loadFamilyMetadata(category, familyId) {
       primaryCategory: category
     };
 
-    return metadata;
+    // Load prompts for this family
+    const prompts = loadFamilyPrompts(category, familyId);
+
+    return {
+      ...metadata,
+      customPrompt: prompts.customPrompt,
+      stylePrompt: prompts.stylePrompt
+    };
   } catch (error) {
     console.error(`   Error reading manifest for ${category}/${familyId}:`, error.message);
     return null;
   }
+}
+
+/**
+ * Parse prompt markdown file to extract bilingual content
+ * File format uses headers like:
+ *   ## 中文版本 (zh-CN)
+ *   ## English Version (en-US)
+ *
+ * @param {string} mdContent - Raw markdown content
+ * @returns {Object} { 'zh-CN': string, 'en-US': string }
+ */
+function parsePromptMd(mdContent) {
+  const result = { 'zh-CN': '', 'en-US': '' };
+  if (!mdContent) return result;
+
+  // Match Chinese section: ## 中文版本 (zh-CN) until next ## or end
+  const zhMatch = mdContent.match(/## 中文版本[^\n]*\n([\s\S]*?)(?=\n## |$)/i);
+  // Match English section: ## English Version (en-US) until next ## or end
+  const enMatch = mdContent.match(/## English Version[^\n]*\n([\s\S]*?)(?=\n## |$)/i);
+
+  if (zhMatch) result['zh-CN'] = zhMatch[1].trim();
+  if (enMatch) result['en-US'] = enMatch[1].trim();
+
+  return result;
+}
+
+/**
+ * Load prompts for a family
+ * @param {string} category - Category ID (core, visual, retro, etc.)
+ * @param {string} familyId - Family ID (flatDesign, minimalism, etc.)
+ * @returns {Object} { customPrompt: {...} | null, stylePrompt: {...} | null }
+ */
+function loadFamilyPrompts(category, familyId) {
+  const promptsDir = path.join(projectRoot, 'public/data/prompts/styles', category, familyId);
+  const result = { customPrompt: null, stylePrompt: null };
+
+  try {
+    // Load custom.md
+    const customPath = path.join(promptsDir, 'custom.md');
+    if (fs.existsSync(customPath)) {
+      const parsed = parsePromptMd(fs.readFileSync(customPath, 'utf-8'));
+      // Only include if at least one language has content
+      if (parsed['zh-CN'] || parsed['en-US']) {
+        result.customPrompt = parsed;
+      }
+    }
+
+    // Load style.md
+    const stylePath = path.join(promptsDir, 'style.md');
+    if (fs.existsSync(stylePath)) {
+      const parsed = parsePromptMd(fs.readFileSync(stylePath, 'utf-8'));
+      // Only include if at least one language has content
+      if (parsed['zh-CN'] || parsed['en-US']) {
+        result.stylePrompt = parsed;
+      }
+    }
+  } catch (error) {
+    // Silently ignore - prompts are optional
+  }
+
+  return result;
 }
 
 /**

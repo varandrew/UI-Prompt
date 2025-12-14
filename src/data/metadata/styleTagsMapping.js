@@ -492,6 +492,12 @@ export const styleEnhancements = {
     tags: ['contemporary', 'depth', 'soft', 'colorful', 'playful', 'creative', 'ecommerce'],
     relatedStyles: ['visual-soft-ui', 'visual-paperCutout', 'visual-kawaii-minimal']
   },
+  'visual-claymorphism-design-system': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'modern'],
+    tags: ['contemporary', 'depth', 'soft', 'colorful', 'playful', 'creative', 'design-system'],
+    relatedStyles: ['visual-claymorphism', 'visual-soft-ui', 'visual-paperCutout']
+  },
   'visual-claymation': {
     primaryCategory: 'visual',
     categories: ['visual', 'playful'],
@@ -728,6 +734,12 @@ export const styleEnhancements = {
     categories: ['visual', 'retro'],
     tags: ['retro', 'neon', 'minimal', 'dramatic', 'creative'],
     relatedStyles: ['visual-neon-cyberpunk', 'visual-liminalSpace', 'visual-y2k']
+  },
+  'visual-neonNoir-nightcity-fm': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'retro'],
+    tags: ['retro', 'neon', 'minimal', 'dramatic', 'creative', 'music', 'radio'],
+    relatedStyles: ['visual-neon-noir', 'visual-neon-cyberpunk', 'visual-liminalSpace']
   },
   'visual-soft-ui': {
     primaryCategory: 'visual',

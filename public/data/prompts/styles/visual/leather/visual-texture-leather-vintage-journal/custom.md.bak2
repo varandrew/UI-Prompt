@@ -1,0 +1,126 @@
+# Custom Prompt
+
+## 中文版本 (zh-CN)
+
+请使用 TailwindCSS 创建「皮革质感复古旅行日志」主题页，延续 leather 家族风格：皮革纹理、压印、缝线、暖棕/酒红配色、泛黄纸张、标签与书签元素。包含 Hero、行程/日志卡片、地图与贴纸、心得段落、收藏/下载 CTA。
+---
+
+Design a “Leather Texture Vintage Travel Journal” experience in TailwindCSS. The page should evoke a worn leather travel notebook: saddle-brown covers, embossed titles, stitched edges, brass hardware cues, and cream paper inserts. Pair tactile surfaces with serif headings and warm ink. Include a hero, trip log entries, maps or stickers, storytelling sections, keepsake galleries, and CTAs to save or download itineraries.
+
+Look & feel
+- Palette: rich leather browns (#5A3B2E), oxblood (#6E2C2F), dark espresso (#241712) for strokes; warm parchment (#F4E8D4) for pages; muted forest/teal accents for stamps. Use brass/gold hints (#C49A6C) for icons/accents.
+- Textures: subtle leather grain backdrops, stitched borders, debossed/embossed headings. Introduce paper grain/noise on content blocks. Avoid glossy plastic; keep everything matte.
+- Shapes: rounded rectangle cards with beveled corners (12–18px), stitched borders, and small folded-corner stickers. Use bookmarks or ribbon tabs to label sections.
+- Shadows: soft drop with warm tint; optionally cast shadow for “floating notebook pages.”
+
+Layout blueprint
+- Hero: left-aligned title stamped/embossed effect (“Traveler’s Logbook”), subhead describing destinations or dates, and primary CTA (“Save itinerary”) plus secondary (“Download PDF”). Background shows leather cover texture with stitched frame; overlay a polaroid stack or map fragment pinned by washi tape.
+- Trip entries grid: 6–9 “page” cards with `border`, `rounded-xl`, parchment background, and stitched edges via `outline` or decorative pseudo-lines. Each card includes destination name (serif), date range, a brief memory paragraph, and tags (e.g., “Cafés,” “Museums”). Add a small stamp icon or postmark.
+- Map & route strip: horizontal band with a monochrome map preview and a right column for “Route highlights” bullet list. Include pin icons resembling brass tacks; add a “View map” CTA chip.
+- Gallery of keepsakes: scattered polaroids and ticket-stub cards arranged in a masonry-like cluster; each has caption, location, and time. Apply light rotation (-2° to +3°) with subtle shadow to mimic taped photos.
+- Story / diary section: longer narrative blocks on “paper” panels with lined/notebook texture. Use indented first-line or drop caps for emphasis; include a pull quote styled like a stamped mark.
+- Packing/gear list: checklist with square checkboxes and handwritten-style labels. Add a leather strap divider to separate this section.
+- CTA footer: ribbon bookmark anchor with two buttons (“Start a new log”, “Share this trip”) and social icons styled as small brass coins.
+
+Typography
+- Headings: classic serif or slab with small caps and letterpress feel; weight 600–700. Consider `tracking-[0.08em]` for stamped titles.
+- Body: humanist serif or clean sans at 16–17px, line height 1.65. Italic callouts for quotes. Monospace only for coordinates or dates.
+- Labels/tabs: uppercase microcopy on ribbons or tags with `tracking-wide`.
+
+Components & details
+- Buttons: pill or ticket-shaped; filled oxblood/brown with parchment text; outline variant on parchment. Hover deepens color; focus-visible ring in brass/gold.
+- Cards: `rounded-xl border border-amber-900/30 bg-amber-50 shadow-sm` with inner `divide-y`. Add stitched borders using `outline-offset` and dotted lines; use corner “sticker” triangles for featured items.
+- Chips/tags: parchment chips with thin brown stroke; stamp-style circular tags for “Featured” or “New city.”
+- Inputs/forms: parchment background, `border-2 border-amber-900/30 rounded-lg shadow-inner`, focus ring visible. Consider a lined-paper backdrop for textareas.
+- Dividers: dotted or dashed lines resembling sewing stitches. Use torn-paper effect via jagged border images if available.
+- Icons: line icons with small fills; use compass, map pin, ticket, camera motifs. Apply a muted brass tone for emphasis.
+
+Motion
+- Gentle, analog-like motion: slide/opacity 180–240ms ease-out. Hover lift on cards by 2–3px with subtle rotation. Respect `prefers-reduced-motion`.
+- Consider a slight paper “tilt” on hover for polaroids; keep text stable.
+
+Accessibility
+- Contrast: ensure text on parchment maintains ≥ 4.5:1 (use dark ink). For darker leather sections, invert to light text with strong contrast.
+- Provide alt text for all photos and stamps. Make every “taped” card keyboard-focusable with clear focus outline.
+- Avoid color-only cues; pair with icons or text.
+
+Responsive behavior
+- Mobile: stack cards; reduce rotation on polaroids; keep buttons full-width. Nav collapses to a simple wordmark plus menu button.
+- Tablet: 2-column grids for trip entries and keepsakes; side-by-side map + list.
+- Desktop: `max-w-6xl/7xl` container with 24–32px gutters; allow layered compositions with overlapping cards as long as reading order stays linear.
+
+Content guidance
+- Lead with destination and date; add short highlight bullets (“Best espresso at…”, “Sunset over…”) to keep skim-friendly.
+- Encourage short diary snippets (60–120 words) and metadata like coordinates, weather, or companions.
+- CTA microcopy: “Save itinerary,” “Download PDF,” “Open map,” “Start a new log.”
+
+Tailwind helper suggestions (non-binding)
+- Container: `mx-auto max-w-6xl px-6 lg:px-10`
+- Hero: `grid grid-cols-1 lg:grid-cols-2 gap-10 items-center` on leather-texture background
+- Cards: `rounded-xl border border-amber-900/30 bg-amber-50 shadow-sm p-6 space-y-3 transition hover:-translate-y-1`
+- Stitches: `outline outline-1 outline-amber-900/40 outline-offset-[-6px]` plus `border-dashed`
+- Buttons: `inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`
+
+Deliver a tactile leather-inspired travel journal page that feels hand-crafted yet readable, guiding users through stories, mementos, and clear actions to save or share their journeys.
+
+---
+
+## English Version (en-US)
+
+Design a “Leather Texture Vintage Travel Journal” experience in TailwindCSS. The page should evoke a worn leather travel notebook: saddle-brown covers, embossed titles, stitched edges, brass hardware cues, and cream paper inserts. Pair tactile surfaces with serif headings and warm ink. Include a hero, trip log entries, maps or stickers, storytelling sections, keepsake galleries, and CTAs to save or download itineraries.
+
+Look & feel
+- Palette: rich leather browns (#5A3B2E), oxblood (#6E2C2F), dark espresso (#241712) for strokes; warm parchment (#F4E8D4) for pages; muted forest/teal accents for stamps. Use brass/gold hints (#C49A6C) for icons/accents.
+- Textures: subtle leather grain backdrops, stitched borders, debossed/embossed headings. Introduce paper grain/noise on content blocks. Avoid glossy plastic; keep everything matte.
+- Shapes: rounded rectangle cards with beveled corners (12–18px), stitched borders, and small folded-corner stickers. Use bookmarks or ribbon tabs to label sections.
+- Shadows: soft drop with warm tint; optionally cast shadow for “floating notebook pages.”
+
+Layout blueprint
+- Hero: left-aligned title stamped/embossed effect (“Traveler’s Logbook”), subhead describing destinations or dates, and primary CTA (“Save itinerary”) plus secondary (“Download PDF”). Background shows leather cover texture with stitched frame; overlay a polaroid stack or map fragment pinned by washi tape.
+- Trip entries grid: 6–9 “page” cards with `border`, `rounded-xl`, parchment background, and stitched edges via `outline` or decorative pseudo-lines. Each card includes destination name (serif), date range, a brief memory paragraph, and tags (e.g., “Cafés,” “Museums”). Add a small stamp icon or postmark.
+- Map & route strip: horizontal band with a monochrome map preview and a right column for “Route highlights” bullet list. Include pin icons resembling brass tacks; add a “View map” CTA chip.
+- Gallery of keepsakes: scattered polaroids and ticket-stub cards arranged in a masonry-like cluster; each has caption, location, and time. Apply light rotation (-2° to +3°) with subtle shadow to mimic taped photos.
+- Story / diary section: longer narrative blocks on “paper” panels with lined/notebook texture. Use indented first-line or drop caps for emphasis; include a pull quote styled like a stamped mark.
+- Packing/gear list: checklist with square checkboxes and handwritten-style labels. Add a leather strap divider to separate this section.
+- CTA footer: ribbon bookmark anchor with two buttons (“Start a new log”, “Share this trip”) and social icons styled as small brass coins.
+
+Typography
+- Headings: classic serif or slab with small caps and letterpress feel; weight 600–700. Consider `tracking-[0.08em]` for stamped titles.
+- Body: humanist serif or clean sans at 16–17px, line height 1.65. Italic callouts for quotes. Monospace only for coordinates or dates.
+- Labels/tabs: uppercase microcopy on ribbons or tags with `tracking-wide`.
+
+Components & details
+- Buttons: pill or ticket-shaped; filled oxblood/brown with parchment text; outline variant on parchment. Hover deepens color; focus-visible ring in brass/gold.
+- Cards: `rounded-xl border border-amber-900/30 bg-amber-50 shadow-sm` with inner `divide-y`. Add stitched borders using `outline-offset` and dotted lines; use corner “sticker” triangles for featured items.
+- Chips/tags: parchment chips with thin brown stroke; stamp-style circular tags for “Featured” or “New city.”
+- Inputs/forms: parchment background, `border-2 border-amber-900/30 rounded-lg shadow-inner`, focus ring visible. Consider a lined-paper backdrop for textareas.
+- Dividers: dotted or dashed lines resembling sewing stitches. Use torn-paper effect via jagged border images if available.
+- Icons: line icons with small fills; use compass, map pin, ticket, camera motifs. Apply a muted brass tone for emphasis.
+
+Motion
+- Gentle, analog-like motion: slide/opacity 180–240ms ease-out. Hover lift on cards by 2–3px with subtle rotation. Respect `prefers-reduced-motion`.
+- Consider a slight paper “tilt” on hover for polaroids; keep text stable.
+
+Accessibility
+- Contrast: ensure text on parchment maintains ≥ 4.5:1 (use dark ink). For darker leather sections, invert to light text with strong contrast.
+- Provide alt text for all photos and stamps. Make every “taped” card keyboard-focusable with clear focus outline.
+- Avoid color-only cues; pair with icons or text.
+
+Responsive behavior
+- Mobile: stack cards; reduce rotation on polaroids; keep buttons full-width. Nav collapses to a simple wordmark plus menu button.
+- Tablet: 2-column grids for trip entries and keepsakes; side-by-side map + list.
+- Desktop: `max-w-6xl/7xl` container with 24–32px gutters; allow layered compositions with overlapping cards as long as reading order stays linear.
+
+Content guidance
+- Lead with destination and date; add short highlight bullets (“Best espresso at…”, “Sunset over…”) to keep skim-friendly.
+- Encourage short diary snippets (60–120 words) and metadata like coordinates, weather, or companions.
+- CTA microcopy: “Save itinerary,” “Download PDF,” “Open map,” “Start a new log.”
+
+Tailwind helper suggestions (non-binding)
+- Container: `mx-auto max-w-6xl px-6 lg:px-10`
+- Hero: `grid grid-cols-1 lg:grid-cols-2 gap-10 items-center` on leather-texture background
+- Cards: `rounded-xl border border-amber-900/30 bg-amber-50 shadow-sm p-6 space-y-3 transition hover:-translate-y-1`
+- Stitches: `outline outline-1 outline-amber-900/40 outline-offset-[-6px]` plus `border-dashed`
+- Buttons: `inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`
+
+Deliver a tactile leather-inspired travel journal page that feels hand-crafted yet readable, guiding users through stories, mementos, and clear actions to save or share their journeys.

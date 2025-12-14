@@ -232,28 +232,9 @@ export async function compileForIframe(jsxCode, options = {}) {
 `;
 }
 
-/**
- * 清除編譯緩存
- */
-export function clearCompilationCache() {
-  compilationCache.clear();
-}
-
-/**
- * 獲取緩存統計信息
- */
-export function getCacheStats() {
-  return {
-    size: compilationCache.size,
-    keys: Array.from(compilationCache.keys())
-  };
-}
-
 export default {
   containsJSX,
   isReactComponent,
   compileJSX,
-  compileForIframe,
-  clearCompilationCache,
-  getCacheStats
+  compileForIframe
 };

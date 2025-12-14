@@ -1,0 +1,119 @@
+# Custom Prompt
+
+## 中文版本 (zh-CN)
+
+请使用 TailwindCSS 创建「便当格 (Bento) 网格」页面，延续 bentoGrids 家族：多尺寸模块、强烈节奏、卡片叠放与留白。包含 Hero、便当格内容区（大/中/小卡混排）、功能/数据卡、案例或产品展示、CTA 与页脚，重视响应式重新排版与可访问性。
+
+Design a “Tech Bento Grids” layout in TailwindCSS. Use modular tiles of varied sizes (large hero tile, tall stats tile, medium feature tiles, small utility chips) arranged in a responsive bento grid. Emphasize clean geometry, clear hierarchy, and balanced negative space. Include a hero, a bento content grid, stats/feature cards, product or case showcases, and a closing CTA/footer. Ensure the grid reflows gracefully on mobile and remains fully accessible.
+
+Visual language
+- Palette: modern neutrals with a single accent (blue/teal/amber). Cards can alternate between solid, soft gradient, or subtle pattern (dots/lines) backgrounds. Keep contrast high for text.
+- Shapes: rounded rectangles (10–16px radius), minimal shadows (`shadow-sm`/`md`), thin strokes on light cards. Large tiles may have gradient fills; small tiles can be outline-only.
+- Layout: grid-first; avoid random offsets. Use consistent gutter (16–24px) and align content within each tile.
+
+Layout blueprint
+- Hero band: bento-style hero tile spanning 2 columns on desktop, containing headline, subhead, and dual CTAs. Optionally layer a small stat chip or badge in a corner.
+- Bento grid core: mix tile sizes:\n  - Large feature tile (2x2) for primary value prop with image or abstract illustration.\n  - Tall stat tile (1x2) showing KPI with mini chart/sparkline.\n  - Medium tiles (1x1 or 2x1) for product features, testimonials, or quotes.\n  - Small utility tiles for filters, tags, or quick links.\n  - Optional media tile (video/preview) with play button.\n- Maintain consistent height increments; prefer `grid-auto-rows` with multiples (e.g., 120–160px). Use `grid-template-columns` of 12/9/6 fraction units or CSS `grid-cols-12` with spans.
+- Controls: filter chips or segmented control above the grid; small “Rearrange” or “Shuffle” button if you want dynamic layouts (keep accessible).
+- Case/product strip: horizontally scrollable or gridded set of 3–4 case highlights with CTA to view more.
+- CTA/footer: final call (“Start building”) with concise subtext and button set. Include secondary links (Docs, Pricing) as quiet text.
+
+Typography & hierarchy
+- Headings 600–700 weight; body 15–17px with 1.6–1.7 line height. Use uppercase micro-labels for tile headers; body content stays short.
+- Stats use monospace or tabular numbers for alignment. Keep copy concise—tiles should have 1–3 lines of text max.
+- Use `text-balance` for hero headlines; avoid overly long lines inside tiles.
+
+Components & states
+- Buttons: pill or rounded rect; primary filled accent; secondary ghost/outline. Hover adds slight shadow or tint; focus-visible outline 2–3px.
+- Tiles/cards: `rounded-xl border border-neutral-200 bg-white shadow-sm p-4 md:p-6` or gradient fills for hero/stats. Use `grid` or `flex` inside for alignment. Hover: `-translate-y-1` and shadow lift.
+- Chips: small rounded pills with subtle borders; use for filters or tags. Active chip uses accent fill with readable text.
+- Charts/visuals: minimal sparkline bars or dots; use accent color sparingly; always include labels and values.
+- Icons: simple, line-based; avoid clutter. Place in top-left corners or within labels.
+
+Motion
+- Light, tidy transitions (140–200ms). Hover lifts; tile content may stagger in on load (60–100ms offset). Respect `prefers-reduced-motion`.
+- Avoid aggressive scaling; keep motion subtle to preserve clarity in dense grids.
+
+Accessibility
+- Contrast: ensure text on gradients/colored tiles meets 4.5:1; add scrims if needed. Keep focus states clearly visible against any tile background.
+- Keyboard: all tiles and controls must be focusable with logical tab order. Provide aria-labels for icon-only buttons and play controls.
+- Responsive: when tiles reflow, maintain reading order (DOM order matches logical order). Avoid relying solely on color for state—use text/icons.
+
+Responsive behavior
+- Mobile: stack tiles into single column; allow horizontal scroll for small tile sets if necessary with clear scroll cues. Preserve spacing (12–16px gutters) and keep hero concise.
+- Tablet: 2–3 columns; re-span tiles to maintain balance (e.g., large tile spans 2 columns, tall tile spans 2 rows).
+- Desktop: 4–6 columns (12-col grid). Use consistent row heights; allow hero to span multiple columns for emphasis.
+
+Content guidance
+- Keep each tile narrowly scoped: one message, one action. Avoid dense paragraphs. Use bullets or stat rows where possible.
+- CTA microcopy examples: “Open dashboard,” “See details,” “Start trial,” “View case study.”
+- Provide metadata on tiles (category, date, status) in micro-labels; stats should include units and change indicators.
+
+Tailwind helper suggestions (non-binding)
+- Container: `mx-auto max-w-6xl px-6 lg:px-10`
+- Grid: `grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 auto-rows-[140px]` with tile spans like `lg:col-span-6 lg:row-span-2`
+- Tile base: `rounded-xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-1`
+- Hero tile: `bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-700 text-white`
+- Stats: `font-mono text-3xl font-semibold` with `text-sm uppercase tracking-[0.1em]` labels
+- Chips: `inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm`
+
+Deliver a polished bento grid that feels modular, balanced, and easy to scan—dense with information yet organized, responsive, and accessible.
+
+---
+
+## English Version (en-US)
+
+Design a “Tech Bento Grids” layout in TailwindCSS. Use modular tiles of varied sizes (large hero tile, tall stats tile, medium feature tiles, small utility chips) arranged in a responsive bento grid. Emphasize clean geometry, clear hierarchy, and balanced negative space. Include a hero, a bento content grid, stats/feature cards, product or case showcases, and a closing CTA/footer. Ensure the grid reflows gracefully on mobile and remains fully accessible.
+
+Visual language
+- Palette: modern neutrals with a single accent (blue/teal/amber). Cards can alternate between solid, soft gradient, or subtle pattern (dots/lines) backgrounds. Keep contrast high for text.
+- Shapes: rounded rectangles (10–16px radius), minimal shadows (`shadow-sm`/`md`), thin strokes on light cards. Large tiles may have gradient fills; small tiles can be outline-only.
+- Layout: grid-first; avoid random offsets. Use consistent gutter (16–24px) and align content within each tile.
+
+Layout blueprint
+- Hero band: bento-style hero tile spanning 2 columns on desktop, containing headline, subhead, and dual CTAs. Optionally layer a small stat chip or badge in a corner.
+- Bento grid core: mix tile sizes:\n  - Large feature tile (2x2) for primary value prop with image or abstract illustration.\n  - Tall stat tile (1x2) showing KPI with mini chart/sparkline.\n  - Medium tiles (1x1 or 2x1) for product features, testimonials, or quotes.\n  - Small utility tiles for filters, tags, or quick links.\n  - Optional media tile (video/preview) with play button.\n- Maintain consistent height increments; prefer `grid-auto-rows` with multiples (e.g., 120–160px). Use `grid-template-columns` of 12/9/6 fraction units or CSS `grid-cols-12` with spans.
+- Controls: filter chips or segmented control above the grid; small “Rearrange” or “Shuffle” button if you want dynamic layouts (keep accessible).
+- Case/product strip: horizontally scrollable or gridded set of 3–4 case highlights with CTA to view more.
+- CTA/footer: final call (“Start building”) with concise subtext and button set. Include secondary links (Docs, Pricing) as quiet text.
+
+Typography & hierarchy
+- Headings 600–700 weight; body 15–17px with 1.6–1.7 line height. Use uppercase micro-labels for tile headers; body content stays short.
+- Stats use monospace or tabular numbers for alignment. Keep copy concise—tiles should have 1–3 lines of text max.
+- Use `text-balance` for hero headlines; avoid overly long lines inside tiles.
+
+Components & states
+- Buttons: pill or rounded rect; primary filled accent; secondary ghost/outline. Hover adds slight shadow or tint; focus-visible outline 2–3px.
+- Tiles/cards: `rounded-xl border border-neutral-200 bg-white shadow-sm p-4 md:p-6` or gradient fills for hero/stats. Use `grid` or `flex` inside for alignment. Hover: `-translate-y-1` and shadow lift.
+- Chips: small rounded pills with subtle borders; use for filters or tags. Active chip uses accent fill with readable text.
+- Charts/visuals: minimal sparkline bars or dots; use accent color sparingly; always include labels and values.
+- Icons: simple, line-based; avoid clutter. Place in top-left corners or within labels.
+
+Motion
+- Light, tidy transitions (140–200ms). Hover lifts; tile content may stagger in on load (60–100ms offset). Respect `prefers-reduced-motion`.
+- Avoid aggressive scaling; keep motion subtle to preserve clarity in dense grids.
+
+Accessibility
+- Contrast: ensure text on gradients/colored tiles meets 4.5:1; add scrims if needed. Keep focus states clearly visible against any tile background.
+- Keyboard: all tiles and controls must be focusable with logical tab order. Provide aria-labels for icon-only buttons and play controls.
+- Responsive: when tiles reflow, maintain reading order (DOM order matches logical order). Avoid relying solely on color for state—use text/icons.
+
+Responsive behavior
+- Mobile: stack tiles into single column; allow horizontal scroll for small tile sets if necessary with clear scroll cues. Preserve spacing (12–16px gutters) and keep hero concise.
+- Tablet: 2–3 columns; re-span tiles to maintain balance (e.g., large tile spans 2 columns, tall tile spans 2 rows).
+- Desktop: 4–6 columns (12-col grid). Use consistent row heights; allow hero to span multiple columns for emphasis.
+
+Content guidance
+- Keep each tile narrowly scoped: one message, one action. Avoid dense paragraphs. Use bullets or stat rows where possible.
+- CTA microcopy examples: “Open dashboard,” “See details,” “Start trial,” “View case study.”
+- Provide metadata on tiles (category, date, status) in micro-labels; stats should include units and change indicators.
+
+Tailwind helper suggestions (non-binding)
+- Container: `mx-auto max-w-6xl px-6 lg:px-10`
+- Grid: `grid gap-4 md:gap-6 grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 auto-rows-[140px]` with tile spans like `lg:col-span-6 lg:row-span-2`
+- Tile base: `rounded-xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:-translate-y-1`
+- Hero tile: `bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-700 text-white`
+- Stats: `font-mono text-3xl font-semibold` with `text-sm uppercase tracking-[0.1em]` labels
+- Chips: `inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm`
+
+Deliver a polished bento grid that feels modular, balanced, and easy to scan—dense with information yet organized, responsive, and accessible.

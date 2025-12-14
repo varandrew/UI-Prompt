@@ -88,119 +88,150 @@ export function PreviewPageHeader({
   };
 
   return (
-    <header className="border-b dark:border-gray-700 p-4 flex flex-col md:flex-row justify-between items-start md:items-center bg-white dark:bg-gray-800 gap-3 md:gap-2">
-      {/* Mobile: Title and close button on same row */}
-      <div className="flex items-center justify-between w-full md:w-auto">
-        <h3 className="text-lg font-semibold dark:text-gray-100 flex items-center gap-2">
-          {displayTitle} - Preview
-          {/* Open in new page button (icon only) - hidden for React previews */}
-          {!isReactPreview && (
-            <button
-              type="button"
-              onClick={onOpenFullPage}
-              className="inline-flex items-center justify-center p-1.5 text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-gray-400 transition-colors"
-              title="Open Preview in New Page"
-              aria-label="Open Preview in New Page"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M11 3a1 1 0 100 2h2.586L8.293 10.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-              </svg>
-            </button>
-          )}
-        </h3>
-        {/* Mobile close button (visible on title row) */}
-        <div
-          onClick={handleClose}
-          onKeyDown={handleCloseKeyDown}
-          role="button"
-          tabIndex={0}
-          className="md:hidden cursor-pointer flex items-center justify-center dark:text-gray-100"
-          aria-label="Close"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-
-      {/* Controls: Preview selector and action buttons */}
-      <div className="flex flex-col md:flex-row gap-3 md:gap-2 items-stretch md:items-center w-full md:w-auto">
-        {/* Preview selector - only show when multiple previews exist */}
-        {hasMultiplePreviews(previewsList) && (
-          <div className="w-full md:w-auto md:mr-2">
-            <PreviewSelector
-              previews={previewsList}
-              activeIndex={activeIndex}
-              onChange={setActiveIndex}
-              variant="auto"
-            />
+    <header className="border-b border-gray-200/60 dark:border-gray-800/60 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 sticky top-0 z-50 px-4 py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all duration-300">
+      {/* Left Section: Branding & Mobile Tools */}
+      <div className="flex items-center justify-between w-full md:w-auto gap-4">
+        <div className="flex items-center gap-3">
+          {/* Logo Placeholder */}
+          <div className="h-9 w-9 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+            </svg>
           </div>
-        )}
 
-        {/* Action buttons row */}
-        <div className="flex gap-2">
-          {/* Edit Code button - hidden for React previews */}
+          <div className="flex flex-col">
+            <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 leading-none">
+              {displayTitle}
+            </h3>
+            <div className="flex items-center gap-2 mt-1">
+              <span className="text-xs text-gray-500 dark:text-gray-400">Style Preview</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Actions (Right aligned on mobile) */}
+        <div className="flex md:hidden gap-1">
+          {/* Edit Code (Mobile) - hidden for React previews */}
           {!isReactPreview && (
             <button
               type="button"
               onClick={handleEditCode}
-              className="inline-flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-gray-400"
+              className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md transition-all"
               title="Edit Code"
               aria-label="Edit Code"
             >
               <Code2 className="h-5 w-5" />
             </button>
           )}
-
-          {/* AI Prompt button */}
+          {/* Open External (Mobile) */}
+          {!isReactPreview && (
+            <button
+              type="button"
+              onClick={onOpenFullPage}
+              className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md transition-all"
+              title="Open in New Page"
+              aria-label="Open in New Page"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M11 3a1 1 0 100 2h2.586L8.293 10.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+            </button>
+          )}
+          {/* AI Prompt (Mobile) */}
           <button
             type="button"
             onClick={handleShowPrompt}
-            className="inline-flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:focus:ring-gray-400"
+            className="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
             title="AI Prompt"
             aria-label="AI Prompt"
           >
             <Sparkles className="h-5 w-5" />
           </button>
-
-          {/* Desktop close button (hidden on mobile) */}
-          <div
+          {/* Close (Mobile) */}
+          <button
+            type="button"
             onClick={handleClose}
             onKeyDown={handleCloseKeyDown}
-            role="button"
-            tabIndex={0}
-            className="hidden md:flex cursor-pointer items-center justify-center dark:text-gray-100"
+            className="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
             aria-label="Close"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
             </svg>
-          </div>
+          </button>
         </div>
+      </div>
+
+      {/* Middle Section: Segmented Navigation */}
+      {hasMultiplePreviews(previewsList) && (
+        <div className="w-full md:w-auto overflow-x-auto hide-scrollbar order-last md:order-none mt-2 md:mt-0">
+          <PreviewSelector
+            previews={previewsList}
+            activeIndex={activeIndex}
+            onChange={setActiveIndex}
+            variant="auto"
+          />
+        </div>
+      )}
+
+      {/* Right Section: Desktop Tools */}
+      <div className="hidden md:flex items-center gap-1">
+        <div className="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-1"></div>
+
+        {/* Edit Code button - hidden for React previews */}
+        {!isReactPreview && (
+          <button
+            type="button"
+            onClick={handleEditCode}
+            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md transition-all"
+            title="Edit Code"
+            aria-label="Edit Code"
+          >
+            <Code2 className="h-[18px] w-[18px]" />
+          </button>
+        )}
+
+        {/* Open in New Page Button */}
+        {!isReactPreview && (
+          <button
+            type="button"
+            onClick={onOpenFullPage}
+            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md transition-all"
+            title="Open in New Page"
+            aria-label="Open in New Page"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-[18px] h-[18px]" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M11 3a1 1 0 100 2h2.586L8.293 10.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </button>
+        )}
+
+        {/* AI Prompt button */}
+        <button
+          type="button"
+          onClick={handleShowPrompt}
+          className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700/50 rounded-md transition-all"
+          title="AI Prompt"
+          aria-label="AI Prompt"
+        >
+          <Sparkles className="h-[18px] w-[18px]" />
+        </button>
+
+        {/* Desktop close button */}
+        <button
+          type="button"
+          onClick={handleClose}
+          onKeyDown={handleCloseKeyDown}
+          className="p-2 text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-all ml-1"
+          title="Close Preview"
+          aria-label="Close"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+          </svg>
+        </button>
       </div>
     </header>
   );

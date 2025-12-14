@@ -251,7 +251,7 @@ export async function loadTemplateManifest(category, familyId, templateId) {
  */
 export async function loadTemplateContent(category, familyId, templateId) {
   // 使用 public 資料夾路徑（Vite 會正確服務這些靜態文件）
-  const basePath = `/data/content/${category}/${familyId}/${templateId}`;
+  const basePath = `/data/content/styles/${category}/${familyId}/${templateId}`;
 
   const fetchText = async (url) => {
     try {
@@ -302,7 +302,7 @@ export async function loadTemplateContent(category, familyId, templateId) {
         fullPageJsx = '';
       }
     } else {
-      console.warn(`[loadTemplateContent] 無法識別 JSX 模式，改用 HTML: ${basePath}`);
+      console.debug(`[loadTemplateContent] 無法識別 JSX 模式，改用 HTML: ${basePath}`);
       fullPageJsx = '';
     }
   }
@@ -362,7 +362,7 @@ export async function loadTemplateContent(category, familyId, templateId) {
  */
 export async function loadPreviewContent(category, familyId, previewId) {
   // 使用 public 資料夾路徑
-  const basePath = `/data/content/${category}/${familyId}/${previewId}`;
+  const basePath = `/data/content/styles/${category}/${familyId}/${previewId}`;
 
   const fetchText = async (url) => {
     try {
@@ -446,7 +446,7 @@ export async function loadPreviewContent(category, familyId, previewId) {
  */
 export async function loadFamilyContent(category, familyId) {
   // 使用 public 資料夾路徑
-  const basePath = `/data/content/${category}/${familyId}`;
+  const basePath = `/data/content/styles/${category}/${familyId}`;
 
   const fetchText = async (url) => {
     try {
@@ -481,8 +481,8 @@ export async function loadFamilyContent(category, familyId) {
 export async function loadTemplatePrompts(category, familyId, templateId = null) {
   // 使用 public 資料夾路徑
   const basePath = templateId
-    ? `/data/prompts/${category}/${familyId}/${templateId}`
-    : `/data/prompts/${category}/${familyId}`;
+    ? `/data/prompts/styles/${category}/${familyId}/${templateId}`
+    : `/data/prompts/styles/${category}/${familyId}`;
 
   const fetchText = async (url) => {
     try {
@@ -516,7 +516,7 @@ export async function loadTemplatePrompts(category, familyId, templateId = null)
  */
 export async function loadPreviewPrompts(category, familyId, previewId) {
   // 使用 public 資料夾路徑
-  const basePath = `/data/prompts/${category}/${familyId}/${previewId}`;
+  const basePath = `/data/prompts/styles/${category}/${familyId}/${previewId}`;
 
   const fetchText = async (url) => {
     try {

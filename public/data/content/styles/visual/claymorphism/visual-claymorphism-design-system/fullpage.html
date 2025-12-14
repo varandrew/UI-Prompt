@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claymorphism Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fullpage.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <header>
+            <div class="clay-card interactive" style="padding: 0.5rem 1.5rem; border-radius: 50px; flex-direction: row; gap: 10px;">
+                <div class="logo">
+                    <i data-lucide="box"></i> ClayUI
+                </div>
+            </div>
+            
+            <nav class="nav-pills">
+                <a href="#" class="clay-btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Connect Wallet</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">Web3 & NFT Ready</span>
+                <h1>Soft, Tactile,<br><span style="color: var(--accent-blue);">Inflatable.</span></h1>
+                <p>Experience the digital world with a sense of touch. Claymorphism adds volume, depth, and a playful spirit to your interface.</p>
+                <div class="ui-component-row">
+                    <a href="#" class="clay-btn btn-secondary">Get Started <i data-lucide="arrow-right"></i></a>
+                    <a href="#" class="clay-btn" style="color: var(--text-main); background: var(--bg-color);">Learn More</a>
+                </div>
+                
+                <!-- Social Proof -->
+                <div style="display: flex; align-items: center; gap: 1rem; margin-top: 2rem;">
+                    <div class="avatar-stack">
+                        <div class="avatar"></div>
+                        <div class="avatar"></div>
+                        <div class="avatar"></div>
+                    </div>
+                    <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-light);">Loved by creatives</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-grid">
+            <div class="clay-card interactive">
+                <div class="icon-box" style="color: var(--accent-blue);">
+                    <i data-lucide="cloud"></i>
+                </div>
+                <h3>Anti-Flat</h3>
+                <p>Rejecting sharp edges for a world made of soft, matte rubber. Everything feels touchable.</p>
+            </div>
+
+            <div class="clay-card interactive">
+                <div class="icon-box" style="color: var(--accent-pink);">
+                    <i data-lucide="layers"></i>
+                </div>
+                <h3>Deep Layers</h3>
+                <p>Using dual inner shadows to create volume, making elements look like they are inflated.</p>
+            </div>
+
+            <div class="clay-card interactive">
+                <div class="icon-box" style="color: var(--accent-green);">
+                    <i data-lucide="smile"></i>
+                </div>
+                <h3>Playful Vibes</h3>
+                <p>Perfect for education, casual games, and creative portfolios. Safe, round, and friendly.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Sandbox -->
+        <section class="sandbox">
+            <h2>Interface Lab</h2>
+            <p>Try the interactions. Feel the "Squish".</p>
+            
+            <div class="sandbox-grid">
+                <!-- Form Elements -->
+                <div class="clay-card">
+                    <h3 style="margin-bottom: 1.5rem;">User Settings</h3>
+                    <form onsubmit="event.preventDefault()">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 700; margin-left: 10px;">Username</label>
+                            <input type="text" class="clay-input" placeholder="e.g. ClayMaster99">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 700; margin-left: 10px;">Email</label>
+                            <input type="email" class="clay-input" placeholder="hello@clay.design">
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                            <span style="font-weight: 700; margin-left: 10px;">Notifications</span>
+                            <div class="clay-toggle" id="toggleDemo">
+                                <div class="toggle-handle"></div>
+                            </div>
+                        </div>
+                        <button class="clay-btn btn-primary" style="width: 100%">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Stats / Dashboard Widget (Non-heavy) -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div class="clay-card interactive" style="flex: 1; align-items: center; text-align: center; background-color: var(--accent-blue); color: #fff; border: none;">
+                        <i data-lucide="trophy" size="48" style="margin-bottom: 1rem; opacity: 0.8"></i>
+                        <h2 style="color: #fff; margin: 0;">24.5 ETH</h2>
+                        <p style="color: rgba(255,255,255,0.8);">Total Volume</p>
+                    </div>
+
+                    <div class="clay-card interactive" style="flex: 1; flex-direction: row; align-items: center; justify-content: space-between;">
+                        <div>
+                            <h3>Upload Asset</h3>
+                            <p style="margin: 0; font-size: 0.9rem;">Supports OBJ, GLB, PNG</p>
+                        </div>
+                        <button class="clay-btn" style="background: var(--bg-color); color: var(--text-main); padding: 1rem; border-radius: 50%;">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top: 5rem; text-align: center; padding-bottom: 2rem; color: var(--text-light);">
+            <p>&copy; 2024 Clay Design System. Make the web soft again.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Toggle Logic
+        const toggle = document.getElementById('toggleDemo');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            
+            // Haptic feedback logic (Visual only)
+            if(toggle.classList.contains('active')) {
+                toggle.style.backgroundColor = 'var(--clay-surface)';
+            } else {
+                toggle.style.backgroundColor = 'var(--bg-color)';
+            }
+        });
+
+        // Add subtle tilt effect to Hero shapes on mousemove
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 20;
+                shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

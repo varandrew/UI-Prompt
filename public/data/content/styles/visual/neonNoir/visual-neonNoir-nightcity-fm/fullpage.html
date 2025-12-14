@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIGHTCITY.FM | Neon Noir UI</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind CSS (for layout structure) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body>
+
+    <!-- Atmospheric Layers -->
+    <div class="ambient-glow"></div>
+    <div class="noise-overlay"></div>
+    <canvas id="rain-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="w-full h-20 flex items-center justify-between px-6 md:px-12 fixed top-0 z-50 bg-gradient-to-b from-black to-transparent backdrop-blur-sm">
+        <div class="flex items-center gap-2 group cursor-pointer">
+            <i data-lucide="zap" class="text-fuchsia-500 w-6 h-6 group-hover:drop-shadow-[0_0_8px_rgba(255,0,255,0.8)] transition-all duration-300"></i>
+            <span class="brand-font text-2xl font-bold tracking-widest text-white group-hover:text-fuchsia-400 transition-colors">NIGHT<span class="text-fuchsia-500 neon-text-pink flicker-slow">CITY</span>.FM</span>
+        </div>
+        
+        <div class="hidden md:flex gap-8 text-sm tracking-widest text-gray-400 uppercase font-medium">
+            <a href="#" class="hover:text-white hover:drop-shadow-[0_0_5px_#fff] transition-all duration-300">Discover</a>
+            <a href="#" class="text-white drop-shadow-[0_0_5px_#fff] border-b border-fuchsia-500 pb-1">Live Sets</a>
+            <a href="#" class="hover:text-white hover:drop-shadow-[0_0_5px_#fff] transition-all duration-300">Events</a>
+            <a href="#" class="hover:text-white hover:drop-shadow-[0_0_5px_#fff] transition-all duration-300">Artists</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <i data-lucide="search" class="text-gray-400 w-5 h-5 hover:text-white cursor-pointer transition-colors"></i>
+            <div class="w-8 h-8 rounded bg-gray-900 border border-fuchsia-900 overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="User" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 mt-20 pb-28 px-6 md:px-12 overflow-y-auto custom-scroll">
+        
+        <!-- Hero Section -->
+        <section class="w-full max-w-7xl mx-auto mt-8 relative">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[500px]">
+                
+                <!-- Main Feature Card -->
+                <div class="col-span-1 md:col-span-8 noir-card rounded-xl p-0 group flex flex-col justify-end relative">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" class="w-full h-full object-cover glitch-image" alt="Cyberpunk City">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050005] via-[#050005]/50 to-transparent"></div>
+                    </div>
+                    
+                    <div class="relative z-10 p-8 md:p-12">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-2 py-1 bg-fuchsia-900/40 border border-fuchsia-500/50 text-fuchsia-300 text-xs font-bold tracking-wider rounded uppercase backdrop-blur-md">Live Now</span>
+                            <span class="flex items-center gap-1 text-red-500 text-xs tracking-wider animate-pulse"><div class="w-2 h-2 bg-red-500 rounded-full"></div> ON AIR</span>
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-black text-white mb-2 neon-text-pink leading-tight">NEON <br> RAIN <span class="text-transparent stroke-white" style="-webkit-text-stroke: 1px #fff; text-shadow: none; opacity: 0.5;">VOL.4</span></h1>
+                        <p class="text-gray-300 max-w-lg text-lg mb-6 font-light">Deep Synthwave & Dark Techno mixes for the midnight drifter. Curated by DJ ShadowRunner.</p>
+                        
+                        <div class="flex items-center gap-4">
+                            <button class="btn-neon px-8 py-3 rounded uppercase font-bold tracking-widest text-sm flex items-center gap-2">
+                                <i data-lucide="play" class="w-4 h-4 fill-current"></i> Listen
+                            </button>
+                            <button class="px-8 py-3 rounded uppercase font-bold tracking-widest text-sm text-gray-400 hover:text-white transition-colors border border-transparent hover:border-gray-700">
+                                + Add to Library
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Cards (Top Mixes) -->
+                <div class="col-span-1 md:col-span-4 flex flex-col gap-6">
+                    <!-- Card 1 -->
+                    <div class="noir-card rounded-xl flex-1 p-6 flex flex-col justify-between group cursor-pointer">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl text-white font-bold group-hover:text-cyan-400 transition-colors">Tech Noir</h3>
+                                <p class="text-gray-500 text-xs uppercase tracking-wider mt-1">128 BPM • Underground</p>
+                            </div>
+                            <i data-lucide="headphones" class="text-gray-600 group-hover:text-cyan-400 transition-colors"></i>
+                        </div>
+                        <div class="w-full h-1 bg-gray-800 rounded-full mt-4 overflow-hidden">
+                            <div class="h-full bg-cyan-400 w-2/3 shadow-[0_0_10px_#00f3ff]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="noir-card rounded-xl flex-1 p-6 relative group cursor-pointer overflow-hidden">
+                         <div class="absolute inset-0 z-0">
+                            <img src="https://images.unsplash.com/photo-1614726365723-49cfae927846?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity grayscale hover:grayscale-0">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+                        </div>
+                        <div class="relative z-10 h-full flex flex-col justify-center">
+                            <h3 class="text-2xl text-white font-bold neon-text-cyan flicker-fast">RETROWAVE</h3>
+                            <p class="text-gray-400 text-sm mt-1">The 80s never died.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Header -->
+        <div class="max-w-7xl mx-auto mt-16 mb-8 flex items-end justify-between border-b border-gray-800 pb-2">
+            <div>
+                <h2 class="text-2xl text-white font-bold tracking-widest"><span class="text-fuchsia-500">///</span> UPCOMING EVENTS</h2>
+            </div>
+            <a href="#" class="text-xs text-fuchsia-400 hover:text-fuchsia-300 tracking-widest uppercase mb-1">View Calendar -></a>
+        </div>
+
+        <!-- Horizontal Scroll / Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            
+            <!-- Event Card 1 -->
+            <article class="noir-card rounded-lg p-0 group">
+                <div class="h-40 w-full overflow-hidden relative border-b border-gray-800">
+                     <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                     <div class="absolute top-2 right-2 bg-black/80 border border-fuchsia-500/50 text-fuchsia-400 text-xs px-2 py-1 font-mono">23:00</div>
+                </div>
+                <div class="p-5">
+                    <h4 class="text-white font-bold text-lg mb-1 group-hover:text-fuchsia-400 transition-colors">Sector 7 Party</h4>
+                    <p class="text-gray-500 text-xs mb-4">Industrial District • Warehouse 4</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex -space-x-2">
+                            <div class="w-6 h-6 rounded-full bg-gray-700 border border-black"></div>
+                            <div class="w-6 h-6 rounded-full bg-gray-600 border border-black"></div>
+                            <div class="w-6 h-6 rounded-full bg-gray-500 border border-black text-[8px] flex items-center justify-center text-black font-bold">+40</div>
+                        </div>
+                        <button class="text-xs border border-gray-600 px-3 py-1 rounded text-gray-300 hover:border-fuchsia-500 hover:text-fuchsia-400 transition-all">RSVP</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Event Card 2 -->
+            <article class="noir-card rounded-lg p-0 group">
+                <div class="h-40 w-full overflow-hidden relative border-b border-gray-800">
+                     <img src="https://images.unsplash.com/photo-1596207891316-23851be3cc83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                     <div class="absolute top-2 right-2 bg-black/80 border border-cyan-500/50 text-cyan-400 text-xs px-2 py-1 font-mono">01:00</div>
+                </div>
+                <div class="p-5">
+                    <h4 class="text-white font-bold text-lg mb-1 group-hover:text-cyan-400 transition-colors">Cyber Gloom</h4>
+                    <p class="text-gray-500 text-xs mb-4">Rooftop Lounge • Downtown</p>
+                    <div class="flex justify-between items-center">
+                         <span class="text-xs text-cyan-500 italic">Selling Fast</span>
+                         <button class="text-xs border border-gray-600 px-3 py-1 rounded text-gray-300 hover:border-cyan-500 hover:text-cyan-400 transition-all">TICKETS</button>
+                    </div>
+                </div>
+            </article>
+            
+             <!-- Event Card 3 -->
+             <article class="noir-card rounded-lg p-0 group">
+                <div class="h-40 w-full overflow-hidden relative border-b border-gray-800">
+                     <img src="https://images.unsplash.com/photo-1545128485-c400e7702796?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                     <div class="absolute top-2 right-2 bg-black/80 border border-fuchsia-500/50 text-fuchsia-400 text-xs px-2 py-1 font-mono">SAT</div>
+                </div>
+                <div class="p-5">
+                    <h4 class="text-white font-bold text-lg mb-1 group-hover:text-fuchsia-400 transition-colors">Neural Sync</h4>
+                    <p class="text-gray-500 text-xs mb-4">VR Interface • Online</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-600">Free Entry</span>
+                        <button class="text-xs border border-gray-600 px-3 py-1 rounded text-gray-300 hover:border-fuchsia-500 hover:text-fuchsia-400 transition-all">JOIN</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Decorative Card (Ad) -->
+            <article class="noir-card rounded-lg p-6 group flex flex-col justify-center items-center text-center border-dashed border-gray-800 hover:border-solid hover:border-fuchsia-500">
+                <div class="w-12 h-12 rounded-full border border-fuchsia-500 shadow-[0_0_10px_#ff00ff] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <i data-lucide="plus" class="text-fuchsia-500"></i>
+                </div>
+                <h4 class="text-gray-300 font-bold mb-2">Promote Your Set</h4>
+                <p class="text-gray-600 text-xs px-4">Get featured on the Night City dashboard.</p>
+            </article>
+
+        </div>
+        
+    </main>
+
+    <!-- Player Bar (Fixed Bottom) -->
+    <footer class="h-24 w-full fixed bottom-0 z-50 bg-[#050005] border-t border-fuchsia-900/30 flex items-center justify-between px-6 md:px-12 backdrop-blur-xl">
+        
+        <!-- Track Info -->
+        <div class="flex items-center gap-4 w-1/4 min-w-max">
+            <div class="w-14 h-14 bg-gray-800 rounded overflow-hidden relative group">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-white font-bold tracking-wide text-sm neon-text-pink">Midnight Drive</span>
+                <span class="text-gray-500 text-xs uppercase tracking-wider">Kavinsky</span>
+            </div>
+            <i data-lucide="heart" class="w-4 h-4 text-gray-500 hover:text-fuchsia-500 cursor-pointer transition-colors ml-2"></i>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex flex-col items-center w-2/4">
+            <div class="flex items-center gap-6 mb-2">
+                <i data-lucide="shuffle" class="w-4 h-4 text-gray-600 hover:text-white cursor-pointer transition-colors"></i>
+                <i data-lucide="skip-back" class="w-5 h-5 text-gray-300 hover:text-white cursor-pointer transition-colors"></i>
+                
+                <!-- Main Play Button -->
+                <button id="play-btn" class="w-10 h-10 rounded-full bg-transparent border border-fuchsia-500 flex items-center justify-center text-fuchsia-500 shadow-[0_0_15px_rgba(255,0,255,0.4)] hover:bg-fuchsia-500 hover:text-black hover:shadow-[0_0_30px_rgba(255,0,255,0.8)] transition-all duration-300">
+                    <i data-lucide="play" class="w-5 h-5 fill-current ml-1" id="play-icon"></i>
+                </button>
+                
+                <i data-lucide="skip-forward" class="w-5 h-5 text-gray-300 hover:text-white cursor-pointer transition-colors"></i>
+                <i data-lucide="repeat" class="w-4 h-4 text-gray-600 hover:text-white cursor-pointer transition-colors"></i>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="w-full max-w-md flex items-center gap-3 text-[10px] text-gray-500 font-mono">
+                <span>02:14</span>
+                <div class="flex-1 h-1 bg-gray-800 rounded-full relative group cursor-pointer overflow-hidden">
+                    <div class="absolute top-0 left-0 h-full w-1/3 bg-fuchsia-600 shadow-[0_0_10px_#ff00ff]"></div>
+                    <div class="absolute top-0 left-1/3 w-2 h-2 bg-white rounded-full -mt-0.5 opacity-0 group-hover:opacity-100 shadow-[0_0_10px_#fff]"></div>
+                </div>
+                <span>04:42</span>
+            </div>
+        </div>
+
+        <!-- Visualizer & Volume -->
+        <div class="flex items-center justify-end gap-4 w-1/4 min-w-max">
+            <!-- Simulated Visualizer -->
+            <div class="flex items-end h-8 gap-[2px] opacity-0 transition-opacity duration-1000" id="visualizer-container">
+                <div class="visualizer-bar" style="animation-duration: 0.6s"></div>
+                <div class="visualizer-bar" style="animation-duration: 0.8s"></div>
+                <div class="visualizer-bar" style="animation-duration: 0.5s"></div>
+                <div class="visualizer-bar" style="animation-duration: 0.7s"></div>
+                <div class="visualizer-bar" style="animation-duration: 0.9s"></div>
+            </div>
+
+            <i data-lucide="volume-2" class="w-4 h-4 text-gray-400"></i>
+            <div class="w-20 h-1 bg-gray-800 rounded-full cursor-pointer overflow-hidden">
+                <div class="h-full w-3/4 bg-gray-400"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // --- Rain Animation Logic ---
+        const canvas = document.getElementById('rain-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let rainDrops = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class RainDrop {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * -height;
+                this.speed = Math.random() * 5 + 10; // Fast rain
+                this.length = Math.random() * 20 + 10;
+                this.opacity = Math.random() * 0.5 + 0.1;
+            }
+
+            fall() {
+                this.y += this.speed;
+                if (this.y > height) {
+                    this.y = Math.random() * -50;
+                    this.x = Math.random() * width;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(170, 100, 200, ${this.opacity})`; // Slight purple tint to rain
+                ctx.lineWidth = 1;
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x, this.y + this.length);
+                ctx.stroke();
+            }
+        }
+
+        // Create drops
+        for (let i = 0; i < 150; i++) {
+            rainDrops.push(new RainDrop());
+        }
+
+        function animateRain() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Subtle "Flash" from neon lights occasionally
+            if(Math.random() > 0.98) {
+                ctx.fillStyle = 'rgba(255, 0, 255, 0.02)';
+                ctx.fillRect(0,0,width,height);
+            }
+
+            rainDrops.forEach(drop => {
+                drop.fall();
+                drop.draw();
+            });
+            requestAnimationFrame(animateRain);
+        }
+
+        animateRain();
+
+
+        // --- Play Button Logic ---
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const visualizer = document.getElementById('visualizer-container');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            
+            // "Absorb" effect - scale down briefly
+            playBtn.style.transform = "scale(0.90)";
+            setTimeout(() => playBtn.style.transform = "scale(1)", 150);
+
+            if (isPlaying) {
+                playBtn.classList.add('bg-fuchsia-500', 'text-black', 'shadow-[0_0_30px_rgba(255,0,255,0.8)]');
+                visualizer.style.opacity = '1';
+                
+                // Manually simulating Pause Icon shape
+                playBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause w-5 h-5"><rect width="4" height="16" x="6" y="4"/><rect width="4" height="16" x="14" y="4"/></svg>`;
+            } else {
+                playBtn.classList.remove('bg-fuchsia-500', 'text-black', 'shadow-[0_0_30px_rgba(255,0,255,0.8)]');
+                visualizer.style.opacity = '0';
+                
+                // Back to Play Icon
+                playBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play w-5 h-5 ml-1"><polygon points="6 3 20 12 6 21 6 3"/></svg>`;
+            }
+        });
+
+    </script>
+</body>
+</html>

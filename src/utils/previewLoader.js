@@ -207,6 +207,7 @@ const previewIdMapping = {
   // Claymorphism
   'visual-claymorphism-claymorphism-dashboard': { category: 'visual', familyId: 'claymorphism', templateId: 'visual-claymorphism-claymorphism-dashboard' },
   'visual-claymorphism-claymorphism-ecommerce': { category: 'visual', familyId: 'claymorphism', templateId: 'visual-claymorphism-claymorphism-ecommerce' },
+  'visual-claymorphism-design-system': { category: 'visual', familyId: 'claymorphism', templateId: 'visual-claymorphism-design-system' },
 
   // DarkMode
   'darkMode': { category: 'visual', familyId: 'darkMode', templateId: 'darkMode' },
@@ -292,6 +293,7 @@ const previewIdMapping = {
   // NeonNoir (additional)
   'neonNoir': { category: 'visual', familyId: 'neonNoir', templateId: 'neonNoir' },
   'visual-neon-noir': { category: 'visual', familyId: 'neonNoir', templateId: 'visual-neon-noir' },
+  'visual-neonNoir-nightcity-fm': { category: 'visual', familyId: 'neonNoir', templateId: 'visual-neonNoir-nightcity-fm' },
 
   // Organic
   'visual-organic-flow-workspace': { category: 'visual', familyId: 'organic', templateId: 'visual-organic-flow-workspace' },
@@ -426,7 +428,7 @@ const previewIdMap = new Map(Object.entries(previewIdMapping));
  * @returns {Promise<{html?: string, jsx?: string, styles: string, renderMode?: string, jsxMode?: string}>} 預覽內容
  */
 async function loadContentFromPublic(category, familyId, templateId) {
-  const basePath = `/data/content/${category}/${familyId}/${templateId}`;
+  const basePath = `/data/content/styles/${category}/${familyId}/${templateId}`;
 
   try {
     // ========================================

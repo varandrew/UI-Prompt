@@ -12,6 +12,7 @@ export function CyberBackground({ progress }) {
       className="cyber-background"
     >
       <div
+        data-stage="background"
         style={{
           position: 'absolute',
           inset: 0,

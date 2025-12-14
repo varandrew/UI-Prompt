@@ -40,7 +40,6 @@ Visit: **http://localhost:1000/**
 
 ## 📋 Todo List
 
-- [X] Style/Component page i18n issue
-- [ ] Component page prompt config 
-- [ ] Layout page function
+- [ ] i18n issue in Style and component page 
+- [ ] Too much issue in Component page
 - [ ] More UI Style HTML preview

@@ -24,7 +24,12 @@
     "migrate:js-to-json": "node scripts/migrate/js-to-json.js",
     "create-template": "node scripts/create-template.js",
     "create-template:interactive": "node scripts/create-template.js",
-    "create-react-template": "node scripts/create-template.js --format react-jsx"
+    "create-react-template": "node scripts/create-template.js --format react-jsx",
+    "analyze:markdown": "node scripts/analyze-markdown-prompts.js",
+    "translate:prompts": "node scripts/translate-prompts.js",
+    "translate:prompts:dry-run": "node scripts/translate-prompts.js --dry-run",
+    "translate:prompts:top10": "node scripts/translate-prompts.js --top-10",
+    "translate:helper": "node scripts/translate-helper.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

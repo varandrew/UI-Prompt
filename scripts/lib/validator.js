@@ -43,7 +43,7 @@ export function validateInputs(category, family, templateId) {
   }
 
   // Check if template directory already exists
-  const templateDir = path.join(projectRoot, `public/data/content/${category}/${family}/${templateId}`);
+  const templateDir = path.join(projectRoot, `public/data/content/styles/${category}/${family}/${templateId}`);
   if (fs.existsSync(templateDir)) {
     throw new Error(`模板目錄 "${templateDir}" 已存在`);
   }

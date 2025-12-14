@@ -27,6 +27,16 @@
   background-attachment: local;
 }
 
+/* Hide Scrollbar (for Fluent Design 2.0 Header) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Tailwind v4 Dark Mode 配置 */
 @variant dark (&:where(.dark, .dark *));
 

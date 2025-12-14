@@ -15,6 +15,13 @@
   },
   "templates": [
     {
+      "id": "visual-neonNoir-nightcity-fm",
+      "title": {
+        "zh-CN": "夜城.FM",
+        "en-US": "NIGHTCITY.FM"
+      }
+    },
+    {
       "id": "visual-neon-noir",
       "title": {
         "zh-CN": "Neon Noir 霓虹黑色电影",

@@ -44,7 +44,8 @@ export function usePreviewPageState({
   styleId,
   previewsList = [],
   defaultPreviewId = '',
-  searchParams
+  searchParams,
+  language = 'en-US' // eslint-disable-line no-unused-vars -- Reserved for future i18n use
 }) {
   // ========== Core State ==========
 

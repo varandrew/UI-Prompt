@@ -1,18 +1,17 @@
 import { useLanguage } from '../../hooks/useLanguage';
 
 /**
- * PreviewSelector - 預覽選擇器組件（極简主義風格重構版）
+ * PreviewSelector - 預覽選擇器組件（Fluent Design 2.0 風格）
  *
  * 设計原則：
- * - 極简配色：黑白灰系統
- * - 充分留白：避免視覺擁擠
- * - 清晰层次：通過边框和颜色区分狀態
- * - 無圓角：純幾何形狀
- * - 極简過渡：仅颜色變化，無複雜動画
+ * - Fluent Design 2.0 Segmented Control 風格
+ * - 毛玻璃背景容器
+ * - 激活狀態帶有柔和陰影
+ * - 流暢的過渡動画
  *
  * 響應式设計:
- * - 桌面端 (≥768px): 显示極简按鈕組
- * - 移動端 (<768px): 显示極简下拉選單
+ * - 桌面端 (≥768px): Segmented Control（自動調整寬度）
+ * - 移動端 (<768px): Segmented Control（按鈕均分空間）或下拉選單
  *
  * @param {Object[]} previews - 預覽列表
  * @param {number} activeIndex - 當前激活的預覽索引
@@ -70,10 +69,10 @@ export function PreviewSelector({
     return String(result || `Preview ${idx + 1}`);
   };
 
-  // 桌面端：極简按鈕組
+  // 桌面端：Fluent Design 2.0 Segmented Control
   const renderButtons = () => (
     <nav
-      className={`inline-flex gap-1 ${className}`}
+      className={`inline-flex p-1 bg-gray-100/80 dark:bg-gray-800/50 rounded-lg w-full md:w-auto ${className}`}
       role="tablist"
       aria-label={t('preview.selectPreview') || 'Select preview'}
     >
@@ -90,14 +89,17 @@ export function PreviewSelector({
             aria-selected={idx === safeActiveIndex}
             aria-controls={`preview-panel-${idx}`}
             className={`
-              px-3 py-1.5
+              flex-1 md:flex-none
+              px-4 py-1.5
               text-sm font-medium
-              border
-              transition-colors duration-200
-              focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-gray-400 focus:ring-offset-2
+              rounded-md
+              transition-all duration-200
+              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 dark:focus:ring-offset-gray-900
+              whitespace-nowrap
+              text-center
               ${idx === safeActiveIndex
-                ? 'border-black bg-black text-white dark:border-gray-400 dark:bg-gray-700 dark:text-gray-100'
-                : 'border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-400 dark:hover:text-gray-100'
+                ? 'bg-white text-gray-900 shadow-fluent ring-1 ring-black/5 dark:bg-gray-700 dark:text-white dark:ring-white/5'
+                : 'text-gray-600 hover:bg-gray-200/50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700/50 dark:hover:text-gray-200'
               }
             `.trim().replace(/\s+/g, ' ')}
             title={getPreviewName(preview, idx)}

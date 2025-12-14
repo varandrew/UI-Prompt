@@ -9,7 +9,7 @@
 - ⚡ 命令行參數模式：一次性提供所有參數
 
 ✅ **自動創建**：
-- 目錄結構：`public/data/content/{category}/{family}/{templateId}/`
+- 目錄結構：`public/data/content/styles/{category}/{family}/{templateId}/`
 - HTML/CSS 模板文件（支持 HTML 和 JSX 兩種格式）
 - Prompt 模板文件（`custom.md` 和 `style.md`）
 
@@ -194,12 +194,12 @@ npm run create-template -- \
 
 ```
 public/data/
-├── content/{category}/{family}/{templateId}/
+├── content/styles/{category}/{family}/{templateId}/
 │   ├── demo.html (或 demo.jsx)     # StyleCard 預覽用 HTML/JSX
 │   ├── demo.css                     # demo 專用樣式
 │   ├── fullpage.html (或 fullpage.jsx)  # 完整頁面 HTML/JSX
 │   └── fullpage.css                 # fullpage 專用樣式
-└── prompts/{category}/{family}/{templateId}/  (可選)
+└── prompts/styles/{category}/{family}/{templateId}/  (可選)
     ├── custom.md                    # 自定義 Prompt（短版）
     └── style.md                     # 風格 Prompt（詳細版）
 
@@ -222,7 +222,7 @@ src/data/
 
 ```bash
 # 文件位置
-public/data/content/{category}/{family}/{templateId}/
+public/data/content/styles/{category}/{family}/{templateId}/
 ```
 
 **文件說明**：
@@ -237,7 +237,7 @@ public/data/content/{category}/{family}/{templateId}/
 
 ```bash
 # 文件位置
-public/data/prompts/{category}/{family}/{templateId}/
+public/data/prompts/styles/{category}/{family}/{templateId}/
 ```
 
 **文件說明**：

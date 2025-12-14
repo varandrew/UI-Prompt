@@ -1,6 +1,7 @@
 import { useMemo, useCallback } from 'react';
 import { useLoaderData, useSearchParams } from 'react-router-dom';
 
+import { useLanguage } from '../../hooks/useLanguage';
 import { PromptDrawer } from '../../components/prompt/PromptDrawer';
 import { PreviewPromptGenerator } from '../../utils/promptGenerator';
 import { DataVisualizationPreview } from '../../components/preview/DataVisualizationPreview';
@@ -38,6 +39,7 @@ export function StylePreviewPage() {
   // ========== 1. Data from loader ==========
   const { style } = useLoaderData();
   const [searchParams] = useSearchParams();
+  const { language } = useLanguage();
 
   // ========== 2. Extract style properties ==========
   const {
@@ -88,7 +90,7 @@ export function StylePreviewPage() {
     previewsList,
     defaultPreviewId,
     searchParams,
-    language: 'en-US'
+    language
   });
 
   // ========== 7. Use extracted async loader hook ==========
@@ -105,7 +107,7 @@ export function StylePreviewPage() {
     styleId: style.id,
     isReactPreview,
     setIsLoading,
-    language: 'en-US'
+    language
   });
 
   // ========== 8. Build preview HTML using extended utility ==========
@@ -128,7 +130,8 @@ export function StylePreviewPage() {
     // Styles with only demoHTML (component demos) should show "no template" message
     if (!hasAsyncContent && !hasPreviewsList && !hasFullPageHTML) {
       return buildEmptyStateHTML({
-        displayTitle
+        displayTitle,
+        language
       });
     }
 
@@ -159,7 +162,8 @@ export function StylePreviewPage() {
     demoHTML,
     customStyles,
     displayTitle,
-    previewCacheRef
+    previewCacheRef,
+    language
   ]);
 
   // ========== 9. Generate prompt content ==========
@@ -172,7 +176,7 @@ export function StylePreviewPage() {
           style.fullPageHTML ||
           style.demoHTML ||
           '',
-        'en-US',
+        language,
         '', // previewDescription
         [], // previewFeatures
         '', // previewColorScheme
@@ -182,7 +186,7 @@ export function StylePreviewPage() {
       logger.error('Error generating prompt:', error);
       return '';
     }
-  }, [style, activeIndex, previewsList, currentPreview]);
+  }, [style, activeIndex, previewsList, currentPreview, language]);
 
   // ========== 10. Event handlers ==========
   const handleOpenFullPageWindow = useCallback(() => {

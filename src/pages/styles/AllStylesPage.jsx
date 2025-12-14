@@ -5,7 +5,7 @@ import { VirtualMasonryVariable } from '../../components/ui/VirtualMasonryVariab
 import { FilterBar } from '../../components/filter/FilterBar';
 import { useLanguage } from '../../hooks/useLanguage';
 import { applyFilters, applyTranslationsToCategories, getTagStatistics } from '../../utils/categoryHelper';
-import { loadStyleCategories } from '../../data/components/loaders';
+import { loadStyleMetadataOnly } from '../../data/components/loaders';
 
 
 /**
@@ -27,12 +27,12 @@ export function AllStylesPage() {
 
 
 
-  // 載入分类資料（動態 import），仅在本页需要時載入風格資料
+  // 🚀 載入分类資料（僅元數據，demo 內容延遲載入）
   useEffect(() => {
     let active = true;
     setIsLoading(true);
     setIsError(false);
-    loadStyleCategories()
+    loadStyleMetadataOnly()
       .then((cats) => {
         if (!active) return;
         setCategories(cats);
@@ -186,6 +186,8 @@ export function AllStylesPage() {
                   colorScheme={style.colorScheme}
                   customPrompt={style.customPrompt}
                   stylePrompt={style.stylePrompt}
+                  categoryId={style._categoryId || style.primaryCategory || style.category}
+                  familyId={style.familyId}
                 />
               )}
             />
@@ -211,6 +213,8 @@ export function AllStylesPage() {
                   colorScheme={style.colorScheme}
                   customPrompt={style.customPrompt}
                   stylePrompt={style.stylePrompt}
+                  categoryId={style._categoryId || style.primaryCategory || style.category}
+                  familyId={style.familyId}
                 />
               ))}
             </MasonryContainer>

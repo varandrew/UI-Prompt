@@ -1,0 +1,95 @@
+# Custom Prompt
+
+## 中文版本 (zh-CN)
+
+请使用 TailwindCSS 创建「核心扁平化」页面，强调清晰的栅格、纯色块、极简阴影或无阴影、几何化插画/形状。避免玻璃态、拟物、重滤镜与霓虹。包含：留白 Hero、价值/功能卡、数据/列表区、证明/Logo 带、收尾 CTA。版式重视对齐与节奏，色彩控制在 1–2 主色 + 中性色。
+
+Create a Core Flat Design page in TailwindCSS: crisp, two-dimensional, geometric, with disciplined grids and solid fills. No glass, no skeuomorphism, no noisy gradients. Deliver: a spacious hero, value cards, data/list section, proof/logo strip, and a closing CTA. Keep copy short and confident; let alignment, spacing, and color blocks do the talking.
+
+**Layout & Flow**
+- Hero: 2–3 line headline (38–56px), subhead 16–18px, one primary CTA + optional secondary link. Use a clean color block or abstract shapes; avoid busy photography unless covered by a solid overlay.
+- Feature/value grid: 3–6 cards; each has icon, title, 2–3 lines body, small link. Equal padding, equal gutters, consistent alignment. Consider a 12-col grid on desktop, single column on mobile.
+- Data/list strip: table or checklist with 1px dividers, 44–56px row height, monospace numbers for alignment, concise labels. Add status badges where needed.
+- Proof/logo row: 4–8 muted logos or 3–4 stat tiles. Keep contrast sufficient without overpowering.
+- Final CTA bar: headline + single action; modest height, balanced whitespace.
+
+**Color System**
+- Palette: neutral base (white/off-white/light gray) plus 1–2 accents (blue/teal/amber). Use solid fills or very subtle two-stop gradients for emphasis only.
+- Borders/dividers: 1px at 8–16% opacity. Shadows minimal (`shadow-sm` or none); rely on contrast and spacing.
+- State colors: tone shifts of 6–10% for hover/active; avoid glow. Keep accent usage purposeful.
+
+**Typography**
+- Headings weight 600–800; body 15–16px, line-height 1.6–1.7. Use a clean sans (Inter/Source Sans). Tracking neutral to slightly tight.
+- Data: monospace for numbers; badges in small uppercase/semi-bold. Keep line lengths ~60–75 chars.
+
+**Components**
+- Buttons: flat or light shadow, radius 6–10px. Primary filled; secondary ghost. Hover = mild tint change; active = 1–2px press; focus-visible outline 2–3px in accent.
+- Cards: radius 10–14px, 1px stroke, soft background tint, minimal shadow. Padding 16–24px. Avoid glass or blurred backgrounds.
+- Chips/badges: square or lightly rounded; monochrome or single accent; uppercase or mono labels.
+- Tables/lists: clear row separation, optional zebra with very light tones. Icons optional; never replace text.
+
+**Motion**
+- Fast, utilitarian: fades/translate 120–180ms ease-out; no bounce. Hover lifts ≤4px. Respect `prefers-reduced-motion`; disable transforms on touch.
+- Skeleton/loading: simple blocks, neutral shimmer; keep GPU cost low.
+
+**Accessibility**
+- Contrast ≥ 4.5:1 for text. Focus states visible and not color-only. Tap targets ≥44px. Provide aria labels for icons; pair color with text/icon for state.
+- Keep typography large enough and whitespace generous to reduce cognitive load.
+
+**Copy Tone**
+- Direct, functional, optimistic. Examples: “Design flat, ship fast.” “Everything aligned.” “Decisions in one view.”
+- CTA examples: “Start now”, “View pricing”, “See the demo”.
+
+**Tailwind Tips (reference)**
+- Container: `max-w-6xl mx-auto px-6 lg:px-10 py-16 lg:py-24`
+- Grid: `grid gap-6 lg:grid-cols-3` or 12-col with `col-span` utilities.
+- Surfaces: `rounded-xl border border-slate-200/70 bg-white shadow-sm` (or `shadow-none` for ultra-flat).
+- Buttons: `rounded-lg px-5 py-3 font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`
+- Lists/Tables: `divide-y divide-slate-200 text-sm leading-6 font-mono tabular-nums`
+
+---
+
+## English Version (en-US)
+
+Create a Core Flat Design page in TailwindCSS: crisp, two-dimensional, geometric, with disciplined grids and solid fills. No glass, no skeuomorphism, no noisy gradients. Deliver: a spacious hero, value cards, data/list section, proof/logo strip, and a closing CTA. Keep copy short and confident; let alignment, spacing, and color blocks do the talking.
+
+**Layout & Flow**
+- Hero: 2–3 line headline (38–56px), subhead 16–18px, one primary CTA + optional secondary link. Use a clean color block or abstract shapes; avoid busy photography unless covered by a solid overlay.
+- Feature/value grid: 3–6 cards; each has icon, title, 2–3 lines body, small link. Equal padding, equal gutters, consistent alignment. Consider a 12-col grid on desktop, single column on mobile.
+- Data/list strip: table or checklist with 1px dividers, 44–56px row height, monospace numbers for alignment, concise labels. Add status badges where needed.
+- Proof/logo row: 4–8 muted logos or 3–4 stat tiles. Keep contrast sufficient without overpowering.
+- Final CTA bar: headline + single action; modest height, balanced whitespace.
+
+**Color System**
+- Palette: neutral base (white/off-white/light gray) plus 1–2 accents (blue/teal/amber). Use solid fills or very subtle two-stop gradients for emphasis only.
+- Borders/dividers: 1px at 8–16% opacity. Shadows minimal (`shadow-sm` or none); rely on contrast and spacing.
+- State colors: tone shifts of 6–10% for hover/active; avoid glow. Keep accent usage purposeful.
+
+**Typography**
+- Headings weight 600–800; body 15–16px, line-height 1.6–1.7. Use a clean sans (Inter/Source Sans). Tracking neutral to slightly tight.
+- Data: monospace for numbers; badges in small uppercase/semi-bold. Keep line lengths ~60–75 chars.
+
+**Components**
+- Buttons: flat or light shadow, radius 6–10px. Primary filled; secondary ghost. Hover = mild tint change; active = 1–2px press; focus-visible outline 2–3px in accent.
+- Cards: radius 10–14px, 1px stroke, soft background tint, minimal shadow. Padding 16–24px. Avoid glass or blurred backgrounds.
+- Chips/badges: square or lightly rounded; monochrome or single accent; uppercase or mono labels.
+- Tables/lists: clear row separation, optional zebra with very light tones. Icons optional; never replace text.
+
+**Motion**
+- Fast, utilitarian: fades/translate 120–180ms ease-out; no bounce. Hover lifts ≤4px. Respect `prefers-reduced-motion`; disable transforms on touch.
+- Skeleton/loading: simple blocks, neutral shimmer; keep GPU cost low.
+
+**Accessibility**
+- Contrast ≥ 4.5:1 for text. Focus states visible and not color-only. Tap targets ≥44px. Provide aria labels for icons; pair color with text/icon for state.
+- Keep typography large enough and whitespace generous to reduce cognitive load.
+
+**Copy Tone**
+- Direct, functional, optimistic. Examples: “Design flat, ship fast.” “Everything aligned.” “Decisions in one view.”
+- CTA examples: “Start now”, “View pricing”, “See the demo”.
+
+**Tailwind Tips (reference)**
+- Container: `max-w-6xl mx-auto px-6 lg:px-10 py-16 lg:py-24`
+- Grid: `grid gap-6 lg:grid-cols-3` or 12-col with `col-span` utilities.
+- Surfaces: `rounded-xl border border-slate-200/70 bg-white shadow-sm` (or `shadow-none` for ultra-flat).
+- Buttons: `rounded-lg px-5 py-3 font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`
+- Lists/Tables: `divide-y divide-slate-200 text-sm leading-6 font-mono tabular-nums`
