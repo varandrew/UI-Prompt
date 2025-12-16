@@ -87,13 +87,12 @@ describe('createIOActions', () => {
   it('should create all IO methods', () => {
     const mockSet = vi.fn();
     const mockGet = vi.fn();
-    const mockSnapshot = { takeSnapshot: vi.fn() };
     const mockInitialState = {
       initialComponentTree: { id: 'root', children: [] },
       initialComponentProps: { root: {} }
     };
 
-    const actions = createIOActions(mockSet, mockGet, mockSnapshot, mockInitialState);
+    const actions = createIOActions(mockSet, mockGet, mockInitialState);
 
     expect(actions).toHaveProperty('reset');
     expect(actions).toHaveProperty('importCanvas');
@@ -101,19 +100,17 @@ describe('createIOActions', () => {
     expect(actions).toHaveProperty('replaceCanvas');
   });
 
-  it('reset should take snapshot and reset to initial state', () => {
+  it('reset should reset to initial state', () => {
     const mockSet = vi.fn();
     const mockGet = vi.fn();
-    const mockSnapshot = { takeSnapshot: vi.fn() };
     const mockInitialState = {
       initialComponentTree: { id: 'root', children: [] },
       initialComponentProps: { root: { baseProps: {} } }
     };
 
-    const actions = createIOActions(mockSet, mockGet, mockSnapshot, mockInitialState);
+    const actions = createIOActions(mockSet, mockGet, mockInitialState);
     actions.reset();
 
-    expect(mockSnapshot.takeSnapshot).toHaveBeenCalledWith('canvas:reset');
     expect(mockSet).toHaveBeenCalledWith({
       componentTree: { id: 'root', children: [] },
       componentProps: { root: { baseProps: {} } }
@@ -128,10 +125,9 @@ describe('createIOActions', () => {
 
     const mockGet = vi.fn(() => mockState);
     const mockSet = vi.fn();
-    const mockSnapshot = { takeSnapshot: vi.fn() };
     const mockInitialState = { initialComponentTree: {}, initialComponentProps: {} };
 
-    const actions = createIOActions(mockSet, mockGet, mockSnapshot, mockInitialState);
+    const actions = createIOActions(mockSet, mockGet, mockInitialState);
     const exported = actions.exportCanvas();
 
     // Should be deep clone, not same reference
@@ -149,10 +145,9 @@ describe('createIOActions', () => {
     });
 
     const mockGet = vi.fn();
-    const mockSnapshot = { takeSnapshot: vi.fn() };
     const mockInitialState = { initialComponentTree: {}, initialComponentProps: {} };
 
-    const actions = createIOActions(mockSet, mockGet, mockSnapshot, mockInitialState);
+    const actions = createIOActions(mockSet, mockGet, mockInitialState);
     const importData = {
       componentTree: { id: 'imported', children: [] },
       componentProps: { imported: { baseProps: {} } }
