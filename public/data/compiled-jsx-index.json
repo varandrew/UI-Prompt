@@ -1,6 +1,6 @@
 {
-  "generated": "2025-12-17T12:14:27.460Z",
-  "count": 18,
+  "generated": "2025-12-17T13:25:22.424Z",
+  "count": 19,
   "files": {
     "core-skeuomorphism-core-skeuomorphism-analog-synthesizer:fullpage": {
       "hash": "b384b4e0",
@@ -208,6 +208,14 @@
         "Grid"
       ],
       "size": 16258
+    },
+    "visual-scrollNarrative-vision-launch-narrative:fullpage": {
+      "hash": "8219728e",
+      "file": "visual-scrollNarrative-vision-launch-narrative_fullpage-8219728e.js",
+      "mode": "react",
+      "componentName": "App",
+      "lucideIcons": [],
+      "size": 14119
     },
     "visual-wabiSabi-visual-wabiSabi-wabiSabi-zen-website:demo": {
       "hash": "057b01ad",

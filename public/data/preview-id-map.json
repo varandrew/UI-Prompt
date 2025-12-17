@@ -366,6 +366,16 @@
     "familyId": "blueprint",
     "templateId": "visual-blueprint"
   },
+  "visual-blueprint-visual-blueprint-dashboard": {
+    "category": "visual",
+    "familyId": "blueprint",
+    "templateId": "visual-blueprint-dashboard"
+  },
+  "visual-blueprint-dashboard": {
+    "category": "visual",
+    "familyId": "blueprint",
+    "templateId": "visual-blueprint-dashboard"
+  },
   "blueprint": {
     "category": "visual",
     "familyId": "blueprint",
@@ -811,30 +821,20 @@
     "familyId": "liminalSpace",
     "templateId": "visual-liminalSpace-digital-museum"
   },
-  "visual-liminalSpace-liminalSpaceMuseum": {
-    "category": "visual",
-    "familyId": "liminalSpace",
-    "templateId": "liminalSpaceMuseum"
-  },
-  "liminalSpaceMuseum": {
-    "category": "visual",
-    "familyId": "liminalSpace",
-    "templateId": "liminalSpaceMuseum"
-  },
   "liminalSpace": {
     "category": "visual",
     "familyId": "liminalSpace",
-    "templateId": "liminalSpaceMuseum"
+    "templateId": "visual-liminalSpace-digital-museum"
   },
   "liminal-space": {
     "category": "visual",
     "familyId": "liminalSpace",
-    "templateId": "liminalSpaceMuseum"
+    "templateId": "visual-liminalSpace-digital-museum"
   },
   "liminalspace": {
     "category": "visual",
     "familyId": "liminalSpace",
-    "templateId": "liminalSpaceMuseum"
+    "templateId": "visual-liminalSpace-digital-museum"
   },
   "visual-memphis-visual-memphis-memphis-creative": {
     "category": "visual",
