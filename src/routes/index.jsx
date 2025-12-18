@@ -66,10 +66,6 @@ export const router = createBrowserRouter([
     },
   },
   {
-    path: '/layouts',
-    element: <LegacyRedirect basePath="/layouts" />,
-  },
-  {
     path: '/about',
     element: <LegacyRedirect basePath="/about" />,
   },
@@ -143,12 +139,6 @@ export const router = createBrowserRouter([
             lazy: createLazyRoute(
               () => import('../pages/components/ComponentDetailPage.jsx'),
               createComponentLoader
-            ),
-          },
-          {
-            path: 'layouts',
-            lazy: createLazyRoute(
-              () => import('../pages/layouts/LayoutsPage.jsx')
             ),
           },
           {
