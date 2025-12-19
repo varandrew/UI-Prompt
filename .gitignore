@@ -35,6 +35,10 @@ docs/
 
 # Claude Code
 .claude/
+# Allow add-template skill to be committed
+!.claude/skills/
+!.claude/skills/add-template/
+!.claude/skills/add-template/**
 
 # Test coverage
 coverage/
