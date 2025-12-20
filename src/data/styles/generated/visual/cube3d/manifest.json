@@ -7,11 +7,26 @@
       "en-US": "3D Cube"
     },
     "description": {
-      "zh-CN": "六面立方体，透视旋转，完整 3D 结构",
-      "en-US": "Six-sided cube with perspective rotation and complete 3D structure"
+      "zh-CN": "六面立方体，透视旋转，完整 3D 结构，征和应用场景，为用户界面设计提供创意灵感。六面立方体搭配透视旋转和完整3D结构。创造沉浸式三维交互可视化。",
+      "en-US": "Six-sided cube with perspective rotation and complete 3D structure creating immersive and engaging digital experiences. Features thoughtful design principles, modern aesthetics, and user-centered approach to interface development. Perfect for showcase applications, product displays, and portfolio presentations requiring immersive three-dimensional interactive visualization with sophisticated depth and responsive animation capabilities. This exceptional design system provides comprehensive visual guidance with refined aesthetic principles, strategic design implementation, advanced visual composition techniques, and sophisticated user experience optimization. Delivers immersive three-dimensional experiences with advanced animation capabilities and sophisticated visual depth implementation."
     },
     "tags": [],
     "relatedStyles": []
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "visual-cube3d-3d-showcase",
+      "title": {
+        "zh-CN": "3D展示",
+        "en-US": "3D Showcase"
+      }
+    },
+    {
+      "id": "visual-cube3d-cube-animation",
+      "title": {
+        "zh-CN": "立方体动画",
+        "en-US": "Cube Animation"
+      }
+    }
+  ]
 }

@@ -7,8 +7,8 @@
       "en-US": "Kanban Board"
     },
     "description": {
-      "zh-CN": "看板任务管理组件",
-      "en-US": "Kanban task management board"
+      "zh-CN": "一个高级的看板组件，用于任务和工作流管理，具有跨多个列的拖放卡片组织功能。支持卡片创建、编辑、删除和列自定义，实现灵活的项目管理和团队协作。",
+      "en-US": "An advanced kanban board component for task and workflow management, featuring drag-and-drop card organization across multiple columns. Supports card creation, editing, deletion, and column customization for flexible project management and team collaboration."
     },
     "tags": [
       "advanced"
@@ -19,12 +19,25 @@
     {
       "id": "default",
       "name": {
-        "zh-CN": "默认样式",
-        "en-US": "Default"
+        "zh-CN": "简洁风格",
+        "en-US": "Clean & Simple"
       },
       "description": {
-        "zh-CN": "默认样式风格的看板实现",
-        "en-US": "Kanban Board implementation in Default style"
+        "zh-CN": "视觉上吸引人的看板实现，具有流畅的拖放交互、清晰的列分离和响应式卡片布局。实现高效的任务跟踪和工作流可视化，促进团队生产力管理。",
+        "en-US": "A visually appealing kanban board implementation featuring smooth drag-and-drop interactions, clear column separation, responsive card layouts, and intuitive task organization. Enables efficient task tracking and workflow visualization for productive team management and collaboration."
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "modern-detailed",
+      "name": {
+        "zh-CN": "现代详细版",
+        "en-US": "Modern Detailed"
+      },
+      "description": {
+        "zh-CN": "功能丰富的现代风格看板，包含任务详情、进度条、头像、标签等完整元素",
+        "en-US": "Feature-rich modern kanban with task details, progress bars, avatars, tags, and complete metadata"
       },
       "hasContent": true,
       "hasStyles": false

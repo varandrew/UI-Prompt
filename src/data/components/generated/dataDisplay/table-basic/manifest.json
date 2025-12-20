@@ -7,8 +7,8 @@
       "en-US": "Basic Table"
     },
     "description": {
-      "zh-CN": "基础数据表格组件",
-      "en-US": "Basic data table component"
+      "zh-CN": "一个基础表格组件，用于以有组织的格式显示带有标题、行和列的表格数据。支持排序、筛选、分页和响应式行为，同时保持清晰和无障碍，实现有效的数据展示。",
+      "en-US": "A foundational table component for displaying tabular data with headers, rows, and columns in organized format. Supports sorting, filtering, pagination, and responsive behavior while maintaining clarity and accessibility for effective data presentation."
     },
     "tags": [
       "dataDisplay",
@@ -26,8 +26,8 @@
         "en-US": "Minimalism"
       },
       "description": {
-        "zh-CN": "极简风格风格的基础表格实现",
-        "en-US": "Basic Table implementation in Minimalism style"
+        "zh-CN": "结构良好的表格实现，具有清晰的标题、有组织的行和响应式滚动。提供有效的表格数据可视化，具有直观的交互模式用于数据浏览和探索。",
+        "en-US": "A well-structured table implementation featuring clear headers, organized rows, responsive scrolling, and intuitive controls. Provides effective tabular data visualization with intuitive interaction patterns for data browsing and exploration across all devices."
       },
       "hasContent": true,
       "hasStyles": true

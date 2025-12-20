@@ -1,0 +1,296 @@
+/* --- Reset & Base --- */
+* {
+    box-sizing: border-box;
+    user-select: none; /* UI feel */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eef2f6; /* Light gray outer background to contrast the white component */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* --- The Square Container --- */
+#app-container {
+    position: relative;
+    /* Force Square Shape */
+    aspect-ratio: 1 / 1;
+    width: min(90vw, 500px); /* Responsive width, capping at 500px */
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow:
+        0 20px 40px -10px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(0,0,0,0.02);
+    overflow: hidden; /* Clip contents to rounded corners */
+    display: flex;
+    flex-direction: column;
+    /* Initial font size, JS will adjust this for "auto config" */
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+/* --- Background Noise (Fixed Layer) --- */
+.bg-pattern {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(#dfe4ea 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.4;
+    pointer-events: none; /* CRITICAL: Prevents interaction interference */
+    z-index: 0;
+}
+
+/* --- Main UI Wrapper --- */
+.ui-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 5%; /* Relative padding */
+    height: 100%;
+}
+
+/* --- Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 3%;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.icon-box {
+    width: 1.5em;
+    height: 1.5em;
+    background: #eff6ff;
+    color: #3b82f6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+.btn-header {
+    background: #111827;
+    color: white;
+    border: none;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.btn-header:active { transform: scale(0.95); }
+
+/* --- Scrollable Workspace --- */
+.workspace {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px; /* Space for scrollbar */
+}
+
+/* Custom Scrollbar */
+.workspace::-webkit-scrollbar { width: 4px; }
+.workspace::-webkit-scrollbar-track { background: transparent; }
+.workspace::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+
+/* --- Query Groups --- */
+.query-group {
+    background: #fafafa; /* Very subtle gray for grouping */
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 3%;
+    margin-bottom: 3%;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.query-group:hover {
+    background: #fff;
+    border-color: #d1d5db;
+    box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+.group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 0.8em;
+}
+
+/* Logical Operator Toggle (AND/OR) */
+.logic-toggle {
+    display: flex;
+    background: #e5e7eb;
+    border-radius: 6px;
+    padding: 2px;
+    font-size: 0.75em;
+    font-weight: 700;
+}
+
+.logic-btn {
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.logic-btn.active {
+    background: #fff;
+    color: #3b82f6;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Connector Line */
+.connector {
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 0 0.5em;
+}
+
+.group-actions {
+    display: flex;
+    gap: 0.3em;
+}
+
+/* --- Query Rules (Rows) --- */
+.rule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+}
+
+.rule-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    padding: 0.5em;
+    border-radius: 8px;
+    position: relative;
+    /* Drag handle area */
+    padding-left: 0.2em;
+}
+
+.rule-item:hover {
+    border-color: #3b82f6;
+}
+
+.drag-handle {
+    color: #d1d5db;
+    cursor: grab;
+    padding: 0 0.3em;
+    font-size: 1.2em;
+    line-height: 1;
+}
+.drag-handle:hover { color: #9ca3af; }
+
+/* Inputs */
+select, input {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 0.4em;
+    font-size: 0.85em;
+    color: #374151;
+    outline: none;
+    width: 100%;
+}
+select:focus, input:focus {
+    border-color: #3b82f6;
+    background: #fff;
+}
+
+/* Field widths */
+.field-select { flex: 2; }
+.op-select { flex: 1.2; }
+.value-input { flex: 2; }
+
+/* Buttons */
+.btn-icon {
+    border: none;
+    background: transparent;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0.2em;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-icon:hover { background: #fee2e2; color: #ef4444; } /* Red hover for delete */
+
+.btn-add {
+    background: transparent;
+    border: 1px dashed #d1d5db;
+    color: #6b7280;
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 8px;
+    font-size: 0.85em;
+    margin-top: 0.5em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-add:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background: #eff6ff;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75em;
+    color: #9ca3af;
+    border-top: 1px solid #f3f4f6;
+    padding-top: 3%;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+/* --- Ghost Element for Dragging --- */
+.sortable-ghost {
+    opacity: 0.4;
+    background: #eef2f6;
+    border: 1px dashed #9ca3af;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

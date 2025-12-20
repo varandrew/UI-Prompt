@@ -7,8 +7,8 @@
       "en-US": "Card Grid"
     },
     "description": {
-      "zh-CN": "网格布局的卡片展示组件",
-      "en-US": "Grid layout card display component"
+      "zh-CN": "一个灵活的卡片网格组件，用于在响应式网格布局中显示项目集合。支持各种卡片尺寸、基于屏幕大小的动态列调整和悬停交互，改善用户参与度。",
+      "en-US": "A flexible card grid component for displaying collections of items in a responsive grid layout. Supports various card sizes, dynamic column adjustment based on screen size, and hover interactions for improved user engagement."
     },
     "tags": [
       "dataDisplay"
@@ -23,8 +23,8 @@
         "en-US": "Bootstrap 5"
       },
       "description": {
-        "zh-CN": "Bootstrap 5风格的卡片网格实现",
-        "en-US": "Card Grid implementation in Bootstrap 5 style"
+        "zh-CN": "干净的卡片网格实现，具有响应式布局、一致的间距和直观的卡片交互。有效地组织多个项目，同时跨不同设备尺寸保持视觉层级和可用性。",
+        "en-US": "A clean card grid implementation featuring responsive layout, consistent spacing, intuitive card interactions, and smooth hover effects. Effectively organizes multiple items while maintaining visual hierarchy and usability across different device sizes and screen resolutions."
       },
       "hasContent": true,
       "hasStyles": true

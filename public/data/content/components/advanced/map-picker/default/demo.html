@@ -1,198 +1,213 @@
-<div class="relative w-full h-[450px] bg-white overflow-hidden flex flex-col">
+<!-- Main Square Component Wrapper -->
+<div class="demo-wrapper">
 
-        <!-- 地圖区域 -->
-        <div class="relative flex-1 bg-gray-50 p-4">
-          <!-- CSS Grid 网格地圖 -->
-          <div class="grid grid-cols-8 grid-rows-5 gap-px bg-gray-300 h-full rounded overflow-hidden">
-            <!-- 网格單元 -->
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full shadow-md"></div>
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full shadow-md"></div>
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full shadow-md"></div>
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-              <div class="bg-gray-100 relative">
-                
-              </div>
-            
-          </div>
+    <!-- Top: Search Bar -->
+    <div class="search-bar" id="searchBar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Search location..." class="">
+        <button onclick="clearSearch()" style="padding: 6px; border-radius: 8px; background: transparent; border: none; color: #9ca3af; cursor: pointer; margin-right: 8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </div>
 
-          <!-- 搜索框 -->
-          <div class="absolute top-6 left-6 right-6">
-            <div class="bg-white rounded shadow-lg border border-gray-200 p-2 flex items-center gap-2">
-              <div class="w-2 h-2 bg-black rounded-full"></div>
-              <div class="flex-1 h-px bg-gray-300"></div>
-            </div>
-          </div>
+    <!-- Middle: Map Area -->
+    <div class="map-container" id="mapContainer">
+        <!-- Simulated Infinite Map Surface -->
+        <div class="map-surface" id="mapSurface">
+            <!-- Features added via JS/CSS randomly -->
+            <div class="map-feature park" style="top: 20%; left: 20%; width: 120px; height: 80px;"></div>
+            <div class="map-feature park" style="top: 60%; left: 70%; width: 150px; height: 100px;"></div>
+            <div class="map-feature water" style="top: 10%; left: 80%; width: 100px; height: 100px;"></div>
+            <div class="map-feature building" style="top: 40%; left: 40%; width: 40px; height: 40px;"></div>
+            <div class="map-feature building" style="top: 42%; left: 45%; width: 30px; height: 30px;"></div>
+            <div class="map-feature building" style="top: 80%; left: 30%; width: 60px; height: 60px;"></div>
         </div>
 
-        <!-- 地點列表区域 -->
-        <div class="border-t border-gray-200 p-4 space-y-2 bg-white">
-          <div class="flex items-center gap-3 p-2 rounded hover:bg-gray-50">
-            <div class="w-2 h-2 rounded-full border border-gray-400"></div>
-            <div class="flex-1 h-2 bg-gray-300 rounded w-2/3"></div>
-          </div>
-          <div class="flex items-center gap-3 p-2 rounded bg-gray-100">
-            <div class="w-2 h-2 rounded-full bg-black"></div>
-            <div class="flex-1 h-2 bg-black rounded w-3/4"></div>
-          </div>
-          <div class="flex items-center gap-3 p-2 rounded hover:bg-gray-50">
-            <div class="w-2 h-2 rounded-full border border-gray-400"></div>
-            <div class="flex-1 h-2 bg-gray-300 rounded w-1/2"></div>
-          </div>
-        </div>
+        <!-- Static UI Elements that sit 'on top' of the map but move with it contextually -->
+        <!-- Note: User Location Dot typically moves with map, Pin stays centered -->
+        <div class="user-location-dot" style="top: 60%; left: 35%; transform: translate(-50%,-50%)"></div>
+    </div>
 
-        <!-- 極淡网格背景 -->
-        <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
-      </div>
+    <!-- Center Pin (Fixed) -->
+    <div class="pin-shadow"></div>
+    <div class="pin-marker" id="pinMarker">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C12 22 20 18 20 11C20 6.58172 16.4183 3 12 3C7.58172 3 4 6.58172 4 11C4 18 12 22 12 22Z" fill="#EF4444" stroke="#B91C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="11" r="3" fill="white"/>
+        </svg>
+    </div>
+
+    <!-- Bottom Left: Location Info Card -->
+    <div class="location-card">
+        <h3 id="locationTitle">Selected Location</h3>
+        <p id="locationCoords">Waiting for selection...</p>
+        <button onclick="confirmLocation()">Confirm Location</button>
+    </div>
+
+    <!-- Bottom Right: Zoom Controls -->
+    <div class="controls-overlay">
+        <div class="fab" onclick="zoomIn()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="fab" onclick="zoomOut()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="fab text-blue-600" onclick="resetView()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4-8-10V5l8-3 8 3v7c0 6-8 10-8 10z"></path></svg>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // --- Logic for Interactive Demo ---
+
+    const mapContainer = document.getElementById('mapContainer');
+    const mapSurface = document.getElementById('mapSurface');
+    const pinMarker = document.getElementById('pinMarker');
+    const locationTitle = document.getElementById('locationTitle');
+    const locationCoords = document.getElementById('locationCoords');
+
+    let isDragging = false;
+    let startX, startY;
+    let currentTranslateX = 0, currentTranslateY = 0;
+    let previousTranslateX = 0, previousTranslateY = 0;
+    let scale = 1;
+
+    // --- Mock Geo Data ---
+    const streets = ["Main St", "Broadway", "Fifth Ave", "Oak Ln", "Pine St", "Maple Dr"];
+
+    function updateLocationInfo() {
+        // Generate mock coordinates based on translation
+        // Center is roughly 37.7749, -122.4194
+        const lat = 37.7749 + (currentTranslateY / 2000);
+        const lng = -122.4194 - (currentTranslateX / 2000);
+
+        // Generate mock address
+        const streetIndex = Math.abs(Math.floor(currentTranslateX / 50)) % streets.length;
+        const number = Math.abs(Math.floor(currentTranslateY + currentTranslateX) % 1000) + 1;
+
+        locationCoords.textContent = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+
+        // Little bounce animation on the pin when stopping
+        pinMarker.style.transform = `translate(-50%, -120%) scale(1.1)`;
+        setTimeout(() => {
+            pinMarker.style.transform = `translate(-50%, -100%) scale(1)`;
+        }, 150);
+
+        // Mock reverse geocode delay
+        locationTitle.textContent = "Loading address...";
+        setTimeout(() => {
+            locationTitle.textContent = `${number} ${streets[streetIndex]}`;
+        }, 300);
+    }
+
+    // --- Dragging Logic ---
+
+    mapContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        mapContainer.style.cursor = 'grabbing';
+
+        // Lift pin while dragging
+        pinMarker.style.transition = 'transform 0.2s';
+        pinMarker.style.transform = `translate(-50%, -150%) scale(1.1)`;
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        previousTranslateX = currentTranslateX;
+        previousTranslateY = currentTranslateY;
+        mapContainer.style.cursor = 'grab';
+
+        updateLocationInfo();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.clientX - startX;
+        const y = e.clientY - startY;
+
+        currentTranslateX = previousTranslateX + x;
+        currentTranslateY = previousTranslateY + y;
+
+        updateMapTransform();
+    });
+
+    // --- Zoom Logic ---
+
+    function zoomIn() {
+        if (scale < 2.5) {
+            scale += 0.25;
+            updateMapTransform();
+        }
+    }
+
+    function zoomOut() {
+        if (scale > 0.5) {
+            scale -= 0.25;
+            updateMapTransform();
+        }
+    }
+
+    function resetView() {
+        scale = 1;
+        currentTranslateX = 0;
+        currentTranslateY = 0;
+        previousTranslateX = 0;
+        previousTranslateY = 0;
+        updateMapTransform();
+        updateLocationInfo();
+    }
+
+    function updateMapTransform() {
+        mapSurface.style.transform = `translate(${currentTranslateX}px, ${currentTranslateY}px) scale(${scale})`;
+    }
+
+    // --- Search Mock ---
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter') {
+            // Simulate finding a location
+            locationTitle.textContent = searchInput.value;
+            locationCoords.textContent = "Searching...";
+
+            // Move map randomly to simulate "flying" to location
+            setTimeout(() => {
+                const randomX = (Math.random() - 0.5) * 400;
+                const randomY = (Math.random() - 0.5) * 400;
+
+                // Animate to new spot
+                mapSurface.style.transition = "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)";
+                currentTranslateX = randomX;
+                currentTranslateY = randomY;
+                previousTranslateX = randomX;
+                previousTranslateY = randomY;
+                updateMapTransform();
+
+                // Reset transition after animation
+                setTimeout(() => {
+                    mapSurface.style.transition = "transform 0.1s linear";
+                    updateLocationInfo();
+                }, 800);
+            }, 500);
+        }
+    });
+
+    function clearSearch() {
+        searchInput.value = "";
+        searchInput.focus();
+    }
+
+    function confirmLocation() {
+        console.log("Location confirmed:", locationCoords.textContent);
+        alert("Location confirmed: " + locationCoords.textContent);
+    }
+
+    // Initialize
+    updateLocationInfo();
+</script>

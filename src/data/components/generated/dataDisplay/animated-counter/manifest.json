@@ -7,8 +7,8 @@
       "en-US": "Animated Counter"
     },
     "description": {
-      "zh-CN": "带动画效果的数字计数器",
-      "en-US": "Animated number counter"
+      "zh-CN": "一个动画计数器组件，用流畅的计数动画和过渡显示数值。非常适合统计数据显示、成就计数器和指标展示，具有可自定义的动画持续时间和缓动函数。",
+      "en-US": "An animated counter component that displays numerical values with smooth counting animations and transitions. Perfect for statistics display, achievement counters, and metric presentations with customizable animation duration and easing functions."
     },
     "tags": [
       "dataDisplay"
@@ -23,8 +23,8 @@
         "en-US": "Minimalism"
       },
       "description": {
-        "zh-CN": "极简风格风格的动画计数器实现",
-        "en-US": "Animated Counter implementation in Minimalism style"
+        "zh-CN": "精致的动画计数器实现，具有流畅的数字过渡、清晰的视觉呈现和响应式尺寸。有效地展示数值数据，具有吸引用户注意力的引人入胜的动画效果。",
+        "en-US": "A polished animated counter implementation with smooth number transitions, clear visual presentation, responsive sizing, and smooth animation effects. Effectively presents numerical data with engaging animation effects that draw attention and enhance visual appeal."
       },
       "hasContent": true,
       "hasStyles": true

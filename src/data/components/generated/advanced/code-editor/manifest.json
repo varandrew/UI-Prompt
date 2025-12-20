@@ -7,8 +7,8 @@
       "en-US": "Code Editor"
     },
     "description": {
-      "zh-CN": "代码编辑器组件",
-      "en-US": "Code editor component"
+      "zh-CN": "为开发者设计的强大代码编辑器组件，具有多种编程语言的语法高亮、实时代码验证、行号显示和可自定义的主题。支持键盘快捷键、代码折叠和可扩展的插件架构，增强开发工作流。",
+      "en-US": "A powerful code editor component designed for developers, featuring syntax highlighting for multiple programming languages, real-time code validation, line numbering, and customizable themes. Supports keyboard shortcuts, code folding, and extensible plugin architecture for enhanced development workflows."
     },
     "tags": [
       "advanced"
@@ -23,11 +23,11 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的代码编辑器实现",
-        "en-US": "Code Editor implementation in Default style"
+        "zh-CN": "正方形代码编辑器组件，采用 Tokyo Night 深色主题，带有 Mac 风格窗口控制、语法高亮和流畅的交互动画。支持代码预览和视觉反馈效果。",
+        "en-US": "Square code editor component with Tokyo Night dark theme, featuring Mac-style window controls, syntax highlighting, and smooth interactive animations. Supports code preview with visual feedback effects."
       },
       "hasContent": true,
-      "hasStyles": false
+      "hasStyles": true
     }
   ]
 }

@@ -14,6 +14,32 @@ import appCssUrl from '../../../index.css?url';
 // 工具按鈕交互腳本（用於 paint-toolbox 等組件）
 const INTERACTIVE_SCRIPT = `(function(){function i(){try{document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.tool-button');if(!b)return;var c=b.closest&&b.closest('.paint-toolbox');if(!c)return;var a=c.querySelectorAll&&c.querySelectorAll('.tool-button.active');if(a){a.forEach?a.forEach(function(el){el.classList.remove('active')}):Array.prototype.forEach.call(a,function(el){el.classList.remove('active')});}b.classList.add('active');},true);}catch(_){} } if(document.readyState==='complete'||document.readyState==='interactive'){i();}else{document.addEventListener('DOMContentLoaded',i,{once:true});}})();`;
 
+/**
+ * 提取 HTML 中的 script 標籤內容
+ * @param {string} html - 原始 HTML
+ * @returns {Object} { cleanHtml: string, scripts: string[] }
+ */
+function extractScripts(html) {
+  if (!html) return { cleanHtml: '', scripts: [] };
+
+  const scripts = [];
+  // 匹配所有 <script>...</script> 標籤（支持多行）
+  const scriptRegex = /<script[^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+
+  while ((match = scriptRegex.exec(html)) !== null) {
+    const scriptContent = match[1].trim();
+    if (scriptContent) {
+      scripts.push(scriptContent);
+    }
+  }
+
+  // 移除 script 標籤，保留其他 HTML
+  const cleanHtml = html.replace(scriptRegex, '').trim();
+
+  return { cleanHtml, scripts };
+}
+
 const LOADING_HTML = `<!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -78,9 +104,17 @@ export function buildComponentPreviewHTML({
 }) {
   const langAttr = language || 'en-US';
 
-  // 清理 HTML 和 CSS
-  const sanitizedHTML = cachedSanitize(demoHTML || '', 'html');
+  // 先提取 script 標籤內容（避免被 DOMPurify 移除）
+  const { cleanHtml, scripts } = extractScripts(demoHTML || '');
+
+  // 清理 HTML 和 CSS（DOMPurify 會移除 script 標籤，所以我們先提取了）
+  const sanitizedHTML = cachedSanitize(cleanHtml, 'html');
   const sanitizedStyles = cachedSanitize(customStyles || '', 'css');
+
+  // 構建組件 script 部分（將提取的 scripts 合併）
+  const componentScripts = scripts.length > 0
+    ? scripts.map(s => `<script>${s}</script>`).join('\n  ')
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="${langAttr}">
@@ -115,6 +149,7 @@ export function buildComponentPreviewHTML({
     ${sanitizedHTML}
   </div>
   <script>${INTERACTIVE_SCRIPT}</script>
+  ${componentScripts}
 </body>
 </html>`;
 }

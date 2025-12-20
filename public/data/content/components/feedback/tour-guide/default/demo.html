@@ -1,0 +1,305 @@
+<!-- Mock Application UI -->
+<div class="mock-layout">
+    <!-- Top Navigation -->
+    <nav class="mock-nav" id="target-nav">
+        <div class="mock-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.83 2.18v.02c.88.02 1.67.67 1.67 1.67v.02c0 .88-.67 1.67-1.67 1.67h-.02c-.88 0-1.67-.67-1.67-1.67v-.02c0-.88.67-1.67 1.67-1.67h.02z"/>
+                <path d="M3 3v18h18"/>
+                <path d="m19 9-5 5-4-4-3 3"/>
+            </svg>
+            SaaS Platform
+        </div>
+        <div class="mock-actions">
+            <button class="mock-btn" id="target-help">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                    <path d="M12 17h.01"/>
+                </svg>
+                Help
+            </button>
+            <div class="mock-avatar">TL</div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="mock-sidebar" id="target-sidebar">
+        <div class="mock-menu-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="m19 9-5 5-4-4-3 3"/>
+            </svg>
+            Dashboard
+        </div>
+        <div class="mock-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Users
+        </div>
+        <div class="mock-menu-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                <circle cx="12" cy="12" r="3"/>
+            </svg>
+            Settings
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="mock-content">
+        <div class="mock-header">
+            <h1>Overview</h1>
+            <button class="mock-btn primary" onclick="tourStartHandler()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Restart Tour
+            </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="mock-stat-grid" id="target-stats">
+            <div class="mock-stat-card">
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-value">$45,231</div>
+                <div class="stat-trend positive">↑ 12% vs last month</div>
+            </div>
+            <div class="mock-stat-card">
+                <div class="stat-label">Active Users</div>
+                <div class="stat-value">2,405</div>
+                <div class="stat-trend positive">↑ 5% vs last month</div>
+            </div>
+            <div class="mock-stat-card">
+                <div class="stat-label">Churn Rate</div>
+                <div class="stat-value">1.2%</div>
+                <div class="stat-trend negative">↓ 0.2% vs last month</div>
+            </div>
+        </div>
+
+        <!-- Chart Area -->
+        <div class="large-chart">
+            <div class="mock-chart-placeholder">Interactive Analytics Chart</div>
+        </div>
+    </main>
+</div>
+
+<!-- Tour Guide Component -->
+<div id="tour-overlay" class="tour-guide-overlay"></div>
+<div id="tour-spotlight" class="tour-guide-spotlight"></div>
+
+<div id="tour-tooltip" class="tour-guide-tooltip" role="dialog" aria-modal="true">
+    <div class="tour-guide-arrow"></div>
+
+    <div class="tour-header">
+        <h3 class="tour-title" id="tour-title">Title</h3>
+        <button class="tour-close" onclick="tourEndHandler()" aria-label="Close tour">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="tour-content" id="tour-desc">
+        Description goes here.
+    </div>
+
+    <div class="tour-footer">
+        <div class="tour-progress" id="tour-progress">Step 1 of 5</div>
+        <div class="tour-buttons">
+            <button class="tour-btn tour-btn-secondary" id="tour-prev" onclick="tourPrevHandler()">Previous</button>
+            <button class="tour-btn tour-btn-primary" id="tour-next" onclick="tourNextHandler()">Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Tour Guide Component Logic
+(function() {
+    const tourSteps = [
+        {
+            target: null,
+            title: "Welcome to Product Tour",
+            content: "Learn about product features and workflows through this guided tutorial. Click Next to begin."
+        },
+        {
+            target: "#target-nav",
+            title: "Top Navigation",
+            content: "This is the top navigation bar. You can access your profile and global settings here."
+        },
+        {
+            target: "#target-sidebar",
+            title: "Main Menu",
+            content: "Use the sidebar to navigate between different modules like Dashboard, Users, and Settings."
+        },
+        {
+            target: "#target-stats",
+            title: "Smart Highlight",
+            content: "We automatically identify and highlight key elements like this statistics grid to focus your attention."
+        },
+        {
+            target: "#target-help",
+            title: "Need Help?",
+            content: "Click here anytime to access documentation or contact our support team."
+        }
+    ];
+
+    let currentStepIndex = 0;
+    let isTourActive = false;
+
+    const overlay = document.getElementById('tour-overlay');
+    const spotlight = document.getElementById('tour-spotlight');
+    const tooltip = document.getElementById('tour-tooltip');
+    const elTitle = document.getElementById('tour-title');
+    const elDesc = document.getElementById('tour-desc');
+    const elProgress = document.getElementById('tour-progress');
+    const btnPrev = document.getElementById('tour-prev');
+    const btnNext = document.getElementById('tour-next');
+
+    function tourStartHandler() {
+        currentStepIndex = 0;
+        isTourActive = true;
+        overlay.classList.add('active');
+        spotlight.classList.add('active');
+        tooltip.classList.add('active');
+        renderStep();
+        window.addEventListener('resize', handleResize);
+    }
+
+    function tourEndHandler() {
+        isTourActive = false;
+        overlay.classList.remove('active');
+        spotlight.classList.remove('active');
+        tooltip.classList.remove('active');
+        window.removeEventListener('resize', handleResize);
+    }
+
+    function tourNextHandler() {
+        if (currentStepIndex < tourSteps.length - 1) {
+            currentStepIndex++;
+            renderStep();
+        } else {
+            tourEndHandler();
+        }
+    }
+
+    function tourPrevHandler() {
+        if (currentStepIndex > 0) {
+            currentStepIndex--;
+            renderStep();
+        }
+    }
+
+    // Expose handlers for environments that rely on global functions,
+    // but DO NOT rely on inline onclick attributes (DOMPurify typically strips them).
+    globalThis.tourStartHandler = tourStartHandler;
+    globalThis.tourEndHandler = tourEndHandler;
+    globalThis.tourNextHandler = tourNextHandler;
+    globalThis.tourPrevHandler = tourPrevHandler;
+
+    let listenersBound = false;
+    function bindEventListeners() {
+        if (listenersBound) return;
+        listenersBound = true;
+
+        btnPrev?.addEventListener('click', tourPrevHandler);
+        btnNext?.addEventListener('click', tourNextHandler);
+        document.getElementById('tour-close')?.addEventListener('click', tourEndHandler);
+        document.getElementById('tour-restart')?.addEventListener('click', tourStartHandler);
+    }
+
+    function renderStep() {
+        if (!isTourActive) return;
+
+        const step = tourSteps[currentStepIndex];
+
+        elTitle.textContent = step.title;
+        elDesc.textContent = step.content;
+        elProgress.textContent = `Step ${currentStepIndex + 1} / ${tourSteps.length}`;
+
+        btnPrev.style.visibility = currentStepIndex === 0 ? 'hidden' : 'visible';
+        btnNext.textContent = currentStepIndex === tourSteps.length - 1 ? "Done" : "Next";
+
+        if (step.target) {
+            const targetEl = document.querySelector(step.target);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => updatePositions(targetEl), 100);
+            }
+        } else {
+            resetSpotlightToCenter();
+        }
+    }
+
+    function updatePositions(targetEl) {
+        if (!isTourActive) return;
+
+        const rect = targetEl.getBoundingClientRect();
+        const padding = 8;
+
+        spotlight.style.width = `${rect.width + (padding * 2)}px`;
+        spotlight.style.height = `${rect.height + (padding * 2)}px`;
+        spotlight.style.top = `${rect.top + window.scrollY - padding}px`;
+        spotlight.style.left = `${rect.left + window.scrollX - padding}px`;
+
+        positionTooltip(rect);
+    }
+
+    function resetSpotlightToCenter() {
+        spotlight.style.width = '0px';
+        spotlight.style.height = '0px';
+        spotlight.style.top = '50%';
+        spotlight.style.left = '50%';
+
+        tooltip.style.top = '50%';
+        tooltip.style.left = '50%';
+        tooltip.style.transform = 'translate(-50%, -50%)';
+        tooltip.removeAttribute('data-placement');
+    }
+
+    function positionTooltip(targetRect) {
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const gap = 16;
+
+        let top = targetRect.bottom + window.scrollY + gap;
+        let left = targetRect.left + window.scrollX + (targetRect.width / 2) - (tooltipRect.width / 2);
+        let placement = 'bottom';
+
+        if ((targetRect.bottom + gap + tooltipRect.height) > window.innerHeight) {
+            top = targetRect.top + window.scrollY - tooltipRect.height - gap;
+            placement = 'top';
+        }
+
+        if (left < 10) left = 10;
+        if ((left + tooltipRect.width) > window.innerWidth) {
+            left = window.innerWidth - tooltipRect.width - 10;
+        }
+
+        tooltip.style.top = `${top}px`;
+        tooltip.style.left = `${left}px`;
+        tooltip.style.transform = 'translateY(0)';
+        tooltip.setAttribute('data-placement', placement);
+    }
+
+    function handleResize() {
+        if (isTourActive) {
+            const step = tourSteps[currentStepIndex];
+            if (step.target) {
+                const targetEl = document.querySelector(step.target);
+                if (targetEl) updatePositions(targetEl);
+            } else {
+                resetSpotlightToCenter();
+            }
+        }
+    }
+
+    // Auto-start tour after delay
+    bindEventListeners();
+    setTimeout(tourStartHandler, 1000);
+})();
+</script>

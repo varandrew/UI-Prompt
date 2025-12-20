@@ -7,11 +7,26 @@
       "en-US": "Soft UI"
     },
     "description": {
-      "zh-CN": "柔和圆角与阴影过渡的界面风格，强调顺滑过渡与亲和力。",
-      "en-US": "Soft, rounded interface design with gentle shadows and smooth transitions."
+      "zh-CN": "柔和圆角与阴影过渡的介面风格，强谾顺滑过渡与亲和力。创造友善舒适的介面和温暖视觉体验。，创造友善舒适的介面和温暖视觉体验。柔和圆角搭配温和阴影和平滑过渡。强调舒适和亲近感的界面设计。",
+      "en-US": "Soft, rounded interface design with gentle shadows and smooth transitions emphasizing comfort and approachability. Creates friendly interfaces through soft edges, subtle shadows, and smooth motion design for warm, welcoming experiences. Perfect for friendly applications, wellness tools, and user-centered design. Features comfort-focused interface design with approachable aesthetics and emotionally supportive visual language promoting user wellbeing. Delivers sophisticated visual design with comprehensive aesthetic guidance, strategic layout implementation, and advanced composition strategies. Combines comfort-focused design with thoughtful user experience optimization, emphasizing approachability and emotional support throughout the interface design system."
     },
     "tags": [],
     "relatedStyles": []
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "visual-soft-ui-soft-design",
+      "title": {
+        "zh-CN": "柔和设计",
+        "en-US": "Soft Design"
+      }
+    },
+    {
+      "id": "visual-soft-ui-gentle-interface",
+      "title": {
+        "zh-CN": "温柔界面",
+        "en-US": "Gentle Interface"
+      }
+    }
+  ]
 }

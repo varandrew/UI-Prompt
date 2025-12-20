@@ -1,5 +1,6 @@
 import { useMemo, useCallback } from 'react';
 import { ComponentCard } from '../../components/ui/ComponentCard';
+import { VirtualGrid } from '../../components/ui/VirtualGrid';
 import { SearchBar } from '../../components/ui/SearchBar';
 import { FilterTabs } from '../../components/ui/FilterTabs';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -8,7 +9,7 @@ import { useComponentFilterUrlSync } from '../../hooks/useComponentFilterUrlSync
 import { applyTranslationsToCategories } from '../../utils/categoryHelper';
 import { loadComponentMetadataOnly } from '../../data/components/loaders';
 import { createI18nResolver } from '../../utils/i18n/resolveI18nValue';
-import { SKELETON_COUNTS } from '../../utils/constants';
+import { SKELETON_COUNTS, VIRTUAL_SCROLL_THRESHOLD } from '../../utils/constants';
 import { ListPageScaffold } from '../../components/scaffold';
 import { SEOHead, getPageSEO, generateComponentListSchema } from '../../components/seo';
 
@@ -20,6 +21,8 @@ import { SEOHead, getPageSEO, generateComponentListSchema } from '../../componen
  *
  * 💡 性能優化：
  * - 使用 useDebounce 防抖搜索輸入，避免每次按鍵觸發篩選重算
+ * - 使用 VirtualGrid 虛擬滾動，僅渲染可見區域（>20 items 時啟用）
+ * - 使用 React.memo 避免不必要的 ComponentCard 重渲染
  */
 export function AllComponentsPage() {
   const { t, language } = useLanguage();
@@ -88,25 +91,41 @@ export function AllComponentsPage() {
     );
   }, [translatedCategories, t, language]);
 
+  // 🚀 預計算分類索引，加速分類篩選
+  const componentsByCategory = useMemo(() => {
+    const index = new Map();
+    index.set('all', allComponents);
+
+    for (const comp of allComponents) {
+      const catId = comp._categoryId;
+      if (!index.has(catId)) {
+        index.set(catId, []);
+      }
+      index.get(catId).push(comp);
+    }
+
+    return index;
+  }, [allComponents]);
+
   // 篩選邏輯 (結合分类篩選和搜索) - 使用防抖後的搜索值
+  // 🚀 優化：使用預計算的分類索引避免每次都遍歷全部
   const filteredComponents = useMemo(() => {
-    let components = allComponents;
+    // 先按分類篩選（O(1) 查找）
+    const categoryComponents = componentsByCategory.get(activeCategory) || [];
 
-    if (activeCategory !== 'all') {
-      components = components.filter(c => c._categoryId === activeCategory);
+    // 如果沒有搜索關鍵字，直接返回分類結果
+    if (!debouncedSearchQuery.trim()) {
+      return categoryComponents;
     }
 
-    if (debouncedSearchQuery.trim()) {
-      const query = debouncedSearchQuery.toLowerCase();
-      components = components.filter(
-        comp =>
-          comp.title?.toLowerCase().includes(query) ||
-          comp.description?.toLowerCase().includes(query)
-      );
-    }
-
-    return components;
-  }, [allComponents, activeCategory, debouncedSearchQuery]);
+    // 執行搜索篩選
+    const query = debouncedSearchQuery.toLowerCase();
+    return categoryComponents.filter(
+      comp =>
+        comp.title?.toLowerCase().includes(query) ||
+        comp.description?.toLowerCase().includes(query)
+    );
+  }, [componentsByCategory, activeCategory, debouncedSearchQuery]);
 
   // 是否有啟用篩選
   const hasActiveFilters = searchQuery || activeCategory !== 'all';
@@ -116,6 +135,23 @@ export function AllComponentsPage() {
     setActiveCategory(categoryId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [setActiveCategory]);
+
+  // 🚀 渲染單個 ComponentCard（用於 VirtualGrid）
+  const renderComponentCard = useCallback((component) => (
+    <ComponentCard
+      key={component._uniqueKey}
+      id={component.id}
+      title={component.title}
+      description={component.description}
+      demoHTML={component.demoHTML}
+      customStyles={component.customStyles}
+      categoryId={component._categoryId}
+      categoryIcon={component._categoryIcon}
+      categoryLabel={component._categoryLabel}
+      variants={component.variants || []}
+      onCategoryClick={handleCategoryClick}
+    />
+  ), [handleCategoryClick]);
 
   // SEO configuration
   const seo = getPageSEO('components', language);
@@ -170,24 +206,21 @@ export function AllComponentsPage() {
       skeletonColumns="grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       skeletonGap="gap-6"
     >
-      {/* Component cards grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredComponents.map((component) => (
-          <ComponentCard
-            key={component._uniqueKey}
-            id={component.id}
-            title={component.title}
-            description={component.description}
-            demoHTML={component.demoHTML}
-            customStyles={component.customStyles}
-            categoryId={component._categoryId}
-            categoryIcon={component._categoryIcon}
-            categoryLabel={component._categoryLabel}
-            variants={component.variants || []}
-            onCategoryClick={handleCategoryClick}
-          />
-        ))}
-      </div>
+      {/* Component cards grid - 使用虛擬滾動優化大列表 */}
+      {filteredComponents.length > VIRTUAL_SCROLL_THRESHOLD ? (
+        <VirtualGrid
+          items={filteredComponents}
+          renderItem={renderComponentCard}
+          itemHeight={280}
+          gap={24}
+          listHeight={800}
+          threshold={VIRTUAL_SCROLL_THRESHOLD}
+        />
+      ) : (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredComponents.map(renderComponentCard)}
+        </div>
+      )}
     </ListPageScaffold>
     </>
   );

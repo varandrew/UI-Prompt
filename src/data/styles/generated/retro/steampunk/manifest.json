@@ -7,16 +7,15 @@
       "en-US": "Steampunk"
     },
     "description": {
-      "zh-CN": "融合维多利亚时代美学与蒸汽动力机械的复古科幻风格，黄铜齿轮、蒸汽管道、古典仪表与工业元素",
-      "en-US": "Retro sci-fi style combining Victorian era aesthetics with steam-powered machinery, featuring brass gears, steam pipes, classical gauges, and industrial elements"
+      "zh-CN": "复古科幻风格，融合维多利亚时代美学和蒸汽动力机械。采用黄铜元素、齿轮和机械复杂感创造奇幻氛围。复古科幻风格融合维多利亚美学与蒸汽动力机制。融合机械复杂和复古未来。",
+      "en-US": "Retro sci-fi style combining Victorian era aesthetics with steam-powered machinery and brass elements Creates industrial-romantic visuals through gears, rivets, and ornate metal textures blended with modern functionality for distinctive industrial-romantic interfaces Perfect for gaming, fantasy applications, and industrial-romantic experiences Combines Victorian elegance with mechanical, brass-filled industrial aesthetics This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. mechanical intricacy and retro-futuristic imagination. Excellence in design."
     },
     "tags": [
       "victorian",
       "industrial",
       "mechanical",
       "brass",
-      "vintage",
-      "sci-fi"
+      "vintage"
     ],
     "relatedStyles": [
       "industrial",
@@ -28,7 +27,7 @@
     {
       "id": "retro-steampunk-aether-industries",
       "title": {
-        "zh-CN": "Aether Industries",
+        "zh-CN": "Aether Indus...",
         "en-US": "Aether Industries"
       }
     },

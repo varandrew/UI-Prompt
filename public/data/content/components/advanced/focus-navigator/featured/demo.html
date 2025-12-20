@@ -1,0 +1,225 @@
+<div class="focus-navigator-featured" id="focusNavFeatured">
+    <!-- Sidebar Navigation -->
+    <div class="nav-sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">Navigate</h3>
+        </div>
+
+        <nav class="section-nav">
+            <button class="nav-link active" data-section="1">
+                <span class="nav-number">1</span>
+                <span class="nav-title">Getting Started</span>
+                <span class="nav-icon">→</span>
+            </button>
+            <button class="nav-link" data-section="2">
+                <span class="nav-number">2</span>
+                <span class="nav-title">Key Features</span>
+                <span class="nav-icon">→</span>
+            </button>
+            <button class="nav-link" data-section="3">
+                <span class="nav-number">3</span>
+                <span class="nav-title">Best Practices</span>
+                <span class="nav-icon">→</span>
+            </button>
+            <button class="nav-link" data-section="4">
+                <span class="nav-number">4</span>
+                <span class="nav-title">Conclusion</span>
+                <span class="nav-icon">→</span>
+            </button>
+        </nav>
+
+        <div class="progress-container">
+            <div class="progress-label">Progress</div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%;"></div>
+            </div>
+            <div class="progress-text">25%</div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-main">
+        <div class="content-wrapper">
+            <!-- Section 1 -->
+            <section class="featured-section active" id="section-1">
+                <div class="section-header">
+                    <span class="section-badge">01</span>
+                    <h2>Getting Started</h2>
+                </div>
+                <div class="section-body">
+                    <p>Welcome to our advanced focus navigator component. This featured version includes a sophisticated sidebar navigation system with progress tracking and smooth transitions between sections.</p>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <div class="card-icon">📍</div>
+                            <div class="card-content">
+                                <h4>Smart Navigation</h4>
+                                <p>Intuitive sidebar with clear section indicators</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-icon">📊</div>
+                            <div class="card-content">
+                                <h4>Progress Tracking</h4>
+                                <p>Visual progress bar shows your reading progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="featured-section" id="section-2">
+                <div class="section-header">
+                    <span class="section-badge">02</span>
+                    <h2>Key Features</h2>
+                </div>
+                <div class="section-body">
+                    <p>This component provides several advanced features for optimal user experience:</p>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <div class="feature-content">
+                                <h4>Responsive Design</h4>
+                                <p>Adapts beautifully to all screen sizes and devices</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <div class="feature-content">
+                                <h4>Accessibility First</h4>
+                                <p>Full keyboard navigation and screen reader support</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <div class="feature-content">
+                                <h4>Smooth Animations</h4>
+                                <p>Elegant transitions and visual feedback for interactions</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <div class="feature-content">
+                                <h4>Dark Mode Ready</h4>
+                                <p>Automatic theme detection and seamless styling</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="featured-section" id="section-3">
+                <div class="section-header">
+                    <span class="section-badge">03</span>
+                    <h2>Best Practices</h2>
+                </div>
+                <div class="section-body">
+                    <p>Follow these best practices when implementing focus navigation:</p>
+
+                    <div class="practice-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <h4>Clear Section Structure</h4>
+                            <p>Organize content into logical, distinct sections</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <h4>Meaningful Labels</h4>
+                            <p>Use descriptive titles for each section</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <h4>Visual Feedback</h4>
+                            <p>Provide clear indication of current position</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <h4>Performance</h4>
+                            <p>Optimize for smooth scrolling and transitions</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="featured-section" id="section-4">
+                <div class="section-header">
+                    <span class="section-badge">04</span>
+                    <h2>Conclusion</h2>
+                </div>
+                <div class="section-body">
+                    <p>The featured focus navigator offers a complete solution for navigation-heavy web applications. With its comprehensive feature set and polished design, it enhances user experience significantly.</p>
+
+                    <div class="conclusion-card">
+                        <h4>🎉 You've completed the tour!</h4>
+                        <p>You've navigated through all sections successfully. This component is production-ready and can be customized to fit your specific needs.</p>
+                        <button class="cta-button" id="backToStart">Back to Start</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const wrapper = document.getElementById('focusNavFeatured');
+    const navLinks = wrapper.querySelectorAll('.nav-link');
+    const sections = wrapper.querySelectorAll('.featured-section');
+    const progressFill = wrapper.querySelector('.progress-fill');
+    const progressText = wrapper.querySelector('.progress-text');
+    const backBtn = wrapper.querySelector('#backToStart');
+    let currentIndex = 0;
+
+    function updateProgress(index) {
+        const progress = ((index + 1) / sections.length) * 100;
+        progressFill.style.width = progress + '%';
+        progressText.textContent = Math.round(progress) + '%';
+    }
+
+    function scrollToSection(index) {
+        // Clamp index
+        index = Math.max(0, Math.min(index, sections.length - 1));
+        currentIndex = index;
+
+        // Update nav links
+        navLinks.forEach((link, i) => {
+            link.classList.toggle('active', i === index);
+        });
+
+        // Update sections
+        sections.forEach((section, i) => {
+            section.classList.toggle('active', i === index);
+        });
+
+        // Update progress
+        updateProgress(index);
+
+        // Scroll section into view
+        sections[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+
+    // Nav link handlers
+    navLinks.forEach((link, index) => {
+        link.addEventListener('click', () => {
+            scrollToSection(index);
+        });
+    });
+
+    // Back button handler
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            scrollToSection(0);
+        });
+    }
+
+    // Initialize
+    scrollToSection(0);
+})();
+</script>

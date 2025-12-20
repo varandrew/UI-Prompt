@@ -7,8 +7,8 @@
       "en-US": "Statistics Card"
     },
     "description": {
-      "zh-CN": "用于展示统计数据的卡片组件",
-      "en-US": "Card component for displaying statistics"
+      "zh-CN": "一个专门为展示关键指标和性能指标设计的统计卡片组件。显示标题、数值、趋势和比较数据，具有视觉指示、图标和可自定义的样式，适用于仪表板应用。",
+      "en-US": "A statistics card component specifically designed for presenting key metrics, performance indicators, and important data points. Displays titles, values, trends, and comparative data with visual indicators, icons, and customizable styling for dashboard applications."
     },
     "tags": [
       "dataDisplay"
@@ -23,8 +23,8 @@
         "en-US": "Minimalist"
       },
       "description": {
-        "zh-CN": "极简风格风格的统计卡片实现",
-        "en-US": "Statistics Card implementation in Minimalist style"
+        "zh-CN": "专业的统计卡片实现，具有清晰的数据展示、视觉趋势指示和响应式设计。有效展示指标和KPI，采用适合业务仪表板的精致样式。",
+        "en-US": "A professional statistics card implementation with clear data presentation, visual trend indicators, responsive design, and polished appearance. Effectively showcases metrics and KPIs with professional styling and visual feedback suitable for business dashboards."
       },
       "hasContent": true,
       "hasStyles": true

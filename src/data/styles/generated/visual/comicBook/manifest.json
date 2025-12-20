@@ -7,16 +7,15 @@
       "en-US": "Comic Book"
     },
     "description": {
-      "zh-CN": "经典美式漫画书风格，分格布局、动作线条、对话气泡、半色调点阵与超级英雄视觉元素",
-      "en-US": "Classic American comic book style featuring panel layouts, action lines, speech bubbles, halftone dots, and superhero visual elements"
+      "zh-CN": "经典美式漫画风格，采用分格布局、动作线条和对话气泡。使用半色谾点阵和漫画视觉语言创造动态叙事。，使用半色谾点阵和漫画视觉语言创造动态叙事。经典美式漫画风格采用分格布局和动作线条。采用视觉叙事和表达插画风格。",
+      "en-US": "Classic American comic book style featuring panel layouts, action lines, and speech bubbles. Uses halftone dots, bold outlines, dynamic compositions, and expressive lettering from comic book visual language. Excellent for action games, adventure applications, and narrative-driven content. Uses visual storytelling techniques with dynamic visual narrative and expressive illustration styles for engaging user experiences through compelling sequential narrative design. Delivers sophisticated visual design with comprehensive aesthetic guidance, strategic layout implementation, and advanced composition strategies. Creates narrative-driven experiences with sequential visual design principles and dynamic illustration-based storytelling approaches."
     },
     "tags": [
       "comic",
       "action",
       "superhero",
       "panels",
-      "dynamic",
-      "bold"
+      "dynamic"
     ],
     "relatedStyles": [
       "popArt",
@@ -24,5 +23,20 @@
       "handDrawnSketch"
     ]
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "visual-comicBook-comic-panel",
+      "title": {
+        "zh-CN": "漫画分格",
+        "en-US": "Comic Panel"
+      }
+    },
+    {
+      "id": "visual-comicBook-action-scene",
+      "title": {
+        "zh-CN": "动作场景",
+        "en-US": "Action Scene"
+      }
+    }
+  ]
 }

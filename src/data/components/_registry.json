@@ -26,7 +26,8 @@
       "components": [
         "toast-notifications",
         "modal-dialog",
-        "reaction-picker"
+        "reaction-picker",
+        "tour-guide"
       ]
     },
     "advanced": {
@@ -47,7 +48,8 @@
         "kanban-board",
         "code-editor",
         "query-builder",
-        "map-picker"
+        "map-picker",
+        "focus-navigator"
       ]
     },
     "input": {

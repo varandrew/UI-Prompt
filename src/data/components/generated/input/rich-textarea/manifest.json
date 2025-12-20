@@ -7,8 +7,8 @@
       "en-US": "Rich Textarea"
     },
     "description": {
-      "zh-CN": "增强型文本输入框",
-      "en-US": "Enhanced textarea component"
+      "zh-CN": "一个富文本区域组件，结合了基础文本区域功能和增强特性，如自动增长高度、字符计数器和格式化提示。支持markdown预览、语法高亮和可自定义的占位符文本。",
+      "en-US": "A rich textarea component that combines basic textarea functionality with enhanced features like auto-growing height, character counters, and comprehensive formatting hints. Supports markdown preview, syntax highlighting, and fully customizable placeholder text."
     },
     "tags": [
       "input"
@@ -23,8 +23,8 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的富文本输入框实现",
-        "en-US": "Rich Textarea implementation in Default style"
+        "zh-CN": "功能丰富的文本区域实现，具有自动扩展行为、有用的字符计数和清晰的视觉反馈。提供增强的文本输入体验，具有改进用户生产力的深思熟虑的功能。",
+        "en-US": "A feature-rich textarea implementation with auto-expanding behavior, helpful character counting, clear visual feedback, and responsive design. Provides enhanced text input experience with thoughtful features and intuitive controls that improve overall user productivity."
       },
       "hasContent": true,
       "hasStyles": false

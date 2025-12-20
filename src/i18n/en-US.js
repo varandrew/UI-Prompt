@@ -246,6 +246,8 @@ export default {
     "copyCode": "Copy Code",
     "noInlineDemo": "No preview available for this component, click for details",
     "clickForDetails": "Click for Details",
+    "readMore": "→ Read more",
+    "showLess": "↑ Show less",
     "openMenu": "Open Menu",
     "closeMenu": "Close Menu",
     "darkMode": "Dark Mode",

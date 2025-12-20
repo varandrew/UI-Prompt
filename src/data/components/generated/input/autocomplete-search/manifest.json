@@ -7,8 +7,8 @@
       "en-US": "Autocomplete Search"
     },
     "description": {
-      "zh-CN": "自动补全搜索框",
-      "en-US": "Autocomplete search input"
+      "zh-CN": "一个自动完成搜索输入组件，在用户输入时提供智能建议匹配。包含动态结果筛选、可自定义的建议呈现、键盘导航和防抖搜索，实现高效的查询输入。",
+      "en-US": "An autocomplete search input component that provides intelligent suggestion matching as users type their queries. Features dynamic result filtering, customizable suggestion rendering, keyboard navigation, and debounced search for efficient query input."
     },
     "tags": [
       "input"
@@ -23,8 +23,8 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的自动补全搜索实现",
-        "en-US": "Autocomplete Search implementation in Default style"
+        "zh-CN": "实用的自动完成实现，具有响应式建议、清晰的匹配突出显示和高效的筛选。通过有用的建议和流畅的建议导航增强搜索体验。",
+        "en-US": "A practical autocomplete implementation with responsive suggestions, clear matching highlights, efficient filtering, and smooth animations. Enhances search experience with helpful suggestions, keyboard shortcuts, and smooth suggestion navigation for better user experience."
       },
       "hasContent": true,
       "hasStyles": false

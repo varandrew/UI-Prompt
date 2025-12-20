@@ -7,8 +7,8 @@
       "en-US": "Range Slider"
     },
     "description": {
-      "zh-CN": "范围选择滑块组件",
-      "en-US": "Range selection slider component"
+      "zh-CN": "一个灵活的范围滑块组件，用于在定义的范围内选择单个或多个值。包含双手柄、自定义步长、值标签和流畅的动画。支持垂直和水平方向，具有完整的键盘无障碍访问。",
+      "en-US": "A flexible range slider component for selecting single or multiple values within defined ranges. Features dual handles, custom step sizes, value labels, and smooth animations. Supports vertical and horizontal orientations with full keyboard accessibility."
     },
     "tags": [
       "advanced"
@@ -23,8 +23,8 @@
         "en-US": "Minimal Vertical"
       },
       "description": {
-        "zh-CN": "极简垂直滑块风格的范围滑块实现",
-        "en-US": "Range Slider implementation in Minimal Vertical style"
+        "zh-CN": "现代的范围滑块实现，具有清晰的可视指示、流畅的动画和响应式行为。提供精确的值选择，带有有用的视觉反馈和直观的手柄操作。",
+        "en-US": "A modern range slider implementation with clear visual indicators, smooth animations, responsive behavior, and accurate value feedback. Provides precise value selection with helpful visual feedback indicators and intuitive handle manipulation for seamless user interaction experience."
       },
       "hasContent": true,
       "hasStyles": false

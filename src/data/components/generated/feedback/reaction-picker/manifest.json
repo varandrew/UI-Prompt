@@ -7,8 +7,8 @@
       "en-US": "Reaction Picker"
     },
     "description": {
-      "zh-CN": "表情/反应选择组件",
-      "en-US": "Emoji/reaction picker component"
+      "zh-CN": "一个交互式反应选择器组件，允许用户选择表情符号或反应图标用于反馈和参与。包含表情符号库、搜索功能、最近反应跟踪和可自定义的反应类别。",
+      "en-US": "An interactive reaction picker component allowing users to select emoji or reaction icons for feedback and engagement purposes. Features emoji library, search functionality, recent reactions tracking, and customizable reaction categories."
     },
     "tags": [
       "feedback"
@@ -23,8 +23,8 @@
         "en-US": "Material Design"
       },
       "description": {
-        "zh-CN": "Material Design风格的表情选择器实现",
-        "en-US": "Reaction Picker implementation in Material Design style"
+        "zh-CN": "引人入胜的反应选择器实现，具有轻松的表情符号访问、清晰的组织和响应式选择反馈。通过流畅的交互和视觉选择指示实现直观的用户反应。",
+        "en-US": "An engaging reaction picker implementation with easy emoji access, clear organization, responsive selection feedback, and smooth animations. Enables intuitive user reactions with smooth interactions, visual selection indicators, and comprehensive emoji library access."
       },
       "hasContent": true,
       "hasStyles": true

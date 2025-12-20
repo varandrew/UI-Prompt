@@ -1,56 +1,58 @@
-<div class="relative w-full h-[400px] bg-white overflow-hidden">
-        <!-- 双面板佈局 -->
-        <div class="grid grid-cols-2 gap-px bg-gray-200 h-full">
+<!--
+  Square Component Wrapper
+  Designed to be embedded in grids or standalone
+-->
+<div class="component-wrapper" id="editor-component">
+    <!-- Decorative Glow -->
+    <div class="glow"></div>
 
-          <!-- 左側：編輯器面板 -->
-          <div class="bg-gray-50 p-4 flex flex-col gap-2">
-            <!-- 工具欄 -->
-            <div class="flex gap-2 mb-2 pb-2 border-b border-gray-300">
-              <div class="w-2 h-2 rounded-full bg-black"></div>
-              <div class="w-2 h-2 rounded-full bg-black"></div>
-              <div class="w-2 h-2 rounded-full bg-black"></div>
-            </div>
+    <!-- Noise Texture Layer (Pointer events none) -->
+    <div class="noise-overlay"></div>
 
-            <!-- 代碼行（黑白條紋模擬） -->
-            <div class="flex gap-2">
-              <div class="w-1 h-1 rounded-full bg-gray-400"></div>
-              <div class="flex-1 h-3 bg-black rounded-sm"></div>
+    <!-- Main Card Content -->
+    <div class="editor-card">
+        <!-- Header -->
+        <div class="editor-header">
+            <div class="window-controls">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
             </div>
-            <div class="flex gap-2">
-              <div class="w-1 h-1 rounded-full bg-gray-400"></div>
-              <div class="flex-1 h-3 bg-black rounded-sm w-3/4"></div>
-            </div>
-            <div class="flex gap-2">
-              <div class="w-1 h-1 rounded-full bg-gray-400"></div>
-              <div class="flex-1 h-3 bg-black rounded-sm w-5/6"></div>
-            </div>
-            <div class="flex gap-2">
-              <div class="w-1 h-1 rounded-full bg-gray-400"></div>
-              <div class="flex-1 h-3 bg-black rounded-sm w-2/3"></div>
-            </div>
-            <div class="flex gap-2">
-              <div class="w-1 h-1 rounded-full bg-gray-400"></div>
-              <div class="flex-1 h-3 bg-black rounded-sm"></div>
-            </div>
-            <div class="flex gap-2">
-              <div class="w-1 h-1 rounded-full bg-gray-400"></div>
-              <div class="flex-1 h-3 bg-black rounded-sm w-4/5"></div>
-            </div>
-          </div>
-
-          <!-- 右側：預覽面板 -->
-          <div class="bg-white p-6 flex flex-col items-center justify-center gap-4">
-            <!-- 渲染效果模擬 -->
-            <div class="w-32 h-20 border-2 border-black rounded"></div>
-            <div class="w-full max-w-xs space-y-2">
-              <div class="h-2 bg-black rounded w-3/4"></div>
-              <div class="h-2 bg-gray-400 rounded w-full"></div>
-              <div class="h-2 bg-gray-400 rounded w-5/6"></div>
-            </div>
-          </div>
-
+            <div class="filename">App.jsx</div>
+            <div style="width: 20px;"></div> <!-- Spacer for balance -->
         </div>
 
-        <!-- 極淡网格背景 -->
-        <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
-      </div>
+        <!-- Code Body -->
+        <div class="editor-body">
+            <div class="code-block">
+<span class="k">export</span> <span class="k">const</span> <span class="f">Button</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=></span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="c">button</span>
+      <span class="k">className</span><span class="o">=</span><span class="s">"ui-btn"</span>
+      <span class="k">onClick</span><span class="o">=</span><span class="p">{</span><span class="f">handleClick</span><span class="p">}</span>
+    <span class="o">></span>
+      <span class="f">Click Me</span>
+    <span class="o">&lt;/</span><span class="c">button</span><span class="o">></span>
+  <span class="p">);</span>
+<span class="p">};</span><span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Optional: Simple interactive demo script
+// Makes the user click copy code to clipboard interaction visual
+const component = document.getElementById('editor-component');
+
+component.addEventListener('click', () => {
+    // Visual feedback on click
+    component.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+        component.style.transform = '';
+    }, 150);
+
+    // Simulate "Copied" toast (console log for demo)
+    console.log("Code snippet clicked!");
+});
+</script>

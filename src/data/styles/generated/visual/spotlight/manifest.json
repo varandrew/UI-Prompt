@@ -7,11 +7,26 @@
       "en-US": "Spotlight"
     },
     "description": {
-      "zh-CN": "移动径向光，焦点照明，舞台效果",
-      "en-US": "Moving radial light for focal lighting and stage effects"
+      "zh-CN": "移动径向光、焦点照明和舞台效果的。产生戏剧性聚光灯效果、焦点突出和舞台光学美学。移动径向光创造焦点照明和舞台效果。生成戏剧光线效果和焦点高亮。",
+      "en-US": "Moving radial light for focal lighting and stage effects creating dramatic visual attention. Produces theatrical lighting through moving spotlight effects, focus highlights, dramatic shadows, and interactive illumination for immersive experiences. Perfect for showcase applications, presentation platforms, and theatrical design. Features theatrical focus with dramatic visual emphasis for engaging user experiences and compelling visual narratives. Delivers sophisticated visual design with comprehensive aesthetic guidance, strategic layout implementation, and advanced composition strategies. Creates theatrical experiences through sophisticated focus control, ensuring dramatic visual emphasis and engaging presentation platform functionality."
     },
     "tags": [],
     "relatedStyles": []
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "visual-spotlight-spotlight-showcase",
+      "title": {
+        "zh-CN": "聚光展示",
+        "en-US": "Spotlight Showcase"
+      }
+    },
+    {
+      "id": "visual-spotlight-stage-lighting",
+      "title": {
+        "zh-CN": "舞台灯光",
+        "en-US": "Stage Lighting"
+      }
+    }
+  ]
 }

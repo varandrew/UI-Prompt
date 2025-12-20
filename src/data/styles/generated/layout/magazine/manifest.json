@@ -7,16 +7,15 @@
       "en-US": "Magazine Layout"
     },
     "description": {
-      "zh-CN": "借鉴印刷杂志的经典排版风格，多栏布局、大标题、精美图文混排与编辑设计美学",
-      "en-US": "Classic typography style inspired by print magazines, featuring multi-column layouts, large headlines, beautiful text-image flow, and editorial design aesthetics"
+      "zh-CN": "经典杂志排版风格，受印刷杂志启发，采用多栏布局、首字放大和衬线排版。创造编辑专业风格，适合内容丰富的应用。，创造编辑专业风格，适合内容丰富的应用和出版物。完美适用于现代应用的独特视觉语言。融合美学原理与功能设计元素，创造引人入胜的用户体验。",
+      "en-US": "Classic typography style inspired by print magazines featuring multi-column layouts, drop caps, and editorial design principles Creates sophisticated editorial experiences through column grids, typographic hierarchy, and information organization for content-rich applications Perfect for publishing platforms, news sites, and content-heavy applications Brings editorial elegance and sophisticated information hierarchy to digital spaces This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. editorial layout excellence and publication design."
     },
     "tags": [
       "editorial",
       "typography",
       "columns",
       "print",
-      "elegant",
-      "content"
+      "elegant"
     ],
     "relatedStyles": [
       "newspaper",

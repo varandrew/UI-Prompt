@@ -7,8 +7,8 @@
       "en-US": "Custom Scrollbar"
     },
     "description": {
-      "zh-CN": "自定义样式的滚动条",
-      "en-US": "Custom styled scrollbar"
+      "zh-CN": "一个可自定义的滚动条组件，用风格化的替代品替换默认浏览器滚动条。支持垂直和水平滚动、自定义颜色、宽度和动画效果，同时保持完整的无障碍访问和流畅的滚动性能。",
+      "en-US": "A customizable scrollbar component that replaces default browser scrollbars with stylized alternatives. Supports vertical and horizontal scrolling with custom colors, widths, and animation effects while maintaining full accessibility and smooth scrolling performance."
     },
     "tags": [
       "advanced"
@@ -23,8 +23,8 @@
         "en-US": "Material Design"
       },
       "description": {
-        "zh-CN": "Material Design风格的自定义滚动条实现",
-        "en-US": "Custom Scrollbar implementation in Material Design style"
+        "zh-CN": "精致的自定义滚动条实现，采用现代风格、流畅动画和直观的悬停效果。提供优异的可见性和精确的滚动位置反馈，改善用户导航体验。",
+        "en-US": "A polished implementation of the custom scrollbar featuring modern styling, smooth animations, and intuitive hover effects with visual feedback. Provides excellent visibility and precise scroll position indicators for improved user navigation experience across all browsers."
       },
       "hasContent": true,
       "hasStyles": true

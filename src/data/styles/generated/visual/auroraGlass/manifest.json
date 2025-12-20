@@ -7,11 +7,26 @@
       "en-US": "Aurora Glass"
     },
     "description": {
-      "zh-CN": "渐变极光色彩，动态光影，流动透明",
-      "en-US": "Gradient aurora colors with dynamic lighting and flowing transparency"
+      "zh-CN": "极光色彩搭配动态光影和流动透明的风格。采用彩虹色渐变和玻璃态效果营造魔幻梦幻氛围和视觉奇妙感。梯度极光色彩搭配动态光线和流动透明。为魔法应用和梦幻用户体验。",
+      "en-US": "Gradient aurora colors with dynamic lighting and flowing transparency creating ethereal visual effects. Combines iridescent color shifts, glass morphism, and flowing animations for magical, otherworldly experiences. Perfect for fantasy applications, premium brands, and dreamlike user experiences. Creates immersive environments with ethereal light effects, magical atmosphere, and dreamlike visual quality throughout the interface, enhancing user engagement through mesmerizing visual storytelling and captivating aesthetic experiences. Provides comprehensive design guidance with sophisticated visual principles and strategic implementation approaches. Enhances user engagement through mesmerizing gradient effects and sophisticated transparency layering with magical visual storytelling."
     },
     "tags": [],
     "relatedStyles": []
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "visual-auroraGlass-aurora-landing",
+      "title": {
+        "zh-CN": "极光登陆页",
+        "en-US": "Aurora Landing"
+      }
+    },
+    {
+      "id": "visual-auroraGlass-glass-showcase",
+      "title": {
+        "zh-CN": "玻璃展示",
+        "en-US": "Glass Showcase"
+      }
+    }
+  ]
 }

@@ -7,8 +7,8 @@
       "en-US": "File Upload"
     },
     "description": {
-      "zh-CN": "文件上传组件",
-      "en-US": "File upload component"
+      "zh-CN": "一个多功能的文件上传组件，处理单个和多个文件上传，支持拖放、文件类型验证和进度跟踪。包含文件预览缩略图、上传取消功能和全面的错误处理，提供强大的文件管理。",
+      "en-US": "A versatile file upload component that handles single and multiple file uploads with drag-and-drop support, file type validation, and progress tracking. Includes file preview thumbnails, upload cancellation, and comprehensive error handling for robust file management."
     },
     "tags": [
       "advanced"
@@ -23,8 +23,8 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的文件上传实现",
-        "en-US": "File Upload implementation in Default style"
+        "zh-CN": "实用的文件上传组件实现，具有清晰的视觉反馈、直观的拖放区域和有用的验证消息。提供高效的文件处理和用户友好的进度指示。",
+        "en-US": "A practical implementation of the file upload component with clear visual feedback, intuitive drag-and-drop zones, and helpful validation messages throughout the process. Provides efficient file processing, progress indication, and comprehensive error feedback for users."
       },
       "hasContent": true,
       "hasStyles": false

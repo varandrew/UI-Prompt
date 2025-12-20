@@ -7,8 +7,8 @@
       "en-US": "Accessibility"
     },
     "description": {
-      "zh-CN": "高对比、清晰层级与键盘友好的基础无障碍界面风格。",
-      "en-US": "Accessible UI with strong contrast, clear hierarchy, and keyboard-friendly patterns."
+      "zh-CN": "无障碍UI风格，强谾色彩对比、清晰视觉级和键盘友好的互动。创造包容性训讈，确保所有用户都能便捷使用。可访问UI设计采用强色彩对比和清晰视觉等级。确保包容设计和通用可用性。",
+      "en-US": "Accessible UI design with strong color contrast, clear visual hierarchy, and keyboard-friendly interface patterns Ensures usability for all users including those with visual or motor impairments through thoughtful design ensuring inclusive user experiences for all Ensures inclusive digital experiences for users with visual impairments. Prioritizes contrast, clarity, and keyboard navigation throughout This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. inclusive design ensuring universal usability."
     },
     "tags": [],
     "relatedStyles": []
@@ -24,8 +24,8 @@
     {
       "id": "visual-accessibility-basic",
       "title": {
-        "zh-CN": "CivicConnect - 无障碍政务门户",
-        "en-US": "CivicConnect - Inclusive Service Portal"
+        "zh-CN": "CivicConnect...",
+        "en-US": "CivicConnect - Inclusive Se..."
       }
     }
   ]

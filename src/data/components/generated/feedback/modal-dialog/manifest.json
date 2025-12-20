@@ -7,8 +7,8 @@
       "en-US": "Modal Dialog"
     },
     "description": {
-      "zh-CN": "模态弹窗对话框组件",
-      "en-US": "Modal popup dialog component"
+      "zh-CN": "一个模态对话框组件，用于在聚焦的覆盖层中显示重要信息或请求用户操作。包含可自定义的内容、操作按钮和背景交互处理，用于吸引注意力的通知。",
+      "en-US": "A modal dialog component for displaying important information or requesting user actions in a focused overlay interface. Features customizable content, action buttons, and backdrop interaction handling for attention-grabbing notifications and user confirmations."
     },
     "tags": [
       "feedback",
@@ -25,8 +25,8 @@
         "en-US": "Minimalism"
       },
       "description": {
-        "zh-CN": "极简风格风格的模态对话框实现",
-        "en-US": "Modal Dialog implementation in Minimalism style"
+        "zh-CN": "现代的模态对话框实现，具有清洁的样式、清晰的内容层级和流畅的动画。有效呈现模态内容，具有直观的交互控件和清晰的操作按钮。",
+        "en-US": "A modern modal dialog implementation with clean styling, clear content hierarchy, smooth animations, and responsive behavior. Effectively presents modal content with intuitive interaction controls, clear action buttons, and professional appearance."
       },
       "hasContent": true,
       "hasStyles": true

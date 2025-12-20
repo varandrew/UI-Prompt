@@ -7,8 +7,8 @@
       "en-US": "Swiss Design"
     },
     "description": {
-      "zh-CN": "现代主义网格系统，Helvetica + 极简配色 + 数学精确",
-      "en-US": "Modernist grid system with Helvetica + minimal palette + mathematical precision"
+      "zh-CN": "现代主义网格系统，采用Helvetica排版和最小化色谾。强谾网格精确度、数学优雅和现代主义原则。现代主义网格系统采用Helvetica排版和最小色调。强调数学精确和优雅现代。",
+      "en-US": "Modernist grid system with Helvetica typography and minimal color palette emphasizing mathematical precision Creates clean, organized layouts through rigid grids, sans-serif typography, and functional design principles for clean, objective information design Ideal for corporate applications, information systems, and objective design Emphasizes clarity through mathematical grids and functional typography This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. grid-based precision and mathematical elegance. Excellence in design."
     },
     "tags": [],
     "relatedStyles": []
@@ -18,7 +18,7 @@
       "id": "retro-swissDesign-helvetica",
       "title": {
         "zh-CN": "国际字体风格",
-        "en-US": "International Typographic Style"
+        "en-US": "International Typographic S..."
       }
     },
     {

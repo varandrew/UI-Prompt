@@ -7,8 +7,8 @@
       "en-US": "Hand-Drawn Sketch"
     },
     "description": {
-      "zh-CN": "通过手写字体、SVG 滤镜和随性线条创造温暖亲切的视觉体验。结合粘贴便签、网格纸背景和手绘边框元素，营造友好轻松的设计氛围。",
-      "en-US": "Create warm and approachable visual experiences through handwritten fonts, SVG filters, and casual lines. Combining sticky notes, grid paper backgrounds, and hand-drawn borders to create a friendly and relaxed design atmosphere."
+      "zh-CN": "通过手写字体、SVG 滤镜和随性线条创造温暖亲切的视觉体验。结合粘贴便签、网格纸背景和手绘边框元素，营造友好轻松的设计氛围。完美适用于现代应用的独特视觉语言。融合美学原理与功能设计元素，创造引人入胜的用户体验。",
+      "en-US": "Create warm and approachable visual experiences through handwritten fonts, SVG filters, and casual sketched elements. Perfect for creative applications, children's products, educational platforms, design portfolios, note-taking apps, journaling tools, creative services, and innovative brands seeking friendly, organic aesthetics with genuine personable charm, authentic artistic expression, and exceptionally thoughtful design combining playfulness with meaningful functionality in truly accessible, inclusive digital environments with artistic authenticity and emotional resonance. Ensures exceptional design quality through strategic principles and thoughtful implementation. Combines authentic artistic expression with intuitive user experience design promoting creative engagement."
     },
     "tags": [],
     "relatedStyles": []
@@ -31,7 +31,7 @@
     {
       "id": "handDrawnSketchComponents",
       "title": {
-        "zh-CN": "HandDrawnSketchComponents",
+        "zh-CN": "HandDrawnSke...",
         "en-US": "HandDrawnSketchComponents"
       }
     }

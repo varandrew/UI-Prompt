@@ -7,8 +7,8 @@
       "en-US": "Tags Input"
     },
     "description": {
-      "zh-CN": "标签输入组件",
-      "en-US": "Tags input component"
+      "zh-CN": "一个标签输入组件，用于管理文本标签或标签的集合，具有灵活的输入选项。包含通过各种输入方法的标签创建、标签删除、重复防止和可自定义的标签显示，带有图标和颜色。",
+      "en-US": "A tags input component for managing collections of text tags or labels with flexible input options. Features tag creation through various input methods, tag removal, duplicate prevention, and customizable tag display with icons and colors."
     },
     "tags": [
       "input",
@@ -24,8 +24,8 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的标签输入实现",
-        "en-US": "Tags Input implementation in Default style"
+        "zh-CN": "用户友好的标签输入实现，具有直观的标签创建、清晰的删除控件和视觉标签组织。通过流畅的交互和有用的视觉反馈有效管理标签集合。",
+        "en-US": "A user-friendly tags input implementation with intuitive tag creation, clear removal controls, visual tag organization, and smooth interactions. Effectively manages tag collections with smooth interactions and helpful visual feedback for optimal user experience."
       },
       "hasContent": true,
       "hasStyles": false

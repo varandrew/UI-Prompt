@@ -1,7 +1,27 @@
 {
-  "generated": "2025-12-18T22:54:55.505Z",
-  "count": 23,
+  "generated": "2025-12-19T08:45:37.940Z",
+  "count": 24,
   "files": {
+    "core-scrollNarrative-core-scrollNarrative-immersive-narrative:fullpage": {
+      "hash": "d01bbcbe",
+      "file": "core-scrollNarrative-core-scrollNarrative-immersive-narrative_fullpage-d01bbcbe.js",
+      "mode": "react",
+      "componentName": "ScrollyTellingApp",
+      "lucideIcons": [
+        "ArrowDown",
+        "ArrowUp",
+        "Zap",
+        "Layers",
+        "Eye",
+        "Move",
+        "Smartphone",
+        "MousePointer",
+        "Activity",
+        "Box",
+        "Hexagon"
+      ],
+      "size": 26260
+    },
     "core-scrollNarrative-vision-launch-narrative:fullpage": {
       "hash": "8219728e",
       "file": "core-scrollNarrative-vision-launch-narrative_fullpage-8219728e.js",

@@ -7,8 +7,8 @@
       "en-US": "Scrollbar Thumb"
     },
     "description": {
-      "zh-CN": "滚动条滑块样式",
-      "en-US": "Scrollbar thumb styles"
+      "zh-CN": "一个自定义滚动条滑块组件，提供滚动位置的视觉指示并启用滚动导航。包含可自定义的样式、流畅的跟踪和响应式行为，增强滚动体验和视觉反馈。",
+      "en-US": "A custom scrollbar thumb component that provides visual indication of scroll position and enables scroll navigation. Features customizable styling, smooth tracking, and responsive behavior for enhanced scrolling experience and visual feedback."
     },
     "tags": [
       "advanced"
@@ -23,8 +23,8 @@
         "en-US": "Minimal Modern"
       },
       "description": {
-        "zh-CN": "现代极简风格的滚动条滑块实现",
-        "en-US": "Scrollbar Thumb implementation in Minimal Modern style"
+        "zh-CN": "光滑的滚动条滑块实现，采用现代风格、流畅动画和清晰的可见性指示。提供精确的滚动位置反馈，同时保持对内容的最小视觉干扰。",
+        "en-US": "A sleek scrollbar thumb implementation featuring modern styling, smooth animations, clear visibility indicators, and intuitive hover states. Provides precise scroll position feedback while maintaining minimal visual intrusion on content with excellent responsive behavior."
       },
       "hasContent": true,
       "hasStyles": true

@@ -7,8 +7,8 @@
       "en-US": "Utility First"
     },
     "description": {
-      "zh-CN": "实用优先设计哲学，最小化自定义 CSS，专注于功能性 Tailwind 类。",
-      "en-US": "Utility-first design philosophy with minimal custom CSS, focusing on functional Tailwind classes."
+      "zh-CN": "功能优先的哲学风格，最小化自订CSS并聚焦功能构图。强谾实用效率、快速开发和实用美学。功能优先设计哲学强调最小自定义CSS。专注功能组合和实用设计实现。",
+      "en-US": "Utility-first design philosophy with minimal custom CSS focusing on functional composition and reusable patterns Builds rapid interfaces through pre-defined utility classes, compositional styling, and highly maintainable component development best practices Builds rapid, maintainable interfaces through utility-based styling Perfect for development-focused teams and scalable projects This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. functional design efficiency and rapid component composition. Excellence in design. Prioritizes functional efficiency with rapid component composition and practical design implementation."
     },
     "tags": [],
     "relatedStyles": []

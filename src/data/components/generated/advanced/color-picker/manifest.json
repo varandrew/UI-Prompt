@@ -7,8 +7,8 @@
       "en-US": "Color Picker"
     },
     "description": {
-      "zh-CN": "颜色选择器组件",
-      "en-US": "Color picker component"
+      "zh-CN": "一个精细的颜色选择器组件，使用户可以通过多种输入方法选择颜色，包括十六进制输入、RGB滑块、HSL控制和可视化调色板。提供实时预览、颜色历史和无障碍功能，确保包容性的颜色选择体验。",
+      "en-US": "A sophisticated color picker component that enables users to select colors through multiple input methods including hex input, RGB sliders, HSL controls, and visual color palettes. Offers live preview, color history, and accessibility features for inclusive color selection experiences."
     },
     "tags": [
       "advanced"
@@ -23,8 +23,8 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的颜色选择器实现",
-        "en-US": "Color Picker implementation in Default style"
+        "zh-CN": "用户友好的颜色选择器实现，具有直观的可视控件、流畅的颜色过渡和响应式设计。包含调色板预设和颜色历史跟踪功能，简化颜色选择工作流。",
+        "en-US": "A user-friendly implementation of the color picker featuring intuitive visual controls, smooth color transitions, responsive design, and comprehensive accessibility features. Includes palette presets and color history tracking functionality for streamlined color selection workflows."
       },
       "hasContent": true,
       "hasStyles": false

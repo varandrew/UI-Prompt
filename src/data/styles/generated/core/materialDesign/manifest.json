@@ -7,8 +7,8 @@
       "en-US": "Material Design System"
     },
     "description": {
-      "zh-CN": "完整的 Material Design 系统指南，展示设计原则、组件和交互模式。提供现代化的卡片布局、阴影阶层和涟漪反馈效果。",
-      "en-US": "A comprehensive Material Design system guide showcasing design principles, components, and interaction patterns. Features modern card layouts, shadow hierarchy, and ripple effects."
+      "zh-CN": "完整的 Material Design 系统指南，展示设计原则、组件和交互模式。提供现代化的卡片布局、阴影阶层和涟漪反馈效果。综合性 Material Design 系统指南，展示设计原理、组件和交互模式。提供详细的设计系统指导和系统化组件规范。",
+      "en-US": "A comprehensive Material Design system guide showcasing design principles, components, and interaction patterns Features modern card layouts, shadow hierarchy, and ripple effects for enterprise applications and multi-platform products in professional enterprise environments Widely adopted in enterprise applications, cross-platform development, and content-heavy systems Provides comprehensive component library and interaction guidelines This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. comprehensive design system with systematic component guidance."
     },
     "tags": [
       "contemporary",
@@ -27,21 +27,21 @@
     {
       "id": "core-materialDesign-principles",
       "title": {
-        "zh-CN": "Material Design 设计原则",
+        "zh-CN": "Material Des...",
         "en-US": "Material Design Principles"
       }
     },
     {
       "id": "core-material-design",
       "title": {
-        "zh-CN": "Material Design 基础",
+        "zh-CN": "Material Des...",
         "en-US": "Material Design Basic"
       }
     },
     {
       "id": "core-materialYouAndroidSettings",
       "title": {
-        "zh-CN": "Material You Android 设定",
+        "zh-CN": "Material You...",
         "en-US": "Material You Android Settings"
       }
     }

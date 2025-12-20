@@ -7,8 +7,8 @@
       "en-US": "Toast Notifications"
     },
     "description": {
-      "zh-CN": "轻量级的消息通知组件",
-      "en-US": "Lightweight message notification component"
+      "zh-CN": "一个toast通知组件，用于向用户显示简短的非侵入式消息，支持自动消失。支持多种通知类型、自动消失功能、自定义操作和堆叠行为，实现有效的用户通信和反馈。",
+      "en-US": "A toast notification component for displaying brief, non-intrusive messages to users with automatic dismissal. Supports multiple notification types, auto-dismissal functionality, custom actions, and stacking behavior for effective user communication and feedback."
     },
     "tags": [
       "feedback",
@@ -24,8 +24,8 @@
         "en-US": "Minimalism"
       },
       "description": {
-        "zh-CN": "极简风格风格的Toast 通知实现",
-        "en-US": "Toast Notifications implementation in Minimalism style"
+        "zh-CN": "精致的toast通知实现，具有清晰的消息、流畅的动画和适当的视觉层级。提供有效的临时通知，具有良好的可见性和最小的内容干扰。",
+        "en-US": "A polished toast notification implementation with clear messaging, smooth animations, appropriate visual hierarchy, and responsive positioning. Provides effective temporary notifications with good visibility, minimal content disruption, and helpful visual feedback."
       },
       "hasContent": true,
       "hasStyles": true

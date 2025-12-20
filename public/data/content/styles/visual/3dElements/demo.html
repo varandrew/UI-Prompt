@@ -3,152 +3,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Elements UI Style Demo</title>
-    <!-- Tailwind CSS for layout utilities -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter for UI, Rajdhani for Tech feel -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="demo.css">
+    <title>3D Elements Style Demo</title>
+    <style>
+        /* --- CORE RESET & FONT --- 
+           Using system fonts for max performance, styled to look futuristic.
+        */
+        :root {
+            --bg-color: #050511;
+            --card-base: #13132b;
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-secondary: #06b6d4; /* Cyan */
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --glass-surface: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            color: var(--text-main);
+        }
+
+        /* --- DEMO CONTAINER (SQUARE & SCALABLE) --- 
+           Solves the resizing issue by using aspect-ratio and clamp.
+           No 'cqw' units used. 
+        */
+        .demo-wrapper {
+            width: 90vmin; /* Responsive to viewport min dimension */
+            height: 90vmin;
+            max-width: 500px;
+            max-height: 500px;
+            /* Force square shape */
+            aspect-ratio: 1 / 1;
+            position: relative;
+            background: radial-gradient(circle at 50% 0%, #1e1e3f 0%, var(--bg-color) 70%);
+            border-radius: 24px;
+            box-shadow: 0 0 0 1px #333, 0 20px 50px rgba(0,0,0,0.8);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Perspective is key for the 3D effect */
+            perspective: 1000px;
+        }
+
+        /* Background Noise/Grid - Purely decorative, non-interactive */
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none; /* Crucial fix: clicks pass through */
+            z-index: 0;
+            mask-image: radial-gradient(circle, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle, black 40%, transparent 80%);
+        }
+
+        /* --- THE 3D SCENE STAGE --- 
+           This element holds the 3D object and handles the rotation logic.
+        */
+        .scene {
+            width: 60%;
+            height: 60%;
+            position: relative;
+            transform-style: preserve-3d;
+            /* Initial slight rotation for the "studio" look */
+            transform: rotateX(20deg) rotateY(-20deg);
+            transition: transform 0.1s ease-out; /* Smooth JS tilt */
+            z-index: 10;
+        }
+
+        /* --- THE HERO CARD OBJECT --- 
+           Constructed of multiple layers to give physical thickness.
+        */
+        .card-assembly {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            /* Floating Animation */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Layer 1: The Shadow (Ground projection) */
+        .card-shadow {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            top: 5%;
+            left: 5%;
+            background: rgba(0, 0, 0, 0.6);
+            filter: blur(20px);
+            transform: translateZ(-60px);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: shadow-breath 6s ease-in-out infinite;
+        }
+
+        /* Layer 2: The Main Body (Thickness & Base) */
+        .card-body {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--card-base), #0a0a1a);
+            border-radius: 20px;
+            /* Simulated thickness using stacked shadows */
+            box-shadow: 
+                -1px 0 0 rgba(255,255,255,0.1), /* Rim light left */
+                1px 0 0 rgba(0,0,0,0.5),      /* Dark side right */
+                0 1px 0 rgba(0,0,0,0.5),      /* Dark side bottom */
+                inset 0 0 20px rgba(0,0,0,0.8); /* Inner depth */
+            transform: translateZ(0px);
+            display: flex;
+            flex-direction: column;
+            padding: 10%;
+            justify-content: space-between;
+        }
+
+        /* Layer 3: Glass Overlay (Top Surface) */
+        .card-glass {
+            position: absolute;
+            inset: -2px;
+            border-radius: 22px;
+            background: linear-gradient(125deg, rgba(255,255,255,0.05) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid var(--glass-border);
+            pointer-events: none;
+            /* Glossy reflection */
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+            transform: translateZ(2px);
+        }
+
+        /* Layer 4: Floating Elements (Content that pops out) */
+        .card-content {
+            transform-style: preserve-3d;
+            z-index: 20;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header Area */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateZ(20px); /* Pops out 20px */
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            color: #a5b4fc;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: clamp(10px, 2vmin, 12px); /* Responsive Font */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .dot-indicators {
+            display: flex;
+            gap: 4px;
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #334155;
+        }
+        .dot.active {
+            background: var(--accent-secondary);
+            box-shadow: 0 0 8px var(--accent-secondary);
+        }
+
+        /* Main Visual Element (The Abstract 3D Shape) */
+        .visual-center {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateZ(40px); /* Pops out 40px */
+            position: relative;
+        }
+
+        /* The glowing orb/cube representation */
+        .hologram-circle {
+            width: 35%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, var(--accent-secondary), transparent 60%);
+            filter: blur(15px);
+            opacity: 0.4;
+            position: absolute;
+        }
+
+        .hologram-ring {
+            width: 50%;
+            aspect-ratio: 1;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            position: absolute;
+            transform: rotateX(60deg);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+        
+        .hologram-cube {
+            width: 25%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+            transform: rotateZ(45deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            box-shadow: 0 0 5px white;
+        }
+        .p1 { top: -20%; left: 10%; animation: float-p 3s infinite alternate; }
+        .p2 { bottom: 10%; right: -10%; animation: float-p 4s infinite alternate-reverse; }
+
+        /* Footer Text */
+        .footer-text {
+            transform: translateZ(25px); /* Pops out 25px */
+            text-align: center;
+        }
+
+        .title-main {
+            font-size: clamp(18px, 5vmin, 28px);
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-size: clamp(10px, 2.5vmin, 14px);
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        /* --- ANIMATIONS --- 
+        */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateZ(0deg); }
+            50% { transform: translateY(-15px) rotateZ(1deg); }
+        }
+
+        @keyframes shadow-breath {
+            0%, 100% { transform: translateZ(-60px) scale(1); opacity: 0.8; }
+            50% { transform: translateZ(-60px) scale(0.9); opacity: 0.6; }
+        }
+        
+        @keyframes float-p {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* Hover Interaction Hint */
+        .interaction-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            pointer-events: none;
+        }
+
+    </style>
 </head>
 <body>
 
-    <div class="stage-3d">
-        <!-- Main Artifact Container -->
-        <div class="artifact-container" id="artifact">
+    <!-- 
+      Main Layout Wrapper 
+      Using 'vmin' and 'aspect-ratio' to ensure a perfect square that fits any screen size.
+    -->
+    <div class="demo-wrapper" id="demoContainer">
+        
+        <!-- Background Grid (Decorative) -->
+        <div class="bg-grid"></div>
+
+        <!-- The 3D Scene -->
+        <div class="scene" id="scene">
             
-            <!-- Base Slab -->
-            <div class="artifact-slab flex flex-col relative overflow-hidden">
-                
-                <!-- Internal Texture -->
-                <div class="holo-grid"></div>
-                
-                <!-- Corner Accents (Decor) -->
-                <div class="absolute top-6 left-6 w-3 h-3 border-t border-l border-cyan-400 opacity-50 z-2"></div>
-                <div class="absolute top-6 right-6 w-3 h-3 border-t border-r border-cyan-400 opacity-50 z-2"></div>
-                <div class="absolute bottom-6 left-6 w-3 h-3 border-b border-l border-cyan-400 opacity-50 z-2"></div>
-                <div class="absolute bottom-6 right-6 w-3 h-3 border-b border-r border-cyan-400 opacity-50 z-2"></div>
+            <div class="card-assembly">
+                <!-- Shadow Layer (Depth) -->
+                <div class="card-shadow"></div>
 
-                <!-- Top Bar (Layer 3) -->
-                <div class="flex justify-between items-center p-8 z-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center backdrop-blur-sm">
-                            <i class="fa-solid fa-layer-group text-cyan-400 text-xs"></i>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="font-tech font-bold text-white tracking-widest text-lg leading-none">NEXUS</span>
-                            <span class="text-[10px] text-cyan-200/60 uppercase tracking-wider">Interface Unit 01</span>
-                        </div>
-                    </div>
+                <!-- Main Card Structure -->
+                <div class="card-body">
                     
-                    <div class="nav-pill px-3 py-1 rounded-full text-[10px] font-tech text-white uppercase tracking-wider flex items-center gap-2 cursor-pointer">
-                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
-                        Online
-                    </div>
-                </div>
+                    <!-- Glass Surface Effect -->
+                    <div class="card-glass"></div>
 
-                <!-- Middle Content (Layer 2 & 4) -->
-                <div class="flex-1 flex flex-col items-center justify-center relative z-2">
-                    
-                    <!-- Floating Centerpiece (Layer 4) -->
-                    <div class="core-model z-4 mb-6">
-                        <div class="relative z-10 text-cyan-50">
-                            <i class="fa-solid fa-cube text-4xl drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]"></i>
+                    <!-- Floating Content -->
+                    <div class="card-content">
+                        
+                        <!-- Top Row -->
+                        <div class="header-row">
+                            <div class="badge">Spatial UI</div>
+                            <div class="dot-indicators">
+                                <div class="dot"></div>
+                                <div class="dot active"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center Visual -->
+                        <div class="visual-center">
+                            <div class="hologram-circle"></div>
+                            <div class="hologram-ring"></div>
+                            <div class="hologram-cube"></div>
+                            <div class="particle p1"></div>
+                            <div class="particle p2"></div>
+                        </div>
+
+                        <!-- Bottom Text -->
+                        <div class="footer-text">
+                            <h1 class="title-main">3D ELEMENTS</h1>
+                            <p class="subtitle">Tangible Digital Objects</p>
                         </div>
                     </div>
-
-                    <!-- Text Block (Layer 3) -->
-                    <div class="text-center z-3 px-8">
-                        <h1 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-slate-300 mb-2">
-                            Spatial Computing
-                        </h1>
-                        <p class="text-xs text-slate-400 max-w-[240px] mx-auto leading-relaxed">
-                            A perfectly balanced square viewport designed for modular AR interfaces.
-                        </p>
-                    </div>
-
-                    <!-- Floating Particles (Decor) -->
-                    <div class="particle w-1 h-1 top-10 left-20 z-1 animate-pulse"></div>
-                    <div class="particle w-2 h-2 bottom-20 right-20 bg-purple-400 blur-[1px] z-2 opacity-30"></div>
                 </div>
-
-                <!-- Bottom Controls (Layer 4) -->
-                <div class="p-8 z-4 w-full">
-                    <div class="grid grid-cols-2 gap-4">
-                        <button class="action-btn h-12 rounded-xl flex items-center justify-center gap-2 text-white font-medium text-sm group">
-                            <i class="fa-solid fa-expand text-cyan-400 group-hover:rotate-90 transition-transform"></i>
-                            <span>Expand</span>
-                        </button>
-                        <button class="action-btn h-12 rounded-xl flex items-center justify-center gap-2 text-white font-medium text-sm">
-                            <i class="fa-solid fa-fingerprint text-purple-400"></i>
-                            <span>Access</span>
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </div>
 
-    <!-- Mobile Hint -->
-    <div class="fixed bottom-6 text-slate-600 text-[10px] font-tech tracking-widest w-full text-center pointer-events-none uppercase">
-        Drag to Rotate Viewport
+        <div class="interaction-hint">Move Cursor / Touch to Rotate</div>
+
     </div>
 
     <script>
-        const artifact = document.getElementById('artifact');
+        /**
+         * 3D Tilt Logic
+         * Captures mouse/touch movement over the container and applies 
+         * a rotateX and rotateY transform to the scene.
+         */
+        const container = document.getElementById('demoContainer');
+        const scene = document.getElementById('scene');
         
-        // Settings
-        const sensitivity = 20; // Lower is less sensitive
+        // Configuration
+        const maxRotate = 15; // Max rotation in degrees
+        const smoothFactor = 0.1; // Smoothing factor for animation frame
 
-        document.addEventListener('mousemove', (e) => {
-            // Get screen center
-            const cx = window.innerWidth / 2;
-            const cy = window.innerHeight / 2;
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
 
-            // Calculate distance from center (normalized -1 to 1)
-            const dx = (e.clientX - cx) / cx;
-            const dy = (e.clientY - cy) / cy;
+        // Default "Rest" position (slight isometric angle)
+        const restRotateX = 10;
+        const restRotateY = -10;
 
-            // Calculate rotation
-            const rotateY = dx * sensitivity; // Mouse X affects Rotation Y
-            const rotateX = -dy * sensitivity; // Mouse Y affects Rotation X (inverted)
+        // Event Listener: Mouse Move
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Calculate percentage from center (-1 to 1)
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const percentX = (x - centerX) / centerX;
+            const percentY = (y - centerY) / centerY;
+
+            // Update Target Rotation (Invert Y for natural feel)
+            // Note: rotateY corresponds to X movement, rotateX to Y movement
+            targetY = percentX * maxRotate; 
+            targetX = -percentY * maxRotate;
+        });
+
+        // Event Listener: Mouse Leave (Return to rest)
+        container.addEventListener('mouseleave', () => {
+            targetX = restRotateX;
+            targetY = restRotateY;
+        });
+
+        // Event Listener: Touch (Mobile Support)
+        container.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling while interacting
+            const rect = container.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const percentX = (x - centerX) / centerX;
+            const percentY = (y - centerY) / centerY;
+
+            targetY = percentX * maxRotate;
+            targetX = -percentY * maxRotate;
+        }, { passive: false });
+
+        container.addEventListener('touchend', () => {
+            targetX = restRotateX;
+            targetY = restRotateY;
+        });
+
+        // Animation Loop for Smooth Interpolation
+        function animate() {
+            // Linear interpolation (Lerp) for smoothness
+            currentX += (targetX - currentX) * smoothFactor;
+            currentY += (targetY - currentY) * smoothFactor;
 
             // Apply transform
-            requestAnimationFrame(() => {
-                artifact.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-        });
+            scene.style.transform = `rotateX(${currentX}deg) rotateY(${currentY}deg)`;
 
-        // Reset when mouse leaves window
-        document.addEventListener('mouseleave', () => {
-            artifact.style.transform = `rotateX(0deg) rotateY(0deg)`;
-        });
+            requestAnimationFrame(animate);
+        }
+
+        // Initialize with rest position
+        targetX = restRotateX;
+        targetY = restRotateY;
         
-        // Simple touch support for mobile (drag to look)
-        let touchStartX = 0;
-        let touchStartY = 0;
-        
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        });
+        // Start Loop
+        animate();
 
-        document.addEventListener('touchmove', (e) => {
-            const touchX = e.touches[0].clientX;
-            const touchY = e.touches[0].clientY;
-            
-            const dx = (touchX - touchStartX) / window.innerWidth * 2;
-            const dy = (touchY - touchStartY) / window.innerHeight * 2;
-
-            const rotateY = dx * sensitivity * 2;
-            const rotateX = -dy * sensitivity * 2;
-
-            requestAnimationFrame(() => {
-                artifact.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-        });
     </script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+{
+  "id": "focus-navigator",
+  "category": "advanced",
+  "component": {
+    "name": {
+      "zh-CN": "焦点导航器",
+      "en-US": "Focus Navigator"
+    },
+    "description": {
+      "zh-CN": "交互式焦点导航组件，允许用户通过点击按钮改变网页上的焦点位置。支持平滑滚动、进度追踪和多个变体设计。",
+      "en-US": "Interactive focus navigator component that allows users to change focus position on the webpage by clicking buttons. Supports smooth scrolling, progress tracking, and multiple design variants."
+    },
+    "tags": [
+      "advanced",
+      "navigation",
+      "accessibility"
+    ],
+    "relatedComponents": []
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "简洁风格",
+        "en-US": "Clean & Simple"
+      },
+      "description": {
+        "zh-CN": "简洁的焦点导航设计，包含顶部进度标签、章节按钮和上/下导航按钮。适合简单的多章节内容。",
+        "en-US": "Clean focus navigation design with top progress label, section buttons, and up/down navigation buttons. Perfect for simple multi-section content."
+      },
+      "hasContent": true,
+      "hasStyles": true
+    },
+    {
+      "id": "featured",
+      "name": {
+        "zh-CN": "功能丰富版",
+        "en-US": "Featured with Sidebar"
+      },
+      "description": {
+        "zh-CN": "功能丰富的焦点导航设计，包含侧边栏导航、进度条、章节徽章和视觉反馈。适合复杂的多部分应用。",
+        "en-US": "Feature-rich focus navigation design with sidebar navigation, progress bar, section badges, and visual feedback. Perfect for complex multi-section applications."
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

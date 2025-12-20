@@ -7,11 +7,26 @@
       "en-US": "Brutalism"
     },
     "description": {
-      "zh-CN": "大胆的排版、强烈的对比和原始的美学，打破传统设计规则。",
-      "en-US": "Bold typography, high contrast, and raw aesthetics that break traditional design rules."
+      "zh-CN": "粗野主义风格，采用大胆排版、高度对比和原始美学，刻意打破传统训讈惯例。透过鲜明视觉、非常规布局和勇敢的排版创造强力、富有表现力的介面。适合前卫项目和艺术应用，提供独特的视觉语言，结合美学原理与功能性训讈元素。",
+      "en-US": "Bold typography, high contrast, and raw aesthetics that deliberately break traditional design conventions Creates powerful, statement-making interfaces through stark visuals, unconventional layouts, and fearless typography for creating powerful visual impact and bold interface design This style excels in creating bold, statement-making digital experiences that deliberately challenge conventional design norms Perfect for avant-garde projects and artistic applications This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences."
     },
     "tags": [],
     "relatedStyles": []
   },
-  "templates": []
+  "templates": [
+    {
+      "id": "core-brutalism-bold-statement",
+      "title": {
+        "zh-CN": "大胆宣言",
+        "en-US": "Bold Statement"
+      }
+    },
+    {
+      "id": "core-brutalism-raw-design",
+      "title": {
+        "zh-CN": "原始设计",
+        "en-US": "Raw Design"
+      }
+    }
+  ]
 }

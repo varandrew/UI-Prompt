@@ -1,30 +1,125 @@
-<div class="relative w-full h-[400px] bg-white p-6 overflow-hidden">
-        <!-- 三欄看板佈局 -->
-        <div class="grid grid-cols-3 gap-6 h-full">
+<div class="kanban-component-wrapper" id="kanbanDemo">
+    <!-- Background Noise (Safe Layer) -->
+    <div class="bg-noise"></div>
 
-          <!-- TO DO 欄 -->
-          <div class="flex flex-col gap-3 border-r border-gray-200 pr-4">
-            <div class="h-20 bg-black rounded shadow-sm"></div>
-            <div class="h-20 bg-black rounded shadow-sm"></div>
-            <div class="h-20 bg-black rounded shadow-sm"></div>
-          </div>
+    <!-- Main Content -->
+    <div class="kanban-layout">
 
-          <!-- IN PROGRESS 欄 -->
-          <div class="flex flex-col gap-3 border-r border-gray-200 pr-4">
-            <div class="h-20 bg-black rounded shadow-sm"></div>
-            <div class="h-20 bg-black rounded shadow-sm"></div>
-          </div>
-
-          <!-- DONE 欄 -->
-          <div class="flex flex-col gap-3">
-            <div class="h-20 bg-gray-800 rounded shadow-sm"></div>
-            <div class="h-20 bg-gray-800 rounded shadow-sm"></div>
-            <div class="h-20 bg-gray-800 rounded shadow-sm"></div>
-            <div class="h-20 bg-gray-800 rounded shadow-sm"></div>
-          </div>
-
+        <!-- Header -->
+        <div class="kanban-header">
+            <div class="header-title">
+                <span class="icon-board"></span>
+                Default Kanban
+            </div>
+            <div class="header-controls">
+                <div class="avatar">U</div>
+            </div>
         </div>
 
-        <!-- 極淡网格背景 -->
-        <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
-      </div>
+        <!-- Columns -->
+        <div class="board-container">
+
+            <!-- Column 1: Todo -->
+            <div class="column" data-status="todo">
+                <div class="column-header">To Do <span>3</span></div>
+                <div class="column-content">
+                    <div class="card" draggable="true">
+                        <div class="card-title">Research UX trends</div>
+                        <div class="card-tag">Design</div>
+                        <div class="card-meta"><div class="mini-avatar"></div></div>
+                    </div>
+                    <div class="card" draggable="true">
+                        <div class="card-title">Draft PRD</div>
+                        <div class="card-meta"><div class="mini-avatar"></div></div>
+                    </div>
+                    <div class="card" draggable="true">
+                        <div class="card-title">Asset prep</div>
+                        <div class="card-tag">Art</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: In Progress -->
+            <div class="column" data-status="inprogress">
+                <div class="column-header">Doing <span>2</span></div>
+                <div class="column-content">
+                    <div class="card" draggable="true">
+                        <div class="card-title">Fix login bug</div>
+                        <div class="card-tag high">Bug</div>
+                        <div class="card-meta"><div class="mini-avatar"></div></div>
+                    </div>
+                    <div class="card" draggable="true">
+                        <div class="card-title">Unit tests</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: Done -->
+            <div class="column" data-status="done">
+                <div class="column-header">Done <span>1</span></div>
+                <div class="column-content">
+                    <div class="card" draggable="true">
+                        <div class="card-title">Weekly sync</div>
+                        <div class="card-tag">Team</div>
+                        <div class="card-meta"><div class="mini-avatar"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+// Simple Drag and Drop Implementation
+// This ensures the demo feels interactive even at a small size
+
+const cards = document.querySelectorAll('.card');
+const columns = document.querySelectorAll('.column-content');
+
+let draggedCard = null;
+
+cards.forEach(card => {
+    card.addEventListener('dragstart', (e) => {
+        draggedCard = card;
+        setTimeout(() => {
+            card.classList.add('dragging');
+        }, 0);
+    });
+
+    card.addEventListener('dragend', () => {
+        draggedCard = null;
+        card.classList.remove('dragging');
+    });
+});
+
+columns.forEach(column => {
+    column.addEventListener('dragover', (e) => {
+        e.preventDefault(); // Allow dropping
+        const afterElement = getDragAfterElement(column, e.clientY);
+        const draggable = document.querySelector('.dragging');
+        if (!draggable) return;
+
+        if (afterElement == null) {
+            column.appendChild(draggable);
+        } else {
+            column.insertBefore(draggable, afterElement);
+        }
+    });
+});
+
+// Helper to determine drop position based on mouse Y coordinate
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.card:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+</script>

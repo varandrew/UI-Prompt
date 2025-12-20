@@ -1,0 +1,39 @@
+{
+  "id": "tour-guide",
+  "category": "feedback",
+  "component": {
+    "name": {
+      "zh-CN": "引导教程",
+      "en-US": "Tour Guide"
+    },
+    "description": {
+      "zh-CN": "一个分步用户引导组件，用于在聚焦的覆盖层中展示产品功能和工作流程。包含智能高亮、步骤导航和交互式提示，适用于新手引导和功能介绍。",
+      "en-US": "A step-by-step user guidance component for displaying product features and workflows in a focused overlay interface. Features smart highlighting, step navigation, and interactive tooltips for onboarding and feature introduction."
+    },
+    "tags": [
+      "guidance",
+      "onboarding",
+      "tutorial",
+      "walkthrough"
+    ],
+    "relatedComponents": [
+      "modal-dialog",
+      "toast-notifications"
+    ]
+  },
+  "variants": [
+    {
+      "id": "default",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认的引导教程实现，具有清晰的步骤指示、聚光灯效果和流畅的过渡动画。有效引导用户了解界面功能，提供直观的导航控件和专业外观。",
+        "en-US": "Default tour guide variant with step-by-step visual guidance, spotlight effects, and smooth transitions. Effectively guides users through interface features with intuitive navigation controls and professional appearance."
+      },
+      "hasContent": true,
+      "hasStyles": true
+    }
+  ]
+}

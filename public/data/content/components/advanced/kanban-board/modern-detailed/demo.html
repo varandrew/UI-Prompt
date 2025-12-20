@@ -1,0 +1,866 @@
+<div class="kanban-board-container">
+  <!-- Kanban Board Header -->
+  <div class="kanban-header">
+    <div class="board-title">
+      <svg class="board-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+        <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+      </svg>
+      <h2>Product Development</h2>
+    </div>
+    <div class="board-stats">
+      <span class="stat-badge">12 tasks</span>
+      <span class="stat-badge">4 members</span>
+    </div>
+  </div>
+
+  <!-- Kanban Columns -->
+  <div class="kanban-columns">
+
+    <!-- Column: To Do -->
+    <div class="kanban-column">
+      <div class="column-header">
+        <div class="column-title">
+          <span class="column-dot" style="background: #3b82f6;"></span>
+          <h3>To Do</h3>
+          <span class="column-count">3</span>
+        </div>
+        <button class="column-add-btn" aria-label="Add task">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="column-cards">
+        <!-- Task Card 1 -->
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-feature">Feature</span>
+              <span class="task-priority priority-high">High</span>
+            </div>
+          </div>
+          <h4 class="task-title">Design new dashboard layout</h4>
+          <p class="task-description">Create wireframes and mockups for the analytics dashboard redesign</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span>AK</span>
+              </div>
+              <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span>SM</span>
+              </div>
+            </div>
+            <div class="task-meta">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Card 2 -->
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-design">Design</span>
+              <span class="task-priority priority-medium">Medium</span>
+            </div>
+          </div>
+          <h4 class="task-title">Update brand guidelines</h4>
+          <p class="task-description">Revise color palette and typography system</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <span>LM</span>
+              </div>
+            </div>
+            <div class="task-meta">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+              <span>5/8</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Card 3 -->
+        <div class="task-card">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-research">Research</span>
+              <span class="task-priority priority-low">Low</span>
+            </div>
+          </div>
+          <h4 class="task-title">User interview analysis</h4>
+          <p class="task-description">Compile and analyze feedback from 15 user interviews</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);">
+                <span>JD</span>
+              </div>
+            </div>
+            <div class="task-meta">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Due Mar 15</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column: In Progress -->
+    <div class="kanban-column">
+      <div class="column-header">
+        <div class="column-title">
+          <span class="column-dot" style="background: #f59e0b;"></span>
+          <h3>In Progress</h3>
+          <span class="column-count">2</span>
+        </div>
+        <button class="column-add-btn" aria-label="Add task">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="column-cards">
+        <!-- Task Card 1 -->
+        <div class="task-card task-active">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-feature">Feature</span>
+              <span class="task-priority priority-high">High</span>
+            </div>
+          </div>
+          <h4 class="task-title">Implement user authentication</h4>
+          <p class="task-description">Add OAuth2 integration with Google and GitHub providers</p>
+
+          <!-- Progress Bar -->
+          <div class="task-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%;"></div>
+            </div>
+            <span class="progress-text">65%</span>
+          </div>
+
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span>AK</span>
+              </div>
+            </div>
+            <div class="task-meta">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>2 days left</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Card 2 -->
+        <div class="task-card task-active">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-bug">Bug Fix</span>
+              <span class="task-priority priority-high">High</span>
+            </div>
+          </div>
+          <h4 class="task-title">Fix mobile responsive issues</h4>
+          <p class="task-description">Address layout breaks on screens below 768px</p>
+
+          <!-- Progress Bar -->
+          <div class="task-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 40%;"></div>
+            </div>
+            <span class="progress-text">40%</span>
+          </div>
+
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span>SM</span>
+              </div>
+              <div class="avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <span>LM</span>
+              </div>
+            </div>
+            <div class="task-meta">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column: Done -->
+    <div class="kanban-column">
+      <div class="column-header">
+        <div class="column-title">
+          <span class="column-dot" style="background: #10b981;"></span>
+          <h3>Done</h3>
+          <span class="column-count">4</span>
+        </div>
+        <button class="column-add-btn" aria-label="Add task">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="column-cards">
+        <!-- Task Card 1 -->
+        <div class="task-card task-completed">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-feature">Feature</span>
+              <span class="task-priority priority-medium">Medium</span>
+            </div>
+            <svg class="completion-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h4 class="task-title">Setup project repository</h4>
+          <p class="task-description">Initialize Git repo with CI/CD pipeline</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);">
+                <span>JD</span>
+              </div>
+            </div>
+            <div class="task-meta completion-date">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Completed Mar 1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Card 2 -->
+        <div class="task-card task-completed">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-design">Design</span>
+              <span class="task-priority priority-high">High</span>
+            </div>
+            <svg class="completion-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h4 class="task-title">Create component library</h4>
+          <p class="task-description">Build reusable UI components in Storybook</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <span>LM</span>
+              </div>
+              <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span>AK</span>
+              </div>
+            </div>
+            <div class="task-meta completion-date">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Completed Feb 28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Card 3 -->
+        <div class="task-card task-completed">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-documentation">Docs</span>
+              <span class="task-priority priority-low">Low</span>
+            </div>
+            <svg class="completion-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h4 class="task-title">Write API documentation</h4>
+          <p class="task-description">Document all REST endpoints with examples</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span>SM</span>
+              </div>
+            </div>
+            <div class="task-meta completion-date">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Completed Feb 25</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Card 4 -->
+        <div class="task-card task-completed">
+          <div class="task-header">
+            <div class="task-tags">
+              <span class="task-tag tag-testing">Testing</span>
+              <span class="task-priority priority-medium">Medium</span>
+            </div>
+            <svg class="completion-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h4 class="task-title">Setup E2E test suite</h4>
+          <p class="task-description">Configure Playwright for automated testing</p>
+          <div class="task-footer">
+            <div class="task-assignees">
+              <div class="avatar" style="background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);">
+                <span>JD</span>
+              </div>
+            </div>
+            <div class="task-meta completion-date">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Completed Feb 22</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+/* Kanban Board Styles - Modern Minimal Design */
+.kanban-board-container {
+  width: 100%;
+  min-height: 500px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+  padding: 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header */
+.kanban-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.board-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.board-icon {
+  width: 28px;
+  height: 28px;
+  color: #495057;
+}
+
+.board-title h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #212529;
+  letter-spacing: -0.025em;
+}
+
+.board-stats {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.stat-badge {
+  padding: 0.375rem 0.75rem;
+  background: white;
+  border-radius: 20px;
+  font-size: 0.813rem;
+  font-weight: 500;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+/* Columns Container */
+.kanban-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Column */
+.kanban-column {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 400px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f3f5;
+}
+
+.column-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.column-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.column-title h3 {
+  margin: 0;
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: #343a40;
+  letter-spacing: -0.01em;
+}
+
+.column-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: #e9ecef;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.column-add-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column-add-btn:hover {
+  background: white;
+  border-color: #adb5bd;
+  transform: scale(1.05);
+}
+
+.column-add-btn svg {
+  width: 14px;
+  height: 14px;
+  color: #6c757d;
+}
+
+/* Cards Container */
+.column-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Task Card */
+.task-card {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: move;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: #dee2e6;
+}
+
+.task-card:hover::before {
+  opacity: 1;
+}
+
+.task-card.task-active {
+  border-left: 3px solid #f59e0b;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.task-card.task-completed {
+  opacity: 0.75;
+}
+
+.task-card.task-completed:hover {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+  }
+}
+
+/* Task Header */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.task-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.task-tag {
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  font-size: 0.688rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.tag-feature {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.tag-design {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.tag-bug {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.tag-research {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.tag-documentation {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.tag-testing {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.task-priority {
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  font-size: 0.688rem;
+  font-weight: 600;
+}
+
+.priority-high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.priority-medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.priority-low {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.completion-check {
+  width: 20px;
+  height: 20px;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Task Content */
+.task-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: #212529;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.task-description {
+  margin: 0 0 0.875rem 0;
+  font-size: 0.813rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.task-card.task-completed .task-title {
+  color: #6c757d;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.task-card.task-completed .task-description {
+  color: #adb5bd;
+}
+
+/* Progress Bar */
+.task-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #f1f3f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #495057;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Task Footer */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-assignees {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.688rem;
+  font-weight: 600;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.task-meta.completion-date {
+  color: #10b981;
+}
+
+.task-meta .icon {
+  width: 14px;
+  height: 14px;
+  color: currentColor;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .kanban-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .kanban-column {
+    min-height: auto;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .kanban-board-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  .kanban-header {
+    border-bottom-color: #2d3748;
+  }
+
+  .board-title h2 {
+    color: #f7fafc;
+  }
+
+  .board-icon {
+    color: #cbd5e0;
+  }
+
+  .stat-badge {
+    background: #2d3748;
+    color: #cbd5e0;
+    border-color: #4a5568;
+  }
+
+  .kanban-column {
+    background: rgba(45, 55, 72, 0.6);
+    border-color: rgba(74, 85, 104, 0.3);
+  }
+
+  .column-header {
+    border-bottom-color: #2d3748;
+  }
+
+  .column-title h3 {
+    color: #e2e8f0;
+  }
+
+  .column-count {
+    background: #2d3748;
+    color: #cbd5e0;
+  }
+
+  .column-add-btn {
+    border-color: #4a5568;
+  }
+
+  .column-add-btn:hover {
+    background: #2d3748;
+  }
+
+  .task-card {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .task-card:hover {
+    border-color: #718096;
+  }
+
+  .task-title {
+    color: #f7fafc;
+  }
+
+  .task-description {
+    color: #a0aec0;
+  }
+
+  .progress-bar {
+    background: #1a202c;
+  }
+}
+</style>
+
+<script>
+// Add subtle hover interactions
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.task-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.cursor = 'grab';
+    });
+
+    card.addEventListener('mousedown', function() {
+      this.style.cursor = 'grabbing';
+    });
+
+    card.addEventListener('mouseup', function() {
+      this.style.cursor = 'grab';
+    });
+  });
+
+  // Simulate drag and drop hover effect
+  const columns = document.querySelectorAll('.column-cards');
+  columns.forEach(column => {
+    column.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.style.background = 'rgba(59, 130, 246, 0.05)';
+    });
+
+    column.addEventListener('dragleave', function() {
+      this.style.background = '';
+    });
+  });
+});
+</script>

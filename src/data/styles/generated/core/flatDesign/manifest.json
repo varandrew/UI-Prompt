@@ -7,18 +7,15 @@
       "en-US": "Flat Design System"
     },
     "description": {
-      "zh-CN": "简洁高效的扁平设计系统，无阴影、无渐变，强调内容和结构。完整的设计规范包括视觉哲学、交互原则和组件库。",
-      "en-US": "Clean and efficient flat design system with no shadows or gradients, emphasizing content and structure. Complete design specifications including visual philosophy, interaction principles, and component library."
+      "zh-CN": "简洁高效的扁平系统，无阴影或渐变，强谾内容优先和简洁美学。通过极简布局、清晰排版和必要元素的精心选择创造现代化介面。适合当代应用和用户友好的训讈，体现\"少即是多\"的哲学。通过清晰的排版、去除阴影和渐变效果，强调内容优先。采用简洁高效的设计理念，创造现代化扁平设计系统，提供全面的视觉指导和系统化组件建议。",
+      "en-US": "Clean and efficient flat design system with no shadows or gradients, emphasizing content and creating immersive and engaging digital experiences through thoughtful design principles, modern aesthetics, and user-centered approach to interface development Ideal for web and mobile applications requiring clean interfaces and rapid development Emphasizes usability through clear visual hierarchy and intuitive interaction patterns This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. modern simplicity and content-focused clarity."
     },
     "tags": [
       "contemporary",
       "flat",
       "minimal",
       "bold",
-      "colorful",
-      "clean",
-      "design-system",
-      "ecommerce"
+      "colorful"
     ],
     "relatedStyles": [
       "core-minimalism",
@@ -31,7 +28,7 @@
       "id": "core-flatDesign",
       "title": {
         "zh-CN": "平面设计系统完整指南",
-        "en-US": "Flat Design System Complete Guide"
+        "en-US": "Flat Design System Complete..."
       }
     },
     {

@@ -7,8 +7,8 @@
       "en-US": "List View"
     },
     "description": {
-      "zh-CN": "用于展示数据列表的组件",
-      "en-US": "Component for displaying data lists"
+      "zh-CN": "一个多功能的列表视图组件，用于以可滚动列表格式显示结构化数据。包含项目选择、筛选、排序功能和可自定义的项目模板，实现灵活的数据展示和用户交互。",
+      "en-US": "A versatile list view component for displaying structured data in scrollable list format. Features item selection, filtering, sorting capabilities, and customizable item templates for flexible data presentation and user interaction."
     },
     "tags": [
       "dataDisplay"
@@ -23,8 +23,8 @@
         "en-US": "Minimalism"
       },
       "description": {
-        "zh-CN": "极简风格风格的列表视图实现",
-        "en-US": "List View implementation in Minimalism style"
+        "zh-CN": "功能性的列表视图实现，具有清晰的项目分离、高效的滚动和响应式交互反馈。为浏览列表内容提供有效的数据可视化和导航，提高效率。",
+        "en-US": "A functional list view implementation featuring clear item separation, efficient scrolling, responsive interaction feedback, and smooth animations. Provides effective data visualization and navigation for browsing list content efficiently with intuitive controls."
       },
       "hasContent": true,
       "hasStyles": true

@@ -3,12 +3,12 @@
   "category": "visual",
   "family": {
     "name": {
-      "zh-CN": "Neon Cyberpunk 霓虹赛博朋克",
+      "zh-CN": "Neon Cyberpunk 霓虹...",
       "en-US": "Neon Cyberpunk"
     },
     "description": {
-      "zh-CN": "霓虹赛博朋克美学，鲜明霓虹色与深色背景、未来科技质感。",
-      "en-US": "Neon cyberpunk design with vibrant neon colors, dark backgrounds, and futuristic tech aesthetics."
+      "zh-CN": "霓虹赛博朋克风格，采用鲜艳霓虹色和深色背景。创造未来感紫红色谾、数位反叛精神和赛博美学。霓虹赛博朋克设计采用充满活力的霓虹色彩和深色背景。融合数字科技与视觉反叛。",
+      "en-US": "Neon cyberpunk design with vibrant neon colors, dark backgrounds, and futuristic tech creating immersive and engaging digital experiences through thoughtful design principles, modern aesthetics, and user-centered approach to interface development Creates immersive cyberpunk-inspired digital environments Perfect for gaming, sci-fi applications, and futuristic experiences This design approach offers a distinctive visual language suitable for modern applications. It combines aesthetic principles with functional design elements to create compelling user experiences. futuristic dystopian aesthetics and digital rebellion. Delivers exceptional visual quality and sophisticated design excellence."
     },
     "tags": [],
     "relatedStyles": []
@@ -24,7 +24,7 @@
     {
       "id": "visual-neon-cyberpunk",
       "title": {
-        "zh-CN": "Neon Cyberpunk 霓虹赛博朋克",
+        "zh-CN": "Neon Cyberpu...",
         "en-US": "Neon Cyberpunk"
       }
     },
@@ -38,7 +38,7 @@
     {
       "id": "cyberpunkMatrixTerminal",
       "title": {
-        "zh-CN": "赛博punkMatrixTerminal",
+        "zh-CN": "赛博punkMatrix...",
         "en-US": "CyberpunkMatrixTerminal"
       }
     }

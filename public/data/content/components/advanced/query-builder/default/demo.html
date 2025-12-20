@@ -1,45 +1,206 @@
-<div class="relative w-full h-[400px] bg-white p-8 flex items-center justify-center overflow-hidden">
-        <!-- 樹狀條件結構 -->
-        <div class="flex flex-col items-center gap-6">
+<div id="app-container">
+    <!-- Background Noise Layer (Non-interactive) -->
+    <div class="bg-pattern"></div>
 
-          <!-- 根節點 AND -->
-          <div class="flex flex-col items-center">
-            <div class="w-12 h-12 rounded-full border-2 border-black bg-white flex items-center justify-center shadow-md">
-              <div class="w-2 h-2 bg-black rounded-full"></div>
+    <div class="ui-content">
+        <header>
+            <h1>
+                <div class="icon-box">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                Query Builder
+            </h1>
+            <button class="btn-header" onclick="exportQuery()">Export SQL</button>
+        </header>
+
+        <div class="workspace">
+            <!-- Root Group -->
+            <div class="query-group">
+                <div class="group-header">
+                    <div class="logic-toggle">
+                        <div class="logic-btn active">AND</div>
+                        <div class="logic-btn">OR</div>
+                    </div>
+                    <div class="connector"></div>
+                    <button class="btn-icon" title="Add Sub-Group">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    </button>
+                </div>
+
+                <div class="rule-list" id="root-list">
+                    <!-- Rule 1 -->
+                    <div class="rule-item">
+                        <div class="drag-handle">⋮⋮</div>
+                        <select class="field-select">
+                            <option>User ID</option>
+                            <option>Email</option>
+                            <option>Status</option>
+                        </select>
+                        <select class="op-select">
+                            <option>=</option>
+                            <option>!=</option>
+                            <option>&gt;</option>
+                        </select>
+                        <input type="text" class="value-input" value="1024">
+                        <button class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                    </div>
+
+                    <!-- Rule 2 -->
+                    <div class="rule-item">
+                        <div class="drag-handle">⋮⋮</div>
+                        <select class="field-select">
+                            <option>Status</option>
+                            <option selected>Role</option>
+                        </select>
+                        <select class="op-select">
+                            <option>in</option>
+                            <option>not in</option>
+                        </select>
+                        <input type="text" class="value-input" value="Admin, Editor">
+                        <button class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                    </div>
+
+                    <!-- Nested Group Example -->
+                    <div class="query-group" style="margin-top: 0.5em; border-left: 3px solid #3b82f6;">
+                        <div class="group-header">
+                            <div class="logic-toggle">
+                                <div class="logic-btn">AND</div>
+                                <div class="logic-btn active">OR</div>
+                            </div>
+                            <div class="connector"></div>
+                            <button class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                        </div>
+                        <div class="rule-list">
+                            <div class="rule-item">
+                                <div class="drag-handle">⋮⋮</div>
+                                <select class="field-select">
+                                    <option>Created At</option>
+                                </select>
+                                <select class="op-select">
+                                    <option>&gt;</option>
+                                </select>
+                                <input type="date" class="value-input" value="2023-01-01">
+                                <button class="btn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-add" onclick="addRule(this)">+ Add Rule</button>
+                </div>
             </div>
-            <!-- 垂直連接线 -->
-            <div class="w-px h-12 bg-gray-400"></div>
-          </div>
-
-          <!-- 第二层：分支 -->
-          <div class="flex items-start gap-20">
-            <!-- 左分支：條件卡片 -->
-            <div class="flex flex-col items-center gap-4">
-              <div class="w-px h-8 bg-gray-400"></div>
-              <div class="w-24 h-16 bg-black rounded shadow-md"></div>
-            </div>
-
-            <!-- 右分支：OR 節點 -->
-            <div class="flex flex-col items-center gap-4">
-              <div class="w-px h-8 bg-gray-400"></div>
-              <div class="w-10 h-10 rounded-full border-2 border-gray-600 bg-white flex items-center justify-center shadow-sm">
-                <div class="w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
-              </div>
-              <div class="w-px h-8 bg-gray-400"></div>
-
-              <!-- OR 節點的子條件 -->
-              <div class="flex gap-12">
-                <div class="w-24 h-16 bg-black rounded shadow-md"></div>
-                <div class="w-24 h-16 bg-black rounded shadow-md"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 水平連接线 -->
-          <div class="absolute top-32 left-1/2 w-40 h-px bg-gray-400 -translate-x-1/2"></div>
-
         </div>
 
-        <!-- 極淡网格背景 -->
-        <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
-      </div>
+        <footer>
+            <div style="display:flex; align-items:center;"><span class="status-dot"></span> Valid Query</div>
+            <div>v2.4.0</div>
+        </footer>
+    </div>
+</div>
+
+<script>
+    // --- 1. Dynamic Font Scaling (Robust "Auto Size") ---
+    function adjustScale() {
+        const container = document.getElementById('app-container');
+        const width = container.offsetWidth;
+        // Calculate a font size relative to the container width.
+        // 24px is base for 500px width ~ 4.8% of width
+        const fontSize = Math.max(10, width * 0.04);
+        container.style.fontSize = fontSize + 'px';
+    }
+
+    window.addEventListener('resize', adjustScale);
+    // Initial call
+    adjustScale();
+
+    // --- 2. Interaction Logic ---
+
+    // Logic Toggle (AND/OR)
+    document.querySelectorAll('.logic-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const parent = this.parentElement;
+            parent.querySelectorAll('.logic-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Add Rule Functionality
+    function addRule(btn) {
+        const list = btn.parentElement;
+        const newRule = document.createElement('div');
+        newRule.className = 'rule-item';
+        newRule.style.animation = "fadeIn 0.3s ease";
+        newRule.innerHTML = `
+            <div class="drag-handle">⋮⋮</div>
+            <select class="field-select"><option>New Field</option><option>User ID</option></select>
+            <select class="op-select"><option>=</option><option>contains</option></select>
+            <input type="text" class="value-input" placeholder="Value">
+            <button class="btn-icon" onclick="this.parentElement.remove()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        `;
+        list.insertBefore(newRule, btn);
+    }
+
+    // Export Mock
+    function exportQuery() {
+        // Simple visual feedback
+        const btn = document.querySelector('.btn-header');
+        const originalText = btn.innerText;
+        btn.innerText = "Copied!";
+        btn.style.background = "#10b981";
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "#111827";
+        }, 1500);
+    }
+
+    // --- 3. Simple Drag & Drop (Native API) ---
+    // Just enabling visual 'grabbable' feel for demo purposes without heavy libraries
+    let draggedItem = null;
+
+    document.querySelectorAll('.rule-list').forEach(list => {
+        list.addEventListener('dragstart', (e) => {
+            if(e.target.classList.contains('rule-item')) {
+                draggedItem = e.target;
+                e.target.style.opacity = '0.5';
+            }
+        });
+
+        list.addEventListener('dragend', (e) => {
+            if(e.target.classList.contains('rule-item')) {
+                e.target.style.opacity = '1';
+                draggedItem = null;
+            }
+        });
+
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(list, e.clientY);
+            if (draggedItem) {
+                if (afterElement == null) {
+                    list.insertBefore(draggedItem, list.querySelector('.btn-add'));
+                } else {
+                    list.insertBefore(draggedItem, afterElement);
+                }
+            }
+        });
+    });
+
+    // Helper to find position
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.rule-item:not(.dragging)')];
+
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    // Enable Draggable attribute dynamically
+    document.querySelectorAll('.rule-item').forEach(item => {
+        item.setAttribute('draggable', true);
+    });
+</script>

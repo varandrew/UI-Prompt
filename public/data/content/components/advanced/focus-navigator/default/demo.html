@@ -1,0 +1,140 @@
+<div class="focus-navigator-wrapper" id="focusNav">
+    <!-- Floating Navigation Container -->
+    <div class="focus-nav-container">
+        <!-- Header with progress indicator -->
+        <div class="nav-header">
+            <span class="focus-label">Focus</span>
+            <span class="current-section">1 / 4</span>
+        </div>
+
+        <!-- Main Content Sections -->
+        <div class="sections-container">
+            <section class="content-section" id="section-1">
+                <div class="section-content">
+                    <h2>Introduction</h2>
+                    <p>Welcome to this interactive focus navigator component. This section demonstrates how users can navigate through different parts of a webpage by clicking buttons to change focus position.</p>
+                    <div class="section-highlight">
+                        <p>🎯 This is the first section. Use the navigation buttons to move between sections.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="section-2">
+                <div class="section-content">
+                    <h2>Features</h2>
+                    <p>This focus navigator provides several key features:</p>
+                    <ul class="feature-list">
+                        <li>📍 Clear focus position indicator</li>
+                        <li>⬆️⬇️ Quick navigation buttons</li>
+                        <li>🎨 Smooth scrolling animation</li>
+                        <li>♿ Accessibility support</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section" id="section-3">
+                <div class="section-content">
+                    <h2>Usage</h2>
+                    <p>Using this component is simple and intuitive:</p>
+                    <ol class="usage-list">
+                        <li>Click the up arrow to go to the previous section</li>
+                        <li>Click the down arrow to go to the next section</li>
+                        <li>Use direct navigation buttons to jump to specific sections</li>
+                        <li>Watch the progress indicator update as you navigate</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="content-section" id="section-4">
+                <div class="section-content">
+                    <h2>Summary</h2>
+                    <p>This focus navigator component helps users navigate through long-form content efficiently. It provides clear visual feedback about the current position and allows for quick jumping between sections.</p>
+                    <div class="section-highlight">
+                        <p>✨ You've reached the final section! Feel free to navigate back to any previous section using the navigation buttons.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="nav-btn nav-up" aria-label="Previous section" title="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </button>
+
+            <div class="section-buttons">
+                <button class="section-btn active" data-section="1" title="Section 1">1</button>
+                <button class="section-btn" data-section="2" title="Section 2">2</button>
+                <button class="section-btn" data-section="3" title="Section 3">3</button>
+                <button class="section-btn" data-section="4" title="Section 4">4</button>
+            </div>
+
+            <button class="nav-btn nav-down" aria-label="Next section" title="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const wrapper = document.getElementById('focusNav');
+    const sections = wrapper.querySelectorAll('.content-section');
+    const upBtn = wrapper.querySelector('.nav-up');
+    const downBtn = wrapper.querySelector('.nav-down');
+    const sectionBtns = wrapper.querySelectorAll('.section-btn');
+    const currentLabel = wrapper.querySelector('.current-section');
+    let currentIndex = 0;
+
+    function scrollToSection(index) {
+        // Clamp index to valid range
+        index = Math.max(0, Math.min(index, sections.length - 1));
+
+        // Update current index
+        currentIndex = index;
+
+        // Update progress label
+        currentLabel.textContent = (index + 1) + ' / ' + sections.length;
+
+        // Update button states
+        sectionBtns.forEach((btn, i) => {
+            btn.classList.toggle('active', i === index);
+        });
+
+        // Smooth scroll to section
+        sections[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+        // Update section visibility
+        sections.forEach((section, i) => {
+            section.classList.toggle('active', i === index);
+        });
+    }
+
+    // Up button handler
+    upBtn.addEventListener('click', () => {
+        scrollToSection(currentIndex - 1);
+    });
+
+    // Down button handler
+    downBtn.addEventListener('click', () => {
+        scrollToSection(currentIndex + 1);
+    });
+
+    // Section button handlers
+    sectionBtns.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            scrollToSection(index);
+        });
+    });
+
+    // Initialize
+    scrollToSection(0);
+})();
+</script>

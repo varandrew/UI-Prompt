@@ -7,8 +7,8 @@
       "en-US": "Rich Text Editor"
     },
     "description": {
-      "zh-CN": "富文本编辑器组件",
-      "en-US": "Rich text editor component"
+      "zh-CN": "一个全面的富文本编辑器组件，具有格式化工具栏、内容样式功能和多种文本格式支持。包含文本操作、列表格式化、链接插入和可扩展的插件架构，增强内容创建。",
+      "en-US": "A comprehensive rich text editor component with formatting toolbar, content styling capabilities, and support for multiple text formats. Includes text manipulation, list formatting, link insertion, and extensible plugin architecture for enhanced content creation."
     },
     "tags": [
       "advanced"
@@ -23,8 +23,8 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的富文本编辑器实现",
-        "en-US": "Rich Text Editor implementation in Default style"
+        "zh-CN": "设计精良的富文本编辑器实现，具有无障碍的工具栏控件、清晰的格式化选项和响应式编辑体验。让用户能够通过直观的控件高效创建和格式化丰富内容。",
+        "en-US": "A well-designed rich text editor implementation with accessible toolbar controls, clear formatting options, and responsive editing experience throughout the interface. Enables users to create and format rich content efficiently with intuitive controls and comprehensive formatting tools."
       },
       "hasContent": true,
       "hasStyles": false

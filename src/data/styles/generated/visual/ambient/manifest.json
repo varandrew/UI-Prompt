@@ -7,8 +7,8 @@
       "en-US": "Ambient Light"
     },
     "description": {
-      "zh-CN": "柔和光晕，径向模糊，氛围渲染",
-      "en-US": "Soft halo with radial blur and atmospheric rendering"
+      "zh-CN": "柔和光晕搭配径向模糊和氛围渲染，营造出精美的环境光照效果和精致的视觉深度。通过漫射光、圆润边角和梦幻视觉氛围，以空灵的美学和温和的光学特性构建宁静冥想的界面。采用分层阴影技术、焦外虚化效果和环境遮蔽实现自然逼真的深度感知和精致光线互动。创造沉浸式冥想数字环境，完美适用于健康保健应用、冥想平台、水疗服务、正念工具和治疗性界面，需要营造平静氛围、和平视觉语言、精神共鸣，以及富有情感支持的设计，鼓励用户放松身心、冥想反思，并在整个界面中获得恢复性的用户体验。",
+      "en-US": "Soft halo with radial blur and atmospheric rendering creating beautiful ambient lighting effects with sophisticated depth. Builds serene, contemplative interfaces through diffuse light, soft rounded edges, and dreamy visual atmospheres with ethereal aesthetics and gentle luminosity. Produces gentle glow effects through layered shadow techniques, bokeh effects, and ambient occlusion for naturalistic depth perception with refined light interaction. Creates immersive meditative digital environments perfect for wellness applications, meditation platforms, spa services, mindfulness tools, and therapeutic interfaces requiring calming atmospheres, peaceful visual language, spiritual resonance, and emotionally supportive design that encourages relaxation, contemplation, and restorative user experiences throughout the interface."
     },
     "tags": [],
     "relatedStyles": []

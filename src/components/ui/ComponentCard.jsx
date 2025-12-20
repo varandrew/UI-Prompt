@@ -6,6 +6,8 @@ import DOMPurify from 'dompurify';
 import { getDemoHTML } from "../../utils/i18n/demoI18n";
 import { injectAppStylesIntoIframe } from '../../utils/previewCss';
 import { useSharedIntersectionObserver } from '../../hooks/useSharedIntersectionObserver';
+import { useLazyComponentContent } from '../../hooks/useLazyComponentContent';
+import { scheduleIdleCallback } from '../../utils/idleCallbackBatcher';
 import appCssUrl from '../../index.css?url';
 
 /**
@@ -41,7 +43,11 @@ function arePropsEqual(prevProps, nextProps) {
  * ComponentCard - 組件画廊卡片
  * 显示迷你 iframe 預覽、組件名稱、描述和分类标籤
  *
- * 🚀 性能優化：使用 React.memo + 自定義比較函數減少重渲染
+ * 🚀 性能優化：
+ * - 使用 React.memo + 自定義比較函數減少重渲染
+ * - 使用 useLazyComponentContent 延遲載入沒有初始內容的組件
+ * - 使用 useSharedIntersectionObserver 共享 Observer
+ * - 使用 scheduleIdleCallback 批處理空閒回調
  */
 function ComponentCardComponent({
   id,
@@ -63,6 +69,7 @@ function ComponentCardComponent({
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [readyToInject, setReadyToInject] = useState(false); // requestIdleCallback 双條件
   const [hasInjected, setHasInjected] = useState(false); // 避免重複注入
+  const [isDescExpanded, setIsDescExpanded] = useState(false); // Read more 狀態
 
   // Use shared IntersectionObserver for efficient visibility detection
   const sharedObserverRef = useSharedIntersectionObserver(
@@ -78,30 +85,39 @@ function ComponentCardComponent({
     }
   }, [sharedObserverRef]);
 
-  // 在瀏覽器空閒時标記可注入，降低主线阻塞
+  // 🚀 使用批處理器調度空閒回調，降低調度開銷
   useEffect(() => {
-    let idleId = null;
-    let timeoutId = null;
-    const run = () => setReadyToInject(true);
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      // @ts-ignore - 兼容非 TS 環境
-      idleId = window.requestIdleCallback(run, { timeout: 300 });
-    } else {
-      timeoutId = setTimeout(run, 120);
-    }
-    return () => {
-      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
+    const cancel = scheduleIdleCallback(() => {
+      setReadyToInject(true);
+    });
+    return cancel;
   }, []);
 
   // 检查是否有多個變体
   const hasVariants = variants && variants.length > 0;
   const variantCount = hasVariants ? variants.length : 0;
+
+  // 判斷是否需要延遲載入內容
+  const hasInitialContent = Boolean(demoHTML) || (hasVariants && variants[0]?.demoHTML);
+  const shouldLazyLoad = isIntersecting && !hasInitialContent && id && categoryId;
+
+  // 🚀 延遲載入 Demo 內容（當沒有初始內容時）
+  const {
+    demoHTML: lazyDemoHTML,
+    customStyles: lazyCustomStyles,
+    isLoading: isLazyLoading
+  } = useLazyComponentContent(
+    categoryId,
+    id,
+    variants[0]?.id || 'default',
+    shouldLazyLoad
+  );
+
   // 若 demoHTML 為空,优先回退到第一個變体
   const previewVariant = (!demoHTML && hasVariants) ? variants[0] : null;
-  const effectiveHTML = previewVariant?.demoHTML || demoHTML || '';
-  const effectiveStyles = (customStyles || previewVariant?.customStyles || '');
+  // 優先使用傳入的內容，然後是延遲載入的內容
+  const effectiveHTML = demoHTML || previewVariant?.demoHTML || lazyDemoHTML || '';
+  const effectiveStyles = customStyles || previewVariant?.customStyles || lazyCustomStyles || '';
   const hasContent = Boolean(effectiveHTML);
 
   // 預先組裝並快取 iframe 內容，減少重複計算
@@ -152,17 +168,12 @@ function ComponentCardComponent({
   }, [isIntersecting, readyToInject, memoIframeContent, hasInjected]);
 
   // 在 iframe 載入後注入主應用樣式（避免使用 CDN）
+  // 🚀 優化：移除不必要的 setTimeout，依賴 load 事件
   useEffect(() => {
     const iframe = iframeRef.current;
     if (!iframe) return undefined;
     const handleLoad = () => injectAppStylesIntoIframe(iframe);
     iframe.addEventListener('load', handleLoad);
-    // 嘗試立即注入（某些瀏覽器 srcdoc 设定後同步可用）
-    setTimeout(() => {
-      try { injectAppStylesIntoIframe(iframe); } catch {
-        // Ignore injection errors
-      }
-    }, 0);
     return () => iframe.removeEventListener('load', handleLoad);
   }, [memoIframeContent]);
 
@@ -188,9 +199,40 @@ function ComponentCardComponent({
   };
 
   // 截取描述的第一句話 (最多 80 字符)
-  const briefDescription = description
-    ? description.split(/[。.]/)[0].slice(0, 80) + (description.length > 80 ? '...' : '')
-    : '';
+  // 支持 i18n 對象或字符串格式
+  const getI18nText = (text) => {
+    if (!text) return '';
+
+    // 如果是 i18n 對象（含有語言鍵），選擇當前語言版本
+    if (typeof text === 'object' && text !== null) {
+      // 直接使用 language 值（'zh-CN' 或 'en-US'）
+      return text[language] || text['zh-CN'] || '';
+    }
+
+    // 如果是字符串，直接返回
+    return typeof text === 'string' ? text : '';
+  };
+
+  const titleText = getI18nText(title);
+  const descText = getI18nText(description);
+
+  // 描述長度閾值（中英文不同）
+  // 中文字符信息密度更高，所以使用較小的閾值
+  // 中文：約 45 字符（約 2-3 行）
+  // 英文：約 120 字符（約 2-3 行）
+  const DESC_THRESHOLD = language === 'zh-CN' ? 45 : 120;
+  const needsTruncation = descText.length > DESC_THRESHOLD;
+
+  // 根據展開狀態決定顯示的描述
+  const displayDescription = isDescExpanded
+    ? descText
+    : (needsTruncation ? descText.slice(0, DESC_THRESHOLD) + '...' : descText);
+
+  // 處理 Read more/Show less 點擊
+  const handleReadMoreClick = (e) => {
+    e.stopPropagation(); // 阻止觸發卡片點擊
+    setIsDescExpanded(!isDescExpanded);
+  };
 
   return (
     <div
@@ -233,7 +275,13 @@ function ComponentCardComponent({
         ) : (
           // 加載佔位符
           <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-            {isIntersecting && !hasContent ? (
+            {isLazyLoading ? (
+              // 正在延遲載入中
+              <div className="animate-pulse flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-300 dark:bg-gray-600 rounded-lg mb-2" />
+                <p className="text-xs text-gray-500 dark:text-gray-400">{t('ui.loading') || 'Loading...'}</p>
+              </div>
+            ) : isIntersecting && !hasContent ? (
               <div className="text-center px-4">
                 <div className="mb-2 text-2xl">🧪</div>
                 <p className="text-xs text-gray-600 dark:text-gray-400">{t('ui.noInlineDemo')}</p>
@@ -276,13 +324,23 @@ function ComponentCardComponent({
 
         {/* 組件标題 */}
         <h3 className="text-base font-semibold text-gray-900 dark:text-white line-clamp-1">
-          {title}
+          {titleText}
         </h3>
 
-        {/* 简短描述 */}
-        <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2 leading-relaxed">
-          {briefDescription}
-        </p>
+        {/* 描述區域 */}
+        <div className="space-y-1">
+          <p className={`text-xs text-gray-600 dark:text-gray-300 leading-relaxed ${!isDescExpanded ? 'line-clamp-3' : ''}`}>
+            {displayDescription}
+          </p>
+          {needsTruncation && (
+            <button
+              onClick={handleReadMoreClick}
+              className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+            >
+              {isDescExpanded ? t('ui.showLess') || '↑ Show less' : t('ui.readMore') || '→ Read more'}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

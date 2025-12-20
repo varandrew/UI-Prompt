@@ -1,0 +1,167 @@
+/* * GLOBAL RESET & LAYOUT */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Center the component in the viewport for the demo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e5e5e5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 20px;
+}
+
+/* * MAIN COMPONENT CONTAINER
+ * Constraints: Square shape, robust sizing without cqw
+ */
+.component-wrapper {
+    width: 100%;
+    /* Limits the size for the "Small Size" requirement, but keeps it fluid */
+    max-width: 320px;
+    /* Enforce Square Shape (1:1) rigidly */
+    aspect-ratio: 1 / 1;
+    position: relative;
+
+    /* Shadow for presentation depth */
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+    border-radius: 24px;
+    overflow: hidden;
+    background: #1e1e1e; /* Fallback background */
+}
+
+/* * CODE EDITOR CARD DESIGN */
+.editor-card {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1b26; /* Deep dark theme */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2; /* Ensure content sits above background noise */
+}
+
+/* * BACKGROUND NOISE TEXTURE
+ * Layered carefully to avoid interference
+ */
+.noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    pointer-events: none; /* Critical: Prevent interaction interference */
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* * WINDOW HEADER (Mac Style) */
+.editor-header {
+    padding: 6% 6%; /* Use % for padding to scale with container */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+}
+
+.window-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    /* Using clamp to keep dots visible but not huge */
+    width: clamp(8px, 3.5%, 12px);
+    height: clamp(8px, 3.5%, 12px);
+    border-radius: 50%;
+}
+
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.filename {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: clamp(10px, 3.5%, 12px);
+    font-weight: 500;
+}
+
+/* * CODE AREA */
+.editor-body {
+    flex: 1;
+    padding: 6%;
+    overflow: hidden; /* Hide overflow for the "snapshot" look */
+    position: relative;
+    display: flex;
+    align-items: center; /* Center code vertically for aesthetics */
+}
+
+.code-block {
+    font-family: "SF Mono", "Fira Code", Consolas, monospace;
+    /* Auto font size based on container width (viewport width fallback) */
+    font-size: clamp(10px, 4.5cqw, 14px);
+    /* Fallback for no cqw: use % of parent approx */
+    font-size: clamp(11px, 3.5vw, 15px);
+
+    line-height: 1.6;
+    color: #a9b1d6;
+    width: 100%;
+    white-space: pre; /* Maintain code formatting */
+}
+
+/* Syntax Highlighting Colors (Tokyo Night inspired) */
+.k { color: #bb9af7; } /* Keyword */
+.f { color: #7aa2f7; } /* Function */
+.s { color: #9ece6a; } /* String */
+.c { color: #e0af68; } /* Class */
+.o { color: #89ddff; } /* Operator */
+.p { color: #c0caf5; } /* Punctuation */
+.comment { color: #565f89; font-style: italic; }
+
+/* Cursor Animation */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #7aa2f7;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* * INTERACTIVE HOVER EFFECT
+ * Simple scale on hover to show it's a component
+ */
+.component-wrapper {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.component-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+}
+
+/* Small decorative glow behind */
+.glow {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    background: #7aa2f7;
+    filter: blur(60px);
+    opacity: 0.2;
+    z-index: 0;
+    border-radius: 50%;
+}

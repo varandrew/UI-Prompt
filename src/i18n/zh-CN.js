@@ -30,7 +30,7 @@ export default {
     "specialViews": "特殊视图",
     "visualEffects": "视觉特效",
 
-    // 次級分類 (Secondary Categories)
+    // 次级分类 (Secondary Categories)
     "nature": "自然元素",
     "translucent": "半透明",
     "gradient": "渐变色彩",
@@ -246,6 +246,8 @@ export default {
     "copyCode": "复制代码",
     "noInlineDemo": "此组件暂无预览,点击查看详情",
     "clickForDetails": "点击查看详情",
+    "readMore": "→ 展开更多",
+    "showLess": "↑ 收起",
     "openMenu": "打开菜单",
     "closeMenu": "关闭菜单",
     "darkMode": "深色模式",
@@ -859,8 +861,8 @@ export default {
           "title": "导览"
         },
         "comparison-slider": {
-          "title": "Before/After 对比滑塊",
-          "description": "圖片對比滑塊，支持拖拽和觸摸操作",
+          "title": "Before/After 对比滑块",
+          "description": "图片对比滑块，支持拖拽和触摸操作",
           "variants": {
             "minimalism": {
               "name": "极简主义",
@@ -1341,7 +1343,7 @@ export default {
   "styles": {
     "core": {
       "skeuomorphism": {
-        "title": "擬物化",
+        "title": "拟物化",
         "description": "模拟真实世界物体的纹理、阴影和质感，创造出逼真的数位介面元素。",
         "colorScheme": "霓虹粉紫 (#FF71CE)、霓虹蓝 (#01CDFE)、霓虹紫 (#B967FF)、暗紫背景 (#2E1F47)",
         "techCorpHomepage": {
@@ -1366,7 +1368,7 @@ export default {
           "techCompany": "科技公司官网",
           "homeOffice": "数字工作室",
           "vintageAudioPanel": "复古音响控制面板",
-          "vintageAudioPanelDesc": "模拟70-80年代高端音响设备，展示拟物化设计的经典特征。包含深色皮革背景纹理、拉丝金属边框、木质装饰条、玻璃显示屏（VU音量表盘）、金属旋钮控制器（音量/低音）、发光LED指示灯（红/绿/蓝）、凸起物理按钮、撥桿开关等真实交互元素。",
+          "vintageAudioPanelDesc": "模拟70-80年代高端音响设备，展示拟物化设计的经典特征。包含深色皮革背景纹理、拉丝金属边框、木质装饰条、玻璃显示屏（VU音量表盘）、金属旋钮控制器（音量/低音）、发光LED指示灯（红/绿/蓝）、凸起物理按钮、拨杆开关等真实交互元素。",
           "techCompanyDesc": "模拟专业科技设备的金属与玻璃质感，展示现代科技公司的企业形象。包含发光 LED 指示灯、金属旋钮控制器、玻璃面板效果、聚光灯产品展示等拟物化元素。",
           "vintageAudioPanelColorScheme": "主色深棕皮革 (#2C2420)、黑色拉丝金属 (#1A1A1A, #4A4A4A)、木质装饰 (#5D4E37, #3D2E17)、深绿显示屏 (#0A1A0A)、终端绿文字 (#4ADE80)、LED红色 (#FF0000)、LED绿色 (#00FF00)、LED蓝色 (#00AAFF)、金属旋钮 (#7A7A7A, #6A6A6A)、按钮红色 (#C41E3A)",
           "techCompanyColorScheme": "主色深灰金属 (#2A2A2A)、金属渐变 (#404040, #1A1A1A)、强调色金色 (#D4AF37)、LED绿色 (#00FF41)、LED蓝色 (#00D9FF)、LED橙色 (#FFA500)、玻璃效果半透明白 (rgba(255,255,255,0.1-0.3))",
@@ -1612,14 +1614,14 @@ export default {
       },
       "typographyFirst": {
         "title": "排版优先",
-        "description": "排版优先的设计哲学，将文字本身作为设计的绝对主角。通过超大字重、文字描邊、漸變填充和互動效果，展示現代排版美学。",
-        "colorScheme": "深黑背景 (#080808) 配淡白文字 (#f4f4f0)、文字漸變（白色→中灰 #666666）、低透明度白色邊框（border-white/10）",
+        "description": "排版优先的设计哲学，将文字本身作为设计的绝对主角。通过超大字重、文字描边、渐变填充和互动效果，展示现代排版美学。",
+        "colorScheme": "深黑背景 (#080808) 配淡白文字 (#f4f4f0)、文字渐变（白色→中灰 #666666）、低透明度白色边框（border-white/10）",
         "features": [
           "超大响应式标题（clamp 流畅缩放）",
-          "文字描邊效果（Text Stroke）",
-          "漸變文字填充（Gradient Text）",
-          "Scroll 動畫揭示",
-          "Hover 互動效果"
+          "文字描边效果（Text Stroke）",
+          "渐变文字填充（Gradient Text）",
+          "Scroll 动画揭示",
+          "Hover 互动效果"
         ]
       },
       "anti-design": {
@@ -1639,12 +1641,12 @@ export default {
       "terminal-cli": {
         "title": "终端 CLI",
         "description": "受终端和命令行界面启发的设计，采用等宽字体和复古美学。",
-        "colorScheme": "主色深灰黑背景 (#1e1e1e, #252526 / VS Code Dark+)、青色 (#4EC9B0 / 命令提示符)、藍色 (#569cd6 / 路徑关鍵字)、黃色 (#dcdcaa / 警告)、紫色 (#c586c0 / 變量)、紅色 (#f48771 / 错誤)、次色灰白文字 (#cccccc)、边框灰 (#424242)"
+        "colorScheme": "主色深灰黑背景 (#1e1e1e, #252526 / VS Code Dark+)、青色 (#4EC9B0 / 命令提示符)、蓝色 (#569cd6 / 路径关键字)、黄色 (#dcdcaa / 警告)、紫色 (#c586c0 / 变量)、红色 (#f48771 / 错误)、次色灰白文字 (#cccccc)、边框灰 (#424242)"
       },
       "duotone": {
         "title": "双色调",
         "description": "使用两种对比色创造戏剧性视觉冲击的双色调配色方案。",
-        "colorScheme": "主色黑色 (#000000)、青色 (#00d9ff / Cyan-400, #22d3ee / Cyan-400)、次色深紫 (#581c87 / Purple-900)、深粉 (#831843 / Pink-900)、淺色調 (#a78bfa / Purple-400, #f472b6 / Pink-400)",
+        "colorScheme": "主色黑色 (#000000)、青色 (#00d9ff / Cyan-400, #22d3ee / Cyan-400)、次色深紫 (#581c87 / Purple-900)、深粉 (#831843 / Pink-900)、浅色调 (#a78bfa / Purple-400, #f472b6 / Pink-400)",
         "preview": {
           "description": "全页双色调设计展示，具有双色渐变效果。"
         }
@@ -1652,7 +1654,7 @@ export default {
       "liquid-blob": {
         "title": "液态流体",
         "description": "液态斑点形状，具有流动动画和有机变形效果。",
-        "colorScheme": "主色藍紫粉漸變 (#3b82f6 / Blue-500, #8b5cf6 / Purple-500, #ec4899 / Pink-500)、次色靛藍 (#6366f1 / Indigo-500)、青色 (#22d3ee / Cyan-500)、背景淺色漸變 (#f9fafb / Gray-50, #e0e7ff / Indigo-100, #f3e8ff / Purple-50)、半透明白 (rgba(255,255,255,0.8))"
+        "colorScheme": "主色蓝紫粉渐变 (#3b82f6 / Blue-500, #8b5cf6 / Purple-500, #ec4899 / Pink-500)、次色靛蓝 (#6366f1 / Indigo-500)、青色 (#22d3ee / Cyan-500)、背景浅色渐变 (#f9fafb / Gray-50, #e0e7ff / Indigo-100, #f3e8ff / Purple-50)、半透明白 (rgba(255,255,255,0.8))"
       },
       "bento-grids": {
         "title": "便当盒网格",
@@ -1849,23 +1851,23 @@ export default {
     },
     "modern": {
       "darkMode": {
-        "colorScheme": "主色深黑 (#0a0a0a, #1a1a1a)、次色藍色 (#3b82f6 / Blue-500)、綠色 (#10b981 / Green-500)、强调色紫色 (#8b5cf6 / Purple-500)、紅色 (#ef4444 / Red-500)、灰色調 (#2a2a2a, #9ca3af, #6b7280)"
+        "colorScheme": "主色深黑 (#0a0a0a, #1a1a1a)、次色蓝色 (#3b82f6 / Blue-500)、绿色 (#10b981 / Green-500)、强调色紫色 (#8b5cf6 / Purple-500)、红色 (#ef4444 / Red-500)、灰色调 (#2a2a2a, #9ca3af, #6b7280)"
       },
       "brutalism": {
         "title": "新粗野主义",
         "description": "新粗野主义设计，具有大胆色彩、粗边框和原始几何形状。",
-        "colorScheme": "主色黑色 (#000000)、白色 (#ffffff)、強調色紅色 (#ff0000)、次色淺灰 (#cccccc)、深灰 (#f5f5f5)",
+        "colorScheme": "主色黑色 (#000000)、白色 (#ffffff)、强调色红色 (#ff0000)、次色浅灰 (#cccccc)、深灰 (#f5f5f5)",
         "preview": {
           "projectManagement": "项目管理看板",
-          "projectManagementDesc": "展示項目卡片、進度條、狀態标籤、截止日期、团隊活動時間軸、提交記录、用戶頭像、表單組件、数据表格等",
+          "projectManagementDesc": "展示项目卡片、进度条、状态标签、截止日期、团队活动时间轴、提交记录、用户头像、表单组件、数据表格等",
           "developerWorkspace": "开发者工作空间",
-          "developerWorkspaceDesc": "代碼編輯器界面、終端命令窗口、Git 提交時間軸、API 調試工具、文件樹导航、系統監控面板、快捷鍵卡片、狀態指示灯"
+          "developerWorkspaceDesc": "代码编辑器界面、终端命令窗口、Git 提交时间轴、API 调试工具、文件树导航、系统监控面板、快捷键卡片、状态指示灯"
         }
       },
       "organic": {
         "title": "现代有机风格",
         "description": "自然有机的设计风格，采用流动动画和温暖的大地色调。",
-        "colorScheme": "主色琥珀色 (#f59e0b / Amber-500, #d97706 / Amber-600)、翠綠色 (#10b981 / Emerald-500, #14b8a6 / Teal-500)、次色石色調 (#78716c / Stone-500, #57534e / Stone-600)、藍紫色強調 (#3b82f6 / Blue-500, #8b5cf6 / Purple-500)、粉色 (#ec4899 / Pink-500)、背景漸變淺色 (#fffbf5 / Amber-50, #f5f5f4 / Stone-50, #ecfdf5 / Emerald-50)",
+        "colorScheme": "主色琥珀色 (#f59e0b / Amber-500, #d97706 / Amber-600)、翠绿色 (#10b981 / Emerald-500, #14b8a6 / Teal-500)、次色石色调 (#78716c / Stone-500, #57534e / Stone-600)、蓝紫色强调 (#3b82f6 / Blue-500, #8b5cf6 / Purple-500)、粉色 (#ec4899 / Pink-500)、背景渐变浅色 (#fffbf5 / Amber-50, #f5f5f4 / Stone-50, #ecfdf5 / Emerald-50)",
         "preview": {
           "homeOffice": "家庭办公室",
           "homeOfficeDesc": "自然家庭办公室网页设计，包含有机形状、流动动画和温暖大地色调。特色包括变形边框、波浪分隔线和流畅过渡。"
@@ -1874,12 +1876,12 @@ export default {
       "utilityFirst": {
         "title": "实用优先",
         "description": "实用优先的设计理念，最小化自定义 CSS，专注于功能性 Tailwind 类。",
-        "colorScheme": "主色白色 (#ffffff)、黑色 (#000000)、次色淺灰 (#f9fafb / Gray-50)、边框灰 (#d1d5db / Gray-300)、文本灰 (#6b7280 / Gray-500)、藍紫漸變強調色 (#3b82f6 to #9333ea)"
+        "colorScheme": "主色白色 (#ffffff)、黑色 (#000000)、次色浅灰 (#f9fafb / Gray-50)、边框灰 (#d1d5db / Gray-300)、文本灰 (#6b7280 / Gray-500)、蓝紫渐变强调色 (#3b82f6 to #9333ea)"
       },
       "outlineStyle": {
         "title": "线条风格",
         "description": "通过线条勾勒形状，简洁专业，强调极简主义和清晰的视觉层次",
-        "colorScheme": "主色黑色线條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
+        "colorScheme": "主色黑色线条 (#000000)、白色背景 (#ffffff)、次色浅灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
         "businessDemo": {
           "title": "商业网站模板",
           "description": "专业商业场景的线条风格实现，包含导航、服务展示、特性网格和联系表单"
@@ -2026,17 +2028,17 @@ export default {
       "frutigerAero": {}
     },
     "brokenGrid": {
-      "title": "打破常規的网格佈局",
-      "description": "挑戰傳統网格系統，通過旋轉、重疊和不規則排列創造視覺衝擊力。",
+      "title": "打破常规的网格布局",
+      "description": "挑战传统网格系统，通过旋转、重叠和不规则排列创造视觉冲击力。",
       "colorScheme": "黑色背景 (#0A0A0A)、金色强调 (#FFD700)、粉红渐变 (#FF69B4)、紫色渐变 (#667EEA)"
     },
     "splitScreen": {
-      "title": "分屏佈局",
-      "description": "經典的左右分割佈局，適用於對比展示、双重內容或黑白配色方案。"
+      "title": "分屏布局",
+      "description": "经典的左右分割布局，适用于对比展示、双重内容或黑白配色方案。"
     },
     "masonry": {
-      "title": "瀑布流佈局",
-      "description": "靈活的瀑布流佈局，支持不同高度的卡片，創造動態的視覺節奏。"
+      "title": "瀑布流布局",
+      "description": "灵活的瀑布流布局，支持不同高度的卡片，创造动态的视觉节奏。"
     },
     "mouseTracking": {
       "fullPage": {
@@ -2105,7 +2107,7 @@ export default {
     "outlineStyle": {
       "title": "线条风格",
       "description": "通过线条勾勒形状，简洁专业，强调极简主义和清晰的视觉层次",
-      "colorScheme": "主色黑色线條 (#000000)、白色背景 (#ffffff)、次色淺灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
+      "colorScheme": "主色黑色线条 (#000000)、白色背景 (#ffffff)、次色浅灰 (#f5f5f5)、边框黑 (#000000 / stroke-width: 1-2px)、文本深灰 (#333333)",
       "businessDemo": {
         "title": "商业网站模板",
         "description": "专业商业场景的线条风格实现，包含导航、服务展示、特性网格和联系表单"
@@ -2121,21 +2123,21 @@ export default {
     },
     "additionalColorSchemes": {
       "liminal-space": {
-        "colorScheme": "深灰基調 (#1a1d24, #2c3038)、霓虹粉紅 (#ff006a)、霓虹青藍 (#00ffcc)、灰色文字 (#5f6472, #8a8f9e)",
+        "colorScheme": "深灰基调 (#1a1d24, #2c3038)、霓虹粉红 (#ff006a)、霓虹青蓝 (#00ffcc)、灰色文字 (#5f6472, #8a8f9e)",
         "preview": {
           "vacantSpace": {
-            "description": "VACANT_SPACE.EXE - 展示数位虛空空間，包含霧化导航、卡片网格、系統访問表單和霓虹效果",
-            "colorScheme": "深灰基調 #1a1d24/#2c3038、霓虹粉紅 #ff006a、霓虹青藍 #00ffcc、灰色文字 #5f6472/#8a8f9e/#3d4250"
+            "description": "VACANT_SPACE.EXE - 展示数位虚空空间，包含雾化导航、卡片网格、系统访问表单和霓虹效果",
+            "colorScheme": "深灰基调 #1a1d24/#2c3038、霓虹粉红 #ff006a、霓虹青蓝 #00ffcc、灰色文字 #5f6472/#8a8f9e/#3d4250"
           },
           "digitalMuseum": {
-            "description": "数位博物馆档案馆 - 冷清神秘的博物馆系統，包含鼠标探照灯、档案卡片、監控攝像頭、访問控制表單和系統日誌",
-            "colorScheme": "深灰基調 #0f1419/#1a1d24/#141820、霓虹粉紅 #ff006a、霓虹青藍 #00ffcc、灰色文字 #5f6472/#8a8f9e/#3d4250"
+            "description": "数位博物馆档案馆 - 冷清神秘的博物馆系统，包含鼠标探照灯、档案卡片、监控摄像头、访问控制表单和系统日志",
+            "colorScheme": "深灰基调 #0f1419/#1a1d24/#141820、霓虹粉红 #ff006a、霓虹青蓝 #00ffcc、灰色文字 #5f6472/#8a8f9e/#3d4250"
           }
         }
       }
     },
     "mouseTrackingColorScheme": {
-      "colorScheme": "深灰黑背景 (#0A0A0A)、霓虹藍 (#60A5FA)、霓虹紫 (#A78BFA)、半透明發光效果"
+      "colorScheme": "深灰黑背景 (#0A0A0A)、霓虹蓝 (#60A5FA)、霓虹紫 (#A78BFA)、半透明发光效果"
     }
   },
   "minimalismStyles": {},

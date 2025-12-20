@@ -7,8 +7,8 @@
       "en-US": "Query Builder"
     },
     "description": {
-      "zh-CN": "可视化查询构建器",
-      "en-US": "Visual query builder"
+      "zh-CN": "一个强大的查询构建器组件，用于不需编码就能构建数据库查询，具有拖放条件构建、逻辑运算符和字段选择功能。支持筛选分组、查询验证和导出功能，实现灵活的数据查询。",
+      "en-US": "A powerful query builder component for constructing database queries without coding, featuring drag-and-drop condition building, logical operators, and field selection. Supports filter grouping, query validation, and export functionality for flexible data querying."
     },
     "tags": [
       "advanced"
@@ -23,11 +23,11 @@
         "en-US": "Default"
       },
       "description": {
-        "zh-CN": "默认样式风格的查询构建器实现",
-        "en-US": "Query Builder implementation in Default style"
+        "zh-CN": "正方形查询构建器组件，采用直观的交互式界面，支持拖拽排序、AND/OR 逻辑切换和嵌套分组。包含实时验证、字段选择、操作符和值输入，支持 SQL 导出功能。",
+        "en-US": "Square query builder component with intuitive interactive interface, featuring drag-and-drop rule reordering, AND/OR logic toggle, and nested grouping support. Includes real-time validation, field selection, operators, value inputs, and SQL export functionality."
       },
       "hasContent": true,
-      "hasStyles": false
+      "hasStyles": true
     }
   ]
 }
