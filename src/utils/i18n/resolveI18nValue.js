@@ -15,9 +15,12 @@ import { LANGUAGES } from './languageConstants';
  * 默認的 i18n 命名空間正則表達式
  * 匹配以下命名空間開頭的字符串:
  * - data.* (數據相關)
+ * - styles.* (風格/模板)
  * - nav.* (導航)
  * - common.* (通用)
  * - ui.* (UI 元素)
+ * - demo.* (示例內容)
+ * - pages.* (頁面)
  * - errors.* (錯誤信息)
  * - buttons.* (按鈕)
  * - filter.* (篩選)
@@ -25,7 +28,7 @@ import { LANGUAGES } from './languageConstants';
  * - preview.* (預覽)
  * - prompt.* (提示詞)
  */
-export const DEFAULT_I18N_NS_REGEX = /^(data|nav|common|ui|errors|buttons|filter|toast|preview|prompt)\./;
+export const DEFAULT_I18N_NS_REGEX = /^(data|styles|nav|common|ui|demo|pages|errors|buttons|filter|toast|preview|prompt)\./i;
 
 /**
  * 解析 i18n 值

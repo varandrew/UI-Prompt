@@ -2,6 +2,8 @@
 // 用於風格数据查找、預覽內容提取和相关風格推薦
 
 import { getAllStyles } from '../data';
+import { getPreferredLanguage } from './i18n/languagePreference';
+import { LANGUAGES } from './i18n/languageConstants';
 
 // 將任何輸入安全轉為字串，避免後續 .match/.test 因型別错誤
 const ensureString = (v) => {
@@ -21,8 +23,8 @@ const getCurrentLangPrefix = () => {
     return pathMatch[1];
   }
   // Fallback to localStorage
-  const storedLang = localStorage.getItem('language');
-  return storedLang === 'en-US' ? 'en' : 'zh';
+  const preferred = getPreferredLanguage();
+  return preferred === LANGUAGES.EN_US ? 'en' : 'zh';
 };
 
 /**

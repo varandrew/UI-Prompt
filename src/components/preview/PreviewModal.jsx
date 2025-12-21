@@ -17,6 +17,7 @@ import { PreviewSelector } from './PreviewSelector';
 import { hasMultiplePreviews } from '../../utils/previewsHelper';
 import { DataVisualizationPreview } from './DataVisualizationPreview';
 import { LANGUAGES } from '../../utils/i18n/languageConstants';
+import { LoadingDots } from '../ui/LoadingDots';
 
 // 重構後的模組
 import { usePreviewState } from './hooks/usePreviewState';
@@ -249,16 +250,10 @@ export function PreviewModal({
             {/* Loading Overlay */}
             {!isReactPreview && (isLoading || isLoadingPreview) && (
               <div className="absolute inset-0 bg-white dark:bg-gray-900 z-10 flex items-center justify-center">
-                <div className="minimalism-loader">
-                  <div className="minimalism-loader-dot"></div>
-                  <div className="minimalism-loader-dot"></div>
-                  <div className="minimalism-loader-dot"></div>
-                </div>
-                {isLoadingPreview && (
-                  <div className="mt-4 text-sm text-gray-600">
-                    {t('preview.loadingContent')} ...
-                  </div>
-                )}
+                <LoadingDots
+                  size="medium"
+                  text={isLoadingPreview ? t('preview.loadingContent') : undefined}
+                />
               </div>
             )}
 

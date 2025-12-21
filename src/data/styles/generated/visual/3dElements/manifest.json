@@ -15,13 +15,6 @@
   },
   "templates": [
     {
-      "id": "visual-3dElements-spatial-ui",
-      "title": {
-        "zh-CN": "深度空间 UI",
-        "en-US": "Deep Dimension Spatial UI"
-      }
-    },
-    {
       "id": "visual-tech-3d-elements",
       "title": {
         "zh-CN": "3D 元素",

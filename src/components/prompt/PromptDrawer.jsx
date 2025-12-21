@@ -1,11 +1,19 @@
 import { useEffect, useMemo } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useToast } from '../../hooks/useToast';
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 import { Toast } from '../ui/Toast';
 
 export function PromptDrawer({ isOpen, onClose, title, content }) {
   const { t } = useLanguage();
   const { showToast, hideToast, toastState } = useToast();
+  const { copy: copyToClipboard } = useCopyToClipboard({
+    onSuccess: () => showToast(),
+    onError: (err) => {
+      console.error('Copy failed:', err);
+      showToast({ translationKey: 'toast.error' });
+    }
+  });
 
   useEffect(() => {
     const handleEscape = (e) => {
@@ -32,16 +40,7 @@ export function PromptDrawer({ isOpen, onClose, title, content }) {
   }, [content]);
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(content);
-      // 显示 Toast 通知
-      showToast();
-    } catch (err) {
-      console.error('Copy failed:', err);
-      showToast({
-        translationKey: 'toast.error'
-      });
-    }
+    await copyToClipboard(content);
   };
 
   if (!isOpen) return null;

@@ -1,0 +1,35 @@
+{
+  "id": "retro-vhsAesthetic",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "VHS美学",
+      "en-US": "VHS Aesthetic"
+    },
+    "description": {
+      "zh-CN": "1980-90年代录像带美学，融合扫描线、色彩失真、信号干扰和像素颗粒。营造怀旧、模糊、故障美学的视觉体验。完美适用于复古媒体、音乐视频、创意艺术等主题。",
+      "en-US": "1980s-90s VHS tape aesthetics combining scanlines, color distortion, signal interference, and pixelated grain. Creates nostalgic, blurred, glitch art visual experiences. Perfect for retro media, music videos, creative art themes."
+    },
+    "tags": [
+      "retro",
+      "80s",
+      "90s",
+      "glitch",
+      "nostalgic"
+    ],
+    "relatedStyles": [
+      "retro-arcadeCRT",
+      "visual-grain",
+      "retro-digitalRetro"
+    ]
+  },
+  "templates": [
+    {
+      "id": "retro-vhsAesthetic-crt-terminal",
+      "title": {
+        "zh-CN": "CRT終端界面",
+        "en-US": "CRT Terminal Interface"
+      }
+    }
+  ]
+}

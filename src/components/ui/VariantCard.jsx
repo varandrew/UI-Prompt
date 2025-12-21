@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { useLanguage } from '../../hooks/useLanguage'
+import { useI18nText } from '../../hooks/useI18nText'
 import { translateHTML } from "../../utils/i18n/translations"
 import DOMPurify from 'dompurify'
 import { injectAppStylesIntoIframe } from '../../utils/previewCss'
@@ -17,6 +18,7 @@ export function VariantCard({
   onPreview    // 預覽功能（可選）
 }) {
   const { language, t } = useLanguage()
+  const resolveText = useI18nText()
   const iframeRef = useRef(null)
   const containerRef = useRef(null)
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -142,20 +144,12 @@ export function VariantCard({
       {/* 标題欄 */}
       <div className="px-4 pt-4 pb-2">
         <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-          {index + 1}. {variant.name ? (() => {
-            // 检查是否為 i18n 鍵（包含點分隔的命名空間）
-            const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.name);
-            return isI18nKey ? t(variant.name) : variant.name;
-          })() : ''}
+          {index + 1}. {resolveText(variant.name)}
         </h3>
         {/* 描述 */}
         {variant.description && (
           <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-            {(() => {
-              // 检查是否為 i18n 鍵（包含點分隔的命名空間）
-              const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.description);
-              return isI18nKey ? t(variant.description) : variant.description;
-            })()}
+            {resolveText(variant.description)}
           </p>
         )}
       </div>

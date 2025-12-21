@@ -9,6 +9,8 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import { HydrateFallback } from '../components/HydrateFallback';
 import { LanguageRedirect, LegacyRedirect } from '../components/LanguageRedirect';
 import { LanguageLayout } from '../components/LanguageLayout';
+import { LANG_TO_URL } from '../components/seo/seoConfig';
+import { getPreferredLanguage } from '../utils/i18n/languagePreference';
 import {
   createStyleLoader,
   createStyleLoaderDeferred,
@@ -16,6 +18,13 @@ import {
   createComponentPreviewLoaderDeferred,
   createLazyRoute,
 } from '../utils/routeLoaders';
+
+// Shared helper for legacy redirects: localStorage -> browser detection -> default
+// NOTE: Must be safe when imported in non-browser contexts (e.g., tests).
+function getPreferredUrlLang() {
+  const internal = getPreferredLanguage();
+  return LANG_TO_URL[internal] || 'zh';
+}
 
 /**
  * Application routes configuration with language prefix support
@@ -40,18 +49,18 @@ export const router = createBrowserRouter([
   },
   {
     path: '/styles/preview/:styleId',
-    loader: ({ params }) => {
-      const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('language') : null;
-      const urlLang = storedLang === 'en-US' ? 'en' : 'zh';
-      return redirect(`/${urlLang}/styles/preview/${params.styleId}`);
+    loader: ({ params, request }) => {
+      const urlLang = getPreferredUrlLang();
+      const url = new URL(request.url);
+      return redirect(`/${urlLang}/styles/preview/${params.styleId}${url.search}`);
     },
   },
   {
     path: '/styles/code/:styleId',
-    loader: ({ params }) => {
-      const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('language') : null;
-      const urlLang = storedLang === 'en-US' ? 'en' : 'zh';
-      return redirect(`/${urlLang}/styles/code/${params.styleId}`);
+    loader: ({ params, request }) => {
+      const urlLang = getPreferredUrlLang();
+      const url = new URL(request.url);
+      return redirect(`/${urlLang}/styles/code/${params.styleId}${url.search}`);
     },
   },
   {
@@ -60,24 +69,43 @@ export const router = createBrowserRouter([
   },
   {
     path: '/components/:category/:componentId',
-    loader: ({ params }) => {
-      const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('language') : null;
-      const urlLang = storedLang === 'en-US' ? 'en' : 'zh';
-      return redirect(`/${urlLang}/components/${params.category}/${params.componentId}`);
+    loader: ({ params, request }) => {
+      const urlLang = getPreferredUrlLang();
+      const url = new URL(request.url);
+      return redirect(`/${urlLang}/components/${params.category}/${params.componentId}${url.search}`);
     },
   },
   {
     path: '/about',
     element: <LegacyRedirect basePath="/about" />,
   },
+  {
+    path: '/community',
+    element: <LegacyRedirect basePath="/community" />,
+  },
+  {
+    path: '/community/:uploadId',
+    loader: ({ params, request }) => {
+      const urlLang = getPreferredUrlLang();
+      const url = new URL(request.url);
+      return redirect(`/${urlLang}/community/${params.uploadId}${url.search}`);
+    },
+  },
 
   // Language-prefixed preview routes (without main Layout) - uses deferred loading for fast TTF
+  // Still uses LanguageLayout to sync URL lang -> i18n context.
   {
     path: '/:lang/styles/preview/:styleId',
-    lazy: createLazyRoute(
-      () => import('../pages/styles/StylePreviewPage.jsx'),
-      createStyleLoaderDeferred // Use deferred loader for streaming data
-    ),
+    element: <LanguageLayout />,
+    children: [
+      {
+        index: true,
+        lazy: createLazyRoute(
+          () => import('../pages/styles/StylePreviewPage.jsx'),
+          createStyleLoaderDeferred // Use deferred loader for streaming data
+        ),
+      },
+    ],
   },
   // Redirect /:lang/styles/preview (without styleId) to /:lang/styles page
   {
@@ -86,17 +114,69 @@ export const router = createBrowserRouter([
   },
   {
     path: '/:lang/styles/code/:styleId',
-    lazy: createLazyRoute(
-      () => import('../pages/styles/CodeEditorPage.jsx'),
-      createStyleLoader
-    ),
+    element: <LanguageLayout />,
+    children: [
+      {
+        index: true,
+        lazy: createLazyRoute(
+          () => import('../pages/styles/CodeEditorPage.jsx'),
+          createStyleLoader
+        ),
+      },
+    ],
   },
   {
     path: '/:lang/components/preview/:category/:componentId',
-    lazy: createLazyRoute(
-      () => import('../pages/components/ComponentPreviewPage.jsx'),
-      createComponentPreviewLoaderDeferred
-    ),
+    element: <LanguageLayout />,
+    children: [
+      {
+        index: true,
+        lazy: createLazyRoute(
+          () => import('../pages/components/ComponentPreviewPage.jsx'),
+          createComponentPreviewLoaderDeferred
+        ),
+      },
+    ],
+  },
+
+  // Community upload editor (full screen, without Layout)
+  {
+    path: '/:lang/community/upload',
+    element: <LanguageLayout />,
+    children: [
+      {
+        index: true,
+        lazy: createLazyRoute(
+          () => import('../pages/community/UploadEditorPage.jsx')
+        ),
+      },
+    ],
+  },
+  {
+    path: '/:lang/community/:uploadId/edit',
+    element: <LanguageLayout />,
+    children: [
+      {
+        index: true,
+        lazy: createLazyRoute(
+          () => import('../pages/community/UploadEditorPage.jsx')
+        ),
+      },
+    ],
+  },
+
+  // Community upload preview (full screen, without Layout)
+  {
+    path: '/:lang/community/preview/:uploadId',
+    element: <LanguageLayout />,
+    children: [
+      {
+        index: true,
+        lazy: createLazyRoute(
+          () => import('../pages/community/UploadPreviewPage.jsx')
+        ),
+      },
+    ],
   },
 
   // Main application routes with Layout and language prefix
@@ -146,6 +226,18 @@ export const router = createBrowserRouter([
             path: 'about',
             lazy: createLazyRoute(
               () => import('../pages/about/AboutPage.jsx')
+            ),
+          },
+          {
+            path: 'community',
+            lazy: createLazyRoute(
+              () => import('../pages/community/CommunityGalleryPage.jsx')
+            ),
+          },
+          {
+            path: 'community/:uploadId',
+            lazy: createLazyRoute(
+              () => import('../pages/community/UploadPreviewPage.jsx')
             ),
           },
           {

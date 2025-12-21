@@ -1,11 +1,53 @@
-import zhCN from '../../i18n/zh-CN.js';
-import enUS from '../../i18n/en-US.js';
-import { LANGUAGES, DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, normalizeLanguageCode } from './languageConstants.js';
+import {
+  LANGUAGES,
+  DEFAULT_LANGUAGE,
+  SUPPORTED_LANGUAGES,
+  normalizeLanguageCode
+} from './languageConstants.js';
+import { getPreferredLanguage } from './languagePreference.js';
+import { DEFAULT_I18N_NS_REGEX } from './resolveI18nValue.js';
 
-const translations = {
-  [LANGUAGES.ZH_CN]: zhCN,
-  [LANGUAGES.EN_US]: enUS
+const translationLoaders = {
+  [LANGUAGES.ZH_CN]: async () => (await import('../../i18n/zh-CN.js')).default,
+  [LANGUAGES.EN_US]: async () => (await import('../../i18n/en-US.js')).default
 };
+
+const translationsCache = new Map();
+const translationsPromiseCache = new Map();
+
+function getNormalizedLanguage(lang) {
+  return normalizeLanguageCode(lang || DEFAULT_LANGUAGE);
+}
+
+export function isLanguageLoaded(lang) {
+  const normalized = getNormalizedLanguage(lang);
+  return translationsCache.has(normalized);
+}
+
+export async function preloadTranslations(lang = getCurrentLanguage()) {
+  const normalized = getNormalizedLanguage(lang);
+  if (translationsCache.has(normalized)) return translationsCache.get(normalized);
+  if (translationsPromiseCache.has(normalized)) return translationsPromiseCache.get(normalized);
+
+  const loader = translationLoaders[normalized] || translationLoaders[DEFAULT_LANGUAGE];
+  if (!loader) {
+    translationsCache.set(normalized, {});
+    return {};
+  }
+
+  const promise = loader()
+    .then((data) => {
+      const normalizedData = data && typeof data === 'object' ? data : {};
+      translationsCache.set(normalized, normalizedData);
+      return normalizedData;
+    })
+    .finally(() => {
+      translationsPromiseCache.delete(normalized);
+    });
+
+  translationsPromiseCache.set(normalized, promise);
+  return promise;
+}
 
 
 /**
@@ -13,13 +55,7 @@ const translations = {
  * 獲取當前語言
  */
 function getCurrentLanguage() {
-  if (typeof window !== 'undefined') {
-    const stored = localStorage.getItem('language');
-    if (stored && Object.keys(translations).includes(stored)) {
-      return stored;
-    }
-  }
-  return DEFAULT_LANGUAGE;
+  return getPreferredLanguage() || DEFAULT_LANGUAGE;
 }
 
 /**
@@ -27,7 +63,15 @@ function getCurrentLanguage() {
  */
 function getTranslations(lang = getCurrentLanguage()) {
   const normalizedLang = normalizeLanguageCode(lang);
-  return translations[normalizedLang] || translations[DEFAULT_LANGUAGE];
+
+  if (!translationsCache.has(normalizedLang)) {
+    void preloadTranslations(normalizedLang);
+  }
+  if (!translationsCache.has(DEFAULT_LANGUAGE)) {
+    void preloadTranslations(DEFAULT_LANGUAGE);
+  }
+
+  return translationsCache.get(normalizedLang) || translationsCache.get(DEFAULT_LANGUAGE) || {};
 }
 
 // 防護機制：防止無限遞歸
@@ -134,7 +178,7 @@ function getTranslationSafe(key, language) {
 
   // 其他語言時，简化的回退到 zh-CN
   if (language !== LANGUAGES.ZH_CN) {
-    const zhData = translations[LANGUAGES.ZH_CN] || {};
+    const zhData = getTranslations(LANGUAGES.ZH_CN) || {};
     const segs = key.split('.');
     let cur = zhData;
 
@@ -157,7 +201,7 @@ function getTranslationSafe(key, language) {
     // 检查是否翻譯失敗（返回值等於原始 key）
     if (finalResult === key && typeof key === 'string') {
       // 只報告真正的 i18n 鍵（以命名空間開頭）
-      const isI18nKey = /^(styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt|data|errors)\./i.test(key);
+      const isI18nKey = DEFAULT_I18N_NS_REGEX.test(key);
       if (isI18nKey) {
         console.warn(`[i18n] ❌ Translation missing: "${key}" (${language})`);
       }
@@ -187,7 +231,7 @@ function applyTranslations(obj, maybeLangOrPrefix, maybeLang) {
     if (typeof value === 'string') {
       // 仅嘗試當作 i18n 鍵查詢；查無則回傳原字串（例如 HTML/demo 內容）
       // 检查是否看起來像 i18n 鍵（以 data. 或类似的命名空間開頭）
-      const looksLikeI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(value);
+      const looksLikeI18nKey = DEFAULT_I18N_NS_REGEX.test(value);
       
       if (looksLikeI18nKey) {
         const translated = getTranslation(value, language);
@@ -272,7 +316,9 @@ export default {
   getTranslations,
   applyTranslations,
   translateHTML,
-  getCurrentLanguage
+  getCurrentLanguage,
+  preloadTranslations,
+  isLanguageLoaded
 };
 
 export {

@@ -1,0 +1,95 @@
+/* Base styles for AtomicHearth template */
+/* Most styling is done via Tailwind CSS classes in the JSX */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* CSS Variables for Mid-Century Modern color palette */
+:root {
+  --mcm-bg: #f5e6d3;
+  --mcm-white: #ffffff;
+  --mcm-text: #2c2416;
+  --mcm-accent-orange: #d97642;
+  --mcm-accent-mustard: #d4a574;
+  --mcm-accent-olive: #4a7c59;
+  --mcm-wood-walnut: #6b5d4f;
+  --mcm-wood-teak: #8b7355;
+  --mcm-secondary-blue: #7d9ba8;
+  --mcm-secondary-pink: #e57a77;
+}
+
+/* Global resets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Futura', 'Century Gothic', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom animation for slow spin */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Override default link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--mcm-accent-orange);
+  outline-offset: 2px;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar styling (webkit browsers) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mcm-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mcm-wood-walnut);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mcm-accent-orange);
+}

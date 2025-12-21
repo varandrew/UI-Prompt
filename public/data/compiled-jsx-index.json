@@ -1,6 +1,6 @@
 {
-  "generated": "2025-12-19T08:45:37.940Z",
-  "count": 24,
+  "generated": "2025-12-21T09:43:17.722Z",
+  "count": 28,
   "files": {
     "core-scrollNarrative-core-scrollNarrative-immersive-narrative:fullpage": {
       "hash": "d01bbcbe",
@@ -59,6 +59,41 @@
         "ChevronDown"
       ],
       "size": 29937
+    },
+    "retro-filmNoir-retro-filmNoir-detective-agency:fullpage": {
+      "hash": "fd1d7e66",
+      "file": "retro-filmNoir-retro-filmNoir-detective-agency_fullpage-fd1d7e66.js",
+      "mode": "react",
+      "componentName": "NoirLayout",
+      "lucideIcons": [
+        "Search",
+        "FileText",
+        "Camera",
+        "Footprints",
+        "Cigarette",
+        "Mic",
+        "Eye",
+        "X"
+      ],
+      "size": 30026
+    },
+    "retro-midCenturyModern-retro-midCenturyModern-atomic-hearth:fullpage": {
+      "hash": "f6fa6c3b",
+      "file": "retro-midCenturyModern-retro-midCenturyModern-atomic-hearth_fullpage-f6fa6c3b.js",
+      "mode": "react",
+      "componentName": "AtomicHearth",
+      "lucideIcons": [
+        "ArrowRight",
+        "Armchair",
+        "Disc",
+        "Star",
+        "LayoutGrid",
+        "Clock",
+        "Heart",
+        "Menu",
+        "X"
+      ],
+      "size": 29279
     },
     "retro-steampunk-retro-steampunk-aether-industries:fullpage": {
       "hash": "8ca30fd6",
@@ -126,6 +161,27 @@
       "lucideIcons": [],
       "size": 14199
     },
+    "retro-vhsAesthetic-retro-vhsAesthetic-crt-terminal:fullpage": {
+      "hash": "d5fc4b18",
+      "file": "retro-vhsAesthetic-retro-vhsAesthetic-crt-terminal_fullpage-d5fc4b18.js",
+      "mode": "react",
+      "componentName": "VHSApp",
+      "lucideIcons": [
+        "Play",
+        "Pause",
+        "Square",
+        "SkipBack",
+        "SkipForward",
+        "Volume2",
+        "Power",
+        "Disc",
+        "Radio",
+        "Monitor",
+        "Wifi",
+        "Battery"
+      ],
+      "size": 18803
+    },
     "visual-3dElements-visual-3dElements-spatial-ui:fullpage": {
       "hash": "0d77f3ec",
       "file": "visual-3dElements-visual-3dElements-spatial-ui_fullpage-0d77f3ec.js",
@@ -179,6 +235,22 @@
         "Wind"
       ],
       "size": 25888
+    },
+    "visual-comicBook-visual-comicBook-hero-landing:fullpage": {
+      "hash": "085fb6bd",
+      "file": "visual-comicBook-visual-comicBook-hero-landing_fullpage-085fb6bd.js",
+      "mode": "react",
+      "componentName": "App",
+      "lucideIcons": [
+        "Zap",
+        "Star",
+        "MessageCircle",
+        "ArrowRight",
+        "Heart",
+        "Shield",
+        "BoomBox"
+      ],
+      "size": 21523
     },
     "visual-industrial-industrial-nexus-control:fullpage": {
       "hash": "2d2f9913",

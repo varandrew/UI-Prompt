@@ -1,19 +1,29 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback, memo } from 'react'
+import { useWindowSize, calculateListHeight } from '../../hooks/useWindowSize'
+
+// Maximum entries in sizeMap to prevent memory leaks
+const MAX_SIZE_MAP_ENTRIES = 500
 
 /**
  * VirtualMasonryVariable - 每欄虛擬化（可變項高）PoC
  * - 動態 import react-window 的 VariableSizeList，避免首屏体積增加
  * - 以 ResizeObserver 度量每個 item 高度，並呼叫 resetAfterIndex
  * - 若未載入/不支援時，回退為简單的 CSS Grid 佈局
+ * - 動態高度根據視窗大小自動調整
+ * - sizeMap 有上限防止記憶體洩漏
  */
 export function VirtualMasonryVariable({
   items = [],
   columnCount: _columnCount,
   defaultItemHeight = 380,
-  listHeight = 900,
+  listHeight: propListHeight,
   gap = 24,
   renderItem,
+  heightOffset = 112  // Header (64px) + padding (48px)
 }) {
+  // Dynamic height calculation based on window size
+  const { height: windowHeight } = useWindowSize()
+  const dynamicListHeight = propListHeight ?? calculateListHeight(windowHeight, heightOffset, 600)
   const [VarList, setVarList] = useState(null)
   const [columnCount, setColumnCount] = useState(_columnCount || 3)
 
@@ -72,7 +82,7 @@ export function VirtualMasonryVariable({
           items={col}
           renderItem={renderItem}
           defaultItemHeight={defaultItemHeight}
-          listHeight={listHeight}
+          listHeight={dynamicListHeight}
           gap={gap}
           VarList={VarList}
         />
@@ -105,6 +115,11 @@ function ColumnVariable({ items, renderItem, defaultItemHeight, listHeight, gap,
   const setSize = useCallback((index, size) => {
     const prev = sizeMapRef.current.get(index)
     if (prev !== size) {
+      // LRU-style cleanup: remove oldest entry when exceeding limit
+      if (sizeMapRef.current.size >= MAX_SIZE_MAP_ENTRIES && !sizeMapRef.current.has(index)) {
+        const firstKey = sizeMapRef.current.keys().next().value
+        sizeMapRef.current.delete(firstKey)
+      }
       sizeMapRef.current.set(index, size)
       if (listRef.current && typeof listRef.current.resetAfterIndex === 'function') {
         listRef.current.resetAfterIndex(index)

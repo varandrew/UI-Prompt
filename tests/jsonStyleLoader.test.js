@@ -14,7 +14,7 @@ describe('FamilyLoader - ID Preservation Tests', () => {
   it('should preserve IDs longer than 17 characters', async () => {
     const testCases = [
       { category: 'retro', familyId: 'digitalRetro', expected: 'retro-digitalRetro', length: 18 },
-      { category: 'visual', familyId: 'scrollNarrative', expected: 'visual-scrollNarrative', length: 22 }
+      { category: 'core', familyId: 'scrollNarrative', expected: 'core-scrollNarrative', length: 20 }
     ];
 
     for (const { category, familyId, expected, length } of testCases) {

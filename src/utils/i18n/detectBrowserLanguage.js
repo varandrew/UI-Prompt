@@ -10,6 +10,11 @@ import { LANGUAGES } from './languageConstants';
  * @returns {string} 'zh-CN' 或 'en-US'
  */
 export function detectBrowserLanguage() {
+  // 非瀏覽器環境（測試/SSR）保護：避免 navigator 未定義導致崩潰
+  if (typeof navigator === 'undefined') {
+    return LANGUAGES.ZH_CN;
+  }
+
   // 獲取瀏覽器語言设置
   // navigator.language 是主要語言，navigator.userLanguage 用於舊版 IE
   const browserLang = navigator.language || navigator.userLanguage || '';
@@ -34,5 +39,6 @@ export function detectBrowserLanguage() {
  * @returns {string[]} 語言代碼数組
  */
 export function getBrowserLanguages() {
+  if (typeof navigator === 'undefined') return [LANGUAGES.ZH_CN];
   return navigator.languages || [navigator.language] || ['en-US'];
 }

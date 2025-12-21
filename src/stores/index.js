@@ -11,6 +11,35 @@ export { useViewportStore } from './useViewportStore';
 export { useSelectionStore } from './useSelectionStore';
 export { useCanvasStore } from './useCanvasStore';
 
+// ========== Selectors ==========
+// Selection Store Selectors
+export {
+  selectSelectedId,
+  selectMultiSelection,
+  selectSelectionCount,
+  selectIsSelected,
+  selectIsInMultiSelection
+} from './useSelectionStore';
+
+// Viewport Store Selectors
+export {
+  selectActiveViewport,
+  selectGridSize,
+  selectSnapToGrid,
+  selectCustomWidth,
+  selectCustomHeight,
+  selectCustomDimensions,
+  selectViewportSettings
+} from './useViewportStore';
+
+// Canvas Store Selectors
+export {
+  selectComponentTree,
+  selectComponentProps,
+  selectComponentById,
+  selectComponentChildren
+} from './useCanvasStore';
+
 // ========== Utils ==========
 export {
   findComponentById,

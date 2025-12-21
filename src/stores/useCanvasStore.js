@@ -111,3 +111,16 @@ export const useCanvasStore = create(
     };
   })
 );
+
+// ========== Selectors ==========
+// Fine-grained selectors for optimal re-render performance
+
+export const selectComponentTree = (state) => state.componentTree;
+export const selectComponentProps = (state) => state.componentProps;
+
+// Parameterized selectors (factory functions)
+export const selectComponentById = (id) => (state) => state.componentProps[id];
+export const selectComponentChildren = (id) => (state) => {
+  const props = state.componentProps[id];
+  return props?.children || [];
+};

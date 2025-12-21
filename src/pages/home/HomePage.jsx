@@ -24,11 +24,17 @@ export function HomePage() {
   // 首次載入按需取統計資料（動態 import 資料）
   useEffect(() => {
     let active = true
-    Promise.all([getStylesStatsFromMetadata(), getComponentsStatsFromMetadata()]).then(([s, c]) => {
-      if (!active) return
-      setStylesStats(s)
-      setComponentsStats(c)
-    })
+    Promise.all([getStylesStatsFromMetadata(), getComponentsStatsFromMetadata()])
+      .then(([s, c]) => {
+        if (!active) return
+        setStylesStats(s)
+        setComponentsStats(c)
+      })
+      .catch((error) => {
+        if (!active) return
+        console.warn('Failed to load stats:', error)
+        // Fallback to empty stats (already set by default state)
+      })
     return () => { active = false }
   }, [])
 

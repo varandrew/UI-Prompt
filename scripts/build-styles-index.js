@@ -12,12 +12,17 @@
  */
 
 import fs from 'fs';
+import { promises as fsPromises } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import pMap from 'p-map';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
+
+// Concurrency limit for parallel file I/O
+const CONCURRENCY = 16;
 
 console.log('🏗️  Building styles index...\n');
 
@@ -31,12 +36,12 @@ function loadRegistry() {
 }
 
 /**
- * Load family metadata from generated manifest.json
+ * Load family metadata from generated manifest.json (async version)
  * @param {string} category - Category ID (core, visual, retro, etc.)
  * @param {string} familyId - Family ID (flatDesign, minimalism, etc.)
- * @returns {Object|null} Family metadata or null if not found
+ * @returns {Promise<Object|null>} Family metadata or null if not found
  */
-function loadFamilyMetadata(category, familyId) {
+async function loadFamilyMetadataAsync(category, familyId) {
   try {
     const manifestPath = path.join(
       projectRoot,
@@ -47,12 +52,14 @@ function loadFamilyMetadata(category, familyId) {
     );
 
     // Check if file exists
-    if (!fs.existsSync(manifestPath)) {
+    try {
+      await fsPromises.access(manifestPath);
+    } catch {
       return null;
     }
 
-    // Read and parse the manifest
-    const content = fs.readFileSync(manifestPath, 'utf-8');
+    // Read and parse the manifest (async)
+    const content = await fsPromises.readFile(manifestPath, 'utf-8');
     const manifest = JSON.parse(content);
 
     // Extract metadata for the index
@@ -67,8 +74,8 @@ function loadFamilyMetadata(category, familyId) {
       primaryCategory: category
     };
 
-    // Load prompts for this family
-    const prompts = loadFamilyPrompts(category, familyId);
+    // Load prompts for this family (async)
+    const prompts = await loadFamilyPromptsAsync(category, familyId);
 
     return {
       ...metadata,
@@ -76,7 +83,7 @@ function loadFamilyMetadata(category, familyId) {
       stylePrompt: prompts.stylePrompt
     };
   } catch (error) {
-    console.error(`   Error reading manifest for ${category}/${familyId}:`, error.message);
+    // Silent error - will be reported in summary
     return null;
   }
 }
@@ -106,46 +113,45 @@ function parsePromptMd(mdContent) {
 }
 
 /**
- * Load prompts for a family
+ * Load prompts for a family (async version)
  * @param {string} category - Category ID (core, visual, retro, etc.)
  * @param {string} familyId - Family ID (flatDesign, minimalism, etc.)
- * @returns {Object} { customPrompt: {...} | null, stylePrompt: {...} | null }
+ * @returns {Promise<Object>} { customPrompt: {...} | null, stylePrompt: {...} | null }
  */
-function loadFamilyPrompts(category, familyId) {
+async function loadFamilyPromptsAsync(category, familyId) {
   const promptsDir = path.join(projectRoot, 'public/data/prompts/styles', category, familyId);
   const result = { customPrompt: null, stylePrompt: null };
 
-  try {
-    // Load custom.md
-    const customPath = path.join(promptsDir, 'custom.md');
-    if (fs.existsSync(customPath)) {
-      const parsed = parsePromptMd(fs.readFileSync(customPath, 'utf-8'));
-      // Only include if at least one language has content
-      if (parsed['zh-CN'] || parsed['en-US']) {
-        result.customPrompt = parsed;
-      }
-    }
+  const customPath = path.join(promptsDir, 'custom.md');
+  const stylePath = path.join(promptsDir, 'style.md');
 
-    // Load style.md
-    const stylePath = path.join(promptsDir, 'style.md');
-    if (fs.existsSync(stylePath)) {
-      const parsed = parsePromptMd(fs.readFileSync(stylePath, 'utf-8'));
-      // Only include if at least one language has content
-      if (parsed['zh-CN'] || parsed['en-US']) {
-        result.stylePrompt = parsed;
-      }
+  // Load both prompt files in parallel
+  const [customContent, styleContent] = await Promise.all([
+    fsPromises.readFile(customPath, 'utf-8').catch(() => null),
+    fsPromises.readFile(stylePath, 'utf-8').catch(() => null)
+  ]);
+
+  if (customContent) {
+    const parsed = parsePromptMd(customContent);
+    if (parsed['zh-CN'] || parsed['en-US']) {
+      result.customPrompt = parsed;
     }
-  } catch (error) {
-    // Silently ignore - prompts are optional
+  }
+
+  if (styleContent) {
+    const parsed = parsePromptMd(styleContent);
+    if (parsed['zh-CN'] || parsed['en-US']) {
+      result.stylePrompt = parsed;
+    }
   }
 
   return result;
 }
 
 /**
- * Build the consolidated index
+ * Build the consolidated index (async with parallel processing)
  */
-function buildIndex() {
+async function buildIndex() {
   const registry = loadRegistry();
   const output = {
     version: '1.0.0',
@@ -153,40 +159,58 @@ function buildIndex() {
     categories: {}
   };
 
-  let totalFamilies = 0;
-  let successCount = 0;
-  let failedCount = 0;
+  const missingFamilies = [];
 
-  // Process each category
+  // Collect all family tasks across all categories
+  const allTasks = [];
   for (const [categoryId, categoryConfig] of Object.entries(registry.categories)) {
-    console.log(`📁 Processing category: ${categoryId}`);
-
     output.categories[categoryId] = {
       name: categoryConfig.name,
       families: []
     };
 
-    // Process each family in this category
     for (const familyId of categoryConfig.families) {
-      totalFamilies++;
-      process.stdout.write(`   ⏳ ${familyId}...`);
-
-      const metadata = loadFamilyMetadata(categoryId, familyId);
-
-      if (metadata) {
-        output.categories[categoryId].families.push(metadata);
-        successCount++;
-        process.stdout.write(' ✅\n');
-      } else {
-        failedCount++;
-        process.stdout.write(' ❌\n');
-      }
+      allTasks.push({ categoryId, familyId, categoryName: categoryConfig.name });
     }
-
-    console.log('');
   }
 
-  return { output, stats: { totalFamilies, successCount, failedCount } };
+  console.log(`🚀 Processing ${allTasks.length} families in parallel (concurrency: ${CONCURRENCY})...\n`);
+
+  // Process all families in parallel using pMap
+  const results = await pMap(
+    allTasks,
+    async ({ categoryId, familyId }) => {
+      const metadata = await loadFamilyMetadataAsync(categoryId, familyId);
+      return { categoryId, familyId, metadata };
+    },
+    { concurrency: CONCURRENCY }
+  );
+
+  // Collect results into output structure
+  let successCount = 0;
+  let failedCount = 0;
+
+  for (const { categoryId, familyId, metadata } of results) {
+    if (metadata) {
+      output.categories[categoryId].families.push(metadata);
+      successCount++;
+    } else {
+      failedCount++;
+      missingFamilies.push({
+        categoryId,
+        familyId,
+        manifestPath: `src/data/styles/generated/${categoryId}/${familyId}/manifest.json`
+      });
+    }
+  }
+
+  // Print category summary
+  for (const [categoryId, categoryData] of Object.entries(output.categories)) {
+    console.log(`📁 ${categoryId}: ${categoryData.families.length} families`);
+  }
+  console.log('');
+
+  return { output, stats: { totalFamilies: allTasks.length, successCount, failedCount }, missingFamilies };
 }
 
 /**
@@ -273,14 +297,39 @@ function writeMetadataIndex(data) {
 }
 
 /**
- * Main execution
+ * Write missing manifest report for UX hints
+ * Outputs: /public/data/styles-index-missing.json
  */
-function main() {
+function writeMissingReport({ version, generatedAt, missingFamilies }) {
+  const reportPath = path.join(projectRoot, 'public/data/styles-index-missing.json');
+
+  const reportDir = path.dirname(reportPath);
+  if (!fs.existsSync(reportDir)) {
+    fs.mkdirSync(reportDir, { recursive: true });
+  }
+
+  const report = {
+    version,
+    generatedAt,
+    missingCount: Array.isArray(missingFamilies) ? missingFamilies.length : 0,
+    missingFamilies: Array.isArray(missingFamilies) ? missingFamilies : []
+  };
+
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2), 'utf-8');
+  const size = fs.statSync(reportPath).size / 1024;
+
+  return { path: reportPath, size: size.toFixed(2) };
+}
+
+/**
+ * Main execution (async)
+ */
+async function main() {
   try {
     const startTime = Date.now();
 
-    // Build the index
-    const { output, stats } = buildIndex();
+    // Build the index (parallel processing)
+    const { output, stats, missingFamilies } = await buildIndex();
 
     // Write main consolidated index file
     const outputPath = writeOutput(output);
@@ -291,6 +340,13 @@ function main() {
 
     // Write lightweight metadata-only index for fast stats
     const { path: metadataPath, size: metadataSize, totalFamilies } = writeMetadataIndex(output);
+
+    // Write missing report (do not fail build when missing)
+    const { path: missingReportPath, size: missingReportSize } = writeMissingReport({
+      version: output.version,
+      generatedAt: output.generatedAt,
+      missingFamilies
+    });
 
     // Print summary
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
@@ -305,6 +361,8 @@ function main() {
     console.log(`      Size: ${fileSize} KB`);
     console.log(`   Metadata index (for fast stats): ${metadataPath}`);
     console.log(`      Size: ${metadataSize} KB`);
+    console.log(`   Missing report: ${missingReportPath}`);
+    console.log(`      Size: ${missingReportSize} KB`);
     console.log(`   Category shards (for progressive loading):`);
     for (const shard of shardPaths) {
       console.log(`      ${shard.category}: ${shard.size} KB`);

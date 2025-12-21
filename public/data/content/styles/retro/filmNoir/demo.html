@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Noir UI Demo</title>
+    <style>
+        /* * FILM NOIR STYLE SYSTEM 
+         * ----------------------
+         * Core Palette & Variables
+         */
+        :root {
+            --noir-black: #0d0d0d;
+            --noir-dark-gray: #1a1a1a;
+            --noir-gray: #444444;
+            --noir-silver: #f0f0f0;
+            --noir-white: #ffffff;
+            --noir-blood-red: #8b0000;
+            
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+            --font-mono: 'Courier New', monospace;
+            --font-sans: 'Arial', sans-serif; /* Fallback only */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: var(--font-serif);
+            color: var(--noir-silver);
+            overflow: hidden; /* Prevent scroll on small demo view */
+        }
+
+        /* * MAIN COMPONENT CONTAINER 
+         * Forced Square Shape & Robust Sizing 
+         */
+        .noir-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* Limit size */
+            aspect-ratio: 1 / 1; /* Force Square */
+            background-color: var(--noir-black);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid var(--noir-dark-gray);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            /* Fallback for aspect-ratio support */
+            @supports not (aspect-ratio: 1/1) {
+                height: 500px;
+            }
+        }
+
+        /* * ATMOSPHERE LAYERS (Background Effects)
+         * pointer-events: none is CRITICAL here 
+         */
+        
+        /* 1. Film Grain / Noise */
+        .noise-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* 2. Venetian Blinds Shadow */
+        .blinds-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 40;
+            background: repeating-linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0) 40%,
+                rgba(0, 0, 0, 0.4) 45%,
+                rgba(0, 0, 0, 0.8) 50%,
+                rgba(0, 0, 0, 0.4) 55%,
+                rgba(0, 0, 0, 0) 60%
+            );
+            background-size: 100% 40px; /* Size of the slats */
+            opacity: 0.6;
+            mix-blend-mode: multiply;
+        }
+
+        /* 3. Vignette & Spotlight */
+        .vignette-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 45;
+            background: radial-gradient(
+                circle at 70% 30%, 
+                transparent 10%, 
+                rgba(0,0,0,0.4) 60%, 
+                rgba(0,0,0,0.95) 100%
+            );
+        }
+
+        /* * CONTENT LAYOUT 
+         */
+        .content-wrapper {
+            position: relative;
+            z-index: 60; /* Above effects */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 8%;
+            justify-content: space-between;
+        }
+
+        /* Header Area */
+        .header {
+            border-bottom: 1px solid var(--noir-gray);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .case-number {
+            font-family: var(--font-mono);
+            font-size: clamp(0.7rem, 2vw, 1rem); /* Standard responsive unit */
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        .stamp {
+            font-family: var(--font-mono);
+            color: var(--noir-blood-red);
+            border: 2px solid var(--noir-blood-red);
+            padding: 2px 8px;
+            font-weight: bold;
+            font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+            transform: rotate(-10deg);
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        /* Typography Main */
+        h1 {
+            font-family: var(--font-serif);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: clamp(1.8rem, 6vw, 3rem); /* Replaced cqw with %/rem/vw mix */
+            line-height: 0.9;
+            letter-spacing: 2px;
+            color: var(--noir-white);
+            text-shadow: 4px 4px 0px #000;
+            margin-bottom: 15px;
+        }
+
+        .narrative {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            line-height: 1.4;
+            color: #bbb;
+            border-left: 3px solid var(--noir-gray);
+            padding-left: 15px;
+            margin-bottom: auto; /* Push footer down */
+            max-width: 90%;
+        }
+
+        .narrative strong {
+            color: var(--noir-white);
+            font-weight: normal;
+            border-bottom: 1px solid #666;
+        }
+
+        /* Visual Element: Suspect Card */
+        .suspect-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(90deg, #111 0%, transparent 100%);
+            padding: 15px;
+            border: 1px solid #333;
+            margin: 20px 0;
+            box-shadow: inset 0 0 20px #000;
+            transition: all 0.4s ease;
+        }
+        
+        .suspect-card:hover {
+            border-color: #666;
+            background: linear-gradient(90deg, #1a1a1a 0%, transparent 100%);
+        }
+
+        .mugshot-placeholder {
+            width: 60px;
+            height: 60px;
+            background-color: #222;
+            border: 1px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 10px #000;
+        }
+        
+        .mugshot-icon {
+            width: 30px;
+            height: 30px;
+            background: #000;
+            border-radius: 50%;
+            position: relative;
+        }
+        .mugshot-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            width: 50px;
+            height: 25px;
+            background: #000;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .suspect-info {
+            font-family: var(--font-mono);
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            color: #999;
+        }
+        .suspect-name {
+            color: var(--noir-white);
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* Footer / Action */
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
+        /* Status Light */
+        .status-light {
+            width: 8px;
+            height: 8px;
+            background-color: var(--noir-blood-red);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--noir-blood-red);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        /* Button Styling */
+        .btn-action {
+            background: transparent;
+            color: var(--noir-white);
+            font-family: var(--font-mono);
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border: 1px solid #444;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 10px #000;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-action:hover {
+            border-color: var(--noir-white);
+            text-shadow: 0 0 5px white;
+            box-shadow: inset 0 0 15px #222, 0 0 10px rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-action:active {
+            transform: translateY(2px);
+        }
+
+        /* * ANIMATIONS 
+         */
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; box-shadow: 0 0 15px var(--noir-blood-red); }
+            100% { opacity: 0.4; }
+        }
+
+        /* Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1em;
+            background-color: var(--noir-white);
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Subtle Fog/Smoke Animation */
+        .fog-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(0deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            filter: blur(20px);
+            z-index: 55;
+            pointer-events: none;
+            animation: fogMove 10s infinite alternate ease-in-out;
+        }
+        
+        @keyframes fogMove {
+            0% { transform: translateX(-10%) skewX(5deg); opacity: 0.3; }
+            100% { transform: translateX(10%) skewX(-5deg); opacity: 0.6; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="noir-container">
+        <!-- Environmental Layers -->
+        <div class="noise-overlay"></div>
+        <div class="blinds-overlay"></div>
+        <div class="vignette-overlay" id="spotlight"></div>
+        <div class="fog-layer"></div>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            
+            <div class="header">
+                <span class="case-number">CASE NO. 404-X</span>
+                <span class="stamp">CLASSIFIED</span>
+            </div>
+
+            <div class="main-body">
+                <h1>The Silent<br>Witness</h1>
+                
+                <div class="suspect-card">
+                    <div class="mugshot-placeholder">
+                        <div class="mugshot-icon"></div>
+                    </div>
+                    <div class="suspect-info">
+                        <span class="suspect-name">UNKNOWN SUBJECT</span>
+                        <span>LAST SEEN: DOCKS, 2AM</span>
+                    </div>
+                </div>
+
+                <p class="narrative">
+                    "It was a night darker than <span id="typewriter"></span><span class="cursor"></span>"
+                </p>
+            </div>
+
+            <div class="footer">
+                <div class="status-light"></div>
+                <button class="btn-action" onclick="investigate()">Open File</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Typewriter Effect
+        const textToType = "a guilty conscience...";
+        const typewriterElement = document.getElementById('typewriter');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                typewriterElement.innerHTML += textToType.charAt(i);
+                i++;
+                // Random typing speed for realism
+                setTimeout(typeWriter, 50 + Math.random() * 150); 
+            }
+        }
+
+        // Start typing after a short delay
+        setTimeout(typeWriter, 1000);
+
+        // Simple Interaction: Flashlight / Interaction feedback
+        function investigate() {
+            const container = document.querySelector('.noir-container');
+            const btn = document.querySelector('.btn-action');
+            
+            // Flash effect
+            const flash = document.createElement('div');
+            flash.style.position = 'absolute';
+            flash.style.inset = '0';
+            flash.style.backgroundColor = 'white';
+            flash.style.zIndex = '100';
+            flash.style.opacity = '1';
+            flash.style.transition = 'opacity 1s ease-out';
+            flash.style.pointerEvents = 'none'; // Critical for not breaking UI
+            
+            container.appendChild(flash);
+            
+            // Trigger reflow
+            void flash.offsetWidth;
+            
+            flash.style.opacity = '0';
+            
+            // Change button state
+            btn.innerHTML = "ACCESSING...";
+            btn.style.borderColor = "#8b0000";
+            btn.style.color = "#8b0000";
+            
+            setTimeout(() => {
+                flash.remove();
+                btn.innerHTML = "FILE OPENED";
+                // Add a red tint to the scene
+                document.querySelector('.vignette-overlay').style.background = 
+                    "radial-gradient(circle at 70% 30%, transparent 10%, rgba(50,0,0,0.4) 60%, rgba(10,0,0,0.95) 100%)";
+            }, 1000);
+        }
+
+        // Subtle Spotlight Follow (Optional, subtle movement)
+        const container = document.querySelector('.noir-container');
+        const spotlight = document.getElementById('spotlight');
+        
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            // Slight delay/lag for atmospheric feel could be added, but keeping it simple and performant
+            spotlight.style.background = `radial-gradient(
+                circle at ${x}% ${y}%, 
+                transparent 15%, 
+                rgba(0,0,0,0.5) 50%, 
+                rgba(0,0,0,0.98) 100%
+            )`;
+        });
+
+        // Reset spotlight on leave
+        container.addEventListener('mouseleave', () => {
+            spotlight.style.background = `radial-gradient(
+                circle at 70% 30%, 
+                transparent 10%, 
+                rgba(0,0,0,0.4) 60%, 
+                rgba(0,0,0,0.95) 100%
+            )`;
+        });
+
+    </script>
+</body>
+</html>

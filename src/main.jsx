@@ -9,11 +9,17 @@ if (import.meta.env.DEV && typeof window !== 'undefined') {
 }
 
 const rootEl = document.getElementById('root');
-const RootApp = import.meta.env.DEV ? (
-  <App />
-) : (
+const strictModeFlag = import.meta.env.VITE_STRICT_MODE;
+const enableStrictMode =
+  typeof strictModeFlag === 'string'
+    ? strictModeFlag === 'true'
+    : import.meta.env.DEV;
+
+const RootApp = enableStrictMode ? (
   <StrictMode>
     <App />
   </StrictMode>
+) : (
+  <App />
 );
 createRoot(rootEl).render(RootApp)

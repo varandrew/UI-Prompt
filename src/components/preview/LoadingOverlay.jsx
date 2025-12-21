@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { LoadingDots } from '../ui/LoadingDots';
 
 /**
  * LoadingOverlay component - Simple loading overlay with animated dots
@@ -15,11 +16,7 @@ export function LoadingOverlay({ isVisible }) {
 
   return (
     <div className="absolute inset-0 bg-white dark:bg-gray-900 z-10 flex items-center justify-center">
-      <div className="minimalism-loader">
-        <div className="minimalism-loader-dot"></div>
-        <div className="minimalism-loader-dot"></div>
-        <div className="minimalism-loader-dot"></div>
-      </div>
+      <LoadingDots size="medium" />
     </div>
   );
 }

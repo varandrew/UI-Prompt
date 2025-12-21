@@ -25,13 +25,6 @@
   },
   "templates": [
     {
-      "id": "retro-steampunk-aether-industries",
-      "title": {
-        "zh-CN": "Aether Indus...",
-        "en-US": "Aether Industries"
-      }
-    },
-    {
       "id": "retro-steampunk-dashboard",
       "title": {
         "zh-CN": "蒸汽控制台",

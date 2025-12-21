@@ -159,16 +159,6 @@
     "familyId": "minimalism",
     "templateId": "core-minimalism-japanese-style"
   },
-  "core-scrollNarrative-core-scrollNarrative-immersive-narrative": {
-    "category": "core",
-    "familyId": "scrollNarrative",
-    "templateId": "core-scrollNarrative-immersive-narrative"
-  },
-  "core-scrollNarrative-immersive-narrative": {
-    "category": "core",
-    "familyId": "scrollNarrative",
-    "templateId": "core-scrollNarrative-immersive-narrative"
-  },
   "core-scrollNarrative-product-feature-showcase": {
     "category": "core",
     "familyId": "scrollNarrative",
@@ -198,6 +188,16 @@
     "category": "core",
     "familyId": "scrollNarrative",
     "templateId": "vision-launch-narrative"
+  },
+  "core-scrollNarrative-core-scrollNarrative-immersive-narrative": {
+    "category": "core",
+    "familyId": "scrollNarrative",
+    "templateId": "core-scrollNarrative-immersive-narrative"
+  },
+  "core-scrollNarrative-immersive-narrative": {
+    "category": "core",
+    "familyId": "scrollNarrative",
+    "templateId": "core-scrollNarrative-immersive-narrative"
   },
   "scrollNarrative": {
     "category": "core",
@@ -296,16 +296,6 @@
     "familyId": "typography",
     "templateId": "kinetic"
   },
-  "visual-3dElements-visual-3dElements-spatial-ui": {
-    "category": "visual",
-    "familyId": "3dElements",
-    "templateId": "visual-3dElements-spatial-ui"
-  },
-  "visual-3dElements-spatial-ui": {
-    "category": "visual",
-    "familyId": "3dElements",
-    "templateId": "visual-3dElements-spatial-ui"
-  },
   "visual-3dElements-visual-tech-3d-elements": {
     "category": "visual",
     "familyId": "3dElements",
@@ -315,6 +305,16 @@
     "category": "visual",
     "familyId": "3dElements",
     "templateId": "visual-tech-3d-elements"
+  },
+  "visual-3dElements-visual-3dElements-spatial-ui": {
+    "category": "visual",
+    "familyId": "3dElements",
+    "templateId": "visual-3dElements-spatial-ui"
+  },
+  "visual-3dElements-spatial-ui": {
+    "category": "visual",
+    "familyId": "3dElements",
+    "templateId": "visual-3dElements-spatial-ui"
   },
   "3dElements": {
     "category": "visual",
@@ -471,6 +471,16 @@
     "familyId": "claymorphism",
     "templateId": "visual-claymorphism-claymorphism-ecommerce"
   },
+  "visual-comicBook-visual-comicBook-hero-landing": {
+    "category": "visual",
+    "familyId": "comicBook",
+    "templateId": "visual-comicBook-hero-landing"
+  },
+  "visual-comicBook-hero-landing": {
+    "category": "visual",
+    "familyId": "comicBook",
+    "templateId": "visual-comicBook-hero-landing"
+  },
   "visual-comicBook-visual-comicBook-landing": {
     "category": "visual",
     "familyId": "comicBook",
@@ -484,17 +494,17 @@
   "comicBook": {
     "category": "visual",
     "familyId": "comicBook",
-    "templateId": "visual-comicBook-landing"
+    "templateId": "visual-comicBook-hero-landing"
   },
   "comic-book": {
     "category": "visual",
     "familyId": "comicBook",
-    "templateId": "visual-comicBook-landing"
+    "templateId": "visual-comicBook-hero-landing"
   },
   "comicbook": {
     "category": "visual",
     "familyId": "comicBook",
-    "templateId": "visual-comicBook-landing"
+    "templateId": "visual-comicBook-hero-landing"
   },
   "visual-darkMode-visual-darkMode-darkMode-dashboard": {
     "category": "visual",
@@ -1611,6 +1621,31 @@
     "familyId": "digitalRetro",
     "templateId": "retro-digitalRetro-pixel-art"
   },
+  "retro-filmNoir-retro-filmNoir-detective-agency": {
+    "category": "retro",
+    "familyId": "filmNoir",
+    "templateId": "retro-filmNoir-detective-agency"
+  },
+  "retro-filmNoir-detective-agency": {
+    "category": "retro",
+    "familyId": "filmNoir",
+    "templateId": "retro-filmNoir-detective-agency"
+  },
+  "filmNoir": {
+    "category": "retro",
+    "familyId": "filmNoir",
+    "templateId": "retro-filmNoir-detective-agency"
+  },
+  "film-noir": {
+    "category": "retro",
+    "familyId": "filmNoir",
+    "templateId": "retro-filmNoir-detective-agency"
+  },
+  "filmnoir": {
+    "category": "retro",
+    "familyId": "filmNoir",
+    "templateId": "retro-filmNoir-detective-agency"
+  },
   "retro-frutigerAero-retro-frutiger-aero-os": {
     "category": "retro",
     "familyId": "frutigerAero",
@@ -1635,6 +1670,51 @@
     "category": "retro",
     "familyId": "frutigerAero",
     "templateId": "retro-frutiger-aero-os"
+  },
+  "retro-midCenturyModern-retro-midCenturyModern-atomic-hearth": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-atomic-hearth"
+  },
+  "retro-midCenturyModern-atomic-hearth": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-atomic-hearth"
+  },
+  "retro-midCenturyModern-retro-midCenturyModern-furniture-showcase": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-furniture-showcase"
+  },
+  "retro-midCenturyModern-furniture-showcase": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-furniture-showcase"
+  },
+  "retro-midCenturyModern-retro-midCenturyModern-design-studio": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-design-studio"
+  },
+  "retro-midCenturyModern-design-studio": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-design-studio"
+  },
+  "midCenturyModern": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-atomic-hearth"
+  },
+  "mid-century-modern": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-atomic-hearth"
+  },
+  "midcenturymodern": {
+    "category": "retro",
+    "familyId": "midCenturyModern",
+    "templateId": "retro-midCenturyModern-atomic-hearth"
   },
   "retro-newspaper-modernEditorialTemplates": {
     "category": "retro",
@@ -1711,16 +1791,6 @@
     "familyId": "retroOS",
     "templateId": "retro-os-windows95"
   },
-  "retro-steampunk-retro-steampunk-aether-industries": {
-    "category": "retro",
-    "familyId": "steampunk",
-    "templateId": "retro-steampunk-aether-industries"
-  },
-  "retro-steampunk-aether-industries": {
-    "category": "retro",
-    "familyId": "steampunk",
-    "templateId": "retro-steampunk-aether-industries"
-  },
   "retro-steampunk-retro-steampunk-dashboard": {
     "category": "retro",
     "familyId": "steampunk",
@@ -1730,6 +1800,16 @@
     "category": "retro",
     "familyId": "steampunk",
     "templateId": "retro-steampunk-dashboard"
+  },
+  "retro-steampunk-retro-steampunk-aether-industries": {
+    "category": "retro",
+    "familyId": "steampunk",
+    "templateId": "retro-steampunk-aether-industries"
+  },
+  "retro-steampunk-aether-industries": {
+    "category": "retro",
+    "familyId": "steampunk",
+    "templateId": "retro-steampunk-aether-industries"
   },
   "steampunk": {
     "category": "retro",
@@ -1795,6 +1875,31 @@
     "category": "retro",
     "familyId": "synthwave",
     "templateId": "retro-synthwave-landing"
+  },
+  "retro-vhsAesthetic-retro-vhsAesthetic-crt-terminal": {
+    "category": "retro",
+    "familyId": "vhsAesthetic",
+    "templateId": "retro-vhsAesthetic-crt-terminal"
+  },
+  "retro-vhsAesthetic-crt-terminal": {
+    "category": "retro",
+    "familyId": "vhsAesthetic",
+    "templateId": "retro-vhsAesthetic-crt-terminal"
+  },
+  "vhsAesthetic": {
+    "category": "retro",
+    "familyId": "vhsAesthetic",
+    "templateId": "retro-vhsAesthetic-crt-terminal"
+  },
+  "vhs-aesthetic": {
+    "category": "retro",
+    "familyId": "vhsAesthetic",
+    "templateId": "retro-vhsAesthetic-crt-terminal"
+  },
+  "vhsaesthetic": {
+    "category": "retro",
+    "familyId": "vhsAesthetic",
+    "templateId": "retro-vhsAesthetic-crt-terminal"
   },
   "interaction-mouseTracking-interaction-mouse-tracking": {
     "category": "interaction",

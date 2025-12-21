@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useLoaderData, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 import { CodeEditor } from '../../components/code/CodeEditor';
 import { LivePreview } from '../../components/code/LivePreview';
 import { CodeEditorToolbar } from '../../components/code/CodeEditorToolbar';
@@ -19,6 +20,9 @@ export function CodeEditorPage() {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
   const [searchParams] = useSearchParams();
+  const { copy: copyToClipboard } = useCopyToClipboard({
+    onError: (err) => console.error('Copy failed:', err)
+  });
 
   // 編輯器狀態
   const [htmlCode, setHtmlCode] = useState('');
@@ -344,14 +348,8 @@ ${htmlCode}
 
   // 複製代碼
   const handleCopy = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(currentCode);
-      return true;
-    } catch (err) {
-      console.error('Copy failed:', err);
-      return false;
-    }
-  }, [currentCode]);
+    return copyToClipboard(currentCode);
+  }, [currentCode, copyToClipboard]);
 
   // 下載代碼
   const handleDownload = useCallback(() => {

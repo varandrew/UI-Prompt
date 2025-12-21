@@ -11,6 +11,7 @@
 
 import { useLanguage } from '../../hooks/useLanguage';
 import { SKELETON_COUNTS } from '../../utils/constants';
+import { LoadingDots } from '../ui/LoadingDots';
 
 /**
  * Page Header Slot Component
@@ -200,6 +201,23 @@ export function EmptyState({ onClear, clearLabel, title, hint }) {
 }
 
 /**
+ * Loading Content State Component
+ * 显示内容加载中状态（区分初始加载和数据加载中）
+ */
+export function LoadingContentState() {
+  const { t } = useLanguage();
+
+  return (
+    <div className="flex flex-col items-center justify-center py-16">
+      <LoadingDots size="large" />
+      <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+        {t('common.loadingContent') || 'Loading content...'}
+      </p>
+    </div>
+  );
+}
+
+/**
  * Main Scaffold Component
  *
  * @param {Object} props
@@ -213,6 +231,7 @@ export function EmptyState({ onClear, clearLabel, title, hint }) {
  * @param {Object} props.statsConfig - Configuration for result stats
  * @param {React.ReactNode} props.children - Content to render when loaded
  * @param {boolean} props.isEmpty - Whether the result is empty
+ * @param {boolean} props.isLoadingContent - Whether content is still loading (distinguishes from truly empty)
  * @param {Function} props.onClearFilters - Handler for empty state clear button
  * @param {number} props.skeletonCount - Number of skeleton cards
  * @param {string} props.skeletonColumns - Tailwind grid column classes
@@ -239,6 +258,7 @@ export function ListPageScaffold({
   // Content
   children,
   isEmpty,
+  isLoadingContent = false,
   onClearFilters,
 
   // Skeleton
@@ -273,6 +293,8 @@ export function ListPageScaffold({
         />
       ) : isError ? (
         <ErrorState onRetry={onRetry} />
+      ) : isEmpty && isLoadingContent ? (
+        <LoadingContentState />
       ) : isEmpty ? (
         <EmptyState onClear={onClearFilters} />
       ) : (

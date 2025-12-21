@@ -11,7 +11,7 @@
  * - Preview content: Stale-while-revalidate (instant + fresh)
  */
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `ui-style-${CACHE_VERSION}`;
 
 // Cache categories
@@ -19,6 +19,7 @@ const CACHE_SHELL = `${CACHE_NAME}-shell`;
 const CACHE_DATA = `${CACHE_NAME}-data`;
 const CACHE_ASSETS = `${CACHE_NAME}-assets`;
 const CACHE_PREVIEW = `${CACHE_NAME}-preview`;
+const CURRENT_CACHES = [CACHE_SHELL, CACHE_DATA, CACHE_ASSETS, CACHE_PREVIEW];
 
 // URLs to cache immediately on install
 const SHELL_URLS = [
@@ -46,7 +47,7 @@ self.addEventListener('activate', (event) => {
       .then((cacheNames) => {
         return Promise.all(
           cacheNames
-            .filter((name) => name.startsWith('ui-style-') && name !== CACHE_NAME)
+            .filter((name) => name.startsWith('ui-style-') && !CURRENT_CACHES.includes(name))
             .map((name) => caches.delete(name))
         );
       })
@@ -117,9 +118,10 @@ async function networkFirst(request, cacheName) {
   const cache = await caches.open(cacheName);
 
   try {
-    const response = await fetch(request, {
+    const fetchRequest = new Request(request, { cache: 'no-store' });
+    const response = await fetch(fetchRequest, {
       // Add timeout to avoid long waits
-      signal: AbortSignal.timeout ? AbortSignal.timeout(3000) : undefined
+      signal: AbortSignal.timeout ? AbortSignal.timeout(8000) : undefined
     });
 
     if (response.ok) {

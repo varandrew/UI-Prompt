@@ -167,3 +167,24 @@ export const useViewportStore = create(
     }
   }))
 );
+
+// ========== Selectors ==========
+// Fine-grained selectors for optimal re-render performance
+
+export const selectActiveViewport = (state) => state.activeViewport;
+export const selectGridSize = (state) => state.gridSize;
+export const selectSnapToGrid = (state) => state.snapToGrid;
+export const selectCustomWidth = (state) => state.customWidth;
+export const selectCustomHeight = (state) => state.customHeight;
+
+// Composite selectors
+export const selectCustomDimensions = (state) => ({
+  width: state.customWidth,
+  height: state.customHeight
+});
+
+export const selectViewportSettings = (state) => ({
+  activeViewport: state.activeViewport,
+  gridSize: state.gridSize,
+  snapToGrid: state.snapToGrid
+});

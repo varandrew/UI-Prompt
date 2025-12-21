@@ -94,7 +94,7 @@
     },
     "layout": {
       "name": "Layout Systems",
-      "families": ["layoutStyles", "magazine"]
+      "families": ["magazine"]
     }
   }
 }

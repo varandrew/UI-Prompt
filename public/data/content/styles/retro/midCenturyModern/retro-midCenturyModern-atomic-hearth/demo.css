@@ -1,0 +1,263 @@
+/* --- RESET & BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2c2416; /* Deep brown outer bg for contrast */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Futura', 'Century Gothic', 'Tw Cen MT', Arial, sans-serif;
+    overflow: hidden; /* Prevent scrollbars for this fixed demo */
+}
+
+/* --- VARIABLES (From Your Palette) --- */
+:root {
+    --mcm-bg: #f5e6d3;        /* Warm Beige */
+    --mcm-white: #ffffff;     /* Soft White */
+    --mcm-brown: #2c2416;     /* Deep Brown */
+    --mcm-orange: #d97642;    /* Orange-Red */
+    --mcm-mustard: #d4a574;   /* Mustard Yellow */
+    --mcm-olive: #4a7c59;     /* Olive Green */
+    --mcm-walnut: #6b5d4f;    /* Walnut */
+    --mcm-teak: #8b7355;      /* Teak */
+    --mcm-blue: #7d9ba8;      /* Gray-Blue */
+    --mcm-coral: #e57a77;     /* Coral Pink */
+}
+
+/* --- MAIN SQUARE CONTAINER --- */
+.mcm-container {
+    position: relative;
+    /* Force Square Aspect Ratio */
+    width: min(90vw, 500px);
+    height: min(90vw, 500px);
+    background-color: var(--mcm-bg);
+    /* Soft shadow, no heavy drop shadow */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    /* DYNAMIC SCALING WITHOUT CQW */
+    /* We use a font-size base that scales with the viewport width, clamped */
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+/* --- TEXTURE OVERLAY (Fixed: No Interaction Interference) --- */
+.texture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+    pointer-events: none; /* CRITICAL FIX: Mouse clicks pass through */
+    z-index: 10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* --- BACKGROUND SHAPES (Abstract Geometry) --- */
+.bg-shape {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* The "Kidney Bean" Shape */
+.shape-blob {
+    top: -10%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background-color: var(--mcm-blue);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transition: transform 1s ease-in-out;
+}
+
+/* The "Boomerang/Triangle" Shape */
+.shape-tri {
+    bottom: 10%;
+    left: -5%;
+    width: 40%;
+    height: 40%;
+    background-color: var(--mcm-mustard);
+    clip-path: polygon(0% 100%, 100% 80%, 20% 0%);
+    transform: rotate(-10deg);
+}
+
+/* --- LAYOUT CONTENT --- */
+.content-layer {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8%;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--mcm-brown);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    border-bottom: 2px solid var(--mcm-orange);
+    padding-bottom: 4px;
+}
+
+.date-badge {
+    background-color: var(--mcm-brown);
+    color: var(--mcm-bg);
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+/* --- MAIN CARD --- */
+.main-card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* The "Chair" Visual - CSS Illustration */
+.chair-illustration {
+    width: 50%;
+    aspect-ratio: 1/1; /* Keeps chair square */
+    position: relative;
+    margin-bottom: 1em;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chair-illustration:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Chair Back */
+.chair-back {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 70%;
+    height: 50%;
+    background-color: var(--mcm-walnut);
+    border-radius: 20% 20% 40% 40%;
+}
+/* Chair Seat */
+.chair-seat {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 15%;
+    background-color: var(--mcm-orange);
+    border-radius: 10px;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+/* Legs */
+.chair-leg {
+    position: absolute;
+    background-color: var(--mcm-brown);
+    width: 8%;
+    height: 40%;
+    bottom: 0;
+    border-radius: 0 0 4px 4px;
+}
+.leg-left { left: 20%; transform: rotate(10deg); }
+.leg-right { right: 20%; transform: rotate(-10deg); }
+
+/* Typography inside card */
+h1 {
+    font-size: 2.5em;
+    line-height: 1.1;
+    color: var(--mcm-brown);
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+p.subtitle {
+    font-size: 0.9em;
+    color: var(--mcm-olive);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* --- FOOTER & CONTROLS --- */
+.controls {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1em;
+    align-items: center;
+    background: rgba(255,255,255, 0.4);
+    padding: 1em;
+    border-radius: 12px;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--mcm-brown);
+}
+
+.price span {
+    font-size: 0.5em;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+button.cta {
+    background-color: var(--mcm-orange);
+    color: white;
+    border: none;
+    padding: 0.8em 1.5em;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+button.cta:hover {
+    background-color: #bf6030;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(217, 118, 66, 0.4);
+}
+
+/* --- DECORATIVE ATOMIC ELEMENTS --- */
+.starburst {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 40px;
+    height: 40px;
+    fill: var(--mcm-mustard);
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

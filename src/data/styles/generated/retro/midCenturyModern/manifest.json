@@ -1,0 +1,49 @@
+{
+  "id": "retro-midCenturyModern",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "中世纪现代",
+      "en-US": "Mid-Century Modern"
+    },
+    "description": {
+      "zh-CN": "1950-60年代设计美学,强调简洁线条、有机形态和功能性。融合温暖木质色调、几何图案和复古色彩。体现战后乐观主义和现代生活方式,完美适用于时尚、家居、创意展示等场景。",
+      "en-US": "1950s-60s design aesthetics emphasizing clean lines, organic forms, and functionality. Combines warm wood tones, geometric patterns, and retro colors. Reflects post-war optimism and modern lifestyle, perfect for fashion, home, creative showcases."
+    },
+    "tags": [
+      "retro",
+      "classic",
+      "organic",
+      "geometric",
+      "timeless"
+    ],
+    "relatedStyles": [
+      "core-minimalism",
+      "retro-swissDesign",
+      "visual-organic"
+    ]
+  },
+  "templates": [
+    {
+      "id": "retro-midCenturyModern-atomic-hearth",
+      "title": {
+        "zh-CN": "原子壁炉",
+        "en-US": "Atomic Hearth"
+      }
+    },
+    {
+      "id": "retro-midCenturyModern-furniture-showcase",
+      "title": {
+        "zh-CN": "家具展示",
+        "en-US": "Furniture Showcase"
+      }
+    },
+    {
+      "id": "retro-midCenturyModern-design-studio",
+      "title": {
+        "zh-CN": "设计工作室",
+        "en-US": "Design Studio"
+      }
+    }
+  ]
+}

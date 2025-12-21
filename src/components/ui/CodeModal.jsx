@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useLanguage } from '../../hooks/useLanguage';
+import { useI18nText } from '../../hooks/useI18nText';
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 
 /**
  * CodeModal - 代碼查看彈窗
@@ -9,18 +11,11 @@ import { useLanguage } from '../../hooks/useLanguage';
  */
 export function CodeModal({ isOpen, onClose, variant }) {
   const { t } = useLanguage();
+  const resolveText = useI18nText();
   const [activeTab, setActiveTab] = useState('html'); // 'html' | 'css' | 'full'
-  const [copied, setCopied] = useState(false);
+  const { copy: copyToClipboard, copied } = useCopyToClipboard();
 
   if (!isOpen || !variant) return null;
-
-  // 處理複製代碼
-  const handleCopy = (code) => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
 
   // 獲取當前 Tab 的代碼
   const noCustomStylesComment = `/* ${t('ui.noCustomStyles')} */`;
@@ -47,18 +42,10 @@ export function CodeModal({ isOpen, onClose, variant }) {
         <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
-              {variant.name ? (() => {
-                // 检查是否為 i18n 鍵（包含點分隔的命名空間）
-                const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.name);
-                return isI18nKey ? t(variant.name) : variant.name;
-              })() : ''}
+              {resolveText(variant.name)}
             </h3>
             <p className="text-sm text-gray-600 mt-1">
-              {variant.description ? (() => {
-                // 检查是否為 i18n 鍵（包含點分隔的命名空間）
-                const isI18nKey = /^(data|styles|nav|common|ui|demo|pages|buttons|filter|toast|preview|prompt)\./.test(variant.description);
-                return isI18nKey ? t(variant.description) : variant.description;
-              })() : ''}
+              {resolveText(variant.description)}
             </p>
           </div>
           <button
@@ -108,7 +95,7 @@ export function CodeModal({ isOpen, onClose, variant }) {
 
           {/* 複製按鈕 */}
           <button
-            onClick={() => handleCopy(currentCode)}
+            onClick={() => copyToClipboard(currentCode)}
             className="ml-auto px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
           >
             {copied ? (

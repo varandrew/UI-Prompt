@@ -77,6 +77,7 @@ export default {
     "foundResultsComp": "Found {count} matching components",
     "showingAllComp": "Showing all {count} components",
     "loading": "Loading...",
+    "loadingContent": "Loading content...",
     "prev": "Previous",
     "next": "Next",
     "currentLanguage": "Current Language",
@@ -3467,5 +3468,57 @@ export default {
       "note": "Experience professional UI design tools now"
     }
   },
-  "artGalleryNFT": {}
+  "artGalleryNFT": {},
+  "community": {
+    "title": "Community Templates",
+    "description": "Discover and share beautiful UI templates created by the community",
+    "templates": "templates",
+    "createNew": "Create Template",
+    "searchPlaceholder": "Search templates...",
+    "filters": "Filters",
+    "category": "Category",
+    "allCategories": "All",
+    "popularTags": "Popular Tags",
+    "clearFilters": "Clear all filters",
+    "noResults": "No templates match your filters",
+    "empty": "No templates yet. Be the first to create one!",
+    "viewCode": "View Code",
+    "notConfiguredTitle": "Community Feature Not Available",
+    "notConfiguredDescription": "The community upload feature requires Supabase to be configured. Please set up your Supabase project to enable this feature.",
+    "setupInstructions": "To enable the community feature:",
+    "step1": "Create a Supabase project",
+    "step2": "Run the database migrations",
+    "step3": "Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY",
+    "editor": {
+      "untitled": "Untitled",
+      "uploadFile": "Upload File",
+      "uploadFiles": "Upload Files",
+      "dropFilesHere": "Drop files here or click to browse",
+      "supportedFormats": "Supported formats: HTML, CSS, JS, JSX",
+      "selectedFiles": "Selected files:",
+      "importFiles": "Import Files",
+      "settings": "Settings",
+      "metadata": "Template Settings",
+      "title": "Title",
+      "titleRequired": "Title is required",
+      "description": "Description",
+      "authorName": "Author Name",
+      "category": "Category",
+      "renderMode": "Render Mode",
+      "tags": "Tags",
+      "publish": "Publish",
+      "update": "Update",
+      "publishTemplate": "Publish Template",
+      "updateTemplate": "Update Template",
+      "validationErrors": "Please fix the following errors:",
+      "publishSuccess": "Published successfully!",
+      "unsavedChanges": "You have unsaved changes. Are you sure you want to leave?",
+      "noCode": "No code available"
+    }
+  },
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page"
+  }
 };

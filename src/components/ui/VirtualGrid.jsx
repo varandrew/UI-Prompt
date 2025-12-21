@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, memo } from 'react';
+import { useWindowSize, calculateListHeight } from '../../hooks/useWindowSize';
 
 /**
  * VirtualGrid - 虛擬化固定高度 Grid 組件
@@ -67,12 +68,17 @@ export function VirtualGrid({
     768: 3,   // md
     1024: 4   // lg
   },
-  listHeight = 800,
-  threshold = 20
+  listHeight: propListHeight,
+  threshold = 20,
+  heightOffset = 112  // Header (64px) + padding (48px)
 }) {
   const [FixedSizeList, setFixedSizeList] = useState(null);
   const [columnCount, setColumnCount] = useState(breakpoints.default || 2);
   const containerRef = useRef(null);
+
+  // Dynamic height calculation based on window size
+  const { height: windowHeight } = useWindowSize();
+  const dynamicListHeight = propListHeight ?? calculateListHeight(windowHeight, heightOffset);
 
   // 動態載入 react-window
   useEffect(() => {
@@ -151,7 +157,7 @@ export function VirtualGrid({
   return (
     <div ref={containerRef}>
       <FixedSizeList
-        height={listHeight}
+        height={dynamicListHeight}
         itemCount={rows.length}
         itemSize={rowHeight}
         width="100%"

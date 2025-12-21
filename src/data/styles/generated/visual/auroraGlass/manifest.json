@@ -13,20 +13,5 @@
     "tags": [],
     "relatedStyles": []
   },
-  "templates": [
-    {
-      "id": "visual-auroraGlass-aurora-landing",
-      "title": {
-        "zh-CN": "极光登陆页",
-        "en-US": "Aurora Landing"
-      }
-    },
-    {
-      "id": "visual-auroraGlass-glass-showcase",
-      "title": {
-        "zh-CN": "玻璃展示",
-        "en-US": "Glass Showcase"
-      }
-    }
-  ]
+  "templates": []
 }

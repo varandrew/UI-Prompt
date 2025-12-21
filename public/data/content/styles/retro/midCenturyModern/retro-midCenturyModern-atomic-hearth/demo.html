@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mid-Century Modern UI Demo</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <!-- MAIN CONTAINER: Maintains 1:1 Aspect Ratio automatically -->
+    <div class="mcm-container" id="ui-demo">
+
+        <!-- TEXTURE: pointer-events: none ensures this never blocks clicks -->
+        <div class="texture-overlay"></div>
+
+        <!-- BACKGROUND SHAPES -->
+        <div class="bg-shape shape-blob"></div>
+        <div class="bg-shape shape-tri"></div>
+
+        <!-- CONTENT LAYER -->
+        <div class="content-layer">
+
+            <!-- Header -->
+            <header>
+                <div class="brand">Mid-Century</div>
+                <div class="date-badge">EST. 1958</div>
+            </header>
+
+            <!-- Main Visual Area -->
+            <div class="main-card">
+                <!-- SVG Starburst Decoration -->
+                <svg class="starburst" viewBox="0 0 100 100">
+                    <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
+                </svg>
+
+                <!-- CSS Only Chair Illustration -->
+                <div class="chair-illustration">
+                    <div class="chair-back"></div>
+                    <div class="chair-leg leg-left"></div>
+                    <div class="chair-leg leg-right"></div>
+                    <div class="chair-seat"></div>
+                </div>
+
+                <p class="subtitle">The Lounge Chair</p>
+                <h1>ATOMIC<br>LIVING</h1>
+            </div>
+
+            <!-- Footer / Interaction -->
+            <div class="controls">
+                <div class="price"><span>$</span>149</div>
+                <button class="cta" onclick="showFeedback()">Add to Cart</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Simple Interaction Script
+        function showFeedback() {
+            const btn = document.querySelector('.cta');
+            const originalText = btn.innerText;
+            const originalColor = btn.style.backgroundColor;
+
+            // Visual Feedback
+            btn.innerText = "ADDED!";
+            btn.style.backgroundColor = "var(--mcm-olive)"; // Change to Olive Green on success
+
+            // Reset after 1.5 seconds
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = "";
+            }, 1500);
+        }
+
+        // JS to ensure robust square sizing if standard aspect-ratio fails (fallback)
+        function maintainSquare() {
+            const container = document.getElementById('ui-demo');
+            if (!CSS.supports('aspect-ratio: 1/1')) {
+                const width = container.offsetWidth;
+                container.style.height = width + 'px';
+            }
+        }
+
+        window.addEventListener('resize', maintainSquare);
+        maintainSquare(); // Run on load
+    </script>
+</body>
+</html>

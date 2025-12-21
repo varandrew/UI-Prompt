@@ -1,25 +1,42 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useContext, useEffect, useCallback, useMemo } from 'react';
-import { getTranslation } from "../utils/i18n/translations";
+import { getTranslation, preloadTranslations } from "../utils/i18n/translations";
 import { LANGUAGES, DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "../utils/i18n/languageConstants";
-import { detectBrowserLanguage } from "../utils/i18n/detectBrowserLanguage";
+import { getPreferredLanguage } from "../utils/i18n/languagePreference";
 
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(() => {
-    const stored = localStorage.getItem('language');
-    // 只接受有效的語言代碼
-    if (stored && SUPPORTED_LANGUAGES.includes(stored)) {
-      return stored;
-    }
-    // 首次访問：根据瀏覽器語言自動检測
-    // zh-* → 'zh-CN', 其他 → 'en-US'
-    return detectBrowserLanguage();
+    return getPreferredLanguage();
   });
 
+  const [translationsVersion, setTranslationsVersion] = useState(0);
+
   useEffect(() => {
-    localStorage.setItem('language', language);
+    try {
+      localStorage.setItem('language', language);
+    } catch {
+      // Ignore storage failures (e.g., blocked storage).
+    }
+  }, [language]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    preloadTranslations(language)
+      .then(() => {
+        if (!cancelled) {
+          setTranslationsVersion((v) => v + 1);
+        }
+      })
+      .catch(() => {
+        // Ignore - translation loading failures should not crash the app
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [language]);
 
   // 稳定化 t 函数，避免每次渲染重新創建
@@ -41,7 +58,7 @@ export function LanguageProvider({ children }) {
       }
       return match;
     });
-  }, [language]); // 只依賴 language
+  }, [language]);
 
   // 稳定化 switchLanguage 函数
   const switchLanguage = useCallback(() => {
@@ -60,8 +77,10 @@ export function LanguageProvider({ children }) {
     language,
     t,
     switchLanguage,
-    setLanguageDirectly
-  }), [language, t, switchLanguage, setLanguageDirectly]);
+    setLanguageDirectly,
+    // Triggers context updates when async translations finish loading.
+    _translationsVersion: translationsVersion
+  }), [language, t, switchLanguage, setLanguageDirectly, translationsVersion]);
 
   return (
     <LanguageContext.Provider value={contextValue}>

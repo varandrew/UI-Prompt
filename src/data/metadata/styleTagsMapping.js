@@ -882,6 +882,12 @@ export const styleEnhancements = {
     tags: ['retro', 'victorian', 'industrial', 'mechanical', 'brass', 'futuristic', 'creative', 'enterprise'],
     relatedStyles: ['retro-steampunk-dashboard', 'core-skeuomorphism', 'visual-industrial', 'retro-retroFuturism']
   },
+  'retro-filmNoir-detective-agency': {
+    primaryCategory: 'retro',
+    categories: ['retro', 'noir', 'detective'],
+    tags: ['retro', 'noir', 'dramatic', 'monochrome', 'detective', 'mystery', 'cinematic', 'interactive'],
+    relatedStyles: ['visual-monochrome', 'visual-spotlight', 'visual-neonNoir', 'retro-darkAcademia']
+  },
 
   // --- Layout 系列補充：打破常規網格 / 分屏 / 瀑布流 ---
   brokenGrid: {
@@ -921,6 +927,14 @@ export const styleEnhancements = {
     categories: ['retro', 'digital'],
     tags: ['retro', 'pixel', 'gaming', 'creative', 'colorful', '8bit'],
     relatedStyles: ['retro-arcadeCRT', 'visual-y2k', 'visual-neonCyberpunk']
+  },
+
+  // --- Retro 系列補充：VHS 美學家族 ---
+  'retro-vhsAesthetic-crt-terminal': {
+    primaryCategory: 'retro',
+    categories: ['retro', 'digital'],
+    tags: ['retro', '80s', '90s', 'glitch', 'nostalgic', 'effectDriven', 'interactive', 'creative'],
+    relatedStyles: ['retro-arcadeCRT', 'visual-grain', 'retro-digitalRetro', 'retro-synthwave-landing']
   },
 
   // ========== Layout Patterns (版面設計) ==========
@@ -1272,5 +1286,27 @@ export default {
     categories: ['visual', 'artistic'],
     tags: ['contemporary', 'artistic', 'cultural', 'gallery', 'exhibition', 'brush', 'elegant', 'interactive'],
     relatedStyles: ['visual-inkWash', 'core-scrollNarrative', 'visual-wabiSabi']
+  },
+
+  // --- Visual 系列：Comic Book ---
+  'visual-comicBook-hero-landing': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'artistic'],
+    tags: ['contemporary', 'comic', 'action', 'superhero', 'dynamic', 'interactive', 'bold'],
+    relatedStyles: ['visual-popArt', 'visual-neoBrutalism', 'visual-handDrawnSketch']
+  },
+  'visual-comicBook-landing': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'artistic'],
+    tags: ['contemporary', 'comic', 'action', 'dynamic', 'bold'],
+    relatedStyles: ['visual-popArt', 'visual-neoBrutalism', 'visual-handDrawnSketch']
+  },
+
+  // --- Retro 系列：Mid-Century Modern Atomic Hearth ---
+  'retro-midCenturyModern-atomic-hearth': {
+    primaryCategory: 'retro',
+    categories: ['retro', 'design'],
+    tags: ['retro', 'classic', 'organic', 'geometric', 'timeless', 'atomic-age', 'interactive', 'creative'],
+    relatedStyles: ['retro-midCenturyModern-furniture-showcase', 'retro-midCenturyModern-design-studio', 'core-minimalism', 'retro-swissDesign']
   },
 };

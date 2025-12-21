@@ -77,6 +77,7 @@ export default {
     "foundResultsComp": "找到 {count} 个符合条件的组件",
     "showingAllComp": "显示全部 {count} 个组件",
     "loading": "加载中...",
+    "loadingContent": "正在加载内容...",
     "prev": "上一页",
     "next": "下一页",
     "currentLanguage": "当前语言",
@@ -3482,5 +3483,57 @@ export default {
       "note": "立即体验专业级 UI 设计工具"
     }
   },
-  "artGalleryNFT": {}
+  "artGalleryNFT": {},
+  "community": {
+    "title": "社区模板",
+    "description": "发现并分享由社区创建的精美 UI 模板",
+    "templates": "个模板",
+    "createNew": "创建模板",
+    "searchPlaceholder": "搜索模板...",
+    "filters": "筛选",
+    "category": "分类",
+    "allCategories": "全部",
+    "popularTags": "热门标签",
+    "clearFilters": "清除所有筛选",
+    "noResults": "没有找到匹配的模板",
+    "empty": "还没有模板。成为第一个创建者！",
+    "viewCode": "查看代码",
+    "notConfiguredTitle": "社区功能暂不可用",
+    "notConfiguredDescription": "社区上传功能需要配置 Supabase。请设置您的 Supabase 项目以启用此功能。",
+    "setupInstructions": "启用社区功能：",
+    "step1": "创建 Supabase 项目",
+    "step2": "运行数据库迁移",
+    "step3": "设置 VITE_SUPABASE_URL 和 VITE_SUPABASE_ANON_KEY",
+    "editor": {
+      "untitled": "未命名",
+      "uploadFile": "上传文件",
+      "uploadFiles": "上传文件",
+      "dropFilesHere": "拖放文件到此处或点击浏览",
+      "supportedFormats": "支持的格式：HTML, CSS, JS, JSX",
+      "selectedFiles": "已选择的文件：",
+      "importFiles": "导入文件",
+      "settings": "设置",
+      "metadata": "模板设置",
+      "title": "标题",
+      "titleRequired": "标题是必填项",
+      "description": "描述",
+      "authorName": "作者名称",
+      "category": "分类",
+      "renderMode": "渲染模式",
+      "tags": "标签",
+      "publish": "发布",
+      "update": "更新",
+      "publishTemplate": "发布模板",
+      "updateTemplate": "更新模板",
+      "validationErrors": "请修复以下错误：",
+      "publishSuccess": "发布成功！",
+      "unsavedChanges": "您有未保存的更改。确定要离开吗？",
+      "noCode": "没有可用的代码"
+    }
+  },
+  "pagination": {
+    "prev": "上一页",
+    "next": "下一页",
+    "page": "第"
+  }
 };

@@ -58,6 +58,19 @@ async function loadCategoryShard(categoryId) {
 }
 
 /**
+ * Load missing manifest report (optional)
+ * @returns {Promise<Object|null>} Report JSON or null when not available
+ */
+async function loadMissingReport() {
+  const response = await fetch(buildPublicPath('data/styles-index-missing.json'));
+  if (response.status === 404) return null;
+  if (!response.ok) {
+    throw new Error(`Failed to fetch missing report: ${response.status}`);
+  }
+  return response.json();
+}
+
+/**
  * 將分片數據轉換為標準分類格式
  * @param {Object} shard - 分片數據
  * @returns {Object} 標準分類對象
@@ -142,6 +155,7 @@ export function useProgressiveStyleLoad(options = {}) {
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(null);
   const [loadProgress, setLoadProgress] = useState({ loaded: 0, total: 5 });
+  const [missingReport, setMissingReport] = useState(null);
 
   // Refs
   const mountedRef = useRef(true);
@@ -189,15 +203,21 @@ export function useProgressiveStyleLoad(options = {}) {
     setIsError(false);
     setError(null);
     setLoadProgress({ loaded: 0, total: CATEGORY_PRIORITY.length });
+    setMissingReport(null);
 
     try {
       // Step 1: 加載元數據（<50ms）
       const startTime = performance.now();
-      const meta = await loadMetaIndex();
+      const [meta, report] = await Promise.all([
+        loadMetaIndex(),
+        loadMissingReport().catch(() => null)
+      ]);
       const metaTime = performance.now() - startTime;
       logger.info(`Meta index loaded in ${metaTime.toFixed(0)}ms`);
 
       if (!mountedRef.current) return;
+
+      setMissingReport(report);
 
       // Step 2: 生成骨架分類並立即顯示
       const skeletonCategories = generateSkeletonCategories(meta);
@@ -292,7 +312,10 @@ export function useProgressiveStyleLoad(options = {}) {
 
     // 操作
     retry,
-    refresh: retry
+    refresh: retry,
+
+    // Optional report
+    missingReport
   };
 }
 

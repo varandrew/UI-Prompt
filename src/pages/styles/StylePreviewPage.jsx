@@ -8,6 +8,7 @@ import { DataVisualizationPreview } from '../../components/preview/DataVisualiza
 import { previewLogger as logger } from '../../utils/logger';
 import { resolveI18nValue } from '../../utils/i18n/resolveI18nValue';
 import { LoadingOverlay } from '../../components/preview/LoadingOverlay';
+import { LoadingDots } from '../../components/ui/LoadingDots';
 
 // Extracted hooks
 import { usePreviewPageState } from '../../components/preview/hooks/usePreviewPageState';
@@ -43,14 +44,7 @@ function PreviewSkeleton({ title }) {
 
       {/* Content skeleton */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="minimalism-loader">
-            <div className="minimalism-loader-dot"></div>
-            <div className="minimalism-loader-dot"></div>
-            <div className="minimalism-loader-dot"></div>
-          </div>
-          <span className="sr-only">Loading preview...</span>
-        </div>
+        <LoadingDots size="large" />
       </div>
     </div>
   );

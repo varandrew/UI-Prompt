@@ -174,8 +174,6 @@ export const FAMILY_ID_MAP = {
   'mouse-tracking': 'mouseTracking',
 
   // ========== Layout Systems ==========
-  'layout': 'layoutStyles',
-  'layoutstyles': 'layoutStyles',
   'bento': 'bentoGrids',
   'bento-grid': 'bentoGrids',
   'bentogrids': 'bentoGrids',

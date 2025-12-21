@@ -3,15 +3,15 @@
  * Wrapper that syncs URL language with application state
  */
 
-import { Outlet, useParams, Navigate } from 'react-router-dom';
+import { Outlet, useParams, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 import {
   isValidUrlLang,
   urlLangToInternal,
 } from '../hooks/useLanguageFromUrl';
-import { detectBrowserLanguage } from '../utils/i18n/detectBrowserLanguage';
 import { LANG_TO_URL } from '../components/seo/seoConfig';
+import { getPreferredLanguage } from '../utils/i18n/languagePreference';
 
 /**
  * Layout component that syncs URL language parameter with language context
@@ -19,6 +19,7 @@ import { LANG_TO_URL } from '../components/seo/seoConfig';
  */
 export function LanguageLayout() {
   const { lang } = useParams();
+  const location = useLocation();
   const { language, setLanguageDirectly } = useLanguage();
 
   // Validate URL language
@@ -35,9 +36,14 @@ export function LanguageLayout() {
 
   // Invalid language code, redirect to detected language
   if (!isValid) {
-    const detectedLang = detectBrowserLanguage();
-    const urlLangCode = LANG_TO_URL[detectedLang] || 'zh';
-    return <Navigate to={`/${urlLangCode}`} replace />;
+    const preferredLang = getPreferredLanguage();
+    const urlLangCode = LANG_TO_URL[preferredLang] || 'zh';
+    const pathname = location?.pathname || '/';
+    const restPath =
+      typeof lang === 'string' && pathname.startsWith(`/${lang}`)
+        ? pathname.slice(lang.length + 1)
+        : pathname;
+    return <Navigate to={`/${urlLangCode}${restPath}${location?.search || ''}`} replace />;
   }
 
   return <Outlet />;

@@ -1,0 +1,35 @@
+{
+  "id": "retro-filmNoir",
+  "category": "retro",
+  "family": {
+    "name": {
+      "zh-CN": "黑色电影",
+      "en-US": "Film Noir"
+    },
+    "description": {
+      "zh-CN": "1940-50年代黑色电影美学，融合高对比度黑白色调、戏剧性阴影和神秘氛围。灵感来自经典侦探电影，营造悬疑、优雅的视觉体验。完美适用于神秘、侦探主题或需要强烈视觉冲击的应用。",
+      "en-US": "Inspired by 1940s-50s detective films, combining high-contrast black and white, dramatic shadows, and mysterious atmosphere. Creates suspenseful and elegant visual experiences. Perfect for mystery, detective themes, or applications requiring strong visual impact."
+    },
+    "tags": [
+      "retro",
+      "classic",
+      "monochrome",
+      "dramatic",
+      "mysterious"
+    ],
+    "relatedStyles": [
+      "visual-monochrome",
+      "retro-darkAcademia",
+      "visual-spotlight"
+    ]
+  },
+  "templates": [
+    {
+      "id": "retro-filmNoir-detective-agency",
+      "title": {
+        "zh-CN": "侦探事务所",
+        "en-US": "Detective Agency"
+      }
+    }
+  ]
+}

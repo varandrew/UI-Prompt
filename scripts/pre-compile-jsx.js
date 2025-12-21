@@ -15,10 +15,12 @@
  */
 
 import fs from 'fs';
+import { promises as fsPromises } from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { transform } from 'sucrase';
+import pMap from 'p-map';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +28,9 @@ const __dirname = path.dirname(__filename);
 const INPUT_DIR = path.join(__dirname, '../public/data/content/styles');
 const OUTPUT_DIR = path.join(__dirname, '../public/data/compiled-jsx');
 const INDEX_PATH = path.join(__dirname, '../public/data/compiled-jsx-index.json');
+
+// Concurrency limit for parallel compilation
+const CONCURRENCY = 8;
 
 /**
  * Generate MD5 hash of content (first 8 chars)
@@ -191,7 +196,60 @@ function extractPreviewId(filePath) {
 }
 
 /**
- * Main compilation function
+ * Compile a single JSX file (async)
+ * @param {string} filePath
+ * @returns {Promise<Object|null>}
+ */
+async function compileJSXFile(filePath) {
+  const previewId = extractPreviewId(filePath);
+
+  try {
+    const jsxCode = await fsPromises.readFile(filePath, 'utf-8');
+    const inputSize = Buffer.byteLength(jsxCode, 'utf-8');
+
+    // Detect mode
+    const mode = detectJSXMode(jsxCode);
+
+    if (!mode) {
+      return { previewId, skipped: true, reason: 'Unknown JSX mode' };
+    }
+
+    // Compile
+    const compiled = compileJSX(jsxCode, mode);
+
+    // Generate hash and output path
+    const hash = generateHash(jsxCode);
+    const outputFilename = `${previewId.replace(/[:/]/g, '_')}-${hash}.js`;
+    const outputPath = path.join(OUTPUT_DIR, outputFilename);
+
+    // Write compiled file
+    const outputContent = JSON.stringify(compiled);
+    await fsPromises.writeFile(outputPath, outputContent);
+
+    const outputSize = Buffer.byteLength(outputContent, 'utf-8');
+
+    return {
+      previewId,
+      success: true,
+      inputSize,
+      outputSize,
+      data: {
+        hash,
+        file: outputFilename,
+        mode: compiled.mode,
+        componentName: compiled.componentName,
+        lucideIcons: compiled.lucideIcons,
+        size: outputSize
+      }
+    };
+
+  } catch (error) {
+    return { previewId, success: false, error: error.message };
+  }
+}
+
+/**
+ * Main compilation function (parallel processing)
  */
 async function preCompileJSX() {
   console.log('🔧 Pre-compiling JSX files...\n');
@@ -209,7 +267,7 @@ async function preCompileJSX() {
     console.log('   Pre-compilation skipped.\n');
 
     // Write empty index
-    fs.writeFileSync(INDEX_PATH, JSON.stringify({
+    await fsPromises.writeFile(INDEX_PATH, JSON.stringify({
       generated: new Date().toISOString(),
       count: 0,
       files: {}
@@ -218,8 +276,13 @@ async function preCompileJSX() {
     return;
   }
 
-  console.log(`📊 Found ${jsxFiles.length} JSX files\n`);
+  console.log(`📊 Found ${jsxFiles.length} JSX files`);
+  console.log(`🚀 Compiling in parallel (concurrency: ${CONCURRENCY})...\n`);
 
+  // Compile all files in parallel using pMap
+  const results = await pMap(jsxFiles, compileJSXFile, { concurrency: CONCURRENCY });
+
+  // Process results
   const index = {
     generated: new Date().toISOString(),
     count: 0,
@@ -228,60 +291,24 @@ async function preCompileJSX() {
 
   let successCount = 0;
   let failCount = 0;
+  let skippedCount = 0;
   let totalInputSize = 0;
   let totalOutputSize = 0;
 
-  for (const filePath of jsxFiles) {
-    const previewId = extractPreviewId(filePath);
+  for (const result of results) {
+    if (result.skipped) {
+      skippedCount++;
+      continue;
+    }
 
-    try {
-      const jsxCode = fs.readFileSync(filePath, 'utf-8');
-      const inputSize = Buffer.byteLength(jsxCode, 'utf-8');
-      totalInputSize += inputSize;
-
-      // Detect mode
-      const mode = detectJSXMode(jsxCode);
-
-      if (!mode) {
-        console.log(`   ⏭️  ${previewId}: Unknown JSX mode, skipped`);
-        continue;
-      }
-
-      // Compile
-      const compiled = compileJSX(jsxCode, mode);
-
-      // Generate hash and output path
-      const hash = generateHash(jsxCode);
-      const outputFilename = `${previewId.replace(/[:/]/g, '_')}-${hash}.js`;
-      const outputPath = path.join(OUTPUT_DIR, outputFilename);
-
-      // Write compiled file
-      const outputContent = JSON.stringify(compiled);
-      fs.writeFileSync(outputPath, outputContent);
-
-      const outputSize = Buffer.byteLength(outputContent, 'utf-8');
-      totalOutputSize += outputSize;
-
-      // Add to index
-      index.files[previewId] = {
-        hash,
-        file: outputFilename,
-        mode: compiled.mode,
-        componentName: compiled.componentName,
-        lucideIcons: compiled.lucideIcons,
-        size: outputSize
-      };
-
+    if (result.success) {
       successCount++;
-
-      // Progress indicator (every 10 files)
-      if (successCount % 10 === 0) {
-        process.stdout.write(`   Compiled ${successCount} files...\r`);
-      }
-
-    } catch (error) {
+      totalInputSize += result.inputSize;
+      totalOutputSize += result.outputSize;
+      index.files[result.previewId] = result.data;
+    } else {
       failCount++;
-      console.log(`   ❌ ${previewId}: ${error.message}`);
+      console.log(`   ❌ ${result.previewId}: ${result.error}`);
     }
   }
 
@@ -289,14 +316,14 @@ async function preCompileJSX() {
   index.count = successCount;
 
   // Write index file
-  fs.writeFileSync(INDEX_PATH, JSON.stringify(index, null, 2));
-
-  // Clear progress line
-  process.stdout.write('\r' + ' '.repeat(50) + '\r');
+  await fsPromises.writeFile(INDEX_PATH, JSON.stringify(index, null, 2));
 
   // Summary
   console.log('\n📈 Summary:');
   console.log(`   ✅ Compiled: ${successCount} files`);
+  if (skippedCount > 0) {
+    console.log(`   ⏭️  Skipped: ${skippedCount} files`);
+  }
   if (failCount > 0) {
     console.log(`   ❌ Failed: ${failCount} files`);
   }

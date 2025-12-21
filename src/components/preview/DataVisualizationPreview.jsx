@@ -8,6 +8,7 @@ import { dataVisualizationScenarios } from '../../data/components/dataVisualizat
 import { useLanguage } from '../../hooks/useLanguage';
 import { injectAppStylesIntoIframe } from '../../utils/previewCss';
 import { stripExternalAssets } from './utils/buildPreviewHTML';
+import { LoadingDots } from '../ui/LoadingDots';
 
 // 語言取值助手：支援不同大小写/連字號鍵，並提供稳健後备
 const pickI18n = (obj, language) => {
@@ -297,14 +298,10 @@ export function DataVisualizationPreview({
 
         {/* Preview Content - matching standard structure */}
         <div className="flex-1 overflow-auto custom-scrollbar relative">
-          {/* Loading Overlay - using standard minimalism loader */}
+          {/* Loading Overlay */}
           {isLoading && (
-            <div className="absolute inset-0 bg-white z-10 flex items-center justify-center">
-              <div className="minimalism-loader">
-                <div className="minimalism-loader-dot"></div>
-                <div className="minimalism-loader-dot"></div>
-                <div className="minimalism-loader-dot"></div>
-              </div>
+            <div className="absolute inset-0 bg-white dark:bg-gray-900 z-10 flex items-center justify-center">
+              <LoadingDots size="medium" />
             </div>
           )}
 

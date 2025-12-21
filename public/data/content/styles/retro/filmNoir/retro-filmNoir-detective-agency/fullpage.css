@@ -1,0 +1,42 @@
+/* Film Noir Detective Agency - Base Styles */
+/* This CSS file contains base styles. Most styles are handled via Tailwind classes in the JSX component. */
+
+:root {
+  --noir-black: #0d0d0d;
+  --noir-dark-gray: #1a1a1a;
+  --noir-gray: #444444;
+  --noir-silver: #f0f0f0;
+  --noir-white: #ffffff;
+  --noir-blood-red: #8b0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--noir-black);
+  color: var(--noir-silver);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--noir-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--noir-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--noir-silver);
+}

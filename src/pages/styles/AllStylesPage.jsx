@@ -12,6 +12,7 @@ import { applyFilters, applyTranslationsToCategories, getTagStatistics } from '.
 import { VIRTUAL_SCROLL_THRESHOLD, SKELETON_COUNTS } from '../../utils/constants';
 import { ListPageScaffold } from '../../components/scaffold';
 import { SEOHead, getPageSEO, generateStyleListSchema } from '../../components/seo';
+import { LANGUAGES } from '../../utils/i18n/languageConstants';
 
 
 /**
@@ -31,9 +32,11 @@ export function AllStylesPage() {
     data: categories,
     isLoading,
     isPartiallyLoaded: _isPartiallyLoaded, // 保留供未來 UI 優化使用
+    isFullyLoaded,
     isError,
     retry: handleRetry,
-    loadProgress: _loadProgress // 保留供未來進度條使用
+    loadProgress: _loadProgress, // 保留供未來進度條使用
+    missingReport
   } = useProgressiveStyleLoad({
     loggerName: 'AllStylesPage'
   });
@@ -72,6 +75,14 @@ export function AllStylesPage() {
 
   // 是否有啟用篩選
   const hasActiveFilters = filters.keyword || filters.categories.length > 0 || filters.tags.length > 0;
+
+  const missingCount = missingReport?.missingCount || missingReport?.missingFamilies?.length || 0;
+  const missingHint =
+    missingCount > 0
+      ? (language === LANGUAGES.EN_US
+          ? `${missingCount} styles are not ready yet and are hidden for now.`
+          : `有 ${missingCount} 個風格尚未完成，暫不展示。`)
+      : '';
 
   // 渲染 StyleCard (Grid View)
   const renderStyleCard = useCallback((style) => (
@@ -170,11 +181,32 @@ export function AllStylesPage() {
         )
       }}
       isEmpty={filteredStyles.length === 0}
+      isLoadingContent={!isFullyLoaded && filteredStyles.length === 0}
       onClearFilters={clearFilters}
       skeletonCount={SKELETON_COUNTS.STYLES}
       skeletonColumns="md:grid-cols-2 lg:grid-cols-3"
       skeletonGap="gap-8"
     >
+      {missingHint && (
+        <div className="mb-6 rounded-lg border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-900/20 px-4 py-3 text-sm text-amber-900 dark:text-amber-100">
+          <div className="font-medium">{missingHint}</div>
+          {Array.isArray(missingReport?.missingFamilies) && missingReport.missingFamilies.length > 0 && (
+            <details className="mt-2">
+              <summary className="cursor-pointer select-none text-xs text-amber-800/80 dark:text-amber-200/80">
+                {language === LANGUAGES.EN_US ? 'Details' : '查看清單'}
+              </summary>
+              <div className="mt-2 max-h-40 overflow-auto text-xs text-amber-900/80 dark:text-amber-100/80">
+                {missingReport.missingFamilies
+                  .slice(0, 50)
+                  .map((it) => `${it.categoryId}/${it.familyId}`)
+                  .join(', ')}
+                {missingReport.missingFamilies.length > 50 ? '…' : ''}
+              </div>
+            </details>
+          )}
+        </div>
+      )}
+
       {/* Content: Grid or List view based on viewMode */}
       <div className="transition-opacity duration-300 ease-out">
         {viewMode === 'list' ? (

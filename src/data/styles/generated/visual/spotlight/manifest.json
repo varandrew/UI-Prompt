@@ -13,20 +13,5 @@
     "tags": [],
     "relatedStyles": []
   },
-  "templates": [
-    {
-      "id": "visual-spotlight-spotlight-showcase",
-      "title": {
-        "zh-CN": "聚光展示",
-        "en-US": "Spotlight Showcase"
-      }
-    },
-    {
-      "id": "visual-spotlight-stage-lighting",
-      "title": {
-        "zh-CN": "舞台灯光",
-        "en-US": "Stage Lighting"
-      }
-    }
-  ]
+  "templates": []
 }

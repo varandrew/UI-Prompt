@@ -4,8 +4,8 @@
  */
 
 import { Navigate, useLocation } from 'react-router-dom';
-import { detectBrowserLanguage } from '../utils/i18n/detectBrowserLanguage';
 import { LANG_TO_URL } from '../components/seo/seoConfig';
+import { getPreferredLanguage } from '../utils/i18n/languagePreference';
 
 /**
  * Component that redirects to the appropriate language-prefixed URL
@@ -14,11 +14,7 @@ import { LANG_TO_URL } from '../components/seo/seoConfig';
 export function LanguageRedirect() {
   const location = useLocation();
 
-  // Check localStorage for stored preference first
-  const storedLang = localStorage.getItem('language');
-
-  // Use stored preference or detect from browser
-  const language = storedLang || detectBrowserLanguage();
+  const language = getPreferredLanguage();
   const urlLang = LANG_TO_URL[language] || 'zh';
 
   // Preserve the path after redirect (for legacy URLs)
@@ -34,9 +30,7 @@ export function LanguageRedirect() {
 export function LegacyRedirect({ basePath = '' }) {
   const location = useLocation();
 
-  // Check localStorage for stored preference first
-  const storedLang = localStorage.getItem('language');
-  const language = storedLang || detectBrowserLanguage();
+  const language = getPreferredLanguage();
   const urlLang = LANG_TO_URL[language] || 'zh';
 
   // Build target path: /:lang + basePath + remaining path
