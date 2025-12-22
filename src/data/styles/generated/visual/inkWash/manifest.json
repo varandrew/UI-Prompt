@@ -25,6 +25,13 @@
   },
   "templates": [
     {
+      "id": "visual-inkWash-ink-realm",
+      "title": {
+        "zh-CN": "墨韵气韵",
+        "en-US": "Ink Realm"
+      }
+    },
+    {
       "id": "visual-inkWash-gallery",
       "title": {
         "zh-CN": "墨韵展馆",

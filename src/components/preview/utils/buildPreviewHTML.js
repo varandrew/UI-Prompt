@@ -16,6 +16,43 @@ import { preprocessJSX } from '../../../utils/jsxPreprocessor';
 
 // ========== 工具函數 ==========
 
+function getPerfModeCSS(enabled) {
+  if (!enabled) return '';
+  return `
+/* UI Style perf mode: reduce heavy effects/animations for smoother preview */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+* {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+`.trim();
+}
+
+function injectCSSIntoHTMLDocument(html, css) {
+  if (!html || !css) return html;
+  const styleTag = `\n<style data-ui-style-perf="1">\n${css}\n</style>\n`;
+
+  if (html.includes('</head>')) {
+    return html.replace('</head>', `${styleTag}</head>`);
+  }
+  if (/<head[\s>]/i.test(html)) {
+    return html.replace(/<head[^>]*>/i, (match) => `${match}${styleTag}`);
+  }
+  if (/<body[\s>]/i.test(html)) {
+    return html.replace(/<body[^>]*>/i, (match) => `${styleTag}${match}`);
+  }
+  return `${styleTag}${html}`;
+}
+
 /**
  * 將 Markdown 章節標記做最小轉換，並清理純文字色彩說明
  * @param {string} html - 原始 HTML
@@ -320,14 +357,21 @@ export function buildReactErrorHTML(error, language = 'en-US') {
  * @param {string} options.title - 頁面標題
  * @returns {string} 完整的 React 預覽 HTML
  */
-export function buildReactJSXPreview({ compiledCode, componentName = 'App', styles = '', title = 'React Preview' }) {
+export function buildReactJSXPreview({
+  compiledCode,
+  componentName = 'App',
+  styles = '',
+  title = 'React Preview',
+  perfMode = false
+}) {
   return generateReactIframeHTML({
     compiledCode,
     componentName,
     customStyles: styles,
     title,
     mountId: 'root',
-    theme: 'light'
+    theme: 'light',
+    perfMode
   });
 }
 
@@ -424,9 +468,12 @@ function buildHTMLDocument({
   styles,
   content,
   bodyClass = 'preview-fullscreen',
-  language = 'en-US'
+  language = 'en-US',
+  perfMode = false
 }) {
   const langAttr = language || 'en-US';
+  const perfCSS = getPerfModeCSS(perfMode);
+  const mergedStyles = perfCSS ? `${styles}\n\n${perfCSS}` : styles;
 
   return `<!DOCTYPE html>
 <html lang="${langAttr}">
@@ -436,7 +483,7 @@ function buildHTMLDocument({
   <title>${title}</title>
   <link rel="stylesheet" href="${appCssUrl}">
   <style>
-    ${styles}
+    ${mergedStyles}
   </style>
 </head>
 <body class="${bodyClass}">
@@ -579,9 +626,11 @@ export function buildPreviewHTML({
   isLoadingPreview,
   previewCacheRef, // eslint-disable-line no-unused-vars -- Reserved for future preview cache optimization
   suppressLoadingUI = false,
-  language = 'en-US'
+  language = 'en-US',
+  perfMode = false
 }) {
   const resolvedLanguage = language || 'en-US';
+  const perfCSS = getPerfModeCSS(perfMode);
 
   // ========== JSX 渲染模式處理 ==========
   // 優先處理 asyncPreview 的 JSX 渲染模式
@@ -600,8 +649,9 @@ export function buildPreviewHTML({
         return buildReactJSXPreview({
           compiledCode,
           componentName: componentName || 'App',
-          styles: styles || customStyles || '',
-          title: `${displayTitle} - Full Preview`
+          styles: `${styles || customStyles || ''}${perfCSS ? `\n\n${perfCSS}` : ''}`,
+          title: `${displayTitle} - Full Preview`,
+          perfMode
         });
       }
 
@@ -618,7 +668,7 @@ export function buildPreviewHTML({
     if (renderMode === 'jsx' && jsx) {
       return buildPreactJSXPreview({
         jsx,
-        styles: styles || customStyles || '',
+        styles: `${styles || customStyles || ''}${perfCSS ? `\n\n${perfCSS}` : ''}`,
         title: `${displayTitle} - Full Preview`
       });
     }
@@ -630,16 +680,18 @@ export function buildPreviewHTML({
       if (html && isCompleteHTMLDocument(html)) {
         // 若提供了樣式，無論是否存在外部連結都內嵌到文檔內，避免 CSS 被忽略
         if (styles) {
-          return inlineExternalCSS(html, styles);
+          const withInlineCss = inlineExternalCSS(html, styles);
+          return perfCSS ? injectCSSIntoHTMLDocument(withInlineCss, perfCSS) : withInlineCss;
         }
-        return html;
+        return perfCSS ? injectCSSIntoHTMLDocument(html, perfCSS) : html;
       }
 
       return buildHTMLDocument({
         title: `${displayTitle} - Full Preview`,
         styles: sanitizeStyles(styles || ''),
         content: processHTML(html || '', resolvedLanguage),
-        language: resolvedLanguage
+        language: resolvedLanguage,
+        perfMode
       });
     }
   }
@@ -650,16 +702,18 @@ export function buildPreviewHTML({
     // 如果 HTML 是完整的獨立文檔，特殊處理
     if (previewContent.html && isCompleteHTMLDocument(previewContent.html)) {
       if (previewContent.styles) {
-        return inlineExternalCSS(previewContent.html, previewContent.styles);
+        const withInlineCss = inlineExternalCSS(previewContent.html, previewContent.styles);
+        return perfCSS ? injectCSSIntoHTMLDocument(withInlineCss, perfCSS) : withInlineCss;
       }
-      return previewContent.html;
+      return perfCSS ? injectCSSIntoHTMLDocument(previewContent.html, perfCSS) : previewContent.html;
     }
 
     return buildHTMLDocument({
       title: `${displayTitle} - Full Preview`,
       styles: sanitizeStyles(previewContent.styles),
       content: processHTML(previewContent.html, resolvedLanguage),
-      language: resolvedLanguage
+      language: resolvedLanguage,
+      perfMode
     });
   }
 
@@ -701,16 +755,18 @@ export function buildPreviewHTML({
     // 如果 HTML 是完整的獨立文檔，特殊處理
     if (previewHTML && isCompleteHTMLDocument(previewHTML)) {
       if (previewStyles) {
-        return inlineExternalCSS(previewHTML, previewStyles);
+        const withInlineCss = inlineExternalCSS(previewHTML, previewStyles);
+        return perfCSS ? injectCSSIntoHTMLDocument(withInlineCss, perfCSS) : withInlineCss;
       }
-      return previewHTML;
+      return perfCSS ? injectCSSIntoHTMLDocument(previewHTML, perfCSS) : previewHTML;
     }
 
     return buildHTMLDocument({
       title: `${displayTitle} - Full Preview`,
       styles: sanitizeStyles(previewStyles),
       content: processHTML(previewHTML, resolvedLanguage),
-      language: resolvedLanguage
+      language: resolvedLanguage,
+      perfMode
     });
   }
 
@@ -719,16 +775,18 @@ export function buildPreviewHTML({
     // 如果 HTML 是完整的獨立文檔，特殊處理
     if (isCompleteHTMLDocument(fullPageHTML)) {
       if (fullPageStyles) {
-        return inlineExternalCSS(fullPageHTML, fullPageStyles);
+        const withInlineCss = inlineExternalCSS(fullPageHTML, fullPageStyles);
+        return perfCSS ? injectCSSIntoHTMLDocument(withInlineCss, perfCSS) : withInlineCss;
       }
-      return fullPageHTML;
+      return perfCSS ? injectCSSIntoHTMLDocument(fullPageHTML, perfCSS) : fullPageHTML;
     }
 
     return buildHTMLDocument({
       title: `${displayTitle} - Full Preview`,
       styles: sanitizeStyles(fullPageStyles),
       content: processHTML(fullPageHTML, resolvedLanguage),
-      language: resolvedLanguage
+      language: resolvedLanguage,
+      perfMode
     });
   }
 
@@ -739,7 +797,8 @@ export function buildPreviewHTML({
     title: `${displayTitle} - Preview`,
     styles: sanitizeStyles(customStyles),
     content: processHTML(extractedContent, resolvedLanguage),
-    language: resolvedLanguage
+    language: resolvedLanguage,
+    perfMode
   });
 }
 

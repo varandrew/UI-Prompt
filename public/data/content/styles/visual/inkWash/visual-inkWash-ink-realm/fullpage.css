@@ -1,0 +1,33 @@
+/* Ink Realm - 墨韵水墨风格 */
+/* Base styles - Component uses Tailwind CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Liu+Jian+Mao+Cao&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=ZCOOL+XiaoWei&family=ZCOOL+KuaiLe&family=Noto+Serif+SC:wght@300;700&display=swap');
+
+/* Font class definitions */
+.font-cao { font-family: 'Liu Jian Mao Cao', cursive; }
+.font-xing { font-family: 'Ma Shan Zheng', cursive; }
+.font-xingcao { font-family: 'Zhi Mang Xing', cursive; }
+.font-kai { font-family: 'ZCOOL XiaoWei', serif; }
+.font-seal { font-family: 'ZCOOL KuaiLe', cursive; }
+.font-serif { font-family: 'Noto Serif SC', serif; }
+
+/* Vertical text utility */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Ink spread animation */
+@keyframes ink-spread {
+  0% { transform: scale(0.9); opacity: 0.8; filter: blur(2px); }
+  100% { transform: scale(1.1); opacity: 0; filter: blur(8px); }
+}
+
+.ink-spread-hover:hover::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  animation: ink-spread 1s ease-out forwards;
+}

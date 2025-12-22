@@ -296,6 +296,16 @@
     "familyId": "typography",
     "templateId": "kinetic"
   },
+  "visual-3dElements-visual-3dElements-nexus-command": {
+    "category": "visual",
+    "familyId": "3dElements",
+    "templateId": "visual-3dElements-nexus-command"
+  },
+  "visual-3dElements-nexus-command": {
+    "category": "visual",
+    "familyId": "3dElements",
+    "templateId": "visual-3dElements-nexus-command"
+  },
   "visual-3dElements-visual-tech-3d-elements": {
     "category": "visual",
     "familyId": "3dElements",
@@ -319,17 +329,17 @@
   "3dElements": {
     "category": "visual",
     "familyId": "3dElements",
-    "templateId": "visual-3dElements-spatial-ui"
+    "templateId": "visual-3dElements-nexus-command"
   },
   "3d-elements": {
     "category": "visual",
     "familyId": "3dElements",
-    "templateId": "visual-3dElements-spatial-ui"
+    "templateId": "visual-3dElements-nexus-command"
   },
   "3delements": {
     "category": "visual",
     "familyId": "3dElements",
-    "templateId": "visual-3dElements-spatial-ui"
+    "templateId": "visual-3dElements-nexus-command"
   },
   "visual-accessibility-accessibilityHighContrast": {
     "category": "visual",
@@ -776,6 +786,16 @@
     "familyId": "industrial",
     "templateId": "industrial-nexus-control"
   },
+  "visual-inkWash-visual-inkWash-ink-realm": {
+    "category": "visual",
+    "familyId": "inkWash",
+    "templateId": "visual-inkWash-ink-realm"
+  },
+  "visual-inkWash-ink-realm": {
+    "category": "visual",
+    "familyId": "inkWash",
+    "templateId": "visual-inkWash-ink-realm"
+  },
   "visual-inkWash-visual-inkWash-gallery": {
     "category": "visual",
     "familyId": "inkWash",
@@ -785,16 +805,6 @@
     "category": "visual",
     "familyId": "inkWash",
     "templateId": "visual-inkWash-gallery"
-  },
-  "visual-inkWash-visual-inkWash-landing": {
-    "category": "visual",
-    "familyId": "inkWash",
-    "templateId": "visual-inkWash-landing"
-  },
-  "visual-inkWash-landing": {
-    "category": "visual",
-    "familyId": "inkWash",
-    "templateId": "visual-inkWash-landing"
   },
   "inkWash": {
     "category": "visual",

@@ -34,7 +34,8 @@ export function generateReactIframeHTML(options = {}) {
     customStyles = '',
     title = 'React Preview',
     mountId = 'root',
-    theme = 'light'
+    theme = 'light',
+    perfMode = false
   } = options;
 
   return `<!DOCTYPE html>
@@ -48,14 +49,14 @@ export function generateReactIframeHTML(options = {}) {
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- React 18 Runtime (Production) -->
-  <script src="${REACT_CDN}"></script>
-  <script src="${REACT_DOM_CDN}"></script>
+  <script src="${REACT_CDN}" crossorigin="anonymous"></script>
+  <script src="${REACT_DOM_CDN}" crossorigin="anonymous"></script>
 
   <!-- Polyfill: lucide-react UMD expects window.react (lowercase) -->
   <script>window.react = window.React;</script>
 
   <!-- Lucide React Icons (depends on React, must load after) -->
-  <script src="${LUCIDE_REACT_CDN}"></script>
+  <script src="${LUCIDE_REACT_CDN}" crossorigin="anonymous"></script>
 
   <style>
     /* Base Reset */
@@ -130,6 +131,95 @@ export function generateReactIframeHTML(options = {}) {
     };
   </script>
 
+  ${perfMode ? `
+  <script>
+    (function() {
+      try {
+        var maxFps = 30;
+        var minInterval = 1000 / maxFps;
+        var lastTime = 0;
+
+        var origRAF = window.requestAnimationFrame && window.requestAnimationFrame.bind(window);
+        var origCAF = window.cancelAnimationFrame && window.cancelAnimationFrame.bind(window);
+        if (!origRAF) return;
+
+        var nextId = 1;
+        var callbacks = new Map();
+        var handles = new Map();
+
+        function schedule(id) {
+          var cb = callbacks.get(id);
+          if (!cb) return;
+          if (document.hidden) return;
+
+          var handle = origRAF(function(ts) {
+            var cbInner = callbacks.get(id);
+            if (!cbInner) return;
+
+            if (document.hidden) {
+              handles.delete(id);
+              return;
+            }
+
+            if (ts - lastTime < minInterval) {
+              handles.delete(id);
+              schedule(id);
+              return;
+            }
+
+            lastTime = ts;
+            handles.delete(id);
+            callbacks.delete(id);
+            try {
+              cbInner(ts);
+            } catch (err) {
+              setTimeout(function() { throw err; });
+            }
+          });
+
+          handles.set(id, handle);
+        }
+
+        window.requestAnimationFrame = function(cb) {
+          if (typeof cb !== 'function') return origRAF(cb);
+          var id = nextId++;
+          callbacks.set(id, cb);
+          schedule(id);
+          return id;
+        };
+
+        window.cancelAnimationFrame = function(id) {
+          var handle = handles.get(id);
+          if (handle && origCAF) {
+            try { origCAF(handle); } catch (_) {}
+          }
+          handles.delete(id);
+          callbacks.delete(id);
+        };
+
+        function pauseAll() {
+          if (!origCAF) return;
+          handles.forEach(function(handle) {
+            try { origCAF(handle); } catch (_) {}
+          });
+          handles.clear();
+        }
+
+        function resumeAll() {
+          callbacks.forEach(function(_, id) {
+            if (!handles.has(id)) schedule(id);
+          });
+        }
+
+        document.addEventListener('visibilitychange', function() {
+          if (document.hidden) pauseAll();
+          else resumeAll();
+        });
+      } catch (_) {}
+    })();
+  </script>
+  ` : ''}
+
   <!-- User Component Code -->
   <script>
     (function() {
@@ -196,10 +286,23 @@ export function generateReactIframeHTML(options = {}) {
           }
         });
 
-        // 將依賴回填到全域，保持原本未限定名稱可用（但不覆蓋已存在的符號）
-        // 這確保向後兼容：現有模板使用 useState、ArrowRight 等未限定名稱仍可運作
+        // 需要強制覆蓋的 Lucide 圖標名稱（這些名稱與瀏覽器原生 API 衝突）
+        // Web Locks API: window.Lock
+        // 其他可能衝突的名稱: Bluetooth, USB, etc.
+        var forceOverrideNames = ['Lock', 'Bluetooth', 'USB', 'Storage', 'Screen', 'Navigator'];
+
+        // 將依賴回填到全域
+        // 對於 Lucide 圖標：強制覆蓋可能與原生 API 衝突的名稱
+        // 對於其他依賴：保持原本行為（不覆蓋已存在的符號）
         Object.keys(deps).forEach(function(key) {
-          if (!(key in window)) {
+          var isLucideIcon = lucide && (key in lucide);
+          var shouldForceOverride = forceOverrideNames.indexOf(key) !== -1;
+
+          if (isLucideIcon && shouldForceOverride) {
+            // 強制覆蓋衝突的 Lucide 圖標
+            window[key] = deps[key];
+          } else if (!(key in window)) {
+            // 不覆蓋已存在的符號
             window[key] = deps[key];
           }
         });
@@ -223,11 +326,17 @@ export function generateReactIframeHTML(options = {}) {
         // User compiled code
         ${compiledCode}
 
+        // 顯式暴露組件到全域作用域（解決嚴格模式下的函數聲明作用域問題）
+        // 這確保即使在 IIFE 中定義的組件也能被後續的渲染代碼訪問
+        if (typeof ${componentName} !== 'undefined') {
+          window.${componentName} = ${componentName};
+        }
+
         // Render component
         var container = document.getElementById('${mountId}');
-        if (container && typeof ${componentName} !== 'undefined') {
+        if (container && typeof window.${componentName} !== 'undefined') {
           var root = ReactDOM.createRoot(container);
-          root.render(React.createElement(${componentName}, null));
+          root.render(React.createElement(window.${componentName}, null));
         } else if (container) {
           container.innerHTML = '<div class="react-runtime-error"><strong>Component Not Found:</strong>' +
             'The component "${componentName}" was not defined in the code.</div>';

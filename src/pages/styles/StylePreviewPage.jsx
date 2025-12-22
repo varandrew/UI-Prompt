@@ -56,6 +56,7 @@ function PreviewSkeleton({ title }) {
 function StylePreviewContent({ style }) {
   const [searchParams] = useSearchParams();
   const { language, t } = useLanguage();
+  const perfMode = searchParams.get('perf') === '1';
 
   // ========== Extract style properties ==========
   const {
@@ -148,7 +149,8 @@ function StylePreviewContent({ style }) {
       htmlContent: demoHTML,
       customStyles,
       displayTitle,
-      suppressLoadingUI: true
+      suppressLoadingUI: true,
+      perfMode
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps -- previewCacheRef is stable (useRef)
   }, [
@@ -163,7 +165,8 @@ function StylePreviewContent({ style }) {
     demoHTML,
     customStyles,
     displayTitle,
-    language
+    language,
+    perfMode
   ]);
 
   // ========== Generate prompt content ==========

@@ -225,6 +225,12 @@ export const styleEnhancements = {
     tags: ['contemporary', 'depth', 'effectDriven', '3d', 'creative', 'interactive', 'parallax'],
     relatedStyles: ['visual-tech-generative-art', 'visual-tech-sci-fi-hud', 'interaction-mouseTracking']
   },
+  'visual-3dElements-nexus-command': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'tech'],
+    tags: ['contemporary', 'depth', 'effectDriven', '3d', 'creative', 'interactive', 'futuristic', 'dashboard'],
+    relatedStyles: ['visual-tech-sci-fi-hud', 'visual-3dElements-spatial-ui', 'visual-neonCyberpunk']
+  },
 
   // Soft & Minimal
   'visual-softUI': {
@@ -1286,6 +1292,12 @@ export default {
     categories: ['visual', 'artistic'],
     tags: ['contemporary', 'artistic', 'cultural', 'gallery', 'exhibition', 'brush', 'elegant', 'interactive'],
     relatedStyles: ['visual-inkWash', 'core-scrollNarrative', 'visual-wabiSabi']
+  },
+  'visual-inkWash-ink-realm': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'artistic'],
+    tags: ['contemporary', 'artistic', 'cultural', 'zen', 'brush', 'typography', 'chinese', 'calligraphy', 'minimalist'],
+    relatedStyles: ['visual-inkWash', 'visual-wabiSabi', 'core-minimalism']
   },
 
   // --- Visual 系列：Comic Book ---
