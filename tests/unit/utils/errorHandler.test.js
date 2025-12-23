@@ -277,18 +277,14 @@ describe('withRetry', () => {
 
   it('should throw after max retries', async () => {
     const fn = vi.fn().mockRejectedValue(new Error('Always fail'));
+    const resultPromise = withRetry(fn, { maxRetries: 3, delay: 100 });
+    const caughtErrorPromise = resultPromise.catch((error) => error);
 
-    // Wrap in try-catch to handle the expected rejection
-    try {
-      const resultPromise = withRetry(fn, { maxRetries: 3, delay: 100 });
-      await vi.runAllTimersAsync();
-      await resultPromise;
-      // Should not reach here
-      expect(true).toBe(false);
-    } catch (error) {
-      expect(error.message).toBe('Always fail');
-    }
+    await vi.runAllTimersAsync();
+    const error = await caughtErrorPromise;
 
+    expect(error).toBeInstanceOf(AppError);
+    expect(error.message).toBe('Always fail');
     expect(fn).toHaveBeenCalledTimes(3);
   });
 
@@ -296,18 +292,14 @@ describe('withRetry', () => {
     const fn = vi.fn().mockRejectedValue(new Error('Non-retryable'));
 
     const shouldRetry = vi.fn().mockReturnValue(false);
+    const resultPromise = withRetry(fn, { maxRetries: 3, shouldRetry });
+    const caughtErrorPromise = resultPromise.catch((error) => error);
 
-    // Wrap in try-catch to handle the expected rejection
-    try {
-      const resultPromise = withRetry(fn, { maxRetries: 3, shouldRetry });
-      await vi.runAllTimersAsync();
-      await resultPromise;
-      // Should not reach here
-      expect(true).toBe(false);
-    } catch (error) {
-      expect(error).toBeDefined();
-    }
+    await vi.runAllTimersAsync();
+    const error = await caughtErrorPromise;
 
+    expect(error).toBeInstanceOf(AppError);
+    expect(error.message).toBe('Non-retryable');
     expect(fn).toHaveBeenCalledTimes(1);
     expect(shouldRetry).toHaveBeenCalledTimes(1);
   });
