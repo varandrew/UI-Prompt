@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useCallback } from 'react';
+import { Suspense, useMemo, useCallback, useEffect, useState } from 'react';
 import { useLoaderData, useSearchParams, Await } from 'react-router-dom';
 
 import { useLanguage } from '../../hooks/useLanguage';
@@ -169,27 +169,51 @@ function StylePreviewContent({ style }) {
     perfMode
   ]);
 
-  // ========== Generate prompt content ==========
-  const promptContent = useMemo(() => {
-    try {
-      return PreviewPromptGenerator.generate(
-        style,
-        style.description || '',
-        previewsList?.[activeIndex]?.html ||
-          style.fullPageHTML ||
-          style.demoHTML ||
-          '',
-        language,
-        '', // previewDescription
-        [], // previewFeatures
-        '', // previewColorScheme
-        currentPreview
-      );
-    } catch (error) {
-      logger.error('Error generating prompt:', error);
-      return '';
-    }
-  }, [style, activeIndex, previewsList, currentPreview, language]);
+  // ========== Generate prompt content (lazy) ==========
+  const [promptContent, setPromptContent] = useState('');
+  const [isGeneratingPrompt, setIsGeneratingPrompt] = useState(false);
+
+  useEffect(() => {
+    setPromptContent('');
+    setIsGeneratingPrompt(false);
+  }, [style.id, activeIndex, language]);
+
+  useEffect(() => {
+    if (!showPrompt) return;
+
+    let cancelled = false;
+    setIsGeneratingPrompt(true);
+
+    const timeoutId = window.setTimeout(() => {
+      if (cancelled) return;
+      try {
+        const generated = PreviewPromptGenerator.generate(
+          style,
+          style.description || '',
+          previewsList?.[activeIndex]?.html ||
+            style.fullPageHTML ||
+            style.demoHTML ||
+            '',
+          language,
+          '', // previewDescription
+          [], // previewFeatures
+          '', // previewColorScheme
+          currentPreview
+        );
+        if (!cancelled) setPromptContent(generated);
+      } catch (error) {
+        logger.error('Error generating prompt:', error);
+        if (!cancelled) setPromptContent('');
+      } finally {
+        if (!cancelled) setIsGeneratingPrompt(false);
+      }
+    }, 0);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, [showPrompt, style, activeIndex, previewsList, currentPreview, language]);
 
   // ========== Event handlers ==========
   const handleOpenFullPageWindow = useCallback(() => {
@@ -245,7 +269,7 @@ function StylePreviewContent({ style }) {
             </div>
           ) : (
             <iframe
-              key={`${style.id}:${activeIndex}:${asyncPreview ? 'ready' : 'loading'}`}
+              key={`${style.id}:${activeIndex}`}
               title={`${displayTitle} - Preview`}
               srcDoc={previewHTML}
               className="w-full h-full border-0"
@@ -265,6 +289,7 @@ function StylePreviewContent({ style }) {
         onClose={() => setShowPrompt(false)}
         title={`${displayTitle} - Prompt`}
         content={promptContent}
+        isGenerating={isGeneratingPrompt}
       />
     </>
   );

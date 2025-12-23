@@ -290,6 +290,7 @@ export default {
   "prompt": {
     "notDefined": "Prompt not defined for this style",
     "notDefinedHint": "Only core styles have custom AI Prompts",
+    "generating": "Generating prompt…",
     "title": "Prompt",
     "role": "Role: You are a senior UI/UX designer and frontend style expert (TailwindCSS).",
     "goal": "Goal: Design reusable UI components or small pages using the '{style}' style.",

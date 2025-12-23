@@ -289,6 +289,7 @@ export default {
   "prompt": {
     "notDefined": "此风格尚未定义 Prompt",
     "notDefinedHint": "只有核心风格提供自定义 AI Prompt",
+    "generating": "正在生成 Prompt…",
     "title": "Prompt",
     "role": "角色:你是资深 UI/UX 设计师与前端样式专家(TailwindCSS)。",
     "goal": "目标:用「{style}」风格设计可复用的 UI 组件或小型页面。",

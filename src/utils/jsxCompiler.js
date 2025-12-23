@@ -13,9 +13,10 @@
 import { detectJSXMode } from './jsxPreprocessor';
 import { getCached, setCached, isIndexedDBAvailable } from './indexedDBCache';
 import { buildPublicPath } from '../data/loaders/config/pathHelper.js';
+import { LRUCache } from './LRUCache';
 
-// 編譯結果緩存 (memory)
-const compilationCache = new Map();
+// 編譯結果緩存 (memory) - 使用 LRU 限制大小，避免 OOM
+const compilationCache = new LRUCache(100);
 
 // Pre-compiled index cache
 let precompiledIndex = null;
@@ -219,20 +220,36 @@ export function isReactComponent(code) {
  * 支持 Preact h() 和 React JSX 兩種模式
  *
  * OPTIMIZATION v2: Uses lazy-loaded Sucrase (only loads when needed)
+ * OPTIMIZATION v3: Tries pre-compiled JSX first (instant load, skips Sucrase entirely)
  *
  * @param {string} jsxCode - JSX 代碼
  * @param {Object} options - 編譯選項
  * @param {boolean} options.useCache - 是否使用緩存
  * @param {string} options.componentName - 組件名稱（用於包裝）
  * @param {'react' | 'preact-h' | null} options.mode - 指定模式（null 為自動檢測）
+ * @param {string} options.previewId - 預覽 ID，用於查找預編譯版本
+ * @param {'fullpage' | 'demo'} options.type - JSX 文件類型
  * @returns {Promise<string | { code: string, componentName: string, mode: string }>}
  */
 export async function compileJSX(jsxCode, options = {}) {
   const {
     useCache = true,
     componentName = 'App',
-    mode = null  // 'react' | 'preact-h' | null (auto-detect)
+    mode = null,  // 'react' | 'preact-h' | null (auto-detect)
+    previewId = null,  // OPTIMIZATION v3: Preview ID for pre-compiled lookup
+    type = 'fullpage'  // OPTIMIZATION v3: JSX file type
   } = options;
+
+  // OPTIMIZATION v3: Try pre-compiled JSX first (instant load, ~200-300ms savings)
+  if (previewId) {
+    const precompiled = await loadPrecompiledJSX(previewId, type);
+    if (precompiled) {
+      // Cache in memory for future use
+      const cacheKey = `${precompiled.mode}:precompiled:${previewId}:${type}`;
+      compilationCache.set(cacheKey, precompiled);
+      return precompiled;
+    }
+  }
 
   if (!jsxCode || typeof jsxCode !== 'string') {
     throw new Error('無效的 JSX 代碼');
@@ -312,13 +329,9 @@ export async function compileJSX(jsxCode, options = {}) {
         lucideIcons  // 新增：包含圖標列表
       };
 
-      // 緩存結果
+      // 緩存結果（LRU 自動管理大小，無需手動清理）
       if (useCache) {
         compilationCache.set(cacheKey, compiledResult);
-        if (compilationCache.size > 100) {
-          const firstKey = compilationCache.keys().next().value;
-          compilationCache.delete(firstKey);
-        }
 
         // OPTIMIZATION: Persist to IndexedDB for cross-session caching
         if (isIndexedDBAvailable()) {
@@ -353,15 +366,9 @@ function ${componentName}() {
 
     const compiledCode = result.code;
 
-    // 緩存結果
+    // 緩存結果（LRU 自動管理大小，無需手動清理）
     if (useCache) {
       compilationCache.set(cacheKey, compiledCode);
-
-      // 限制緩存大小
-      if (compilationCache.size > 100) {
-        const firstKey = compilationCache.keys().next().value;
-        compilationCache.delete(firstKey);
-      }
 
       // OPTIMIZATION: Persist to IndexedDB for cross-session caching
       if (isIndexedDBAvailable()) {

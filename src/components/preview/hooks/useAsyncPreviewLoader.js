@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { loadPreview, batchPreloadPreviews, preloadPreview } from '../../../utils/previewLoader';
+import { loadPreview, batchPreloadPreviews, preloadPreview, cancelBatchPreload } from '../../../utils/previewLoader';
 import { compileJSX } from '../../../utils/jsxCompiler';
 import { previewLogger as logger } from '../../../utils/logger';
 import { getPreviewCache } from '../../../utils/LRUCache';
@@ -60,45 +60,58 @@ export function useAsyncPreviewLoader({
     return currentPreview?.previewId || fullPagePreviewId || currentPreview?.id || styleId || null;
   }, [currentPreview, fullPagePreviewId, styleId]);
 
-  // Effect 1: Batch preload all preview IDs to reduce switching latency
-  // OPTIMIZATION: Removed async isPreviewIdValid() calls that caused race conditions
+  // Effect 1: Preload only nearby previews to avoid background jank on heavy styles
   // Invalid IDs will gracefully return empty content when loaded
   useEffect(() => {
     // Skip preloading for React preview mode (no async loading needed)
     if (isReactPreview) return;
 
-    // Collect all candidate IDs synchronously (no async validation)
-    const candidates = [];
+    const idsFromPreviews = (previewsList || [])
+      .map((preview) => preview?.previewId || preview?.id)
+      .filter(Boolean);
 
-    // Collect preview IDs from previewsList
-    previewsList.forEach((preview) => {
-      const candidate = preview?.previewId || preview?.id;
-      if (candidate) {
-        candidates.push(candidate);
+    const candidates = [
+      ...idsFromPreviews,
+      ...(fullPagePreviewId ? [fullPagePreviewId] : []),
+      ...(idsFromPreviews.length === 0 && styleId ? [styleId] : [])
+    ];
+
+    const uniqueIds = [...new Set(candidates)];
+    if (uniqueIds.length === 0) return;
+
+    const safeIndex = Math.min(
+      Math.max(activeIndex, 0),
+      Math.max((previewsList?.length || 1) - 1, 0)
+    );
+
+    const neighborIds = new Set();
+    const addByIndex = (index) => {
+      if (!previewsList || previewsList.length === 0) return;
+      if (index < 0 || index >= previewsList.length) return;
+      const id = previewsList[index]?.previewId || previewsList[index]?.id;
+      if (id) neighborIds.add(id);
+    };
+
+    addByIndex(safeIndex);
+    addByIndex(safeIndex - 1);
+    addByIndex(safeIndex + 1);
+
+    // Preload current + adjacent previews immediately for fast switching
+    neighborIds.forEach((id) => preloadPreview(id));
+    if (fullPagePreviewId) preloadPreview(fullPagePreviewId);
+
+    // For small preview sets, preload the rest slowly in the background
+    if (uniqueIds.length <= 6) {
+      const remaining = uniqueIds.filter((id) => !neighborIds.has(id) && id !== fullPagePreviewId);
+      if (remaining.length > 0) {
+        batchPreloadPreviews(remaining, 200);
       }
-    });
-
-    // Add fullPagePreviewId
-    if (fullPagePreviewId) {
-      candidates.push(fullPagePreviewId);
     }
 
-    // Fallback to style.id for single-preview styles
-    if (candidates.length === 0 && styleId) {
-      candidates.push(styleId);
-    }
-
-    // Deduplicate and batch preload
-    if (candidates.length > 0) {
-      const uniqueIds = [...new Set(candidates)];
-      // Load first 3 immediately (most likely to be viewed first)
-      uniqueIds.slice(0, 3).forEach((id) => preloadPreview(id));
-      // Remaining with reduced delay (50ms instead of 150ms)
-      if (uniqueIds.length > 3) {
-        batchPreloadPreviews(uniqueIds.slice(3), 50);
-      }
-    }
-  }, [previewsList, fullPagePreviewId, styleId, isReactPreview]);
+    return () => {
+      cancelBatchPreload();
+    };
+  }, [previewsList, fullPagePreviewId, styleId, isReactPreview, activeIndex]);
 
   // Effect 2: Main async loading logic - loads preview content based on activeIndex
   useEffect(() => {
@@ -117,7 +130,12 @@ export function useAsyncPreviewLoader({
       }
 
       try {
-        const result = await compileJSX(currentPreview.demoJSX, { mode: 'react' });
+        // OPTIMIZATION v3: Pass previewId for pre-compiled JSX lookup
+        const result = await compileJSX(currentPreview.demoJSX, {
+          mode: 'react',
+          previewId: currentPreviewId,
+          type: 'fullpage'
+        });
         if (cancelled) return true;
 
         const previewData = {
@@ -174,7 +192,12 @@ export function useAsyncPreviewLoader({
     if (!currentPreviewId) {
       if (currentPreview?.renderMode === 'react-jsx' && currentPreview?.demoJSX) {
         setIsLoadingPreview(true);
-        compileJSX(currentPreview.demoJSX, { mode: 'react' })
+        // OPTIMIZATION v3: Pass previewId for pre-compiled JSX lookup
+        compileJSX(currentPreview.demoJSX, {
+          mode: 'react',
+          previewId: currentPreview?.previewId || currentPreview?.id,
+          type: 'fullpage'
+        })
           .then(result => {
             setAsyncPreview({
               renderMode: 'react-jsx',
@@ -214,7 +237,12 @@ export function useAsyncPreviewLoader({
         // Handle React JSX mode: compile JSX to ES5 code
         if (content.renderMode === 'react-jsx' && content.jsx) {
           try {
-            const result = await compileJSX(content.jsx, { mode: 'react' });
+            // OPTIMIZATION v3: Pass previewId for pre-compiled JSX lookup
+            const result = await compileJSX(content.jsx, {
+              mode: 'react',
+              previewId: currentPreviewId,
+              type: 'fullpage'
+            });
             const previewData = {
               renderMode: 'react-jsx',
               compiledCode: result.code,

@@ -3,8 +3,9 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { useToast } from '../../hooks/useToast';
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 import { Toast } from '../ui/Toast';
+import { LoadingDots } from '../ui/LoadingDots';
 
-export function PromptDrawer({ isOpen, onClose, title, content }) {
+export function PromptDrawer({ isOpen, onClose, title, content, isGenerating = false }) {
   const { t } = useLanguage();
   const { showToast, hideToast, toastState } = useToast();
   const { copy: copyToClipboard } = useCopyToClipboard({
@@ -40,6 +41,7 @@ export function PromptDrawer({ isOpen, onClose, title, content }) {
   }, [content]);
 
   const handleCopy = async () => {
+    if (isGenerating) return;
     await copyToClipboard(content);
   };
 
@@ -60,7 +62,8 @@ export function PromptDrawer({ isOpen, onClose, title, content }) {
           <div className="flex gap-2">
             <button
               onClick={handleCopy}
-              className="px-3 py-1 text-sm rounded border border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              disabled={isGenerating || !content}
+              className="px-3 py-1 text-sm rounded border border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"
             >
               {t('buttons.copy')}
             </button>
@@ -79,7 +82,12 @@ export function PromptDrawer({ isOpen, onClose, title, content }) {
           })}
         </div>
         <div className="p-4">
-          {content ? (
+          {isGenerating ? (
+            <div className="w-full h-[70vh] flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 border border-gray-300 dark:border-gray-700 rounded">
+              <LoadingDots size="medium" />
+              <p className="text-sm mt-3">{t('prompt.generating')}</p>
+            </div>
+          ) : content ? (
             <textarea
               value={content}
               readOnly

@@ -7,11 +7,13 @@ import { previewLogger as logger } from './logger';
 import { isValidPreactJSX, detectJSXMode, validateJSX } from './jsxPreprocessor';
 import { FAMILY_ID_MAP, resolveAlias } from '../data/loaders/config/familyIdMap.js';
 import { buildPublicPath, buildContentPath } from '../data/loaders/config/pathHelper.js';
+import { LRUCache } from './LRUCache';
 
 /**
  * 內存緩存，避免重複加載相同預覽
+ * OPTIMIZATION: 使用 LRU 限制大小，避免 OOM
  */
-const previewCache = new Map();
+const previewCache = new LRUCache(100);
 
 /**
  * 已知的分類列表
