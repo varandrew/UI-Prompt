@@ -4,7 +4,7 @@
  * Provides dynamic style counting based on the registry.
  */
 
-import registry from '../data/styles/_registry.json' with { type: 'json' };
+import registry from '../data/styles/_registry.json';
 
 /**
  * Get the total count of style families across all categories

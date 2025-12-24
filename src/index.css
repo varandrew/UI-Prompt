@@ -1,8 +1,8 @@
 @import "tailwindcss";
-@source "../public/data/content/**/*.{html,md,jsx,tsx}";
-
 /* Google Fonts for Paper/Scrapbook Style */
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
+
+@source "../public/data/content/**/*.{html,md,jsx,tsx}";
 
 /* Paper/Scrapbook Style Fonts */
 .font-handwriting {
