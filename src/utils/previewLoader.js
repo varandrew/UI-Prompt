@@ -164,17 +164,12 @@ function resolvePreviewIdDynamically(previewId) {
     };
   }
 
-  // Pattern 2: category-familyId (e.g., "visual-glassmorphism")
+  // Pattern 2: category-familyId (e.g., "visual-glassmorphism", "core-skeuomorphism")
+  // This is a Family-level ID, NOT a template ID
+  // Return null to let FamilyLoader handle it - it knows which templates exist
   if (parts.length === 2 && KNOWN_CATEGORIES.includes(parts[0])) {
-    const category = parts[0];
-    const familyIdPart = parts[1];
-    const familyId = resolveAlias(familyIdPart);
-
-    return {
-      category,
-      familyId,
-      templateId: familyId // 使用 familyId 作為默認 templateId
-    };
+    logger.debug(`Family-level ID detected: ${previewId}, will be handled by FamilyLoader`);
+    return null;
   }
 
   // Pattern 3: familyId only (e.g., "glassmorphism")

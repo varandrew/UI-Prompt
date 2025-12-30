@@ -93,9 +93,20 @@ export async function preloadFirstPreviewContent(category, familyId, previewId =
 
   // Start preload
   const preloadPromise = (async () => {
-    // Determine the templateId (folder name in content directory)
-    // For preview, use previewId if provided, otherwise familyId
-    const templateId = previewId || `${category}-${familyId}`;
+    // Skip if no previewId OR if it's a family-level ID (only 2 parts: category-familyId)
+    // Valid template IDs have 3+ parts: category-familyId-templateName
+    // Examples:
+    //   - "core-skeuomorphism" (2 parts) → skip, let FamilyLoader handle
+    //   - "core-skeuomorphism-analog-synthesizer" (3 parts) → valid, preload
+    //   - "visual-glassmorphism-glassmorphism-landing" (4 parts) → valid, preload
+    const previewIdParts = previewId ? previewId.split('-') : [];
+    if (!previewId || previewIdParts.length < 3) {
+      logger.debug(`Family-level or missing previewId: ${previewId || 'null'}, skipping preload (FamilyLoader will handle)`);
+      return null;
+    }
+
+    // Use the provided previewId as templateId (it's a full template ID)
+    const templateId = previewId;
     const basePath = buildContentPath(`styles/${category}/${familyId}/${templateId}`);
 
     logger.debug(`Preloading first preview: ${basePath}`);
