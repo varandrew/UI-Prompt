@@ -413,7 +413,41 @@ This script:
 - Verify success count includes your new family
 - Check that `templatesCount` is > 0 for your template
 
-### Step 9: Verify and Report
+### Step 9: Stage Files for Git (⚠️ IMPORTANT!)
+### 步骤 9：将文件添加到 Git 暂存区（⚠️ 重要！）
+
+**After creating all files, you MUST stage them for git commit!**
+**创建所有文件后，必须将它们添加到 git 暂存区！**
+
+This prevents CI failures due to missing files that exist locally but weren't committed.
+这可以防止因本地存在但未提交的文件而导致的 CI 失败。
+
+```bash
+# Stage all new template files
+git add "public/data/content/styles/{category}/{familyId}/{templateId}/"
+git add "src/data/styles/generated/{category}/{familyId}/manifest.json"
+git add "public/data/styles-index.json"
+
+# If JSX template, also stage compiled JSX
+git add "public/data/compiled-jsx/{category}-{familyId}-{templateId}*" 2>/dev/null || true
+
+# If previewIdMapping was updated
+git add "src/utils/previewLoader.js"
+
+# If styleTagsMapping was updated
+git add "src/data/metadata/styleTagsMapping.js"
+
+# Verify staged files
+git status
+```
+
+**⚠️ Common Mistake**: Creating files locally but forgetting to commit them causes CI test failures like:
+- `Cannot find module '...'`
+- `Missing content directories for template`
+
+---
+
+### Step 10: Verify and Report
 
 After completing all steps, verify:
 
@@ -488,11 +522,17 @@ Output success report:
    ✅ Related styles are linked
    ⭐ {If default: "Set as default template (shown first)"}
 
+🔧 Git Status:
+   ✅ Files staged for commit (verify with: git status)
+
 ⚠️ Next steps:
-   1. Restart dev server: npm run dev
-   2. Visit the preview URL to verify
-   3. Check the styles list page to see the new style card
-   4. Update tags in styleTagsMapping.js for better discoverability
+   1. Verify staged files: git status
+   2. Commit changes: git commit -m "✨ feat: add {templateId} template"
+   3. Push to remote: git push
+   4. Restart dev server: npm run dev
+   5. Visit the preview URL to verify
+   6. Check the styles list page to see the new style card
+   7. Update tags in styleTagsMapping.js for better discoverability
 ```
 
 ## Interactive Mode
@@ -629,6 +669,44 @@ grep -A 5 '"familyId": "{familyId}"' public/data/styles-index.json | grep templa
 ---
 
 ## Common Issues
+
+### 🚨 CI Test Failure: "Cannot find module" or "Missing content directories" (NEW!)
+### 🚨 CI 测试失败："Cannot find module" 或 "Missing content directories"（新！）
+
+**Symptoms / 症状**:
+- CI/GitHub Actions fails with: `Cannot find module '...'`
+- CI fails with: `Missing content directories for template`
+- Tests pass locally but fail in CI
+- Files exist on your machine but CI can't find them
+
+**Root Cause / 根本原因**:
+You created files locally but **forgot to commit them to git**! Untracked files (shown as `??` in `git status`) won't be pushed to the remote repository.
+
+你在本地创建了文件，但**忘记提交到 git**！未追踪的文件（在 `git status` 中显示为 `??`）不会被推送到远程仓库。
+
+**Solution / 解决方案**:
+
+```bash
+# 1. Check for untracked files
+git status
+
+# 2. Stage the missing files
+git add "public/data/content/styles/{category}/{familyId}/{templateId}/"
+git add "src/data/styles/generated/{category}/{familyId}/manifest.json"
+git add "public/data/compiled-jsx/*"  # If JSX template
+git add "src/utils/*.js"              # If new utility files
+
+# 3. Commit and push
+git commit -m "🐛 fix: add missing template files"
+git push
+```
+
+**Prevention / 预防**:
+- Always run `git status` before pushing
+- Follow Step 9 (Stage Files for Git) in this workflow
+- The success report includes a Git Status section - verify it!
+
+---
 
 ### 🚨 JSX Runtime Error: "Unexpected token 'export'" (NEW!)
 ### 🚨 JSX 运行时错误："Unexpected token 'export'"（新！）
