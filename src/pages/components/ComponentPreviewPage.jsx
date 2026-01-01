@@ -303,6 +303,8 @@ export function ComponentPreviewPage() {
         onClose={() => setShowPrompt(false)}
         title={`${componentData.title} - ${currentVariant?.name || ''}`}
         content={promptContent}
+        customPrompt={currentVariant?.customPrompt?.[language] || ''}
+        stylePrompt={currentVariant?.stylePrompt?.[language] || ''}
       />
 
       {/* Code Modal */}

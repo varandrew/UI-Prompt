@@ -1,21 +1,17 @@
 import { Suspense } from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { HelmetProvider } from '@dr.pogodin/react-helmet';
-import { LanguageProvider } from './hooks/useLanguage';
-import { DarkModeProvider } from './hooks/useDarkMode';
 import { router } from './routes';
+import { AppProviders } from './components/AppProviders';
+import { Loading } from './components/ui/Loading';
+
 
 function App() {
   return (
-    <HelmetProvider>
-      <LanguageProvider>
-        <DarkModeProvider>
-          <Suspense fallback={<div className="p-8 text-center text-sm text-gray-500">Loading…</div>}>
-            <RouterProvider router={router} />
-          </Suspense>
-        </DarkModeProvider>
-      </LanguageProvider>
-    </HelmetProvider>
+    <AppProviders>
+      <Suspense fallback={<Loading />}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </AppProviders>
   );
 }
 

@@ -1,65 +1,57 @@
-# Glassmorphism - Statistics Card
+# Glassmorphism Statistics Card
 
-## Prompt (en-US)
+## 中文版本 (zh-CN)
 
-### Style Characteristics
-Glassmorphic statistics cards simulate a frosted glass texture, creating a light, modern, and tech-forward visual atmosphere. Semi-transparent elements layered on gradient backgrounds produce depth and hierarchy. Backdrop blur effects and subtle inner glows create the signature glass aesthetic. Perfect for trendy tech products and modern dashboards.
+請創建一個玻璃擬態風格的統計數據卡片組件。
 
-### Color Scheme
-- **Container Background**: linear-gradient(135deg, rgba(147,51,234,0.1), rgba(59,130,246,0.1), rgba(236,72,153,0.1))
-- **Card Background**: rgba(255,255,255,0.15), hover rgba(255,255,255,0.25)
-- **Borders**: rgba(255,255,255,0.3), hover rgba(255,255,255,0.5)
-- **Text (Label)**: rgba(0,0,0,0.6)
-- **Text (Value)**: rgba(0,0,0,0.9)
-- **Trend Up**: Background rgba(16,185,129,0.2), text #10b981, border rgba(16,185,129,0.3)
-- **Trend Down**: Background rgba(239,68,68,0.2), text #ef4444, border rgba(239,68,68,0.3)
-- **Icon Gradients** (semi-transparent):
-  - Purple: linear-gradient(135deg, rgba(168,85,247,0.6), rgba(147,51,234,0.8))
-  - Blue: linear-gradient(135deg, rgba(59,130,246,0.6), rgba(37,99,235,0.8))
-  - Pink: linear-gradient(135deg, rgba(236,72,153,0.6), rgba(219,39,119,0.8))
+### 設計理念
+玻璃擬態統計卡片將數據展示提升為一種視覺藝術體驗，通過半透明毛玻璃效果營造出夢幻般的層次感和空間深度。這種設計風格既保持了數據的可讀性，又為界面增添了現代感和科技感，讓冰冷的數字變得生動而富有吸引力。
 
-### Design Details
-- **Borders**: 1px solid rgba(255,255,255,0.3), hover changes to rgba(255,255,255,0.5)
-- **Border Radius**: 1.25rem (20px)
-- **Shadows**:
-  - Default: 0 8px 32px rgba(31,38,135,0.15), inset 0 1px 0 rgba(255,255,255,0.5)
-  - Hover: 0 16px 48px rgba(31,38,135,0.25), inset 0 1px 0 rgba(255,255,255,0.6)
-- **Blur**: backdrop-filter: blur(20px), -webkit-backdrop-filter: blur(20px)
-- **Spacing**: padding 1.5rem (24px), header margin-bottom 1.25rem, body gap 0.75rem
-- **Typography**: Label 0.875rem/500 rgba(0,0,0,0.6), value 2rem/700 rgba(0,0,0,0.9), trend 0.75rem/700
-- **Hover**: Background opacity increases to 0.25, border opacity to 0.5, shadow deepens, translates up 5px, scale 1.02, transition 0.4s cubic-bezier(0.4,0,0.2,1)
-- **Icon**: 2.5rem (40px) square, 0.75rem border-radius, backdrop-filter blur(10px), shadow 0 4px 16px rgba(0,0,0,0.1)
-- **Trend Badge**: Padding 0.375rem 0.875rem, full rounded, backdrop-filter blur(8px), border 1px
+### 視覺特徵
+- **玻璃效果**：半透明背景配合背景模糊濾鏡，實現毛玻璃視覺效果
+- **邊框光澤**：細膩的半透明白色邊框，營造玻璃邊緣反光效果
+- **配色方案**：淺色漸變背景，數字使用高對比度文字，彩色漸變點綴（如藍紫色、青綠色）
+- **陰影層次**：多層次柔和陰影，增強浮空感和立體深度
+- **圖標處理**：半透明彩色圓形背景包裹圖標，與卡片玻璃效果呼應
+
+### 交互體驗
+- **懸停效果**：增強模糊度和亮度，邊框光澤變亮，卡片輕微上浮
+- **數據動畫**：數字滾動時帶有發光效果，增強科技感和動態美感
+- **趨勢可視化**：使用漸變色箭頭或迷你圖表，與玻璃背景自然融合
+- **響應式適配**：移動端優化模糊效果以提升性能，保持視覺風格統一
+
+### 適用場景
+- 現代科技產品和 SaaS 平台儀表板
+- 加密貨幣和區塊鏈應用的數據展示
+- 創意設計和藝術類網站的統計展示
+- 需要營造未來感和科技氛圍的應用界面
+- 暗色主題下的數據可視化面板
 
 ---
 
-## 提示詞 (zh-CN)
+## English Version (en-US)
 
-### 風格特點
-玻璃態統計卡片模擬毛玻璃質感，營造輕盈、現代、科技感的視覺氛圍。半透明的元素層疊在漸層背景上，產生深度和層次感。背景模糊效果和微妙的內發光創造出標誌性的玻璃美學。適合時尚科技產品和現代儀表板。
+Please create a glassmorphism style statistics card component.
 
-### 配色方案
-- **容器背景**：linear-gradient(135deg, rgba(147,51,234,0.1), rgba(59,130,246,0.1), rgba(236,72,153,0.1))
-- **卡片背景**：rgba(255,255,255,0.15)，懸停 rgba(255,255,255,0.25)
-- **邊框**：rgba(255,255,255,0.3)，懸停 rgba(255,255,255,0.5)
-- **文字（標籤）**：rgba(0,0,0,0.6)
-- **文字（數值）**：rgba(0,0,0,0.9)
-- **趨勢上升**：背景 rgba(16,185,129,0.2)，文字 #10b981，邊框 rgba(16,185,129,0.3)
-- **趨勢下降**：背景 rgba(239,68,68,0.2)，文字 #ef4444，邊框 rgba(239,68,68,0.3)
-- **圖標漸變**（半透明）：
-  - 紫色：linear-gradient(135deg, rgba(168,85,247,0.6), rgba(147,51,234,0.8))
-  - 藍色：linear-gradient(135deg, rgba(59,130,246,0.6), rgba(37,99,235,0.8))
-  - 粉色：linear-gradient(135deg, rgba(236,72,153,0.6), rgba(219,39,119,0.8))
+### Design Philosophy
+Glassmorphism statistics card elevates data display into a visual art experience, creating dreamlike layering and spatial depth through semi-transparent frosted glass effects. This design style maintains data readability while adding modernity and tech-savviness to the interface, transforming cold numbers into something vibrant and engaging.
 
-### 細節設計
-- **邊框**：1px solid rgba(255,255,255,0.3)，懸停變為 rgba(255,255,255,0.5)
-- **圓角**：1.25rem (20px)
-- **陰影**：
-  - 默認：0 8px 32px rgba(31,38,135,0.15), inset 0 1px 0 rgba(255,255,255,0.5)
-  - 懸停：0 16px 48px rgba(31,38,135,0.25), inset 0 1px 0 rgba(255,255,255,0.6)
-- **模糊**：backdrop-filter: blur(20px), -webkit-backdrop-filter: blur(20px)
-- **間距**：padding 1.5rem (24px)，標題 margin-bottom 1.25rem，主體 gap 0.75rem
-- **字體**：標籤 0.875rem/500 rgba(0,0,0,0.6)，數值 2rem/700 rgba(0,0,0,0.9)，趨勢 0.75rem/700
-- **懸停**：背景透明度增至 0.25，邊框透明度至 0.5，陰影加深，上移 5px，縮放 1.02，過渡 0.4s cubic-bezier(0.4,0,0.2,1)
-- **圖標**：2.5rem (40px) 正方形，0.75rem 圓角，backdrop-filter blur(10px)，陰影 0 4px 16px rgba(0,0,0,0.1)
-- **趨勢徽章**：padding 0.375rem 0.875rem，完全圓角，backdrop-filter blur(8px)，邊框 1px
+### Visual Characteristics
+- **Glass Effect**: Semi-transparent background with backdrop blur filters creating frosted glass visual effect
+- **Border Shine**: Delicate semi-transparent white borders creating glass edge reflection effects
+- **Color Scheme**: Light gradient backgrounds with high-contrast text for numbers, colorful gradient accents (blue-purple, cyan-green)
+- **Shadow Layers**: Multi-layered soft shadows enhancing floating sensation and three-dimensional depth
+- **Icon Treatment**: Semi-transparent colored circular backgrounds wrapping icons, echoing the card's glass effect
+
+### Interaction Experience
+- **Hover Effects**: Enhanced blur and brightness, brighter border shine, card slightly lifts
+- **Data Animation**: Number scrolling with glow effects, enhancing tech feel and dynamic beauty
+- **Trend Visualization**: Gradient colored arrows or mini charts naturally blending with glass background
+- **Responsive Adaptation**: Optimized blur effects on mobile for performance while maintaining visual style consistency
+
+### Use Cases
+- Modern tech products and SaaS platform dashboards
+- Cryptocurrency and blockchain application data displays
+- Creative design and art website statistics presentations
+- Application interfaces requiring futuristic and tech atmosphere
+- Data visualization panels under dark themes

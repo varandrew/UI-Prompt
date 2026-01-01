@@ -1,9 +1,18 @@
-# Minimalism - List View
+# Minimalism List View
 
-## Prompt (en-US)
+## 中文版本 (zh-CN)
 
-### Style Characteristics
-Minimalist list views pursue the "content first" design philosophy, removing all unnecessary decorative elements and using whitespace, subtle dividers, and clean typography to create visual hierarchy. Each list item is clearly separated with generous padding, allowing content to breathe. Perfect for professional applications and data-heavy interfaces where clarity and scannability are paramount.
+請創建一個極簡主義風格的列表視圖組件。
+
+### 設計理念
+極簡主義列表視圖追求"內容優先"的設計哲學，通過去除所有不必要的裝飾元素，用留白、對齊和清晰的排版建立視覺層級。每個列表項都有充足的內邊距讓內容呼吸，確保信息的可讀性和可掃視性。這種設計為用戶提供專注、高效的瀏覽體驗，讓內容本身成為焦點。
+
+### 視覺特徵
+- **配色方案**：純白或淺灰背景，深灰文字，確保高對比度和清晰度
+- **分隔設計**：極細的分隔線或完全無邊框，依靠留白區分列表項
+- **排版規範**：清晰的主次文字層級，系統字體，適中字號和充足行高
+- **留白運用**：充足的內邊距，保持視覺透氣感和舒適度
+- **圖標處理**：可選的簡潔線性圖標或頭像，左對齊保持一致性
 
 ### Color Scheme
 - **Background**: White (#ffffff) or light gray (#f9fafb)

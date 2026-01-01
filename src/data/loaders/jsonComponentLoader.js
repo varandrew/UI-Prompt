@@ -39,12 +39,18 @@ export function clearComponentCache() {
 
 /**
  * 安全的 fetch 文本
+ * 包含 SPA fallback 檢測（Vite 開發伺服器會返回 index.html 而不是 404）
  */
 async function fetchText(url) {
   try {
     const response = await fetch(url);
     if (response.ok) {
-      return await response.text();
+      const text = await response.text();
+      // SPA fallback 檢測：如果返回的是 HTML，說明文件不存在
+      if (text.trimStart().startsWith('<!doctype') || text.trimStart().startsWith('<html')) {
+        return '';
+      }
+      return text;
     }
     return '';
   } catch {

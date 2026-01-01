@@ -1,67 +1,57 @@
-# Ant Design - Statistics Card
+# Ant Design Statistics Card
 
-## Prompt (en-US)
+## 中文版本 (zh-CN)
 
-### Style Characteristics
-Ant Design statistics cards embody enterprise-grade professionalism with clean lines, subtle interactions, and a carefully crafted color system. Circular icon containers with brand-specific pastel backgrounds create visual identity. Hover interactions include border color changes and playful icon animations. Perfect for data-driven enterprise applications and admin panels.
+請創建一個 Ant Design 風格的統計數據卡片組件。
 
-### Color Scheme
-- **Background**: White (#ffffff)
-- **Border**: Default #f0f0f0, hover #1890ff (Ant Blue)
-- **Text (Title)**: rgba(0,0,0,0.45)
-- **Text (Value)**: rgba(0,0,0,0.85)
-- **Text (Description)**: rgba(0,0,0,0.45)
-- **Icon Containers** (background/color):
-  - Blue: #e6f7ff / #1890ff
-  - Green: #f6ffed / #52c41a
-  - Orange: #fff7e6 / #fa8c16
-  - Purple: #f9f0ff / #722ed1
-- **Trend Indicators**:
-  - Up (Red): #cf1322
-  - Down (Green): #3f8600
-  - Note: In Ant Design, red indicates increase, green indicates decrease
+### 設計理念
+Ant Design 統計卡片秉承"確定性"和"自然"的設計價值觀，通過系統化的設計語言和嚴謹的視覺規範，為企業級應用提供高效、易用的數據展示方案。強調信息的精確傳達和用戶的操作效率，讓複雜的數據變得易於理解和決策。
 
-### Design Details
-- **Borders**: 1px solid #f0f0f0, hover changes to #1890ff
-- **Border Radius**: 0.5rem (8px)
-- **Shadows**: None by default, hover adds 0 2px 8px rgba(0,0,0,0.15)
-- **Spacing**: padding 1.5rem (24px), header margin-bottom 1rem, content gap 0.75rem, footer gap 0.5rem
-- **Typography**: Title 0.875rem/1.5 rgba(0,0,0,0.45), value 1.875rem/1.2/600 rgba(0,0,0,0.85) with tabular-nums, description 0.875rem rgba(0,0,0,0.45)
-- **Hover**: Border color changes to #1890ff, shadow appears, card translates up 2px, icon rotates 10deg and scales 1.1, transition 0.3s cubic-bezier(0.645,0.045,0.355,1)
-- **Icon Container**: 2.5rem (40px) circle (border-radius 50%), pastel background matching theme
-- **Icon**: 1.25rem (20px), theme color
-- **Trend**: 0.875rem/500, inline-flex with 0.25rem gap, icon 0.875rem
+### 視覺特徵
+- **配色系統**：Ant Design 標準色板，拂曉藍為主色，配合語義化顏色（警告紅、成功綠等）
+- **排版規範**：標準字號體系，數字使用大號加粗字體，行高確保閱讀舒適
+- **卡片樣式**：小圓角設計，淺灰色邊框，白色背景，懸停時添加柔和陰影
+- **圖標規範**：統一圖標尺寸和風格，使用品牌色或語義色增強識別
+- **分割線**：細線分隔不同數據區域，保持視覺清晰
+
+### 交互體驗
+- **微動效**：懸停時卡片輕微上升配合陰影變化，使用標準緩動曲線
+- **數據加載**：骨架屏佔位設計，避免內容閃爍和布局跳動
+- **趨勢圖標**：使用標準化箭頭圖標，配合數字顏色變化（綠色/紅色）
+- **響應式斷點**：遵循標準斷點系統，確保各尺寸設備的一致體驗
+
+### 適用場景
+- 基於 Ant Design 體系的企業級中後台系統
+- 需要與 Ant Design 組件庫無縫集成的項目
+- 大型數據管理平台和商業智能儀表板
+- 金融、電商、物流等行業的業務監控面板
+- React 技術棧的企業應用快速開發
 
 ---
 
-## 提示詞 (zh-CN)
+## English Version (en-US)
 
-### 風格特點
-Ant Design 統計卡片體現企業級專業性，擁有清晰的線條、細膩的互動和精心設計的色彩系統。圓形圖標容器配合品牌特定的柔和背景色創造視覺識別度。懸停互動包括邊框顏色變化和俏皮的圖標動畫。適合數據驅動的企業應用和管理面板。
+Please create an Ant Design style statistics card component.
 
-### 配色方案
-- **背景**：白色 (#ffffff)
-- **邊框**：默認 #f0f0f0，懸停 #1890ff (Ant 藍)
-- **文字（標題）**：rgba(0,0,0,0.45)
-- **文字（數值）**：rgba(0,0,0,0.85)
-- **文字（描述）**：rgba(0,0,0,0.45)
-- **圖標容器**（背景/顏色）：
-  - 藍色：#e6f7ff / #1890ff
-  - 綠色：#f6ffed / #52c41a
-  - 橙色：#fff7e6 / #fa8c16
-  - 紫色：#f9f0ff / #722ed1
-- **趨勢指示器**：
-  - 上升（紅色）：#cf1322
-  - 下降（綠色）：#3f8600
-  - 注意：Ant Design 中，紅色表示上升，綠色表示下降
+### Design Philosophy
+Ant Design statistics card upholds the design values of "certainty" and "naturalness", providing efficient and user-friendly data display solutions for enterprise applications through systematic design language and rigorous visual specifications. It emphasizes precise information delivery and operational efficiency, making complex data easy to understand and act upon.
 
-### 細節設計
-- **邊框**：1px solid #f0f0f0，懸停變為 #1890ff
-- **圓角**：0.5rem (8px)
-- **陰影**：默認無陰影，懸停添加 0 2px 8px rgba(0,0,0,0.15)
-- **間距**：padding 1.5rem (24px)，標題 margin-bottom 1rem，內容 gap 0.75rem，底部 gap 0.5rem
-- **字體**：標題 0.875rem/1.5 rgba(0,0,0,0.45)，數值 1.875rem/1.2/600 rgba(0,0,0,0.85) 帶 tabular-nums，描述 0.875rem rgba(0,0,0,0.45)
-- **懸停**：邊框色變為 #1890ff，顯示陰影，卡片上移 2px，圖標旋轉 10deg 並縮放 1.1，過渡 0.3s cubic-bezier(0.645,0.045,0.355,1)
-- **圖標容器**：2.5rem (40px) 圓形 (border-radius 50%)，柔和背景色配合主題
-- **圖標**：1.25rem (20px)，主題色
-- **趨勢**：0.875rem/500，inline-flex 配 0.25rem gap，圖標 0.875rem
+### Visual Characteristics
+- **Color System**: Ant Design standard palette with Daybreak Blue as primary color, complemented by semantic colors (warning red, success green, etc.)
+- **Typography**: Standard font size system with large bold fonts for numbers, line height ensuring reading comfort
+- **Card Style**: Small rounded corners, light gray borders, white background, soft shadows on hover
+- **Icon Standards**: Unified icon size and style, using brand or semantic colors to enhance recognition
+- **Dividers**: Thin lines separating different data areas, maintaining visual clarity
+
+### Interaction Experience
+- **Micro-animations**: Card slightly lifts on hover with shadow changes, using standard easing curves
+- **Data Loading**: Skeleton screen placeholder design avoiding content flashing and layout jumping
+- **Trend Icons**: Standardized arrow icons with number color changes (green/red)
+- **Responsive Breakpoints**: Follows standard breakpoint system ensuring consistent experience across device sizes
+
+### Use Cases
+- Enterprise-level backend systems based on Ant Design ecosystem
+- Projects requiring seamless integration with Ant Design component library
+- Large data management platforms and business intelligence dashboards
+- Business monitoring panels in finance, e-commerce, logistics industries
+- Rapid development of React stack enterprise applications

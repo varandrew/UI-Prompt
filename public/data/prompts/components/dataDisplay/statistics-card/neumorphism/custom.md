@@ -1,83 +1,57 @@
-# Neumorphism - Statistics Card
+# Neumorphism Statistics Card
 
-## Prompt (en-US)
+## 中文版本 (zh-CN)
 
-### Style Characteristics
-Neumorphic statistics cards simulate the raised and recessed textures of real objects, using same-hue light and dark shadows to create soft 3D effects. Large centered icon circles with inset shadows appear embedded into the background, while progress bars and badges float with raised shadows. The tactile design brings warmth and comfort to data visualization.
+請創建一個新擬態風格的統計數據卡片組件。
 
-### Color Scheme
-- **Background**: Light gray (#e0e5ec)
-- **Shadow (Light)**: #ffffff
-- **Shadow (Dark)**: #b8bdc4
-- **Text (Label)**: Medium gray (#6b7280)
-- **Text (Value)**: Deep gray (#1f2937)
-- **Text (Percentage)**: Green (#10b981)
-- **Icon Gradients**:
-  - Green: linear-gradient(145deg, #4ade80, #10b981)
-  - Blue: linear-gradient(145deg, #60a5fa, #3b82f6)
-  - Yellow: linear-gradient(145deg, #fbbf24, #f59e0b)
-- **Progress Bar Gradients**:
-  - Green: linear-gradient(90deg, #10b981, #4ade80) + shadow rgba(16,185,129,0.4)
-  - Blue: linear-gradient(90deg, #3b82f6, #60a5fa) + shadow rgba(59,130,246,0.4)
-  - Yellow: linear-gradient(90deg, #f59e0b, #fbbf24) + shadow rgba(245,158,11,0.4)
-- **Badge Gradients**:
-  - Success: linear-gradient(145deg, #dcfce7, #bbf7d0), text #166534
-  - Info: linear-gradient(145deg, #dbeafe, #bfdbfe), text #1e40af
-  - Warning: linear-gradient(145deg, #fef3c7, #fde68a), text #92400e
+### 設計理念
+新擬態統計卡片通過巧妙的光影設計，創造出元素從背景中"浮雕"或"壓印"而出的視覺錯覺。這種柔和的立體感設計既保留了扁平化的簡潔，又增添了擬物化的觸感，為數據展示帶來獨特的視覺體驗和沉浸感，讓用戶仿佛能觸摸到數字本身。
 
-### Design Details
-- **Borders**: None, rely on shadows
-- **Border Radius**: 1.5rem (24px)
-- **Shadows (Card)**:
-  - Default (raised): 12px 12px 24px #b8bdc4, -12px -12px 24px #ffffff
-  - Hover (deeper raised): 16px 16px 32px #b8bdc4, -16px -16px 32px #ffffff
-- **Spacing**: padding 2rem (32px), icon margin 0 auto 1.5rem, label margin-bottom 0.75rem, value margin-bottom 1.25rem, progress margin-bottom 1.25rem
-- **Typography**: Label 0.875rem/600 uppercase letter-spacing 0.05em (#6b7280), value 2.25rem/700 line-height 1 with text-shadow (#1f2937), percentage 0.875rem/700 (#10b981) with text-shadow
-- **Hover**: Shadow deepens, card translates up 5px, icon scales 1.1 and rotates 10deg, transition 0.4s cubic-bezier(0.175,0.885,0.32,1.275)
-- **Icon Circle**: 5rem (80px) diameter, inset shadow (inset 6px 6px 12px #b8bdc4, inset -6px -6px 12px #ffffff), gradient background, centered
-- **Icon**: 2.5rem (40px), white, drop-shadow filter 0 2px 4px rgba(0,0,0,0.2)
-- **Progress Container**: Background #d1d6dd, height 0.75rem (12px), full rounded, inset shadow (inset 3px 3px 6px #b8bdc4, inset -3px -3px 6px #e8edf4)
-- **Progress Bar**: Full rounded, gradient with colored shadow
-- **Badge**: Padding 0.375rem 0.875rem, full rounded, font-size 0.75rem/600, raised shadow (4px 4px 8px #b8bdc4, -4px -4px 8px #ffffff), gradient background
+### 視覺特徵
+- **背景基調**：淺灰色背景系統，與卡片顏色接近但略有差異，形成微妙對比
+- **浮雕陰影**：雙重陰影系統，一明一暗營造立體浮雕效果
+- **內凹效果**：關鍵數據區域使用內陰影營造壓印感，增強觸覺反饋
+- **配色方案**：單色調系統，使用同一色相的不同明度，數字使用漸變色增加層次
+- **圓角設計**：大圓角柔化邊緣，增強柔軟觸感和親和力
+
+### 交互體驗
+- **懸停狀態**：陰影距離縮小，營造"按下"的觸感反饋，模擬真實按鈕
+- **激活狀態**：完全內凹效果，仿佛真實物理按鈕被按下
+- **數據變化**：數字更新時帶有輕微的彈跳動畫，增強物理感和真實感
+- **微動畫**：所有過渡使用緩動函數，模擬真實物理反饋和自然運動
+
+### 適用場景
+- 追求獨特視覺風格的現代應用界面
+- 智能家居和物聯網設備控制面板
+- 需要柔和、舒適視覺體驗的健康醫療應用
+- 音樂播放器和創意工具的數據展示
+- 淺色主題下的數據可視化儀表板
 
 ---
 
-## 提示詞 (zh-CN)
+## English Version (en-US)
 
-### 風格特點
-新擬物化統計卡片模擬真實物體的凹凸質感，使用同色系明暗陰影創造柔和的立體效果。大型居中圖標圓形配合內陰影顯得嵌入背景，而進度條和徽章則以凸起陰影浮於表面。觸感設計為數據可視化帶來溫和、舒適的視覺體驗。
+Please create a neumorphism style statistics card component.
 
-### 配色方案
-- **背景**：淺灰 (#e0e5ec)
-- **陰影（亮）**：#ffffff
-- **陰影（暗）**：#b8bdc4
-- **文字（標籤）**：中灰 (#6b7280)
-- **文字（數值）**：深灰 (#1f2937)
-- **文字（百分比）**：綠色 (#10b981)
-- **圖標漸變**：
-  - 綠色：linear-gradient(145deg, #4ade80, #10b981)
-  - 藍色：linear-gradient(145deg, #60a5fa, #3b82f6)
-  - 黃色：linear-gradient(145deg, #fbbf24, #f59e0b)
-- **進度條漸變**：
-  - 綠色：linear-gradient(90deg, #10b981, #4ade80) + 陰影 rgba(16,185,129,0.4)
-  - 藍色：linear-gradient(90deg, #3b82f6, #60a5fa) + 陰影 rgba(59,130,246,0.4)
-  - 黃色：linear-gradient(90deg, #f59e0b, #fbbf24) + 陰影 rgba(245,158,11,0.4)
-- **徽章漸變**：
-  - Success：linear-gradient(145deg, #dcfce7, #bbf7d0)，文字 #166534
-  - Info：linear-gradient(145deg, #dbeafe, #bfdbfe)，文字 #1e40af
-  - Warning：linear-gradient(145deg, #fef3c7, #fde68a)，文字 #92400e
+### Design Philosophy
+Neumorphism statistics card creates visual illusions of elements "embossed" or "pressed" out from the background through clever light and shadow design. This soft three-dimensional design retains the simplicity of flat design while adding tactile qualities of skeuomorphism, bringing unique visual experience and immersion to data display, making users feel as if they can touch the numbers themselves.
 
-### 細節設計
-- **邊框**：無邊框，依靠陰影
-- **圓角**：1.5rem (24px)
-- **陰影（卡片）**：
-  - 默認（凸起）：12px 12px 24px #b8bdc4, -12px -12px 24px #ffffff
-  - 懸停（更深凸起）：16px 16px 32px #b8bdc4, -16px -16px 32px #ffffff
-- **間距**：padding 2rem (32px)，圖標 margin 0 auto 1.5rem，標籤 margin-bottom 0.75rem，數值 margin-bottom 1.25rem，進度條 margin-bottom 1.25rem
-- **字體**：標籤 0.875rem/600 大寫 letter-spacing 0.05em (#6b7280)，數值 2.25rem/700 line-height 1 帶 text-shadow (#1f2937)，百分比 0.875rem/700 (#10b981) 帶 text-shadow
-- **懸停**：陰影加深，卡片上移 5px，圖標縮放 1.1 旋轉 10deg，過渡 0.4s cubic-bezier(0.175,0.885,0.32,1.275)
-- **圖標圓形**：直徑 5rem (80px)，內陰影 (inset 6px 6px 12px #b8bdc4, inset -6px -6px 12px #ffffff)，漸變背景，居中
-- **圖標**：2.5rem (40px)，白色，drop-shadow 濾鏡 0 2px 4px rgba(0,0,0,0.2)
-- **進度條容器**：背景 #d1d6dd，高度 0.75rem (12px)，完全圓角，內陰影 (inset 3px 3px 6px #b8bdc4, inset -3px -3px 6px #e8edf4)
-- **進度條**：完全圓角，漸變配彩色陰影
-- **徽章**：padding 0.375rem 0.875rem，完全圓角，字號 0.75rem/600，凸起陰影 (4px 4px 8px #b8bdc4, -4px -4px 8px #ffffff)，漸變背景
+### Visual Characteristics
+- **Background Base**: Light gray background system, similar to card color but with subtle differences creating delicate contrast
+- **Embossed Shadows**: Dual shadow system with light and dark shadows creating three-dimensional embossed effect
+- **Inset Effect**: Key data areas use inset shadows creating pressed impression, enhancing tactile feedback
+- **Color Scheme**: Monochromatic system using different lightness of same hue, numbers with gradient colors adding depth
+- **Rounded Design**: Large border radius softening edges, enhancing soft touch and approachability
+
+### Interaction Experience
+- **Hover State**: Shadow distance reduces creating "press down" tactile feedback, simulating real buttons
+- **Active State**: Complete inset effect as if real physical button is pressed
+- **Data Changes**: Number updates with slight bounce animation enhancing physical feel and realism
+- **Micro-animations**: All transitions use easing functions simulating real physical feedback and natural motion
+
+### Use Cases
+- Modern application interfaces pursuing unique visual style
+- Smart home and IoT device control panels
+- Health and medical applications requiring soft, comfortable visual experience
+- Music players and creative tools data display
+- Data visualization dashboards under light themes

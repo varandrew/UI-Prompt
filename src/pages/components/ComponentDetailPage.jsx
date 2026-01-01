@@ -256,6 +256,8 @@ export function ComponentDetailPage() {
         onClose={() => setShowPrompt(false)}
         title={selectedVariant ? selectedVariant.name : ''}
         content={promptContent}
+        customPrompt={selectedVariant?.customPrompt?.[language] || ''}
+        stylePrompt={selectedVariant?.stylePrompt?.[language] || ''}
       />
     </>
   );
