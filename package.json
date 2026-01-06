@@ -55,8 +55,7 @@
     "react-syntax-highlighter": "^16.1.0",
     "react-window": "^2.2.2",
     "sucrase": "^3.35.1",
-    "zustand": "^5.0.8",
-    "web-vitals": "^4.2.4"
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
@@ -81,7 +80,6 @@
     "p-map": "^7.0.4",
     "postcss": "^8.5.6",
     "prop-types": "^15.8.1",
-    "puppeteer": "^23.11.1",
     "tailwindcss": "^4.1.16",
     "terser": "^5.44.1",
     "vite": "^7.1.7",

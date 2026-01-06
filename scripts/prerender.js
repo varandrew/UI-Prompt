@@ -7,7 +7,7 @@
  * Usage:
  *   npm run build:prerender
  *
- * Prerequisites:
+ * Prerequisites (puppeteer is NOT included in package.json by default):
  *   npm install puppeteer --save-dev
  *
  * The script:
