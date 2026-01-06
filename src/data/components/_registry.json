@@ -65,24 +65,6 @@
         "tags-input",
         "rich-textarea"
       ]
-    },
-    "special": {
-      "name": {
-        "zh-CN": "特殊视图",
-        "en-US": "Special Views"
-      },
-      "key": "specialViews",
-      "path": "/components/special",
-      "components": []
-    },
-    "visualEffects": {
-      "name": {
-        "zh-CN": "视觉效果",
-        "en-US": "Visual Effects"
-      },
-      "key": "visualEffects",
-      "path": "/components/visual-effects",
-      "components": []
     }
   }
 }

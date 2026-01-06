@@ -8,6 +8,11 @@ if (import.meta.env.DEV && typeof window !== 'undefined') {
   window.__clearLoadersCache = clearLoadersCache
 }
 
+// Web Vitals monitoring - uncomment after installing web-vitals:
+// npm install web-vitals
+// import { initWebVitals } from './utils/webVitals.js'
+// initWebVitals()
+
 const rootEl = document.getElementById('root');
 
 createRoot(rootEl).render(

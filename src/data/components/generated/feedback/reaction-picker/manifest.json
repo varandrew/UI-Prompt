@@ -2,8 +2,14 @@
   "id": "reaction-picker",
   "category": "feedback",
   "component": {
-    "name": "Reaction Picker",
-    "description": "An interactive reaction picker component allowing users to select emoji or reaction icons for feedback and engagement purposes. Features emoji library, search functionality, recent reactions tracking, and customizable reaction categories.",
+    "name": {
+      "zh-CN": "表情选择器",
+      "en-US": "Reaction Picker"
+    },
+    "description": {
+      "zh-CN": "交互式反應選擇器組件，允許用戶選擇表情符號或反應圖標以進行反饋和參與。具有表情符號庫、搜索功能、最近反應跟蹤和可自定義的反應類別。",
+      "en-US": "An interactive reaction picker component allowing users to select emoji or reaction icons for feedback and engagement purposes. Features emoji library, search functionality, recent reactions tracking, and customizable reaction categories."
+    },
     "tags": [
       "feedback"
     ],
@@ -12,29 +18,53 @@
   "variants": [
     {
       "id": "material-design",
-      "name": "Material Design",
-      "description": "An engaging reaction picker implementation with easy emoji access, clear organization, responsive selection feedback, and smooth animations. Enables intuitive user reactions with smooth interactions, visual selection indicators, and comprehensive emoji library access.",
+      "name": {
+        "zh-CN": "Material Design",
+        "en-US": "Material Design"
+      },
+      "description": {
+        "zh-CN": "Material Design風格的表情选择器實現",
+        "en-US": "An engaging reaction picker implementation with easy emoji access, clear organization, responsive selection feedback, and smooth animations. Enables intuitive user reactions with smooth interactions, visual selection indicators, and comprehensive emoji library access."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "glassmorphism",
-      "name": "Glassmorphism",
-      "description": "Reaction Picker implementation in Glassmorphism style",
+      "name": {
+        "zh-CN": "玻璃拟态",
+        "en-US": "Glassmorphism"
+      },
+      "description": {
+        "zh-CN": "玻璃拟态風格的表情选择器實現",
+        "en-US": "Reaction Picker implementation in Glassmorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neumorphism",
-      "name": "Neumorphism",
-      "description": "Reaction Picker implementation in Neumorphism style",
+      "name": {
+        "zh-CN": "拟态风格",
+        "en-US": "Neumorphism"
+      },
+      "description": {
+        "zh-CN": "拟态风格風格的表情选择器實現",
+        "en-US": "Reaction Picker implementation in Neumorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "minimalism",
-      "name": "Minimalism",
-      "description": "Reaction Picker implementation in Minimalism style",
+      "name": {
+        "zh-CN": "极简风格",
+        "en-US": "Minimalism"
+      },
+      "description": {
+        "zh-CN": "极简风格風格的表情选择器實現",
+        "en-US": "Reaction Picker implementation in Minimalism style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

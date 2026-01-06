@@ -2,8 +2,14 @@
   "id": "statistics-card",
   "category": "dataDisplay",
   "component": {
-    "name": "Statistics Card",
-    "description": "A statistics card component specifically designed for presenting key metrics, performance indicators, and important data points. Displays titles, values, trends, and comparative data with visual indicators, icons, and customizable styling for dashboard applications.",
+    "name": {
+      "zh-CN": "统计卡片",
+      "en-US": "Statistics Card"
+    },
+    "description": {
+      "zh-CN": "統計卡片組件，專門設計用於呈現關鍵指標、性能指標和重要數據點。用視覺指示器、圖標和可自定義的樣式顯示標題、值、趨勢和比較數據，適用於儀表板應用。",
+      "en-US": "A statistics card component specifically designed for presenting key metrics, performance indicators, and important data points. Displays titles, values, trends, and comparative data with visual indicators, icons, and customizable styling for dashboard applications."
+    },
     "tags": [
       "dataDisplay"
     ],
@@ -12,36 +18,66 @@
   "variants": [
     {
       "id": "minimalist",
-      "name": "Minimalist",
-      "description": "A professional statistics card implementation with clear data presentation, visual trend indicators, responsive design, and polished appearance. Effectively showcases metrics and KPIs with professional styling and visual feedback suitable for business dashboards.",
+      "name": {
+        "zh-CN": "极简风格",
+        "en-US": "Minimalist"
+      },
+      "description": {
+        "zh-CN": "极简风格風格的统计卡片實現",
+        "en-US": "A professional statistics card implementation with clear data presentation, visual trend indicators, responsive design, and polished appearance. Effectively showcases metrics and KPIs with professional styling and visual feedback suitable for business dashboards."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "bootstrap5",
-      "name": "Bootstrap 5",
-      "description": "Statistics Card implementation in Bootstrap 5 style",
+      "name": {
+        "zh-CN": "Bootstrap 5",
+        "en-US": "Bootstrap 5"
+      },
+      "description": {
+        "zh-CN": "Bootstrap 5風格的统计卡片實現",
+        "en-US": "Statistics Card implementation in Bootstrap 5 style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "glassmorphism",
-      "name": "Glassmorphism",
-      "description": "Statistics Card implementation in Glassmorphism style",
+      "name": {
+        "zh-CN": "玻璃拟态",
+        "en-US": "Glassmorphism"
+      },
+      "description": {
+        "zh-CN": "玻璃拟态風格的统计卡片實現",
+        "en-US": "Statistics Card implementation in Glassmorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "ant-design",
-      "name": "Ant Design",
-      "description": "Statistics Card implementation in Ant Design style",
+      "name": {
+        "zh-CN": "Ant Design",
+        "en-US": "Ant Design"
+      },
+      "description": {
+        "zh-CN": "Ant Design風格的统计卡片實現",
+        "en-US": "Statistics Card implementation in Ant Design style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neumorphism",
-      "name": "Neumorphism",
-      "description": "Statistics Card implementation in Neumorphism style",
+      "name": {
+        "zh-CN": "拟态风格",
+        "en-US": "Neumorphism"
+      },
+      "description": {
+        "zh-CN": "拟态风格風格的统计卡片實現",
+        "en-US": "Statistics Card implementation in Neumorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

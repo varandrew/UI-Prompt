@@ -6,9 +6,11 @@
 import { BASE_URL, LANG_TO_URL } from './seoConfig';
 import { LANGUAGES } from '../../utils/i18n/languageConstants';
 import { getFormattedStyleCount } from '../../utils/styleStats.js';
+import { getFormattedComponentCount } from '../../utils/componentStats.js';
 
-// Dynamic style count (e.g., "70+")
+// Dynamic counts (e.g., "70+", "20+")
 const STYLE_COUNT = getFormattedStyleCount();
+const COMPONENT_COUNT = getFormattedComponentCount();
 
 /**
  * Generate WebSite schema for the main site
@@ -131,8 +133,8 @@ export function generateComponentListSchema(components, language) {
     name: language === LANGUAGES.ZH_CN ? 'UI 组件库' : 'UI Component Library',
     description:
       language === LANGUAGES.ZH_CN
-        ? '浏览 40+ 种可复用 UI 组件'
-        : 'Browse 40+ reusable UI components',
+        ? `浏览 ${COMPONENT_COUNT} 种可复用 UI 组件`
+        : `Browse ${COMPONENT_COUNT} reusable UI components`,
     numberOfItems: components.length,
     itemListElement: components.slice(0, 10).map((component, index) => ({
       '@type': 'ListItem',

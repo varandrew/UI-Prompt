@@ -2,8 +2,14 @@
   "id": "modal-dialog",
   "category": "feedback",
   "component": {
-    "name": "Modal Dialog",
-    "description": "A modal dialog component for displaying important information or requesting user actions in a focused overlay interface. Features customizable content, action buttons, and backdrop interaction handling for attention-grabbing notifications and user confirmations.",
+    "name": {
+      "zh-CN": "模态对话框",
+      "en-US": "Modal Dialog"
+    },
+    "description": {
+      "zh-CN": "模態對話框組件，用於在集中的疊加界面中顯示重要信息或請求用戶操作。具有可自定義的內容、操作按鈕和背景交互處理，適用於引人注目的通知和用戶確認。",
+      "en-US": "A modal dialog component for displaying important information or requesting user actions in a focused overlay interface. Features customizable content, action buttons, and backdrop interaction handling for attention-grabbing notifications and user confirmations."
+    },
     "tags": [
       "feedback",
       "overlay",
@@ -14,78 +20,144 @@
   "variants": [
     {
       "id": "minimalism",
-      "name": "Minimalism",
-      "description": "A modern modal dialog implementation with clean styling, clear content hierarchy, smooth animations, and responsive behavior. Effectively presents modal content with intuitive interaction controls, clear action buttons, and professional appearance.",
+      "name": {
+        "zh-CN": "极简风格",
+        "en-US": "Minimalism"
+      },
+      "description": {
+        "zh-CN": "极简风格風格的模态对话框實現",
+        "en-US": "A modern modal dialog implementation with clean styling, clear content hierarchy, smooth animations, and responsive behavior. Effectively presents modal content with intuitive interaction controls, clear action buttons, and professional appearance."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "material",
-      "name": "Material Design",
-      "description": "Modal Dialog implementation in Material Design style",
+      "name": {
+        "zh-CN": "Material Design",
+        "en-US": "Material Design"
+      },
+      "description": {
+        "zh-CN": "Material Design風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Material Design style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "glassmorphism",
-      "name": "Glassmorphism",
-      "description": "Modal Dialog implementation in Glassmorphism style",
+      "name": {
+        "zh-CN": "玻璃拟态",
+        "en-US": "Glassmorphism"
+      },
+      "description": {
+        "zh-CN": "玻璃拟态風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Glassmorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neumorphism",
-      "name": "Neumorphism",
-      "description": "Modal Dialog implementation in Neumorphism style",
+      "name": {
+        "zh-CN": "拟态风格",
+        "en-US": "Neumorphism"
+      },
+      "description": {
+        "zh-CN": "拟态风格風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Neumorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "bootstrap",
-      "name": "Bootstrap",
-      "description": "Modal Dialog implementation in Bootstrap style",
+      "name": {
+        "zh-CN": "Bootstrap",
+        "en-US": "Bootstrap"
+      },
+      "description": {
+        "zh-CN": "Bootstrap風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Bootstrap style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neo-brutalism",
-      "name": "Neo Brutalism",
-      "description": "Modal Dialog implementation in Neo Brutalism style",
+      "name": {
+        "zh-CN": "新残酷主义",
+        "en-US": "Neo Brutalism"
+      },
+      "description": {
+        "zh-CN": "新残酷主义風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Neo Brutalism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "cyberpunk",
-      "name": "Cyberpunk",
-      "description": "Modal Dialog implementation in Cyberpunk style",
+      "name": {
+        "zh-CN": "赛博朋克",
+        "en-US": "Cyberpunk"
+      },
+      "description": {
+        "zh-CN": "赛博朋克風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Cyberpunk style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "bottom-sheet",
-      "name": "Bottom Sheet",
-      "description": "Modal Dialog implementation in Bottom Sheet style",
+      "name": {
+        "zh-CN": "底部弹出",
+        "en-US": "Bottom Sheet"
+      },
+      "description": {
+        "zh-CN": "底部弹出風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Bottom Sheet style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "side-drawer",
-      "name": "Side Drawer",
-      "description": "Modal Dialog implementation in Side Drawer style",
+      "name": {
+        "zh-CN": "侧边抽屉",
+        "en-US": "Side Drawer"
+      },
+      "description": {
+        "zh-CN": "侧边抽屉風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Side Drawer style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "notification",
-      "name": "Notification",
-      "description": "Modal Dialog implementation in Notification style",
+      "name": {
+        "zh-CN": "通知弹窗",
+        "en-US": "Notification"
+      },
+      "description": {
+        "zh-CN": "通知弹窗風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Notification style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "image-preview",
-      "name": "Image Preview",
-      "description": "Modal Dialog implementation in Image Preview style",
+      "name": {
+        "zh-CN": "图片预览",
+        "en-US": "Image Preview"
+      },
+      "description": {
+        "zh-CN": "图片预览風格的模态对话框實現",
+        "en-US": "Modal Dialog implementation in Image Preview style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

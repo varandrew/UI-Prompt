@@ -23,6 +23,13 @@
   },
   "templates": [
     {
+      "id": "visual-blueprint-system-os",
+      "title": {
+        "zh-CN": "蓝图系统监控",
+        "en-US": "Blueprint System OS"
+      }
+    },
+    {
       "id": "visual-blueprint",
       "title": {
         "zh-CN": "结构完整性监控仪表板",

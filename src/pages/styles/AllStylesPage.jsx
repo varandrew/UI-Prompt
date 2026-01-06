@@ -96,12 +96,9 @@ export function AllStylesPage() {
   const hasActiveFilters = filters.keyword || filters.categories.length > 0 || filters.tags.length > 0;
 
   const missingCount = missingReport?.missingCount || missingReport?.missingFamilies?.length || 0;
-  const missingHint =
-    missingCount > 0
-      ? (language === LANGUAGES.EN_US
-          ? `${missingCount} styles are not ready yet and are hidden for now.`
-          : `有 ${missingCount} 個風格尚未完成，暫不展示。`)
-      : '';
+  const missingHint = missingCount > 0
+    ? t('pages.styles.missingStylesHint', { count: missingCount })
+    : '';
 
   // 渲染 StyleCard (Grid View)
   const renderStyleCard = useCallback((style) => (
@@ -213,7 +210,7 @@ export function AllStylesPage() {
           {Array.isArray(missingReport?.missingFamilies) && missingReport.missingFamilies.length > 0 && (
             <details className="mt-2">
               <summary className="cursor-pointer select-none text-xs text-amber-800/80 dark:text-amber-200/80">
-                {language === LANGUAGES.EN_US ? 'Details' : '查看清單'}
+                {t('pages.styles.viewMissingDetails')}
               </summary>
               <div className="mt-2 max-h-40 overflow-auto text-xs text-amber-900/80 dark:text-amber-100/80">
                 {missingReport.missingFamilies

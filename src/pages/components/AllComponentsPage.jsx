@@ -62,24 +62,11 @@ export function AllComponentsPage() {
     const resolveI18n = createI18nResolver(language, t);
     const counts = {};
 
-    const getTranslatedOrFallback = (i18nKey, fallbackValue) => {
-      if (!i18nKey) return fallbackValue;
-      const translated = t(i18nKey);
-      return translated && translated !== i18nKey ? translated : fallbackValue;
-    };
-
     return translatedCategories.flatMap(cat =>
       cat.data.map(item => {
-        const fallbackTitle = resolveI18n(item.title);
-        const fallbackDescription = resolveI18n(item.description);
-
-        // Prefer i18n keys in src/i18n/* for localized component copy.
-        // Falls back to existing metadata strings when translation is missing.
-        const titleKey = item.id ? `data.components.${cat.id}.${item.id}.title` : null;
-        const descKey = item.id ? `data.components.${cat.id}.${item.id}.description` : null;
-
-        const title = getTranslatedOrFallback(titleKey, fallbackTitle);
-        const description = getTranslatedOrFallback(descKey, fallbackDescription);
+        // Use metadata i18n directly (already resolved by createI18nResolver)
+        const title = resolveI18n(item.title);
+        const description = resolveI18n(item.description);
         const demoHTML = item.demoHTML || item.variants?.[0]?.demoHTML || '';
         const customStyles = item.customStyles || item.variants?.[0]?.customStyles || '';
 

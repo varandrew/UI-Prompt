@@ -2,8 +2,14 @@
   "id": "toast-notifications",
   "category": "feedback",
   "component": {
-    "name": "Toast Notifications",
-    "description": "A toast notification component for displaying brief, non-intrusive messages to users with automatic dismissal. Supports multiple notification types, auto-dismissal functionality, custom actions, and stacking behavior for effective user communication and feedback.",
+    "name": {
+      "zh-CN": "Toast 通知",
+      "en-US": "Toast Notifications"
+    },
+    "description": {
+      "zh-CN": "Toast 通知組件，用於向用戶顯示簡短的、非侵入式的消息，支持自動關閉。支持多種通知類型、自動關閉功能、自定義操作和堆疊行為，用於有效的用戶交流和反饋。",
+      "en-US": "A toast notification component for displaying brief, non-intrusive messages to users with automatic dismissal. Supports multiple notification types, auto-dismissal functionality, custom actions, and stacking behavior for effective user communication and feedback."
+    },
     "tags": [
       "feedback",
       "notification"
@@ -13,36 +19,66 @@
   "variants": [
     {
       "id": "minimalism",
-      "name": "Minimalism",
-      "description": "A polished toast notification implementation with clear messaging, smooth animations, appropriate visual hierarchy, and responsive positioning. Provides effective temporary notifications with good visibility, minimal content disruption, and helpful visual feedback.",
+      "name": {
+        "zh-CN": "极简风格",
+        "en-US": "Minimalism"
+      },
+      "description": {
+        "zh-CN": "极简风格風格的Toast 通知實現",
+        "en-US": "A polished toast notification implementation with clear messaging, smooth animations, appropriate visual hierarchy, and responsive positioning. Provides effective temporary notifications with good visibility, minimal content disruption, and helpful visual feedback."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "material",
-      "name": "Material Design",
-      "description": "Toast Notifications implementation in Material Design style",
+      "name": {
+        "zh-CN": "Material Design",
+        "en-US": "Material Design"
+      },
+      "description": {
+        "zh-CN": "Material Design風格的Toast 通知實現",
+        "en-US": "Toast Notifications implementation in Material Design style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "glassmorphism",
-      "name": "Glassmorphism",
-      "description": "Toast Notifications implementation in Glassmorphism style",
+      "name": {
+        "zh-CN": "玻璃拟态",
+        "en-US": "Glassmorphism"
+      },
+      "description": {
+        "zh-CN": "玻璃拟态風格的Toast 通知實現",
+        "en-US": "Toast Notifications implementation in Glassmorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neumorphism",
-      "name": "Neumorphism",
-      "description": "Toast Notifications implementation in Neumorphism style",
+      "name": {
+        "zh-CN": "拟态风格",
+        "en-US": "Neumorphism"
+      },
+      "description": {
+        "zh-CN": "拟态风格風格的Toast 通知實現",
+        "en-US": "Toast Notifications implementation in Neumorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "bootstrap",
-      "name": "Bootstrap",
-      "description": "Toast Notifications implementation in Bootstrap style",
+      "name": {
+        "zh-CN": "Bootstrap",
+        "en-US": "Bootstrap"
+      },
+      "description": {
+        "zh-CN": "Bootstrap風格的Toast 通知實現",
+        "en-US": "Toast Notifications implementation in Bootstrap style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

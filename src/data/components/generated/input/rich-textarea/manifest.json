@@ -2,8 +2,14 @@
   "id": "rich-textarea",
   "category": "input",
   "component": {
-    "name": "Rich Textarea",
-    "description": "A rich textarea component that combines basic textarea functionality with enhanced features like auto-growing height, character counters, and comprehensive formatting hints. Supports markdown preview, syntax highlighting, and fully customizable placeholder text.",
+    "name": {
+      "zh-CN": "富文本输入框",
+      "en-US": "Rich Textarea"
+    },
+    "description": {
+      "zh-CN": "富文本文本區域組件，將基本文本區域功能與自動增長高度、字符計數器和全面格式化提示等增強功能相結合。支持降價預覽、語法高亮和完全可自定義的佔位符文本。",
+      "en-US": "A rich textarea component that combines basic textarea functionality with enhanced features like auto-growing height, character counters, and comprehensive formatting hints. Supports markdown preview, syntax highlighting, and fully customizable placeholder text."
+    },
     "tags": [
       "input"
     ],
@@ -12,8 +18,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "A feature-rich textarea implementation with auto-expanding behavior, helpful character counting, clear visual feedback, and responsive design. Provides enhanced text input experience with thoughtful features and intuitive controls that improve overall user productivity.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的富文本输入框實現",
+        "en-US": "A feature-rich textarea implementation with auto-expanding behavior, helpful character counting, clear visual feedback, and responsive design. Provides enhanced text input experience with thoughtful features and intuitive controls that improve overall user productivity."
+      },
       "hasContent": true,
       "hasStyles": false
     }

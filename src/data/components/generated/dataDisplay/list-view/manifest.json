@@ -2,8 +2,14 @@
   "id": "list-view",
   "category": "dataDisplay",
   "component": {
-    "name": "List View",
-    "description": "A versatile list view component for displaying structured data in scrollable list format. Features item selection, filtering, sorting capabilities, and customizable item templates for flexible data presentation and user interaction.",
+    "name": {
+      "zh-CN": "列表视图",
+      "en-US": "List View"
+    },
+    "description": {
+      "zh-CN": "多功能列表視圖組件，用於以可滾動列表格式顯示結構化數據。支持項目選擇、篩選、排序功能和可自定義的項目模板，以實現靈活的數據呈現和用戶交互。",
+      "en-US": "A versatile list view component for displaying structured data in scrollable list format. Features item selection, filtering, sorting capabilities, and customizable item templates for flexible data presentation and user interaction."
+    },
     "tags": [
       "dataDisplay"
     ],
@@ -12,36 +18,66 @@
   "variants": [
     {
       "id": "minimalism",
-      "name": "Minimalism",
-      "description": "A functional list view implementation featuring clear item separation, efficient scrolling, responsive interaction feedback, and smooth animations. Provides effective data visualization and navigation for browsing list content efficiently with intuitive controls.",
+      "name": {
+        "zh-CN": "极简风格",
+        "en-US": "Minimalism"
+      },
+      "description": {
+        "zh-CN": "极简风格風格的列表视图實現",
+        "en-US": "A functional list view implementation featuring clear item separation, efficient scrolling, responsive interaction feedback, and smooth animations. Provides effective data visualization and navigation for browsing list content efficiently with intuitive controls."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "material-design",
-      "name": "Material Design",
-      "description": "List View implementation in Material Design style",
+      "name": {
+        "zh-CN": "Material Design",
+        "en-US": "Material Design"
+      },
+      "description": {
+        "zh-CN": "Material Design風格的列表视图實現",
+        "en-US": "List View implementation in Material Design style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "bootstrap5",
-      "name": "Bootstrap 5",
-      "description": "List View implementation in Bootstrap 5 style",
+      "name": {
+        "zh-CN": "Bootstrap 5",
+        "en-US": "Bootstrap 5"
+      },
+      "description": {
+        "zh-CN": "Bootstrap 5風格的列表视图實現",
+        "en-US": "List View implementation in Bootstrap 5 style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neumorphism",
-      "name": "Neumorphism",
-      "description": "List View implementation in Neumorphism style",
+      "name": {
+        "zh-CN": "拟态风格",
+        "en-US": "Neumorphism"
+      },
+      "description": {
+        "zh-CN": "拟态风格風格的列表视图實現",
+        "en-US": "List View implementation in Neumorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "glassmorphism",
-      "name": "Glassmorphism",
-      "description": "List View implementation in Glassmorphism style",
+      "name": {
+        "zh-CN": "玻璃拟态",
+        "en-US": "Glassmorphism"
+      },
+      "description": {
+        "zh-CN": "玻璃拟态風格的列表视图實現",
+        "en-US": "List View implementation in Glassmorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

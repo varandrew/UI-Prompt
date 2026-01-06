@@ -2,8 +2,14 @@
   "id": "code-editor",
   "category": "advanced",
   "component": {
-    "name": "Code Editor",
-    "description": "A powerful code editor component designed for developers, featuring syntax highlighting for multiple programming languages, real-time code validation, line numbering, and customizable themes. Supports keyboard shortcuts, code folding, and extensible plugin architecture for enhanced development workflows.",
+    "name": {
+      "zh-CN": "代码编辑器",
+      "en-US": "Code Editor"
+    },
+    "description": {
+      "zh-CN": "為開發者設計的強大代碼編輯器組件，具有多種編程語言的語法高亮、實時代碼驗證、行號編號和可自定義主題。支持鍵盤快捷鍵、代碼摺疊和可擴展的插件架構，以增強開發工作流程。",
+      "en-US": "A powerful code editor component designed for developers, featuring syntax highlighting for multiple programming languages, real-time code validation, line numbering, and customizable themes. Supports keyboard shortcuts, code folding, and extensible plugin architecture for enhanced development workflows."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,8 +18,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "Square code editor component with Tokyo Night dark theme, featuring Mac-style window controls, syntax highlighting, and smooth interactive animations. Supports code preview with visual feedback effects.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的代码编辑器實現",
+        "en-US": "Square code editor component with Tokyo Night dark theme, featuring Mac-style window controls, syntax highlighting, and smooth interactive animations. Supports code preview with visual feedback effects."
+      },
       "hasContent": true,
       "hasStyles": true
     }

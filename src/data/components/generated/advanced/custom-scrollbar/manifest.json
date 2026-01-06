@@ -2,8 +2,14 @@
   "id": "custom-scrollbar",
   "category": "advanced",
   "component": {
-    "name": "Custom Scrollbar",
-    "description": "A customizable scrollbar component that replaces default browser scrollbars with stylized alternatives. Supports vertical and horizontal scrolling with custom colors, widths, and animation effects while maintaining full accessibility and smooth scrolling performance.",
+    "name": {
+      "zh-CN": "自定义滚动条",
+      "en-US": "Custom Scrollbar"
+    },
+    "description": {
+      "zh-CN": "可自定義的滾動條組件，用時尚的替代品替換默認瀏覽器滾動條。支持具有自定義顏色、寬度和動畫效果的垂直和水平滾動，同時保持完全的可訪問性和平滑的滾動性能。",
+      "en-US": "A customizable scrollbar component that replaces default browser scrollbars with stylized alternatives. Supports vertical and horizontal scrolling with custom colors, widths, and animation effects while maintaining full accessibility and smooth scrolling performance."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,36 +18,66 @@
   "variants": [
     {
       "id": "material-design",
-      "name": "Material Design",
-      "description": "A polished implementation of the custom scrollbar featuring modern styling, smooth animations, and intuitive hover effects with visual feedback. Provides excellent visibility and precise scroll position indicators for improved user navigation experience across all browsers.",
+      "name": {
+        "zh-CN": "Material Design",
+        "en-US": "Material Design"
+      },
+      "description": {
+        "zh-CN": "Material Design風格的自定义滚动条實現",
+        "en-US": "A polished implementation of the custom scrollbar featuring modern styling, smooth animations, and intuitive hover effects with visual feedback. Provides excellent visibility and precise scroll position indicators for improved user navigation experience across all browsers."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "glassmorphism",
-      "name": "Glassmorphism",
-      "description": "Custom Scrollbar implementation in Glassmorphism style",
+      "name": {
+        "zh-CN": "玻璃拟态",
+        "en-US": "Glassmorphism"
+      },
+      "description": {
+        "zh-CN": "玻璃拟态風格的自定义滚动条實現",
+        "en-US": "Custom Scrollbar implementation in Glassmorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neon-cyberpunk",
-      "name": "Neon Cyberpunk",
-      "description": "Custom Scrollbar implementation in Neon Cyberpunk style",
+      "name": {
+        "zh-CN": "霓虹赛博朋克",
+        "en-US": "Neon Cyberpunk"
+      },
+      "description": {
+        "zh-CN": "霓虹赛博朋克風格的自定义滚动条實現",
+        "en-US": "Custom Scrollbar implementation in Neon Cyberpunk style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "minimal-flat",
-      "name": "Minimal Flat",
-      "description": "Custom Scrollbar implementation in Minimal Flat style",
+      "name": {
+        "zh-CN": "极简扁平",
+        "en-US": "Minimal Flat"
+      },
+      "description": {
+        "zh-CN": "极简扁平風格的自定义滚动条實現",
+        "en-US": "Custom Scrollbar implementation in Minimal Flat style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "gradient-rainbow",
-      "name": "Gradient Rainbow",
-      "description": "Custom Scrollbar implementation in Gradient Rainbow style",
+      "name": {
+        "zh-CN": "渐变彩虹",
+        "en-US": "Gradient Rainbow"
+      },
+      "description": {
+        "zh-CN": "渐变彩虹風格的自定义滚动条實現",
+        "en-US": "Custom Scrollbar implementation in Gradient Rainbow style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

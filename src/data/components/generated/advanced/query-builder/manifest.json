@@ -2,8 +2,14 @@
   "id": "query-builder",
   "category": "advanced",
   "component": {
-    "name": "Query Builder",
-    "description": "A powerful query builder component for constructing database queries without coding, featuring drag-and-drop condition building, logical operators, and field selection. Supports filter grouping, query validation, and export functionality for flexible data querying.",
+    "name": {
+      "zh-CN": "查询构建器",
+      "en-US": "Query Builder"
+    },
+    "description": {
+      "zh-CN": "用於構造數據庫查詢而無需編碼的強大查詢構建器組件，具有拖放條件構建、邏輯運算符和字段選擇。支持過濾分組、查詢驗證和導出功能，用於靈活的數據查詢。",
+      "en-US": "A powerful query builder component for constructing database queries without coding, featuring drag-and-drop condition building, logical operators, and field selection. Supports filter grouping, query validation, and export functionality for flexible data querying."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,8 +18,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "Square query builder component with intuitive interactive interface, featuring drag-and-drop rule reordering, AND/OR logic toggle, and nested grouping support. Includes real-time validation, field selection, operators, value inputs, and SQL export functionality.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的查询构建器實現",
+        "en-US": "Square query builder component with intuitive interactive interface, featuring drag-and-drop rule reordering, AND/OR logic toggle, and nested grouping support. Includes real-time validation, field selection, operators, value inputs, and SQL export functionality."
+      },
       "hasContent": true,
       "hasStyles": true
     }

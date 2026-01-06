@@ -1,6 +1,6 @@
 {
-  "generated": "2026-01-05T12:55:20.330Z",
-  "count": 33,
+  "generated": "2026-01-06T13:09:05.805Z",
+  "count": 34,
   "files": {
     "core-minimalism-core-minimalism-design-principles:fullpage": {
       "hash": "713882de",
@@ -288,6 +288,27 @@
         "Wind"
       ],
       "size": 25888
+    },
+    "visual-blueprint-visual-blueprint-system-os:fullpage": {
+      "hash": "7f22d046",
+      "file": "visual-blueprint-visual-blueprint-system-os_fullpage-7f22d046.js",
+      "mode": "react",
+      "componentName": "App",
+      "lucideIcons": [
+        "Crosshair",
+        "Settings",
+        "Cpu",
+        "Activity",
+        "Database",
+        "Maximize",
+        "Minimize",
+        "AlertTriangle",
+        "Radio",
+        "Share2",
+        "Terminal",
+        "LayoutGrid"
+      ],
+      "size": 27211
     },
     "visual-comicBook-visual-comicBook-hero-landing:fullpage": {
       "hash": "085fb6bd",

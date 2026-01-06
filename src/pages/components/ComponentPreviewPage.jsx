@@ -66,19 +66,13 @@ export function ComponentPreviewPage() {
       : null;
 
     const resolveI18n = createI18nResolver(language, t);
-    const getTranslatedOrFallback = (i18nKey, fallbackValue) => {
-      if (!i18nKey) return fallbackValue;
-      const translated = t(i18nKey);
-      return translated && translated !== i18nKey ? translated : fallbackValue;
-    };
 
     return component.variants.map((variant, idx) => {
-      const fallbackName = resolveI18n(variant.name) || `Variant ${idx + 1}`;
-      const nameKey = baseKey && variant.id ? `${baseKey}.variants.${variant.id}.name` : null;
+      const name = resolveI18n(variant.name) || `Variant ${idx + 1}`;
 
       return {
         id: variant.id || `variant-${idx}`,
-        name: getTranslatedOrFallback(nameKey, fallbackName),
+        name,
         type: 'full'
       };
     });
@@ -120,34 +114,17 @@ export function ComponentPreviewPage() {
       : null;
 
     const resolveI18n = createI18nResolver(language, t);
-    const getTranslatedOrFallback = (i18nKey, fallbackValue) => {
-      if (!i18nKey) return fallbackValue;
-      const translated = t(i18nKey);
-      return translated && translated !== i18nKey ? translated : fallbackValue;
-    };
 
     return {
       ...component,
-      title: getTranslatedOrFallback(
-        baseKey ? `${baseKey}.title` : null,
-        resolveI18n(component.title)
-      ),
-      description: getTranslatedOrFallback(
-        baseKey ? `${baseKey}.description` : null,
-        resolveI18n(component.description)
-      ),
+      title: resolveI18n(component.title),
+      description: resolveI18n(component.description),
       categoryId,
       categoryLabel: t(`nav.${navKey}`),
       variants: (component.variants || []).map(variant => ({
         ...variant,
-        name: getTranslatedOrFallback(
-          baseKey && variant.id ? `${baseKey}.variants.${variant.id}.name` : null,
-          resolveI18n(variant.name)
-        ),
-        description: getTranslatedOrFallback(
-          baseKey && variant.id ? `${baseKey}.variants.${variant.id}.description` : null,
-          resolveI18n(variant.description)
-        )
+        name: resolveI18n(variant.name),
+        description: resolveI18n(variant.description)
       }))
     };
   }, [component, category, componentId, language, t, _translationsVersion]);

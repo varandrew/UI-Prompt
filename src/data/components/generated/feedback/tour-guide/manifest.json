@@ -2,8 +2,14 @@
   "id": "tour-guide",
   "category": "feedback",
   "component": {
-    "name": "Tour Guide",
-    "description": "A step-by-step user guidance component for displaying product features and workflows in a focused overlay interface. Features smart highlighting, step navigation, and interactive tooltips for onboarding and feature introduction.",
+    "name": {
+      "zh-CN": "导游指南",
+      "en-US": "Tour Guide"
+    },
+    "description": {
+      "zh-CN": "逐步用戶指導組件，用於在集中的疊加界面中顯示產品功能和工作流。具有智能高亮、步驟導航和交互式工具提示，用於入職和功能介紹。",
+      "en-US": "A step-by-step user guidance component for displaying product features and workflows in a focused overlay interface. Features smart highlighting, step navigation, and interactive tooltips for onboarding and feature introduction."
+    },
     "tags": [
       "guidance",
       "onboarding",
@@ -18,8 +24,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "Default tour guide variant with step-by-step visual guidance, spotlight effects, and smooth transitions. Effectively guides users through interface features with intuitive navigation controls and professional appearance.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的导游指南實現",
+        "en-US": "Default tour guide variant with step-by-step visual guidance, spotlight effects, and smooth transitions. Effectively guides users through interface features with intuitive navigation controls and professional appearance."
+      },
       "hasContent": true,
       "hasStyles": true
     }

@@ -124,6 +124,16 @@
     "familyId": "materialDesign",
     "templateId": "core-material-design"
   },
+  "core-minimalism-core-minimalism-design-principles": {
+    "category": "core",
+    "familyId": "minimalism",
+    "templateId": "core-minimalism-design-principles"
+  },
+  "core-minimalism-design-principles": {
+    "category": "core",
+    "familyId": "minimalism",
+    "templateId": "core-minimalism-design-principles"
+  },
   "core-minimalism-saas-landing": {
     "category": "core",
     "familyId": "minimalism",
@@ -157,7 +167,7 @@
   "minimalism": {
     "category": "core",
     "familyId": "minimalism",
-    "templateId": "core-minimalism-japanese-style"
+    "templateId": "core-minimalism-design-principles"
   },
   "core-scrollNarrative-product-feature-showcase": {
     "category": "core",
@@ -418,6 +428,16 @@
     "category": "visual",
     "familyId": "biophilic",
     "templateId": "visual-biophilic-biophilic"
+  },
+  "visual-blueprint-visual-blueprint-system-os": {
+    "category": "visual",
+    "familyId": "blueprint",
+    "templateId": "visual-blueprint-system-os"
+  },
+  "visual-blueprint-system-os": {
+    "category": "visual",
+    "familyId": "blueprint",
+    "templateId": "visual-blueprint-system-os"
   },
   "visual-blueprint-visual-blueprint": {
     "category": "visual",

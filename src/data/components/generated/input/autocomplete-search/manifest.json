@@ -2,8 +2,14 @@
   "id": "autocomplete-search",
   "category": "input",
   "component": {
-    "name": "Autocomplete Search",
-    "description": "An autocomplete search input component that provides intelligent suggestion matching as users type their queries. Features dynamic result filtering, customizable suggestion rendering, keyboard navigation, and debounced search for efficient query input.",
+    "name": {
+      "zh-CN": "自动补全搜索",
+      "en-US": "Autocomplete Search"
+    },
+    "description": {
+      "zh-CN": "自動補全搜索輸入組件，當用戶輸入查詢時提供智能建議匹配。支持動態結果篩選、可自定義建議渲染、鍵盤導航和防抖搜索，以實現高效的查詢輸入。",
+      "en-US": "An autocomplete search input component that provides intelligent suggestion matching as users type their queries. Features dynamic result filtering, customizable suggestion rendering, keyboard navigation, and debounced search for efficient query input."
+    },
     "tags": [
       "input"
     ],
@@ -12,8 +18,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "A practical autocomplete implementation with responsive suggestions, clear matching highlights, efficient filtering, and smooth animations. Enhances search experience with helpful suggestions, keyboard shortcuts, and smooth suggestion navigation for better user experience.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的自动补全搜索實現",
+        "en-US": "A practical autocomplete implementation with responsive suggestions, clear matching highlights, efficient filtering, and smooth animations. Enhances search experience with helpful suggestions, keyboard shortcuts, and smooth suggestion navigation for better user experience."
+      },
       "hasContent": true,
       "hasStyles": false
     }

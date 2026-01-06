@@ -1,7 +1,9 @@
 import { getFormattedStyleCount } from '../utils/styleStats.js';
+import { getFormattedComponentCount } from '../utils/componentStats.js';
 
-// Dynamic style count (e.g., "70+")
+// Dynamic counts (e.g., "70+", "20+")
 const STYLE_COUNT = getFormattedStyleCount();
+const COMPONENT_COUNT = getFormattedComponentCount();
 
 export default {
   "nav": {
@@ -58,7 +60,7 @@ export default {
     "styles": "Design Styles",
     "components": "UI Components",
     "stylesDescription": `Explore ${STYLE_COUNT} modern UI design styles`,
-    "componentsDescription": "Browse 40+ reusable UI components",
+    "componentsDescription": `Browse ${COMPONENT_COUNT} reusable UI components`,
     "searchPlaceholder": "Search styles or components...",
     "searchStyles": "Search styles (by name or description)",
     "searchComponents": "Search components (by name or description)",
@@ -97,6 +99,10 @@ export default {
     "testText": "Test text"
   },
   "pages": {
+    "styles": {
+      "missingStylesHint": "{count} styles are not ready yet and are hidden for now.",
+      "viewMissingDetails": "Details"
+    },
     "about": {
       "title": "About UI Design Prompt",
       "subtitle": "Making AI-generated UI unique again",

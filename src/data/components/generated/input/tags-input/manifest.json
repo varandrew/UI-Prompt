@@ -2,8 +2,14 @@
   "id": "tags-input",
   "category": "input",
   "component": {
-    "name": "Tags Input",
-    "description": "A tags input component for managing collections of text tags or labels with flexible input options. Features tag creation through various input methods, tag removal, duplicate prevention, and customizable tag display with icons and colors.",
+    "name": {
+      "zh-CN": "标签输入",
+      "en-US": "Tags Input"
+    },
+    "description": {
+      "zh-CN": "標籤輸入組件，用於管理文本標籤或標籤集合，具有靈活的輸入選項。通過各種輸入方法、標籤刪除、重複預防和可自定義標籤顯示（包括圖標和顏色）支持標籤創建。",
+      "en-US": "A tags input component for managing collections of text tags or labels with flexible input options. Features tag creation through various input methods, tag removal, duplicate prevention, and customizable tag display with icons and colors."
+    },
     "tags": [
       "input",
       "form"
@@ -13,8 +19,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "A user-friendly tags input implementation with intuitive tag creation, clear removal controls, visual tag organization, and smooth interactions. Effectively manages tag collections with smooth interactions and helpful visual feedback for optimal user experience.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的标签输入實現",
+        "en-US": "A user-friendly tags input implementation with intuitive tag creation, clear removal controls, visual tag organization, and smooth interactions. Effectively manages tag collections with smooth interactions and helpful visual feedback for optimal user experience."
+      },
       "hasContent": true,
       "hasStyles": false
     }

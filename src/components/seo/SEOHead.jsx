@@ -60,6 +60,10 @@ export function SEOHead({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonical} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:alt" content={description} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={ogLocale} />
       {language === LANGUAGES.ZH_CN && (
@@ -74,6 +78,7 @@ export function SEOHead({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image:alt" content={description} />
 
       {/* Baidu Specific Tags */}
       <meta name="applicable-device" content="pc,mobile" />

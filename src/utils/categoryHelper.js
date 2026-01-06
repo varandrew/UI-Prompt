@@ -311,6 +311,10 @@ export const getStyleCategories = (style) => {
 * @returns {Array} 翻译后的分类数组
 */
 export function applyTranslationsToCategories(categories, language) {
+  // NOTE: prefixMap is intentionally unused. It was part of an earlier i18n design
+  // that used centralized translation keys. The current architecture uses metadata
+  // i18n objects embedded in JSON files, which are resolved by createI18nResolver.
+  // This map is kept for historical reference only.
   // eslint-disable-next-line no-unused-vars
   const prefixMap = {
     core: 'styles.core',

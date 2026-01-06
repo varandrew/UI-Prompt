@@ -2,8 +2,14 @@
   "id": "range-slider",
   "category": "advanced",
   "component": {
-    "name": "Range Slider",
-    "description": "A flexible range slider component for selecting single or multiple values within defined ranges. Features dual handles, custom step sizes, value labels, and smooth animations. Supports vertical and horizontal orientations with full keyboard accessibility.",
+    "name": {
+      "zh-CN": "范围滑块",
+      "en-US": "Range Slider"
+    },
+    "description": {
+      "zh-CN": "靈活的範圍滑塊組件，用於在定義的範圍內選擇單個或多個值。具有雙手柄、自定義步長、價值標籤和平滑動畫。支持垂直和水平方向，具有完整的鍵盤可訪問性。",
+      "en-US": "A flexible range slider component for selecting single or multiple values within defined ranges. Features dual handles, custom step sizes, value labels, and smooth animations. Supports vertical and horizontal orientations with full keyboard accessibility."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,36 +18,66 @@
   "variants": [
     {
       "id": "minimal-vertical",
-      "name": "Minimal Vertical",
-      "description": "A modern range slider implementation with clear visual indicators, smooth animations, responsive behavior, and accurate value feedback. Provides precise value selection with helpful visual feedback indicators and intuitive handle manipulation for seamless user interaction experience.",
+      "name": {
+        "zh-CN": "极简垂直滑块",
+        "en-US": "Minimal Vertical"
+      },
+      "description": {
+        "zh-CN": "极简垂直滑块風格的范围滑块實現",
+        "en-US": "A modern range slider implementation with clear visual indicators, smooth animations, responsive behavior, and accurate value feedback. Provides precise value selection with helpful visual feedback indicators and intuitive handle manipulation for seamless user interaction experience."
+      },
       "hasContent": true,
       "hasStyles": false
     },
     {
       "id": "glassmorphism-dual",
-      "name": "Glassmorphism Dual",
-      "description": "Range Slider implementation in Glassmorphism Dual style",
+      "name": {
+        "zh-CN": "双滑块玻璃态",
+        "en-US": "Glassmorphism Dual"
+      },
+      "description": {
+        "zh-CN": "双滑块玻璃态風格的范围滑块實現",
+        "en-US": "Range Slider implementation in Glassmorphism Dual style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "bootstrap-price-filter",
-      "name": "Bootstrap Price Filter",
-      "description": "Range Slider implementation in Bootstrap Price Filter style",
+      "name": {
+        "zh-CN": "Bootstrap 价格筛选",
+        "en-US": "Bootstrap Price Filter"
+      },
+      "description": {
+        "zh-CN": "Bootstrap 价格筛选風格的范围滑块實現",
+        "en-US": "Range Slider implementation in Bootstrap Price Filter style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "material-brightness",
-      "name": "Material Brightness",
-      "description": "Range Slider implementation in Material Brightness style",
+      "name": {
+        "zh-CN": "Material 亮度调节",
+        "en-US": "Material Brightness"
+      },
+      "description": {
+        "zh-CN": "Material 亮度调节風格的范围滑块實現",
+        "en-US": "Range Slider implementation in Material Brightness style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "neumorphism-volume",
-      "name": "Neumorphism Volume",
-      "description": "Range Slider implementation in Neumorphism Volume style",
+      "name": {
+        "zh-CN": "拟态音量调节",
+        "en-US": "Neumorphism Volume"
+      },
+      "description": {
+        "zh-CN": "拟态音量调节風格的范围滑块實現",
+        "en-US": "Range Slider implementation in Neumorphism Volume style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

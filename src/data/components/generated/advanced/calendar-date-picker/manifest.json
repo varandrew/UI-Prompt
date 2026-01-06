@@ -2,8 +2,14 @@
   "id": "calendar-date-picker",
   "category": "advanced",
   "component": {
-    "name": "Calendar Date Picker",
-    "description": "An advanced calendar-based date picker component that provides users with an intuitive interface for selecting single dates, date ranges, or multiple dates. Features include month and year navigation, keyboard accessibility, and customizable date formatting options for flexible date selection scenarios.",
+    "name": {
+      "zh-CN": "日历日期选择",
+      "en-US": "Calendar Date Picker"
+    },
+    "description": {
+      "zh-CN": "高級日曆基礎日期選擇器組件，為用戶提供直觀的界面來選擇單個日期、日期範圍或多個日期。功能包括月份和年份導航、鍵盤可訪問性和可自定義的日期格式選項，適應靈活的日期選擇場景。",
+      "en-US": "An advanced calendar-based date picker component that provides users with an intuitive interface for selecting single dates, date ranges, or multiple dates. Features include month and year navigation, keyboard accessibility, and customizable date formatting options for flexible date selection scenarios."
+    },
     "tags": [
       "advanced",
       "date",
@@ -14,8 +20,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "A clean and minimalist implementation of the calendar date picker with intuitive controls, clear visual hierarchy, and responsive design. This variant prioritizes user experience with straightforward date navigation and selection feedback.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的日历日期选择實現",
+        "en-US": "A clean and minimalist implementation of the calendar date picker with intuitive controls, clear visual hierarchy, and responsive design. This variant prioritizes user experience with straightforward date navigation and selection feedback."
+      },
       "hasContent": true,
       "hasStyles": false
     }

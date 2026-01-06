@@ -55,26 +55,10 @@ export function ComponentDetailPage() {
     // 從 registry 動態獲取 nav key，避免硬編碼
     const navKey = getCategoryNavKey(categoryId);
 
-    const getTranslatedOrFallback = (i18nKey, fallbackValue) => {
-      if (!i18nKey) return fallbackValue;
-      const translated = t(i18nKey);
-      return translated && translated !== i18nKey ? translated : fallbackValue;
-    };
-
-    const baseKey = resolvedComponentId
-      ? `data.components.${categoryId}.${resolvedComponentId}`
-      : null;
-
     return {
       ...componentFromLoader,
-      title: getTranslatedOrFallback(
-        baseKey ? `${baseKey}.title` : null,
-        resolveI18n(componentFromLoader.title)
-      ),
-      description: getTranslatedOrFallback(
-        baseKey ? `${baseKey}.description` : null,
-        resolveI18n(componentFromLoader.description)
-      ),
+      title: resolveI18n(componentFromLoader.title),
+      description: resolveI18n(componentFromLoader.description),
       categoryId: categoryId,
       categoryKey: navKey,
       categoryIcon: '',
@@ -82,14 +66,8 @@ export function ComponentDetailPage() {
       // 處理變體的 i18n - 添加安全檢查
       variants: (componentFromLoader.variants || []).map(variant => ({
         ...variant,
-        name: getTranslatedOrFallback(
-          baseKey && variant.id ? `${baseKey}.variants.${variant.id}.name` : null,
-          resolveI18n(variant.name)
-        ),
-        description: getTranslatedOrFallback(
-          baseKey && variant.id ? `${baseKey}.variants.${variant.id}.description` : null,
-          resolveI18n(variant.description)
-        )
+        name: resolveI18n(variant.name),
+        description: resolveI18n(variant.description)
       }))
     };
   }, [componentFromLoader, language, t, category, componentId, _translationsVersion]);

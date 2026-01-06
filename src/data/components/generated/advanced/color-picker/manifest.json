@@ -2,8 +2,14 @@
   "id": "color-picker",
   "category": "advanced",
   "component": {
-    "name": "Color Picker",
-    "description": "A sophisticated color picker component that enables users to select colors through multiple input methods including hex input, RGB sliders, HSL controls, and visual color palettes. Offers live preview, color history, and accessibility features for inclusive color selection experiences.",
+    "name": {
+      "zh-CN": "颜色选择器",
+      "en-US": "Color Picker"
+    },
+    "description": {
+      "zh-CN": "精緻的顏色選擇器組件，使用戶能夠通過多種輸入方式選擇顏色，包括十六進制輸入、RGB滑塊、HSL控件和可視顏色調色板。提供實時預覽、顏色歷史記錄和可訪問性功能，以提供包容的顏色選擇體驗。",
+      "en-US": "A sophisticated color picker component that enables users to select colors through multiple input methods including hex input, RGB sliders, HSL controls, and visual color palettes. Offers live preview, color history, and accessibility features for inclusive color selection experiences."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,8 +18,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "A user-friendly implementation of the color picker featuring intuitive visual controls, smooth color transitions, responsive design, and comprehensive accessibility features. Includes palette presets and color history tracking functionality for streamlined color selection workflows.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的颜色选择器實現",
+        "en-US": "A user-friendly implementation of the color picker featuring intuitive visual controls, smooth color transitions, responsive design, and comprehensive accessibility features. Includes palette presets and color history tracking functionality for streamlined color selection workflows."
+      },
       "hasContent": true,
       "hasStyles": false
     }

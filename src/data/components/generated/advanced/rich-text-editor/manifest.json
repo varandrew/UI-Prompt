@@ -2,8 +2,14 @@
   "id": "rich-text-editor",
   "category": "advanced",
   "component": {
-    "name": "Rich Text Editor",
-    "description": "A comprehensive rich text editor component with formatting toolbar, content styling capabilities, and support for multiple text formats. Includes text manipulation, list formatting, link insertion, and extensible plugin architecture for enhanced content creation.",
+    "name": {
+      "zh-CN": "富文本编辑器",
+      "en-US": "Rich Text Editor"
+    },
+    "description": {
+      "zh-CN": "全面的富文本編輯器組件，具有格式化工具欄、內容樣式功能和對多種文本格式的支持。包括文本操作、列表格式設置、鏈接插入和可擴展的插件架構，以增強內容創建。",
+      "en-US": "A comprehensive rich text editor component with formatting toolbar, content styling capabilities, and support for multiple text formats. Includes text manipulation, list formatting, link insertion, and extensible plugin architecture for enhanced content creation."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,8 +18,14 @@
   "variants": [
     {
       "id": "default",
-      "name": "Default",
-      "description": "A well-designed rich text editor implementation with accessible toolbar controls, clear formatting options, and responsive editing experience throughout the interface. Enables users to create and format rich content efficiently with intuitive controls and comprehensive formatting tools.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的富文本编辑器實現",
+        "en-US": "A well-designed rich text editor implementation with accessible toolbar controls, clear formatting options, and responsive editing experience throughout the interface. Enables users to create and format rich content efficiently with intuitive controls and comprehensive formatting tools."
+      },
       "hasContent": true,
       "hasStyles": false
     }

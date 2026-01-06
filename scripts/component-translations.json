@@ -1,0 +1,223 @@
+{
+  "components": {
+    "animated-counter": {
+      "name": { "zh-CN": "动画计数器", "en-US": "Animated Counter" },
+      "description": {
+        "zh-CN": "動畫計數器組件，以平滑計數動畫和過渡顯示數值。非常適合統計顯示、成就計數器和度量呈現，支持可自定義的動畫持續時間和緩動函數。",
+        "en-US": "An animated counter component that displays numerical values with smooth counting animations and transitions. Perfect for statistics display, achievement counters, and metric presentations with customizable animation duration and easing functions."
+      }
+    },
+    "autocomplete-search": {
+      "name": { "zh-CN": "自动补全搜索", "en-US": "Autocomplete Search" },
+      "description": {
+        "zh-CN": "自動補全搜索輸入組件，當用戶輸入查詢時提供智能建議匹配。支持動態結果篩選、可自定義建議渲染、鍵盤導航和防抖搜索，以實現高效的查詢輸入。",
+        "en-US": "An autocomplete search input component that provides intelligent suggestion matching as users type their queries. Features dynamic result filtering, customizable suggestion rendering, keyboard navigation, and debounced search for efficient query input."
+      }
+    },
+    "calendar-date-picker": {
+      "name": { "zh-CN": "日历日期选择", "en-US": "Calendar Date Picker" },
+      "description": {
+        "zh-CN": "高級日曆基礎日期選擇器組件，為用戶提供直觀的界面來選擇單個日期、日期範圍或多個日期。功能包括月份和年份導航、鍵盤可訪問性和可自定義的日期格式選項，適應靈活的日期選擇場景。",
+        "en-US": "An advanced calendar-based date picker component that provides users with an intuitive interface for selecting single dates, date ranges, or multiple dates. Features include month and year navigation, keyboard accessibility, and customizable date formatting options for flexible date selection scenarios."
+      }
+    },
+    "card-grid": {
+      "name": { "zh-CN": "卡片网格", "en-US": "Card Grid" },
+      "description": {
+        "zh-CN": "靈活的卡片網格組件，用於在響應式網格布局中顯示項目集合。支持各種卡片大小、基於屏幕尺寸的動態列調整和懸停交互，以提高用戶參與度。",
+        "en-US": "A flexible card grid component for displaying collections of items in a responsive grid layout. Supports various card sizes, dynamic column adjustment based on screen size, and hover interactions for improved user engagement."
+      }
+    },
+    "code-editor": {
+      "name": { "zh-CN": "代码编辑器", "en-US": "Code Editor" },
+      "description": {
+        "zh-CN": "為開發者設計的強大代碼編輯器組件，具有多種編程語言的語法高亮、實時代碼驗證、行號編號和可自定義主題。支持鍵盤快捷鍵、代碼摺疊和可擴展的插件架構，以增強開發工作流程。",
+        "en-US": "A powerful code editor component designed for developers, featuring syntax highlighting for multiple programming languages, real-time code validation, line numbering, and customizable themes. Supports keyboard shortcuts, code folding, and extensible plugin architecture for enhanced development workflows."
+      }
+    },
+    "color-picker": {
+      "name": { "zh-CN": "颜色选择器", "en-US": "Color Picker" },
+      "description": {
+        "zh-CN": "精緻的顏色選擇器組件，使用戶能夠通過多種輸入方式選擇顏色，包括十六進制輸入、RGB滑塊、HSL控件和可視顏色調色板。提供實時預覽、顏色歷史記錄和可訪問性功能，以提供包容的顏色選擇體驗。",
+        "en-US": "A sophisticated color picker component that enables users to select colors through multiple input methods including hex input, RGB sliders, HSL controls, and visual color palettes. Offers live preview, color history, and accessibility features for inclusive color selection experiences."
+      }
+    },
+    "custom-scrollbar": {
+      "name": { "zh-CN": "自定义滚动条", "en-US": "Custom Scrollbar" },
+      "description": {
+        "zh-CN": "可自定義的滾動條組件，用時尚的替代品替換默認瀏覽器滾動條。支持具有自定義顏色、寬度和動畫效果的垂直和水平滾動，同時保持完全的可訪問性和平滑的滾動性能。",
+        "en-US": "A customizable scrollbar component that replaces default browser scrollbars with stylized alternatives. Supports vertical and horizontal scrolling with custom colors, widths, and animation effects while maintaining full accessibility and smooth scrolling performance."
+      }
+    },
+    "file-upload": {
+      "name": { "zh-CN": "文件上传", "en-US": "File Upload" },
+      "description": {
+        "zh-CN": "多功能文件上傳組件，支持單個和多個文件上傳、拖放支持、文件類型驗證和進度跟蹤。包括文件預覽縮略圖、上傳取消和全面的錯誤處理，用於健壯的文件管理。",
+        "en-US": "A versatile file upload component that handles single and multiple file uploads with drag-and-drop support, file type validation, and progress tracking. Includes file preview thumbnails, upload cancellation, and comprehensive error handling for robust file management."
+      }
+    },
+    "focus-navigator": {
+      "name": { "zh-CN": "焦点导航器", "en-US": "Focus Navigator" },
+      "description": {
+        "zh-CN": "互動焦點導航器組件，允許用戶通過點擊按鈕改變網頁上的焦點位置。支持平滑滾動、進度跟蹤和多種設計變體。",
+        "en-US": "Interactive focus navigator component that allows users to change focus position on the webpage by clicking buttons. Supports smooth scrolling, progress tracking, and multiple design variants."
+      }
+    },
+    "kanban-board": {
+      "name": { "zh-CN": "看板", "en-US": "Kanban Board" },
+      "description": {
+        "zh-CN": "用於任務和工作流管理的高級看板組件，具有拖放卡片組織功能，跨多列。支持卡片創建、編輯、刪除和列自定義，適應靈活的項目管理和團隊協作。",
+        "en-US": "An advanced kanban board component for task and workflow management, featuring drag-and-drop card organization across multiple columns. Supports card creation, editing, deletion, and column customization for flexible project management and team collaboration."
+      }
+    },
+    "list-view": {
+      "name": { "zh-CN": "列表视图", "en-US": "List View" },
+      "description": {
+        "zh-CN": "多功能列表視圖組件，用於以可滾動列表格式顯示結構化數據。支持項目選擇、篩選、排序功能和可自定義的項目模板，以實現靈活的數據呈現和用戶交互。",
+        "en-US": "A versatile list view component for displaying structured data in scrollable list format. Features item selection, filtering, sorting capabilities, and customizable item templates for flexible data presentation and user interaction."
+      }
+    },
+    "map-picker": {
+      "name": { "zh-CN": "地图选择器", "en-US": "Map Picker" },
+      "description": {
+        "zh-CN": "交互式地圖位置選擇器組件，允許用戶通過地圖交互、搜索功能和地址輸入選擇地理坐標。具有位置預覽、縮放功能和與地理編碼服務的集成。",
+        "en-US": "An interactive map-based location picker component that allows users to select geographical coordinates through map interaction, search functionality, and address input. Features location preview, zooming capabilities, and integration with geocoding services."
+      }
+    },
+    "modal-dialog": {
+      "name": { "zh-CN": "模态对话框", "en-US": "Modal Dialog" },
+      "description": {
+        "zh-CN": "模態對話框組件，用於在集中的疊加界面中顯示重要信息或請求用戶操作。具有可自定義的內容、操作按鈕和背景交互處理，適用於引人注目的通知和用戶確認。",
+        "en-US": "A modal dialog component for displaying important information or requesting user actions in a focused overlay interface. Features customizable content, action buttons, and backdrop interaction handling for attention-grabbing notifications and user confirmations."
+      }
+    },
+    "query-builder": {
+      "name": { "zh-CN": "查询构建器", "en-US": "Query Builder" },
+      "description": {
+        "zh-CN": "用於構造數據庫查詢而無需編碼的強大查詢構建器組件，具有拖放條件構建、邏輯運算符和字段選擇。支持過濾分組、查詢驗證和導出功能，用於靈活的數據查詢。",
+        "en-US": "A powerful query builder component for constructing database queries without coding, featuring drag-and-drop condition building, logical operators, and field selection. Supports filter grouping, query validation, and export functionality for flexible data querying."
+      }
+    },
+    "range-slider": {
+      "name": { "zh-CN": "范围滑块", "en-US": "Range Slider" },
+      "description": {
+        "zh-CN": "靈活的範圍滑塊組件，用於在定義的範圍內選擇單個或多個值。具有雙手柄、自定義步長、價值標籤和平滑動畫。支持垂直和水平方向，具有完整的鍵盤可訪問性。",
+        "en-US": "A flexible range slider component for selecting single or multiple values within defined ranges. Features dual handles, custom step sizes, value labels, and smooth animations. Supports vertical and horizontal orientations with full keyboard accessibility."
+      }
+    },
+    "reaction-picker": {
+      "name": { "zh-CN": "表情选择器", "en-US": "Reaction Picker" },
+      "description": {
+        "zh-CN": "交互式反應選擇器組件，允許用戶選擇表情符號或反應圖標以進行反饋和參與。具有表情符號庫、搜索功能、最近反應跟蹤和可自定義的反應類別。",
+        "en-US": "An interactive reaction picker component allowing users to select emoji or reaction icons for feedback and engagement purposes. Features emoji library, search functionality, recent reactions tracking, and customizable reaction categories."
+      }
+    },
+    "rich-textarea": {
+      "name": { "zh-CN": "富文本输入框", "en-US": "Rich Textarea" },
+      "description": {
+        "zh-CN": "富文本文本區域組件，將基本文本區域功能與自動增長高度、字符計數器和全面格式化提示等增強功能相結合。支持降價預覽、語法高亮和完全可自定義的佔位符文本。",
+        "en-US": "A rich textarea component that combines basic textarea functionality with enhanced features like auto-growing height, character counters, and comprehensive formatting hints. Supports markdown preview, syntax highlighting, and fully customizable placeholder text."
+      }
+    },
+    "rich-text-editor": {
+      "name": { "zh-CN": "富文本编辑器", "en-US": "Rich Text Editor" },
+      "description": {
+        "zh-CN": "全面的富文本編輯器組件，具有格式化工具欄、內容樣式功能和對多種文本格式的支持。包括文本操作、列表格式設置、鏈接插入和可擴展的插件架構，以增強內容創建。",
+        "en-US": "A comprehensive rich text editor component with formatting toolbar, content styling capabilities, and support for multiple text formats. Includes text manipulation, list formatting, link insertion, and extensible plugin architecture for enhanced content creation."
+      }
+    },
+    "scrollbar-thumb": {
+      "name": { "zh-CN": "滚动条滑块", "en-US": "Scrollbar Thumb" },
+      "description": {
+        "zh-CN": "自定義滾動條拇指組件，提供滾動位置的視覺指示並啟用滾動導航。具有可自定義的樣式、平滑跟蹤和響應式行為，可增強滾動體驗和視覺反饋。",
+        "en-US": "A custom scrollbar thumb component that provides visual indication of scroll position and enables scroll navigation. Features customizable styling, smooth tracking, and responsive behavior for enhanced scrolling experience and visual feedback."
+      }
+    },
+    "statistics-card": {
+      "name": { "zh-CN": "统计卡片", "en-US": "Statistics Card" },
+      "description": {
+        "zh-CN": "統計卡片組件，專門設計用於呈現關鍵指標、性能指標和重要數據點。用視覺指示器、圖標和可自定義的樣式顯示標題、值、趨勢和比較數據，適用於儀表板應用。",
+        "en-US": "A statistics card component specifically designed for presenting key metrics, performance indicators, and important data points. Displays titles, values, trends, and comparative data with visual indicators, icons, and customizable styling for dashboard applications."
+      }
+    },
+    "table-basic": {
+      "name": { "zh-CN": "基础表格", "en-US": "Basic Table" },
+      "description": {
+        "zh-CN": "基礎表格組件，用於以組織的格式顯示帶有表頭、行和列的表格數據。支持排序、篩選、分頁和響應式行為，同時保持清晰度和可訪問性，以實現有效的數據呈現。",
+        "en-US": "A foundational table component for displaying tabular data with headers, rows, and columns in organized format. Supports sorting, filtering, pagination, and responsive behavior while maintaining clarity and accessibility for effective data presentation."
+      }
+    },
+    "tags-input": {
+      "name": { "zh-CN": "标签输入", "en-US": "Tags Input" },
+      "description": {
+        "zh-CN": "標籤輸入組件，用於管理文本標籤或標籤集合，具有靈活的輸入選項。通過各種輸入方法、標籤刪除、重複預防和可自定義標籤顯示（包括圖標和顏色）支持標籤創建。",
+        "en-US": "A tags input component for managing collections of text tags or labels with flexible input options. Features tag creation through various input methods, tag removal, duplicate prevention, and customizable tag display with icons and colors."
+      }
+    },
+    "toast-notifications": {
+      "name": { "zh-CN": "Toast 通知", "en-US": "Toast Notifications" },
+      "description": {
+        "zh-CN": "Toast 通知組件，用於向用戶顯示簡短的、非侵入式的消息，支持自動關閉。支持多種通知類型、自動關閉功能、自定義操作和堆疊行為，用於有效的用戶交流和反饋。",
+        "en-US": "A toast notification component for displaying brief, non-intrusive messages to users with automatic dismissal. Supports multiple notification types, auto-dismissal functionality, custom actions, and stacking behavior for effective user communication and feedback."
+      }
+    },
+    "tour-guide": {
+      "name": { "zh-CN": "导游指南", "en-US": "Tour Guide" },
+      "description": {
+        "zh-CN": "逐步用戶指導組件，用於在集中的疊加界面中顯示產品功能和工作流。具有智能高亮、步驟導航和交互式工具提示，用於入職和功能介紹。",
+        "en-US": "A step-by-step user guidance component for displaying product features and workflows in a focused overlay interface. Features smart highlighting, step navigation, and interactive tooltips for onboarding and feature introduction."
+      }
+    },
+    "loading-animate": {
+      "name": { "zh-CN": "加载动画", "en-US": "Loading Animate" },
+      "description": {
+        "zh-CN": "多功能加載動畫組件，具有微調、點、進度條、骨架、脈衝、波浪、環和反彈變體",
+        "en-US": "Versatile loading animation component with spinner, dots, progress bar, skeleton, pulse, wave, ring and bounce variants"
+      }
+    }
+  },
+  "variants": {
+    "minimalism": { "zh-CN": "极简风格", "en-US": "Minimalism" },
+    "minimalist": { "zh-CN": "极简风格", "en-US": "Minimalist" },
+    "material-design": { "zh-CN": "Material Design", "en-US": "Material Design" },
+    "material": { "zh-CN": "Material Design", "en-US": "Material Design" },
+    "bootstrap5": { "zh-CN": "Bootstrap 5", "en-US": "Bootstrap 5" },
+    "bootstrap": { "zh-CN": "Bootstrap", "en-US": "Bootstrap" },
+    "ant-design": { "zh-CN": "Ant Design", "en-US": "Ant Design" },
+    "neumorphism": { "zh-CN": "拟态风格", "en-US": "Neumorphism" },
+    "glassmorphism": { "zh-CN": "玻璃拟态", "en-US": "Glassmorphism" },
+    "neo-brutalism": { "zh-CN": "新残酷主义", "en-US": "Neo Brutalism" },
+    "skeuomorphism": { "zh-CN": "拟物风格", "en-US": "Skeuomorphism" },
+    "flat-design": { "zh-CN": "扁平设计", "en-US": "Flat Design" },
+    "minimal-flat": { "zh-CN": "极简扁平", "en-US": "Minimal Flat" },
+    "cyberpunk": { "zh-CN": "赛博朋克", "en-US": "Cyberpunk" },
+    "neon-cyberpunk": { "zh-CN": "霓虹赛博朋克", "en-US": "Neon Cyberpunk" },
+    "terminal-cli": { "zh-CN": "终端风格", "en-US": "Terminal CLI" },
+    "gradient-rainbow": { "zh-CN": "渐变彩虹", "en-US": "Gradient Rainbow" },
+    "gradient-effects": { "zh-CN": "渐变效果", "en-US": "Gradient Effects" },
+    "minimal-vertical": { "zh-CN": "极简垂直滑块", "en-US": "Minimal Vertical" },
+    "glassmorphism-dual": { "zh-CN": "双滑块玻璃态", "en-US": "Glassmorphism Dual" },
+    "bootstrap-price-filter": { "zh-CN": "Bootstrap 价格筛选", "en-US": "Bootstrap Price Filter" },
+    "material-brightness": { "zh-CN": "Material 亮度调节", "en-US": "Material Brightness" },
+    "neumorphism-volume": { "zh-CN": "拟态音量调节", "en-US": "Neumorphism Volume" },
+    "minimal-modern": { "zh-CN": "现代极简", "en-US": "Minimal Modern" },
+    "brand-customizable": { "zh-CN": "品牌定制", "en-US": "Brand Customizable" },
+    "interactive-enhanced": { "zh-CN": "交互增强", "en-US": "Interactive Enhanced" },
+    "bottom-sheet": { "zh-CN": "底部弹出", "en-US": "Bottom Sheet" },
+    "side-drawer": { "zh-CN": "侧边抽屉", "en-US": "Side Drawer" },
+    "notification": { "zh-CN": "通知弹窗", "en-US": "Notification" },
+    "image-preview": { "zh-CN": "图片预览", "en-US": "Image Preview" },
+    "default": { "zh-CN": "默认样式", "en-US": "Default" },
+    "featured": { "zh-CN": "特色", "en-US": "Featured" },
+    "modern-detailed": { "zh-CN": "现代详细", "en-US": "Modern Detailed" },
+    "spinner": { "zh-CN": "微调器", "en-US": "Spinner" },
+    "dots": { "zh-CN": "点", "en-US": "Dots" },
+    "progress": { "zh-CN": "进度条", "en-US": "Progress Bar" },
+    "skeleton": { "zh-CN": "骨架", "en-US": "Skeleton" },
+    "pulse": { "zh-CN": "脉冲", "en-US": "Pulse" },
+    "wave": { "zh-CN": "波", "en-US": "Wave" },
+    "ring": { "zh-CN": "环", "en-US": "Ring" },
+    "bounce": { "zh-CN": "反弹", "en-US": "Bounce" },
+    "clean-simple": { "zh-CN": "清洁简单", "en-US": "Clean & Simple" }
+  }
+}

@@ -2,8 +2,14 @@
   "id": "animated-counter",
   "category": "dataDisplay",
   "component": {
-    "name": "Animated Counter",
-    "description": "An animated counter component that displays numerical values with smooth counting animations and transitions. Perfect for statistics display, achievement counters, and metric presentations with customizable animation duration and easing functions.",
+    "name": {
+      "zh-CN": "动画计数器",
+      "en-US": "Animated Counter"
+    },
+    "description": {
+      "zh-CN": "動畫計數器組件，以平滑計數動畫和過渡顯示數值。非常適合統計顯示、成就計數器和度量呈現，支持可自定義的動畫持續時間和緩動函數。",
+      "en-US": "An animated counter component that displays numerical values with smooth counting animations and transitions. Perfect for statistics display, achievement counters, and metric presentations with customizable animation duration and easing functions."
+    },
     "tags": [
       "dataDisplay"
     ],
@@ -12,36 +18,66 @@
   "variants": [
     {
       "id": "minimalism",
-      "name": "Minimalism",
-      "description": "A polished animated counter implementation with smooth number transitions, clear visual presentation, responsive sizing, and smooth animation effects. Effectively presents numerical data with engaging animation effects that draw attention and enhance visual appeal.",
+      "name": {
+        "zh-CN": "极简风格",
+        "en-US": "Minimalism"
+      },
+      "description": {
+        "zh-CN": "极简风格風格的动画计数器實現",
+        "en-US": "A polished animated counter implementation with smooth number transitions, clear visual presentation, responsive sizing, and smooth animation effects. Effectively presents numerical data with engaging animation effects that draw attention and enhance visual appeal."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "skeuomorphism",
-      "name": "Skeuomorphism",
-      "description": "Animated Counter implementation in Skeuomorphism style",
+      "name": {
+        "zh-CN": "拟物风格",
+        "en-US": "Skeuomorphism"
+      },
+      "description": {
+        "zh-CN": "拟物风格風格的动画计数器實現",
+        "en-US": "Animated Counter implementation in Skeuomorphism style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "material-design",
-      "name": "Material Design",
-      "description": "Animated Counter implementation in Material Design style",
+      "name": {
+        "zh-CN": "Material Design",
+        "en-US": "Material Design"
+      },
+      "description": {
+        "zh-CN": "Material Design風格的动画计数器實現",
+        "en-US": "Animated Counter implementation in Material Design style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "terminal-cli",
-      "name": "Terminal CLI",
-      "description": "Animated Counter implementation in Terminal CLI style",
+      "name": {
+        "zh-CN": "终端风格",
+        "en-US": "Terminal CLI"
+      },
+      "description": {
+        "zh-CN": "终端风格風格的动画计数器實現",
+        "en-US": "Animated Counter implementation in Terminal CLI style"
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "cyberpunk",
-      "name": "Cyberpunk",
-      "description": "Animated Counter implementation in Cyberpunk style",
+      "name": {
+        "zh-CN": "赛博朋克",
+        "en-US": "Cyberpunk"
+      },
+      "description": {
+        "zh-CN": "赛博朋克風格的动画计数器實現",
+        "en-US": "Animated Counter implementation in Cyberpunk style"
+      },
       "hasContent": true,
       "hasStyles": true
     }

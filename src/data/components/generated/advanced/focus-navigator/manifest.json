@@ -2,8 +2,14 @@
   "id": "focus-navigator",
   "category": "advanced",
   "component": {
-    "name": "Focus Navigator",
-    "description": "Interactive focus navigator component that allows users to change focus position on the webpage by clicking buttons. Supports smooth scrolling, progress tracking, and multiple design variants.",
+    "name": {
+      "zh-CN": "焦点导航器",
+      "en-US": "Focus Navigator"
+    },
+    "description": {
+      "zh-CN": "互動焦點導航器組件，允許用戶通過點擊按鈕改變網頁上的焦點位置。支持平滑滾動、進度跟蹤和多種設計變體。",
+      "en-US": "Interactive focus navigator component that allows users to change focus position on the webpage by clicking buttons. Supports smooth scrolling, progress tracking, and multiple design variants."
+    },
     "tags": [
       "advanced",
       "navigation",
@@ -14,15 +20,27 @@
   "variants": [
     {
       "id": "default",
-      "name": "Clean & Simple",
-      "description": "Clean focus navigation design with top progress label, section buttons, and up/down navigation buttons. Perfect for simple multi-section content.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的焦点导航器實現",
+        "en-US": "Clean focus navigation design with top progress label, section buttons, and up/down navigation buttons. Perfect for simple multi-section content."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "featured",
-      "name": "Featured with Sidebar",
-      "description": "Feature-rich focus navigation design with sidebar navigation, progress bar, section badges, and visual feedback. Perfect for complex multi-section applications.",
+      "name": {
+        "zh-CN": "特色",
+        "en-US": "Featured"
+      },
+      "description": {
+        "zh-CN": "特色風格的焦点导航器實現",
+        "en-US": "Feature-rich focus navigation design with sidebar navigation, progress bar, section badges, and visual feedback. Perfect for complex multi-section applications."
+      },
       "hasContent": true,
       "hasStyles": true
     }

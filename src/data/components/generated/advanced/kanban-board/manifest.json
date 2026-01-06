@@ -2,8 +2,14 @@
   "id": "kanban-board",
   "category": "advanced",
   "component": {
-    "name": "Kanban Board",
-    "description": "An advanced kanban board component for task and workflow management, featuring drag-and-drop card organization across multiple columns. Supports card creation, editing, deletion, and column customization for flexible project management and team collaboration.",
+    "name": {
+      "zh-CN": "看板",
+      "en-US": "Kanban Board"
+    },
+    "description": {
+      "zh-CN": "用於任務和工作流管理的高級看板組件，具有拖放卡片組織功能，跨多列。支持卡片創建、編輯、刪除和列自定義，適應靈活的項目管理和團隊協作。",
+      "en-US": "An advanced kanban board component for task and workflow management, featuring drag-and-drop card organization across multiple columns. Supports card creation, editing, deletion, and column customization for flexible project management and team collaboration."
+    },
     "tags": [
       "advanced"
     ],
@@ -12,15 +18,27 @@
   "variants": [
     {
       "id": "default",
-      "name": "Clean & Simple",
-      "description": "A visually appealing kanban board implementation featuring smooth drag-and-drop interactions, clear column separation, responsive card layouts, and intuitive task organization. Enables efficient task tracking and workflow visualization for productive team management and collaboration.",
+      "name": {
+        "zh-CN": "默认样式",
+        "en-US": "Default"
+      },
+      "description": {
+        "zh-CN": "默认样式風格的看板實現",
+        "en-US": "A visually appealing kanban board implementation featuring smooth drag-and-drop interactions, clear column separation, responsive card layouts, and intuitive task organization. Enables efficient task tracking and workflow visualization for productive team management and collaboration."
+      },
       "hasContent": true,
       "hasStyles": true
     },
     {
       "id": "modern-detailed",
-      "name": "Modern Detailed",
-      "description": "Feature-rich modern kanban with task details, progress bars, avatars, tags, and complete metadata",
+      "name": {
+        "zh-CN": "现代详细",
+        "en-US": "Modern Detailed"
+      },
+      "description": {
+        "zh-CN": "现代详细風格的看板實現",
+        "en-US": "Feature-rich modern kanban with task details, progress bars, avatars, tags, and complete metadata"
+      },
       "hasContent": true,
       "hasStyles": false
     }

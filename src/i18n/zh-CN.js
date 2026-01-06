@@ -1,7 +1,9 @@
 import { getFormattedStyleCount } from '../utils/styleStats.js';
+import { getFormattedComponentCount } from '../utils/componentStats.js';
 
-// Dynamic style count (e.g., "70+")
+// Dynamic counts (e.g., "70+", "20+")
 const STYLE_COUNT = getFormattedStyleCount();
+const COMPONENT_COUNT = getFormattedComponentCount();
 
 export default {
   "nav": {
@@ -58,7 +60,7 @@ export default {
     "styles": "设计风格",
     "components": "UI 组件",
     "stylesDescription": `探索 ${STYLE_COUNT} 种现代 UI 设计风格`,
-    "componentsDescription": "浏览 40+ 种可复用 UI 组件",
+    "componentsDescription": `浏览 ${COMPONENT_COUNT} 种可复用 UI 组件`,
     "searchPlaceholder": "搜索风格或组件...",
     "searchStyles": "搜索风格 (按名称或描述)",
     "searchComponents": "搜索组件 (按名称或描述)",
@@ -97,6 +99,10 @@ export default {
     "testText": "测试文本"
   },
   "pages": {
+    "styles": {
+      "missingStylesHint": "有 {count} 个风格尚未完成，暂不展示。",
+      "viewMissingDetails": "查看清单"
+    },
     "about": {
       "title": "关于 UI Design Prompt",
       "subtitle": "让 AI 生成的 UI 不再千篇一律",
