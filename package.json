@@ -55,6 +55,7 @@
     "react-syntax-highlighter": "^16.1.0",
     "react-window": "^2.2.2",
     "sucrase": "^3.35.1",
+    "web-vitals": "^4.2.4",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
