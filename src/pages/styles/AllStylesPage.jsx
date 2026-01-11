@@ -13,7 +13,7 @@ import { useFilterUrlSync } from '../../hooks/useFilterUrlSync';
 import { applyFilters, applyTranslationsToCategories, getTagStatistics } from '../../utils/categoryHelper';
 import { VIRTUAL_SCROLL_THRESHOLD, SKELETON_COUNTS } from '../../utils/constants';
 import { ListPageScaffold } from '../../components/scaffold';
-import { SEOHead, getPageSEO, generateStyleListSchema } from '../../components/seo';
+import { SEOHead, getPageSEO, generatePageSchema, BASE_URL, LANG_TO_URL } from '../../components/seo';
 import { LANGUAGES } from '../../utils/i18n/languageConstants';
 
 
@@ -148,9 +148,27 @@ export function AllStylesPage() {
 
   // SEO configuration
   const seo = getPageSEO('styles', language);
-  const styleListSchema = useMemo(
-    () => generateStyleListSchema(allStyles.slice(0, 10), language),
-    [allStyles, language]
+  const langPrefix = LANG_TO_URL[language] || 'zh';
+  // Generate unified JSON-LD schema using @graph (2025/2026 best practice)
+  const pageJsonLd = useMemo(
+    () => generatePageSchema(
+      'styleList',
+      {
+        styles: allStyles.slice(0, 10),
+        breadcrumbs: [
+          {
+            name: language === LANGUAGES.ZH_CN ? '首页' : 'Home',
+            url: `${BASE_URL}/${langPrefix}`,
+          },
+          {
+            name: language === LANGUAGES.ZH_CN ? '风格库' : 'Styles',
+            url: `${BASE_URL}/${langPrefix}/styles`,
+          },
+        ],
+      },
+      language
+    ),
+    [allStyles, language, langPrefix]
   );
 
   return (
@@ -162,7 +180,7 @@ export function AllStylesPage() {
         keywords={seo.keywords}
         path="/styles"
         language={language}
-        jsonLd={styleListSchema}
+        jsonLd={pageJsonLd}
       />
       <ListPageScaffold
       className="styles-page"

@@ -16,8 +16,7 @@ import {
 } from '../../components/preview';
 import {
   SEOHead,
-  generateStyleDetailSchema,
-  generateBreadcrumbSchema,
+  generatePageSchema,
   BASE_URL,
   LANG_TO_URL,
 } from '../../components/seo';
@@ -533,41 +532,40 @@ function StylePreviewContent({ style }) {
       ? `${displayTitle} UI 设计风格 - 获取专业 AI 生成提示词，包含完整代码示例和实时预览`
       : `${displayTitle} UI Design Style - Get professional AI prompts with complete code examples and live preview`;
 
-  // Generate JSON-LD schemas
-  const styleSchema = useMemo(
-    () => generateStyleDetailSchema(
+  // Generate unified JSON-LD schema using @graph (2025/2026 best practice)
+  // This consolidates all structured data into a single script tag with:
+  // - Organization schema (with @id for referencing)
+  // - WebSite schema (with search action)
+  // - CreativeWork schema (style details)
+  // - HowTo schema (usage instructions)
+  // - BreadcrumbList schema
+  const pageJsonLd = useMemo(
+    () => generatePageSchema(
+      'styleDetail',
       {
-        ...style,
-        name: displayTitle,
-        description: resolvedDescription,
+        style: {
+          ...style,
+          name: displayTitle,
+          description: resolvedDescription,
+        },
+        breadcrumbs: [
+          {
+            name: language === 'zh-CN' ? '首页' : 'Home',
+            url: `${BASE_URL}/${langPrefix}`,
+          },
+          {
+            name: language === 'zh-CN' ? '风格库' : 'Styles',
+            url: `${BASE_URL}/${langPrefix}/styles`,
+          },
+          {
+            name: displayTitle,
+            url: `${BASE_URL}/${langPrefix}/styles/preview/${styleId}`,
+          },
+        ],
       },
       language
     ),
-    [style, displayTitle, resolvedDescription, language]
-  );
-
-  const breadcrumbSchema = useMemo(
-    () => generateBreadcrumbSchema([
-      {
-        name: language === 'zh-CN' ? '首页' : 'Home',
-        url: `${BASE_URL}/${langPrefix}`,
-      },
-      {
-        name: language === 'zh-CN' ? '风格库' : 'Styles',
-        url: `${BASE_URL}/${langPrefix}/styles`,
-      },
-      {
-        name: displayTitle,
-        url: `${BASE_URL}/${langPrefix}/styles/preview/${styleId}`,
-      },
-    ]),
-    [language, langPrefix, displayTitle, styleId]
-  );
-
-  // Combine schemas
-  const combinedJsonLd = useMemo(
-    () => [styleSchema, breadcrumbSchema],
-    [styleSchema, breadcrumbSchema]
+    [style, displayTitle, resolvedDescription, language, langPrefix, styleId]
   );
 
   // ========== Render ==========
@@ -581,7 +579,7 @@ function StylePreviewContent({ style }) {
         path={`/styles/preview/${styleId}`}
         language={language}
         ogType="article"
-        jsonLd={combinedJsonLd}
+        jsonLd={pageJsonLd}
       />
 
       <div className="fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col">

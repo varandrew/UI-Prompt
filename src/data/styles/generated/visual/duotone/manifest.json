@@ -25,6 +25,13 @@
   },
   "templates": [
     {
+      "id": "visual-duotone-creative-portfolio",
+      "title": {
+        "zh-CN": "创意作品集",
+        "en-US": "Creative Portfolio"
+      }
+    },
+    {
       "id": "visual-duotone-brand-identity",
       "title": {
         "zh-CN": "品牌形象",

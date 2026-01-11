@@ -68,6 +68,12 @@ export const styleEnhancements = {
     tags: ['contemporary', 'translucent', 'depth', 'gradient', 'modern', 'creative'],
     relatedStyles: ['core-fluent2', 'visual-y2k', 'visual-translucent-aurora-glass']
   },
+  'visual-glassmorphism-dashboard': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'translucent'],
+    tags: ['contemporary', 'translucent', 'depth', 'gradient', 'modern', 'creative', 'dashboard'],
+    relatedStyles: ['visual-glassmorphism', 'core-fluent2', 'visual-y2k']
+  },
   'visual-auroraGlass': {
     primaryCategory: 'visual',
     categories: ['visual', 'translucent', 'nature'],
@@ -140,6 +146,12 @@ export const styleEnhancements = {
     categories: ['visual', 'gradient'],
     tags: ['contemporary', 'bold', 'colorful', 'gradient', 'minimal', 'creative', 'brand'],
     relatedStyles: ['visual-duotone', 'visual-gradient-duotone', 'visual-neonCyberpunk']
+  },
+  'visual-duotone-creative-portfolio': {
+    primaryCategory: 'visual',
+    categories: ['visual', 'gradient'],
+    tags: ['contemporary', 'bold', 'colorful', 'gradient', 'minimal', 'creative', 'portfolio'],
+    relatedStyles: ['visual-duotone', 'visual-duotone-brand-identity', 'visual-neonCyberpunk']
   },
   'visual-holographic': {
     primaryCategory: 'visual',

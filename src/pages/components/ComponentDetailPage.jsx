@@ -5,8 +5,7 @@ import {
   SEOHead,
   LANG_TO_URL,
   BASE_URL,
-  generateComponentDetailSchema,
-  generateBreadcrumbSchema,
+  generatePageSchema,
 } from '../../components/seo';
 import { usePromptContent } from '../../hooks/usePromptContent';
 import { VariantGrid, CodeModal } from '../../components/ui';
@@ -133,38 +132,35 @@ export function ComponentDetailPage() {
           : `${componentData.title} UI Component - ${componentData.variants?.length || 0} style variants with complete code and AI prompts`)
       : '';
 
-  // Generate JSON-LD schemas - 防禦性處理 null componentData
-  const componentSchema = useMemo(
-    () => componentData ? generateComponentDetailSchema(componentData, language) : null,
-    [componentData, language]
-  );
-
-  const breadcrumbSchema = useMemo(
-    () => componentData ? generateBreadcrumbSchema([
+  // Generate unified JSON-LD schema using @graph (2025/2026 best practice)
+  // Consolidates Organization, WebSite, SoftwareSourceCode, and BreadcrumbList into a single script tag
+  const pageJsonLd = useMemo(
+    () => componentData ? generatePageSchema(
+      'componentDetail',
       {
-        name: language === 'zh-CN' ? '首页' : 'Home',
-        url: `${BASE_URL}/${langPrefix}`,
+        component: componentData,
+        breadcrumbs: [
+          {
+            name: language === 'zh-CN' ? '首页' : 'Home',
+            url: `${BASE_URL}/${langPrefix}`,
+          },
+          {
+            name: language === 'zh-CN' ? '组件库' : 'Components',
+            url: `${BASE_URL}/${langPrefix}/components`,
+          },
+          {
+            name: componentData.categoryLabel,
+            url: `${BASE_URL}/${langPrefix}/components?category=${componentData.categoryId}`,
+          },
+          {
+            name: componentData.title,
+            url: `${BASE_URL}/${langPrefix}/components/${category}/${componentId}`,
+          },
+        ],
       },
-      {
-        name: language === 'zh-CN' ? '组件库' : 'Components',
-        url: `${BASE_URL}/${langPrefix}/components`,
-      },
-      {
-        name: componentData.categoryLabel,
-        url: `${BASE_URL}/${langPrefix}/components?category=${componentData.categoryId}`,
-      },
-      {
-        name: componentData.title,
-        url: `${BASE_URL}/${langPrefix}/components/${category}/${componentId}`,
-      },
-    ]) : null,
-    [language, langPrefix, componentData, category, componentId]
-  );
-
-  // Combine schemas
-  const combinedJsonLd = useMemo(
-    () => componentSchema && breadcrumbSchema ? [componentSchema, breadcrumbSchema] : [],
-    [componentSchema, breadcrumbSchema]
+      language
+    ) : null,
+    [componentData, language, langPrefix, category, componentId]
   );
 
   // 找不到組件（Route loader 應該已處理 404，這是備用）
@@ -203,7 +199,7 @@ export function ComponentDetailPage() {
         path={`/components/${category}/${componentId}`}
         language={language}
         ogType="article"
-        jsonLd={combinedJsonLd}
+        jsonLd={pageJsonLd}
       />
 
       <section className="mb-24">

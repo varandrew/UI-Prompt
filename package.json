@@ -32,7 +32,15 @@
     "check:permissions": "node scripts/normalize-permissions.js",
     "fix:permissions": "node scripts/normalize-permissions.js --fix",
     "build:prerender": "node scripts/prerender.js",
-    "build:full": "npm run build && npm run build:prerender"
+    "build:prerender:static": "node scripts/prerender.js --static-only",
+    "build:prerender:verbose": "node scripts/prerender.js --verbose",
+    "build:full": "npm run build && npm run build:prerender:static",
+    "build:production": "npm run build && npm run build:prerender",
+    "build:seo": "npm run build && npm run build:prerender && npm run seo:validate",
+    "seo:validate": "node scripts/seo-validator.js",
+    "seo:validate:json": "node scripts/seo-validator.js --output json",
+    "seo:validate:ci": "node scripts/seo-validator.js --fail-on-error",
+    "prerender:install": "npm install puppeteer --save-dev"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

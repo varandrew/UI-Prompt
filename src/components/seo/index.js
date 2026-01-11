@@ -29,4 +29,7 @@ export {
   generateComponentDetailSchema,
   generateBreadcrumbSchema,
   generateFAQSchema,
+  // 2025/2026 Best Practice: @graph unified schema generators
+  generateHowToSchema,
+  generatePageSchema,
 } from './schemaGenerators';

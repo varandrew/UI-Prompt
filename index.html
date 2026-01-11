@@ -3,9 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="ui-style-app" content="1" />
-    <link rel="icon" type="image/png" href="/src/assets/icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UI Style Prompt - AI UI 设计风格提示词库</title>
+
+    <!-- Canonical URL (default, overridden by react-helmet per page) -->
+    <link rel="canonical" href="https://www.uiprompt.site/" />
+
+    <!-- hreflang for internationalization (default, overridden by react-helmet per page) -->
+    <link rel="alternate" hreflang="zh-CN" href="https://www.uiprompt.site/zh" />
+    <link rel="alternate" hreflang="en-US" href="https://www.uiprompt.site/en" />
+    <link rel="alternate" hreflang="x-default" href="https://www.uiprompt.site/" />
 
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="/manifest.json" />
@@ -32,10 +42,10 @@
     <meta property="og:title" content="UI Style Prompt - AI UI 设计风格提示词库" />
     <meta property="og:description" content="探索 70+ 种现代 UI 设计风格，获取专业 AI 生成提示词。" />
     <meta property="og:url" content="https://www.uiprompt.site" />
-    <meta property="og:image" content="https://www.uiprompt.site/og-image.png" />
+    <meta property="og:image" content="https://www.uiprompt.site/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="UI Style Prompt - AI UI Design Style Library" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
@@ -44,7 +54,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="UI Style Prompt - AI UI 设计风格提示词库" />
     <meta name="twitter:description" content="探索 70+ 种现代 UI 设计风格，获取专业 AI 生成提示词。" />
-    <meta name="twitter:image" content="https://www.uiprompt.site/og-image.png" />
+    <meta name="twitter:image" content="https://www.uiprompt.site/og-image.jpg" />
     <meta name="twitter:image:alt" content="UI Style Prompt - AI UI Design Style Library" />
 
     <!-- Baidu Specific Meta Tags -->
@@ -59,6 +69,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.tailwindcss.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <!-- OPTIMIZATION: Preconnect to Google Analytics domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    <!-- OPTIMIZATION Phase 4: LCP Enhancement -->
+    <!-- Preload critical fonts for faster text rendering -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- OPTIMIZATION: Async Google Fonts loading (improves LCP by not blocking render) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap" /></noscript>
 
     <!-- DNS Prefetch for secondary resources -->
     <link rel="dns-prefetch" href="https://unpkg.com" />
@@ -76,7 +98,55 @@
     <link rel="modulepreload" href="/src/main.jsx" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- OPTIMIZATION: Inline skeleton screen for better perceived performance -->
+      <style>
+        .sk-wrap{min-height:100vh;background:#fff;display:flex;flex-direction:column}
+        .sk-hdr{height:64px;background:#f9fafb;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;padding:0 24px}
+        .sk-logo{width:120px;height:28px;background:#e5e7eb;border-radius:4px}
+        .sk-nav{display:flex;gap:16px;margin-left:auto}
+        .sk-nav-item{width:60px;height:20px;background:#e5e7eb;border-radius:4px}
+        .sk-main{flex:1;padding:48px 24px;max-width:1200px;margin:0 auto;width:100%}
+        .sk-hero{text-align:center;margin-bottom:48px}
+        .sk-title{width:60%;height:40px;background:#e5e7eb;border-radius:8px;margin:0 auto 16px}
+        .sk-desc{width:40%;height:24px;background:#f3f4f6;border-radius:6px;margin:0 auto}
+        .sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+        .sk-card{height:220px;background:linear-gradient(90deg,#f3f4f6 25%,#e5e7eb 50%,#f3f4f6 75%);background-size:200% 100%;border-radius:12px;animation:sk-shimmer 1.5s infinite}
+        @keyframes sk-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+        @media(prefers-color-scheme:dark){
+          .sk-wrap{background:#0f172a}
+          .sk-hdr{background:#1e293b;border-color:#334155}
+          .sk-logo,.sk-nav-item{background:#334155}
+          .sk-title{background:#334155}
+          .sk-desc{background:#1e293b}
+          .sk-card{background:linear-gradient(90deg,#1e293b 25%,#334155 50%,#1e293b 75%)}
+        }
+      </style>
+      <div class="sk-wrap">
+        <header class="sk-hdr">
+          <div class="sk-logo"></div>
+          <nav class="sk-nav">
+            <div class="sk-nav-item"></div>
+            <div class="sk-nav-item"></div>
+            <div class="sk-nav-item"></div>
+          </nav>
+        </header>
+        <main class="sk-main">
+          <div class="sk-hero">
+            <div class="sk-title"></div>
+            <div class="sk-desc"></div>
+          </div>
+          <div class="sk-grid">
+            <div class="sk-card"></div>
+            <div class="sk-card"></div>
+            <div class="sk-card"></div>
+            <div class="sk-card"></div>
+            <div class="sk-card"></div>
+            <div class="sk-card"></div>
+          </div>
+        </main>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
 
 	    <!-- OPTIMIZATION: Register Service Worker for offline caching -->

@@ -1,6 +1,22 @@
 import { Link, useParams } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage';
+import { SEOHead } from '../../components/seo';
 import { LANG_TO_URL } from '../../components/seo/seoConfig';
+import { LANGUAGES } from '../../utils/i18n/languageConstants';
+
+// Bilingual SEO configuration for 404 page
+const SEO_CONFIG = {
+  [LANGUAGES.ZH_CN]: {
+    title: '页面未找到 - 404',
+    description: '抱歉，您访问的页面不存在。请检查网址或返回首页浏览 UI 设计风格和组件库。',
+    keywords: '404,页面未找到,UI设计,AI提示词',
+  },
+  [LANGUAGES.EN_US]: {
+    title: 'Page Not Found - 404',
+    description: 'Sorry, the page you are looking for does not exist. Please check the URL or return to the homepage to browse UI design styles and components.',
+    keywords: '404,page not found,UI design,AI prompts',
+  },
+};
 
 export function NotFoundPage() {
   const { t, language } = useLanguage();
@@ -9,8 +25,20 @@ export function NotFoundPage() {
   // Get current URL language prefix (default to 'zh')
   const currentLang = lang || LANG_TO_URL[language] || 'zh';
 
+  // Get SEO config for current language
+  const seo = SEO_CONFIG[language] || SEO_CONFIG[LANGUAGES.ZH_CN];
+
   return (
     <div className="min-h-[calc(100vh-12rem)] flex items-center justify-center px-8">
+      {/* SEO Meta Tags - noindex to prevent 404 pages from being indexed */}
+      <SEOHead
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        path="/404"
+        language={language}
+        noindex={true}
+      />
       <div className="max-w-2xl w-full text-center">
         {/* 404 */}
         <div className="mb-8">

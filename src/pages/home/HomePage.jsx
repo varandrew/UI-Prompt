@@ -5,7 +5,7 @@ import { HowItWorksSection } from '../../components/home/HowItWorksSection';
 import { BenefitsSection } from '../../components/home/BenefitsSection';
 import { useLanguage } from '../../hooks/useLanguage';
 import { getComponentsStatsFromMetadata, getStylesStatsFromMetadata } from '../../data/components/loaders';
-import { SEOHead, getPageSEO, generateWebsiteSchema } from '../../components/seo';
+import { SEOHead, getPageSEO, generatePageSchema } from '../../components/seo';
 
 /**
  * HomePage - 新首页
@@ -40,7 +40,8 @@ export function HomePage() {
 
   // SEO configuration
   const seo = getPageSEO('home', language);
-  const websiteSchema = generateWebsiteSchema(language);
+  // Generate unified JSON-LD schema using @graph (2025/2026 best practice)
+  const pageJsonLd = generatePageSchema('home', {}, language);
 
   return (
     <section className="min-h-screen flex flex-col bg-white dark:bg-[#101828]">
@@ -51,7 +52,7 @@ export function HomePage() {
         keywords={seo.keywords}
         path=""
         language={language}
-        jsonLd={websiteSchema}
+        jsonLd={pageJsonLd}
       />
 
       {/* AI Prompt 演示区域 */}

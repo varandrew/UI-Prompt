@@ -539,6 +539,16 @@
     "familyId": "darkMode",
     "templateId": "visual-darkMode-darkMode-dashboard"
   },
+  "visual-duotone-visual-duotone-creative-portfolio": {
+    "category": "visual",
+    "familyId": "duotone",
+    "templateId": "visual-duotone-creative-portfolio"
+  },
+  "visual-duotone-creative-portfolio": {
+    "category": "visual",
+    "familyId": "duotone",
+    "templateId": "visual-duotone-creative-portfolio"
+  },
   "visual-duotone-visual-duotone-brand-identity": {
     "category": "visual",
     "familyId": "duotone",
@@ -594,6 +604,16 @@
     "familyId": "generativeArt",
     "templateId": "visual-tech-generative-art"
   },
+  "visual-glassmorphism-visual-glassmorphism-dashboard": {
+    "category": "visual",
+    "familyId": "glassmorphism",
+    "templateId": "visual-glassmorphism-dashboard"
+  },
+  "visual-glassmorphism-dashboard": {
+    "category": "visual",
+    "familyId": "glassmorphism",
+    "templateId": "visual-glassmorphism-dashboard"
+  },
   "visual-glassmorphism-visual-glassmorphism-glassmorphism-landing": {
     "category": "visual",
     "familyId": "glassmorphism",
@@ -617,7 +637,7 @@
   "glassmorphism": {
     "category": "visual",
     "familyId": "glassmorphism",
-    "templateId": "visual-glassmorphism-glassmorphism-landing"
+    "templateId": "visual-glassmorphism-dashboard"
   },
   "visual-glow-visual-glow-luminous-cards": {
     "category": "visual",

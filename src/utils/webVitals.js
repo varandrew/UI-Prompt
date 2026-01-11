@@ -12,26 +12,78 @@
  */
 
 /**
- * Send metrics to analytics service
+ * Send metrics to analytics service with enhanced debugging
  * @param {Object} metric - Web Vitals metric object
  */
 function sendToAnalytics(metric) {
-  // Development: Log to console
+  const value = Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value);
+  const emoji = metric.rating === 'good' ? '✅' : metric.rating === 'needs-improvement' ? '⚠️' : '❌';
+
+  // Development: Enhanced debugging with element identification
   if (import.meta.env.DEV) {
-    const emoji = metric.rating === 'good' ? '✅' : metric.rating === 'needs-improvement' ? '⚠️' : '❌';
     // eslint-disable-next-line no-console
     console.log(
       `[Web Vitals] ${emoji} ${metric.name}:`,
-      Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+      value,
       `(${metric.rating})`
     );
+
+    // LCP: Identify the largest content element for optimization
+    if (metric.name === 'LCP' && metric.entries?.[0]) {
+      const entry = metric.entries[0];
+      // eslint-disable-next-line no-console
+      console.log(`  └─ LCP Element:`, {
+        tagName: entry.element?.tagName || 'unknown',
+        id: entry.element?.id || '(no id)',
+        className: entry.element?.className?.slice?.(0, 50) || '(no class)',
+        size: entry.size,
+        url: entry.url || '(no url)',
+        loadTime: Math.round(entry.loadTime || 0),
+        renderTime: Math.round(entry.renderTime || 0),
+      });
+    }
+
+    // CLS: Identify layout shift sources for debugging
+    if (metric.name === 'CLS' && metric.entries) {
+      const significantShifts = metric.entries.filter(e => e.value > 0.01);
+      if (significantShifts.length > 0) {
+        // eslint-disable-next-line no-console
+        console.log(`  └─ CLS Sources (${significantShifts.length} shifts):`);
+        significantShifts.forEach((entry, i) => {
+          const sources = entry.sources || [];
+          // eslint-disable-next-line no-console
+          console.log(`     ${i + 1}. shift: ${entry.value.toFixed(4)}`, {
+            hadRecentInput: entry.hadRecentInput,
+            elements: sources.map(s => ({
+              tagName: s.node?.tagName || 'unknown',
+              id: s.node?.id || '(no id)',
+              previousRect: `${s.previousRect?.width}x${s.previousRect?.height}`,
+              currentRect: `${s.currentRect?.width}x${s.currentRect?.height}`,
+            })),
+          });
+        });
+      }
+    }
+
+    // INP: Identify slow interactions
+    if (metric.name === 'INP' && metric.entries?.[0]) {
+      const entry = metric.entries[0];
+      // eslint-disable-next-line no-console
+      console.log(`  └─ INP Interaction:`, {
+        target: entry.target?.tagName || 'unknown',
+        interactionType: entry.interactionType || 'unknown',
+        processingStart: Math.round(entry.processingStart || 0),
+        processingEnd: Math.round(entry.processingEnd || 0),
+      });
+    }
+
     return;
   }
 
   // Production: Send to Google Analytics 4 (if configured)
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
     window.gtag('event', metric.name, {
-      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+      value,
       event_label: metric.id,
       metric_rating: metric.rating,
       non_interaction: true,

@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Fragment } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -14,16 +14,31 @@ if (import.meta.env.DEV && typeof window !== 'undefined') {
   window.__clearLoadersCache = clearLoadersCache
 }
 
-// Initialize GA4 first (creates window.gtag for Web Vitals to use)
-initGA4()
+// OPTIMIZATION: Defer GA4 and Web Vitals initialization to not block first paint
+// Uses requestIdleCallback to run when browser is idle, improving LCP
+const initAnalyticsDeferred = () => {
+  initGA4()
+  initWebVitals()
+}
 
-// Initialize Web Vitals (sends metrics to GA4 in production)
-initWebVitals()
+if (typeof window !== 'undefined') {
+  if ('requestIdleCallback' in window) {
+    // Modern browsers: run when idle
+    requestIdleCallback(initAnalyticsDeferred, { timeout: 2000 })
+  } else {
+    // Fallback: run after first paint via setTimeout
+    setTimeout(initAnalyticsDeferred, 0)
+  }
+}
 
 const rootEl = document.getElementById('root');
 
+// OPTIMIZATION: Only use StrictMode in development
+// StrictMode causes double-rendering which impacts production performance
+const Wrapper = import.meta.env.DEV ? StrictMode : Fragment;
+
 createRoot(rootEl).render(
-  <StrictMode>
+  <Wrapper>
     <App />
-  </StrictMode>
+  </Wrapper>
 );

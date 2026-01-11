@@ -1,0 +1,156 @@
+/* Duotone Creative Portfolio - Fullpage Styles */
+
+:root {
+  --c-dark: #10002b;
+  --c-light: #ccff00;
+  --c-darker: #0a001a;
+}
+
+/* Base styles */
+body {
+  background-color: var(--c-dark);
+  color: var(--c-light);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--c-light);
+  color: var(--c-dark);
+}
+
+/* Smooth Anchor Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b3e600;
+}
+
+/* Grain texture animation */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+.grain-overlay {
+  animation: grain 8s steps(10) infinite;
+}
+
+/* Pulse animation for glow effects */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Text gradient utility */
+.gradient-text {
+  background: linear-gradient(to right, var(--c-light), #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Border theme utility */
+.border-theme {
+  border: 1px solid var(--c-light);
+}
+
+.border-theme-dim {
+  border: 1px solid rgba(204, 255, 0, 0.2);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(204, 255, 0, 0.1);
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--c-light);
+  outline-offset: 2px;
+}
+
+/* Mobile menu animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.menu-animate-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Portfolio card image filter */
+.duotone-filter {
+  filter: grayscale(100%) contrast(1.2);
+  transition: filter 0.5s ease;
+}
+
+.duotone-filter:hover {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-title {
+    font-size: 5rem;
+    line-height: 1;
+  }
+
+  .section-title {
+    font-size: 4rem;
+  }
+}

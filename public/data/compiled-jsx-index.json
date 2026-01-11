@@ -1,6 +1,6 @@
 {
-  "generated": "2026-01-09T13:21:31.115Z",
-  "count": 34,
+  "generated": "2026-01-11T13:04:41.491Z",
+  "count": 36,
   "files": {
     "core-minimalism-core-minimalism-design-principles:fullpage": {
       "hash": "713882de",
@@ -325,6 +325,43 @@
         "BoomBox"
       ],
       "size": 21523
+    },
+    "visual-duotone-visual-duotone-creative-portfolio:fullpage": {
+      "hash": "31132131",
+      "file": "visual-duotone-visual-duotone-creative-portfolio_fullpage-31132131.js",
+      "mode": "react",
+      "componentName": "DuotoneCreative",
+      "lucideIcons": [
+        "Zap",
+        "Palette",
+        "Code",
+        "Sparkles",
+        "ArrowRight",
+        "Menu",
+        "X"
+      ],
+      "size": 11608
+    },
+    "visual-glassmorphism-visual-glassmorphism-dashboard:fullpage": {
+      "hash": "5dbff70c",
+      "file": "visual-glassmorphism-visual-glassmorphism-dashboard_fullpage-5dbff70c.js",
+      "mode": "react",
+      "componentName": "GlassmorphismDashboard",
+      "lucideIcons": [
+        "BarChart3",
+        "TrendingUp",
+        "Users",
+        "DollarSign",
+        "Activity",
+        "Settings",
+        "Bell",
+        "Search",
+        "Home",
+        "PieChart",
+        "User",
+        "LogOut"
+      ],
+      "size": 19210
     },
     "visual-industrial-industrial-nexus-control:fullpage": {
       "hash": "2d2f9913",

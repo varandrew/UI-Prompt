@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-01-10T08:11:12.424Z",
+  "summary": {
+    "totalPages": 1,
+    "passed": 0,
+    "warnings": 1,
+    "errors": 0
+  },
+  "pages": [
+    {
+      "url": "/index.html",
+      "meta": {
+        "title": {
+          "name": "title",
+          "description": "Page title",
+          "status": "pass",
+          "value": "UI Style Prompt - AI UI 设计风格提示词库",
+          "issues": []
+        },
+        "description": {
+          "name": "description",
+          "description": "Meta description",
+          "status": "pass",
+          "value": "探索 70+ 种现代 UI 设计风格，获取专业 AI 生成提示词。包含玻璃态、新拟物、扁平化、赛博朋克等流行设计系统，帮助您的 AI 生成独特 UI。",
+          "issues": []
+        },
+        "canonical": {
+          "name": "canonical",
+          "description": "Canonical URL",
+          "status": "pass",
+          "value": "https://www.uiprompt.site/",
+          "issues": []
+        },
+        "og:title": {
+          "name": "og:title",
+          "description": "Open Graph title",
+          "status": "pass",
+          "value": "UI Style Prompt - AI UI 设计风格提示词库",
+          "issues": []
+        },
+        "og:description": {
+          "name": "og:description",
+          "description": "Open Graph description",
+          "status": "pass",
+          "value": "探索 70+ 种现代 UI 设计风格，获取专业 AI 生成提示词。",
+          "issues": []
+        },
+        "og:image": {
+          "name": "og:image",
+          "description": "Open Graph image",
+          "status": "pass",
+          "value": "https://www.uiprompt.site/og-image.jpg",
+          "issues": []
+        },
+        "og:url": {
+          "name": "og:url",
+          "description": "Open Graph URL",
+          "status": "pass",
+          "value": "https://www.uiprompt.site",
+          "issues": []
+        },
+        "twitter:card": {
+          "name": "twitter:card",
+          "description": "Twitter card type",
+          "status": "pass",
+          "value": "summary_large_image",
+          "issues": []
+        },
+        "hreflang:zh": {
+          "name": "hreflang:zh",
+          "description": "Chinese alternate link",
+          "status": "pass",
+          "value": "https://www.uiprompt.site/zh",
+          "issues": []
+        },
+        "hreflang:en": {
+          "name": "hreflang:en",
+          "description": "English alternate link",
+          "status": "pass",
+          "value": "https://www.uiprompt.site/en",
+          "issues": []
+        }
+      },
+      "jsonLd": [
+        {
+          "type": "None",
+          "status": "warning",
+          "issues": [
+            "No JSON-LD structured data found"
+          ]
+        }
+      ],
+      "status": "warning",
+      "errorCount": 0,
+      "warningCount": 1
+    }
+  ]
+}

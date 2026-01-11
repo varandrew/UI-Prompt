@@ -1,5 +1,5 @@
 {
-  "total": 392,
+  "total": 396,
   "shards": {
     "core": {
       "count": 57,
@@ -7,8 +7,8 @@
       "file": "preview-id-map-core.json"
     },
     "visual": {
-      "count": 246,
-      "size": 28377,
+      "count": 250,
+      "size": 28913,
       "file": "preview-id-map-visual.json"
     },
     "retro": {
@@ -27,5 +27,5 @@
       "file": "preview-id-map-layout.json"
     }
   },
-  "generated": "2026-01-09T13:21:30.692Z"
+  "generated": "2026-01-11T13:04:40.954Z"
 }

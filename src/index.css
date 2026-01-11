@@ -1,8 +1,90 @@
 @import "tailwindcss";
 /* Google Fonts for Paper/Scrapbook Style */
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap');
+/* NOTE: Google Fonts are now loaded asynchronously in index.html for better LCP performance */
+/* @import url removed - fonts preloaded in <head> with media="print" -> onload trick */
 
 @source "../public/data/content/**/*.{html,md,jsx,tsx}";
+
+/* ==================== Core Web Vitals Optimization ==================== */
+
+/* CLS Prevention: Reserve space for common elements */
+.style-card,
+.component-card {
+  contain: layout style;
+  content-visibility: auto;
+}
+
+/* CLS: Fixed aspect ratios for preview containers */
+.preview-container {
+  aspect-ratio: 16 / 9;
+  min-height: 200px;
+}
+
+/* CLS: Font loading optimization */
+@font-face {
+  font-family: 'Inter var';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
+}
+
+/* LCP: Prioritize above-the-fold content rendering */
+.hero-section,
+.first-fold {
+  contain: none;
+  content-visibility: visible;
+}
+
+/* INP: Optimize touch targets for mobile */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* INP: Reduce animation work on interaction */
+.interactive-element {
+  will-change: auto;
+}
+
+.interactive-element:active {
+  will-change: transform;
+}
+
+/* LCP: Optimize image loading */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+img[fetchpriority="high"] {
+  content-visibility: visible;
+}
+
+/* CLS: Skeleton placeholder dimensions */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Dark mode skeleton */
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 200% 100%;
+  }
+}
+
+/* ==================== End Core Web Vitals Optimization ==================== */
 
 /* Paper/Scrapbook Style Fonts */
 .font-handwriting {

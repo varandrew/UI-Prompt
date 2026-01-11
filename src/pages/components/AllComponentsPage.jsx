@@ -8,7 +8,8 @@ import { SKELETON_COUNTS, VIRTUAL_SCROLL_THRESHOLD } from '../../utils/constants
 import { applyTranslationsToCategories } from '../../utils/categoryHelper';
 import { createI18nResolver } from '../../utils/i18n/resolveI18nValue';
 import { ListPageScaffold } from '../../components/scaffold';
-import { SEOHead, getPageSEO, generateComponentListSchema } from '../../components/seo';
+import { SEOHead, getPageSEO, generatePageSchema, BASE_URL, LANG_TO_URL } from '../../components/seo';
+import { LANGUAGES } from '../../utils/i18n/languageConstants';
 
 /**
  * AllComponentsPage - 統一組件画廊页面
@@ -168,9 +169,27 @@ export function AllComponentsPage() {
 
   // SEO configuration
   const seo = getPageSEO('components', language);
-  const componentListSchema = useMemo(
-    () => generateComponentListSchema(allComponents.slice(0, 10), language),
-    [allComponents, language]
+  const langPrefix = LANG_TO_URL[language] || 'zh';
+  // Generate unified JSON-LD schema using @graph (2025/2026 best practice)
+  const pageJsonLd = useMemo(
+    () => generatePageSchema(
+      'componentList',
+      {
+        components: allComponents.slice(0, 10),
+        breadcrumbs: [
+          {
+            name: language === LANGUAGES.ZH_CN ? '首页' : 'Home',
+            url: `${BASE_URL}/${langPrefix}`,
+          },
+          {
+            name: language === LANGUAGES.ZH_CN ? '组件库' : 'Components',
+            url: `${BASE_URL}/${langPrefix}/components`,
+          },
+        ],
+      },
+      language
+    ),
+    [allComponents, language, langPrefix]
   );
 
   return (
@@ -182,7 +201,7 @@ export function AllComponentsPage() {
         keywords={seo.keywords}
         path="/components"
         language={language}
-        jsonLd={componentListSchema}
+        jsonLd={pageJsonLd}
       />
       <ListPageScaffold
       title={t('common.components')}

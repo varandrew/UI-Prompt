@@ -1,34 +1,82 @@
 # robots.txt for uiprompt.site
 # Last updated: 2026-01
+# SEO optimized for Google, Baidu, and Bing crawlers
 
+# Default rules for all crawlers
 User-agent: *
 Allow: /
 
-# Sitemaps
+# Sitemaps (primary index + language-specific)
 Sitemap: https://www.uiprompt.site/sitemap.xml
 Sitemap: https://www.uiprompt.site/sitemap-zh.xml
 Sitemap: https://www.uiprompt.site/sitemap-en.xml
+
+# ===========================================
+# Crawler-specific rules
+# ===========================================
+
+# Google (auto-adjusts crawl rate, no Crawl-delay needed)
+User-agent: Googlebot
+Allow: /
 
 # Baidu Spider
 User-agent: Baiduspider
 Allow: /
 
-# Allow language-prefixed routes
+# Bing (supports Crawl-delay)
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# ===========================================
+# Allowed paths (SEO important)
+# ===========================================
+
+# Language-prefixed routes
 Allow: /zh/
 Allow: /en/
 
-# Allow preview pages for indexing
+# Style preview pages (high SEO value)
 Allow: /zh/styles/preview/
 Allow: /en/styles/preview/
+
+# Component pages (high SEO value)
 Allow: /zh/components/
 Allow: /en/components/
 
-# Disallow unnecessary paths
+# ===========================================
+# Disallowed paths
+# ===========================================
+
+# Static assets (no SEO value)
 Disallow: /assets/
+
+# Data files (JSON, not human-readable)
 Disallow: /data/*.json
+Disallow: /data/compiled-jsx/
+Disallow: /data/preview-id-map/
+
+# Service worker
 Disallow: /sw.js
 
-# Note: Crawl-delay is NOT supported by Google/Baidu
-# Google automatically adjusts crawl rate based on server response
-# For Googlebot rate control, use Google Search Console instead
-# Crawl-delay: 1  # Only affects Bing/Yandex, disabled for cleaner validation
+# Source maps (development artifacts)
+Disallow: /*.map$
+Disallow: /*.map
+
+# Editor and upload pages (user-generated, low SEO value)
+Disallow: /*/community/upload
+Disallow: /*/community/*/edit
+Disallow: /*/editor
+
+# API endpoints (if any)
+Disallow: /api/
+
+# ===========================================
+# Host declaration
+# ===========================================
+Host: https://www.uiprompt.site

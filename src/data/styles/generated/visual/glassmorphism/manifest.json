@@ -15,6 +15,13 @@
   },
   "templates": [
     {
+      "id": "visual-glassmorphism-dashboard",
+      "title": {
+        "zh-CN": "仪表板",
+        "en-US": "Dashboard"
+      }
+    },
+    {
       "id": "visual-glassmorphism-glassmorphism-landing",
       "title": {
         "zh-CN": "企业网站",

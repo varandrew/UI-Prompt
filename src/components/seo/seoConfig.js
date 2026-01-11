@@ -18,8 +18,8 @@ export const SITE_NAME = {
   [LANGUAGES.EN_US]: 'UI Style Prompt - AI UI Design Style Library',
 };
 
-// Default OG image
-export const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
+// Default OG image (optimized JPEG for better performance)
+export const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 // Static page SEO configurations
 export const PAGE_SEO = {

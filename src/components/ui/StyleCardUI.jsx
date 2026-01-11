@@ -149,6 +149,7 @@ export function StyleCardUI({
  * - 包含 demo 區域和內容區域
  * - 包含玻璃態模板計數徽章
  * - 包含預覽區域的網格圖案覆蓋
+ * - CLS Optimized: Fixed dimensions to prevent layout shift
  *
  * @param {Object} props
  * @param {React.ReactNode} props.demoContent - 必需：demo 區域內容（IframeRenderer 或 JSXCompiler）
@@ -165,7 +166,7 @@ export function StyleCardContainer({
   return (
     <div
       ref={cardRef}
-      className="group relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/50 dark:hover:shadow-black/70 hover:border-zinc-300 dark:hover:border-zinc-700 w-full"
+      className="group relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-zinc-200/50 dark:hover:shadow-black/70 hover:border-zinc-300 dark:hover:border-zinc-700 w-full style-card"
     >
       {/* Glassmorphism Template Badge - Top Right */}
       {templatesCount > 0 && (
@@ -182,8 +183,11 @@ export function StyleCardContainer({
         </div>
       )}
 
-      {/* Demo 區域 */}
-      <div className="relative bg-gray-50 dark:bg-zinc-950 overflow-hidden">
+      {/* Demo 區域 - CLS Optimized: Fixed height and aspect-ratio to prevent layout shift */}
+      <div
+        className="relative bg-gray-50 dark:bg-zinc-950 overflow-hidden preview-container"
+        style={{ minHeight: '200px', aspectRatio: '16 / 9' }}
+      >
         {/* Decorative background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-zinc-900 dark:to-zinc-950 opacity-50" aria-hidden="true" role="presentation"></div>
 
