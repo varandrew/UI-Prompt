@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Generative Art | 有机生成艺术</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="fullpage.css">
+</head>
+<body class="bg-gray-900 text-white font-sans overflow-hidden transition-colors duration-1000" id="body-bg">
+
+    <div class="flex h-screen w-full relative fade-in">
+
+        <!-- Left Control Panel -->
+        <aside class="w-[340px] flex-shrink-0 h-full glass-panel flex flex-col z-20 transition-transform duration-300 absolute md:relative transform -translate-x-full md:translate-x-0" id="sidebar">
+            <!-- Header -->
+            <div class="p-6 border-b border-white/5 bg-white/5">
+                <h1 class="text-xl font-light tracking-[0.2em] text-white/90 uppercase font-serif">Organic Art</h1>
+                <p class="text-[10px] text-white/50 mt-1 tracking-wider uppercase">Generative Nature Simulator</p>
+            </div>
+
+            <!-- Controls Container -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-8">
+
+                <!-- Theme Selection -->
+                <div class="space-y-3">
+                    <label class="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Color Themes</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setTheme('forest')" class="theme-btn py-2 px-3 rounded-lg text-xs bg-[#2d5016]/40 hover:bg-[#2d5016]/60 border border-white/5 transition-all text-left flex items-center gap-2 group ring-1 ring-transparent hover:ring-white/30">
+                            <div class="w-2 h-2 rounded-full bg-[#4a7c2c] shadow-[0_0_5px_#4a7c2c]"></div> Forest
+                        </button>
+                        <button onclick="setTheme('ocean')" class="theme-btn py-2 px-3 rounded-lg text-xs bg-[#003d5c]/40 hover:bg-[#003d5c]/60 border border-white/5 transition-all text-left flex items-center gap-2 group ring-1 ring-transparent hover:ring-white/30">
+                            <div class="w-2 h-2 rounded-full bg-[#20b2aa] shadow-[0_0_5px_#20b2aa]"></div> Ocean
+                        </button>
+                        <button onclick="setTheme('sunset')" class="theme-btn py-2 px-3 rounded-lg text-xs bg-[#ff6b35]/40 hover:bg-[#ff6b35]/60 border border-white/5 transition-all text-left flex items-center gap-2 group ring-1 ring-transparent hover:ring-white/30">
+                            <div class="w-2 h-2 rounded-full bg-[#ffb6c1] shadow-[0_0_5px_#ffb6c1]"></div> Sunset
+                        </button>
+                        <button onclick="setTheme('earth')" class="theme-btn py-2 px-3 rounded-lg text-xs bg-[#8b4513]/40 hover:bg-[#8b4513]/60 border border-white/5 transition-all text-left flex items-center gap-2 group ring-1 ring-transparent hover:ring-white/30">
+                            <div class="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_5px_#d4af37]"></div> Earth
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shape Selection -->
+                <div class="space-y-3">
+                    <label class="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Particle Shape</label>
+                    <div class="flex bg-black/20 p-1 rounded-lg border border-white/5">
+                        <button onclick="setShape('circle')" class="shape-btn flex-1 py-1.5 rounded-md text-[10px] hover:bg-white/10 transition-all text-white/60">Circle</button>
+                        <button onclick="setShape('leaf')" class="shape-btn flex-1 py-1.5 rounded-md text-[10px] hover:bg-white/10 transition-all text-white/60">Leaf</button>
+                        <button onclick="setShape('drop')" class="shape-btn flex-1 py-1.5 rounded-md text-[10px] hover:bg-white/10 transition-all text-white/60">Drop</button>
+                        <button onclick="setShape('petal')" class="shape-btn flex-1 py-1.5 rounded-md text-[10px] hover:bg-white/10 transition-all text-white/60">Petal</button>
+                    </div>
+                </div>
+
+                <!-- Sliders -->
+                <div class="space-y-6">
+                    <!-- Count -->
+                    <div class="group">
+                        <div class="flex justify-between mb-2">
+                            <label class="text-[10px] text-white/50 uppercase tracking-wider group-hover:text-white/80 transition-colors">Particles</label>
+                            <span class="text-[10px] font-mono text-white/90" id="val-count">300</span>
+                        </div>
+                        <input type="range" id="inp-count" min="50" max="1000" step="10" value="300" class="w-full">
+                    </div>
+
+                    <!-- Speed -->
+                    <div class="group">
+                        <div class="flex justify-between mb-2">
+                            <label class="text-[10px] text-white/50 uppercase tracking-wider group-hover:text-white/80 transition-colors">Flow Speed</label>
+                            <span class="text-[10px] font-mono text-white/90" id="val-speed">1.0x</span>
+                        </div>
+                        <input type="range" id="inp-speed" min="0.1" max="3" step="0.1" value="1.0" class="w-full">
+                    </div>
+
+                    <!-- Flow/Wave Strength -->
+                    <div class="group">
+                        <div class="flex justify-between mb-2">
+                            <label class="text-[10px] text-white/50 uppercase tracking-wider group-hover:text-white/80 transition-colors">Wave Strength</label>
+                            <span class="text-[10px] font-mono text-white/90" id="val-flow">20</span>
+                        </div>
+                        <input type="range" id="inp-flow" min="0" max="50" step="1" value="20" class="w-full">
+                    </div>
+
+                    <!-- Frequency -->
+                    <div class="group">
+                        <div class="flex justify-between mb-2">
+                            <label class="text-[10px] text-white/50 uppercase tracking-wider group-hover:text-white/80 transition-colors">Turbulence</label>
+                            <span class="text-[10px] font-mono text-white/90" id="val-freq">0.005</span>
+                        </div>
+                        <input type="range" id="inp-freq" min="0.001" max="0.02" step="0.001" value="0.005" class="w-full">
+                    </div>
+
+                    <!-- Connection -->
+                    <div class="group">
+                        <div class="flex justify-between mb-2">
+                            <label class="text-[10px] text-white/50 uppercase tracking-wider group-hover:text-white/80 transition-colors">Link Distance</label>
+                            <span class="text-[10px] font-mono text-white/90" id="val-dist">100px</span>
+                        </div>
+                        <input type="range" id="inp-dist" min="50" max="300" step="10" value="100" class="w-full">
+                    </div>
+
+                    <!-- Size -->
+                    <div class="group">
+                        <div class="flex justify-between mb-2">
+                            <label class="text-[10px] text-white/50 uppercase tracking-wider group-hover:text-white/80 transition-colors">Base Size</label>
+                            <span class="text-[10px] font-mono text-white/90" id="val-size">3px</span>
+                        </div>
+                        <input type="range" id="inp-size" min="1" max="10" step="0.5" value="3" class="w-full">
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="grid grid-cols-2 gap-3 mt-4 pt-6 border-t border-white/5">
+                    <button onclick="randomize()" class="py-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 text-[10px] uppercase tracking-wider transition-colors text-white/70 hover:text-white">
+                        Randomize
+                    </button>
+                    <button onclick="resetApp()" class="py-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 text-[10px] uppercase tracking-wider transition-colors text-white/70 hover:text-white">
+                        Reset
+                    </button>
+                    <button onclick="exportImage()" class="col-span-2 py-3 rounded-lg bg-gradient-to-r from-teal-500/80 to-blue-600/80 hover:from-teal-400 hover:to-blue-500 text-white font-medium text-xs shadow-lg transition-all transform hover:scale-[1.01] tracking-widest uppercase flex justify-center items-center gap-2">
+                        <span>Save Artwork</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-white/5 text-[9px] text-white/20 text-center font-mono uppercase">
+                Canvas API • Tailwind CSS
+            </div>
+        </aside>
+
+        <!-- Main Canvas -->
+        <main class="flex-1 relative h-full bg-black overflow-hidden cursor-crosshair">
+
+            <!-- Mobile Toggle Button -->
+            <button onclick="document.getElementById('sidebar').classList.toggle('-translate-x-full')" class="md:hidden absolute top-4 left-4 z-30 p-2 glass rounded-lg text-white/80 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <canvas id="canvas" class="block w-full h-full"></canvas>
+
+            <!-- Stats Overlay -->
+            <div class="absolute bottom-6 right-6 pointer-events-none">
+                <div class="glass px-4 py-2 rounded-full flex gap-6 text-[10px] font-mono text-white/60 tracking-wider">
+                    <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div> <span id="stat-fps">60</span> FPS</span>
+                    <span>N: <span id="stat-count">300</span></span>
+                    <span class="hidden sm:inline opacity-50">|</span>
+                    <span class="hidden sm:inline uppercase"><span id="stat-theme">forest</span></span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        /**
+         * Organic Generative Art Engine
+         */
+
+        // --- Configuration & State ---
+        const config = {
+            theme: 'forest',
+            shape: 'circle',
+            count: 300,
+            speed: 1.0,
+            flowStrength: 20, // Wave amplitude
+            waveFreq: 0.005,
+            connectionDist: 100,
+            baseSize: 3
+        };
+
+        const themes = {
+            forest: {
+                bg: 'radial-gradient(circle at center, #1a2f10 0%, #050a04 100%)',
+                colors: ['#2d5016', '#4a7c2c', '#d4af37', '#8b4513', '#a3b18a']
+            },
+            ocean: {
+                bg: 'radial-gradient(circle at center, #001f3f 0%, #000810 100%)',
+                colors: ['#003d5c', '#20b2aa', '#f0f8ff', '#ff7f50', '#5f9ea0']
+            },
+            sunset: {
+                bg: 'linear-gradient(to bottom, #2d1b2e, #1a0f1a)',
+                colors: ['#ff6b35', '#ffb6c1', '#9370db', '#ffd700', '#ff4500']
+            },
+            earth: {
+                bg: 'linear-gradient(to bottom, #3e2723, #1b100e)',
+                colors: ['#8b4513', '#f5deb3', '#6b8e23', '#daa520', '#d2b48c']
+            }
+        };
+
+        // --- Globals ---
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d', { alpha: false }); // Optimize for no transparency on canvas itself
+        const bodyBg = document.getElementById('body-bg');
+        let particles = [];
+        let animationId;
+        let width, height;
+        let time = 0;
+        let lastTime = 0;
+
+        // --- Particle Class ---
+        class Particle {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+
+                this.waveOffset = Math.random() * Math.PI * 2;
+                this.sizeScale = Math.random() * 0.5 + 0.5;
+                this.currentSize = config.baseSize * this.sizeScale;
+
+                const themeColors = themes[config.theme].colors;
+                this.color = themeColors[Math.floor(Math.random() * themeColors.length)];
+
+                this.angle = Math.random() * Math.PI * 2;
+                this.spin = (Math.random() - 0.5) * 0.02;
+            }
+
+            update() {
+                // Base movement
+                this.x += this.vx * config.speed;
+                this.y += this.vy * config.speed;
+
+                // Organic Wave Motion
+                // y += sin(time * freq + x) * amp
+                this.y += Math.sin(time * config.waveFreq + this.x * 0.01 + this.waveOffset) * (config.flowStrength * 0.05);
+                this.x += Math.cos(time * config.waveFreq + this.y * 0.01 + this.waveOffset) * (config.flowStrength * 0.02);
+
+                // Breathing/Pulsing Effect
+                this.currentSize = (config.baseSize * this.sizeScale) + Math.sin(time * 0.05 + this.waveOffset) * (config.baseSize * 0.2);
+
+                // Rotation
+                this.angle += this.spin * config.speed;
+
+                // Wrap around screen
+                const buffer = 50;
+                if (this.x < -buffer) this.x = width + buffer;
+                if (this.x > width + buffer) this.x = -buffer;
+                if (this.y < -buffer) this.y = height + buffer;
+                if (this.y > height + buffer) this.y = -buffer;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+
+                ctx.beginPath();
+
+                const s = Math.max(0.1, this.currentSize); // Prevent negative size
+
+                if (config.shape === 'circle') {
+                    ctx.arc(0, 0, s, 0, Math.PI * 2);
+                }
+                else if (config.shape === 'leaf') {
+                    ctx.scale(s/2, s/2);
+                    ctx.moveTo(0, -10);
+                    ctx.bezierCurveTo(5, -5, 10, 5, 0, 10);
+                    ctx.bezierCurveTo(-10, 5, -5, -5, 0, -10);
+                }
+                else if (config.shape === 'drop') {
+                    ctx.scale(s/2, s/2);
+                    ctx.arc(0, 2, 5, 0, Math.PI * 2);
+                    ctx.moveTo(-4.8, 0);
+                    ctx.lineTo(0, -10);
+                    ctx.lineTo(4.8, 0);
+                }
+                else if (config.shape === 'petal') {
+                    ctx.scale(s/2, s/2);
+                    ctx.moveTo(0, 5);
+                    ctx.quadraticCurveTo(5, -5, 0, -5);
+                    ctx.quadraticCurveTo(-5, -5, 0, 5);
+                }
+
+                ctx.fill();
+
+                // Subtle Glow (Performance heavy, keeping blur low)
+                if (config.count < 500) {
+                    ctx.shadowBlur = 4;
+                    ctx.shadowColor = this.color;
+                }
+
+                ctx.restore();
+            }
+        }
+
+        // --- Core System ---
+
+        function init() {
+            resize();
+            createParticles();
+            applyTheme();
+            updateUI();
+            requestAnimationFrame(animate);
+
+            window.addEventListener('resize', resize);
+        }
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            // Handle HiDPI displays if needed, but keeping simple for perf
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        function createParticles() {
+            // Smart update: reuse existing instances if count increases
+            const currentLen = particles.length;
+            const diff = config.count - currentLen;
+
+            if (diff > 0) {
+                for (let i = 0; i < diff; i++) particles.push(new Particle());
+            } else if (diff < 0) {
+                particles.splice(0, Math.abs(diff));
+            }
+
+            // If completely empty (first run), fill it
+            if (currentLen === 0 && diff === 0) {
+                for (let i = 0; i < config.count; i++) particles.push(new Particle());
+            }
+
+            document.getElementById('stat-count').innerText = particles.length;
+        }
+
+        function applyTheme() {
+            const t = themes[config.theme];
+            bodyBg.style.background = t.bg;
+            document.getElementById('stat-theme').innerText = config.theme;
+
+            // Update UI Button States
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.classList.remove('ring-1', 'ring-white');
+                if(btn.innerText.toLowerCase().includes(config.theme)) {
+                    btn.classList.add('ring-1', 'ring-white');
+                }
+            });
+        }
+
+        function drawConnections() {
+            const maxDist = config.connectionDist;
+            const maxDistSq = maxDist * maxDist;
+
+            ctx.lineWidth = 1;
+
+            // Optimization: If too many particles, check connections less frequently/densely
+            let step = 1;
+            if (config.count > 600) step = 2;
+            if (config.count > 800) step = 3;
+
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+
+                for (let j = i + 1; j < particles.length; j += step) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+
+                    // Simple Bounding Box check first (faster than multiplication)
+                    if (Math.abs(dx) > maxDist || Math.abs(dy) > maxDist) continue;
+
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < maxDistSq) {
+                        const opacity = 1 - (distSq / maxDistSq); // Linear falloff estimate
+
+                        // Use the color of the first particle with calculated opacity
+                        ctx.strokeStyle = p1.color.replace(')', `, ${opacity * 0.25})`).replace('rgb', 'rgba');
+                        if (p1.color.startsWith('#')) {
+                            // Quick hex to rgba for performance fallback (though constructor sets hex)
+                            // Ideally, cache RGBA colors in Particle.
+                            ctx.strokeStyle = `rgba(255,255,255,${opacity * 0.15})`;
+                        }
+
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate(timestamp) {
+            // FPS Throttling/Measurement
+            const deltaTime = timestamp - lastTime;
+            lastTime = timestamp;
+
+            // Calc FPS for display
+            if (time % 60 === 0) { // Update text rarely
+                const fps = Math.round(1000 / deltaTime);
+                document.getElementById('stat-fps').innerText = fps;
+            }
+
+            time += 1;
+
+            // Clear with transparency? No, full clear for perf, or manual bg draw
+            // To simulate trails, we could fillRect with low opacity black, but "Organic" usually implies crisp or flow.
+            ctx.clearRect(0, 0, width, height);
+
+            // 1. Update Physics
+            particles.forEach(p => p.update());
+
+            // 2. Draw Connections (Behind particles)
+            drawConnections();
+
+            // 3. Draw Particles
+            particles.forEach(p => p.draw());
+
+            requestAnimationFrame(animate);
+        }
+
+        // --- Interaction Handlers ---
+
+        window.setTheme = (name) => {
+            config.theme = name;
+            applyTheme();
+            // Refresh particle colors to match new theme
+            const themeColors = themes[config.theme].colors;
+            particles.forEach(p => {
+                p.color = themeColors[Math.floor(Math.random() * themeColors.length)];
+            });
+        };
+
+        window.setShape = (name) => {
+            config.shape = name;
+            // Update UI
+            document.querySelectorAll('.shape-btn').forEach(btn => {
+                btn.classList.remove('bg-white/20', 'text-white');
+                btn.classList.add('text-white/60');
+                if(btn.innerText.toLowerCase().includes(name)) {
+                    btn.classList.add('bg-white/20', 'text-white');
+                    btn.classList.remove('text-white/60');
+                }
+            });
+        };
+
+        // Slider Logic
+        function bindSlider(id, configKey, displayId) {
+            const el = document.getElementById(id);
+            const disp = document.getElementById(displayId);
+
+            el.addEventListener('input', (e) => {
+                let val = parseFloat(e.target.value);
+                config[configKey] = val;
+
+                // Display Formatting
+                if (id === 'inp-speed') disp.innerText = val.toFixed(1) + 'x';
+                else if (id === 'inp-dist') disp.innerText = val + 'px';
+                else if (id === 'inp-size') disp.innerText = val + 'px';
+                else disp.innerText = val;
+
+                // Handle Count Change
+                if (id === 'inp-count') {
+                    createParticles();
+                }
+            });
+        }
+
+        function updateUI() {
+            bindSlider('inp-count', 'count', 'val-count');
+            bindSlider('inp-speed', 'speed', 'val-speed');
+            bindSlider('inp-flow', 'flowStrength', 'val-flow');
+            bindSlider('inp-freq', 'waveFreq', 'val-freq');
+            bindSlider('inp-dist', 'connectionDist', 'val-dist');
+            bindSlider('inp-size', 'baseSize', 'val-size');
+
+            setShape(config.shape);
+        }
+
+        window.randomize = () => {
+            const keys = Object.keys(themes);
+            setTheme(keys[Math.floor(Math.random() * keys.length)]);
+
+            const shapes = ['circle', 'leaf', 'drop', 'petal'];
+            setShape(shapes[Math.floor(Math.random() * shapes.length)]);
+
+            // Helper to set slider
+            const setSl = (id, val) => {
+                const el = document.getElementById(id);
+                el.value = val;
+                el.dispatchEvent(new Event('input'));
+            };
+
+            setSl('inp-speed', (Math.random() * 2 + 0.5).toFixed(1));
+            setSl('inp-flow', Math.floor(Math.random() * 40 + 5));
+            setSl('inp-size', (Math.random() * 6 + 1).toFixed(1));
+        };
+
+        window.resetApp = () => {
+            config.theme = 'forest';
+            config.shape = 'circle';
+            config.count = 300;
+            config.speed = 1.0;
+            config.flowStrength = 20;
+            config.connectionDist = 100;
+            config.baseSize = 3;
+
+            const setSl = (id, val) => {
+                const el = document.getElementById(id);
+                el.value = val;
+                el.dispatchEvent(new Event('input'));
+            };
+
+            setSl('inp-count', 300);
+            setSl('inp-speed', 1.0);
+            setSl('inp-flow', 20);
+            setSl('inp-dist', 100);
+            setSl('inp-size', 3);
+
+            setTheme('forest');
+            setShape('circle');
+        };
+
+        window.exportImage = () => {
+            // Render one high-quality frame to buffer if needed,
+            // but simply saving canvas is usually enough.
+            const link = document.createElement('a');
+            link.download = `organic-art-${Date.now()}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        };
+
+        // Start
+        init();
+
+    </script>
+</body>
+</html>

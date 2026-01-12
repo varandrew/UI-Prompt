@@ -20,6 +20,13 @@
         "zh-CN": "生成艺术",
         "en-US": "Generative Art"
       }
+    },
+    {
+      "id": "visual-generativeArt-organic-nature",
+      "title": {
+        "zh-CN": "有机自然",
+        "en-US": "Organic Nature"
+      }
     }
   ]
 }
