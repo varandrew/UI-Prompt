@@ -42,6 +42,13 @@
         "zh-CN": "模拟合成器",
         "en-US": "Analog Synth"
       }
+    },
+    {
+      "id": "visual-industrial-portfolio",
+      "title": {
+        "zh-CN": "工业风作品集",
+        "en-US": "Industrial Portfolio"
+      }
     }
   ]
 }

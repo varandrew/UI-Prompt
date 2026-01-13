@@ -1351,4 +1351,16 @@ export default {
     tags: ['retro', 'classic', 'organic', 'geometric', 'timeless', 'atomic-age', 'interactive', 'creative'],
     relatedStyles: ['retro-midCenturyModern-furniture-showcase', 'retro-midCenturyModern-design-studio', 'core-minimalism', 'retro-swissDesign']
   },
+  'visual-generativeArt-organic-nature': {
+    primaryCategory: 'visual',
+    categories: ['visual'],
+    tags: ['contemporary'], // TODO: 添加更多標籤（參考：classic, contemporary, timeless, retro, minimal, bold, etc.）
+    relatedStyles: [] // TODO: 添加關聯風格 ID
+  },
+  'visual-industrial-portfolio': {
+    primaryCategory: 'visual',
+    categories: ['visual'],
+    tags: ['contemporary'], // TODO: 添加更多標籤（參考：classic, contemporary, timeless, retro, minimal, bold, etc.）
+    relatedStyles: [] // TODO: 添加關聯風格 ID
+  },
 };
