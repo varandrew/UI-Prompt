@@ -1,0 +1,18 @@
+{
+  "session_id": "ai-1768157502-26555",
+  "runtime_dir": "/var/folders/nc/h6vs87bn23ggrdvcvhsf3z0r0000gn/T/claude-ai-tomleung/ai-1768157502-26555/codex",
+  "input_fifo": "/var/folders/nc/h6vs87bn23ggrdvcvhsf3z0r0000gn/T/claude-ai-tomleung/ai-1768157502-26555/codex/input.fifo",
+  "output_fifo": "/var/folders/nc/h6vs87bn23ggrdvcvhsf3z0r0000gn/T/claude-ai-tomleung/ai-1768157502-26555/codex/output.fifo",
+  "terminal": "tmux",
+  "tmux_session": "codex-57502-26555",
+  "pane_id": null,
+  "pane_title_marker": null,
+  "tmux_log": "/var/folders/nc/h6vs87bn23ggrdvcvhsf3z0r0000gn/T/claude-ai-tomleung/ai-1768157502-26555/codex/bridge_output.log",
+  "work_dir": "/Users/tomleung/Downloads/mcp/ui-style/ui-style-react",
+  "work_dir_norm": "/Users/tomleung/Downloads/mcp/ui-style/ui-style-react",
+  "active": true,
+  "started_at": "2026-01-12 02:51:42",
+  "codex_session_path": "/Users/tomleung/.codex/sessions/2026/01/12/rollout-2026-01-12T02-51-43-019bae66-5fe1-7000-bd36-f7c3af1c1863.jsonl",
+  "codex_session_id": "019bae66-5fe1-7000-bd36-f7c3af1c1863",
+  "codex_start_cmd": "codex resume 019bae66-5fe1-7000-bd36-f7c3af1c1863"
+}

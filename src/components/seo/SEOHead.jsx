@@ -41,6 +41,9 @@ export function SEOHead({
 
   return (
     <Helmet prioritizeSeoTags>
+      {/* Set html lang dynamically */}
+      <html lang={getOGLocale(language).replace('_', '-')} />
+
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />

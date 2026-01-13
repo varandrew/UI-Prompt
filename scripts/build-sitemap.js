@@ -175,28 +175,19 @@ ${generateSitemapFooter()}`;
  */
 function generateDynamicSitemap(stylesIndex, componentsIndex, lang, defaultLastmod) {
   const urls = [];
-  let templateCount = 0;
 
-  // Add style preview pages with template-level URLs
+  // Add style preview pages (family-level only)
   if (stylesIndex?.categories) {
     for (const [categoryId, category] of Object.entries(stylesIndex.categories)) {
       if (category.families) {
         for (const family of category.families) {
-          // Load manifest for this family to get templates and accurate lastmod
+          // Load manifest for this family to get accurate lastmod
           const manifestData = loadFamilyManifest(categoryId, family.familyId);
           const lastmod = manifestData?.lastmod || defaultLastmod;
-          const templates = manifestData?.templates || [];
 
-          // Family-level URL (main preview page)
+          // ✅ Only add family-level URL (templates accessible via UI)
           const familyUrl = `${BASE_URL}/${lang}/styles/preview/${family.familyId}`;
           urls.push(generateUrlEntry(familyUrl, lastmod, 'monthly', 0.8));
-
-          // Template-level URLs (for deeper indexing)
-          for (const templateId of templates) {
-            const templateUrl = `${BASE_URL}/${lang}/styles/preview/${family.familyId}?template=${templateId}`;
-            urls.push(generateUrlEntry(templateUrl, lastmod, 'monthly', 0.7));
-            templateCount++;
-          }
         }
       }
     }
@@ -221,7 +212,6 @@ function generateDynamicSitemap(stylesIndex, componentsIndex, lang, defaultLastm
 ${urls.join('\n')}
 ${generateSitemapFooter()}`,
     urlCount: urls.length,
-    templateCount,
   };
 }
 
@@ -283,11 +273,10 @@ async function main() {
   // Generate language-specific sitemaps with accurate lastmod and template URLs
   const sitemapFiles = [{ name: 'sitemap-static.xml', lastmod: today }];
   let totalDynamicUrls = 0;
-  let totalTemplates = 0;
 
   for (const lang of LANGUAGES) {
     console.log(`  ⏳ Generating sitemap-${lang}.xml (reading manifests for accurate dates)...`);
-    const { xml: dynamicSitemap, urlCount, templateCount } = generateDynamicSitemap(
+    const { xml: dynamicSitemap, urlCount } = generateDynamicSitemap(
       stylesIndex,
       componentsIndex,
       lang,
@@ -297,8 +286,7 @@ async function main() {
     fs.writeFileSync(path.join(OUTPUT_DIR, filename), dynamicSitemap);
     sitemapFiles.push({ name: filename, lastmod: today });
     totalDynamicUrls += urlCount;
-    totalTemplates += templateCount;
-    console.log(`  ✓ Generated ${filename} (${urlCount} URLs, ${templateCount} template URLs)`);
+    console.log(`  ✓ Generated ${filename} (${urlCount} family URLs)`);
   }
 
   // Generate sitemap index
@@ -310,7 +298,8 @@ async function main() {
   console.log(`\n✅ Sitemap generation complete!`);
   console.log(`   Total URLs: ${totalUrls}`);
   console.log(`   - Static: ${staticUrlCount}`);
-  console.log(`   - Dynamic: ${totalDynamicUrls} (incl. ${totalTemplates} template-level URLs)`);
+  console.log(`   - Dynamic: ${totalDynamicUrls} (family-level only)`);
+  console.log(`   📝 Note: Template switching handled via UI, not separate URLs`);
   console.log(`   📝 Note: lastmod dates are now based on Git commit history`);
 }
 

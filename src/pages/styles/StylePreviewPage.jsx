@@ -16,6 +16,7 @@ import {
 } from '../../components/preview';
 import {
   SEOHead,
+  IndexableContentFallback,
   generatePageSchema,
   BASE_URL,
   LANG_TO_URL,
@@ -568,6 +569,33 @@ function StylePreviewContent({ style }) {
     [style, displayTitle, resolvedDescription, language, langPrefix, styleId]
   );
 
+  // ========== Prepare indexable content for search engines ==========
+  const indexableData = useMemo(() => {
+    const useCases = [];
+    if (promptContent?.useCases) {
+      useCases.push(...promptContent.useCases);
+    }
+    if (useCases.length === 0) {
+      useCases.push(
+        language === 'zh-CN'
+          ? `適用於${displayTitle}風格的網頁設計`
+          : `Suitable for ${displayTitle} style web design`
+      );
+    }
+
+    let promptExcerpt = '';
+    if (promptContent?.style) {
+      promptExcerpt = promptContent.style.slice(0, 200);
+    }
+
+    const keywords = [
+      ...(style.tags || []),
+      'UI design', 'CSS', 'HTML', 'frontend'
+    ];
+
+    return { useCases, promptExcerpt, keywords };
+  }, [style, promptContent, displayTitle, language]);
+
   // ========== Render ==========
   return (
     <>
@@ -580,6 +608,16 @@ function StylePreviewContent({ style }) {
         language={language}
         ogType="article"
         jsonLd={pageJsonLd}
+      />
+
+      {/* Indexable content fallback for search engines */}
+      <IndexableContentFallback
+        title={displayTitle}
+        description={resolvedDescription}
+        useCases={indexableData.useCases}
+        promptExcerpt={indexableData.promptExcerpt}
+        keywords={indexableData.keywords}
+        language={language}
       />
 
       <div className="fixed inset-0 z-50 bg-white dark:bg-gray-900 flex flex-col">

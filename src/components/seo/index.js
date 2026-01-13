@@ -5,6 +5,9 @@
 // Main SEO head component
 export { SEOHead, default as SEOHeadDefault } from './SEOHead';
 
+// Indexable content fallback for search engines
+export { IndexableContentFallback } from './IndexableContentFallback';
+
 // SEO configuration and utilities
 export {
   BASE_URL,

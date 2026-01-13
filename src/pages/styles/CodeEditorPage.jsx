@@ -5,6 +5,8 @@ import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 import { CodeEditor, LivePreview, CodeEditorToolbar } from '../../components/code';
 import { getDemoHTML } from '../../utils/i18n/demoI18n';
 import { loadPreview } from '../../utils/previewLoader';
+import { SEOHead } from '../../components/seo';
+import { resolveI18nValue } from '../../utils/i18n/resolveI18nValue';
 import appCssUrl from '../../index.css?url';
 
 /**
@@ -505,7 +507,17 @@ ${htmlCode}
   }, [previewsList, activeIndex, renderMode, activeTab]);
 
   return (
-    <div className="fixed inset-0 z-50 bg-gray-900 flex flex-col">
+    <>
+      {/* SEO Head with noindex */}
+      <SEOHead
+        title={`${t('editor.title') || 'Code Editor'} - ${displayTitle}`}
+        description={t('editor.description') || 'Edit and customize UI style code'}
+        path={`/styles/editor/${id}`}
+        language={language}
+        noindex={true}
+      />
+
+      <div className="fixed inset-0 z-50 bg-gray-900 flex flex-col">
       {/* 頂部工具欄 */}
       <CodeEditorToolbar
         title={displayTitle}
@@ -599,5 +611,6 @@ ${htmlCode}
         </div>
       </div>
     </div>
+    </>
   );
 }

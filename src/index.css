@@ -16,8 +16,9 @@
 
 /* CLS: Fixed aspect ratios for preview containers */
 .preview-container {
-  aspect-ratio: 16 / 9;
-  min-height: 200px;
+  /* aspect-ratio: 16 / 9; -- 移除固定比例，允許內容自適應 */
+  min-height: 300px;
+  height: auto; /* 讓容器根據內容自動調整高度 */
 }
 
 /* CLS: Font loading optimization */
@@ -272,21 +273,23 @@ body {
   border-color: #000;
 }
 
-/* 演示区域 - 正方形設計（寬度 = 高度） */
+/* 演示区域 - 彈性高度設計（允許內容滾動查看） */
 .demo-box {
-  aspect-ratio: 1 / 1; /* 🎨 保持正方形比例 */
+  /* aspect-ratio: 1 / 1;  移除強制正方形，改用彈性高度 */
   width: 100%;
+  min-height: 300px;   /* 最小高度，保證視覺美觀 */
+  /* max-height: 600px; -- 移除最大高度限制，允許完整顯示 */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  overflow: hidden;
+  overflow: visible;   /* 允許內容溢出顯示 */
   position: relative;
 
   /* 🚀 性能优化：GPU 加速 iframe 容器 */
   transform: translateZ(0);
   will-change: contents;
-  contain: strict; /* 嚴格隔離，优化渲染性能 */
+  contain: layout style; /* 保持性能優化但允許內容溢出 */
 }
 
 /* 🚀 性能优化：iframe 元素 GPU 加速 */
@@ -2646,3 +2649,14 @@ body {
 .dark .bg-\[\#1f1c18\] { background-color: #1f1c18; }
 .dark .bg-\[\#2a2520\] { background-color: #2a2520; }
 .dark .bg-\[\#15130f\] { background-color: #15130f; }
+
+/* ==================== SEO Content Fallback ==================== */
+/* Hidden from users but visible to crawlers */
+.seo-content-fallback {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

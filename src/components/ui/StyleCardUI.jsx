@@ -183,10 +183,10 @@ export function StyleCardContainer({
         </div>
       )}
 
-      {/* Demo 區域 - CLS Optimized: Fixed height and aspect-ratio to prevent layout shift */}
+      {/* Demo 區域 - Flexible height with scroll support */}
       <div
-        className="relative bg-gray-50 dark:bg-zinc-950 overflow-hidden preview-container"
-        style={{ minHeight: '200px', aspectRatio: '16 / 9' }}
+        className="relative bg-gray-50 dark:bg-zinc-950 overflow-visible preview-container"
+        style={{ minHeight: '300px' }}
       >
         {/* Decorative background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-50 dark:from-zinc-900 dark:to-zinc-950 opacity-50" aria-hidden="true" role="presentation"></div>

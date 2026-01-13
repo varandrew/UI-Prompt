@@ -330,11 +330,12 @@ ${externalAssetsHTML}
 
   // 渲染 iframe
   return (
-    <div className={`demo-box relative z-10 ${demoBoxClass}`} style={demoBoxStyle}>
+    <div className={`demo-box relative z-10 ${demoBoxClass}`} style={{ minHeight: '300px', ...demoBoxStyle }}>
       <iframe
         ref={iframeRef}
         title={`${language === 'zh-CN' ? 'UI 样式预览' : 'UI Style Preview'}: ${id}`}
-        className="relative w-full h-full border-0 z-10 mix-blend-multiply dark:mix-blend-normal"
+        className="relative w-full h-full border-0 z-10"
+        style={{ minHeight: '300px' }}
         sandbox="allow-same-origin allow-scripts allow-forms"
       />
     </div>

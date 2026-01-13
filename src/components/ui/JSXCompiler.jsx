@@ -232,11 +232,12 @@ export function JSXCompiler({
 
   // 渲染 iframe
   return (
-    <div className={`demo-box relative ${demoBoxClass}`} style={demoBoxStyle}>
+    <div className={`demo-box relative ${demoBoxClass}`} style={{ minHeight: '300px', ...demoBoxStyle }}>
       <iframe
         ref={iframeRef}
         title={`jsx-demo-${id}`}
         className="w-full h-full border-0"
+        style={{ minHeight: '300px' }}
         sandbox="allow-same-origin allow-scripts allow-forms"
       />
       {/* 編譯錯誤提示（iframe 外部顯示） */}

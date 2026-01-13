@@ -1,5 +1,24 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept-language",
+          "value": "(?<lang>en|zh).*"
+        }
+      ],
+      "destination": "/:lang",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "destination": "/zh",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -106,6 +125,37 @@
         {
           "key": "X-Robots-Tag",
           "value": "index, follow, max-image-preview:large"
+        }
+      ]
+    },
+    {
+      "source": "/(zh|en)/styles/editor/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(zh|en)/community/upload",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(zh|en)/community/(.*)/edit",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }

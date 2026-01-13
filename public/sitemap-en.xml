@@ -8,46 +8,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/flatDesign?template=core-flatDesign</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/flatDesign?template=core-flat-design</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/flatDesign?template=core-flat-design-ecommerce-landing</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/fluent2</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/fluent2?template=fluent2-productivity</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/fluent2?template=fluent2-settings</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/fluent2?template=fluent2-Notification</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/materialDesign</loc>
@@ -56,52 +20,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/materialDesign?template=core-materialDesign-principles</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/materialDesign?template=core-material-design</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/materialDesign?template=core-materialYouAndroidSettings</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/minimalism</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/minimalism?template=core-minimalism-design-principles</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/minimalism?template=saas-landing</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/minimalism?template=core-minimalism-japanese-style</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/minimalism?template=core-minimalism-portfolio</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/scrollNarrative</loc>
@@ -110,52 +32,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/scrollNarrative?template=product-feature-showcase</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/scrollNarrative?template=product-launch-timeline</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/scrollNarrative?template=vision-launch-narrative</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/scrollNarrative?template=immersive-narrative</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/skeuomorphism</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/skeuomorphism?template=core-skeuomorphism-tech-corp-homepage</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/skeuomorphism?template=core-skeuomorphism-vintage-library-landing</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/skeuomorphism?template=core-skeuomorphism-analog-synthesizer</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/typography</loc>
@@ -164,40 +44,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/typography?template=kinetic</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/typography?template=typographyFirst</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/3dElements</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/3dElements?template=visual-3dElements-nexus-command</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/3dElements?template=visual-tech-3d-elements</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/3dElements?template=visual-3dElements-spatial-ui</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/accessibility</loc>
@@ -206,46 +56,16 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/accessibility?template=accessibilityHighContrast</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/accessibility?template=visual-accessibility-basic</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/ambient</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/ambient?template=visual-ambient-default</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/antiDesign</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/antiDesign?template=visual-antiDesign-studio</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/antiDesign?template=visual-tech-anti-design</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/auroraGlass</loc>
@@ -260,34 +80,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/biophilic?template=visual-biophilic-canopy-soul</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/biophilic?template=visual-biophilic-biophilic</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/blueprint</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/blueprint?template=visual-blueprint-system-os</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/blueprint?template=visual-blueprint</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/claymorphism</loc>
@@ -296,34 +92,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/claymorphism?template=visual-claymorphism-design-system</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/claymorphism?template=visual-claymorphism-claymorphism-ecommerce</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/comicBook</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/comicBook?template=visual-comicBook-hero-landing</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/comicBook?template=visual-comicBook-landing</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/darkMode</loc>
@@ -332,28 +104,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/darkMode?template=visual-darkMode-darkMode-dashboard</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/duotone</loc>
-    <lastmod>2025-12-20</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/duotone?template=visual-duotone-creative-portfolio</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/duotone?template=visual-duotone-brand-identity</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/fabric</loc>
@@ -362,46 +116,16 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/fabric?template=visual-fabric-woven-weft</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/generativeArt</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/generativeArt?template=visual-tech-generative-art</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/glassmorphism</loc>
-    <lastmod>2025-12-20</lastmod>
+    <lastmod>2026-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/glassmorphism?template=visual-glassmorphism-dashboard</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/glassmorphism?template=visual-glassmorphism-glassmorphism-landing</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/glassmorphism?template=visual-glassmorphism-glassmorphism-music</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/glow</loc>
@@ -410,22 +134,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/glow?template=visual-glow-luminous-cards</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/gradients</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/gradients?template=visual-tech-gradients</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/grain</loc>
@@ -434,34 +146,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/grain?template=visual-grain</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/handDrawnSketch</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/handDrawnSketch?template=visual-handDrawnSketch</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/handDrawnSketch?template=visual-handDrawnSketch-notebook</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/handDrawnSketch?template=handDrawnSketchComponents</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/holographic</loc>
@@ -470,22 +158,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/holographic?template=visual-holographic-aurora-panel</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/holographicFoil</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/holographicFoil?template=visual-holographicFoil-holographicFoil-landing</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/industrial</loc>
@@ -494,40 +170,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/industrial?template=industrial-strataos-dashboard</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/industrial?template=industrial-nexus-control</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/industrial?template=visual-industrial-analog-synth</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/inkWash</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/inkWash?template=visual-inkWash-ink-realm</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/inkWash?template=visual-inkWash-gallery</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/kawaiiMinimal</loc>
@@ -536,34 +182,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/kawaiiMinimal?template=visual-kawaiiMinimal-dashboard</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/kawaiiMinimal?template=visual-kawaiiMinimal</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/leather</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/leather?template=visual-texture-leather-premium-wallet</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/leather?template=visual-texture-leather-vintage-journal</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/light</loc>
@@ -572,34 +194,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/light?template=Ambient</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/light?template=spotlight</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/liminalSpace</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/liminalSpace?template=visual-liminalSpace-vacant-space</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/liminalSpace?template=visual-liminalSpace-digital-museum</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/memphis</loc>
@@ -608,28 +206,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/memphis?template=visual-memphis-memphis-creative</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/monochrome</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/monochrome?template=portfolio-showcase</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/monochrome?template=visual-monochrome</loc>
-    <lastmod>2025-12-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/natural</loc>
@@ -638,22 +218,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/natural?template=naturalDefault</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/nature</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/nature?template=Particle</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/neoBrutalism</loc>
@@ -662,28 +230,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neoBrutalism?template=visual-neoBrutalism-blok-studio</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neoBrutalism?template=visual-neoBrutalism-neo-brutalism</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/neon</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neon?template=visual-neon</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/neonCyberpunk</loc>
@@ -692,46 +242,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neonCyberpunk?template=visual-neonCyberpunk-netrunner-deck</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neonCyberpunk?template=visual-neon-cyberpunk</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neonCyberpunk?template=cyberpunkGamingStore</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neonCyberpunk?template=cyberpunkMatrixTerminal</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/neonNoir</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neonNoir?template=visual-neonNoir-nightcity-fm</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/neonNoir?template=visual-neon-noir</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/organic</loc>
@@ -740,28 +254,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/organic?template=visual-organic-flow-workspace</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/outlineStyle</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/outlineStyle?template=visual-outlineStyle-outline-business</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/outlineStyle?template=visual-outlineStyle-outline-elearning</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/paperCutout</loc>
@@ -770,22 +266,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/paperCutout?template=visual-paperCutout-paperCutout-showcase</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/particle</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/particle?template=neural-nexus</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/popArt</loc>
@@ -794,22 +278,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/popArt?template=visual-popArt-studio</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/scandi</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/scandi?template=visual-scandi-scandi-interior</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/sciFiHud</loc>
@@ -818,34 +290,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/sciFiHud?template=dashboard</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/sciFiHud?template=home-office</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/sciFiHud?template=visual-tech-sci-fi-hud</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/smoke</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/smoke?template=Smoke</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/softUI</loc>
@@ -854,34 +302,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/softUI?template=visual-softUI-softUI-light</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/softUI?template=visual-softUI-softUI-dark</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/solarpunk</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/solarpunk?template=visual-nature-solarpunk</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/solarpunk?template=solarpunk-eco-marketplace</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/spotlight</loc>
@@ -896,34 +320,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/utilityFirst?template=modern-utility-first</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/utilityFirst?template=utilityFirst</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/vaporwave</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/vaporwave?template=visual-vaporwave-vaporwave-aesthetic</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/vaporwave?template=visual-vaporwave-vaporwave-dreams</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/wabiSabi</loc>
@@ -932,34 +332,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/wabiSabi?template=visual-wabiSabi-wabiSabi-zen</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/wabiSabi?template=visual-wabiSabi-wabiSabi-zen-website</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/y2k</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/y2k?template=visual-y2k</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/y2k?template=visual-y2k-creative-store</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/arcadeCRT</loc>
@@ -968,28 +344,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/arcadeCRT?template=retro-arcadeCRT-arcade-hall</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/arcadeCRT?template=retro-arcadeCRT-cyberpunk-control</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/artDeco</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/artDeco?template=retro-art-deco-luxury</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/bauhaus</loc>
@@ -998,22 +356,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/bauhaus?template=retro-bauhaus-landing</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/darkAcademia</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/darkAcademia?template=retro-dark-academia-library</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/digitalRetro</loc>
@@ -1022,22 +368,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/digitalRetro?template=retro-digitalRetro-pixel-art</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/filmNoir</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/filmNoir?template=retro-filmNoir-detective-agency</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/frutigerAero</loc>
@@ -1046,34 +380,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/frutigerAero?template=retro-frutiger-aero-os</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/midCenturyModern</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/midCenturyModern?template=retro-midCenturyModern-atomic-hearth</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/midCenturyModern?template=retro-midCenturyModern-furniture-showcase</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/midCenturyModern?template=retro-midCenturyModern-design-studio</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/newspaper</loc>
@@ -1082,28 +392,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/newspaper?template=modernEditorialTemplates</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/newspaper?template=vintageRetroTemplates</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/retroFuturism</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/retroFuturism?template=retro-futurism-dos</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/retroOS</loc>
@@ -1112,28 +404,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/retroOS?template=retro-os-windows95</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/steampunk</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/steampunk?template=retro-steampunk-dashboard</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/steampunk?template=retro-steampunk-aether-industries</loc>
-    <lastmod>2026-01-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/swissDesign</loc>
@@ -1142,34 +416,10 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/swissDesign?template=retro-swissDesign-helvetica</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/swissDesign?template=retro-swiss-design</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/synthwave</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/synthwave?template=retro-synthwave-music-player</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/synthwave?template=retro-synthwave-landing</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/styles/preview/vhsAesthetic</loc>
@@ -1178,34 +428,16 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/vhsAesthetic?template=retro-vhsAesthetic-crt-terminal</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/mouseTracking</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/mouseTracking?template=interaction-mouse-tracking</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.uiprompt.site/en/styles/preview/magazine</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uiprompt.site/en/styles/preview/magazine?template=layout-magazine-lumiere</loc>
-    <lastmod>2025-12-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.uiprompt.site/en/components/dataDisplay/table-basic</loc>
